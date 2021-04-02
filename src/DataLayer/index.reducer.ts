@@ -1,25 +1,35 @@
-import { RootState } from '../@types/RootState'
+import { RootStore } from '../@types/RootStore'
+
+const rootStoreDefault = {
+  userName: 'Вася Пупкин',
+  content: [],
+  sideNavigationState: false,
+  globalVars: {},
+}
 
 export const rootReducer: Function = (
-  store: RootState = { globalVars: {} },
+  store: RootStore = rootStoreDefault,
   action: any
 ): any => {
   const { type } = action
-  // console.info('rootReducer [3]', { action })
-  switch (type) {
-    case 'GET_GLOBAL_VARS_SUCCESS': {
+
+  const output = {
+    GET_CONTENT_DATA_SUCCESS: () => {
+      const { data } = action
+      const storeNext = { ...store, content: data }
+      return storeNext
+    },
+    TOGGLE_SIDE_NAVIGATION: () => {
+      const { sideNavigationState } = store
+      // console.info('rootReducer [11]', { action })
+      return { ...store, sideNavigationState: !sideNavigationState }
+    },
+    GET_GLOBAL_VARS_SUCCESS: () => {
       const { data } = action
       const storeNext = { ...store, globalVars: data }
       return storeNext
-    }
-
-    case 'TEST_ACTION': {
-      const { data } = action
-      return { ...store, test: data }
-    }
-
-    default: {
-      return store
-    }
+    },
   }
+
+  return output[type] ? output[type]() : store
 }
