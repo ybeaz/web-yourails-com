@@ -5,7 +5,10 @@
   "favicon": {
     "href": "https://userto.com/img/favicon.ico"
   },
-  "theme": "Light",
+  "theme": "Dark",
+  "configuration": {
+    "numberQuestionsInSlide": 2
+  },
   "rus": {
     "something": 1
   }

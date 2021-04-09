@@ -8,18 +8,19 @@ import { getDateString } from '../../Shared/getDateString'
 export const Certificate: Function = (props: any): JSX.Element => {
   const {
     userName,
-    institution,
-    specTitle,
-    specName,
-    course,
+    meta = { institution: '', specTitle: '', specName: '' },
+    capture,
     contentID,
   } = props
+
+  const { institution = '', specTitle = '', specName = '' } = meta
+
   const dateString = getDateString(new Date())
   // console.info('Certificate [11]', {
   //   institution,
   //   specTitle,
   //   specName,
-  //   course,
+  //   capture,
   //   contentID,
   //   dateString,
   // })
@@ -82,7 +83,7 @@ export const Certificate: Function = (props: any): JSX.Element => {
                   <div className='col-xs-2'>{/* <!-- LEAVE EMPTY --> */}</div>
                   <div className='pm-course-title underline col-xs-8 text-center'>
                     <span className='pm-credits-text block bold sans'>
-                      {course}
+                      {capture}
                     </span>
                   </div>
                   <div className='col-xs-2'>{/* <!-- LEAVE EMPTY --> */}</div>

@@ -1,27 +1,95 @@
 import { store } from '../../DataLayer/store'
-import { getArrCheckedChangedById } from '../../Shared/getArrCheckedChangedById'
+import * as action from '../../DataLayer/index.action'
+import { getPrintScreenAsPdf } from '../../Shared/getPrintScreenAsPdf'
+import { getAnswersChecked2 } from '../../Shared/getAnswersChecked2'
 
-export const handleEvents: Function = (
-  event: EventListener,
-  { typeEvent, data }: any
-): void => {
+export const handleEvents: Function = (event: Event, props: any): void => {
+  const { type: typeStore, typeEvent, data } = props
+  const type = typeStore ? typeStore : typeEvent
+  const { dispatch } = store
+
   const output = {
-    TOGGLE_SIDE_NAVIGATION: () => {
-      // console.info('handleEvents [9]', { typeEvent })
-      store.dispatch({ type: typeEvent })
+    SET_QUESTION_SLIDE: () => {
+      dispatch(action.SET_QUESTION_SLIDE(data))
     },
+
+    PLUS_QUESTION_SLIDE: () => {
+      dispatch(action.PLUS_QUESTION_SLIDE(data))
+    },
+
+    ONCHANGE_EMAIL_MODAL: () => {
+      const { value } = event.target as HTMLTextAreaElement
+      dispatch(action.ONCHANGE_EMAIL_MODAL(value))
+    },
+
+    ONCHANGE_NAME_MODAL: () => {
+      const { value } = event.target as HTMLTextAreaElement
+      dispatch(action.ONCHANGE_NAME_MODAL(value))
+    },
+
+    CLOSE_MODAL_GET_SCORES: () => {
+      dispatch(action.GET_ANSWERS_DEFAULT())
+      dispatch(action.SET_QUESTION_SLIDE(0))
+      dispatch(action.TOGGLE_MODAL_GET_SCORES(false))
+    },
+
+    OPEN_MODAL_GET_SCORES: () => {
+      dispatch(action.TOGGLE_MODAL_GET_SCORES(true))
+    },
+
+    PRINT_SCORES: () => {
+      dispatch(action.TOGGLE_MODAL_GET_SCORES(false))
+
+      const {
+        screenType,
+        userName,
+        userEmail,
+        capture,
+        courseID,
+        moduleID,
+        contentID,
+        meta,
+        description,
+      } = data
+
+      getPrintScreenAsPdf({
+        screenType,
+        userName,
+        meta,
+        capture,
+        description,
+        contentID,
+      })
+
+      dispatch(action.GET_ANSWERS_DEFAULT())
+    },
+
+    COUNT_MODULE_QUIZ_SCORE: () => {
+      dispatch(action.TOGGLE_MODAL_GET_SCORES(true))
+    },
+
+    SELECT_COURSE_MODULE_CONTENTID: () => {
+      dispatch(action.SELECT_COURSE_MODULE_CONTENTID(data))
+    },
+
+    SELECT_COURSE_MODULE: () => {
+      dispatch(action.SELECT_COURSE_MODULE(data))
+    },
+
     CLICK_CHECK: () => {
-      const { checkInputs, setCheckInputs, labelKey, multi } = data
-      const checkInputsNext = getArrCheckedChangedById(
-        checkInputs,
-        labelKey,
-        multi
-      )
-      setCheckInputs(checkInputsNext)
+      dispatch(action.CLICK_CHECK(data))
+    },
+
+    TOGGLE_SIDE_NAVIGATION: () => {
+      dispatch(action.TOGGLE_SIDE_NAVIGATION())
     },
   }
 
-  output[typeEvent]
-    ? output[typeEvent]()
-    : console.info('handleEvents [error]', 'strange type', typeEvent)
+  output[type]
+    ? output[type]()
+    : console.info('handleEvents [error]', 'strange type', {
+        typeStore,
+        typeEvent,
+        type,
+      })
 }

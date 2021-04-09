@@ -1,45 +1,35 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
 
 import { MainFrame } from '../Components/MainFrame'
 import { RouterScreenProps } from '../../@types/RouterScreenProps'
 import { RootStore } from '../../@types/RootStore'
-import { Player } from '../Components/Player'
+import { PlayerPlate } from '../Components/PlayerPlate'
 
 export const MatrixHome: Function = (props: RouterScreenProps): JSX.Element => {
   const store = useSelector((store: RootStore) => store)
-  const { content } = store
+  const {
+    courses,
+    isLoaded: { isLoadedGlobalVars, isLoadedCourses },
+  } = store
 
-  const getPlateMatix: Function = (content: any[]): JSX.Element => {
-    // console.info('MatrixHome [72]', { content })
+  const getPlateMatix: Function = (courses: any[]): JSX.Element => {
+    const plates = courses.map((item, i) => {
+      const { courseID, modules } = item
+      const { moduleID, ytID } = modules[0]
 
-    const output = content.map((item, i) => {
-      const playerProps = {
-        isShowingPanel: false,
-        videoId: item.ytID,
-        width: '640',
-        height: '390',
-      }
-      return (
-        <div className='MatrixHome__plates_plate'>
-          <Player {...playerProps} />
-          <Link
-            className='MatrixHome__plates_plate_shield'
-            to={{
-              pathname: `/c/${item.ytID}`,
-            }}
-          />
-        </div>
-      )
+      const playerPlateProps = { courseID, moduleID, ytID }
+      return <PlayerPlate {...playerPlateProps} />
     })
-    return <div className='MatrixHome__plates'>{output}</div>
+    return <div className='MatrixHome__plates'>{plates}</div>
   }
 
   return (
     <div className='MatrixHome'>
       <MainFrame>
-        {content.length ? <div>{getPlateMatix(content)}</div> : null}
+        {courses.length && isLoadedGlobalVars && isLoadedCourses ? (
+          <div>{getPlateMatix(courses)}</div>
+        ) : null}
         {null}
       </MainFrame>
     </div>

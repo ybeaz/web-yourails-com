@@ -7,26 +7,14 @@
   localhost:3000/demo-js-redux-example.html
 */
 
-const webpack = require('webpack')
-const glob = require('glob')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+import path from 'path'
 
-// var MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
-const path = require('path')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const WebpackNotifierPlugin = require('webpack-notifier')
-const TerserPlugin = require('terser-webpack-plugin')
-const styledComponentsTransformer = require('typescript-plugin-styled-components')
-  .default
-const keysTransformer = require('ts-transformer-keys/transformer').default
-
-module.exports = {
+export const common = {
   entry: {
     bundle: ['./src/index.tsx'],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: '[name].min.js',
     publicPath: '/',
   },
@@ -112,33 +100,12 @@ module.exports = {
       },
     ],
   },
-  plugins: [
-    new WebpackNotifierPlugin({
-      title: 'Yunazon-learn',
-      excludeWarning: true,
-      alwaysNotify: true,
-    }),
-    new webpack.ProvidePlugin({
-      React: 'react',
-      'react-dom': 'ReactDOM',
-    }),
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production'),
-    }),
-    new webpack.optimize.ModuleConcatenationPlugin(),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'disabled',
-      generateStatsFile: true,
-      statsOptions: { source: false },
-    }),
-    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new ForkTsCheckerWebpackPlugin(),
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [],
-    }),
-  ],
   performance: {
     hints: false,
+  },
+  watchOptions: {
+    ignored: ['dist', 'node_modules'],
+    poll: 1000,
   },
   watch: false,
   target: 'web',
