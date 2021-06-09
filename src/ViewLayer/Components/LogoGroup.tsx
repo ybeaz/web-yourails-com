@@ -1,21 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-export const LogoGroup: Function = (): JSX.Element => {
+import { handleEvents } from '../Hooks/handleEvents'
+
+export const LogoGroup: React.FunctionComponent<any> = (): JSX.Element => {
   return (
     <Link
       className='LogoGroup'
       to={{
         pathname: `/home`,
       }}
+      onClick={() => handleEvents({}, { typeEvent: 'CLICK_LOGO_GROUP' })}
     >
-      <div className='LogoGroup__div'>
+      <div className='__div'>
         <img
-          className='LogoGroup__div_img'
-          src='https://ynm.userto.com/filestorage/logoYunazonV13.png'
+          className='_img'
+          src='https://yourails.com/images/logoYouRailsV13.png'
         />
       </div>
-      <div className='LogoGroup__brand'>YouRails</div>
+      <div className='__brand'>YouRails Academy</div>
     </Link>
   )
 }

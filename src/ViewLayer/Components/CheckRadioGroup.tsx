@@ -1,37 +1,31 @@
 import React, { useState, useRef } from 'react'
 
+import { getDesignType } from '../../Shared/getDesignType'
 import { getAnswerByOptionID } from '../../Shared/getAnswerByOptionID'
 import { handleEvents } from '../Hooks/handleEvents'
-interface ICheckRadioGroup {
+interface ICheckRadioGroupInput {
   courseID: string
   moduleID: string
   questionID: string
   capture: string
   options: any[]
-  designType: string
-  multi: boolean
 }
 
-export const CheckRadioGroup: Function = ({
+export const CheckRadioGroup: React.FunctionComponent<any> = ({
   capture,
   options,
-  designType,
-  multi,
-}: ICheckRadioGroup): JSX.Element => {
+}: ICheckRadioGroupInput): JSX.Element => {
+  const { designType, multi } = getDesignType(options)
+
   const getCheckLines: Function = (options: any[]): JSX.Element[] => {
     return options.map(item => {
       const { optionID, label } = item
       const answer = getAnswerByOptionID(options, optionID)
 
       return (
-        <label
-          className={`CheckRadioGroup__label ${designType}__label`}
-          key={optionID}
-        >
-          <div className='CheckRadioGroup__label_capture'>{label}</div>
-          <div
-            className={`CheckRadioGroup__label_checkdiv ${designType}__label_checkdiv`}
-          >
+        <label className={`__label`} key={optionID}>
+          <div className='_capture'>{label}</div>
+          <div className={`_checkdiv`}>
             <input
               onChange={event =>
                 handleEvents(event, {
@@ -52,7 +46,7 @@ export const CheckRadioGroup: Function = ({
 
   return (
     <div className={`CheckRadioGroup ${designType}`}>
-      <div className='CheckRadioGroup__capture'>{capture}</div>
+      <div className='__capture'>{capture}</div>
       {getCheckLines(options)}
     </div>
   )

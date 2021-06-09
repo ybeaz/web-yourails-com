@@ -1,167 +1,66 @@
-import { RootStore } from '../@types/RootStore'
-import { getChunkedArray } from '../Shared/getChunkedArray'
-import { getActiveCourseData } from '../Shared/getActiveCourseData'
-import { getOptionsShuffled } from '../Shared/getOptionsShuffled'
-import { getProdidevAnswerDefault } from '../Shared/getProdidevAnswerDefault'
-import { getOptionsClickedByID } from '../Shared/getOptionsClickedByID'
-import { getModuleActiveByContentID } from '../Shared/getModuleActiveByContentID'
-import { getCourseModuleActive } from '../Shared/getCourseModuleActive'
-import { getProvidedActiveDefault } from '../Shared/getProvidedActiveDefault'
+import { IRootStore } from '../Interfaces/IRootStore'
 
-const rootStoreDefault = {
-  isLoaded: {
-    isLoadedGlobalVars: false,
-    isLoadedCourses: false,
-  },
-  courses: [],
-  globalVars: {},
-  componentsState: {
-    questionsSlideNumber: 0,
-    modalGetScores: false,
-    sideNavigationState: false,
-  },
-  forms: {
-    nameModal: '',
-    emailModal: '',
-  },
-}
+import { TEMPLATE } from './reducers/TEMPLATE'
+import { REDUCE_QUESTIONS_NUMBER } from './reducers/REDUCE_QUESTIONS_NUMBER'
+import { SAVE_ANALYTICS_SUCCESS } from './reducers/SAVE_ANALYTICS_SUCCESS'
+import { TOGGLE_MEDIA_LOADED } from './reducers/TOGGLE_MEDIA_LOADED'
+import { TOGGLE_START_COURSE } from './reducers/TOGGLE_START_COURSE'
+import { ONCHANGE_SEARCH_INPUT } from './reducers/ONCHANGE_SEARCH_INPUT'
+import { CHANGE_NUM_QUESTIONS_IN_SLIDE } from './reducers/CHANGE_NUM_QUESTIONS_IN_SLIDE'
+import { SELECT_LANGUAGE } from './reducers/SELECT_LANGUAGE'
+import { TOGGLE_LOADER_OVERLAY } from './reducers/TOGGLE_LOADER_OVERLAY'
+import { TOGGLE_IS_DOCUMENT_ADDED } from './reducers/TOGGLE_IS_DOCUMENT_ADDED'
+import { ADD_DOCUMENT_SUCCESS } from './reducers/ADD_DOCUMENT_SUCCESS'
+import { SET_QUESTION_SLIDE } from './reducers/SET_QUESTION_SLIDE'
+import { PLUS_QUESTION_SLIDE } from './reducers/PLUS_QUESTION_SLIDE'
+import { ONCHANGE_EMAIL_CC } from './reducers/ONCHANGE_EMAIL_CC'
+import { ONCHANGE_EMAIL_TO } from './reducers/ONCHANGE_EMAIL_TO'
+import { ONCHANGE_FIRST_NAME_MODAL } from './reducers/ONCHANGE_FIRST_NAME_MODAL'
+import { ONCHANGE_MIDDLE_NAME_MODAL } from './reducers/ONCHANGE_MIDDLE_NAME_MODAL'
+import { ONCHANGE_LAST_NAME_MODAL } from './reducers/ONCHANGE_LAST_NAME_MODAL'
+import { TOGGLE_MODAL_FRAME } from './reducers/TOGGLE_MODAL_FRAME'
+import { GET_ANSWERS_DEFAULT } from './reducers/GET_ANSWERS_DEFAULT'
+import { SELECT_COURSE_MODULE_CONTENTID } from './reducers/SELECT_COURSE_MODULE_CONTENTID'
+import { SELECT_COURSE_MODULE } from './reducers/SELECT_COURSE_MODULE'
+import { CLICK_CHECK } from './reducers/CLICK_CHECK'
+import { GET_CONTENT_DATA_SUCCESS } from './reducers/GET_CONTENT_DATA_SUCCESS'
+import { TOGGLE_SIDE_NAVIGATION } from './reducers/TOGGLE_SIDE_NAVIGATION'
+import { GET_GLOBAL_VARS_SUCCESS } from './reducers/GET_GLOBAL_VARS_SUCCESS'
+import { rootStoreDefault } from './rootStoreDefault'
 
 export const rootReducer: Function = (
-  store: RootStore = rootStoreDefault,
+  store: IRootStore = rootStoreDefault,
   action: any
 ): any => {
-  const { type } = action
+  const { type, data } = action
 
   const output = {
-    SET_QUESTION_SLIDE: () => {
-      const { data } = action
-      const { componentsState } = store
-      const componentsStateNext = {
-        ...componentsState,
-        questionsSlideNumber: data,
-      }
-      return { ...store, componentsState: componentsStateNext }
-    },
-
-    PLUS_QUESTION_SLIDE: () => {
-      const { data } = action
-      const { componentsState, courses, globalVars } = store
-      const numberQuestionsInSlide =
-        globalVars?.configuration?.numberQuestionsInSlide || 2
-      const { questionsSlideNumber } = componentsState
-
-      const { questionsActive } = getActiveCourseData(courses)
-      const questionsChunked = getChunkedArray(
-        questionsActive,
-        numberQuestionsInSlide
-      )
-
-      let questionSlideNumberNext = 0
-      const questionSlideNumberPlus = questionsSlideNumber + data
-      if (questionSlideNumberPlus > questionsChunked.length - 1) {
-        questionSlideNumberNext = questionsChunked.length - 1
-      } else if (questionSlideNumberPlus < 0) {
-        questionSlideNumberNext
-      } else {
-        questionSlideNumberNext = questionSlideNumberPlus
-      }
-      const componentsStateNext = {
-        ...componentsState,
-        questionsSlideNumber: questionSlideNumberNext,
-      }
-      return { ...store, componentsState: componentsStateNext }
-    },
-
-    ONCHANGE_EMAIL_MODAL: () => {
-      const { data } = action
-      const { forms } = store
-      const nextForms = {
-        ...forms,
-        emailModal: data,
-      }
-      return { ...store, forms: nextForms }
-    },
-
-    ONCHANGE_NAME_MODAL: () => {
-      const { data } = action
-      const { forms } = store
-      const nextForms = {
-        ...forms,
-        nameModal: data,
-      }
-      return { ...store, forms: nextForms }
-    },
-
-    TOGGLE_MODAL_GET_SCORES: () => {
-      const { data } = action
-      const { componentsState } = store
-      const componentsStateNext = {
-        ...componentsState,
-        modalGetScores: data,
-      }
-      return { ...store, componentsState: componentsStateNext }
-    },
-
-    GET_ANSWERS_DEFAULT: () => {
-      const { courses } = store
-      let coursesNext = getProdidevAnswerDefault(courses)
-      coursesNext = getOptionsShuffled(coursesNext)
-      return { ...store, courses: coursesNext }
-    },
-
-    SELECT_COURSE_MODULE_CONTENTID: () => {
-      const { data } = action
-      const { contentID } = data
-      const { courses } = store
-      let coursesNext = getProvidedActiveDefault(courses)
-      coursesNext = getModuleActiveByContentID(courses, contentID)
-      return { ...store, courses: coursesNext }
-    },
-
-    SELECT_COURSE_MODULE: () => {
-      const { data } = action
-      const { courseID, moduleID } = data
-      const { courses } = store
-      let coursesNext = getProvidedActiveDefault(courses)
-      coursesNext = getCourseModuleActive(courses, courseID, moduleID)
-      return { ...store, courses: coursesNext }
-    },
-
-    CLICK_CHECK: () => {
-      const { data } = action
-      const { optionID, multi } = data
-      const { courses } = store
-      const coursesNext = getOptionsClickedByID(courses, optionID, multi)
-      const storeNext = { ...store, courses: coursesNext }
-      return storeNext
-    },
-
-    GET_CONTENT_DATA_SUCCESS: () => {
-      const { data } = action
-      const { isLoaded } = store
-      const isLoadedNext = { ...isLoaded, isLoadedCourses: true }
-      const storeNext = { ...store, courses: data, isLoaded: isLoadedNext }
-      return storeNext
-    },
-
-    TOGGLE_SIDE_NAVIGATION: () => {
-      const { componentsState } = store
-      const { sideNavigationState } = componentsState
-      const componentsStateNext = {
-        ...componentsState,
-        sideNavigationState: !sideNavigationState,
-      }
-      return { ...store, componentsState: componentsStateNext }
-    },
-
-    GET_GLOBAL_VARS_SUCCESS: () => {
-      const { data } = action
-      const { isLoaded } = store
-      const isLoadedNext = { ...isLoaded, isLoadedGlobalVars: true }
-      const storeNext = { ...store, globalVars: data, isLoaded: isLoadedNext }
-      return storeNext
-    },
+    REDUCE_QUESTIONS_NUMBER,
+    SAVE_ANALYTICS_SUCCESS,
+    TOGGLE_MEDIA_LOADED,
+    TOGGLE_START_COURSE,
+    ONCHANGE_SEARCH_INPUT,
+    CHANGE_NUM_QUESTIONS_IN_SLIDE,
+    SELECT_LANGUAGE,
+    TOGGLE_LOADER_OVERLAY,
+    TOGGLE_IS_DOCUMENT_ADDED,
+    ADD_DOCUMENT_SUCCESS,
+    SET_QUESTION_SLIDE,
+    PLUS_QUESTION_SLIDE,
+    ONCHANGE_EMAIL_CC,
+    ONCHANGE_EMAIL_TO,
+    ONCHANGE_FIRST_NAME_MODAL,
+    ONCHANGE_MIDDLE_NAME_MODAL,
+    ONCHANGE_LAST_NAME_MODAL,
+    TOGGLE_MODAL_FRAME,
+    GET_ANSWERS_DEFAULT,
+    SELECT_COURSE_MODULE_CONTENTID,
+    SELECT_COURSE_MODULE,
+    CLICK_CHECK,
+    GET_CONTENT_DATA_SUCCESS,
+    TOGGLE_SIDE_NAVIGATION,
+    GET_GLOBAL_VARS_SUCCESS,
   }
 
-  return output[type] ? output[type]() : store
+  return output[type] ? output[type](store, data) : store
 }

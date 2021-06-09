@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
+import {
+  useHistory,
+  BrowserRouter,
+  Route,
+  Switch,
+  Redirect,
+} from 'react-router-dom'
 
-import { RootStore } from './@types/RootStore'
+import { handleEvents } from './ViewLayer/Hooks/handleEvents'
+import { IRootStore } from './Interfaces/IRootStore'
 import * as action from './DataLayer/index.action'
 import { MatrixHome } from './ViewLayer/Screens/MatrixHome'
-import { PlayAndSubscribe } from './ViewLayer/Screens/PlayAndSubscribe'
+import { PresentAndSubscribe } from './ViewLayer/Screens/PresentAndSubscribe'
 import { Error404 } from './ViewLayer/Screens/Error404'
-import { CertificateStyled, Certificate } from './ViewLayer/Screens/Certificate'
+import { Certificate } from './ViewLayer/Screens/Certificate'
 
-export const RouterScreensConfig = () => {
-  const PAGES = {
-    MatrixHome,
-    CertificateStyled,
-    Certificate,
-    PlayAndSubscribe,
-    Error404,
-  }
+const PAGES = {
+  MatrixHome,
+  Certificate,
+  PresentAndSubscribe,
+  Error404,
+}
 
+export const RouterScreensConfig: React.FunctionComponent<any> = () => {
   const dispatch = useDispatch()
-  const store = useSelector((store: RootStore) => store)
-  // console.info('RouterScreensConfig [23]', { store })
 
   useEffect(() => {
     const getLoadedPlayerScript = () => {
@@ -33,12 +37,9 @@ export const RouterScreensConfig = () => {
     const makeDispatchAsyncWrappered = async () => {
       await getLoadedPlayerScript()
 
-      await dispatch({
-        type: action.GET_GLOBAL_VARS.REQUEST,
-      })
-      await dispatch({
-        type: action.GET_CONTENT_DATA.REQUEST,
-      })
+      await dispatch(action.GET_GLOBAL_VARS.REQUEST())
+      await dispatch(action.GET_CONTENT_DATA.REQUEST())
+      handleEvents({}, { typeEvent: 'SAVE_ANALYTICS_INIT_DATA' })
     }
 
     makeDispatchAsyncWrappered()
@@ -57,6 +58,11 @@ export const RouterScreensConfig = () => {
     router: {
       routes: [
         {
+          path: `/d/:documentID`,
+          strict: true,
+          page: 'Certificate',
+        },
+        {
           path: `/Certificate-styled`,
           exact: true,
           page: 'CertificateStyled',
@@ -67,9 +73,9 @@ export const RouterScreensConfig = () => {
           page: 'Certificate',
         },
         {
-          path: `/c/:contentID`,
+          path: `/c/:courseID`,
           strict: true,
-          page: 'PlayAndSubscribe',
+          page: 'PresentAndSubscribe',
         },
         {
           path: `/home`,
@@ -143,7 +149,7 @@ export const RouterScreensConfig = () => {
   const getThemeRemotely: Function = () => {
     try {
       document.getElementsByTagName('body')[0].style.display = 'none'
-      const { globalVars } = useSelector((store: RootStore) => store)
+      const { globalVars } = useSelector((store: IRootStore) => store)
       const { theme } = globalVars
       if (theme) {
         // require('./ViewLayer/Styles/config.style.less')
@@ -159,6 +165,7 @@ export const RouterScreensConfig = () => {
   return (
     <BrowserRouter>
       {getThemeRemotely()}
+
       <Switch>
         {getRoutes()}
         {getRedirects()}

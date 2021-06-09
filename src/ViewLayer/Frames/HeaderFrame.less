@@ -1,0 +1,82 @@
+.HeaderFrame {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 0 1rem 0;
+  text-align: center;
+  background-color: @colorSecond;
+
+  .__left {
+    display: flex;
+    flex: 2;
+  }
+
+  .__main {
+    display: flex;
+    flex: 6;
+    justify-content: center;
+  }
+
+  .__right {
+    display: flex;
+    flex: 3;
+    justify-content: flex-end;
+
+    ._item {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      &:nth-child(1) {
+        padding: 0 0 0 0;
+      }
+    }
+  }
+
+  @media @large {
+  }
+  @media @desktop, @desktop-strict {
+  }
+  @media @tablet, @tablet-strict {
+    padding: 1rem 1rem 1rem 1rem;
+  }
+  @media @phone, @phone-strict {
+    padding: 1rem 0rem 1rem 1rem;
+
+    .__left {
+    }
+
+    .__main {
+    }
+
+    .__right {
+      display: none;
+    }
+  }
+}
+
+.HeaderFrame_PresentAndSubscribe {
+  @media @tablet, @tablet-strict {
+    padding: 1rem 1rem 1rem 1rem;
+    .__left {
+    }
+
+    .__main {
+      display: none;
+    }
+
+    .__right {
+    }
+  }
+  @media @phone, @phone-strict {
+    .__left {
+    }
+
+    .__main {
+      display: none;
+    }
+
+    .__right {
+    }
+  }
+}

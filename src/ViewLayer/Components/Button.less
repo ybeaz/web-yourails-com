@@ -1,6 +1,55 @@
 .Button {
   display: flex;
-  &__button {
+  position: relative;
+
+  ._tooltipTop {
+    width: 120px;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -60px;
+  }
+
+  ._tooltipRight {
+    top: -5px;
+    left: 105%;
+  }
+
+  ._tooltipBottom {
+    width: 120px;
+    top: 110%;
+    left: 50%;
+    margin-left: -60px;
+  }
+
+  ._tooltipLeft {
+    width: 120px;
+    top: -5px;
+    right: 105%;
+  }
+
+  .__tooltipText {
+    visibility: hidden;
+    background: @colorSecondLighter2;
+    color: @colorFirstDarker2;
+    text-align: center;
+    border-radius: 6px;
+    padding: 0.5rem;
+    font-size: @fontSizeS;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+
+  .__tooltipTextVisible {
+    visibility: visible;
+  }
+
+  &:hover .__tooltipText {
+    visibility: visible;
+  }
+
+  .__button {
     background-color: @colorSecondLighter3;
     display: flex;
     cursor: pointer;
@@ -17,8 +66,135 @@
       outline: none;
       text-size-adjust: 100%;
     }
-    &_in {
+    ._in {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
       color: @colorFirstDarker2;
+      ._capture_left {
+        padding: 0 0.3rem 0 0;
+      }
+      ._icon {
+        height: 1.5rem;
+        width: 1.5rem;
+      }
+      ._capture_right {
+        padding: 0 0 0 0.3rem;
+      }
+    }
+  }
+}
+
+.Button_CallForActionMatrix {
+  flex: 1;
+  padding: 0.5rem 0 0 0;
+  align-items: center;
+  .__button {
+    flex: 1;
+    height: 2.5rem;
+    background-color: @colorActive;
+
+    &:active,
+    &:focus {
+    }
+
+    ._in {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      height: 1.5rem;
+      ._capture_left {
+      }
+      ._capture_right {
+      }
+    }
+  }
+}
+
+.Button_UseCertificate {
+  flex: 1;
+  padding: 0 0 0 0.35rem;
+  align-items: center;
+  .__button {
+    height: 2.5rem;
+    background-color: @colorActive;
+
+    &:active,
+    &:focus {
+    }
+
+    ._in {
+      padding: 0 0.5rem;
+      // .bouncy;
+    }
+  }
+}
+
+.Button_startModule {
+  flex: 1;
+  padding: 0 0 0 0;
+  align-items: center;
+
+  ._tooltipBottom {
+    width: 100%;
+    top: 110%;
+    left: 0%;
+    margin-left: 0px;
+  }
+
+  ._text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    ._line1 {
+      display: flex;
+      padding: 0 0 0.5rem 0;
+      font-size: @fontSizeS;
+    }
+
+    ._line2 {
+      display: flex;
+      font-style: italic;
+    }
+  }
+
+  .__button {
+    flex: 1;
+    height: 2.5rem;
+    background-color: @colorActive;
+    justify-content: space-evenly;
+
+    &:active,
+    &:focus {
+    }
+
+    ._in {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      padding: 0 1rem 0 1rem;
+      ._capture_left {
+      }
+      @media @tablet, @tablet-strict {
+        ._capture_left {
+          font-size: @fontSizeS;
+        }
+      }
+      @media @phone, @phone-strict {
+        ._capture_left {
+          font-size: @fontSizeS;
+        }
+      }
+      ._icon {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      ._capture_right {
+      }
     }
   }
 }
@@ -27,7 +203,7 @@
   flex: 1;
   padding: 0 0 0 0;
   align-items: center;
-  &__button {
+  .__button {
     flex: 1;
     height: 2.5rem;
     background-color: @colorSecondLighter3;
@@ -36,12 +212,12 @@
     &:focus {
     }
 
-    &_in {
+    ._in {
       color: @colorFirstDarker;
-      height: 1.5rem;
-      width: 1.5rem;
-      -webkit-transform: rotate(135deg);
-      transform: rotate(135deg);
+      ._icon {
+        -webkit-transform: rotate(135deg);
+        transform: rotate(135deg);
+      }
     }
   }
 }
@@ -50,7 +226,7 @@
   flex: 1;
   padding: 0 0 0 0;
   align-items: center;
-  &__button {
+  .__button {
     flex: 1;
     height: 2.5rem;
     background-color: @colorSecondLighter2;
@@ -59,10 +235,10 @@
     &:focus {
     }
 
-    &_in {
+    ._in {
       color: @colorSecondLighter4;
-      height: 1.5rem;
-      width: 1.5rem;
+      ._icon {
+      }
     }
   }
 }
@@ -71,7 +247,7 @@
   flex: 1;
   padding: 0 0 0 0;
   align-items: center;
-  &__button {
+  .__button {
     flex: 1;
     height: 2rem;
     background-color: @colorSecondLighter3;
@@ -80,42 +256,52 @@
     &:focus {
     }
 
-    &_in {
-      height: 1.5rem;
-      width: 1.5rem;
+    ._in {
       color: @colorSecondLighter4;
-      -webkit-transform: rotateY(180deg);
-      transform: rotateY(180deg);
+      ._icon {
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+      }
     }
   }
 }
 
 .Button_sideMenuItems {
-  &__button {
+  .__button {
     background-color: @colorSecond;
 
     &:active,
     &:focus {
     }
 
-    &_in {
-      display: flex;
-      position: relative;
-      height: 2.2rem;
-      padding-top: 4px;
-      cursor: pointer;
-      font-size: @fontSize;
+    ._in {
       color: @colorFirstDarker2;
       background-color: @colorSecond;
+      ._icon {
+        display: flex;
+        position: relative;
+        height: 2.2rem;
+        padding-top: 4px;
+        cursor: pointer;
+        font-size: @fontSize;
+      }
     }
   }
 }
 
-.Button_MdBackward2 {
+.Button_MdBackward3 {
   flex: 1;
-  padding: 0 0 0 0;
+  padding: 0 1rem 0 0;
   align-items: center;
-  &__button {
+
+  ._tooltipBottom {
+    width: 120px;
+    top: 110%;
+    left: 100%;
+    margin-left: -60px;
+  }
+
+  .__button {
     flex: 1;
     height: 2.5rem;
     background-color: @colorActiveDacker;
@@ -124,11 +310,33 @@
     &:focus {
     }
 
-    &_in {
-      height: 1.5rem;
-      width: 1.5rem;
-      -webkit-transform: rotateY(180deg);
-      transform: rotateY(180deg);
+    ._in {
+      ._icon {
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}
+
+.Button_MdBackward2 {
+  flex: 1;
+  padding: 0 0 0 0;
+  align-items: center;
+  .__button {
+    flex: 1;
+    height: 2.5rem;
+    background-color: @colorActiveDacker;
+
+    &:active,
+    &:focus {
+    }
+
+    ._in {
+      ._icon {
+        -webkit-transform: rotateY(180deg);
+        transform: rotateY(180deg);
+      }
     }
   }
 }
@@ -137,7 +345,7 @@
   flex: 1;
   padding: 0 0 0 0;
   align-items: center;
-  &__button {
+  .__button {
     flex: 1;
     height: 2.5rem;
     background-color: @colorActive;
@@ -146,30 +354,32 @@
     &:focus {
     }
 
-    &_in {
-      height: 1.5rem;
-      width: 1.5rem;
+    ._in {
+      ._icon {
+      }
     }
   }
 }
 
 .Button_sideMenuItems {
-  &__button {
+  .__button {
     background-color: @colorSecond;
 
     &:active,
     &:focus {
     }
 
-    &_in {
-      display: flex;
-      position: relative;
-      height: 2.2rem;
-      padding-top: 4px;
-      cursor: pointer;
-      font-size: @fontSize;
+    ._in {
       color: @colorFirstDarker2;
       background-color: @colorSecond;
+      ._icon {
+        display: flex;
+        position: relative;
+        height: 2.2rem;
+        padding-top: 4px;
+        cursor: pointer;
+        font-size: @fontSize;
+      }
     }
   }
 }
@@ -178,7 +388,7 @@
   padding: 0 0 0 0;
   align-items: center;
   flex: 1;
-  &__button {
+  .__button {
     width: 100%;
     height: 2.5rem;
     color: @colorFirstDarker2;
@@ -187,9 +397,11 @@
     &:focus {
     }
 
-    &_in {
-      height: 1.5rem;
-      width: 1.5rem;
+    ._in {
+      padding: 0 1rem 0 0;
+      ._icon {
+        margin: 0 0 0 1rem;
+      }
     }
   }
 }
@@ -197,16 +409,16 @@
 .Button_MdPlayArrow {
   padding-right: 1.4em;
   align-items: center;
-  &__button {
+  .__button {
     width: 4rem;
     height: 2rem;
     &:active,
     &:focus {
     }
 
-    &_in {
-      height: 1.5rem;
-      width: 1.5rem;
+    ._in {
+      ._icon {
+      }
     }
   }
 }
@@ -214,16 +426,16 @@
 .Button_MdPause {
   padding-right: 1.4em;
   align-items: center;
-  &__button {
+  .__button {
     width: 4rem;
     height: 2rem;
     &:active,
     &:focus {
     }
 
-    &_in {
-      height: 1.5rem;
-      width: 1.5rem;
+    ._in {
+      ._icon {
+      }
     }
   }
 }
@@ -231,62 +443,103 @@
 .Button_MdRemoveCircle {
   padding-right: 1.4em;
   align-items: center;
-  &__button {
+  .__button {
     width: 4rem;
     height: 2rem;
     &:active,
     &:focus {
     }
 
-    &_in {
-      height: 1.5rem;
-      width: 1.5rem;
+    ._in {
+      ._icon {
+      }
     }
   }
 }
 
 .Button_MdMenu {
-  padding-right: 1.4em;
+  padding-right: 0.5em;
   align-items: center;
-  &__button {
+  .__button {
     &:active,
     &:focus {
     }
 
-    &_in {
-      height: 1.5rem;
-      width: 1.5rem;
+    ._in {
       color: @colorFirstDarker;
       background-color: @colorSecond;
+      ._icon {
+      }
     }
   }
 }
 
 .Button_MdPerson {
-  &__button {
+  .__button {
+    background-color: @colorSecond;
     &:active,
     &:focus {
     }
 
-    &_in {
-      width: 1.8rem;
-      height: 1.8rem;
+    ._in {
       color: @colorSecondLighter4;
-      background-color: @colorSecond;
+      ._icon {
+        width: 1.8rem;
+        height: 1.8rem;
+      }
     }
   }
 }
 
 .Button_MdSearch {
-  &__button {
+  .__button {
     width: 4.5rem;
     &:active,
     &:focus {
     }
-    &_in {
-      width: 1.3rem;
-      height: 1.3rem;
+    ._in {
       color: @colorSecondLighter4;
+      ._icon {
+        width: 1.3rem;
+        height: 1.3rem;
+      }
     }
   }
+  @media @phone, @phone-strict {
+    .__button {
+      width: 2rem;
+    }
+  }
+}
+
+.bouncy {
+  animation: bouncy 10s infinite linear;
+  position: relative;
+}
+@keyframes bouncy {
+  0% {
+    top: 0em;
+  }
+  40% {
+    top: 0em;
+  }
+  43% {
+    top: -0.9em;
+  }
+  46% {
+    top: 0em;
+  }
+  48% {
+    top: -0.4em;
+  }
+  50% {
+    top: 0em;
+  }
+  100% {
+    top: 0em;
+  }
+}
+
+.Button_none {
+  display: none;
 }

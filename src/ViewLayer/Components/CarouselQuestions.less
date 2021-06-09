@@ -3,46 +3,53 @@
 .CarouselQuestions {
   display: flex;
   flex-direction: column;
-  padding: 0 3rem 0 2rem;
+  padding: 0 0 0 2rem;
   position: relative;
 
-  &__buttons {
+  .__buttons {
     display: flex;
     flex-direction: row;
     flex: 1;
     padding: 1rem 0 0 0;
 
-    &_backward {
-      display: none;
-      flex-direction: row;
-      width: 50%;
-    }
-    &_forward {
+    ._backward {
       display: none;
       flex-direction: row;
       width: 50%;
     }
 
-    &_toCertificate {
+    ._startModule {
+      display: none;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    ._forward {
       display: none;
       flex-direction: row;
       width: 50%;
     }
 
-    &_downLeft {
+    ._toCertificate {
+      display: none;
+      flex-direction: row;
+      width: 50%;
+    }
+
+    ._downLeft {
       display: none;
       flex-direction: row;
       width: 50%;
     }
   }
 
-  &__dots {
+  .__dots {
     display: flex;
     text-align: center;
     padding: 0 0 1rem 0;
 
     /* The dots/bullets/indicators */
-    &_dot {
+    ._dot {
       cursor: pointer;
       margin: 0 0 0 0;
       background-color: #717171;
@@ -58,10 +65,10 @@
     }
   }
 
-  &__slideshow {
+  .__slideshow {
     padding: 1rem 0 0 0;
 
-    &_slides {
+    ._slides {
       flex-direction: column;
       display: none;
     }
@@ -142,17 +149,8 @@
     }
   }
 
-  &_show {
+  ._show {
     display: flex !important;
-  }
-
-  /* On smaller screens, decrease text size */
-  @media only screen and (max-width: 300px) {
-    .prev,
-    .next,
-    .text {
-      font-size: 11px;
-    }
   }
 
   @media @large {
@@ -160,35 +158,57 @@
   @media @desktop, @desktop-strict {
   }
   @media @tablet, @tablet-strict {
+    padding: 0 1rem 0 1rem;
   }
   @media @phone, @phone-strict {
+    padding: 0 1rem 0 1rem;
+    .__dots {
+      padding: 0 0 0rem 0;
+    }
   }
 }
 
 .display_left {
   justify-content: flex-start;
-  .CarouselQuestions__buttons_backward {
-    display: flex;
+  .__buttons {
+    ._backward {
+      display: flex;
+    }
+  }
+}
+
+.display_startModule {
+  .__buttons {
+    justify-content: flex-end;
+    ._startModule {
+      display: flex;
+    }
   }
 }
 
 .display_right {
-  justify-content: flex-end;
-  .CarouselQuestions__buttons_forward {
-    display: flex;
+  .__buttons {
+    justify-content: flex-end;
+    ._forward {
+      display: flex;
+    }
   }
 }
 
 .display_toCertificate {
-  justify-content: flex-end;
-  .CarouselQuestions__buttons_toCertificate {
-    display: flex;
+  .__buttons {
+    justify-content: flex-end;
+    ._toCertificate {
+      display: flex;
+    }
   }
 }
 
 .display_downLeft {
-  justify-content: flex-end;
-  .CarouselQuestions__buttons_downLeft {
-    display: flex;
+  .__buttons {
+    justify-content: flex-end;
+    ._downLeft {
+      display: flex;
+    }
   }
 }

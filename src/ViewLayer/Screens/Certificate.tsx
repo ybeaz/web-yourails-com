@@ -1,59 +1,185 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 
+import { DICTIONARY } from '../../Constants/dictionary.const'
+import { getSlug } from '../../Shared/getSlug'
+import { EmalInputs } from '../Components/EmalInputs'
+import { ModalFrame } from '../Frames/ModalFrame'
+import { HeaderFrame } from '../Frames/HeaderFrame'
+import { IRouterScreenProps } from '../../Interfaces/IRouterScreenProps'
+import { ShareButtons } from '../Components/ShareButtons'
+import { Button } from '../Components/Button'
+import { IRootStore } from '../../Interfaces/IRootStore'
+import { handleEvents } from '../Hooks/handleEvents'
+import { LoaderOverlay } from '../Components/LoaderOverlay'
 import { getDateString } from '../../Shared/getDateString'
-// import './Certificate.less' // imported through index.style.less
-// import { CertificateStyledGlob } from './CertificateStyle' // Not uses, but kept as an example of styled-components
 
-export const Certificate: Function = (props: any): JSX.Element => {
+export const Certificate: React.FunctionComponent<any> = (
+  props: IRouterScreenProps
+): JSX.Element => {
   const {
-    userName,
-    meta = { institution: '', specTitle: '', specName: '' },
-    capture,
-    contentID,
+    routeProps: {
+      match: {
+        params: { documentID },
+      },
+    },
   } = props
 
-  const { institution = '', specTitle = '', specName = '' } = meta
+  let history = useHistory()
+  const store = useSelector((store: IRootStore) => store)
+  const { documents, language } = store
+  const documentsLen = documents.length
 
-  const dateString = getDateString(new Date())
-  // console.info('Certificate [11]', {
-  //   institution,
-  //   specTitle,
-  //   specName,
-  //   capture,
-  //   contentID,
-  //   dateString,
-  // })
+  useEffect(() => {
+    handleEvents({}, { typeEvent: 'CLOSE_MODAL_GET_SCORES' })
+  }, [documents])
+
+  useEffect(() => {
+    if (!documentsLen) {
+      handleEvents({}, { typeEvent: 'FIND_DOCUMENT', data: documentID })
+    }
+  }, [documents])
+
+  let documentDefault = {
+    userName: {
+      firstName: '',
+      middleName: '',
+      lastName: '',
+    },
+    meta: {
+      institution: '',
+      specTitle: '',
+      specName: '',
+    },
+    capture: '',
+    courseID: '',
+    contentID: '',
+  }
+  const {
+    userName: {
+      firstName = '',
+      middleName = '',
+      lastName = '',
+      email = '',
+      isSendingBcc = false,
+    },
+    meta: { institution = '', specTitle = '', specName = '' },
+    capture: courseCapture = '',
+    courseID = '',
+    contentID = '',
+    creationDate = '',
+    pathName: documentPathName,
+  } = (documentsLen && documents[documentsLen - 1]) || documentDefault
+
+  const dateStyle = language === 'en' ? 'US' : language === 'ru' ? 'EU' : 'EU'
+
+  const creationDateReadable = getDateString({
+    timestamp: creationDate,
+    style: dateStyle,
+    hours: false,
+    minutes: false,
+    seconds: false,
+  })
+
+  const buttonBackProps = {
+    icon: 'MdForward',
+    classAdded: 'Button_MdBackward3',
+    action: {
+      typeEvent: 'GO_BACK_FROM_CERTIFICATE',
+      data: { history, courseCapture },
+    },
+    tooltipText: DICTIONARY['backToCourse'][language],
+    tooltipPosition: 'bottom',
+  }
+
+  const buttonPrintProps = {
+    icon: 'MdPrint',
+    classAdded: 'Button_UseCertificate',
+    action: {
+      typeEvent: 'PRINT_DOCUMENT',
+      data: { courseCapture, documentID, courseID, contentID },
+    },
+    tooltipText: DICTIONARY['sendToPrint'][language],
+    tooltipPosition: 'bottom',
+  }
+
+  const buttonEmailProps = {
+    icon: 'MdMailOutline',
+    classAdded: 'Button_UseCertificate',
+    action: { typeEvent: 'TOGGLE_MODAL_FRAME', data: true },
+    tooltipText: DICTIONARY['sendToEmail'][language],
+    tooltipPosition: 'bottom',
+  }
+
+  const buttonCopyLinkProps = {
+    icon: 'BsLink45Deg',
+    classAdded: 'Button_UseCertificate',
+    action: {
+      typeEvent: 'COPY_URL_TO_CLIPBOARD',
+      data: { courseCapture, documentID, courseID, contentID },
+    },
+    tooltipText: DICTIONARY['copyLinkToClipboard'][language],
+    tooltipPosition: 'bottom',
+  }
+
+  const userName = middleName
+    ? `${lastName} ${firstName} ${middleName}`
+    : `${lastName} ${firstName}`
+
+  const emailInputsProps = { documentID }
+
+  const slug = getSlug(courseCapture)
+  const coursePathName = `/c/${courseID}/${slug}`
+
   return (
     <div className='Certificate'>
+      <div className='_buttons Certificate_noPrint'>
+        <HeaderFrame>
+          <Button {...buttonBackProps} />
+          <div className='__navigation'>
+            <div className='_buttons'>
+              <Button {...buttonPrintProps} />
+              <Button {...buttonEmailProps} />
+              <Button {...buttonCopyLinkProps} />
+              <ShareButtons />
+            </div>
+          </div>
+        </HeaderFrame>
+        <ModalFrame childName={'EmalInputs'}>
+          <EmalInputs {...emailInputsProps} />
+        </ModalFrame>
+      </div>
+
       <div className='container pm-certificate-container'>
         <div className='outer-border'></div>
         <div className='inner-border'></div>
 
-        <div className='pm-certificate-border col-xs-12'>
-          <div className='row pm-certificate-header'>
-            <div className='pm-certificate-title cursive col-xs-12 text-center'>
+        <div className='pm-certificate-border'>
+          <div className='pm-certificate-header'>
+            <div className='pm-certificate-title cursive'>
               <h4>{institution}</h4>
               <h2>Certificate of Completion</h2>
             </div>
           </div>
 
-          <div className='row pm-certificate-body'>
+          <div className='pm-certificate-body'>
             <div className='pm-certificate-block'>
-              <div className='col-xs-12'>
-                <div className='row'>
-                  <div className='col-xs-2'>{/* <!-- LEAVE EMPTY --> */}</div>
-                  <div className='pm-certificate-name underline margin-0 col-xs-8 text-center'>
+              <div className=''>
+                <div className=''>
+                  <div className=''>{/* <!-- LEAVE EMPTY --> */}</div>
+                  <div className='pm-certificate-name underline margin-0'>
                     <span className='pm-name-text bold'>{userName}</span>
                   </div>
-                  <div className='col-xs-2'>{/* <!-- LEAVE EMPTY --> */}</div>
+                  <div className=''>{/* <!-- LEAVE EMPTY --> */}</div>
                 </div>
               </div>
 
-              <div className='col-xs-12'>
-                <div className='row'>
-                  <div className='col-xs-2'>{/* <!-- LEAVE EMPTY --> */}</div>
-                  <div className='pm-earned col-xs-8 text-center'>
+              <div className=''>
+                <div className=''>
+                  <div className=''>{/* <!-- LEAVE EMPTY --> */}</div>
+                  <div className='pm-earned'>
                     <span className='pm-earned-text padding-0 block cursive'>
                       has earned
                     </span>
@@ -61,59 +187,84 @@ export const Certificate: Function = (props: any): JSX.Element => {
                       1.0 Credit Hours
                     </span>
                   </div>
-                  <div className='col-xs-2'>{/* <!-- LEAVE EMPTY --> */}</div>
-                  <div className='col-xs-12'></div>
+                  <div className=''>{/* <!-- LEAVE EMPTY --> */}</div>
+                  <div className=''></div>
                 </div>
               </div>
 
-              <div className='col-xs-12'>
-                <div className='row'>
-                  <div className='col-xs-2'>{/* <!-- LEAVE EMPTY --> */}</div>
-                  <div className='pm-course-title col-xs-8 text-center'>
+              <div className=''>
+                <div className=''>
+                  <div className=''>{/* <!-- LEAVE EMPTY --> */}</div>
+                  <div className='pm-course-title'>
                     <span className='pm-earned-text block cursive'>
                       while completing the training course entitled
                     </span>
                   </div>
-                  <div className='col-xs-2'>{/* <!-- LEAVE EMPTY --> */}</div>
+                  <div className=''>{/* <!-- LEAVE EMPTY --> */}</div>
                 </div>
               </div>
 
-              <div className='col-xs-12'>
-                <div className='row'>
-                  <div className='col-xs-2'>{/* <!-- LEAVE EMPTY --> */}</div>
-                  <div className='pm-course-title underline col-xs-8 text-center'>
+              <div className=''>
+                <div className=''>
+                  <div className=''>{/* <!-- LEAVE EMPTY --> */}</div>
+                  <div className='pm-course-title underline'>
                     <span className='pm-credits-text block bold sans'>
-                      {capture}
+                      {courseCapture}
                     </span>
                   </div>
-                  <div className='col-xs-2'>{/* <!-- LEAVE EMPTY --> */}</div>
-                  <div className='Certificate__course_code'>
-                    Course code {contentID}
+                  <div className=''>{/* <!-- LEAVE EMPTY --> */}</div>
+                  <div className='_code'>
+                    <span className='_course'>
+                      Course link/id#{' '}
+                      <a
+                        className='_courseLink'
+                        href={coursePathName}
+                        target='_blank'
+                      >
+                        {courseID}
+                      </a>
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className='col-xs-12'>
-              <div className='row'>
+            <div className=''>
+              <div className=''>
                 <div className='pm-certificate-footer'>
-                  <div className='col-xs-4 pm-certified col-xs-4 text-center'>
+                  <div className='pm-certified'>
+                    <div className='pm-stamp'></div>
                     <span className='pm-credits-text block sans'>
-                      Open Internet Education District Academy
+                      "Open Internet Education Academy"
+                    </span>
+                    <span className='pm-credits-text block sans'>
+                      in partnership with "YouRails.com"
                     </span>
                     <span className='pm-empty-space block underline'></span>
-                    <span className='bold block'>
+                    <span className='pm-credits-text bold block sans'>
                       {specName}, {specTitle}
                     </span>
                   </div>
-                  <div className='col-xs-4'>{/* <!-- LEAVE EMPTY --> */}</div>
-                  <div className='col-xs-4 pm-certified col-xs-4 text-center'>
-                    <span className='pm-credits-text block sans'>
-                      Date Completed {dateString}
-                    </span>
-                    <span className='pm-empty-space block underline'></span>
-                    <span className='bold block'></span>
-                    <span className='bold block'></span>
+                  <div className=''>{/* <!-- LEAVE EMPTY --> */}</div>
+                  <div className='pm-certified'>
+                    <div className='_documentData'>
+                      <span className='_completed'>
+                        Completed {creationDateReadable}
+                      </span>
+                      <span className='_certificate'>
+                        Certificate link/ No
+                        <a
+                          className='_documentLink'
+                          href={documentPathName}
+                          target='_blank'
+                        >
+                          {documentID}
+                        </a>
+                      </span>
+                    </div>
+                    {/* <div className='_documentLink'>
+                      <span className='_link'>Link {documentLink}</span>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -121,9 +272,14 @@ export const Certificate: Function = (props: any): JSX.Element => {
           </div>
         </div>
       </div>
+      <LoaderOverlay />
     </div>
   )
 }
+
+// export const Certificate: React.ComponentClass<any> = withRouter(
+//   CertificateOrigin
+// )
 
 // Basic example how styled-componemts work
 const StyledSection = styled.section`
@@ -300,11 +456,3 @@ const StyledSection = styled.section`
     }
   }
 `
-
-export const CertificateStyled = () => {
-  return (
-    <StyledSection>
-      <Certificate />
-    </StyledSection>
-  )
-}

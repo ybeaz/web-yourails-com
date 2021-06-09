@@ -12,16 +12,21 @@
 
 @phone: ~'only screen and (max-width: @{xs-min})';
 @phone-strict: ~'only screen and (min-width: @{xs-min}) and (max-width: @{xs-max})';
+
 @tablet: ~'only screen and (min-width: @{sm-min}) and (max-width: @{md-min})';
 @tablet-strict: ~'only screen and (min-width: @{sm-min}) and (max-width: @{sm-max})';
+
 @desktop: ~'only screen and (min-width: @{md-min}) and (max-width: @{lg-min})';
 @desktop-strict: ~'only screen and (min-width: @{md-min}) and (max-width: @{md-max})';
+
 @large: ~'only screen and (min-width: @{lg-min})';
 
 @fontSizeH1: 1.7rem;
 @fontSizeH2: 1.3rem;
 @fontSizeH4: 1.15rem;
 @fontSize: 1.05rem;
+@fontSizeS: 0.9rem;
+@fontSizeXS: 0.75rem;
 
 @transition: 0.5s;
 
@@ -42,7 +47,7 @@ body {
 }
 
 #root {
-  width: 100%;
+  width: inherit;
   flex: 1;
 }
 // font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;

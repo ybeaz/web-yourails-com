@@ -1,27 +1,42 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
+import { getMultipliedTimeStr } from '../../Shared/getMultipliedTimeStr'
+import { DICTIONARY } from '../../Constants/dictionary.const'
+import { getQuesionString } from '../../Shared/getQuesionString'
 import { getButtonsClassString } from '../../Shared/getButtonsClassString'
 import { getChunkedArray } from '../../Shared/getChunkedArray'
 import { CheckRadioGroup } from './CheckRadioGroup'
 import { getActiveCourseData } from '../../Shared/getActiveCourseData'
 import { Button } from '../Components/Button'
 import { handleEvents } from '../Hooks/handleEvents'
-import { RootStore } from '../../@types/RootStore'
+import { IRootStore } from '../../Interfaces/IRootStore'
+import { IDurationObj } from '../../Interfaces/IDurationObj'
+interface ICarouselQuestionsInput {
+  durationObj: IDurationObj
+}
 
-export const CarouselQuestions: Function = (props: any): JSX.Element => {
-  const store = useSelector((store: RootStore) => store)
+export const CarouselQuestions: React.FunctionComponent<any> = (
+  props: ICarouselQuestionsInput
+): JSX.Element => {
+  const store = useSelector((store: IRootStore) => store)
+
   const {
-    globalVars,
-    componentsState: { questionsSlideNumber },
+    globalVars: { numberQuestionsInSlide, durationMultiplier },
+    componentsState: { questionsSlideNumber, isCourseStarted },
     courses,
+    language,
   } = store
 
-  const numberQuestionsInSlide =
-    globalVars?.configuration?.numberQuestionsInSlide || 2
+  const {
+    courseActive: { capture: courseCapture, courseID, questionNumber },
+    moduleActive: { duration: durationIn, moduleID, contentID },
+    questionsActive,
+  } = getActiveCourseData(courses)
 
-  const { courseActive, moduleActive, questionsActive } = getActiveCourseData(
-    courses
+  const { duration, units }: IDurationObj = getMultipliedTimeStr(
+    durationIn,
+    durationMultiplier
   )
 
   const questionsChunked = getChunkedArray(
@@ -35,7 +50,7 @@ export const CarouselQuestions: Function = (props: any): JSX.Element => {
         index === questionsSlideNumber ? 'active' : ''
       return (
         <span
-          className={`CarouselQuestions__dots_dot ${classNameToggleHighlight}`}
+          className={`_dot ${classNameToggleHighlight}`}
           onClick={event =>
             handleEvents(event, {
               typeEvent: 'SET_QUESTION_SLIDE',
@@ -46,7 +61,7 @@ export const CarouselQuestions: Function = (props: any): JSX.Element => {
       )
     })
 
-    return <div className='CarouselQuestions__dots'>{dotsJSX}</div>
+    return <div className='__dots'>{dotsJSX}</div>
   }
 
   const getSlidesChunk: Function = (questions: any[]): JSX.Element[] => {
@@ -57,80 +72,119 @@ export const CarouselQuestions: Function = (props: any): JSX.Element => {
 
   const getSlides: Function = (questionsChunked: any[]): JSX.Element => {
     const questionsJSX = questionsChunked.map((questions, index) => {
-      const classNameToggleShow =
-        index === questionsSlideNumber ? 'CarouselQuestions_show' : ''
+      const classNameToggleShow = index === questionsSlideNumber ? '_show' : ''
       return (
-        <div
-          className={`CarouselQuestions__slideshow_slides fade ${classNameToggleShow}`}
-        >
+        <div className={`_slides fade ${classNameToggleShow}`}>
           {getSlidesChunk(questions)}
         </div>
       )
     })
 
-    return <div className='CarouselQuestions__slideshow'>{questionsJSX}</div>
+    return <div className='__slideshow'>{questionsJSX}</div>
   }
 
-  const buttonsClassString = getButtonsClassString(
+  const {
+    buttonsClassString,
+    isButtonSlideStart,
+    isButtonSlideBackward,
+    isButtonSlideForward,
+    isButtonToCertificate,
+    isButtonBlockProps,
+  } = getButtonsClassString(
     questionsSlideNumber,
     questionsChunked.length,
     questionsActive,
-    questionsChunked
+    questionsChunked,
+    isCourseStarted
   )
 
   const buttonSlideBackwardProps = {
     icon: 'MdForward',
     classAdded: 'Button_MdBackward2',
-    handleEvents,
-    action: { typeEvent: 'PLUS_QUESTION_SLIDE', data: -1 },
+    action: {
+      typeEvent: 'PLUS_QUESTION_SLIDE',
+      data: { step: -1 },
+    },
+    isDisplaying: isButtonSlideBackward,
   }
 
   const buttonSlideForwardProps = {
     icon: 'MdForward',
     classAdded: 'Button_MdForward2',
-    handleEvents,
-    action: { typeEvent: 'PLUS_QUESTION_SLIDE', data: 1 },
+    action: {
+      typeEvent: 'PLUS_QUESTION_SLIDE',
+      data: { step: 1 },
+    },
+    isDisplaying: isButtonSlideForward,
   }
 
   const buttonToCertificateProps = {
     icon: 'MdForward',
     icon2: 'HiOutlineAcademicCap',
     classAdded: 'Button_MdForward',
-    handleEvents,
     action: {
       typeEvent: 'OPEN_MODAL_GET_SCORES',
-      data: {},
+      data: { courseCapture },
     },
+    isDisplaying: isButtonToCertificate,
   }
 
   const buttonBlockProps = {
     icon: 'MdForward',
     classAdded: 'Button_downLeft',
-    handleEvents: () => {},
     action: {
       typeEvent: '',
       data: {},
     },
+    isDisplaying: isButtonBlockProps,
+  }
+
+  const CertificateDash = DICTIONARY['Certificate'][language]
+  const questionStr = getQuesionString(language, questionsActive.length)
+
+  const youCanCheckYourUnderstanding =
+    DICTIONARY.youCanCheckYourUnderstanding[language]
+  const buttonStartProps = {
+    captureLeft: (
+      <div>
+        <div>{`${CertificateDash}\u00A0\u00A0\u00A0-\u00A0\u00A0\u00A0${questionsActive.length} ${questionStr}`}</div>
+        {/* <div>{`${CertificateDash} ${duration} ${units} /`}</div>
+        <div>{`${questionsActive.length} ${questionStr}`}</div> */}
+      </div>
+    ),
+    icon: 'MdForward',
+    classAdded: 'Button_startModule',
+    action: {
+      typeEvent: 'TOGGLE_START_COURSE',
+      data: { isStarting: true, courseCapture, courseID, moduleID, contentID },
+    },
+    isDisplaying: isButtonSlideStart,
+    tooltipText: youCanCheckYourUnderstanding,
+    tooltipPosition: 'bottom',
+    isTooltipVisible: true,
   }
 
   return (
-    <div className='CarouselQuestions'>
+    <div className={`CarouselQuestions ${buttonsClassString}`}>
       {questionsActive.length ? getDots(questionsChunked) : null}
-      <div className={`CarouselQuestions__buttons ${buttonsClassString}`}>
-        <div className='CarouselQuestions__buttons_backward'>
+      <div className={`__buttons`}>
+        <div className='_backward'>
           <Button {...buttonSlideBackwardProps} />
         </div>
-        <div className='CarouselQuestions__buttons_forward'>
+        <div className='_forward'>
           <Button {...buttonSlideForwardProps} />
         </div>
-        <div className='CarouselQuestions__buttons_toCertificate'>
+        <div className='_toCertificate'>
           <Button {...buttonToCertificateProps} />
         </div>
-        <div className='CarouselQuestions__buttons_downLeft'>
+        <div className='_downLeft'>
           <Button {...buttonBlockProps} />
         </div>
+        <div className='_startModule'>
+          <Button {...buttonStartProps} />
+        </div>
       </div>
-      {getSlides(questionsChunked)}
+      {isCourseStarted && getSlides(questionsChunked)}
     </div>
   )
 }

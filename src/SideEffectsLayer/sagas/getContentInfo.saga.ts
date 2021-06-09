@@ -1,13 +1,18 @@
 import axios from 'axios'
 import { takeEvery, put, select } from 'redux-saga/effects'
 
-import { getCoursesValidated } from '../../Shared/getCoursesValidated'
+import { getProcessedArgsInChain } from '../../Shared/getProcessedArgsInChain'
+
+import { getFilteredActiveCoursesModules } from '../../Shared/getFilteredActiveCoursesModules'
+import { getFilteredActiveQuestions } from '../../Shared/getFilteredActiveQuestions'
+import { getProvidedSearchString } from '../../Shared/getProvidedSearchString'
+import { getValidatedCourses } from '../../Shared/getValidatedCourses'
 import { getOptionsShuffled } from '../../Shared/getOptionsShuffled'
 import { getProdidevAnswerDefault } from '../../Shared/getProdidevAnswerDefault'
-import { getProvidedActiveDefault } from '../../Shared/getProvidedActiveDefault'
+import { getProvidedSelectedDefault } from '../../Shared/getProvidedSelectedDefault'
 import { getProvidedID } from '../../Shared/getProvidedID'
 import * as action from '../../DataLayer/index.action'
-import { getContentInfoConnector } from '../../ComminicationLayer/getContentInfo.connector'
+import { getContentInfoConnector } from '../../CommunicationLayer/getContentInfo.connector'
 
 function* getContentInfo() {
   try {
@@ -15,19 +20,26 @@ function* getContentInfo() {
     const {
       data: { courses },
     } = yield axios[method](url, {}, options)
-    // console.info('getContentInfo.saga [17]', { courses })
-    let coursesNext = getCoursesValidated(courses)
-    coursesNext = getProvidedID(coursesNext)
-    coursesNext = getOptionsShuffled(coursesNext)
-    coursesNext = getProvidedActiveDefault(coursesNext)
-    coursesNext = getProdidevAnswerDefault(coursesNext)
-    // console.info('getContentInfo.saga [22]', { coursesNext, courses })
-    yield put({ type: action.GET_CONTENT_DATA.SUCCESS, data: coursesNext })
+
+    let coursesNext = getProcessedArgsInChain(courses)
+      .exec(getValidatedCourses)
+      .exec(getFilteredActiveCoursesModules)
+      .exec(getFilteredActiveQuestions)
+      .exec(getProvidedID)
+      .exec(getProvidedSelectedDefault)
+      .exec(getProdidevAnswerDefault)
+      .exec(getOptionsShuffled)
+      .exec(getProvidedSearchString)
+      .done()
+
+    // console.info('getContentInfo.saga [31]', { coursesNext, courses })
+
+    yield put(action.GET_CONTENT_DATA.SUCCESS(coursesNext))
   } catch (error) {
     console.info('getContentInfo  [20]', error.name + ': ' + error.message)
   }
 }
 
 export default function* getContentInfoWatcher() {
-  yield takeEvery([action.GET_CONTENT_DATA.REQUEST], getContentInfo)
+  yield takeEvery([action.GET_CONTENT_DATA.REQUEST().type], getContentInfo)
 }

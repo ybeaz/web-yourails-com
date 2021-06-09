@@ -1,7 +1,13 @@
 import React from 'react'
 
+import { handleEvents } from '../Hooks/handleEvents'
 import { IconContext } from 'react-icons'
 import {
+  MdHome,
+  MdContactMail,
+  MdAddShoppingCart,
+  MdFlag,
+  MdMailOutline,
   MdBlock,
   MdClose,
   MdPrint,
@@ -14,9 +20,17 @@ import {
   MdSearch,
 } from 'react-icons/md'
 
+import { BsLink45Deg, BsQuestionCircle } from 'react-icons/bs'
 import { HiOutlineAcademicCap } from 'react-icons/hi'
-// go/pitchday
+
 const ICON = {
+  MdHome,
+  MdContactMail,
+  MdAddShoppingCart,
+  MdFlag,
+  BsLink45Deg,
+  MdMailOutline,
+  BsQuestionCircle,
   MdBlock,
   HiOutlineAcademicCap,
   MdClose,
@@ -30,42 +44,75 @@ const ICON = {
   MdPerson,
 }
 interface IButton {
-  icon: string
-  icon2: string | null
-  capture: string
-  classAdded: string
-  handleEvents: Function
-  action: any
+  icon?: string | null
+  icon2?: string | null
+  captureLeft?: string
+  captureRight?: string
+  classAdded?: string
+  action?: any
+  isDisplaying?: boolean // is the button displaing at all
+  tooltipText?: string
+  tooltipPosition?: string // options: ['top','right','bottom','left']
+  isTooltipVisible?: boolean // is tooltipls visible anyway? [true, false] by default: false
+  handleEvents?: Function
 }
 
-export const Button: Function = (props: IButton): JSX.Element => {
-  const handleEventsDefault: Function = (): void => {
-    console.info('Button', 'handleEventDefault')
-    alert('Sorry \n We are working on this')
-  }
+export const Button: React.FunctionComponent<any> = (
+  props: IButton
+): JSX.Element => {
   const {
     icon,
     icon2 = null,
-    capture,
+    captureLeft,
+    captureRight,
     classAdded,
-    handleEvents = handleEventsDefault,
     action = {},
+    isDisplaying = true,
+    tooltipText = '',
+    tooltipPosition = '',
+    isTooltipVisible = false,
+    handleEvents: handleEventsCustom,
   } = props
   const Icon = ICON[icon]
   const Icon2 = ICON[icon2]
 
+  const classDisplay = isDisplaying === true ? '' : 'Button_none'
+  const handleEventsToUse = handleEventsCustom
+    ? handleEventsCustom
+    : handleEvents
+
+  let classTooltipAdd = {
+    top: '_tooltipTop',
+    right: '_tooltipRight',
+    bottom: '_tooltipBottom',
+    left: '_tooltipLeft',
+  }[tooltipPosition]
+
+  classTooltipAdd = isTooltipVisible
+    ? `${classTooltipAdd} __tooltipTextVisible`
+    : classTooltipAdd
+
   return (
-    <div className={`Button ${classAdded}`}>
+    <div className={`Button ${classAdded} ${classDisplay}`}>
+      {tooltipText ? (
+        <div className={`__tooltipText ${classTooltipAdd}`}>{tooltipText}</div>
+      ) : null}
+
       <button
-        className={`Button__button ${classAdded}__button`}
+        className={`__button`}
         type='button'
-        onClick={event => handleEvents(event, action)}
+        onClick={event => handleEventsToUse(event, action)}
       >
+        {captureLeft ? (
+          <div className={`_in`}>
+            <div className={`_capture_left`}>{captureLeft}</div>
+          </div>
+        ) : null}
         {Icon ? (
-          <>
+          <div className={`_in`}>
             <IconContext.Provider
               value={{
-                className: `Button__button_in ${classAdded}__button_in`,
+                className: `_icon`,
               }}
             >
               <Icon />
@@ -73,16 +120,17 @@ export const Button: Function = (props: IButton): JSX.Element => {
             {icon2 !== null ? (
               <IconContext.Provider
                 value={{
-                  className: `Button__button_in ${classAdded}__button_in`,
+                  className: `_icon`,
                 }}
               >
                 <Icon2 />
               </IconContext.Provider>
             ) : null}
-          </>
-        ) : capture ? (
-          <div className={`Button__button_in ${classAdded}__button_in`}>
-            {capture}
+          </div>
+        ) : null}
+        {captureRight ? (
+          <div className={`_in`}>
+            <div className={`_capture_right`}>{captureRight}</div>
           </div>
         ) : null}
       </button>

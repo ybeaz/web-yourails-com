@@ -1,69 +1,85 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
-import { RootStore } from '../../@types/RootStore'
+import { DICTIONARY } from '../../Constants/dictionary.const'
+import { LanguageSelect } from './LanguageSelect'
+import { IRootStore } from '../../Interfaces/IRootStore'
 import { LogoGroup } from './LogoGroup'
 import { Button } from './Button'
-import { handleEvents } from '../Hooks/handleEvents'
 
-export const SideNavigation: Function = (): JSX.Element => {
-  const store = useSelector((store: RootStore) => store)
+export const SideNavigation: React.FunctionComponent<any> = (): JSX.Element => {
+  const store = useSelector((store: IRootStore) => store)
   const {
-    componentsState: { sideNavigationState },
+    language,
+    componentsState: { isSideNavVisible },
   } = store
-  // console.info('SideNavigation [6]', { sideNavigationState })
+  let history = useHistory()
 
   const buttonMdMenuProps = {
     icon: 'MdMenu',
     classAdded: 'Button_MdMenu',
-    handleEvents,
     action: {
       typeEvent: 'TOGGLE_SIDE_NAVIGATION',
     },
   }
 
-  const buttonAboutProps = {
-    icon: '',
-    capture: 'About',
-    classAdded: 'Button_sideMenuItems',
-    // handleEvents,
-    // action: {
-    //   typeEvent: '',
-    // },
+  const buttonPropsArr = [
+    {
+      icon: 'MdHome',
+      captureRight: DICTIONARY.Home[language],
+      classAdded: 'Button_sideMenuItems',
+      action: { typeEvent: 'GO_HOME', data: { history } },
+    },
+    {
+      icon: 'MdPerson',
+      captureRight: DICTIONARY.PersonalСabinet[language],
+      classAdded: 'Button_sideMenuItems',
+      action: { typeEvent: 'DEV_STAGE' },
+    },
+    {
+      icon: 'MdFlag',
+      captureRight: DICTIONARY.About[language],
+      classAdded: 'Button_sideMenuItems',
+      action: { typeEvent: 'DEV_STAGE' },
+    },
+    {
+      icon: 'MdAddShoppingCart',
+      captureRight: DICTIONARY.Services[language],
+      classAdded: 'Button_sideMenuItems',
+      action: { typeEvent: 'DEV_STAGE' },
+    },
+    {
+      icon: 'MdContactMail',
+      captureRight: DICTIONARY.Contacts[language],
+      classAdded: 'Button_sideMenuItems',
+      action: { typeEvent: 'DEV_STAGE' },
+    },
+  ]
+
+  const getButtons: Function = (buttonPropsArr: any[]): JSX.Element[] => {
+    return buttonPropsArr.map(buttonProps => {
+      return (
+        <div className='_item'>
+          <Button {...buttonProps} />
+        </div>
+      )
+    })
   }
 
-  const buttonServicesProps = {
-    icon: '',
-    capture: 'Services',
-    classAdded: 'Button_sideMenuItems',
-    // handleEvents,
-    // action: {
-    //   typeEvent: '',
-    // },
-  }
-
-  const buttonContactsProps = {
-    icon: '',
-    capture: 'Contacts',
-    classAdded: 'Button_sideMenuItems',
-    // handleEvents,
-    // action: {
-    //   typeEvent: '',
-    // },
-  }
-
-  const classNameAdd = sideNavigationState ? 'SideNavigation_show' : ''
+  const classNameAdd = isSideNavVisible ? 'SideNavigation_show' : ''
 
   return (
     <div className={`SideNavigation ${classNameAdd}`}>
-      <div className='SideNavigation__buttonLogoGroup'>
+      <div className='__buttonLogoGroup'>
         <Button {...buttonMdMenuProps} />
         <LogoGroup />
       </div>
-      <div className='SideNavigation__menuGroup'>
-        <Button {...buttonAboutProps} />
-        <Button {...buttonServicesProps} />
-        <Button {...buttonContactsProps} />
+      <div className='__menuGroup'>
+        <div className='_groupItem _languageSelect'>
+          <LanguageSelect />
+        </div>
+        {getButtons(buttonPropsArr)}
       </div>
     </div>
   )

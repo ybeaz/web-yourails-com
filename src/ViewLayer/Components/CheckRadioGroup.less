@@ -3,14 +3,14 @@
   flex-direction: column;
   padding: 1rem 0 2rem 0;
 
-  &__capture {
+  .__capture {
     display: flex;
     font-size: @fontSizeH4;
     padding: 0 0 1rem 0;
   }
 
   /* The container */
-  &__label {
+  .__label {
     display: flex;
     position: relative;
     padding: 0.5rem 0 0.5rem 2.5rem;
@@ -23,12 +23,12 @@
     -ms-user-select: none;
     user-select: none;
 
-    &_capture {
+    ._capture {
       display: flex;
       color: @colorFirstDarker2;
     }
 
-    &_checkdiv {
+    ._checkdiv {
       display: flex;
 
       /* Hide the browser's default checkbox */
@@ -74,12 +74,39 @@
       }
     }
   }
+
+  @media @large {
+  }
+  @media @desktop, @desktop-strict {
+  }
+  @media @tablet, @tablet-strict {
+  }
+  @media @phone-strict {
+    .__capture {
+      font-size: @fontSize;
+    }
+    .__label {
+      ._capture {
+        font-size: @fontSize;
+      }
+    }
+  }
+  @media @phone {
+    .__capture {
+      font-size: @fontSizeS;
+    }
+    .__label {
+      ._capture {
+        font-size: @fontSizeS;
+      }
+    }
+  }
 }
 
 .CheckBox {
   /* Style the checkmark/indicator */
-  &__label {
-    &_checkdiv {
+  .__label {
+    ._checkdiv {
       .checkmark:after {
         left: 9px;
         top: 5px;
@@ -102,8 +129,8 @@
   }
 
   /* Style the indicator (dot/circle) */
-  &__label {
-    &_checkdiv {
+  .__label {
+    ._checkdiv {
       .checkmark:after {
         top: 9px;
         left: 9px;

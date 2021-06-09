@@ -1,5 +1,5 @@
 /**
- * @description Function to make active === true Course and Module by IDs
+ * @description Function to make isSelected === true Course and Module by IDs
  * @returns
  */
 export const getCourseModuleActive: Function = (
@@ -10,14 +10,14 @@ export const getCourseModuleActive: Function = (
   return courses.map(course => {
     const { modules } = course
     const modulesNext = modules.map(module => {
-      let active = false
-      if (module.moduleID === moduleID) active = true
-      return { ...module, active }
+      let isSelected = false
+      if (module.moduleID === moduleID) isSelected = true
+      return { ...module, isSelected }
     })
 
-    let active = false
-    if (course.courseID === courseID) active = true
+    let isSelected = false
+    if (course.courseID === courseID) isSelected = true
 
-    return { ...course, modules: modulesNext, active }
+    return { ...course, modules: modulesNext, isSelected }
   })
 }
