@@ -2,25 +2,24 @@ import React, { useState, useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 import { Helmet } from 'react-helmet'
 
+import { CarouselQuestions } from '../Components/CarouselQuestions'
 import { DICTIONARY } from '../../Constants/dictionary.const'
-import { PlayerPanel } from '../Components/PlayerPanel'
-import { LoaderBlurhash } from '../Components/LoaderBlurhash'
 import { getContentComponentName } from '../../Shared/getContentComponentName'
-import { getMultipliedTimeStr } from '../../Shared/getMultipliedTimeStr'
+import { getInitialTeachContentLoading } from '../Hooks/getInitialTeachContentLoading'
 import { getModuleByCourseIDIndex } from '../../Shared/getModuleByCourseIDIndex'
+import { getMultipliedTimeStr } from '../../Shared/getMultipliedTimeStr'
 import { getYouTubePlayerWorkHook } from '../Hooks/getYouTubePlayerWorkHook'
-import { VIDEO_RESOLUTION } from '../../Constants/videoResolution.const'
 import { handleEvents } from '../Hooks/handleEvents'
-import { QuestionScores } from '../Components/QuestionScores'
-import { ModalFrame } from '../Frames/ModalFrame'
+import { IDurationObj } from '../../Interfaces/IDurationObj'
 import { IRootStore } from '../../Interfaces/IRootStore'
 import { IRouterScreenProps } from '../../Interfaces/IRouterScreenProps'
-import { IDurationObj } from '../../Interfaces/IDurationObj'
+import { LoaderBlurhash } from '../Components/LoaderBlurhash'
 import { LoaderOverlay } from '../Components/LoaderOverlay'
 import { MainFrame } from '../Frames/MainFrame'
-import { ReaderIframe } from '../Frames/ReaderIframe'
 import { PlayerIframe } from '../Frames/PlayerIframe'
-import { CarouselQuestions } from '../Components/CarouselQuestions'
+import { PlayerPanel } from '../Components/PlayerPanel'
+import { ReaderIframe } from '../Frames/ReaderIframe'
+import { VIDEO_RESOLUTION } from '../../Constants/videoResolution.const'
 
 const COMPONENT = {
   ReaderIframe,
@@ -34,6 +33,8 @@ export const PresentAndSubscribe: React.FunctionComponent<any> = (
 
   const canonicalUrl = `https://yourails.com${props?.routeProps.location.pathname}`
   const screenType = 'PresentAndSubscribe'
+
+  getInitialTeachContentLoading()
 
   const store = useSelector((store: IRootStore) => store)
   const {
@@ -76,7 +77,7 @@ export const PresentAndSubscribe: React.FunctionComponent<any> = (
       handleEvents(
         {},
         {
-          type: 'REDUCE_QUESTIONS_NUMBER',
+          type: 'GET_COURSE_QUERY_PR_QN',
           data: { courseID, index },
         }
       )
@@ -200,7 +201,7 @@ export const PresentAndSubscribe: React.FunctionComponent<any> = (
   const textTooltip = DICTIONARY['pleaseRefreshWindow'][languageStore]
 
   const loaderBlurhashProps = {
-    isVisible,
+    isVisibleBlurHash: !isVisible,
     textTooltip,
     isTextTooltip: true,
     delay: 5000,
@@ -230,11 +231,6 @@ export const PresentAndSubscribe: React.FunctionComponent<any> = (
             </CONTENT_ASSIGNED_COMPONENT>
             <CarouselQuestions {...carouselQuestionsProps} />
           </MainFrame>
-
-          <ModalFrame childName={'QuestionScores'}>
-            <QuestionScores {...questionScoresProps} />
-          </ModalFrame>
-
           <LoaderOverlay isLoaderOverlayVisible={isLoaderOverlayVisible} />
         </>
       ) : null}

@@ -12,13 +12,13 @@ export const addDocumentConnector: Function = (
   vars: any,
   fragmentName: string
 ): any => {
-  const envType: string = getDetectedEnv('localServer')
+  const envType: string = getDetectedEnv()
   const env: string = envType === 'remote' ? 'production' : 'development'
 
   const obj: any = {
     testCapture: 'should return 200 code and data defined',
     method: 'post',
-    data: {
+    payload: {
       operationName: 'AddDocument',
       variables: {
         addDocumentInputGraphql: { ...vars, env },

@@ -1,11 +1,20 @@
+export interface IUser {
+  email: undefined | string
+  familyName: undefined | string
+  givenName: undefined | string
+  loginSource: undefined | string
+  phone?: undefined | number
+  picture?: undefined | string
+  roles: undefined | string
+  status: undefined | string
+  uid: undefined | string
+  uidExternal: undefined | string
+  userName: undefined | string
+  webToken: null | string
+}
+
 export interface IRootStore {
-  isLoaded: {
-    isLoadedGlobalVars: boolean
-    isLoadedCourses: boolean
-    mediaLoading: any
-  }
-  courses: any[]
-  globalVars: any
+  analyticsID: string
   componentsState: {
     questionsSlideNumber: number
     isModalFrameVisible: boolean
@@ -13,8 +22,20 @@ export interface IRootStore {
     isLoaderOverlayVisible: boolean
     isDocumentAdded: boolean
     isCourseStarted: boolean
+    isOAuthFacebookScriptLoaded: boolean
+    isOAuthVKontakteScriptLoaded: boolean
+    isOAuthGoogleScriptLoaded: boolean
+    oAuthStage: string | null
+    modalFrames: { childName: string; isActive: boolean; childProps: any }[]
   }
+  courses: any[]
+  documents: any[]
+  globalVars: any
   forms: {
+    userNameAuth: string
+    emailAuth: string
+    passwordAuth: string
+    passwordAuth2: string
     searchInput: string
     firstName: string
     middleName: string
@@ -22,7 +43,11 @@ export interface IRootStore {
     sendTo: string
     sendCc: string
   }
-  documents: any[]
+  isLoaded: {
+    isLoadedGlobalVars: boolean
+    isLoadedCourses: boolean
+    mediaLoading: any
+  }
   language: string
-  analyticsID: string
+  user: IUser
 }

@@ -1,13 +1,14 @@
 import { IRootStore } from '../../Interfaces/IRootStore'
 
-export const TOGGLE_MODAL_FRAME: Function = (
+export const SET_OAUTH_STAGE: Function = (
   store: IRootStore,
   data: any
 ): IRootStore => {
   const { componentsState } = store
   const componentsStateNext = {
     ...componentsState,
-    isModalFrameVisible: data,
+    oAuthStage: data,
   }
+
   return { ...store, componentsState: componentsStateNext }
 }

@@ -1,16 +1,23 @@
+import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { DICTIONARY } from '../../Constants/dictionary.const'
-import { isParsableInt } from '../../Shared/isParsableInt'
-import { getParsedUrlQuery } from '../../Shared/getParsedUrlQuery'
-import { getSavedAnanlyticsInitData } from '../../Analytics/getSavedAnanlyticsInitData'
 import { getAzProps } from '../../Analytics/getAzProps'
+import { getCopiedUrlToClipboard } from '../../Shared/getCopiedUrlToClipboard'
+import { getParsedUrlQuery } from '../../Shared/getParsedUrlQuery'
+import { getPrintedDocumentAs } from '../../Shared/getPrintedDocumentAs'
+import { getPrintScreenAsPdf } from '../../Shared/getPrintScreenAsPdf'
 import { getResultDataFromStore } from './getResultDataFromStore'
 import { getSavedAnanlyticsEvent } from '../../Analytics/getSavedAnanlyticsEvent'
-import { getCopiedUrlToClipboard } from '../../Shared/getCopiedUrlToClipboard'
-import { store } from '../../DataLayer/store'
-import * as action from '../../DataLayer/index.action'
-import { getPrintScreenAsPdf } from '../../Shared/getPrintScreenAsPdf'
-import { getPrintedDocumentAs } from '../../Shared/getPrintedDocumentAs'
+import { getSavedAnanlyticsInitData } from '../../Analytics/getSavedAnanlyticsInitData'
 import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
+import { isParsableInt } from '../../Shared/isParsableInt'
+import { store } from '../../DataLayer/store'
+import { userStoreDefault } from '../../DataLayer/rootStoreDefault'
+
+declare global {
+  interface Window {
+    google: any
+  }
+}
 
 interface Props {
   typeEvent: string
@@ -30,27 +37,315 @@ export const handleEvents: Function = (event: any, props: Props): void => {
       alert(message)
     },
 
+    SET_OAUTH_FB_SCRIPT_STATE: () => {
+      dispatch(actionSync.SET_OAUTH_FB_SCRIPT_STATE(data))
+    },
+
+    SET_OAUTH_VK_SCRIPT_STATE: () => {
+      dispatch(actionSync.SET_OAUTH_VK_SCRIPT_STATE(data))
+    },
+
+    SET_OAUTH_GOOGLE_SCRIPT_STATE: () => {
+      dispatch(actionSync.SET_OAUTH_GOOGLE_SCRIPT_STATE(data))
+    },
+
+    AUTH_FACEBOOK: () => {
+      const {
+        componentsState: { oAuthStage },
+      } = getState()
+      if (oAuthStage !== 'signInWithFacebook') return
+
+      const {
+        last_name: familyName,
+        first_name: givenName,
+        picture: {
+          data: { url: picture },
+        },
+        id: uidExternal,
+        name: userName,
+      } = data
+
+      // const resExample = {
+      //   first_name: 'Roman',
+      //   id: '4517874708264717',
+      //   last_name: 'Ch',
+      //   name: 'Roman Ch',
+      //   name_format: '{first} {last}',
+      //   picture: {
+      //     data: {
+      //       height: 50,
+      //       is_silhouette: false,
+      //       url: 'https://platform-lookaside.fbsbx.com/platform/prof…&width=50&ext=1630121681&hash=AeSSYfrS-fCfdwnHkuE',
+      //       width: 50,
+      //     },
+      //   },
+      //   short_name: 'Roman',
+      // }
+
+      dispatch(
+        actionAsync.GET_OAUTH_UI_DATA.REQUEST({
+          familyName,
+          givenName,
+          picture,
+          uidExternal,
+          userName,
+        })
+      )
+    },
+
+    AUTH_VKONTAKTE: () => {
+      const {
+        componentsState: { oAuthStage },
+      } = getState()
+      if (oAuthStage !== 'signInWithVkontakte') return
+
+      const {
+        last_name: familyName,
+        first_name: givenName,
+        photo: picture,
+        uid: uidExternal,
+      } = data
+
+      // const dataExample = {
+      //   first_name: 'Роман',
+      //   hash: '1cbcfa851256b76737c355ebd2cd779b',
+      //   last_name: 'Ческидов',
+      //   photo:
+      //     'https://sun6-21.userapi.com/s/v1/if1/afL13qbgr9g5v1YLZNMAGgx2eY_NFdBlN2QjAxyYXyoDcb8Ay8-V00YUJOpWiRTG0-U21sTQ.jpg?size=400x0&amp;quality=96&amp;crop=42,345,875,893&amp;ava=1',
+      //   photo_rec:
+      //     'https://sun6-21.userapi.com/s/v1/if1/t02T5kJSs9DzY4SAwLr4sbiE6NEvsrzhbcC_k5X3M6ZqMo0oErfH8W-V_K0VgP-d5lPa0ji-.jpg?size=100x0&amp;quality=96&amp;crop=59,375,788,788&amp;ava=1',
+      //   session: {
+      //     expire: 1627513816,
+      //     mid: 36823445,
+      //     secret: '70f51c998b',
+      //     sid: '658e0c483a0e6bfb998cf921eb1603ca0e2c9e15d6934d693caffbea9df2b0d360fe3ff9cfb9777bea4c5',
+      //     sig: '2bf1}ba46679fcc68257356730e8270af',
+      //   },
+      //   uid: 36823445,
+      // }
+
+      dispatch(
+        actionAsync.GET_OAUTH_UI_DATA.REQUEST({
+          familyName,
+          givenName,
+          picture,
+          uidExternal: uidExternal.toString(),
+          userName: `${givenName} ${familyName}`,
+        })
+      )
+    },
+
+    AUTH_GOOGLE: () => {
+      const {
+        componentsState: { oAuthStage },
+      } = getState()
+      if (oAuthStage !== 'signInWithGoogle') return
+
+      const [{ clientId, credential, select_by }] = data
+      dispatch(
+        actionAsync.GET_OAUTH_GOOGLE.REQUEST({
+          clientId,
+          credential,
+          select_by,
+        })
+      )
+    },
+
+    CLICK_AUTH_FACEBOOK: () => {
+      dispatch(actionSync.SET_OAUTH_STAGE('signInWithFacebook'))
+
+      const data = [
+        {
+          childName: 'AuthUser',
+          isActive: true,
+          childProps: { scenario: { branch: 'signInWithFacebook', step: '' } },
+        },
+      ]
+      dispatch(actionSync.SET_MODAL_FRAMES(data))
+    },
+
+    CLICK_AUTH_VKONTAKTE: () => {
+      dispatch(actionSync.SET_OAUTH_STAGE('signInWithVkontakte'))
+
+      const data = [
+        {
+          childName: 'AuthUser',
+          isActive: true,
+          childProps: { scenario: { branch: 'signInWithVkontakte', step: '' } },
+        },
+      ]
+      dispatch(actionSync.SET_MODAL_FRAMES(data))
+    },
+
+    CLICK_AUTH_GOOGLE: () => {
+      dispatch(actionSync.SET_OAUTH_STAGE('signInWithGoogle'))
+
+      const data = [
+        {
+          childName: 'AuthUser',
+          isActive: true,
+          childProps: { scenario: { branch: 'signInWithGoogle', step: '' } },
+        },
+      ]
+      dispatch(actionSync.SET_MODAL_FRAMES(data))
+
+      setTimeout(() => {
+        try {
+          window.google.accounts.id.prompt()
+        } catch (error) {
+          console.error('handleEvents [71]', { message: error.message })
+        }
+      }, 100)
+    },
+
+    ONCHANGE_USER_NAME_AUTH: () => {
+      const { value } = event.target as HTMLInputElement
+      dispatch(actionSync.ONCHANGE_USER_NAME_AUTH(value))
+    },
+
+    ONCHANGE_EMAIL_AUTH: () => {
+      const { value } = event.target as HTMLInputElement
+      dispatch(actionSync.ONCHANGE_EMAIL_AUTH(value))
+    },
+
+    ONCHANGE_PASSWORD_AUTH: () => {
+      const { value } = event.target as HTMLInputElement
+      dispatch(actionSync.ONCHANGE_PASSWORD_AUTH(value))
+    },
+
+    ONCHANGE_PASSWORD_AUTH_2: () => {
+      const { value } = event.target as HTMLInputElement
+      dispatch(actionSync.ONCHANGE_PASSWORD_AUTH_2(value))
+    },
+
+    GET_AUTH_SIGN_IN: () => {
+      dispatch(actionAsync.GET_AUTH_SIGN_IN.REQUEST())
+    },
+
+    GET_AUTH_SIGN_UP: () => {
+      dispatch(actionAsync.GET_AUTH_SIGN_UP.REQUEST())
+    },
+
+    SEND_AUTH_FORGET_PASSWORD: () => {
+      handleEvents({}, { typeEvent: 'DEV_STAGE' })
+    },
+
+    AUTH_SIGN_OUT: () => {
+      const data = [
+        {
+          childName: 'AuthUser',
+          isActive: false,
+          childProps: { scenario: { branch: 'signOut', step: '' } },
+        },
+      ]
+      dispatch(actionSync.SET_MODAL_FRAMES(data))
+
+      window.FB.logout(function (response) {
+        // console.info('handleEvents [248]', 'FB logout', { response })
+      })
+
+      dispatch(actionSync.SET_USER(userStoreDefault))
+    },
+
+    CLICK_SIGN_UP: () => {
+      const data = [
+        {
+          childName: 'AuthUser',
+          isActive: true,
+          childProps: { scenario: { branch: 'signUpManually', step: '' } },
+        },
+      ]
+      dispatch(actionSync.SET_MODAL_FRAMES(data))
+    },
+
+    CLICK_FORGET_PASSWORD: () => {
+      const data = [
+        {
+          childName: 'AuthUser',
+          isActive: true,
+          childProps: { scenario: { branch: 'forgetPassword', step: '' } },
+        },
+      ]
+      dispatch(actionSync.SET_MODAL_FRAMES(data))
+    },
+
+    CLICK_AUTH_SIGN_IN_UP_BACK: () => {
+      dispatch(actionSync.SET_OAUTH_STAGE('signInManually'))
+
+      const data = [
+        {
+          childName: 'AuthUser',
+          isActive: true,
+          childProps: { scenario: { branch: 'signInManually', step: '' } },
+        },
+      ]
+      dispatch(actionSync.SET_MODAL_FRAMES(data))
+    },
+
+    STOP_PROPAGATION: () => {
+      // event.persist()
+      // event.nativeEvent.stopImmediatePropagation()
+      event.stopPropagation()
+    },
+
+    CREATE_COURSE() {
+      const options = data
+      getSavedAnanlyticsEvent(
+        event,
+        getAzProps('CLICK_ADD_COURSE_BUTTON')(options)
+      )
+      this.DEV_STAGE()
+    },
+
     GO_HOME: () => {
       const { history } = data
       history.push('/home')
-      dispatch(action.TOGGLE_SIDE_NAVIGATION())
+      dispatch(actionSync.TOGGLE_SIDE_NAVIGATION())
     },
 
-    REDUCE_QUESTIONS_NUMBER: () => {
+    GET_INITIAL_QUERY_SETTING: () => {
+      const { si, search, searchInput, ln, language } = getParsedUrlQuery()
+
+      const searchInputIn = !!si
+        ? si
+        : !!search
+        ? search
+        : !!searchInput
+        ? searchInput
+        : undefined
+      const languageIn = !!ln ? ln : !!language ? language : undefined
+
+      dispatch(
+        actionSync.GET_INITIAL_QUERY_SETTING({
+          languageIn,
+          searchInputIn,
+        })
+      )
+    },
+
+    GET_COURSE_QUERY_PR_QN: () => {
       const { courseID, index } = data
-      const { qn, nq } = getParsedUrlQuery()
-      const questionNumber = qn || nq
+      const { pr, rp, qn, nq } = getParsedUrlQuery()
+
+      const passRateIn = !!pr
+        ? parseFloat(pr)
+        : !!rp
+        ? parseFloat(rp)
+        : undefined
+      const questionNumber = !!qn ? qn : !!nq ? nq : undefined
 
       const isReducing = questionNumber === 'all' || qn === 'inf' ? false : true
+
       let questionNumberIn =
         isParsableInt(questionNumber) && parseInt(questionNumber, 10)
 
       dispatch(
-        action.REDUCE_QUESTIONS_NUMBER({
+        actionSync.GET_COURSE_QUERY_PR_QN({
           courseID,
           index,
           isReducing,
           questionNumberIn,
+          passRateIn,
         })
       )
     },
@@ -60,6 +355,7 @@ export const handleEvents: Function = (event: any, props: Props): void => {
       const { documents } = getState()
       const documentsLen = documents.length
       const documentLast = documentsLen && documents[documentsLen - 1]
+
       const options = documentLast && {
         netTitle: buttonProps.netTitle,
         documentCapture: documentLast.capture,
@@ -79,9 +375,6 @@ export const handleEvents: Function = (event: any, props: Props): void => {
         event,
         getAzProps('FROM_CERTIFICATE_WENT_BACK')(data)
       )
-
-      const { history } = data
-      history.go(-1)
     },
 
     CLICK_LOGO_GROUP: () => {
@@ -94,7 +387,7 @@ export const handleEvents: Function = (event: any, props: Props): void => {
 
     TOGGLE_MEDIA_LOADED: () => {
       const { mediaKey, isMediaLoaded } = data
-      dispatch(action.TOGGLE_MEDIA_LOADED({ mediaKey, isMediaLoaded }))
+      dispatch(actionSync.TOGGLE_MEDIA_LOADED({ mediaKey, isMediaLoaded }))
     },
 
     TOGGLE_START_COURSE: () => {
@@ -111,39 +404,39 @@ export const handleEvents: Function = (event: any, props: Props): void => {
           })
         )
 
-      dispatch(action.TOGGLE_START_COURSE(isStarting))
+      dispatch(actionSync.TOGGLE_START_COURSE(isStarting))
     },
 
     ONCHANGE_SEARCH_INPUT: () => {
       const { value } = event.target as HTMLInputElement
-      dispatch(action.ONCHANGE_SEARCH_INPUT(value))
+      dispatch(actionSync.ONCHANGE_SEARCH_INPUT(value))
     },
 
     SELECT_LANGUAGE: () => {
       getSavedAnanlyticsEvent(event, getAzProps('LANGUAGE_SELECTED')(data))
 
-      dispatch(action.SELECT_LANGUAGE(data))
+      dispatch(actionSync.SELECT_LANGUAGE(data))
       getSetObjToLocalStorage({ language: data })
     },
 
     SEND_EMAIL_DOCUMENT: () => {
       getSavedAnanlyticsEvent(event, getAzProps('DOCUMENT_EMAIL_SENT')(data))
 
-      dispatch(action.SEND_EMAIL_DOCUMENT.REQUEST(data))
+      dispatch(actionAsync.SEND_EMAIL_DOCUMENT.REQUEST(data))
     },
 
     ONCHANGE_EMAIL_CC: () => {
       const { value } = event.target as HTMLInputElement
-      dispatch(action.ONCHANGE_EMAIL_CC(value))
+      dispatch(actionSync.ONCHANGE_EMAIL_CC(value))
     },
 
     ONCHANGE_EMAIL_TO: () => {
       const { value } = event.target as HTMLInputElement
-      dispatch(action.ONCHANGE_EMAIL_TO(value))
+      dispatch(actionSync.ONCHANGE_EMAIL_TO(value))
     },
 
-    TOGGLE_MODAL_FRAME: () => {
-      dispatch(action.TOGGLE_MODAL_FRAME(data))
+    SET_MODAL_FRAMES: () => {
+      dispatch(actionSync.SET_MODAL_FRAMES(data))
     },
 
     COPY_URL_TO_CLIPBOARD: () => {
@@ -153,7 +446,7 @@ export const handleEvents: Function = (event: any, props: Props): void => {
     },
 
     TOGGLE_IS_DOCUMENT_ADDED: () => {
-      dispatch(action.TOGGLE_IS_DOCUMENT_ADDED(data))
+      dispatch(actionSync.TOGGLE_IS_DOCUMENT_ADDED(data))
     },
 
     PRINT_DOCUMENT: () => {
@@ -163,24 +456,23 @@ export const handleEvents: Function = (event: any, props: Props): void => {
     },
 
     FIND_DOCUMENT: () => {
-      dispatch(action.FIND_DOCUMENT.REQUEST(data))
+      dispatch(actionAsync.FIND_DOCUMENT.REQUEST(data))
     },
 
     ADD_DOCUMENT: () => {
       const { courses } = getState()
       const options = getResultDataFromStore(courses)
-
       event?.preventDefault &&
         getSavedAnanlyticsEvent(
           event,
           getAzProps('PERSONAL_DATA_SUBMITTED')(options)
         )
 
-      dispatch(action.ADD_DOCUMENT.REQUEST(data))
+      dispatch(actionAsync.ADD_DOCUMENT.REQUEST(data))
     },
 
     SET_QUESTION_SLIDE: () => {
-      dispatch(action.SET_QUESTION_SLIDE(data))
+      dispatch(actionSync.SET_QUESTION_SLIDE(data))
     },
 
     PLUS_QUESTION_SLIDE: () => {
@@ -199,22 +491,22 @@ export const handleEvents: Function = (event: any, props: Props): void => {
           getAzProps('QUESTIONS_STEPPED_FORWARD')(options)
         )
 
-      dispatch(action.PLUS_QUESTION_SLIDE(data))
+      dispatch(actionSync.PLUS_QUESTION_SLIDE(data))
     },
 
     ONCHANGE_FIRST_NAME_MODAL: () => {
       const { value } = event.target as HTMLInputElement
-      dispatch(action.ONCHANGE_FIRST_NAME_MODAL(value))
+      dispatch(actionSync.ONCHANGE_FIRST_NAME_MODAL(value))
     },
 
     ONCHANGE_MIDDLE_NAME_MODAL: () => {
       const { value } = event.target as HTMLInputElement
-      dispatch(action.ONCHANGE_MIDDLE_NAME_MODAL(value))
+      dispatch(actionSync.ONCHANGE_MIDDLE_NAME_MODAL(value))
     },
 
     ONCHANGE_LAST_NAME_MODAL: () => {
       const { value } = event.target as HTMLInputElement
-      dispatch(action.ONCHANGE_LAST_NAME_MODAL(value))
+      dispatch(actionSync.ONCHANGE_LAST_NAME_MODAL(value))
     },
 
     CLOSE_MODAL_GET_SCORES: () => {
@@ -223,23 +515,20 @@ export const handleEvents: Function = (event: any, props: Props): void => {
       event?.preventDefault &&
         getSavedAnanlyticsEvent(event, getAzProps('WENT_BACK')(options))
 
-      dispatch(action.GET_ANSWERS_DEFAULT())
-      dispatch(action.SET_QUESTION_SLIDE(0))
-      dispatch(action.TOGGLE_MODAL_FRAME(false))
-    },
-
-    OPEN_MODAL_GET_SCORES: () => {
-      const { courses } = getState()
-      const options = getResultDataFromStore(courses)
-      event?.preventDefault &&
-        getSavedAnanlyticsEvent(event, getAzProps('RESULTS_SUBMITTED')(options))
-
-      dispatch(action.TOGGLE_MODAL_FRAME(true))
+      dispatch(actionSync.GET_ANSWERS_DEFAULT())
+      dispatch(actionSync.SET_QUESTION_SLIDE(0))
+      dispatch(
+        actionSync.SET_MODAL_FRAMES([
+          {
+            childName: 'QuestionScores',
+            isActive: false,
+            childProps: {},
+          },
+        ])
+      )
     },
 
     PRINT_SCORES: () => {
-      dispatch(action.TOGGLE_MODAL_FRAME(false))
-
       const {
         screenType,
         userName,
@@ -261,29 +550,27 @@ export const handleEvents: Function = (event: any, props: Props): void => {
         contentID,
       })
 
-      dispatch(action.GET_ANSWERS_DEFAULT())
-    },
-
-    COUNT_MODULE_QUIZ_SCORE: () => {
-      dispatch(action.TOGGLE_MODAL_FRAME(true))
+      dispatch(actionSync.GET_ANSWERS_DEFAULT())
     },
 
     SELECT_COURSE_MODULE_CONTENTID: () => {
-      dispatch(action.SELECT_COURSE_MODULE_CONTENTID(data))
+      dispatch(actionSync.SELECT_COURSE_MODULE_CONTENTID(data))
     },
 
     SELECT_COURSE_MODULE: () => {
       getSavedAnanlyticsEvent(event, getAzProps('COURSE_PLATE_CLICKED')(data))
 
-      dispatch(action.SELECT_COURSE_MODULE(data))
+      dispatch(actionSync.SELECT_COURSE_MODULE(data))
     },
 
     CLICK_CHECK: () => {
-      dispatch(action.CLICK_CHECK(data))
+      dispatch(actionSync.CLICK_CHECK(data))
     },
 
     TOGGLE_SIDE_NAVIGATION: () => {
-      dispatch(action.TOGGLE_SIDE_NAVIGATION())
+      event.stopPropagation()
+
+      dispatch(actionSync.TOGGLE_SIDE_NAVIGATION())
 
       getSavedAnanlyticsEvent(event, getAzProps('SIDE_PANEL_TOGGLED')())
     },

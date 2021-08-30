@@ -5,6 +5,86 @@ export const DICTIONARY = {
     en: '_',
     ru: '_',
   },
+  Name: {
+    en: 'Name',
+    ru: 'Имя',
+  },
+  SignOut: {
+    en: 'Sign out',
+    ru: 'Выйти',
+  },
+  Back: {
+    en: 'Back',
+    ru: 'Назад',
+  },
+  Next: {
+    en: 'Next',
+    ru: 'Далее',
+  },
+  orSignInManually: {
+    en: 'Or sign in manually:',
+    ru: 'Или авторизуйтесь через эл. адрес',
+  },
+  or: {
+    en: 'or',
+    ru: 'или',
+  },
+  loginSocialMediaEmail: {
+    en: 'Login with Social Media or Email',
+    ru: 'Авторизация через соцсети или эл. адрес',
+  },
+  InputYourEmailToResetPassword: {
+    en: 'Input your email to reset password',
+    ru: 'Введите ваш эл. адрес',
+  },
+  ForgetPassword: {
+    en: 'Forget password',
+    ru: 'Забыл пароль',
+  },
+  SignUp: {
+    en: 'Sign Up',
+    ru: 'Регистрация',
+  },
+  loginWithFacebook: {
+    en: 'Login with Facebook',
+    ru: 'Логин с Facebook',
+  },
+  loginWithVkontakte: {
+    en: 'Login with Vkontakte',
+    ru: 'Логин с ВКонтакте',
+  },
+  loginWithTwitter: {
+    en: 'Login with Twitter',
+    ru: 'Логин с Twitter',
+  },
+  loginWithGoogle: {
+    en: 'Login with Google',
+    ru: 'Логин с Google',
+  },
+  username: {
+    en: 'Username',
+    ru: 'Имя пользователя',
+  },
+  Email: {
+    en: 'Email',
+    ru: 'Эл. адрес',
+  },
+  Password: {
+    en: 'Password',
+    ru: 'Пароль',
+  },
+  RepeatPassword: {
+    en: 'Repeat password',
+    ru: 'Повторите пароль',
+  },
+  Login: {
+    en: 'Login',
+    ru: 'Логин',
+  },
+  createCourseQuiz: {
+    en: 'Create course / quiz',
+    ru: 'Создать курс / викторину',
+  },
   pleaseWait: {
     en: 'Loading ... Please wait or select the course',
     ru: 'Загружаю ... Пожалуйста подождите или выберите курс',

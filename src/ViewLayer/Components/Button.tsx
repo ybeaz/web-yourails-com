@@ -3,6 +3,8 @@ import React from 'react'
 import { handleEvents } from '../Hooks/handleEvents'
 import { IconContext } from 'react-icons'
 import {
+  MdAddBox,
+  MdQueue,
   MdHome,
   MdContactMail,
   MdAddShoppingCart,
@@ -20,10 +22,17 @@ import {
   MdSearch,
 } from 'react-icons/md'
 
+import { FaFacebook, FaVk, FaTwitter, FaGooglePlusG } from 'react-icons/fa'
 import { BsLink45Deg, BsQuestionCircle } from 'react-icons/bs'
 import { HiOutlineAcademicCap } from 'react-icons/hi'
 
 const ICON = {
+  FaFacebook,
+  FaVk,
+  FaTwitter,
+  FaGooglePlusG,
+  MdAddBox,
+  MdQueue,
   MdHome,
   MdContactMail,
   MdAddShoppingCart,
@@ -53,7 +62,8 @@ interface IButton {
   isDisplaying?: boolean // is the button displaing at all
   tooltipText?: string
   tooltipPosition?: string // options: ['top','right','bottom','left']
-  isTooltipVisible?: boolean // is tooltipls visible anyway? [true, false] by default: false
+  isTooltipVisible?: boolean
+  isUnderlined?: boolean
   handleEvents?: Function
 }
 
@@ -71,6 +81,7 @@ export const Button: React.FunctionComponent<any> = (
     tooltipText = '',
     tooltipPosition = '',
     isTooltipVisible = false,
+    isUnderlined = false,
     handleEvents: handleEventsCustom,
   } = props
   const Icon = ICON[icon]
@@ -95,13 +106,15 @@ export const Button: React.FunctionComponent<any> = (
   return (
     <div className={`Button ${classAdded} ${classDisplay}`}>
       {tooltipText ? (
-        <div className={`__tooltipText ${classTooltipAdd}`}>{tooltipText}</div>
+        <span className={`__tooltipText ${classTooltipAdd}`}>
+          {tooltipText}
+        </span>
       ) : null}
 
       <button
         className={`__button`}
         type='button'
-        onClick={event => handleEventsToUse(event, action)}
+        onClickCapture={event => handleEventsToUse(event, action)}
       >
         {captureLeft ? (
           <div className={`_in`}>
@@ -134,6 +147,7 @@ export const Button: React.FunctionComponent<any> = (
           </div>
         ) : null}
       </button>
+      {isUnderlined && <hr className='__underlined' />}
     </div>
   )
 }

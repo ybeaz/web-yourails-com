@@ -1,13 +1,20 @@
+export const userStoreDefault = {
+  email: undefined,
+  familyName: undefined,
+  givenName: undefined,
+  loginSource: undefined,
+  phone: undefined,
+  picture: undefined,
+  roles: undefined,
+  status: undefined,
+  uid: undefined,
+  uidExternal: undefined,
+  userName: undefined,
+  webToken: null,
+}
+
 export const rootStoreDefault = {
-  isLoaded: {
-    isLoadedGlobalVars: false,
-    isLoadedCourses: false,
-    mediaLoading: {},
-  },
-  courses: [],
-  globalVars: {
-    numberQuestionsInSlide: 2,
-  },
+  analyticsID: null,
   componentsState: {
     questionsSlideNumber: 0,
     isModalFrameVisible: false,
@@ -15,8 +22,30 @@ export const rootStoreDefault = {
     isLoaderOverlayVisible: false,
     isDocumentAdded: false,
     isCourseStarted: false,
+    isOAuthFacebookScriptLoaded: false,
+    isOAuthVKontakteScriptLoaded: false,
+    isOAuthGoogleScriptLoaded: false,
+    oAuthStage: null,
+    modalFrames: [
+      {
+        childName: 'AuthUser',
+        isActive: false,
+        childProps: {
+          scenario: { branch: 'signInManually', step: '' }, // signInWithVkontakte signInWithFacebook signInWithGoogle signInManually
+        },
+      },
+    ],
+  },
+  courses: [],
+  documents: [],
+  globalVars: {
+    numberQuestionsInSlide: 2,
   },
   forms: {
+    userNameAuth: '',
+    emailAuth: '',
+    passwordAuth: '',
+    passwordAuth2: '',
     searchInput: '',
     firstName: '',
     middleName: '',
@@ -24,7 +53,11 @@ export const rootStoreDefault = {
     sendTo: '',
     sendCc: '',
   },
-  documents: [],
+  isLoaded: {
+    isLoadedGlobalVars: false,
+    isLoadedCourses: false,
+    mediaLoading: {},
+  },
   language: 'ru',
-  analyticsID: null,
+  user: userStoreDefault,
 }

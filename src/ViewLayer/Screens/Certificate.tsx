@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import styled from 'styled-components'
 
-import { DICTIONARY } from '../../Constants/dictionary.const'
-import { getSlug } from '../../Shared/getSlug'
-import { EmalInputs } from '../Components/EmalInputs'
-import { ModalFrame } from '../Frames/ModalFrame'
-import { HeaderFrame } from '../Frames/HeaderFrame'
-import { IRouterScreenProps } from '../../Interfaces/IRouterScreenProps'
-import { ShareButtons } from '../Components/ShareButtons'
 import { Button } from '../Components/Button'
-import { IRootStore } from '../../Interfaces/IRootStore'
-import { handleEvents } from '../Hooks/handleEvents'
-import { LoaderOverlay } from '../Components/LoaderOverlay'
+import { DICTIONARY } from '../../Constants/dictionary.const'
 import { getDateString } from '../../Shared/getDateString'
+import { getInitialTeachContentLoading } from '../Hooks/getInitialTeachContentLoading'
+import { getSlug } from '../../Shared/getSlug'
+import { handleEvents } from '../Hooks/handleEvents'
+import { HeaderFrame } from '../Frames/HeaderFrame'
+import { IRootStore } from '../../Interfaces/IRootStore'
+import { IRouterScreenProps } from '../../Interfaces/IRouterScreenProps'
+import { LoaderOverlay } from '../Components/LoaderOverlay'
+import { ShareButtons } from '../Components/ShareButtons'
 
 export const Certificate: React.FunctionComponent<any> = (
   props: IRouterScreenProps
@@ -26,6 +26,8 @@ export const Certificate: React.FunctionComponent<any> = (
       },
     },
   } = props
+
+  getInitialTeachContentLoading()
 
   let history = useHistory()
   const store = useSelector((store: IRootStore) => store)
@@ -108,7 +110,16 @@ export const Certificate: React.FunctionComponent<any> = (
   const buttonEmailProps = {
     icon: 'MdMailOutline',
     classAdded: 'Button_UseCertificate',
-    action: { typeEvent: 'TOGGLE_MODAL_FRAME', data: true },
+    action: {
+      typeEvent: 'SET_MODAL_FRAMES',
+      data: [
+        {
+          childName: 'EmalInputs',
+          isActive: true,
+          childProps: { documentID },
+        },
+      ],
+    },
     tooltipText: DICTIONARY['sendToEmail'][language],
     tooltipPosition: 'bottom',
   }
@@ -128,16 +139,19 @@ export const Certificate: React.FunctionComponent<any> = (
     ? `${lastName} ${firstName} ${middleName}`
     : `${lastName} ${firstName}`
 
-  const emailInputsProps = { documentID }
+  // const emailInputsProps = { documentID }
 
   const slug = getSlug(courseCapture)
   const coursePathName = `/c/${courseID}/${slug}`
+  // console.info('Certificate [143]', { documents, language, coursePathName })
 
   return (
     <div className='Certificate'>
       <div className='_buttons Certificate_noPrint'>
         <HeaderFrame>
-          <Button {...buttonBackProps} />
+          <Link to={{ pathname: '/home' }}>
+            <Button {...buttonBackProps} />
+          </Link>
           <div className='__navigation'>
             <div className='_buttons'>
               <Button {...buttonPrintProps} />
@@ -147,9 +161,9 @@ export const Certificate: React.FunctionComponent<any> = (
             </div>
           </div>
         </HeaderFrame>
-        <ModalFrame childName={'EmalInputs'}>
+        {/* <ModalFrame childName={'EmalInputs'}>
           <EmalInputs {...emailInputsProps} />
-        </ModalFrame>
+        </ModalFrame> */}
       </div>
 
       <div className='container pm-certificate-container'>

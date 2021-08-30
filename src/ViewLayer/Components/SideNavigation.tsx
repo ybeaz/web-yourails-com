@@ -2,18 +2,22 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
+import { handleEvents } from '../Hooks/handleEvents'
 import { DICTIONARY } from '../../Constants/dictionary.const'
 import { LanguageSelect } from './LanguageSelect'
 import { IRootStore } from '../../Interfaces/IRootStore'
-import { LogoGroup } from './LogoGroup'
 import { Button } from './Button'
 
 export const SideNavigation: React.FunctionComponent<any> = (): JSX.Element => {
   const store = useSelector((store: IRootStore) => store)
   const {
+    user,
     language,
     componentsState: { isSideNavVisible },
   } = store
+
+  const status = user?.status
+
   let history = useHistory()
 
   const buttonMdMenuProps = {
@@ -32,9 +36,21 @@ export const SideNavigation: React.FunctionComponent<any> = (): JSX.Element => {
       action: { typeEvent: 'GO_HOME', data: { history } },
     },
     {
+      icon: 'MdQueue',
+      captureRight: DICTIONARY.createCourseQuiz[language],
+      classAdded: 'Button_sideMenuItems',
+      action: {
+        typeEvent: 'CREATE_COURSE',
+        data: { contentComponentName: 'SideNavigation' },
+      },
+    },
+    {
       icon: 'MdPerson',
       captureRight: DICTIONARY.PersonalСabinet[language],
-      classAdded: 'Button_sideMenuItems',
+      classAdded:
+        status === 'success'
+          ? 'Button_sideMenuItems Button_personalCabinet_authorized'
+          : 'Button_sideMenuItems',
       action: { typeEvent: 'DEV_STAGE' },
     },
     {
@@ -70,16 +86,24 @@ export const SideNavigation: React.FunctionComponent<any> = (): JSX.Element => {
   const classNameAdd = isSideNavVisible ? 'SideNavigation_show' : ''
 
   return (
-    <div className={`SideNavigation ${classNameAdd}`}>
-      <div className='__buttonLogoGroup'>
-        <Button {...buttonMdMenuProps} />
-        <LogoGroup />
-      </div>
-      <div className='__menuGroup'>
-        <div className='_groupItem _languageSelect'>
-          <LanguageSelect />
+    <div
+      className={`SideNavigation ${classNameAdd}`}
+      onClick={event =>
+        handleEvents(event, { typeEvent: 'TOGGLE_SIDE_NAVIGATION' })
+      }
+    >
+      <div
+        className='__content'
+        onClick={event =>
+          handleEvents(event, { typeEvent: 'STOP_PROPAGATION' })
+        }
+      >
+        <div className='__menuGroup'>
+          <div className='_groupItem _languageSelect'>
+            <LanguageSelect />
+          </div>
+          {getButtons(buttonPropsArr)}
         </div>
-        {getButtons(buttonPropsArr)}
       </div>
     </div>
   )

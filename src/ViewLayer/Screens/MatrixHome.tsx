@@ -2,25 +2,24 @@ import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Helmet } from 'react-helmet'
 
-import { SITE_META_DATA } from '../../Constants/siteMetaData'
-import { getContentComponentName } from '../../Shared/getContentComponentName'
-import { SearchGroup } from '../Components/SearchGroup'
-import { IDurationObj } from '../../Interfaces/IDurationObj'
-import { getMultipliedTimeStr } from '../../Shared/getMultipliedTimeStr'
-import { MainFrame } from '../Frames/MainFrame'
-import { IRouterScreenProps } from '../../Interfaces/IRouterScreenProps'
-import { IRootStore } from '../../Interfaces/IRootStore'
 import { ContentPlate } from '../Components/ContentPlate'
+import { getContentComponentName } from '../../Shared/getContentComponentName'
+import { getInitialTeachContentLoading } from '../Hooks/getInitialTeachContentLoading'
+import { getMultipliedTimeStr } from '../../Shared/getMultipliedTimeStr'
+import { IDurationObj } from '../../Interfaces/IDurationObj'
+import { IRootStore } from '../../Interfaces/IRootStore'
+import { IRouterScreenProps } from '../../Interfaces/IRouterScreenProps'
+import { MainFrame } from '../Frames/MainFrame'
+import { SearchGroup } from '../Components/SearchGroup'
+import { SITE_META_DATA } from '../../Constants/siteMetaData'
 
 export const MatrixHome: React.FunctionComponent<any> = (
   props: IRouterScreenProps
 ): JSX.Element => {
-  const {
-    titleSite,
-    descriptionSite,
-    canonicalUrlSite,
-    langSite,
-  } = SITE_META_DATA
+  getInitialTeachContentLoading()
+
+  const { titleSite, descriptionSite, canonicalUrlSite, langSite } =
+    SITE_META_DATA
 
   const store = useSelector((store: IRootStore) => store)
   const {

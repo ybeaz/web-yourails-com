@@ -1,8 +1,13 @@
 .QuestionScores {
+  display: flex;
+  flex-direction: column;
+  z-index: 20;
+
   ._text {
     display: flex;
     padding: 1rem 0 1rem 0;
     flex-direction: column;
+    text-align: initial;
 
     ._greet {
       display: flex;
@@ -26,6 +31,7 @@
 
       ._label {
         padding: 0 0 0.5rem 0.3rem;
+        text-align: initial;
       }
     }
     /* Clear floats */

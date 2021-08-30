@@ -15,13 +15,13 @@ export const sendEmailDocumentConnector: Function = (
   sendBcc: string,
   fragmentName: string
 ): any => {
-  const envType: string = getDetectedEnv('localServer')
+  const envType: string = getDetectedEnv()
   const env: string = envType === 'remote' ? 'production' : 'development'
 
   const obj: any = {
     testCapture: 'should return 200 code and data defined',
     method: 'post',
-    data: {
+    payload: {
       operationName: 'SendEmailDocument',
       variables: {
         documentID,
