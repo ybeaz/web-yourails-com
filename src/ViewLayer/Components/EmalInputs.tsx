@@ -1,20 +1,18 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 import { IRootStore } from '../../Interfaces/IRootStore'
 import { Input } from '../Components/Input'
 import { Button } from '../Components/Button'
 
-interface EmalInputsInput {
+interface EmalInputsArgs {
   documentID: string
 }
 
-export const EmalInputs: React.FunctionComponent<any> = (
-  props: EmalInputsInput
-): JSX.Element => {
+export const EmalInputs: React.FunctionComponent<EmalInputsArgs> = props => {
   const { documentID } = props
 
-  const store = useSelector((store: IRootStore) => store)
+  const store = useSelector((store2: IRootStore) => store2)
 
   const {
     documents,

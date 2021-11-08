@@ -1,8 +1,20 @@
-import { createSyncActions, ICreateSyncAction } from './createActionsSync'
-import { createAsyncAction, ICreateAsyncAction } from './createActionsAsync'
+import { createSyncActions, CreateSyncAction } from './createActionsSync'
+import { createAsyncAction, CreateAsyncAction } from './createActionsAsync'
 
 // Synchroneours redux actions
-const ACTIONS_SYNC = [
+const ACTIONS_SYNC: string[] = [
+  'SEP_SELECT_SKILLS_OFFERED',
+  'SEP_SELECT_SKILLS_REQUIRED',
+  'SEP_SELECT_COUNTRY_REQUIRED',
+  'SEP_SELECT_LANGUAGE_REQUIRED',
+  'SEP_INPUT_AGE_FROM_REQUIRED',
+  'SEP_INPUT_AGE_TO_REQUIRED',
+  'SEP_SELECT_GENDER_REQUIRED',
+  'SEP_SELECT_MEDIA_REQUIRED',
+  'SEP_INPUT_DESCRIPTION_REQUIRED',
+  'SEP_SELECT_SORT_BY',
+  'SEP_CLICK_BUTTON_SEARCH',
+  'SET_THEME',
   'SET_OAUTH_STAGE',
   'SET_OAUTH_FB_SCRIPT_STATE',
   'SET_OAUTH_VK_SCRIPT_STATE',
@@ -38,7 +50,7 @@ const ACTIONS_SYNC = [
 ]
 
 // Asynchroneous actions for saga
-const ACTION_ASYNC = [
+const ACTION_ASYNC: string[] = [
   'GET_OAUTH_UI_DATA',
   'GET_OAUTH_GOOGLE',
   'GET_AUTH_WEB_TOKEN',
@@ -52,8 +64,8 @@ const ACTION_ASYNC = [
   'GET_GLOBAL_VARS',
 ]
 
-export const actionSync: ICreateSyncAction = createSyncActions(ACTIONS_SYNC)
-export const actionAsync: ICreateAsyncAction = createAsyncAction(ACTION_ASYNC)
+export const actionSync: CreateSyncAction = createSyncActions(ACTIONS_SYNC)
+export const actionAsync: CreateAsyncAction = createAsyncAction(ACTION_ASYNC)
 
 // Example of the sync action
 // export const TEST_ACTION: Function = (data: any = true): IAction => ({

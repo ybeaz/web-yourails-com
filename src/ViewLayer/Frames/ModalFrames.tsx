@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 import { AuthUser } from '../Components/AuthUser'
 import { Button } from '../Components/Button'
 import { EmalInputs } from '../Components/EmalInputs'
-import { handleEvents } from '../Hooks/handleEvents'
+import { handleEvents } from '../../DataLayer/index.handleEvents'
 import { IRootStore } from '../../Interfaces/IRootStore'
 import { QuestionScores } from '../Components/QuestionScores'
 
@@ -15,14 +14,10 @@ const CHILDREN = {
   QuestionScores,
 }
 
-interface IModalFramesInput {}
-
-export const ModalFrames: React.FunctionComponent<any> = (
-  props: IModalFramesInput
-): JSX.Element => {
-  const store = useSelector((store: IRootStore) => store)
+export const ModalFrames: React.FunctionComponent = (): JSX.Element => {
+  const store = useSelector((store2: IRootStore) => store2)
   const {
-    componentsState: { oAuthStage, modalFrames },
+    componentsState: { modalFrames },
   } = store
 
   const getChildren: Function = (children: any[]): JSX.Element[] => {

@@ -1,4 +1,4 @@
-interface IRgetActiveCourseData {
+interface GetActiveCourseData {
   courseActive: any
   moduleActive: any
   questionsActive: any[]
@@ -11,19 +11,22 @@ interface IRgetActiveCourseData {
  */
 export const getActiveCourseData: Function = (
   courses: any[]
-): IRgetActiveCourseData => {
+): GetActiveCourseData => {
   const res = {
-    courseActive: {},
+    courseActive: { courseID: '', capture: '' },
     moduleActive: {},
     questionsActive: [],
   }
 
   try {
-    const courseActive = courses.find(course => course.isSelected === true)
+    const courseActive = courses.find(course => course.isSelected === true) || {
+      courseID: '',
+      capture: '',
+    }
 
-    const moduleActive = courseActive.modules.find(
-      module => module.isSelected === true
-    )
+    const moduleActive = courseActive?.modules
+      ? courseActive?.modules.find(module => module.isSelected === true)
+      : {}
 
     const questionsActive = moduleActive?.questions
       ? moduleActive.questions

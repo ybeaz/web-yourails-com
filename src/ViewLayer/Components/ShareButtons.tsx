@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -14,7 +14,7 @@ import {
   TelegramIcon,
 } from 'react-share'
 
-import { handleEvents } from '../Hooks/handleEvents'
+import { handleEvents } from '../../DataLayer/index.handleEvents'
 
 interface INetShareData {
   ButtonComponent: any

@@ -1,101 +1,81 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
-import { IRootStore } from './Interfaces/IRootStore'
-import { MatrixHome } from './ViewLayer/Screens/MatrixHome'
-import { PresentAndSubscribe } from './ViewLayer/Screens/PresentAndSubscribe'
+import { routes } from './Constants/routes.const'
+import { SkillsExchangeSearch } from './ViewLayer/Screens/SkillsExchangeSearch'
+import { SkillsExchangeSearchChRP } from './ViewLayer/Screens/SkillsExchangeSearchChRP'
+import { AcademyMatrix } from './ViewLayer/Screens/AcademyMatrix'
+import { AcademyPresent } from './ViewLayer/Screens/AcademyPresent'
 import { Error404 } from './ViewLayer/Screens/Error404'
 import { Certificate } from './ViewLayer/Screens/Certificate'
 
 const PAGES = {
-  MatrixHome,
+  SkillsExchangeSearch,
+  SkillsExchangeSearchChRP,
+  AcademyMatrix,
   Certificate,
-  PresentAndSubscribe,
+  AcademyPresent,
   Error404,
 }
 
 export const RouterScreensConfig: React.FunctionComponent<any> = () => {
-  const dispatch = useDispatch()
-
   const demoHostName = 'r1.userto.com'
   const demoPath = '/demo-youtube-learn.html'
   const rootPath = location.hostname === demoHostName ? demoPath : ''
 
-  const isDemoHost =
-    location.hostname === demoHostName ||
-    location.pathname.endsWith('/demo-earthquake-zen-garden-js.html')
-  const slash = isDemoHost ? '/' : ''
-
-  const { router } = {
-    router: {
-      routes: [
-        {
-          path: `/d/:documentID`,
-          strict: true,
-          page: 'Certificate',
-        },
-        {
-          path: `/Certificate-styled`,
-          exact: true,
-          page: 'CertificateStyled',
-        },
-        {
-          path: `/certificate`,
-          exact: true,
-          page: 'Certificate',
-        },
-        {
-          path: `/c/:courseID`,
-          strict: true,
-          page: 'PresentAndSubscribe',
-        },
-        {
-          path: `/home`,
-          exact: true,
-          page: 'MatrixHome',
-        },
-        {
-          path: `${demoPath}/home`,
-          exact: true,
-          page: 'MatrixHome',
-        },
-        { path: `/`, exact: true, page: 'MatrixHome' },
-      ],
-      redirects: [
-        { from: `${demoPath}`, to: `${demoPath}/home`, exact: true },
-        { from: `/home2`, to: `home`, exact: true },
-      ],
-    },
+  interface IGetRoutes {
+    (
+      routesArg: {
+        path: string
+        strict?: boolean
+        exact?: boolean
+        page: string
+        themeDafault: string
+      }[]
+    ): JSX.Element[]
   }
 
-  const { routes, redirects } = router
-
-  const getRoutes = () =>
-    routes.map((route, i) => {
-      const { path, exact, page } = route
+  const getRoutes: IGetRoutes = routesArg =>
+    routesArg.map(route => {
+      const { path, exact, page, themeDafault } = route
       const Page = PAGES[page]
       return (
         <Route
           exact={exact}
           path={path}
           render={routeProps => {
-            // console.info('RouterProvider [65] a route', {
+            const pageProps = { rootPath, routeProps, themeDafault }
+            // console.info('RouterScreensConfig [44]', {
+            //   pageProps,
             //   rootPath,
             //   routeProps,
             //   hostname: location.hostname,
             //   location,
             // })
-            const pageProps = { rootPath, routeProps }
             return <Page {...pageProps} />
           }}
         />
       )
     })
 
-  const getRedirects: Function = (): JSX.Element[] =>
-    redirects.map(redirect => {
-      const { from: fromPath, to: toPath, exact } = redirect
+  const redirects = [
+    { from: `${demoPath}`, to: `${demoPath}/home`, exact: true },
+    { from: `/home2`, to: `home`, exact: true },
+  ]
+  interface IGetRedirects {
+    (
+      redirectsArg: {
+        from: string
+        to: string
+        strict?: boolean
+        exact?: boolean
+      }[]
+    ): JSX.Element[]
+  }
+
+  const getRedirects: IGetRedirects = redirectsArg =>
+    redirectsArg.map(redirect => {
+      const { from: fromPath, to: toPath } = redirect
       const from = `${fromPath}`
       const to = `${toPath}`
       return (() => {
@@ -119,27 +99,11 @@ export const RouterScreensConfig: React.FunctionComponent<any> = () => {
     )
   }
 
-  const getThemeRemotely: Function = () => {
-    try {
-      document.getElementsByTagName('body')[0].style.display = 'none'
-      const { globalVars } = useSelector((store: IRootStore) => store)
-      const { theme } = globalVars
-      if (theme) {
-        require(`./ViewLayer/Styles/theme${theme}.less`)
-        document.getElementsByTagName('body')[0].style.display = 'flex'
-      }
-    } catch (error) {
-      console.info('RouterScreensConfig [115]', { msg: error.message })
-    }
-  }
-
   return (
     <BrowserRouter>
-      {getThemeRemotely()}
-
       <Switch>
-        {getRoutes()}
-        {getRedirects()}
+        {getRoutes(routes)}
+        {getRedirects(redirects)}
         {getError404Route()}
       </Switch>
     </BrowserRouter>

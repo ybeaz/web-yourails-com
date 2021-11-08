@@ -30,7 +30,12 @@ export interface IRootStore {
   }
   courses: any[]
   documents: any[]
-  globalVars: any
+  globalVars: {
+    theme: string
+    numberQuestionsInSlide: number
+    durationMultiplier: number
+    isShownPalette: boolean
+  }
   forms: {
     userNameAuth: string
     emailAuth: string
@@ -42,6 +47,18 @@ export interface IRootStore {
     lastName: string
     sendTo: string
     sendCc: string
+    catalogSep: {
+      selectSkillsOffered: string[]
+      selectSkillsRequired: string
+      selectCountryRequired: string[]
+      selectLanguageRequired: string[]
+      inputAgeFromRequired: number
+      inputAgeToRequired: number
+      selectGenderRequired: string[]
+      selectMediaRequired: string[]
+      inputDescriptionRequired: string
+      selectSortBy: string
+    }
   }
   isLoaded: {
     isLoadedGlobalVars: boolean

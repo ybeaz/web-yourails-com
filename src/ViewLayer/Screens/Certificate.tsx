@@ -1,23 +1,24 @@
 import { Link } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import { useSelector } from 'react-redux'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
+import { getEffectedRequests } from '../Hooks/getEffectedRequests'
 import { Button } from '../Components/Button'
 import { DICTIONARY } from '../../Constants/dictionary.const'
 import { getDateString } from '../../Shared/getDateString'
 import { getInitialTeachContentLoading } from '../Hooks/getInitialTeachContentLoading'
 import { getSlug } from '../../Shared/getSlug'
-import { handleEvents } from '../Hooks/handleEvents'
+import { handleEvents } from '../../DataLayer/index.handleEvents'
 import { HeaderFrame } from '../Frames/HeaderFrame'
 import { IRootStore } from '../../Interfaces/IRootStore'
 import { IRouterScreenProps } from '../../Interfaces/IRouterScreenProps'
 import { LoaderOverlay } from '../Components/LoaderOverlay'
 import { ShareButtons } from '../Components/ShareButtons'
 
-export const Certificate: React.FunctionComponent<any> = (
-  props: IRouterScreenProps
+export const Certificate: React.FunctionComponent<IRouterScreenProps> = (
+  props
 ): JSX.Element => {
   const {
     routeProps: {
@@ -27,10 +28,11 @@ export const Certificate: React.FunctionComponent<any> = (
     },
   } = props
 
+  getEffectedRequests(['GET_GLOBAL_VARS', 'GET_CONTENT_DATA'])
   getInitialTeachContentLoading()
 
   let history = useHistory()
-  const store = useSelector((store: IRootStore) => store)
+  const store = useSelector((store2: IRootStore) => store2)
   const { documents, language } = store
   const documentsLen = documents.length
 
@@ -139,17 +141,14 @@ export const Certificate: React.FunctionComponent<any> = (
     ? `${lastName} ${firstName} ${middleName}`
     : `${lastName} ${firstName}`
 
-  // const emailInputsProps = { documentID }
-
   const slug = getSlug(courseCapture)
   const coursePathName = `/c/${courseID}/${slug}`
-  // console.info('Certificate [143]', { documents, language, coursePathName })
 
   return (
     <div className='Certificate'>
       <div className='_buttons Certificate_noPrint'>
         <HeaderFrame>
-          <Link to={{ pathname: '/home' }}>
+          <Link to={{ pathname: '/academy' }}>
             <Button {...buttonBackProps} />
           </Link>
           <div className='__navigation'>

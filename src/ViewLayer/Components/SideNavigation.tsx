@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
-import { handleEvents } from '../Hooks/handleEvents'
+import { handleEvents } from '../../DataLayer/index.handleEvents'
 import { DICTIONARY } from '../../Constants/dictionary.const'
 import { LanguageSelect } from './LanguageSelect'
 import { IRootStore } from '../../Interfaces/IRootStore'
 import { Button } from './Button'
 
-export const SideNavigation: React.FunctionComponent<any> = (): JSX.Element => {
-  const store = useSelector((store: IRootStore) => store)
+export const SideNavigation: React.FunctionComponent = (): JSX.Element => {
+  const store = useSelector((store2: IRootStore) => store2)
   const {
     user,
     language,
@@ -20,20 +20,18 @@ export const SideNavigation: React.FunctionComponent<any> = (): JSX.Element => {
 
   let history = useHistory()
 
-  const buttonMdMenuProps = {
-    icon: 'MdMenu',
-    classAdded: 'Button_MdMenu',
-    action: {
-      typeEvent: 'TOGGLE_SIDE_NAVIGATION',
-    },
-  }
-
   const buttonPropsArr = [
     {
       icon: 'MdHome',
       captureRight: DICTIONARY.Home[language],
       classAdded: 'Button_sideMenuItems',
-      action: { typeEvent: 'GO_HOME', data: { history } },
+      action: { typeEvent: 'GO_HOME', data: { history, path: '/home' } },
+    },
+    {
+      icon: 'HiOutlineAcademicCap',
+      captureRight: DICTIONARY.Academy[language],
+      classAdded: 'Button_sideMenuItems',
+      action: { typeEvent: 'GO_ACADEMY_SCREEN', data: { history } },
     },
     {
       icon: 'MdQueue',

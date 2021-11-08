@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 
 import { Button } from '../Components/Button'
 import { HeaderFrame } from '../Frames/HeaderFrame'
 import { SideNavigation } from '../Components/SideNavigation'
 
-interface IMainFrameInput {
-  contentComponentName: string
-  children: React.ReactChildren
+interface MainFrameArgs {
+  brandName: string
+  screenType?: string
+  contentComponentName?: string
+  children: any[]
 }
 
-export const MainFrame: React.FunctionComponent<any> = (
-  props: IMainFrameInput
-): JSX.Element => {
-  const { contentComponentName } = props
-  const headerFrameProps = { contentComponentName }
+export const MainFrame: React.FunctionComponent<MainFrameArgs> = props => {
+  const { brandName, screenType, contentComponentName, children } = props
+  const headerFrameProps = { brandName, contentComponentName, children }
 
   const buttonMdMenuProps = {
     icon: 'MdMenu',
@@ -23,8 +23,10 @@ export const MainFrame: React.FunctionComponent<any> = (
     },
   }
 
+  const classAdded = screenType ? `MainFrame_${screenType}` : ''
+
   return (
-    <div className='MainFrame'>
+    <div className={`MainFrame ${classAdded}`}>
       <HeaderFrame {...headerFrameProps}>
         <Button {...buttonMdMenuProps} />
         {props.children[0]}
@@ -41,11 +43,11 @@ export const MainFrame: React.FunctionComponent<any> = (
 
       {/* <!-- The flexible grid (content) --> */}
       <div className='__middle'>
-        <div className='_left'></div>
+        <div className='_left'>{props.children[1]}</div>
         <div className='_main'>
-          <div className='_wrapper'>{props.children[1]}</div>
+          <div className='_wrapper'>{props.children[2]}</div>
         </div>
-        <div className='_right'>{props.children[2]}</div>
+        <div className='_right'>{props.children[3]}</div>
       </div>
 
       {/* <!-- Footer --> */}

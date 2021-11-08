@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 import { getInitializedVKontakteOAuth } from '../Hooks/getInitializedVKontakteOAuth'
 import { getInitializedFacebookOAuth } from '../Hooks/getInitializedFacebookOAuth'
@@ -25,12 +25,10 @@ export const AuthUser: React.FunctionComponent<any> = (
   const {
     componentsState: {
       isOAuthGoogleScriptLoaded,
-      isOAuthFacebookScriptLoaded,
       isOAuthVKontakteScriptLoaded,
     },
     language,
-    user,
-  } = useSelector((store: IRootStore) => store)
+  } = useSelector((store2: IRootStore) => store2)
 
   const SCENARIO = {
     signOut: {
@@ -251,10 +249,13 @@ export const AuthUser: React.FunctionComponent<any> = (
                 </div>
 
                 <div className={`_wrapperSignInWith ${googleButtonShowUp}`}>
-                  {isOAuthGoogleScriptLoaded &&
-                    branch === 'signInWithGoogle' && (
-                      <div id='g_id_onload' className='_signInWith'></div>
-                    )}
+                  {/* {isOAuthGoogleScriptLoaded &&
+                    branch === 'signInWithGoogle' && ( */}
+                  <div id='g_id_onload' className='_signInWith'></div>
+                  {/* )} */}
+                  {step === 'opt_out_or_no_session' && (
+                    <div>{DICTIONARY.PleaseReloadThePage[language]}</div>
+                  )}
                   <Button {...buttonAuthBack} />
                 </div>
               </div>

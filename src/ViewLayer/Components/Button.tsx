@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { handleEvents } from '../Hooks/handleEvents'
+import { handleEvents } from '../../DataLayer/index.handleEvents'
 import { IconContext } from 'react-icons'
 import {
   MdAddBox,
@@ -22,11 +22,18 @@ import {
   MdSearch,
 } from 'react-icons/md'
 
-import { FaFacebook, FaVk, FaTwitter, FaGooglePlusG } from 'react-icons/fa'
+import {
+  FaYinYang,
+  FaFacebook,
+  FaVk,
+  FaTwitter,
+  FaGooglePlusG,
+} from 'react-icons/fa'
 import { BsLink45Deg, BsQuestionCircle } from 'react-icons/bs'
 import { HiOutlineAcademicCap } from 'react-icons/hi'
 
 const ICON = {
+  FaYinYang,
   FaFacebook,
   FaVk,
   FaTwitter,
@@ -52,10 +59,10 @@ const ICON = {
   MdSearch,
   MdPerson,
 }
-interface IButton {
+interface ButtonArgs {
   icon?: string | null
   icon2?: string | null
-  captureLeft?: string
+  captureLeft?: string | JSX.Element
   captureRight?: string
   classAdded?: string
   action?: any
@@ -67,9 +74,15 @@ interface IButton {
   handleEvents?: Function
 }
 
-export const Button: React.FunctionComponent<any> = (
-  props: IButton
+export const ButtonTest: React.FunctionComponent<ButtonArgs> = (
+  props: ButtonArgs
 ): JSX.Element => {
+  return <div className='Button'>Button</div>
+}
+
+export const Button: React.FunctionComponent<ButtonArgs> = (
+  props: ButtonArgs
+): React.ReactElement => {
   const {
     icon,
     icon2 = null,
@@ -130,7 +143,7 @@ export const Button: React.FunctionComponent<any> = (
             >
               <Icon />
             </IconContext.Provider>
-            {icon2 !== null ? (
+            {icon2 && (
               <IconContext.Provider
                 value={{
                   className: `_icon`,
@@ -138,7 +151,7 @@ export const Button: React.FunctionComponent<any> = (
               >
                 <Icon2 />
               </IconContext.Provider>
-            ) : null}
+            )}
           </div>
         ) : null}
         {captureRight ? (

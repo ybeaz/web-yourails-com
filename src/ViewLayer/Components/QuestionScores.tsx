@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 import { isParsableFloat } from '../../Shared/isParsableFloat'
@@ -9,18 +9,16 @@ import { DICTIONARY } from '../../Constants/dictionary.const'
 import { getQuestionsWrongAnswered } from '../../Shared/getQuestionsWrongAnswered'
 import { getAnswersChecked2 } from '../../Shared/getAnswersChecked2'
 import { getActiveCourseData } from '../../Shared/getActiveCourseData'
-import { handleEvents } from '../Hooks/handleEvents'
+import { handleEvents } from '../../DataLayer/index.handleEvents'
 import { IRootStore } from '../../Interfaces/IRootStore'
 import { Input } from '../Components/Input'
 import { Button } from '../Components/Button'
 
-export const QuestionScores: React.FunctionComponent<any> = (
-  props: any
-): JSX.Element => {
+export const QuestionScores: React.FunctionComponent<any> = props => {
   let history = useHistory()
 
   const { stopVideoHandler } = props
-  const store = useSelector((store: IRootStore) => store)
+  const store = useSelector((store2: IRootStore) => store2)
   const {
     language,
     documents,

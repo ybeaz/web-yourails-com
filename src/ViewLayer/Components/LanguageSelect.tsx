@@ -1,28 +1,26 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 import { IRootStore } from '../../Interfaces/IRootStore'
-import { handleEvents } from '../Hooks/handleEvents'
+import { handleEvents } from '../../DataLayer/index.handleEvents'
 
 const languageArr = [
   { code: 'ru', svgFile: 'ru.svg' },
   { code: 'en', svgFile: 'en.svg' },
 ]
 
-export const LanguageSelect: React.FunctionComponent<any> = (
-  props: any
-): JSX.Element => {
-  const { language } = useSelector((store: IRootStore) => store)
+export const LanguageSelect: React.FunctionComponent = () => {
+  const { language } = useSelector((store2: IRootStore) => store2)
 
   const getLanguageIcons: Function = (
-    languageArr: any[],
-    language: string
+    languageArr2: any[],
+    language2: string
   ): JSX.Element[] => {
-    return languageArr.map(lang => {
+    return languageArr2.map(lang => {
       const { code, svgFile } = lang
 
-      const classAdd = code === language ? '' : '_blur'
-      const classAdd2 = code === language ? '_underlineActive' : ''
+      const classAdd = code === language2 ? '' : '_blur'
+      const classAdd2 = code === language2 ? '_underlineActive' : ''
 
       return (
         <div className='__option'>
