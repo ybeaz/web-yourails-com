@@ -1,6 +1,4 @@
 import { SERVERS } from '../Constants/servers.const'
-import { FRAGMENTS } from './fragments'
-import { getDetectedEnv } from '../Shared/getDetectedEnv'
 
 interface IHeaders {
   'Access-Control-Allow-Origin': string
@@ -29,18 +27,16 @@ interface ITemplateConnector {
 }
 
 export const templateConnector: ITemplateConnector = () => {
-  const envType: string = getDetectedEnv()
-
   const obj: any = {
     testCapture: 'should return 200 code and data defined',
     method: 'post',
     payload: {
       operationName: 'SendTemplate',
       variables: {},
-      query: `query SendTemplate(){sendTemplate(){} }} fragment ${FRAGMENTS['']}`,
+      query: `query SendTemplate(){sendTemplate(){} }} fragment ${`...`}`,
     },
     options: { headers: { ...headers } },
-    url: <string>`${SERVERS[envType]}/graphql`,
+    url: `.../graphql`,
   }
 
   return obj
