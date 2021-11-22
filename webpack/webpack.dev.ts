@@ -8,7 +8,7 @@ export default {
     hot: true,
     historyApiFallback: true,
     compress: true,
-    port: 3440,
+    port: 3550,
     inline: true,
     overlay: true,
     stats: {
