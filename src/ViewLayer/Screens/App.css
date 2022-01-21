@@ -1,0 +1,14 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.App_ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.App_li {
+  display: flex;
+  flex-direction: column;
+}
