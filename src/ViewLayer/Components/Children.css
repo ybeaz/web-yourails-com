@@ -1,28 +1,5 @@
 .Children_ul {
   display: flex;
   flex-direction: column;
-}
-
-.Children_ul-level-0 {
-  display: flex;
-}
-
-.Children_ul-level-1 {
-  display: flex;
-  padding: 0 0 0 2rem;
-}
-
-.Children_ul-level-2 {
-  display: flex;
-  padding: 0 0 0 2rem;
-}
-
-.Children_ul-level-3 {
-  display: flex;
-  padding: 0 0 0 2rem;
-}
-
-.Children_ul-level-4 {
-  display: flex;
   padding: 0 0 0 2rem;
 }

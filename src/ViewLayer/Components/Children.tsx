@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import { SectionWIthChildren } from './SectionWIthChildren'
 
 import './Children.css'
 
 export const Children = props => {
-  const { children, level } = props
+  const { children } = props
 
   const sectionLi = children.map(item => {
-    const levelNext = level + 1
-    const sectionWIthChildrenProps = { ...item, level: levelNext }
+    const sectionWIthChildrenProps = { ...item }
 
     return (
       <div className={`Children_li`} key={item.id}>
@@ -22,7 +21,5 @@ export const Children = props => {
     )
   })
 
-  return (
-    <div className={`Children_ul Children_ul-level-${level}`}>{sectionLi}</div>
-  )
+  return <div className={`Children_ul`}>{sectionLi}</div>
 }
