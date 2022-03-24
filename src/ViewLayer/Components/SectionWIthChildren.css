@@ -1,9 +1,0 @@
-.SectionWIthChildren {
-  display: flex;
-  flex-direction: column;
-}
-
-.SectionWIthChildren-name {
-  display: flex;
-  flex-direction: row;
-}

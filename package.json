@@ -4,8 +4,9 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "git-info": "echo export default \"{\\\"logMessage\\\": \\\"$(git log -1 --oneline)\\\"}\"  > src/_git_commit.js",
     "dev:start": "open-cli http://127.0.0.1:3550 & concurrently --kill-others --raw --success=first 'webpack-dev-server --config webpack/webpack.dev.ts --color'",
-    "dev": "HTTPS=true concurrently --kill-others --raw --success=first 'webpack-dev-server --config webpack/webpack.dev.ts --color'",
+    "dev": "REACT_APP_GIT_SHA=`git rev-parse --short HEAD` HTTPS=true && yarn git-info && concurrently --kill-others --raw --success=first 'webpack-dev-server --config webpack/webpack.dev.ts --color'",
     "build": "concurrently --kill-others --raw --success=first 'webpack -p --config webpack/webpack.prod.ts'",
     "ba": "webpack-bundle-analyzer --port 4200 dist/stats.json",
     "test": "jest",
@@ -104,6 +105,7 @@
     "eslint-webpack-plugin": "^1.0.0",
     "file-loader": "^6.0.0",
     "fork-ts-checker-webpack-plugin": "^5.0.4",
+    "fs": "^0.0.1-security",
     "fs-extra": "^9.0.1",
     "graphql": "^15.5.1",
     "graphql-tag": "^2.12.5",

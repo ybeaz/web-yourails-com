@@ -1,6 +1,10 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import { initializeBrowserApp } from './initializeBrowserApp'
 
-import { App } from './ViewLayer/Screens/App'
-
-ReactDOM.render(<App />, document.getElementById('root'))
+window.addEventListener('load', function () {
+  document.getElementById('root').innerHTML = ''
+  setTimeout(() => {
+    document.getElementsByTagName('body')[0].style.visibility = 'visible'
+  }, 500)
+  initializeBrowserApp()
+  document.getElementsByTagName('body')[0].style.visibility = 'visible'
+})

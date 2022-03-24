@@ -1,34 +1,27 @@
 import React, { useEffect, useState } from 'react'
-
-import { Children } from '../Components/Children'
-import fetchData from '../../CommunicationLayer/dataSrc'
-
-import './App.css'
+import { useSelector } from 'react-redux'
+import { IRootStore } from '../../Interfaces/IRootStore'
 
 export const App = () => {
+  const store = useSelector((store2: IRootStore) => store2)
+
   const [dataState, setDataState] = useState([])
 
   useEffect(() => {
-    fetchData().then((res: any[]) => {
-      setDataState(res)
-    })
+    setDataState(['here', 'is', 'some', 'content'])
   }, [])
 
-  const childrenProps = { children: dataState }
+  console.info('App [16]', {
+    store,
+    'process.env': process?.env?.REACT_APP_GIT_SHA,
+  })
 
   return (
     <div className='App'>
-      <h1>A dynamic tree component</h1>
-      <Children {...childrenProps} />
+      <h1 className='_h1'>React Typescript Template</h1>
+      <div>created 2021, updated 2022-03-24</div>
 
-      <div className='App_json_section'>
-        <h2>The source json data</h2>
-        <pre>{JSON.stringify(dataState, null, 2)}</pre>
-      </div>
-
-      <div className='App_notes'>
-        Source: git@github.com:ybeaz/react-ui-template-2021.git branch B-003
-      </div>
+      <div>{dataState.join(' ')}</div>
     </div>
   )
 }
