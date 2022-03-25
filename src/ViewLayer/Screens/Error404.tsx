@@ -1,29 +1,56 @@
-import React, { ReactElement } from 'react'
+import React, { useEffect, ReactElement } from 'react'
 
-export const Error404: React.FunctionComponent = (): ReactElement => {
+import { Image } from '../Components/Image'
+import { FooterFrame } from '../Frames/FooterFrame'
+import { HeaderFrame } from '../Frames/HeaderFrame'
+import { Error404Body } from '../Components/Error404Body'
+import { MainFrame } from '../Frames/MainFrame'
+import { handleEvents } from '../../DataLayer/index.handleEvents'
+
+interface Error404Args {
+  routeProps: {
+    location: {
+      pathname: string
+    }
+  }
+  themeDafault: string
+}
+
+export const Error404: React.FunctionComponent<Error404Args> = (
+  props: Error404Args
+): ReactElement => {
+  const { themeDafault } = props
+  useEffect(() => {
+    handleEvents({}, { typeEvent: 'SET_THEME', data: themeDafault })
+  }, [])
+
+  const propsOut = {
+    mainFrameProps: {},
+    headerFrameProps: {},
+    templateBodyProps: {},
+    footerFrameProps: {},
+    imageBottomProps: {
+      classAdded: 'Image_bottom',
+      src: 'https://yourails.com/images/bottomRightBackground.jpg',
+    },
+  }
+
   return (
     <div className='Error404'>
-      <div className=''>
-        <div className=''>
-          <div className='error-template'>
-            <h1>Oops!</h1>
-            <h2>404 Not Found</h2>
-            <div className='error-details'>
-              Sorry, an error has occured, Requested page not found!
-            </div>
-            <div className='error-actions'>
-              <a href='/' className='btn btn-primary btn-lg'>
-                <span className='glyphicon glyphicon-home' />
-                Take Me Home
-              </a>
-              <a href='/' className='btn btn-default btn-lg'>
-                <span className='glyphicon glyphicon-envelope' />
-                Contact Support
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <MainFrame {...propsOut.mainFrameProps}>
+        {/* header */}
+        <HeaderFrame {...propsOut.headerFrameProps} />
+        {/* middle-left */}
+        {null}
+        {/* middle-main */}
+        <Error404Body />
+        {/* middle-right */}
+        {null}
+        {/* footer */}
+        <FooterFrame>
+          <Image {...propsOut.imageBottomProps} />
+        </FooterFrame>
+      </MainFrame>
     </div>
   )
 }
