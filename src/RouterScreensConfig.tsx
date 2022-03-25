@@ -88,7 +88,16 @@ export const RouterScreensConfig: React.FunctionComponent<any> = () => {
       <Route
         component={() => {
           //  console.info('RouterProvider [86] Error 404', { location })
-          return <Error404 />
+          const pageProps = {
+            rootPath,
+            routeProps: {
+              location: {
+                pathname: 'string',
+              },
+            },
+            themeDafault: 'string',
+          }
+          return <Error404 {...pageProps} />
         }}
       />
     )
