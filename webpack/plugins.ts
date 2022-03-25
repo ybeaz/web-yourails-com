@@ -1,6 +1,7 @@
 import webpack from 'webpack'
 import path from 'path'
 
+import { getExtractedGitParam } from '../tools/getExtractedGitParam'
 import { WebpackDeduplicationPlugin } from 'webpack-deduplication-plugin'
 import CompressionPlugin from 'compression-webpack-plugin'
 import DuplicatePackageCheckerPlugin from 'duplicate-package-checker-webpack-plugin'
@@ -38,6 +39,17 @@ export const prodPlugins = [
 ]
 
 export const devPlugins = [
+  new webpack.DefinePlugin({
+    // <-- key to reducing React's size
+    'process.env': {
+      NODE_ENV: JSON.stringify('development'),
+      REACT_APP_GIT_BRANCH: getExtractedGitParam(
+        'git rev-parse --abbrev-ref HEAD'
+      ),
+      REACT_APP_GIT_SHA: getExtractedGitParam('git rev-parse --short HEAD'),
+      REACT_APP_GIT_COMMIT: getExtractedGitParam('git log -1 --oneline'),
+    },
+  }),
   new BundleAnalyzerPlugin({
     analyzerMode: 'disabled',
     generateStatsFile: true,
