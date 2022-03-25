@@ -9,5 +9,7 @@ export const Template: React.FunctionComponent<TemplateArgs> = (
 ): JSX.Element => {
   const store = useSelector((store2: IRootStore) => store2)
 
+  const propsOut = {}
+
   return <div className='Template'>null</div>
 }
