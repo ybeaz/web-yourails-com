@@ -5,6 +5,7 @@ import { cwd } from 'process'
 import { resolve } from 'path'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 
+import { URL_APP_BASE } from '../../Constants/servers.const'
 import { TemplateBody } from '../Components/TemplateBody'
 import { HeaderFrame } from '../Frames/HeaderFrame'
 import { FooterFrame } from '../Frames/FooterFrame'
@@ -44,7 +45,7 @@ export const TemplateScreen: React.FunctionComponent<IAppProps> = (
     REACT_APP_GIT_COMMIT: process?.env?.REACT_APP_GIT_COMMIT || '',
   }
 
-  const canonicalUrl = `https://futuralis.com${props?.routeProps.location.pathname}`
+  const canonicalUrl = `${URL_APP_BASE}${props?.routeProps.location.pathname}`
 
   const propsOut = {
     mainFrameProps: {},
