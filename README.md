@@ -18,7 +18,7 @@ created 2021, updated 2022-03-24
    3. Global theme has been added with `<GlobalTheme>` in `src/initializeBrowserApp.tsx`, and then with `getCreatedGlobalStyle` in `src/ViewLayer/Styles/getCreatedGlobalStyle.ts`
    4. Change default theme on the screen level such has been done in `useEffect(...)` in `SkillExchangeSeach.tsx`
    5. Add a custom theme color to the element in `getCreatedGlobalStyle` in `src/ViewLayer/Styles/getCreatedGlobalStyle.ts`
-   6. You can specify a separate colors for each theme as it is done for example for `.ModalFrames .__content`
+   6. You can specify a separate colors for each theme as it is done for example for `.ModalFrames ._content`
 3. Input values. Passing input values from input component is implemented by event.target.value in handleEvents function of the related property name in `src/DataLayer/index.handleEvents.ts`
 4. Passing actions. Passing an action is made through the secuence `Component` => `handleEvents` => `dispatch` => `reducer`
 5. Adding an modal window is made by the following:
