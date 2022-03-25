@@ -34,7 +34,7 @@ export const TemplateScreen: React.FunctionComponent<IAppProps> = (
     globalVars: { language },
   } = store
 
-  console.info('TemplateScreen [41]', {
+  console.info('TemplateScreen  [41]', {
     store,
   })
 
