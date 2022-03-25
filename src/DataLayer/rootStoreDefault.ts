@@ -1,9 +1,6 @@
-import {
-  IComponentsState,
-  IUser,
-  IForms,
-  IRootStore,
-} from '../Interfaces/IRootStore'
+import { IComponentsState, IForms, IRootStore } from '../Interfaces/IRootStore'
+
+import { IUser } from '../Interfaces/IUser'
 
 export const userStoreDefault: IUser = {
   userAvatar: '',

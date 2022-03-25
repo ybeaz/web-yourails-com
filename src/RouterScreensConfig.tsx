@@ -5,6 +5,7 @@ import { routes } from './Constants/routes.const'
 import { StubInProgress } from './ViewLayer/Screens/StubInProgress'
 import { Error404 } from './ViewLayer/Screens/Error404'
 import { TemplateScreen } from './ViewLayer/Screens/TemplateScreen'
+import { URL_APP_BASE } from './Constants/servers.const'
 
 const PAGES = {
   TemplateScreen,
@@ -13,9 +14,8 @@ const PAGES = {
 }
 
 export const RouterScreensConfig: React.FunctionComponent<any> = () => {
-  const demoHostName = 'r1.userto.com'
-  const demoPath = '/demo-youtube-learn.html'
-  const rootPath = location.hostname === demoHostName ? demoPath : ''
+  const demoPath = '/demo-show.html'
+  const rootPath = location.hostname === URL_APP_BASE ? demoPath : ''
 
   interface IGetRoutes {
     (
