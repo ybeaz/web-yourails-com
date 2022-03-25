@@ -14,8 +14,6 @@ export const FooterFrame: React.FunctionComponent<FooterFrameArgs> = (
     REACT_APP_GIT_COMMIT: process?.env?.REACT_APP_GIT_COMMIT || '',
   }
 
-  console.info('HeaderFrame [17]', gitData)
-
   return (
     <div className='FooterFrame'>
       <div className='_left'>
