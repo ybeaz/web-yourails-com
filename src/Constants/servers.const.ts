@@ -15,3 +15,5 @@ export const SERVERS: Record<string, string> = {
   localWebpack: 'http://127.0.0.1:3440',
   localServer: 'http://127.0.0.1:3000',
 }
+
+export const URL_APP_BASE = 'https://futuralis.com'

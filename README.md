@@ -7,7 +7,9 @@ created 2021, updated 2022-03-24
 ### Architecture / development notes
 
 1. Add a new screen:
-   1. Use `Template.tsx` and `Template.less` from `Components` for a new screen
+   1. Use one of two templates
+      - TemplateScreen (more customized for a screen) > `TemplateScreen.tsx` && `TemplateScreen.less` from `src/ViewLayer/Screens/`
+      - Template (more universal) `Template.tsx` && `Template.less` from `src/ViewLayer/Components/`
    2. Add a link to `....less` file into `src/ViewLayer/Styles/index.style.less`
    3. Add a router into `src/Constants/routes.const.ts`
    4. Add a component import and property to the object into `src/RouterScreensConfig.tsx`
