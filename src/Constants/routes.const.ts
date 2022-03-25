@@ -13,14 +13,14 @@ export const routes: IRoute[] = [
     page: 'TemplateScreen',
     themeDafault: 'Light',
   },
-  // {
-  //   path: `/stub-in-progress`,
-  //   exact: true,
-  //   page: 'StubInProgress',
-  //   themeDafault: 'Light',
-  // },
   {
-    path: `/error-404`,
+    path: `/stub`,
+    exact: true,
+    page: 'StubInProgress',
+    themeDafault: 'Light',
+  },
+  {
+    path: `/error`,
     exact: true,
     page: 'Error404',
     themeDafault: 'Dark',

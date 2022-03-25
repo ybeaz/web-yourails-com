@@ -2,13 +2,13 @@ import React, { ReactElement } from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 import { routes } from './Constants/routes.const'
-// import { StubInProgess } from './ViewLayer/Screens/StubInProgess'
+import { StubInProgress } from './ViewLayer/Screens/StubInProgress'
 import { Error404 } from './ViewLayer/Screens/Error404'
 import { TemplateScreen } from './ViewLayer/Screens/TemplateScreen'
 
 const PAGES = {
   TemplateScreen,
-  // StubInProgess,
+  StubInProgress,
   Error404,
 }
 
