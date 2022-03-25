@@ -48,8 +48,8 @@ export const getCreatedGlobalStyle: IGetCreatedGlobalStyle = (
 
   return createGlobalStyle`
 
-    .TemplateScreen .__div,
-    .TemplateScreen .__div2 {
+    .TemplateScreen ._div,
+    .TemplateScreen ._div2 {
       background-color: ${props2 =>
         getColor(props2, 'colorSecond', medial, middle)};
     }

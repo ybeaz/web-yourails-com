@@ -44,7 +44,7 @@ export const ModalFrames: React.FunctionComponent = (): ReactElement => {
           className={`ModalFrames ${addClass} ModalFrames_${childName}`}
           onClick={event => handleEvents(event, closeAction)}
         >
-          <div className='__content'>
+          <div className='_content'>
             <span className='_close'>
               <button>Click me</button>
             </span>
