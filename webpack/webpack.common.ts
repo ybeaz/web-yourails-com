@@ -23,6 +23,13 @@ export const common = {
     alias: {
       '@ant-design/icons/lib/dist$': path.resolve(__dirname, './src/icons.js'),
     },
+    fallback: {
+      fs: false,
+      // dgram: false,
+      // net: false,
+      // tls: false,
+      // child_process: false,
+    },
   },
   module: {
     rules: [
@@ -112,7 +119,6 @@ export const common = {
   watch: false,
   target: 'web',
   externals: [{ pg: true }],
-  node: { fs: 'empty' },
   optimization: {
     nodeEnv: 'production',
     flagIncludedChunks: true,
