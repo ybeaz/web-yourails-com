@@ -33,7 +33,7 @@ export const prodPlugins = [
   }),
   new DuplicatePackageCheckerPlugin(),
   new WebpackDeduplicationPlugin({
-    cacheDir: path.resolve(__dirname, '../dist'),
+    cacheDir: path.resolve(__dirname, '../build'),
     rootPath: path.resolve(__dirname, '../'),
   }),
 ]
@@ -70,7 +70,7 @@ export const devPlugins = [
   }),
   new HtmlWebpackPlugin({
     title: 'Dev-server',
-    template: 'template.html',
+    template: 'webpack/template.html',
   }),
   new ESLintPlugin({
     files: 'src/**/*.(js|jsx|ts|tsx)',

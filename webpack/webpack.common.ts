@@ -11,10 +11,10 @@ import path from 'path'
 
 export const common = {
   entry: {
-    dist: ['./src/index.tsx'],
+    build: ['./src/index.tsx'],
   },
   output: {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../build'),
     filename: '[name]Client.min.js',
     publicPath: '/',
   },
@@ -106,7 +106,7 @@ export const common = {
     hints: false,
   },
   watchOptions: {
-    ignored: ['dist', 'node_modules'],
+    ignored: ['build', 'node_modules'],
     poll: 1000,
   },
   watch: false,
