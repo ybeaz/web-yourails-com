@@ -1,4 +1,4 @@
-import { MdSearch } from 'react-icons/md'
+import { MdSearch, MdClose } from 'react-icons/md'
 
 import { AiFillCloseCircle } from 'react-icons/ai'
 
@@ -20,4 +20,5 @@ import { SiAppstore, SiGoogleplay } from 'react-icons/si'
 
 export const ICONS = {
   MdSearch,
+  MdClose,
 }
