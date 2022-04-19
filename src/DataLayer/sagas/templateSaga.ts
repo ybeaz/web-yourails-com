@@ -20,7 +20,7 @@ function* template(dataInput: any) {
     yield put(actionAsync.TEMPLATE_ASYNC.SUCCESS(templateData))
 
     yield put(actionSync.TOGGLE_LOADER_OVERLAY(false))
-  } catch (error) {
+  } catch (error: any) {
     console.info('template [23]', error.name + ': ' + error.message)
   }
 }

@@ -14,9 +14,7 @@ export const IconReact: React.FunctionComponent<IconReactArgs> = (
 ): ReactElement => {
   const { icon = '', icon2 = '', classAdded } = props
 
-  // @ts-ignore
   const Icon: any = ICONS[icon]
-  // @ts-ignore
   const Icon2: any = ICONS[icon2]
 
   return (

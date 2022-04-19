@@ -32,10 +32,11 @@ export const Input: React.FunctionComponent<InputArgs> = (
 
   const store = useSelector((store2: IRootStore) => store2)
   const { forms } = store
-  const value =
+  let value =
     storeFormGroup && storeFormProp
       ? forms[storeFormGroup][storeFormProp]
       : storeFormProp && forms[storeFormProp]
+  value = value === null ? '' : value
 
   const action = { typeEvent }
 

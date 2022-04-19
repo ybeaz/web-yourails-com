@@ -26,7 +26,7 @@ export const GlobalTheme: React.FunctionComponent<GlobalThemeArgs> = (
       // eslint-disable-next-line @typescript-eslint/no-require-imports
       require(`./index.style.less`)
       document.getElementsByTagName('body')[0].style.display = 'flex'
-    } catch (error) {
+    } catch (error: any) {
       console.info('RouterScreensConfig [115]', { msg: error.message })
     }
   }
