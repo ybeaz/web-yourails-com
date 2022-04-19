@@ -1,12 +1,13 @@
-import { AxiosRequestHeaders } from 'axios'
+import { Axios, AxiosRequestHeaders, Method } from 'axios'
 export interface IConnectorOutput {
   testCapture: string
-  method: string
-  payload?: {
+  axiosClient: Axios
+  method: Method
+  params?: {
     operationName: string
     variables: any
     query: string
   }
-  options: { headers: AxiosRequestHeaders }
-  url: string
 }
+
+export { AxiosRequestHeaders, Method } from 'axios'
