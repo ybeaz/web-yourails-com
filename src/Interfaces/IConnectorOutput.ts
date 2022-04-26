@@ -1,4 +1,4 @@
-import { Axios, AxiosRequestHeaders, Method } from 'axios'
+import { Axios, Method } from 'axios'
 export interface IConnectorOutput {
   testCapture: string
   axiosClient: Axios

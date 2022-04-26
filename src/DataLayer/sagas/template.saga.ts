@@ -27,5 +27,5 @@ function* template(dataInput: any) {
 }
 
 export default function* templateSaga() {
-  yield takeEvery([actionAsync.ACT_TEMPLATE.REQUEST().type], template)
+  yield takeEvery([actionAsync.TEMPLATE_ASYNC.REQUEST().type], template)
 }
