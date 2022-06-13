@@ -1,0 +1,23 @@
+[
+  {
+    "id": "cmm_article1",
+    "title": "Celebrate Military Month",
+    "type": "ARTICLE",
+    "link": "article/celebrateMilitaryMonth",
+    "description": "May is Military Appreciation Month - Learn from Veterans why they served and their transition experience to Amazon."
+  },
+  {
+    "id": "cmm_article2",
+    "title": "Military Moves at Amazon",
+    "type": "ARTICLE",
+    "link": "article/militaryMovesAtAmazon",
+    "description": "Facing a PCS? Learn best practices for navigating the transfer process at Amazon."
+  },
+  {
+    "id": "cmm_article3",
+    "title": "Military MOA",
+    "type": "ARTICLE",
+    "link": "article/militaryMoa",
+    "description": "Learn about Amazon's Military LOA policy and best practices from other Guard and Reservists at Amazon."
+  }
+]

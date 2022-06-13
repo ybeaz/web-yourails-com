@@ -1,0 +1,27 @@
+{
+  "email": "test@amazon.com",
+  "alias": "test",
+  "affinityGroups": [
+    {
+      "id": "warriors",
+      "logo": "http://localhost:4321/warriors-logo.svg",
+      "logoAltText": "warriors-logo",
+      "hasJoined": true,
+      "active": true
+    },
+    {
+      "id": "ben",
+      "logo": "http://localhost:4321/ben-logo.svg",
+      "logoAltText": "ben-logo",
+      "hasJoined": true,
+      "active": true
+    },
+    {
+      "id": "asians",
+      "logo": "http://localhost:4321/asiansatamazon-logo.svg",
+      "logoAltText": "asians-logo",
+      "hasJoined": true,
+      "active": false
+    }
+  ]
+}
