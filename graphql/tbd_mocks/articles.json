@@ -1,0 +1,93 @@
+[
+  {
+    "articleId": "celebrateMilitaryMonth",
+    "title": "Celebrate Military Month at Amazon",
+    "tags": ["Armed Services YMCA"],
+    "content": [
+      {
+        "contentId": "00",
+        "order": 1,
+        "type": "IMAGE",
+        "text": "CelebrateAltText",
+        "url": "http://localhost:4321/celebrate.png"
+      },
+      {
+        "contentId": "01",
+        "order": 2,
+        "type": "TEXT",
+        "text": "Veterans and Military Families Month was established in 1996 by the Armed Services YMCA, with the U.S. Government recognizing the occasion every year since. Each November, the President signs a proclamation declaring November National Veterans & Military Families Month, and with hundreds of thousands of service members deployed overseas, recognizing the daily sacrifices made by active duty, Guard, and Reserve military families has never been more important.",
+        "url": ""
+      },
+      {
+        "contentId": "02",
+        "order": 3,
+        "type": "TEXT",
+        "text": "Download this year's Military Family Month packet from the Armed Services YMCA. The packet contains: a Military Family Month Poster; a Message from the President; a letter from the National Executive Director of the ASYMCA; Military Family Month Program Suggestions; and Guidelines for the annual art and essay contests.",
+        "url": ""
+      }
+    ],
+    "likes": "NEUTRAL"
+  },
+  {
+    "articleId": "ben/videos",
+    "tags": ["Armed Services YMCA"],
+    "content": [
+      {
+        "contentId": "v10",
+        "order": 1,
+        "type": "VIDEO",
+        "text": "BEN Global Operations Welcome",
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "description": "BEN Co-President, Shana Edmond, welcomes new members."
+      },
+      {
+        "contentId": "v11",
+        "order": 2,
+        "type": "VIDEO",
+        "text": "What to Expect at BEN",
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "description": "BEN Co-President, Marquise Benton, shares what new members can expect from BEN."
+      },
+      {
+        "contentId": "v12",
+        "order": 3,
+        "type": "VIDEO",
+        "text": "New Chapters Best Practices",
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "description": "Yeawoma Johnson talks about new chapter best practices."
+      }
+    ],
+    "likes": "NEUTRAL"
+  },
+  {
+    "articleId": "warriors/videos",
+    "tags": ["Armed Services YMCA"],
+    "content": [
+      {
+        "contentId": "v20",
+        "order": 1,
+        "type": "VIDEO",
+        "text": "Celebrate Military Spouse Intersectionality",
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "description": "Learn how military spouse diverse backgrounds, identities, and lived experiences have shaped them professionally"
+      },
+      {
+        "contentId": "v21",
+        "order": 2,
+        "type": "VIDEO",
+        "text": "Military Moves at Amazon",
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "description": "Facing a PCS? Learn best practices for navigating the transfer process at Amazon"
+      },
+      {
+        "contentId": "v22",
+        "order": 3,
+        "type": "VIDEO",
+        "text": "Military LOA",
+        "url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+        "description": "Learn about Amazon's Military LOA policy and best practices from other Guard and Reservists at Amazon"
+      }
+    ],
+    "likes": "NEUTRAL"
+  }
+]

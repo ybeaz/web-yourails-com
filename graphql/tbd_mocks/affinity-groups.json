@@ -1,0 +1,110 @@
+[
+  {
+    "id": "warriors",
+    "name": "Warriors @ Amazon",
+    "nameTranslationKey": "encompass_affinity_groups_text12",
+    "description": "Our mission is to aid veterans during their transition into Amazon workforce and to be a resource for Veteran and military spouse recruiting.",
+    "descriptionTranslationKey": "encompass_affinity_groups_text13",
+    "link": "/affinity-groups/warriors",
+    "logo": "http://localhost:4321/warriors-logo.svg",
+    "logoAltText": "Warriors@ Amazon logo",
+    "logoAltTextTranslationKey": "encompass_affinity_groups_text14",
+    "hasJoined": true,
+    "isInterestList": false,
+    "active": true,
+    "cards": [
+      {
+        "link": "/affinity-groups/warriors/about",
+        "title": "About Warriors",
+        "content": "Learn more about Warriors at Amazon, who we are, and what we do."
+      },
+      {
+        "link": "/affinity-groups/warriors/videos",
+        "title": "Videos",
+        "content": "Discover Warriors video content featuring guest speakers and Amazon leaders."
+      },
+      {
+        "link": "/affinity-groups/warriors/learning",
+        "title": "Learning",
+        "content": "Discover career series and resources developed for Veterans at Amazon."
+      },
+      {
+        "link": "/affinity-groups/warriors/resources",
+        "title": "Resources",
+        "content": "Learn more about military LOA, compare military and Amazon health providers, and more."
+      }
+    ]
+  },
+  {
+    "id": "ben",
+    "name": "The Black Employee Network (BEN)",
+    "nameTranslationKey": "encompass_affinity_groups_text9",
+    "description": "BEN's main focus is to support the Black employees at Amazon in whatever way they see fit, and to promote diversity within the company.",
+    "descriptionTranslationKey": "encompass_affinity_groups_text10",
+    "link": "/affinity-groups/ben",
+    "logo": "http://localhost:4321/ben-logo.svg",
+    "logoAltText": "The Black Employee Network (BEN) logo",
+    "logoAltTextTranslationKey": "encompass_affinity_groups_text11",
+    "hasJoined": false,
+    "isInterestList": false,
+    "active": true,
+    "cards": [
+      {
+        "link": "/affinity-groups/ben/about",
+        "title": "About Warriors",
+        "content": "Learn more about Warriors at Amazon, who we are, and what we do."
+      },
+      {
+        "link": "/affinity-groups/ben/videos",
+        "title": "Videos",
+        "content": "Discover Warriors video content featuring guest speakers and Amazon leaders."
+      },
+      {
+        "link": "/affinity-groups/ben/learning",
+        "title": "Learning",
+        "content": "Discover career series and resources developed for Veterans at Amazon."
+      },
+      {
+        "link": "/affinity-groups/ben/resources",
+        "title": "Resources",
+        "content": "Learn more about military LOA, compare military and Amazon health providers, and more."
+      }
+    ]
+  },
+  {
+    "id": "asians",
+    "name": "Asians @ Amazon",
+    "nameTranslationKey": "encompass_affinity_groups_text6",
+    "description": "Asians at Amazon is committed to serving as a platform to promote cultural exchange and awareness among Asian cultures and between Asian and non-Asian cultures.",
+    "descriptionTranslationKey": "encompass_affinity_groups_text7",
+    "link": "/affinity-groups/asians",
+    "logo": "http://localhost:4321/asiansatamazon-logo.svg",
+    "logoAltText": "Asians@ Amazon logo",
+    "logoAltTextTranslationKey": "encompass_affinity_groups_text8",
+    "hasJoined": false,
+    "isInterestList": false,
+    "active": false,
+    "cards": [
+      {
+        "link": "/affinity-groups/asians/about",
+        "title": "About Asians",
+        "content": "Learn more about Warriors at Amazon, who we are, and what we do."
+      },
+      {
+        "link": "/affinity-groups/asians/videos",
+        "title": "Videos",
+        "content": "Discover Warriors video content featuring guest speakers and Amazon leaders."
+      },
+      {
+        "link": "/affinity-groups/asians/learning",
+        "title": "Learning",
+        "content": "Discover career series and resources developed for Veterans at Amazon."
+      },
+      {
+        "link": "/affinity-groups/asians/resources",
+        "title": "Resources",
+        "content": "Learn more about military LOA, compare military and Amazon health providers, and more."
+      }
+    ]
+  }
+]

@@ -1,0 +1,39 @@
+enum RecipeType {
+  COMMON
+  VEGAN
+}
+
+type Recipe {
+  id: String!
+  title: String!
+  description: String
+  ingredients: [[String!]!]
+}
+
+input RecipeInput {
+  id: String!
+  title: String!
+  type: RecipeType!
+  description: String
+  ingredients: [[String!]!]
+}
+
+enum MutationStatus {
+  OK
+  ERROR
+}
+
+type MutationResponse {
+  mutationStatus: MutationStatus!
+  details: String
+}
+
+type Query {
+  recipe(id: String!): Recipe
+}
+
+type Mutation {
+  createRecipe(recipeInput: RecipeInput!): MutationResponse
+  updateRecipe(recipeInput: RecipeInput!): MutationResponse
+  deleteRecipe(id: String!): MutationResponse
+}
