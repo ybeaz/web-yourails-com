@@ -1,25 +1,28 @@
 import { takeLatest, takeEvery, put, select } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { templateConnector } from '../../CommunicationLayer/template.connector'
+import { templateConnectorAxios } from '../../CommunicationLayer/template.connector'
+import { GetRecipeDocument } from '../../types/graphql'
+import { apolloClient } from '../../CommunicationLayer/clients/apolloClient'
 
 function* template(input: any) {
   const { data: variables } = input
 
-  const { client, method, params } = templateConnector(variables)
-  console.info('template.saga [8]', {
-    variables,
-    client,
-    method,
-    params,
-  })
-
   try {
     yield put(actionSync.TOGGLE_LOADER_OVERLAY(true))
+
+    /**
+     * @description Code snippet to use axios as a connector client
+     * @example: */
+    const { client, params } = templateConnectorAxios(variables)
     const {
       data: { data },
-      // @ts-ignore
-    } = yield client[method]('', params)
+    } = yield client.post('', params)
+
+    // const { data } = yield apolloClient.query({
+    //   query: GetRecipeDocument,
+    //   variables,
+    // })
 
     console.info('template.saga [21]', { data })
     yield put(actionAsync.TEMPLATE_ASYNC.SUCCESS(data))
@@ -27,7 +30,7 @@ function* template(input: any) {
     yield put(actionSync.TOGGLE_LOADER_OVERLAY(false))
   } catch (error) {
     const err: any = error
-    console.info('template [40]', err.name + ': ' + err.message)
+    console.info('template.saga [40]', err.name + ': ' + err.message)
   }
 }
 

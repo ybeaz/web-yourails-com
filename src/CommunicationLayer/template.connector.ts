@@ -1,6 +1,6 @@
 import { print } from 'graphql'
 
-import { CLIENT, EClient } from './communicationClients/index.clients'
+import { axiosClient } from './clients/axiosClient'
 import { IConnectorOutput } from '../Interfaces/IConnectorOutput'
 import { GetRecipeDocument } from '../types/graphql'
 
@@ -8,10 +8,9 @@ interface ITemplateConnector {
   (variables: any): IConnectorOutput
 }
 
-export const templateConnector: ITemplateConnector = variables => {
+export const templateConnectorAxios: ITemplateConnector = variables => {
   const obj: IConnectorOutput = {
-    client: CLIENT[EClient.CLIENT_AXIOS],
-    method: 'post',
+    client: axiosClient,
     params: {
       operationName: 'GetRecipe',
       variables,
