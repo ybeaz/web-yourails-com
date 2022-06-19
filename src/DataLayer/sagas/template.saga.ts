@@ -6,10 +6,10 @@ import { templateConnector } from '../../CommunicationLayer/template.connector'
 function* template(input: any) {
   const { data: variables } = input
 
-  const { axiosClient, method, params } = templateConnector(variables)
+  const { client, method, params } = templateConnector(variables)
   console.info('template.saga [8]', {
     variables,
-    axiosClient,
+    client,
     method,
     params,
   })
@@ -19,7 +19,7 @@ function* template(input: any) {
     const {
       data: { data },
       // @ts-ignore
-    } = yield axiosClient[method]('', params)
+    } = yield client[method]('', params)
 
     console.info('template.saga [21]', { data })
     yield put(actionAsync.TEMPLATE_ASYNC.SUCCESS(data))

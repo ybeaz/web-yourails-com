@@ -1,38 +1,16 @@
-import axios from 'axios'
 import { print } from 'graphql'
 
-import {
-  IConnectorOutput,
-  AxiosRequestHeaders,
-} from '../Interfaces/IConnectorOutput'
-import { SERVERS, IServer } from '../Constants/servers.const'
-import { getDetectedEnv } from '../Shared/getDetectedEnv'
+import { CLIENT, EClient } from './communicationClients/index.clients'
+import { IConnectorOutput } from '../Interfaces/IConnectorOutput'
 import { GetRecipeDocument } from '../types/graphql'
 
 interface ITemplateConnector {
   (variables: any): IConnectorOutput
 }
 
-const headers: AxiosRequestHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Content-Type': 'application/json',
-  timestamp: +new Date(),
-}
-
 export const templateConnector: ITemplateConnector = variables => {
-  const envType: string = getDetectedEnv()
-  console.info('template.connector [24]', { variables })
-
-  const baseURL = SERVERS[envType as keyof IServer] as string
-  const { timeout } = SERVERS
-
   const obj: IConnectorOutput = {
-    testCapture: 'should return 200 code and data defined',
-    axiosClient: axios.create({
-      baseURL: `${baseURL}/graphql`,
-      timeout,
-      headers,
-    }),
+    client: CLIENT[EClient.CLIENT_AXIOS],
     method: 'post',
     params: {
       operationName: 'GetRecipe',
