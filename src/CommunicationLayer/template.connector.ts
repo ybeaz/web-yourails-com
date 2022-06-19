@@ -1,14 +1,16 @@
 import axios from 'axios'
+import { print } from 'graphql'
 
 import {
   IConnectorOutput,
   AxiosRequestHeaders,
 } from '../Interfaces/IConnectorOutput'
 import { SERVERS, IServer } from '../Constants/servers.const'
-import { FRAGMENTS_STRINGS } from './fragments/FRAGMENTS_STRINGS'
 import { getDetectedEnv } from '../Shared/getDetectedEnv'
+import { GetRecipeDocument } from '../types/graphql'
+
 interface ITemplateConnector {
-  (): IConnectorOutput
+  (variables: any): IConnectorOutput
 }
 
 const headers: AxiosRequestHeaders = {
@@ -17,8 +19,9 @@ const headers: AxiosRequestHeaders = {
   timestamp: +new Date(),
 }
 
-export const templateConnector: ITemplateConnector = () => {
+export const templateConnector: ITemplateConnector = variables => {
   const envType: string = getDetectedEnv()
+  console.info('template.connector [24]', { variables })
 
   const baseURL = SERVERS[envType as keyof IServer] as string
   const { timeout } = SERVERS
@@ -32,9 +35,10 @@ export const templateConnector: ITemplateConnector = () => {
     }),
     method: 'post',
     params: {
-      operationName: 'SendTemplate',
-      variables: {},
-      query: `query SendTemplate(){sendTemplate(){} }} fragment ${FRAGMENTS_STRINGS['TemplateGraphqlAll']}`,
+      operationName: 'GetRecipe',
+      variables,
+      query: print(GetRecipeDocument),
+      // query: `query SendTemplate(){sendTemplate(){} }} fragment ${FRAGMENTS_STRINGS['TemplateGraphqlAll']}`,
     },
   }
 

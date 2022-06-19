@@ -3,21 +3,26 @@ import { takeLatest, takeEvery, put, select } from 'redux-saga/effects'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { templateConnector } from '../../CommunicationLayer/template.connector'
 
-function* template(dataInput: any) {
-  const { data } = dataInput
+function* template(input: any) {
+  const { data: variables } = input
 
-  const { axiosClient, method, params } = templateConnector()
+  const { axiosClient, method, params } = templateConnector(variables)
+  console.info('template.saga [8]', {
+    variables,
+    axiosClient,
+    method,
+    params,
+  })
 
   try {
     yield put(actionSync.TOGGLE_LOADER_OVERLAY(true))
     const {
-      data: {
-        data: { templateData },
-      },
+      data: { data },
       // @ts-ignore
     } = yield axiosClient[method]('', params)
 
-    yield put(actionAsync.ACT_TEMPLATE.SUCCESS(templateData))
+    console.info('template.saga [21]', { data })
+    yield put(actionAsync.TEMPLATE_ASYNC.SUCCESS(data))
 
     yield put(actionSync.TOGGLE_LOADER_OVERLAY(false))
   } catch (error) {

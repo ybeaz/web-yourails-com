@@ -117,7 +117,8 @@
     "dev": "BROWSER=none PORT=3550 node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "postinstall": ""
+    "postinstall": "",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "eslintConfig": {
     "extends": "react-app"
