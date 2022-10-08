@@ -1,21 +1,14 @@
-# README React Typescript Template
+# README React Typescript UI Native Template
 
-## TODO
+## Revisions history notes
 
-```
+created 2022
 
+based on [React Typescript UI Web Template](https://github.com/ybeaz/react-ui-template-2021)
 
+updated 2022-10-05
 
-
-in less files and beyond __ > _
-
-```
-
-## Description
-
-created 2021, updated 2022-03-24
-
-## How to Architecture / development notes
+## How to, architecture / development notes
 
 ### How to (web) add screens
 
@@ -57,26 +50,21 @@ created 2021, updated 2022-03-24
 4.  sagas
 5.  connectors
 
-### How to use predefined mixins
-
-1. `src/ViewLayer/Styles/mixins.style.less` defines a set of mixins for paddings and margins with a pattern `.p_y_x`, `.p_t_r_b_l`, `.m_y_x`, `.m_t_r_b_l`
-
 ### To run the mobile app
 
-1. `cd Dev/react-ui-native-template-2022`
-2. to make sure the right path to App in here: `node_modules/expo/AppEntry.js`
-3. to run the app: `yarn expo:start`
+1.  To build Docker image from `docker-compose-mongodb.yml`\
+    See here [`Docker.md`](https://github.com/ybeaz/manuals/blob/main/Docker.md)
 
-### To run the web project
+2.  To run Server\
+    in server directory run `yarn dev`
 
-1.  Build Docker image from `docker-compose-mongodb.yml`
+3.  To go to the UI directory: `cd Dev/react-ui-native-template-2022`
 
-- See here [`Docker.md`](https://github.com/ybeaz/manuals/blob/main/Docker.md)
+4.  To make sure the right path to App in here: `node_modules/expo/AppEntry.js`
 
-2.  Run Server
+5.  To run the app: `yarn expo:start`
 
-- in server directory run `yarn dev`
+### To create/ update `src/types/graphql.tsx`
 
-3.  Run application
-
-- here run `yarn dev:start` and to restart run `yarn dev`
+To run `yarn codegen`
+Note: to config `codegen` edit ??? `codegen.yml`
