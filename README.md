@@ -68,3 +68,8 @@ updated 2022-10-05
 
 To run `yarn codegen`
 Note: to config `codegen` edit ??? `codegen.yml`
+
+### To use react-chat-elements
+
+1. gfd
+2. yarn `react-native link react-native-vector-icons`

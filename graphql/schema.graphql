@@ -7,7 +7,7 @@ type Recipe {
   id: String!
   title: String!
   description: String
-  ingredients: [[String!]!]
+  ingredients: [String!]
 }
 
 input RecipeInput {
@@ -29,6 +29,7 @@ type MutationResponse {
 }
 
 type Query {
+  recipes(limit: Int): [Recipe]
   recipe(id: String!): Recipe
 }
 

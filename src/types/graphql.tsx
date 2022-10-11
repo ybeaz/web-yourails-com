@@ -57,6 +57,7 @@ export enum MutationStatus {
 export type Query = {
   __typename?: 'Query';
   recipe?: Maybe<Recipe>;
+  recipes?: Maybe<Array<Maybe<Recipe>>>;
 };
 
 
@@ -64,11 +65,16 @@ export type QueryRecipeArgs = {
   id: Scalars['String'];
 };
 
+
+export type QueryRecipesArgs = {
+  limit?: InputMaybe<Scalars['Int']>;
+};
+
 export type Recipe = {
   __typename?: 'Recipe';
   description?: Maybe<Scalars['String']>;
   id: Scalars['String'];
-  ingredients?: Maybe<Array<Array<Scalars['String']>>>;
+  ingredients?: Maybe<Array<Scalars['String']>>;
   title: Scalars['String'];
 };
 
@@ -90,7 +96,7 @@ export type GetRecipeQueryVariables = Exact<{
 }>;
 
 
-export type GetRecipeQuery = { __typename?: 'Query', recipe?: { __typename?: 'Recipe', id: string, title: string, description?: string | null, ingredients?: Array<Array<string>> | null } | null };
+export type GetRecipeQuery = { __typename?: 'Query', recipe?: { __typename?: 'Recipe', id: string, title: string, description?: string | null, ingredients?: Array<string> | null } | null };
 
 
 export const GetRecipeDocument = gql`
