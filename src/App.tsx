@@ -10,7 +10,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>321234567 Hello World!</Text>
-      <ButtonYrn title={'This title'} />
+      <ButtonYrn title={'This title'} onPress={() => {}} />
       {/* <Button buttonRef={useRef('ref-123')} title={'Click me'} /> */}
       {/* {['id-1', 'id-2'].map(key => (
         <Button key={`key-${key}`} />
