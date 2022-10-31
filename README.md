@@ -8,6 +8,8 @@ based on [React Typescript UI Web Template](https://github.com/ybeaz/react-ui-te
 
 updated 2022-10-05
 
+## Plan for work
+
 ## How to, architecture / development notes
 
 ### How to (web) add screens

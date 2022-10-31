@@ -3,25 +3,31 @@ import { StatusBar } from 'expo-status-bar'
 import { StyleSheet, Text, View } from 'react-native'
 // import 'react-chat-elements/dist/main.css'
 // import { ChatItem, Button } from 'react-chat-elements'
-import { ButtonYrn } from './ViewLibrary/index'
+import { ButtonYrl } from './ViewLibrary/index'
 
 export default function App() {
   console.info('App [5]', {})
+
+  const iconProps = {
+    library: 'FontAwesome',
+    name: 'rocket',
+    size: 30,
+    color: '#900',
+  }
+
+  const onPressButtonYrl = () => {
+    console.info('App [14]', { action: 'It is pressed 3' })
+  }
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>321234567 Hello World!</Text>
-      <ButtonYrn title={'This title'} onPress={() => {}} />
-      {/* <Button buttonRef={useRef('ref-123')} title={'Click me'} /> */}
-      {/* {['id-1', 'id-2'].map(key => (
-        <Button key={`key-${key}`} />
-        // <ChatItem
-        //   key={`key-${key}`}
-        //   id={key}
-        //   avatar={
-        //     'https://upload.wikimedia.org/wikipedia/commons/3/36/Stay_Awake.svg'
-        //   }
-        // />
-      ))} */}
+      <Text style={styles.text}>Hello World!</Text>
+      <ButtonYrl
+        title={'This title 3'}
+        iconProps={iconProps}
+        onPress={onPressButtonYrl}
+      />
+
       <StatusBar style='auto' />
     </View>
   )

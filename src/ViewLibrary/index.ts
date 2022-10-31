@@ -1,6 +1,6 @@
 // import AudioMessage from './AudioMessage/AudioMessage'
 // import Avatar from './Avatar/Avatar'
-import { ButtonYrn } from './ButtonYrn/ButtonYrn'
+import { ButtonYrl } from './ButtonYrl/ButtonYrl'
 // import ChatItem from './ChatItem/ChatItem'
 // import ChatList from './ChatList/ChatList'
 // import Circle from './Circle/Circle'
@@ -26,7 +26,7 @@ import { ButtonYrn } from './ButtonYrn/ButtonYrn'
 export {
   // AudioMessage,
   // Avatar,
-  ButtonYrn,
+  ButtonYrl,
   // ChatItem,
   // ChatList,
   // Circle,
