@@ -6,11 +6,11 @@ import { IconYrl } from '../IconYrl/IconYrl'
 
 export const ButtonYrl = (props: IButtonYrlProps) => {
   const { title, styleProps, disabled, onPress, iconProps } = props
-  const style =
+  const styleButton =
     (styleProps && styleProps.button) || buttonYrlStyleDefault.button
 
   return (
-    <Pressable style={style} onPress={onPress} disabled={disabled}>
+    <Pressable style={styleButton} onPress={onPress} disabled={disabled}>
       {iconProps && (
         <IconYrl
           library={iconProps.library}

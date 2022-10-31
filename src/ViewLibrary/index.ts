@@ -7,7 +7,7 @@ import { IconYrl } from './IconYrl/IconYrl'
 // import Circle from './Circle/Circle'
 // import Dropdown from './Dropdown/Dropdown'
 // import FileMessage from './FileMessage/FileMessage'
-import { InputYrl } from './InputYrl/InputYrl'
+import { InputTextYrl } from './InputTextYrl/InputTextYrl'
 // import LocationMessage from './LocationMessage/LocationMessage'
 // import MeetingItem from './MeetingItem/MeetingItem'
 // import MeetingLink from './MeetingLink/MeetingLink'
@@ -34,7 +34,7 @@ export {
   // Circle,
   // Dropdown,
   // FileMessage,
-  InputYrl,
+  InputTextYrl,
   // LocationMessage,
   // MeetingItem,
   // MeetingLink,

@@ -14,7 +14,7 @@ import { IIconYrlProps } from '../IconYrl/IconYrlType'
  */
 export interface IButtonYrlProps {
   title?: string
-  styleProps?: any
+  styleProps?: { button: any; text: any } | undefined
   disabled?: boolean
   onPress?: PressableProps['onPress']
   iconProps?: IIconYrlProps
