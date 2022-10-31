@@ -1,12 +1,13 @@
 // import AudioMessage from './AudioMessage/AudioMessage'
 // import Avatar from './Avatar/Avatar'
 import { ButtonYrl } from './ButtonYrl/ButtonYrl'
+import { IconYrl } from './IconYrl/IconYrl'
 // import ChatItem from './ChatItem/ChatItem'
 // import ChatList from './ChatList/ChatList'
 // import Circle from './Circle/Circle'
 // import Dropdown from './Dropdown/Dropdown'
 // import FileMessage from './FileMessage/FileMessage'
-// import Input from './Input/Input'
+import { InputYrl } from './InputYrl/InputYrl'
 // import LocationMessage from './LocationMessage/LocationMessage'
 // import MeetingItem from './MeetingItem/MeetingItem'
 // import MeetingLink from './MeetingLink/MeetingLink'
@@ -27,12 +28,13 @@ export {
   // AudioMessage,
   // Avatar,
   ButtonYrl,
+  IconYrl,
   // ChatItem,
   // ChatList,
   // Circle,
   // Dropdown,
   // FileMessage,
-  // Input,
+  InputYrl,
   // LocationMessage,
   // MeetingItem,
   // MeetingLink,

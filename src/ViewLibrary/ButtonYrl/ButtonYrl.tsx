@@ -1,9 +1,8 @@
 import * as React from 'react'
-import { Pressable, Text, View } from 'react-native'
+import { Pressable, Text } from 'react-native'
 import { IButtonYrlProps } from './ButtonYrlType'
 import { buttonYrlStyleDefault } from './ButtonYrlStyle'
 import { IconYrl } from '../IconYrl/IconYrl'
-import Icon from 'react-native-vector-icons/FontAwesome'
 
 export const ButtonYrl = (props: IButtonYrlProps) => {
   const { title, styleProps, disabled, onPress, iconProps } = props
