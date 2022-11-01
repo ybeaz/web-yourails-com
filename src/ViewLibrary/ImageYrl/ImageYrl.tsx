@@ -3,7 +3,7 @@ import { View, Image } from 'react-native'
 import { IImageYrlProps } from './ImageYrlType'
 import { imageYrlStyleDefault } from './ImageYrlStyle'
 
-export const ImageYrl = (props: IImageYrlProps) => {
+export const ImageYrl: React.FunctionComponent<IImageYrlProps> = props => {
   const { styleProps, uri } = props
 
   const styleContainer =

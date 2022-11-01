@@ -4,7 +4,7 @@ import { IButtonYrlProps } from './ButtonYrlType'
 import { buttonYrlStyleDefault } from './ButtonYrlStyle'
 import { IconYrl } from '../IconYrl/IconYrl'
 
-export const ButtonYrl = (props: IButtonYrlProps) => {
+export const ButtonYrl: React.FunctionComponent<IButtonYrlProps> = props => {
   const { title, styleProps, disabled, onPress, iconProps } = props
   const styleButton =
     (styleProps && styleProps.button) || buttonYrlStyleDefault.button
