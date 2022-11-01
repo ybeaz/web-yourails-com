@@ -8,6 +8,7 @@ import { IconYrl } from './IconYrl/IconYrl'
 // import Dropdown from './Dropdown/Dropdown'
 // import FileMessage from './FileMessage/FileMessage'
 import { InputTextYrl } from './InputTextYrl/InputTextYrl'
+import { ImageYrl } from './ImageYrl/ImageYrl'
 // import LocationMessage from './LocationMessage/LocationMessage'
 // import MeetingItem from './MeetingItem/MeetingItem'
 // import MeetingLink from './MeetingLink/MeetingLink'
@@ -29,6 +30,7 @@ export {
   // Avatar,
   ButtonYrl,
   IconYrl,
+  ImageYrl,
   // ChatItem,
   // ChatList,
   // Circle,

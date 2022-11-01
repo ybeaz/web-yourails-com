@@ -1,3 +1,5 @@
 import { StyleSheet } from 'react-native'
 
-export const templateYrlStyleDefault = StyleSheet.create({})
+export const templateYrlStyleDefault = StyleSheet.create({
+  container: {},
+})

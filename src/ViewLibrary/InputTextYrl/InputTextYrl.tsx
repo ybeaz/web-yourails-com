@@ -4,7 +4,17 @@ import { IInputTextYrlProps } from './InputTextYrlType'
 import { inputTextYrlStyleDefault } from './InputTextYrlStyle'
 
 export const InputTextYrl = (props: IInputTextYrlProps) => {
-  const { onChangeText, value, styleProps } = props
+  const {
+    autofocus,
+    defaultValue,
+    maxlength,
+    multiline,
+    onChangeText,
+    placeholder,
+    referance,
+    styleProps,
+    value,
+  } = props
 
   const styleContainer =
     (styleProps && styleProps.container) || inputTextYrlStyleDefault.container

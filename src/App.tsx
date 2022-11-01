@@ -4,7 +4,8 @@ import { StyleSheet, Text, View } from 'react-native'
 // import 'react-chat-elements/dist/main.css'
 // import { ChatItem, Button } from 'react-chat-elements'
 import { ButtonYrl } from './ViewLibrary/index'
-import { InputTextYrl } from './ViewLibrary/InputTextYrl/InputTextYrl'
+import { InputTextYrl } from './ViewLibrary/index'
+import { ImageYrl } from './ViewLibrary/index'
 
 export default function App() {
   console.info('App [5]', {})
@@ -27,13 +28,14 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello World!</Text>
+      <Text style={styles.text}>Hello World! 4</Text>
       <ButtonYrl
-        title={'This title 3'}
+        title={'This title 4'}
         iconProps={iconProps}
         onPress={onPressButtonYrl}
       />
       <InputTextYrl onChangeText={onChangeText} value={value} />
+      <ImageYrl uri='https://reactnative.dev/img/tiny_logo.png' />
       <StatusBar style='auto' />
     </View>
   )

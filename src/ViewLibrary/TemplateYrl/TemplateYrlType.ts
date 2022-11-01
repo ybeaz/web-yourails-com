@@ -1,4 +1,6 @@
 /**
  * ITemplateYrlProps Interface
  */
-export interface ITemplateYrlProps {}
+export interface ITemplateYrlProps {
+  styleProps?: { container: Object }
+}
