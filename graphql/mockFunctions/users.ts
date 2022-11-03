@@ -18,7 +18,6 @@ interface Users {
 
 export const users: Users = (_, options) => {
   const { limit } = options
-  console.info('users [20]', { limit })
   return usersMock.filter((item, index) => {
     return index <= limit ? true : false
   }) as User[]
