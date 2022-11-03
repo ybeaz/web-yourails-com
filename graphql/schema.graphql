@@ -1,3 +1,15 @@
+type User {
+  avatar: String
+  dateCreatedAt: Float!
+  dateDeletedAt: Float
+  dateLastActiveAt: Float!
+  dateUpdatedAt: Float
+  id: String!
+  name: String!
+  role: String!
+  status: String!
+}
+
 enum RecipeType {
   COMMON
   VEGAN
@@ -29,6 +41,7 @@ type MutationResponse {
 }
 
 type Query {
+  users(limit: Int): [User]
   recipes(limit: Int): [Recipe]
   recipe(id: String!): Recipe
 }
