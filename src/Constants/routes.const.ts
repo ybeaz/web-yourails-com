@@ -8,6 +8,12 @@ interface IRoute {
 
 export const routes: IRoute[] = [
   {
+    path: `/app2`,
+    exact: true,
+    page: 'App2',
+    themeDafault: 'Light',
+  },
+  {
     path: `/TemplateScreen`,
     exact: true,
     page: 'TemplateScreen',

@@ -35,6 +35,7 @@ dist/
 
 # JetBrains IDE
 .idea/
+.expo/
 
 # Unit test reports
 TEST*.xml
