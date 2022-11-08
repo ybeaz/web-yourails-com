@@ -28,5 +28,5 @@ export interface IUser {
   userStatus: string
   userWebLink: string
   userWebTokenAuth: string
-  userZoneInfo: string
+  userTimeZone: string
 }

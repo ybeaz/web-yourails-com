@@ -1,4 +1,4 @@
-import usersMock from '../mockJson/users.json'
+import usersMock from '../mockJson/usersMock.json'
 
 type User = {
   avatar?: string

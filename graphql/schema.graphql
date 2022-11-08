@@ -1,3 +1,26 @@
+scalar Date
+
+type MessageData {
+  type: String
+  value: String
+}
+
+type Message {
+  messageId: String
+  messageIdOwner: String
+  messageIdChat: String
+  messageData: [MessageData]
+  deliveryId: String
+  deliveryDateSent: Date
+  deliveryDateRecieved: Date
+}
+
+type Chat {
+  chatId: String
+  chatIdProfiles: [String]
+  messages: [Message]
+}
+
 type User {
   avatar: String
   dateCreatedAt: Float!
@@ -41,6 +64,7 @@ type MutationResponse {
 }
 
 type Query {
+  readChatsForProfileId(profileId: String, limit: Int): [Chat]
   users(limit: Int): [User]
   recipes(limit: Int): [Recipe]
   recipe(id: String!): Recipe

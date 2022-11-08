@@ -32,7 +32,7 @@ export const userStoreDefault: IUser = {
   userStatus: '',
   userWebLink: '',
   userWebTokenAuth: '',
-  userZoneInfo: '',
+  userTimeZone: '',
 }
 
 export const componentsStateDefault: IComponentsState = {

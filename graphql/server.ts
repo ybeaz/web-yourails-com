@@ -3,6 +3,7 @@ import { ApolloServer } from 'apollo-server'
 import { readFileSync } from 'fs'
 import { recipes } from './mockFunctions/recipes'
 import { users } from './mockFunctions/users'
+import { readChatsForProfileId } from './mockFunctions/readChatsForProfileId'
 // import {
 //   Card,
 //   RateType,
@@ -20,6 +21,7 @@ const typeDefs = readFileSync(join(__dirname, 'schema.graphql')).toString(
 
 const resolvers = {
   Query: {
+    readChatsForProfileId,
     users,
     recipes,
   },
