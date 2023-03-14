@@ -63,8 +63,15 @@ updated 2022-10-05
 3.  To go to the UI directory: `cd Dev/react-ui-native-template-2022`
 
 4.  To make sure the right path to App in here: `node_modules/expo/AppEntry.js`
+    Probably `import App from '../../src/App';`
 
 5.  To run the app: `yarn expo:start`
+    To check xCode version: `/usr/bin/xcodebuild -version`
+
+
+### To troubleshoot running the app
+1. if you have exception `CommandError: Can't determine id of Simulator app; the Simulator is most likely not installed on this machine. Run sudo xcode-select -s /Applications/Xcode.app` then I run xcode.app and macbook suggested to update xcode. This solved the issue
+
 
 ### To create/ update `src/types/graphql.tsx`
 
