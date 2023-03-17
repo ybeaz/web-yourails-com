@@ -1,6 +1,6 @@
 import { PressableProps } from 'react-native'
 
-import { IIconYrlProps } from '../IconYrl/IconYrlType'
+import { IconYrlPropsType } from '../IconYrl/IconYrlType'
 
 /**
  * IButtonYrlProps Interface
@@ -12,10 +12,15 @@ import { IIconYrlProps } from '../IconYrl/IconYrlType'
  * @prop onClick The Button's onClick function and optional.
  * @prop icon The Button's icon is a IButtonIcon and optional.
  */
-export interface IButtonYrlProps {
+export interface ButtonYrlPropsType {
   title?: string
   styleProps?: { button: any; text: any } | undefined
   disabled?: boolean
   onPress?: PressableProps['onPress']
-  iconProps?: IIconYrlProps
+  iconProps?: IconYrlPropsType
+}
+
+export interface ButtonYrlType
+  extends React.FunctionComponent<ButtonYrlPropsType> {
+  (props: ButtonYrlPropsType): React.ReactElement
 }

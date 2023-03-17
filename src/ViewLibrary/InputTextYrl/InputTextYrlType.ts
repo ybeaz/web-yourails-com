@@ -12,7 +12,7 @@ import { TextInput } from 'react-native'
  * @prop styleProps The Input's styleProps and optional.
  * @prop value The Input's value and optional.
  */
-export interface IInputTextYrlProps {
+export interface InputTextYrlPropsType {
   autofocus?: boolean
   defaultValue?: string
   maxlength?: number
@@ -22,4 +22,9 @@ export interface IInputTextYrlProps {
   referance?: any
   styleProps?: { container: Object; inputText: Object }
   value?: string
+}
+
+export interface InputTextYrlType
+  extends React.FunctionComponent<InputTextYrlPropsType> {
+  (props: InputTextYrlPropsType): React.ReactElement
 }

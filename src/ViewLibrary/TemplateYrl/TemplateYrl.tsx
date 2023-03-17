@@ -1,11 +1,9 @@
 import * as React from 'react'
 import { View } from 'react-native'
-import { ITemplateYrlProps } from './TemplateYrlType'
+import { TemplateYrlType } from './TemplateYrlType'
 import { templateYrlStyleDefault } from './TemplateYrlStyle'
 
-export const TemplateYrl: React.FunctionComponent<
-  ITemplateYrlProps
-> = props => {
+export const TemplateYrl: TemplateYrlType = props => {
   const { styleProps } = props
 
   const styleTemplate =

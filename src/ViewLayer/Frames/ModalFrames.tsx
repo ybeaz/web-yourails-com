@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { useSelector } from 'react-redux'
-import { Button as ButtonUserto } from 'userto-components'
+import { ButtonYrl } from '../../ViewLibrary/ButtonYrl/ButtonYrl'
 
 import { handleEvents } from '../../DataLayer/index.handleEvents'
 import { IRootStore } from '../../Interfaces/IRootStore'
@@ -37,11 +37,13 @@ export const ModalFrames: React.FunctionComponent = (): ReactElement => {
 
       const propsOut = {
         buttonCloseProps: {
-          icon: 'MdClose',
-          className: 'Button_MdClose',
-          onClick: () => {
+          // title?: string
+          // styleProps?: { button: any; text: any } | undefined
+          // disabled?: boolean
+          onPress: () => {
             handleEvents({}, closeAction)
           },
+          // iconProps?: IIconYrlProps
         },
         childProps,
       }
@@ -55,7 +57,7 @@ export const ModalFrames: React.FunctionComponent = (): ReactElement => {
         >
           <div className='_content'>
             <span className='_close'>
-              <ButtonUserto {...propsOut.buttonCloseProps} />
+              <ButtonYrl {...propsOut.buttonCloseProps} />
             </span>
             <div
               className='_inner'

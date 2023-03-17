@@ -1,10 +1,10 @@
 import * as React from 'react'
 import { Pressable, Text } from 'react-native'
-import { IButtonYrlProps } from './ButtonYrlType'
+import { ButtonYrlType } from './ButtonYrlType'
 import { buttonYrlStyleDefault } from './ButtonYrlStyle'
 import { IconYrl } from '../IconYrl/IconYrl'
 
-export const ButtonYrl: React.FunctionComponent<IButtonYrlProps> = props => {
+export const ButtonYrl: ButtonYrlType = props => {
   const { title, styleProps, disabled, onPress, iconProps } = props
   const styleButton =
     (styleProps && styleProps.button) || buttonYrlStyleDefault.button

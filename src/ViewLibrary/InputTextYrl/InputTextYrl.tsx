@@ -1,11 +1,9 @@
 import * as React from 'react'
 import { SafeAreaView, TextInput } from 'react-native'
-import { IInputTextYrlProps } from './InputTextYrlType'
+import { InputTextYrlType } from './InputTextYrlType'
 import { inputTextYrlStyleDefault } from './InputTextYrlStyle'
 
-export const InputTextYrl: React.FunctionComponent<
-  IInputTextYrlProps
-> = props => {
+export const InputTextYrl: InputTextYrlType = props => {
   const {
     autofocus,
     defaultValue,

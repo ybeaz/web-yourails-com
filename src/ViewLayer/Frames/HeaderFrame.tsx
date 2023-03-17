@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
-import { LoaderOverlay as LoaderOverlayUserto } from 'userto-components'
+// import { LoaderOverlayYrl } from '../../ViewLibrary/LoaderOverlayYrl'
 
 import { IRootStore } from '../../Interfaces/IRootStore'
 import { ModalFrames } from '../Frames/ModalFrames'
@@ -31,7 +31,7 @@ export const HeaderFrame: React.FunctionComponent<HeaderFrameArgs> = props => {
         <div className='_right'>{props.children[2]}</div>
       </div>
       <ModalFrames />
-      <LoaderOverlayUserto {...propsOut.loaderOverlayUsertoProps} />
+      {/* <LoaderOverlay {...propsOut.loaderOverlayUsertoProps} /> */}
     </div>
   )
 }

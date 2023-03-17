@@ -28,7 +28,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hello World! 4</Text>
+      <Text style={styles.text}>Hello World! 5</Text>
       <ButtonYrl
         title={'This title 4'}
         iconProps={iconProps}

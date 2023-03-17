@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { View, Image } from 'react-native'
-import { IImageYrlProps } from './ImageYrlType'
+import { ImageYrlType } from './ImageYrlType'
 import { imageYrlStyleDefault } from './ImageYrlStyle'
 
-export const ImageYrl: React.FunctionComponent<IImageYrlProps> = props => {
+export const ImageYrl: ImageYrlType = props => {
   const { styleProps, uri } = props
 
   const styleContainer =

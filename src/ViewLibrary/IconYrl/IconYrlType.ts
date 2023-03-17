@@ -4,9 +4,14 @@
  * @prop Icon's size and optional.
  * @prop iconName A string that reflects the name of the icon and optional.
  */
-export interface IIconYrlProps {
+export interface IconYrlPropsType {
   library?: string
   name?: string
   color?: string
   size?: number
+}
+
+export interface IconYrlType
+  extends React.FunctionComponent<IconYrlPropsType> {
+  (props: IconYrlPropsType): React.ReactElement
 }
