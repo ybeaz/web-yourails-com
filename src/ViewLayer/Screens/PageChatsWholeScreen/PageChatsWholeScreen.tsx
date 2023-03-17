@@ -34,7 +34,8 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
     )
   }, [])
 
-  console.info('TemplateScreen  [41]', {
+  console.info('PageChatsWholeScreen  [41]', {
+    props,
     store,
   })
 
@@ -59,8 +60,6 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
 
   const value = ''
 
-  console.info('PageChatsWholeScreen [64]', { style })
-
   return (
     <View testID='PageChatsWholeScreen' style={style.PageChatsWholeScreen}>
       <View
@@ -68,9 +67,9 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
         style={style.PageChatsWholeScreen.sidebarRight}
       ></View>
       <View testID='mainColumn' style={style.PageChatsWholeScreen.mainColumn}>
-        <Text>Hello World! 6</Text>
+        <Text>Hello World! 7</Text>
         <ButtonYrl
-          title={'This title 6'}
+          title={'This title 7'}
           iconProps={iconProps}
           onPress={onPressButtonYrl}
         />

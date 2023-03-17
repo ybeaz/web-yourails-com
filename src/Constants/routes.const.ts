@@ -1,16 +1,18 @@
-interface IRoute {
+export interface RouteType {
   path: string
   strict?: boolean
   exact?: boolean
   page: string
+  isHashRouter?: boolean
   themeDafault: string
 }
 
-export const routes: IRoute[] = [
+export const routes: RouteType[] = [
   {
-    path: `/app2`,
+    path: `/k`,
     exact: true,
-    page: 'App2',
+    page: 'PageChatsWholeScreen',
+    isHashRouter: true,
     themeDafault: 'Light',
   },
   {
@@ -30,11 +32,5 @@ export const routes: IRoute[] = [
     exact: true,
     page: 'Error404',
     themeDafault: 'Dark',
-  },
-  {
-    path: `/`,
-    exact: true,
-    page: 'TemplateScreen',
-    themeDafault: 'Light',
   },
 ]
