@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native'
 
-export const buttonYrlStyleDefault = StyleSheet.create({
-  button: {
+export const ButtonYrlStyle = StyleSheet.create({
+  ButtonYrl: {
     backgroundColor: 'white',
     justifyContent: 'center',
     padding: 2,
   },
-  text: {
+  title: {
     color: '#3979aa',
   },
 })

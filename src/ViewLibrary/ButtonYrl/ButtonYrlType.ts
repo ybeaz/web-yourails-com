@@ -5,7 +5,7 @@ import { IconYrlPropsType } from '../IconYrl/IconYrlType'
 /**
  * IButtonYrlProps Interface
  * @prop title The Button's title and optional.
- * @prop tyleProps The Button's styleProps and optional.
+ * @prop styleProps The Button's styleProps and optional.
  * @prop backgroundColor The Button's background color and optional.
  * @prop color The Button's color and optional.
  * @prop disabled The Button's disabled and optional.
@@ -14,7 +14,7 @@ import { IconYrlPropsType } from '../IconYrl/IconYrlType'
  */
 export interface ButtonYrlPropsType {
   title?: string
-  styleProps?: { button: any; text: any } | undefined
+  styleProps?: { ButtonYrl: any; title: any } | undefined
   disabled?: boolean
   onPress?: PressableProps['onPress']
   iconProps?: IconYrlPropsType

@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
-export const loaderOverlayYrlStyleDefault = StyleSheet.create({
-  loaderOverlay: {
+export const LoaderOverlayYrlStyle = StyleSheet.create({
+  LoaderOverlay: {
     flex: 1,
     // flexDirection: row,
     // justifyContent: center;
@@ -14,14 +14,14 @@ export const loaderOverlayYrlStyleDefault = StyleSheet.create({
     // height: 100%; /* Full height */
     // overflow: auto; /* Enable scroll if needed */
   },
-  _spinner: {
+  spinner: {
     height: 100,
     width: 100,
     position: 'absolute',
     top: '50%',
     left: '50%',
-  }
-   // [flex, none]; /* Hidden by default */
+  },
+  // [flex, none]; /* Hidden by default */
   // flex-direction: row;
   // justify-content: center;
   // align-items: center;
@@ -33,8 +33,6 @@ export const loaderOverlayYrlStyleDefault = StyleSheet.create({
   //   height: 50,
   // },
 })
-
-
 
 // .LoaderOverlay {
 //   display: none; // [flex, none]; /* Hidden by default */

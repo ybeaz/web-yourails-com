@@ -1,17 +1,24 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { loaderOverlayYrlStyleDefault as styles} from './LoaderOverlayYrlStyle'
+import { LoaderOverlayYrlStyle } from './LoaderOverlayYrlStyle'
 import { LoaderOverlayType } from './LoaderOverlayYrlType'
 
+/**
+ * @import import { LoaderOverlayYrl } from './ViewLibrary/LoaderOverlay/LoaderOverlay'
+ * @import import { LoaderOverlayPropsType } from './ViewLibrary/LoaderOverlay/LoaderOverlayType'
+ */
 const LoaderOverlay: LoaderOverlayType = props => {
-  const { isLoaderOverlayVisible } = props
-
-  const classAdd = isLoaderOverlayVisible ? 'LoaderOverlay_show' : ''
+  const {
+    isLoaderOverlayVisible,
+    propsStyle = { LoaderOverlay: {}, spinner: {} },
+  } = props
 
   return (
-    <View style={[styles.loaderOverlay]}>
-      <View style={[styles._spinner]}></View>
+    <View
+      style={[LoaderOverlayYrlStyle.LoaderOverlay, propsStyle.LoaderOverlay]}
+    >
+      <View style={[LoaderOverlayYrlStyle.spinner, propsStyle.spinner]}></View>
     </View>
   )
 }

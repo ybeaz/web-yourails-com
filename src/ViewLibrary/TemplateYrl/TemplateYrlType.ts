@@ -2,7 +2,7 @@
  * ITemplateYrlProps Interface
  */
 export interface TemplateYrlPropsType {
-  styleProps?: { container: Object }
+  styleProps?: { TemplateYrl: Object }
 }
 
 export interface TemplateYrlType

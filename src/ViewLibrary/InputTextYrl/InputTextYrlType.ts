@@ -20,7 +20,7 @@ export interface InputTextYrlPropsType {
   onChangeText: (text: string) => void
   placeholder?: string
   referance?: any
-  styleProps?: { container: Object; inputText: Object }
+  styleProps?: { InputTextYrl: Object; inputText: Object }
   value?: string
 }
 

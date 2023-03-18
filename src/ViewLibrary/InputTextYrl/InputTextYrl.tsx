@@ -1,8 +1,12 @@
 import * as React from 'react'
 import { SafeAreaView, TextInput } from 'react-native'
 import { InputTextYrlType } from './InputTextYrlType'
-import { inputTextYrlStyleDefault } from './InputTextYrlStyle'
+import { InputTextYrlStyle } from './InputTextYrlStyle'
 
+/**
+ * @import import { InputTextYrl } from './ViewLibrary/InputTextYrl/InputTextYrl'
+ * @import import { InputTextYrlPropsType } from './ViewLibrary/InputTextYrl/InputTextYrlType'
+ */
 export const InputTextYrl: InputTextYrlType = props => {
   const {
     autofocus,
@@ -12,20 +16,16 @@ export const InputTextYrl: InputTextYrlType = props => {
     onChangeText,
     placeholder,
     referance,
-    styleProps,
+    styleProps = { InputTextYrl: {}, inputText: {} },
     value,
   } = props
 
-  const styleContainer =
-    (styleProps && styleProps.container) || inputTextYrlStyleDefault.container
-
-  const styleInputText =
-    (styleProps && styleProps.inputText) || inputTextYrlStyleDefault.inputText
-
   return (
-    <SafeAreaView style={styleContainer}>
+    <SafeAreaView
+      style={[InputTextYrlStyle.InputTextYrl, styleProps.InputTextYrl]}
+    >
       <TextInput
-        style={styleInputText}
+        style={[InputTextYrlStyle.inputText, styleProps.inputText]}
         onChangeText={onChangeText}
         value={value}
       />

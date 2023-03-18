@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
-export const inputTextYrlStyleDefault = StyleSheet.create({
-  container: {
+export const InputTextYrlStyle = StyleSheet.create({
+  InputTextYrl: {
     display: 'flex',
     flexDirection: 'row',
     width: '100%',

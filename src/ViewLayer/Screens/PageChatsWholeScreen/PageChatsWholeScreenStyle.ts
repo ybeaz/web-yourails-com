@@ -16,6 +16,7 @@ export const PageChatsWholeScreenStyle = StyleSheet.create({
     backgroundColor: 'blue',
   },
   mainColumn: {
+    padding: '1rem',
     flex: 2,
     flexGrow: 2,
     border: 'solid 1px black',
@@ -25,6 +26,6 @@ export const PageChatsWholeScreenStyle = StyleSheet.create({
     top: 0,
     height: '100%',
     backgroundColor: '#e6ebee',
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
 })

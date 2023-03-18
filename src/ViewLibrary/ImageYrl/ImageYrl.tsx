@@ -1,20 +1,18 @@
 import * as React from 'react'
 import { View, Image } from 'react-native'
 import { ImageYrlType } from './ImageYrlType'
-import { imageYrlStyleDefault } from './ImageYrlStyle'
+import { ImageYrlStyle } from './ImageYrlStyle'
 
+/**
+ * @import import { ImageYrl } from './ViewLibrary/ImageYrl/ImageYrl'
+ * @import import { ImageYrlPropsType } from './ViewLibrary/ImageYrl/ImageYrlType'
+ */
 export const ImageYrl: ImageYrlType = props => {
-  const { styleProps, uri } = props
-
-  const styleContainer =
-    (styleProps && styleProps.container) || imageYrlStyleDefault.container
-
-  const styleImage =
-    (styleProps && styleProps.image) || imageYrlStyleDefault.image
+  const { styleProps = { ImageYrl: {}, image: {} }, uri } = props
 
   return (
-    <View style={styleContainer}>
-      <Image style={styleImage} source={{ uri }} />
+    <View style={[ImageYrlStyle.ImageYrl, styleProps.ImageYrl]}>
+      <Image style={[ImageYrlStyle.image, styleProps.image]} source={{ uri }} />
     </View>
   )
 }

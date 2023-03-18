@@ -2,7 +2,7 @@
  * IImageYrlProps Interface
  */
 export interface ImageYrlPropsType {
-  styleProps?: { container: Object; image: Object }
+  styleProps?: { ImageYrl: Object; image: Object }
   uri: string
 }
 
