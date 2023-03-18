@@ -20,6 +20,10 @@ const PAGES: Record<string, any> = {
   // Error404,
 }
 
+/**
+ * @description Component to provide routing in one place
+ * @links https://v5.reactrouter.com/web/api/
+ */
 export const RouterScreensConfig: React.FunctionComponent<any> = () => {
   const demoHostName = 'r1.userto.com'
   const demoPath = '/demo-youtube-learn.html'

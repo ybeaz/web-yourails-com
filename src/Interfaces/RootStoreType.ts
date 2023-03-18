@@ -1,20 +1,20 @@
-import { IUser } from './IUser'
-export interface IComponentsState {
+import { UserType } from './UserType'
+export interface ComponentsStateType {
   isLoaderOverlayVisible: boolean
   modalFrames: { childName: string; isActive: boolean; childProps: any }[]
 }
 
-export interface IForms {
+export interface FormsType {
   searchInput: string
-  userPrev: IUser
-  user: IUser
+  userPrev: UserType
+  user: UserType
   [key: string]: any
 }
 
-export interface IRootStore {
-  componentsState: IComponentsState
-  users: IUser[]
-  forms: IForms | any
+export interface RootStoreType {
+  componentsState: ComponentsStateType
+  users: UserType[]
+  forms: FormsType | any
   isLoaded: {
     isLoadedGlobalVars: boolean
   }

@@ -1,6 +1,3 @@
-/**
- * ITemplateYrlProps Interface
- */
 export interface TemplateScreenPropsType {
   routeProps: {
     location: {

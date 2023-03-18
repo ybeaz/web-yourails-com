@@ -6,16 +6,15 @@ import { ButtonYrl, InputTextYrl, ImageYrl } from '../../../ViewLibrary/index'
 
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { URL_APP_BASE } from '../../../Constants/servers.const'
-import { TemplateBody } from '../../Components/TemplateBody'
 import { HeaderFrame } from '../../Frames/HeaderFrame'
 import { FooterFrame } from '../../Frames/FooterFrame'
 import { MainFrame } from '../../Frames/MainFrame'
-import { IRootStore } from '../../../Interfaces/IRootStore'
+import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { TemplateScreenType } from './TemplateScreenType'
 import { TemplateScreenStyle as style } from './TemplateScreenStyle'
 
 export const TemplateScreen: TemplateScreenType = props => {
-  const store = useSelector((store2: IRootStore) => store2)
+  const store = useSelector((store2: RootStoreType) => store2)
 
   const {
     globalVars: { language },

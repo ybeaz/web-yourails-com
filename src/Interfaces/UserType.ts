@@ -1,4 +1,4 @@
-export interface IUser {
+export interface UserType {
   userAvatar: string
   userBirthYear: number | null
   userDateCreated: string

@@ -9,16 +9,16 @@ import { useSelector } from 'react-redux'
 import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
 
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
-import { URL_APP_BASE } from '../../../Constants/servers.const'
-import { TemplateBody } from '../../Components/TemplateBody'
-import { HeaderFrame } from '../../Frames/HeaderFrame'
-import { FooterFrame } from '../../Frames/FooterFrame'
-import { MainFrame } from '../../Frames/MainFrame'
-import { IRootStore } from '../../../Interfaces/IRootStore'
+// import { URL_APP_BASE } from '../../../Constants/servers.const'
+// import { TemplateBody } from '../../Components/TemplateBody'
+// import { HeaderFrame } from '../../Frames/HeaderFrame'
+// import { FooterFrame } from '../../Frames/FooterFrame'
+// import { MainFrame } from '../../Frames/MainFrame'
+import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 
 export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
-  const store = useSelector((store2: IRootStore) => store2)
+  const store = useSelector((store2: RootStoreType) => store2)
 
   const {
     globalVars: { language },
@@ -62,11 +62,8 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
 
   return (
     <View testID='PageChatsWholeScreen' style={style.PageChatsWholeScreen}>
-      <View
-        testID='sidebarRight'
-        style={style.PageChatsWholeScreen.sidebarRight}
-      ></View>
-      <View testID='mainColumn' style={style.PageChatsWholeScreen.mainColumn}>
+      <View testID='sidebarRight' style={style.sidebarRight}></View>
+      <View testID='mainColumn' style={style.mainColumn}>
         <Text>Hello World! 7</Text>
         <ButtonYrl
           title={'This title 7'}
