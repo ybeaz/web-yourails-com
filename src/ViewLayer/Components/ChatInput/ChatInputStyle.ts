@@ -8,11 +8,27 @@ export const ChatInputStyle = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  InputTextYrl: {
+  inputButton: {
     width: '80%',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  InputTextYrl: {
+    width: '100%',
   },
   inputText: {
     width: '100%',
     borderRadius: 10,
+    paddingRight: '2rem',
+  },
+  ButtonYrl: {
+    position: 'absolute',
+    margin: '0 0 0 0',
+    padding: '10px',
+    right: 20,
+  },
+  ButtonTitle: {
+    fontSize: 17,
+    fontWeight: '600',
   },
 })

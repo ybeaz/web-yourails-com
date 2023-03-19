@@ -32,16 +32,19 @@ export const ChatInput: ChatInputType = props => {
     buttonYrlProps: {
       testID: 'ChatInput_ButtonYrl',
       styleProps: {
-        ButtonYrl: {},
-        title: {},
+        ButtonYrl: style.ButtonYrl,
+        title: style.ButtonTitle,
       },
+      title: 'Send',
     },
   }
 
   return (
     <View style={[style.ChatInput]} testID='ChatInput'>
-      <InputTextYrl {...propsOut.inputTextYrlProps} />
-      <ButtonYrl {...propsOut.buttonYrlProps} />
+      <View style={[style.inputButton]} testID='ChatInput_inputButton'>
+        <InputTextYrl {...propsOut.inputTextYrlProps} />
+        <ButtonYrl {...propsOut.buttonYrlProps} />
+      </View>
     </View>
   )
 }

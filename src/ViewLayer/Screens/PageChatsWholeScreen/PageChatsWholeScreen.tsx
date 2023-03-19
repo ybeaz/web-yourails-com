@@ -67,7 +67,6 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
         <GiftedChatContainer />
         <Text>{'\n\n\n'}</Text>
         <ChatInput />
-        <Text>{'\n\n\n'}</Text>
       </View>
     </View>
   )
