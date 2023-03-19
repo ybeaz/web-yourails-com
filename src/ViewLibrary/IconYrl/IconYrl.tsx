@@ -11,7 +11,15 @@ const ICON: Record<string, any> = {
  * @import import { ButtonYrlPropsType } from './ViewLibrary/IconYrl/IconYrlType'
  */
 export const IconYrl: IconYrlType = props => {
-  const Icon = props.library ? ICON[props.library] : null
+  const { testID = 'IconYrl', library } = props
+  const Icon = library ? ICON[library] : null
 
-  return <Icon name={props.name} size={props.size} color={props.color} />
+  return (
+    <Icon
+      name={props.name}
+      size={props.size}
+      color={props.color}
+      testID={testID}
+    />
+  )
 }

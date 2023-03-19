@@ -8,8 +8,6 @@ export const InputTextYrlStyle = StyleSheet.create({
   inputText: {
     width: '100%',
     height: 40,
-    backgroundColor: 'red',
-    borderWidth: 1,
     padding: 10,
     flex: 1,
     // alignItems: 'stretch',

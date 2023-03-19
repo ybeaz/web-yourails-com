@@ -8,9 +8,12 @@ import { TemplateYrlStyle } from './TemplateYrlStyle'
  * @import import { TemplateYrlPropsType } from './ViewLibrary/TemplateYrl/TemplateYrlType'
  */
 export const TemplateYrl: TemplateYrlType = props => {
-  const { styleProps = { TemplateYrl: {} } } = props
+  const { styleProps = { TemplateYrl: {} }, testID = 'TemplateYrl' } = props
 
   return (
-    <View style={[TemplateYrlStyle.TemplateYrl, styleProps.TemplateYrl]}></View>
+    <View
+      style={[TemplateYrlStyle.TemplateYrl, styleProps.TemplateYrl]}
+      testID={testID}
+    ></View>
   )
 }

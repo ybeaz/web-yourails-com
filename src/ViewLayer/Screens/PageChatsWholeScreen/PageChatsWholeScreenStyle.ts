@@ -27,5 +27,6 @@ export const PageChatsWholeScreenStyle = StyleSheet.create({
     height: '100%',
     backgroundColor: '#e6ebee',
     flexDirection: 'column',
+    borderWidth: 1,
   },
 })

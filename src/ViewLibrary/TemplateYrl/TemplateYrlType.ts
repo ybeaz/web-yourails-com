@@ -3,6 +3,7 @@
  */
 export interface TemplateYrlPropsType {
   styleProps?: { TemplateYrl: Object }
+  testID: string
 }
 
 export interface TemplateYrlType

@@ -8,19 +8,21 @@ import { LoaderOverlayType } from './LoaderOverlayYrlType'
  * @import import { LoaderOverlayYrl } from './ViewLibrary/LoaderOverlay/LoaderOverlay'
  * @import import { LoaderOverlayPropsType } from './ViewLibrary/LoaderOverlay/LoaderOverlayType'
  */
-const LoaderOverlay: LoaderOverlayType = props => {
+const LoaderOverlayYrl: LoaderOverlayType = props => {
   const {
     isLoaderOverlayVisible,
     propsStyle = { LoaderOverlay: {}, spinner: {} },
+    testID = 'LoaderOverlayYrl',
   } = props
 
   return (
     <View
       style={[LoaderOverlayYrlStyle.LoaderOverlay, propsStyle.LoaderOverlay]}
+      testID={testID}
     >
       <View style={[LoaderOverlayYrlStyle.spinner, propsStyle.spinner]}></View>
     </View>
   )
 }
 
-export default LoaderOverlay
+export default LoaderOverlayYrl

@@ -17,12 +17,14 @@ export const InputTextYrl: InputTextYrlType = props => {
     placeholder,
     referance,
     styleProps = { InputTextYrl: {}, inputText: {} },
+    testID = 'InputTextYrl',
     value,
   } = props
 
   return (
     <SafeAreaView
       style={[InputTextYrlStyle.InputTextYrl, styleProps.InputTextYrl]}
+      testID={testID}
     >
       <TextInput
         style={[InputTextYrlStyle.inputText, styleProps.inputText]}

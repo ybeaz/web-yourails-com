@@ -8,11 +8,19 @@ import { ImageYrlStyle } from './ImageYrlStyle'
  * @import import { ImageYrlPropsType } from './ViewLibrary/ImageYrl/ImageYrlType'
  */
 export const ImageYrl: ImageYrlType = props => {
-  const { styleProps = { ImageYrl: {}, image: {} }, uri } = props
+  const {
+    styleProps = { ImageYrl: {}, image: {} },
+    testID = 'ImageYrl',
+    uri,
+  } = props
 
   return (
     <View style={[ImageYrlStyle.ImageYrl, styleProps.ImageYrl]}>
-      <Image style={[ImageYrlStyle.image, styleProps.image]} source={{ uri }} />
+      <Image
+        style={[ImageYrlStyle.image, styleProps.image]}
+        testID={testID}
+        source={{ uri }}
+      />
     </View>
   )
 }

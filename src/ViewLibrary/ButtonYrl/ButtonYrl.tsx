@@ -12,6 +12,7 @@ export const ButtonYrl: ButtonYrlType = props => {
   const {
     title,
     styleProps = { ButtonYrl: {}, title: {} },
+    testID = 'ButtonYrl',
     disabled,
     onPress,
     iconProps,
@@ -30,6 +31,7 @@ export const ButtonYrl: ButtonYrlType = props => {
           name={iconProps.name}
           size={iconProps.size}
           color={iconProps.color}
+          testID={`${testID}-IconYrl`}
         />
       )}
 

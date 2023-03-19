@@ -21,6 +21,7 @@ export interface InputTextYrlPropsType {
   placeholder?: string
   referance?: any
   styleProps?: { InputTextYrl: Object; inputText: Object }
+  testID: string
   value?: string
 }
 

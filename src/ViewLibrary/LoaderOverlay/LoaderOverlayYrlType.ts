@@ -4,6 +4,7 @@
 export interface LoaderOverlayYrlPropsType {
   isLoaderOverlayVisible: boolean
   propsStyle: { LoaderOverlay: any; spinner: any }
+  testID: string
 }
 
 export interface LoaderOverlayType

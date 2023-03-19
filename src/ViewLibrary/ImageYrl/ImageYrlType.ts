@@ -3,6 +3,7 @@
  */
 export interface ImageYrlPropsType {
   styleProps?: { ImageYrl: Object; image: Object }
+  testID: string
   uri: string
 }
 

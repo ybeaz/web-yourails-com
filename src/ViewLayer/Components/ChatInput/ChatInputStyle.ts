@@ -5,4 +5,7 @@ export const ChatInputStyle = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
+  inputText: {
+    width: '80%',
+  },
 })

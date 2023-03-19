@@ -16,16 +16,17 @@ export const ChatInput: ChatInputType = props => {
   const propsOut = {
     inputTextYrlProps: {
       onChangeText: (text: string) => {},
-      styleProps: { InputTextYrl: {}, inputText: {} },
+      styleProps: {
+        InputTextYrl: {},
+        inputText: { ...style.inputText, ...themes.themeA.colorPair01 },
+      },
+      testID: 'ChatInputInputText',
     },
     buttonYrlProps: {},
   }
 
   return (
-    <View
-      style={[style.ChatInput, themes.themeA.colorPair01]}
-      testID='ChatInput'
-    >
+    <View style={[style.ChatInput]} testID='ChatInput'>
       <InputTextYrl {...propsOut.inputTextYrlProps} />
       {/* <ButtonYrl {...propsOut.buttonYrlProps} /> */}
     </View>

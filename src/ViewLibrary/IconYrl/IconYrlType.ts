@@ -9,9 +9,9 @@ export interface IconYrlPropsType {
   name?: string
   color?: string
   size?: number
+  testID: string
 }
 
-export interface IconYrlType
-  extends React.FunctionComponent<IconYrlPropsType> {
+export interface IconYrlType extends React.FunctionComponent<IconYrlPropsType> {
   (props: IconYrlPropsType): React.ReactElement
 }
