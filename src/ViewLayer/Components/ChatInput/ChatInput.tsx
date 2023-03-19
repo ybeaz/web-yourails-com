@@ -8,7 +8,7 @@ import { InputTextYrl } from '../../../ViewLibrary/InputTextYrl/InputTextYrl'
 import { InputTextYrlPropsType } from '../../../ViewLibrary/InputTextYrl/InputTextYrlType'
 import { ChatInputType } from './ChatInputType'
 import { ChatInputStyle as style } from './ChatInputStyle'
-import { themes } from '../../Styles/Themes'
+import { themes } from '../../Styles/themes'
 
 export const ChatInput: ChatInputType = props => {
   const store = useSelector((store2: RootStoreType) => store2)
@@ -17,18 +17,31 @@ export const ChatInput: ChatInputType = props => {
     inputTextYrlProps: {
       onChangeText: (text: string) => {},
       styleProps: {
-        InputTextYrl: {},
-        inputText: { ...style.inputText, ...themes.themeA.colorPair01 },
+        InputTextYrl: style.InputTextYrl,
+        inputText: {
+          ...style.inputText,
+          ...themes.themeA.colors01,
+        },
       },
-      testID: 'ChatInputInputText',
+      testID: 'ChatInput_InputTextYrl',
+      multiline: true,
+      numberOfLines: 4,
+      placeholder: 'Message',
+      placeholderTextColor: '#a2acb4',
     },
-    buttonYrlProps: {},
+    buttonYrlProps: {
+      testID: 'ChatInput_ButtonYrl',
+      styleProps: {
+        ButtonYrl: {},
+        title: {},
+      },
+    },
   }
 
   return (
     <View style={[style.ChatInput]} testID='ChatInput'>
       <InputTextYrl {...propsOut.inputTextYrlProps} />
-      {/* <ButtonYrl {...propsOut.buttonYrlProps} /> */}
+      <ButtonYrl {...propsOut.buttonYrlProps} />
     </View>
   )
 }

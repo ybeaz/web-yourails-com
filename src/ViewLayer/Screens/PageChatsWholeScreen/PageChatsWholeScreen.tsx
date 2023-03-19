@@ -34,7 +34,7 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
     )
   }, [])
 
-  console.info('PageChatsWholeScreen  [41]', {
+  console.info('PageChatsWholeScreen [41]', {
     props,
     store,
   })

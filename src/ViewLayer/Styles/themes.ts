@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native'
 
 const themeA = StyleSheet.create({
-  colorPair01: {
+  colors01: {
     color: 'rgba(25, 35, 50, 0.9)',
-    backgroundColor: 'white',
+    backgroundColor: '#fcfdfc',
   },
 })
 

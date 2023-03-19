@@ -13,9 +13,11 @@ export const InputTextYrl: InputTextYrlType = props => {
     defaultValue,
     maxlength,
     multiline,
+    numberOfLines,
     onChangeText,
     placeholder,
-    referance,
+    placeholderTextColor,
+    reference,
     styleProps = { InputTextYrl: {}, inputText: {} },
     testID = 'InputTextYrl',
     value,
@@ -28,8 +30,12 @@ export const InputTextYrl: InputTextYrlType = props => {
     >
       <TextInput
         style={[InputTextYrlStyle.inputText, styleProps.inputText]}
+        multiline={multiline}
+        numberOfLines={numberOfLines}
         onChangeText={onChangeText}
         value={value}
+        placeholder={placeholder}
+        placeholderTextColor={placeholderTextColor}
       />
     </SafeAreaView>
   )

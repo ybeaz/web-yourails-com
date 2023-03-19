@@ -17,9 +17,11 @@ export interface InputTextYrlPropsType {
   defaultValue?: string
   maxlength?: number
   multiline?: boolean
+  numberOfLines?: number
   onChangeText: (text: string) => void
   placeholder?: string
-  referance?: any
+  placeholderTextColor?: string
+  reference?: any
   styleProps?: { InputTextYrl: Object; inputText: Object }
   testID: string
   value?: string
