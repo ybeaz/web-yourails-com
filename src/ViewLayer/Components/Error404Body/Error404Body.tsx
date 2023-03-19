@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React from 'react'
 import { View, Text } from 'react-native'
 
 import { Error404BodyType } from './Error404BodyType'

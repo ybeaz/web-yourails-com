@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { Text, View } from 'react-native'
-// import 'react-chat-elements/dist/main.css'
-// import { ChatItem, Button } from 'react-chat-elements'
+
+// import AppGiftedChat from '../../../react-native-gifted-chat/App'
+import { GiftedChatContainer } from '../../Components/GiftedChatContainer'
+
+import { GiftedChat } from 'react-native-gifted-chat'
+
+import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ButtonYrl, InputTextYrl, ImageYrl } from '../../../ViewLibrary/index'
 
 import { useSelector } from 'react-redux'
 import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
 
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
-// import { URL_APP_BASE } from '../../../Constants/servers.const'
-// import { TemplateBody } from '../../Components/TemplateBody'
-// import { HeaderFrame } from '../../Frames/HeaderFrame'
-// import { FooterFrame } from '../../Frames/FooterFrame'
-// import { MainFrame } from '../../Frames/MainFrame'
 import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 
@@ -64,54 +64,11 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
     <View testID='PageChatsWholeScreen' style={style.PageChatsWholeScreen}>
       <View testID='sidebarRight' style={style.sidebarRight}></View>
       <View testID='mainColumn' style={style.mainColumn}>
-        <Text>Hello World! 7</Text>
-        <ButtonYrl
-          title={'This title 7'}
-          iconProps={iconProps}
-          onPress={onPressButtonYrl}
-        />
-        <InputTextYrl onChangeText={onChangeText} value={value} />
-        <ImageYrl uri='https://reactnative.dev/img/tiny_logo.png' />
-        <StatusBar style='auto' />
+        <GiftedChatContainer />
+        <Text>{'\n\n\n'}</Text>
+        <ChatInput />
+        <Text>{'\n\n\n'}</Text>
       </View>
     </View>
-
-    // <HelmetProvider>
-    //   <div className='TemplateScreen'>
-    //     <Helmet>
-    //       <html lang={language} />
-    //       <meta charSet='utf-8' />
-    //       <title>{'TemplateScreen'}</title>
-    //       <link rel='canonical' href={canonicalUrl} />
-    //       <meta name='description' content={'Description'} />
-    //     </Helmet>
-    //     <MainFrame {...propsOut.mainFrameProps}>
-    //       {/* header */}
-    //       <HeaderFrame {...propsOut.headerFrameProps}>
-    //         {/* header-left */}
-    //         {null}
-    //         {/* header-main */}
-    //         {null}
-    //         {/* header-right */}
-    //         {null}
-    //       </HeaderFrame>
-    //       {/* middle-left */}
-    //       {null}
-    //       {/* middle-main */}
-    //       <TemplateBody {...propsOut.templateBodyProps} />
-    //       {/* middle-right */}
-    //       {null}
-    //       {/* footer */}
-    //       <FooterFrame {...propsOut.footerFrameProps}>
-    //         {/* footer-left */}
-    //         {null}
-    //         {/* footer-main */}
-    //         {null}
-    //         {/* footer-right */}
-    //         <ImageYrl {...propsOut.imageBottomProps} />
-    //       </FooterFrame>
-    //     </MainFrame>
-    //   </div>
-    // </HelmetProvider>
   )
 }

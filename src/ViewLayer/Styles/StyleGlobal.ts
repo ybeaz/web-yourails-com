@@ -1,8 +1,7 @@
 import { StyleSheet } from 'react-native'
 
-export const StyleGlobal = StyleSheet.create({
-  style: {
-    backgroundColor: '#fff',
+export const styleGlobal = StyleSheet.create({
+  typography: {
     fontSize: 30,
   },
 })

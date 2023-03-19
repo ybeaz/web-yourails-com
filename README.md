@@ -3,10 +3,9 @@
 ## Revisions history notes
 
 created 2022
-
-based on [React Typescript UI Web Template](https://github.com/ybeaz/react-ui-template-2021)
-
 updated 2022-10-05
+updated 2023-03-17
+react-native-gifted-chat[https://github.com/FaridSafi/react-native-gifted-chat/tree/master/src] is used for chat
 
 ## Plan for work
 
@@ -68,10 +67,9 @@ updated 2022-10-05
 5.  To run the app: `yarn expo:start`
     To check xCode version: `/usr/bin/xcodebuild -version`
 
-
 ### To troubleshoot running the app
-1. if you have exception `CommandError: Can't determine id of Simulator app; the Simulator is most likely not installed on this machine. Run sudo xcode-select -s /Applications/Xcode.app` then I run xcode.app and macbook suggested to update xcode. This solved the issue
 
+1. if you have exception `CommandError: Can't determine id of Simulator app; the Simulator is most likely not installed on this machine. Run sudo xcode-select -s /Applications/Xcode.app` then I run xcode.app and macbook suggested to update xcode. This solved the issue
 
 ### To create/ update `src/types/graphql.tsx`
 

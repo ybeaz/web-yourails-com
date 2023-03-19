@@ -1,9 +1,9 @@
 import { StyleSheet } from 'react-native'
-import { StyleGlobal } from '../../Styles/StyleGlobal'
+import { styleGlobal } from '../../Styles/styleGlobal'
 
 export const TemplateScreenStyle = StyleSheet.create({
   templateScreen: {
-    ...StyleGlobal.style,
+    ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
     margin: 'auto',
