@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { Text, View } from 'react-native'
+import { useSelector } from 'react-redux'
 
 // import AppGiftedChat from '../../../react-native-gifted-chat/App'
 import { GiftedChatContainer } from '../../Components/GiftedChatContainer'
@@ -10,8 +11,8 @@ import { GiftedChat } from 'react-native-gifted-chat'
 import { Message } from '../../Components/Message/Message'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
+import { themes } from '../../Styles/Themes'
 
-import { useSelector } from 'react-redux'
 import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
 
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
@@ -93,14 +94,20 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
     messageProps: {
       ...messages[0],
     },
+    PageChatsWholeScreenStyle: {
+      ...themes['themeA'].colors03,
+    },
   }
 
   const value = ''
 
   return (
-    <View testID='PageChatsWholeScreen' style={style.PageChatsWholeScreen}>
-      <View testID='sidebarRight' style={style.sidebarRight}></View>
-      <View testID='mainColumn' style={style.mainColumn}>
+    <View
+      style={[style.PageChatsWholeScreen, propsOut.PageChatsWholeScreenStyle]}
+      testID='PageChatsWholeScreen'
+    >
+      <View style={style.sidebarRight} testID='sidebarRight'></View>
+      <View style={style.mainColumn} testID='mainColumn'>
         <TopBarMainColumn />
         <GiftedChatContainer />
         <Text>{'\n\n\n'}</Text>

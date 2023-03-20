@@ -1,4 +1,6 @@
-export interface TemplatePropsType {}
+export interface TemplatePropsType {
+  styleProps?: any
+}
 
 /**
  * @import import { TemplateType } from './TemplateType'

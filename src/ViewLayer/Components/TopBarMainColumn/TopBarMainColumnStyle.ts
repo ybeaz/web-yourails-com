@@ -8,4 +8,10 @@ export const TopBarMainColumnStyle = StyleSheet.create({
     flexDirection: 'column',
   },
   avatar: {},
+  ImageYrl: {},
+  image: {
+    width: 45,
+    height: 45,
+    borderRadius: 50,
+  },
 })

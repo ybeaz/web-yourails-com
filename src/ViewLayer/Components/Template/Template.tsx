@@ -10,12 +10,14 @@ import { TemplateStyle as style } from './TemplateStyle'
  * @import import { Template } from '../Components/Template/Template'
  */
 export const Template: TemplateType = props => {
+  const { styleProps = { Template: {} } } = props
+
   const store = useSelector((store2: RootStoreType) => store2)
 
   const propsOut = {}
 
   return (
-    <View style={style.Template} testID='Template'>
+    <View style={[style.Template, styleProps.Template]} testID='Template'>
       null
     </View>
   )
