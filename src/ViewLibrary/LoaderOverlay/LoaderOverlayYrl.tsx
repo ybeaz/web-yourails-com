@@ -20,7 +20,10 @@ const LoaderOverlayYrl: LoaderOverlayType = props => {
       style={[LoaderOverlayYrlStyle.LoaderOverlay, propsStyle.LoaderOverlay]}
       testID={testID}
     >
-      <View style={[LoaderOverlayYrlStyle.spinner, propsStyle.spinner]}></View>
+      <View
+        style={[LoaderOverlayYrlStyle.spinner, propsStyle.spinner]}
+        testID={`${testID}_View`}
+      ></View>
     </View>
   )
 }

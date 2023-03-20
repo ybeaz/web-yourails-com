@@ -15,10 +15,10 @@ export const ImageYrl: ImageYrlType = props => {
   } = props
 
   return (
-    <View style={[ImageYrlStyle.ImageYrl, styleProps.ImageYrl]}>
+    <View style={[ImageYrlStyle.ImageYrl, styleProps.ImageYrl]} testID={testID}>
       <Image
         style={[ImageYrlStyle.image, styleProps.image]}
-        testID={testID}
+        testID={`${testID}_Image`}
         source={{ uri }}
       />
     </View>

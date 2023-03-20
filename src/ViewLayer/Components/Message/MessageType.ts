@@ -1,4 +1,19 @@
-export interface MessagePropsType {}
+import { User } from '../../../@types/User'
+
+export interface MessagePropsType {
+  id: string | number
+  text: string
+  createdAt: Date | number | string
+  position: string
+  user: User
+  image?: string
+  video?: string
+  audio?: string
+  isSystem?: boolean
+  isSent?: boolean
+  isReceived?: boolean
+  isPending?: boolean
+}
 
 /**
  * @import import { MessageType } from './MessageType'

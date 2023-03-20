@@ -12,9 +12,9 @@ export const GiftedChatContainer = () => {
         text: 'Hello developer',
         createdAt: new Date(),
         user: {
-          _id: 2,
+          id: 2,
           name: 'React Native',
-          avatar: 'https://placeimg.com/140/140/any',
+          avatar: 'https://yourails.com/images/sphinx-02.jpg',
         },
       },
     ])

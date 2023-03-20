@@ -226,7 +226,7 @@ export default class MessageContainer<
       if (!item.system) {
         warning(
           'GiftedChat: `user` is missing for message',
-          JSON.stringify(item),
+          JSON.stringify(item)
         )
       }
       item.user = { _id: 0 }
@@ -306,18 +306,14 @@ export default class MessageContainer<
     ) {
       setTimeout(
         () => this.scrollToBottom && this.scrollToBottom(false),
-        15 * this.props.messages!.length,
+        15 * this.props.messages!.length
       )
     }
   }
 
   onEndReached = ({ distanceFromEnd }: { distanceFromEnd: number }) => {
-    const {
-      loadEarlier,
-      onLoadEarlier,
-      infiniteScroll,
-      isLoadingEarlier,
-    } = this.props
+    const { loadEarlier, onLoadEarlier, infiniteScroll, isLoadingEarlier } =
+      this.props
     if (
       infiniteScroll &&
       (this.state.hasScrolled || distanceFromEnd > 0) &&
@@ -335,6 +331,11 @@ export default class MessageContainer<
 
   render() {
     const { inverted } = this.props
+
+    console.info('MessageContainer [339]', {
+      'this.props.messages': this.props.messages,
+    })
+
     return (
       <View
         style={

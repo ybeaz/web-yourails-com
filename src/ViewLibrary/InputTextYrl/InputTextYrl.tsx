@@ -30,6 +30,7 @@ export const InputTextYrl: InputTextYrlType = props => {
     >
       <TextInput
         style={[InputTextYrlStyle.inputText, styleProps.inputText]}
+        testID={`${testID}_TextInput`}
         multiline={multiline}
         numberOfLines={numberOfLines}
         onChangeText={onChangeText}

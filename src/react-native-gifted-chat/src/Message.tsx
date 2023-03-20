@@ -47,7 +47,7 @@ export interface MessageProps<TMessage extends IMessage> {
   renderAvatar?(props: AvatarProps<TMessage>): React.ReactNode
   shouldUpdateMessage?(
     props: MessageProps<IMessage>,
-    nextProps: MessageProps<IMessage>,
+    nextProps: MessageProps<IMessage>
   ): boolean
   onMessageLayout?(event: LayoutChangeEvent): void
 }
@@ -175,6 +175,7 @@ export default class Message<
   }
 
   render() {
+    console.info('Message [178]', { 'this.props': this.props })
     const {
       currentMessage,
       onMessageLayout,

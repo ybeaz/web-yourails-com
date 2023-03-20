@@ -20,7 +20,7 @@ export const ButtonYrl: ButtonYrlType = props => {
 
   return (
     <Pressable
-      testID='ButtonYrl'
+      testID={testID}
       style={[ButtonYrlStyle.ButtonYrl, styleProps.ButtonYrl]}
       onPress={onPress}
       disabled={disabled}
@@ -31,12 +31,15 @@ export const ButtonYrl: ButtonYrlType = props => {
           name={iconProps.name}
           size={iconProps.size}
           color={iconProps.color}
-          testID={`${testID}-IconYrl`}
+          testID={`${testID}_IconYrl`}
         />
       )}
 
       {titleText && !iconProps && (
-        <Text style={[ButtonYrlStyle.title, styleProps.title]}>
+        <Text
+          style={[ButtonYrlStyle.title, styleProps.title]}
+          testID={`${testID}_Text`}
+        >
           {titleText}
         </Text>
       )}
