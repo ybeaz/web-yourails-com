@@ -16,10 +16,15 @@ const themeA = StyleSheet.create({
     color: 'rgba(25, 35, 50, 0.9)',
     backgroundColor: '#e6ebee',
   },
+  colors05: {
+    // color grey, backgroundColor white
+    color: '#707579',
+    backgroundColor: '#fcfdfc',
+  },
 })
 
 /**
- * @import import { themes } from '../Styles/Themes'
+ * @import import { themes } from '../Styles/themes'
  */
 export const themes = {
   themeA,

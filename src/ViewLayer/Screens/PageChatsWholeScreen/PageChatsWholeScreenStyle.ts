@@ -8,6 +8,12 @@ export const PageChatsWholeScreenStyle = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'center',
+    height: '100%',
+    margin: '0 auto',
+    minHeight: '100%',
+    width: '100%',
+    marginLeft: '7.5%',
+    marginRight: '7.5%',
   },
   sidebarRight: {
     width: '30rem',

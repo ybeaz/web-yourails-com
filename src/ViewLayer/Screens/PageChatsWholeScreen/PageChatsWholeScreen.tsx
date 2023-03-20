@@ -11,7 +11,7 @@ import { GiftedChat } from 'react-native-gifted-chat'
 import { Message } from '../../Components/Message/Message'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
-import { themes } from '../../Styles/Themes'
+import { themes } from '../../Styles/themes'
 
 import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
 
@@ -94,16 +94,13 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
     messageProps: {
       ...messages[0],
     },
-    PageChatsWholeScreenStyle: {
-      ...themes['themeA'].colors03,
-    },
   }
 
   const value = ''
 
   return (
     <View
-      style={[style.PageChatsWholeScreen, propsOut.PageChatsWholeScreenStyle]}
+      style={[style.PageChatsWholeScreen, themes['themeA'].colors03]}
       testID='PageChatsWholeScreen'
     >
       <View style={style.sidebarRight} testID='sidebarRight'></View>
