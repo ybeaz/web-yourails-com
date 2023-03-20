@@ -5,6 +5,10 @@ const themeA = StyleSheet.create({
     color: 'rgba(25, 35, 50, 0.9)',
     backgroundColor: '#fcfdfc',
   },
+  colors02: {
+    color: '#3390ec',
+    backgroundColor: '#fcfdfc',
+  },
 })
 
 /**

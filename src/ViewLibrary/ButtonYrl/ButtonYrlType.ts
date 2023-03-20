@@ -13,7 +13,7 @@ import { IconYrlPropsType } from '../IconYrl/IconYrlType'
  * @prop icon The Button's icon is a IButtonIcon and optional.
  */
 export interface ButtonYrlPropsType {
-  title?: string
+  titleText?: string
   styleProps?: { ButtonYrl: any; title: any } | undefined
   testID: string
   disabled?: boolean

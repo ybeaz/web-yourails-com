@@ -33,9 +33,12 @@ export const ChatInput: ChatInputType = props => {
       testID: 'ChatInput_ButtonYrl',
       styleProps: {
         ButtonYrl: style.ButtonYrl,
-        title: style.ButtonTitle,
+        title: {
+          ...style.ButtonTitle,
+          ...themes.themeA.colors02,
+        },
       },
-      title: 'Send',
+      titleText: 'Send',
     },
   }
 

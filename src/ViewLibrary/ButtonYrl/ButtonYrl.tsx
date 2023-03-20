@@ -10,7 +10,7 @@ import { IconYrl } from '../IconYrl/IconYrl'
  */
 export const ButtonYrl: ButtonYrlType = props => {
   const {
-    title,
+    titleText,
     styleProps = { ButtonYrl: {}, title: {} },
     testID = 'ButtonYrl',
     disabled,
@@ -35,8 +35,10 @@ export const ButtonYrl: ButtonYrlType = props => {
         />
       )}
 
-      {title && !iconProps && (
-        <Text style={[ButtonYrlStyle.title, styleProps.title]}>{title}</Text>
+      {titleText && !iconProps && (
+        <Text style={[ButtonYrlStyle.title, styleProps.title]}>
+          {titleText}
+        </Text>
       )}
     </Pressable>
   )
