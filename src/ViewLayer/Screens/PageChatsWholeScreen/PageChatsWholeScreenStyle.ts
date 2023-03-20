@@ -14,6 +14,7 @@ export const PageChatsWholeScreenStyle = StyleSheet.create({
     width: '100%',
     marginLeft: '7.5%',
     marginRight: '7.5%',
+    border: 'solid 1px grey',
   },
   sidebarRight: {
     width: '30rem',

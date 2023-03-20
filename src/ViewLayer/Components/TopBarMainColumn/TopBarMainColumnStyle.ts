@@ -5,8 +5,8 @@ export const TopBarMainColumnStyle = StyleSheet.create({
   TopBarMainColumn: {
     ...styleGlobal.typography,
     flexDirection: 'row',
-    paddingTop: '0.25rem',
-    paddingBottom: '0.25rem',
+    paddingTop: '0.45rem',
+    paddingBottom: '0.45rem',
     justifyContent: 'flex-start',
     alignContent: 'space-around',
     alignItems: 'center',

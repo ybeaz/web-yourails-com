@@ -7,12 +7,36 @@ import { TopBarMainColumnType } from './TopBarMainColumnType'
 import { TopBarMainColumnStyle as style } from './TopBarMainColumnStyle'
 import { ImageYrl } from '../../../ViewLibrary/ImageYrl/ImageYrl'
 import { themes } from '../../Styles/themes'
+import { users } from '../../../Constants/usersMock'
 
 /**
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
  */
 export const TopBarMainColumn: TopBarMainColumnType = props => {
   const store = useSelector((store2: RootStoreType) => store2)
+  const {
+    id,
+    nameFirst,
+    nameLast,
+    uriAvatar = '',
+    serviceSpecs = [],
+    locations = [],
+  } = users[0]
+
+  const getStringSpecs = (serviceSpecsIn: string[]) => {
+    return serviceSpecsIn.map((serviceSpec: string, index: number) => {
+      return (
+        <Text
+          style={[style.serviceSpecText]}
+          numberOfLines={1}
+          adjustsFontSizeToFit
+          testID={`${serviceSpec}-${index}`}
+        >
+          {serviceSpec}
+        </Text>
+      )
+    })
+  }
 
   const propsOut = {
     imageYrlProps: {
@@ -21,7 +45,7 @@ export const TopBarMainColumn: TopBarMainColumnType = props => {
         image: style.image,
       },
       testID: 'TopBarMainColumn_imageYrl',
-      uri: 'https://yourails.com/images/_VVS3415-crop-4k.jpg',
+      uri: uriAvatar,
     },
   }
 
@@ -40,7 +64,7 @@ export const TopBarMainColumn: TopBarMainColumnType = props => {
           adjustsFontSizeToFit
           testID='name'
         >
-          Roman Cheskidov
+          {`${nameFirst} ${nameLast}`}
         </Text>
         <Text
           style={[style.status, themes['themeA'].colors05]}
@@ -52,40 +76,10 @@ export const TopBarMainColumn: TopBarMainColumnType = props => {
         </Text>
       </View>
       <View style={[style.serviceSpec]} testID='serviceSpec'>
-        <Text
-          style={[style.serviceSpecText]}
-          numberOfLines={1}
-          adjustsFontSizeToFit
-          testID='serviceSpecText1'
-        >
-          Full Stack Developer
-        </Text>
-        <Text
-          style={[style.serviceSpecText]}
-          numberOfLines={1}
-          adjustsFontSizeToFit
-          testID='serviceSpecText2'
-        >
-          Machine Learning Engineer
-        </Text>
+        {getStringSpecs(serviceSpecs)}
       </View>
       <View style={[style.serviceSpec]} testID='serviceSpec'>
-        <Text
-          style={[style.serviceSpecText]}
-          numberOfLines={1}
-          adjustsFontSizeToFit
-          testID='serviceSpecText1'
-        >
-          Remote
-        </Text>
-        <Text
-          style={[style.serviceSpecText]}
-          numberOfLines={1}
-          adjustsFontSizeToFit
-          testID='serviceSpecText2'
-        >
-          San Francisco, CA
-        </Text>
+        {getStringSpecs(locations)}
       </View>
     </View>
   )

@@ -18,6 +18,8 @@ import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
+import { messages } from '../../../Constants/messagesMock'
+import { users } from '../../../Constants/usersMock'
 
 export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
   const store = useSelector((store2: RootStoreType) => store2)
@@ -58,37 +60,13 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
     console.info('App [24]', { value })
   }
 
-  const messages = [
-    {
-      createdAt: '2023-03-20T02:36:31.285Z',
-      id: 1,
-      text: '1 Hello developer',
-      user: {
-        id: 1,
-        name: 'React Native',
-        avatar: 'https://yourails.com/images/sphinx-01.jpg',
-      },
-      position: 'left',
-    },
-    {
-      createdAt: '2023-03-20T02:37:54.762Z',
-      id: 'y3pp3EGkPuaZTsMi_S0fu',
-      text: '2-1 Some text for the Greeting',
-      user: {
-        id: 2,
-      },
-      position: 'right',
-    },
-    {
-      createdAt: '2023-03-20T02:39:40.762Z',
-      id: 'y3pp3EGkPuaZTsMi_g6t5',
-      text: '2-2 Some text for the Greeting',
-      user: {
-        id: 2,
-      },
-      position: 'right',
-    },
-  ]
+  const user01 = {
+    id: 1,
+    name: 'Roman Cheskidov',
+    avatar: 'https://yourails.com/images/_VVS3415-crop-4k.jpg',
+    serviceSpec: ['Full Stack Developer', 'Machine Learning Engineer'],
+    location: ['Remote', 'San Francisco, CA'],
+  }
 
   const propsOut = {
     messageProps: {
