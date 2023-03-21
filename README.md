@@ -80,3 +80,9 @@ Note: to config `codegen` edit ??? `codegen.yml`
 
 1. gfd
 2. yarn `react-native link react-native-vector-icons`
+
+## How to change locale
+
+- **`locale`** _(String)_ - Locale to localize the dates. You need first to import the locale you need (ie. `require('dayjs/locale/de')` or `import 'dayjs/locale/fr'`)
+- **`timeFormat`** _(String)_ - Format to use for rendering times; default is `'LT'` (see [Day.js Format](https://day.js.org/docs/en/display/format))
+- **`dateFormat`** _(String)_ - Forma

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import { nanoid } from 'nanoid'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { RootStoreType } from '../../../Interfaces/RootStoreType'
@@ -25,8 +26,10 @@ export const TopBarMainColumn: TopBarMainColumnType = props => {
 
   const getStringSpecs = (serviceSpecsIn: string[]) => {
     return serviceSpecsIn.map((serviceSpec: string, index: number) => {
+      const key = nanoid()
       return (
         <Text
+          key={key}
           style={[style.serviceSpecText]}
           numberOfLines={1}
           adjustsFontSizeToFit

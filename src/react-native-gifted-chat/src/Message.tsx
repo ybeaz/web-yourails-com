@@ -175,7 +175,6 @@ export default class Message<
   }
 
   render() {
-    console.info('Message [178]', { 'this.props': this.props })
     const {
       currentMessage,
       onMessageLayout,

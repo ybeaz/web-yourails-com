@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { Text, View } from 'react-native'
 import { useSelector } from 'react-redux'
+import dayjs from 'dayjs'
+dayjs.extend(localizedFormat)
 
 // import AppGiftedChat from '../../../react-native-gifted-chat/App'
 import { GiftedChatContainer } from '../../Components/GiftedChatContainer'
-
 import { GiftedChat } from 'react-native-gifted-chat'
 
+import { LOCALE, DATE_FORMAT } from '../../../Constants/locale.const'
 import { Message } from '../../Components/Message/Message'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
@@ -20,6 +22,8 @@ import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { messages } from '../../../Constants/messagesMock'
 import { users } from '../../../Constants/usersMock'
+
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 
 export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
   const store = useSelector((store2: RootStoreType) => store2)
@@ -71,10 +75,12 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
   const propsOut = {
     messageProps: {
       ...messages[0],
+      isMessageTailed: true,
     },
   }
 
-  const value = ''
+  const createdAt = messages[0].createdAt
+  const dateString = dayjs(createdAt).locale(LOCALE).format(DATE_FORMAT)
 
   return (
     <View
@@ -83,11 +89,24 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
     >
       <View style={style.sidebarRight} testID='sidebarRight'></View>
       <View style={style.mainColumn} testID='mainColumn'>
-        <TopBarMainColumn />
-        <GiftedChatContainer />
-        <Text>{'\n\n\n'}</Text>
-        <Message {...propsOut.messageProps} />
-        <ChatInput />
+        {/* <GiftedChatContainer /> */}
+        <View style={style.topBarMainColumn} testID='topBarMainColumn'>
+          <TopBarMainColumn />
+        </View>
+        <View style={style.chatSpace} testID='chatSpace'>
+          <View style={style.date} testID='date'>
+            <Text style={style.dateText} testID='dateText'>
+              {dateString}
+            </Text>
+          </View>
+          <View style={style.messages} testID='messages'>
+            <Message {...propsOut.messageProps} />
+            <Message {...propsOut.messageProps} />
+          </View>
+          <View style={style.chatInput} testID='chatInput'>
+            <ChatInput />
+          </View>
+        </View>
       </View>
     </View>
   )

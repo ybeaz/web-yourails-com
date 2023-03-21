@@ -1,10 +1,14 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
+import dayjs from 'dayjs'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { MessageType } from './MessageType'
 import { MessageStyles as styles } from './MessageStyle'
+import { themes } from '../../Styles/themes'
+import { TriangleCorner } from '../TriangleCorner/TriangleCorner'
+import { LOCALE, TIME_FORMAT } from '../../../Constants/locale.const'
 
 /**
  * @import import { Message } from '../Message/Message'
@@ -16,6 +20,7 @@ export const Message: MessageType = props => {
     createdAt,
     user,
     position,
+    isMessageTailed,
     image,
     video,
     audio,
@@ -27,13 +32,42 @@ export const Message: MessageType = props => {
 
   const store = useSelector((store2: RootStoreType) => store2)
 
-  const propsOut = {}
+  const propsOut = {
+    TriangleCorner: {
+      isShow: !!isMessageTailed,
+      styleProps: StyleSheet.create({ borderColor: themes['themeA'].colors06 }),
+    },
+  }
+
+  const roundAllCornersStyle = !isMessageTailed
+    ? styles.roundAllCorners.style
+    : {}
+
+  const dateString = dayjs(createdAt).locale(LOCALE).format(TIME_FORMAT)
+
+  console.info('Message [43]', {
+    dateString,
+    roundAllCornersStyle,
+    isMessageTailed,
+    createdAt,
+  })
 
   return (
     <View style={[styles[position].Message]} testID='Message'>
-      <View style={[styles[position].content]} testID='content'>
+      <TriangleCorner {...propsOut.TriangleCorner} />
+      <View
+        style={[
+          styles[position].content,
+          themes['themeA'].colors01,
+          roundAllCornersStyle,
+        ]}
+        testID='content'
+      >
         <Text style={[styles[position].text]} testID='text'>
           {text}
+        </Text>
+        <Text style={[styles[position].text]} testID='text'>
+          {dateString}
         </Text>
       </View>
     </View>
