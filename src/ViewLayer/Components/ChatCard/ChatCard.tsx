@@ -1,0 +1,40 @@
+import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
+
+import { useSelector, useDispatch } from 'react-redux'
+import { RootStoreType } from '../../../Interfaces/RootStoreType'
+import { ChatCardType } from './ChatCardType'
+import { ChatCardStyle as style } from './ChatCardStyle'
+import { ButtonYrl } from '../../../ViewLibrary/ButtonYrl/ButtonYrl'
+import { themes } from '../../Styles/themes'
+import { ImageYrl } from '../../../ViewLibrary/ImageYrl/ImageYrl'
+import { AvatarNameStatus } from '../AvatarNameStatus/AvatarNameStatus'
+
+import { users } from '../../../Constants/usersMock'
+
+/**
+ * @import import { ChatCard } from '../Components/ChatCard/ChatCard'
+ */
+export const ChatCard: ChatCardType = props => {
+  const { user, styleProps = { ChatCard: {} } } = props
+
+  const store = useSelector((store2: RootStoreType) => store2)
+
+  const propsOut = {
+    avatarNameStatusProps: {
+      user,
+      styleProps: {
+        viewStyle: themes['themeA'].colors07,
+      },
+    },
+  }
+
+  return (
+    <View
+      style={[style.ChatCard, styleProps.ChatCard, themes['themeA'].colors07]}
+      testID='ChatCard'
+    >
+      <AvatarNameStatus {...propsOut.avatarNameStatusProps} />
+    </View>
+  )
+}

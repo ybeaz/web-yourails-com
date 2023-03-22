@@ -14,13 +14,14 @@ import { Message } from '../../Components/Message/Message'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 import { themes } from '../../Styles/themes'
-
+import { ChatCard } from '../../Components/ChatCard/ChatCard'
 import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
 
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { messages } from '../../../Constants/messagesMock'
+
 import { users } from '../../../Constants/usersMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
@@ -45,6 +46,7 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
   console.info('PageChatsWholeScreen [41]', {
     props,
     store,
+    users01: users[0],
   })
 
   // const canonicalUrl = `${URL_APP_BASE}${props?.routeProps.location.pathname}`
@@ -64,18 +66,13 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
     console.info('App [24]', { value })
   }
 
-  const user01 = {
-    id: 1,
-    name: 'Roman Cheskidov',
-    avatar: 'https://yourails.com/images/_VVS3415-crop-4k.jpg',
-    serviceSpec: ['Full Stack Developer', 'Machine Learning Engineer'],
-    location: ['Remote', 'San Francisco, CA'],
-  }
-
   const propsOut = {
     messageProps: {
       ...messages[0],
       isMessageTailed: true,
+    },
+    ChatCardProps: {
+      user: users[0],
     },
   }
 
@@ -87,7 +84,12 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
       style={[style.PageChatsWholeScreen, themes['themeA'].colors03]}
       testID='PageChatsWholeScreen'
     >
-      <View style={style.sidebarRight} testID='sidebarRight'></View>
+      <View
+        style={[style.sidebarRight, themes['themeA'].colors01]}
+        testID='sidebarRight'
+      >
+        <ChatCard {...propsOut.ChatCardProps} />
+      </View>
       <View style={style.mainColumn} testID='mainColumn'>
         {/* <GiftedChatContainer /> */}
         <View style={style.topBarMainColumn} testID='topBarMainColumn'>

@@ -1,3 +1,4 @@
+import { ReactElement } from 'react'
 import { PressableProps } from 'react-native'
 
 import { IconYrlPropsType } from '../IconYrl/IconYrlType'
@@ -13,7 +14,7 @@ import { IconYrlPropsType } from '../IconYrl/IconYrlType'
  * @prop icon The Button's icon is a IButtonIcon and optional.
  */
 export interface ButtonYrlPropsType {
-  titleText?: string
+  titleText?: string | ReactElement
   styleProps?: { ButtonYrl: any; title: any } | undefined
   testID: string
   disabled?: boolean

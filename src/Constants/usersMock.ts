@@ -1,4 +1,6 @@
-export const users = [
+import { User } from '../@types/User'
+
+export const users: User[] = [
   {
     id: 0,
     nameFirst: 'Roman',
@@ -9,7 +11,10 @@ export const users = [
   },
   {
     id: 1,
-    name: '',
-    avatar: 'https://yourails.com/images/sphinx-01.jpg',
+    nameFirst: 'Dmitrii',
+    nameLast: 'Cheskidov',
+    uriAvatar: 'https://yourails.com/images/sphinx-01.jpg',
+    serviceSpecs: ['Handyman', 'Carpenter'],
+    locations: ['Remote', 'San Francisco, CA'],
   },
 ]

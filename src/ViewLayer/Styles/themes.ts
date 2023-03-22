@@ -22,10 +22,12 @@ const themeA = StyleSheet.create({
     backgroundColor: '#fcfdfc',
   },
   colors06: {
-    // color white, backgroundColor white
-    // color: '#fcfdfc',
-    // backgroundColor: 'red',
     borderColor: '#fcfdfc',
+  },
+  colors07: {
+    // color white, backgroundColor blue
+    color: '#fcfdfc',
+    backgroundColor: '#3390ec',
   },
 })
 

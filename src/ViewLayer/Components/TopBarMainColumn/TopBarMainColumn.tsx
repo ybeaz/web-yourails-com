@@ -9,20 +9,24 @@ import { TopBarMainColumnStyle as style } from './TopBarMainColumnStyle'
 import { ImageYrl } from '../../../ViewLibrary/ImageYrl/ImageYrl'
 import { themes } from '../../Styles/themes'
 import { users } from '../../../Constants/usersMock'
+import { AvatarNameStatus } from '../AvatarNameStatus/AvatarNameStatus'
 
 /**
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
  */
 export const TopBarMainColumn: TopBarMainColumnType = props => {
   const store = useSelector((store2: RootStoreType) => store2)
+  const user = users[0]
   const {
     id,
     nameFirst,
     nameLast,
     uriAvatar = '',
     serviceSpecs = [],
+    telephone = '',
+    email = '',
     locations = [],
-  } = users[0]
+  } = user
 
   const getStringSpecs = (serviceSpecsIn: string[]) => {
     return serviceSpecsIn.map((serviceSpec: string, index: number) => {
@@ -42,6 +46,12 @@ export const TopBarMainColumn: TopBarMainColumnType = props => {
   }
 
   const propsOut = {
+    avatarNameStatusProps: {
+      user,
+      styleProps: {
+        viewStyle: themes['themeA'].colors01,
+      },
+    },
     imageYrlProps: {
       styleProps: {
         ImageYrl: style.ImageYrl,
@@ -57,27 +67,7 @@ export const TopBarMainColumn: TopBarMainColumnType = props => {
       style={[style.TopBarMainColumn, themes['themeA'].colors01]}
       testID='TopBarMainColumn'
     >
-      <View style={[style.avatar]} testID='avatar'>
-        <ImageYrl {...propsOut.imageYrlProps} />
-      </View>
-      <View style={[style.nameStatus]} testID='nameStatus'>
-        <Text
-          style={[style.name]}
-          numberOfLines={1}
-          adjustsFontSizeToFit
-          testID='name'
-        >
-          {`${nameFirst} ${nameLast}`}
-        </Text>
-        <Text
-          style={[style.status, themes['themeA'].colors05]}
-          numberOfLines={1}
-          adjustsFontSizeToFit
-          testID='status'
-        >
-          last seen recently
-        </Text>
-      </View>
+      <AvatarNameStatus {...propsOut.avatarNameStatusProps} />
       <View style={[style.serviceSpec]} testID='serviceSpec'>
         {getStringSpecs(serviceSpecs)}
       </View>
