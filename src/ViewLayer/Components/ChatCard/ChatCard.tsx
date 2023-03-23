@@ -15,7 +15,7 @@ import { users } from '../../../Constants/usersMock'
 /**
  * @import import { ChatCard } from '../Components/ChatCard/ChatCard'
  */
-export const ChatCard: ChatCardType = props => {
+const ChatCardComponent: ChatCardType = props => {
   const { user, styleProps = { ChatCard: {} } } = props
 
   const store = useSelector((store2: RootStoreType) => store2)
@@ -38,3 +38,5 @@ export const ChatCard: ChatCardType = props => {
     </View>
   )
 }
+
+export const ChatCard = React.memo(ChatCardComponent)

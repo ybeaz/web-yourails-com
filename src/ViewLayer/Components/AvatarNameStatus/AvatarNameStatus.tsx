@@ -11,7 +11,7 @@ import { ButtonYrl } from '../../../ViewLibrary/ButtonYrl/ButtonYrl'
 /**
  * @import import { AvatarNameStatus } from '../Components/AvatarNameStatus/AvatarNameStatus'
  */
-export const AvatarNameStatus: AvatarNameStatusType = props => {
+const AvatarNameStatusComponent: AvatarNameStatusType = props => {
   const { user, styleProps = { AvatarNameStatus: {}, viewStyle: {} } } = props
   const { nameFirst, nameLast, uriAvatar = '' } = user
 
@@ -75,3 +75,5 @@ export const AvatarNameStatus: AvatarNameStatusType = props => {
     </View>
   )
 }
+
+export const AvatarNameStatus = React.memo(AvatarNameStatusComponent)

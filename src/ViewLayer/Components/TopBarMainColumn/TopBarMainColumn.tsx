@@ -14,7 +14,7 @@ import { AvatarNameStatus } from '../AvatarNameStatus/AvatarNameStatus'
 /**
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
  */
-export const TopBarMainColumn: TopBarMainColumnType = props => {
+const TopBarMainColumnComponent: TopBarMainColumnType = props => {
   const store = useSelector((store2: RootStoreType) => store2)
   const user = users[0]
   const {
@@ -77,3 +77,5 @@ export const TopBarMainColumn: TopBarMainColumnType = props => {
     </View>
   )
 }
+
+export const TopBarMainColumn = React.memo(TopBarMainColumnComponent)

@@ -13,7 +13,7 @@ import { LOCALE, TIME_FORMAT } from '../../../Constants/locale.const'
 /**
  * @import import { Message } from '../Message/Message'
  */
-export const Message: MessageType = props => {
+const MessageComponent: MessageType = props => {
   const {
     id,
     text,
@@ -73,3 +73,5 @@ export const Message: MessageType = props => {
     </View>
   )
 }
+
+export const Message = React.memo(MessageComponent)

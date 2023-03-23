@@ -26,7 +26,7 @@ import { users } from '../../../Constants/usersMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
-export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
+const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const store = useSelector((store2: RootStoreType) => store2)
 
   const {
@@ -113,3 +113,5 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = props => {
     </View>
   )
 }
+
+export const PageChatsWholeScreen = React.memo(PageChatsWholeScreenComponent)

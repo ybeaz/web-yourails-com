@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 import { Error404BodyType } from './Error404BodyType'
 import { Error404BodyStyle as style } from './Error404BodyStyle'
 
-export const Error404Body: Error404BodyType = () => {
+const Error404BodyComponent: Error404BodyType = () => {
   return (
     <View style={style.Error404Body}>
       <View style={style.content}>
@@ -19,3 +19,5 @@ export const Error404Body: Error404BodyType = () => {
     </View>
   )
 }
+
+export const Error404Body = React.memo(Error404BodyComponent)

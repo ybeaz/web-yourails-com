@@ -7,7 +7,7 @@ import { StubUserGoodbyeStyle as style } from './StubUserGoodbyeStyle'
 import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { DICTIONARY } from '../../../Constants/dictionary.const'
 
-export const StubUserGoodbye: StubUserGoodbyeType = props => {
+const StubUserGoodbyeComponent: StubUserGoodbyeType = props => {
   const store = useSelector((store2: RootStoreType) => store2)
   const {
     globalVars: { language },
@@ -38,3 +38,5 @@ export const StubUserGoodbye: StubUserGoodbyeType = props => {
     </View>
   )
 }
+
+export const StubUserGoodbye = React.memo(StubUserGoodbyeComponent)

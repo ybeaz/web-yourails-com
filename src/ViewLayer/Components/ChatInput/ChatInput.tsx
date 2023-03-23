@@ -10,7 +10,7 @@ import { ChatInputType } from './ChatInputType'
 import { ChatInputStyle as style } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
 
-export const ChatInput: ChatInputType = props => {
+const ChatInputComponent: ChatInputType = props => {
   const store = useSelector((store2: RootStoreType) => store2)
 
   const propsOut = {
@@ -51,3 +51,5 @@ export const ChatInput: ChatInputType = props => {
     </View>
   )
 }
+
+export const ChatInput = React.memo(ChatInputComponent)

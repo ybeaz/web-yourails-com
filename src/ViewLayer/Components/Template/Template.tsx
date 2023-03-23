@@ -9,7 +9,7 @@ import { TemplateStyle as style } from './TemplateStyle'
 /**
  * @import import { Template } from '../Components/Template/Template'
  */
-export const Template: TemplateType = props => {
+const TemplateComponent: TemplateType = props => {
   const { styleProps = { Template: {} } } = props
 
   const store = useSelector((store2: RootStoreType) => store2)
@@ -22,3 +22,5 @@ export const Template: TemplateType = props => {
     </View>
   )
 }
+
+export const Template = React.memo(TemplateComponent)

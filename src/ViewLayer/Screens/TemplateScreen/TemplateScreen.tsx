@@ -13,7 +13,7 @@ import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { TemplateScreenType } from './TemplateScreenType'
 import { TemplateScreenStyle as style } from './TemplateScreenStyle'
 
-export const TemplateScreen: TemplateScreenType = props => {
+const TemplateScreenComponent: TemplateScreenType = props => {
   const store = useSelector((store2: RootStoreType) => store2)
 
   const {
@@ -89,3 +89,5 @@ export const TemplateScreen: TemplateScreenType = props => {
     // </HelmetProvider>
   )
 }
+
+export const TemplateScreen = React.memo(TemplateScreenComponent)
