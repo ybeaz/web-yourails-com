@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import dayjs from 'dayjs'
 
-import { useSelector, useDispatch } from 'react-redux'
-import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { MessageType } from './MessageType'
 import { MessageStyles as styles } from './MessageStyle'
 import { themes } from '../../Styles/themes'
@@ -29,8 +27,6 @@ const MessageComponent: MessageType = props => {
     isReceived,
     isPending,
   } = props
-
-  const store = useSelector((store2: RootStoreType) => store2)
 
   const propsOut = {
     TriangleCorner: {

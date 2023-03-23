@@ -2,11 +2,8 @@ import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { nanoid } from 'nanoid'
 
-import { useSelector, useDispatch } from 'react-redux'
-import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { TopBarMainColumnType } from './TopBarMainColumnType'
 import { TopBarMainColumnStyle as style } from './TopBarMainColumnStyle'
-import { ImageYrl } from '../../../ViewLibrary/ImageYrl/ImageYrl'
 import { themes } from '../../Styles/themes'
 import { users } from '../../../Constants/usersMock'
 import { AvatarNameStatus } from '../AvatarNameStatus/AvatarNameStatus'
@@ -15,7 +12,6 @@ import { AvatarNameStatus } from '../AvatarNameStatus/AvatarNameStatus'
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
  */
 const TopBarMainColumnComponent: TopBarMainColumnType = props => {
-  const store = useSelector((store2: RootStoreType) => store2)
   const user = users[0]
   const {
     id,

@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-import { useSelector, useDispatch } from 'react-redux'
-import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { ChatCardType } from './ChatCardType'
 import { ChatCardStyle as style } from './ChatCardStyle'
 import { ButtonYrl } from '../../../ViewLibrary/ButtonYrl/ButtonYrl'
@@ -17,8 +15,6 @@ import { users } from '../../../Constants/usersMock'
  */
 const ChatCardComponent: ChatCardType = props => {
   const { user, styleProps = { ChatCard: {} } } = props
-
-  const store = useSelector((store2: RootStoreType) => store2)
 
   const propsOut = {
     avatarNameStatusProps: {
