@@ -28,7 +28,13 @@ const ICON: Record<string, any> = {
  * @link https://oblador.github.io/react-native-vector-icons/
  */
 export const IconYrl: IconYrlType = props => {
-  const { name, size, color, testID = 'IconYrl', library } = props
+  const {
+    name = '',
+    size = '',
+    color = '',
+    testID = 'IconYrl',
+    library = '',
+  } = props
   const Icon = library ? ICON[library] : null
 
   return <Icon name={name} size={size} color={color} testID={testID} />

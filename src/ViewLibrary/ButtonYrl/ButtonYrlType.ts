@@ -19,7 +19,7 @@ export interface ButtonYrlPropsType {
   testID: string
   disabled?: boolean
   onPress?: PressableProps['onPress']
-  iconProps?: IconYrlPropsType
+  iconProps?: IconYrlPropsType | undefined
 }
 
 export interface ButtonYrlType

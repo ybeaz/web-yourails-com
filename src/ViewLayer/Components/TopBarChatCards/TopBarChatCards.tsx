@@ -19,7 +19,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       testID: 'ButtonYrl',
       disabled: false,
       onPress: () => {},
-      iconProps: false, // TODO: to make it alive
+      iconProps: undefined, // TODO: to make it alive
       // {
       //   // || false
       //   library: '',
