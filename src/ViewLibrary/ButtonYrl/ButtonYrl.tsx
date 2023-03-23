@@ -23,6 +23,7 @@ import { IconYrl } from '../IconYrl/IconYrl'
       testID: '',
     },
   }
+ * @link https://oblador.github.io/react-native-vector-icons/
  */
 export const ButtonYrl: ButtonYrlType = props => {
   const {

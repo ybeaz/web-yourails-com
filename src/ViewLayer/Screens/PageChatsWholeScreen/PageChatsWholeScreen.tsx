@@ -10,6 +10,7 @@ import { GiftedChatContainer } from '../../Components/GiftedChatContainer'
 import { GiftedChat } from 'react-native-gifted-chat'
 
 import { LOCALE, DATE_FORMAT } from '../../../Constants/locale.const'
+import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { Message } from '../../Components/Message/Message'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
@@ -88,6 +89,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         style={[style.sidebarRight, themes['themeA'].colors01]}
         testID='sidebarRight'
       >
+        <TopBarChatCards />
         <ChatCard {...propsOut.ChatCardProps} />
       </View>
       <View style={style.mainColumn} testID='mainColumn'>

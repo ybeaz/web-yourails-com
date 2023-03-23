@@ -19,14 +19,25 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       testID: 'ButtonYrl',
       disabled: false,
       onPress: () => {},
-      iconProps: {
-        // || false
-        library: '',
-        name: '',
-        size: 10,
-        color: 'red',
-        testID: '',
-      },
+      iconProps: false, // TODO: to make it alive
+      // {
+      //   // || false
+      //   library: '',
+      //   name: '',
+      //   size: 10,
+      //   color: 'red',
+      //   testID: '',
+      // },
+    },
+    inputTextYrlProps: {
+      styleProps: { InputTextYrl: {}, inputText: {} },
+      multiline: false,
+      numberOfLines: 1,
+      onChangeText: () => {},
+      placeholder: '',
+      placeholderTextColor: '',
+      testID: 'InputTextYrl',
+      value: '',
     },
   }
 
@@ -36,6 +47,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       testID='TopBarChatCards'
     >
       <ButtonYrl {...propsOut.buttonHamburgerProps} />
+      <InputTextYrl {...propsOut.inputTextYrlProps} />
     </View>
   )
 }
