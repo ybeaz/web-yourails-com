@@ -6,19 +6,26 @@ import { InputTextYrlStyle } from './InputTextYrlStyle'
 /**
  * @import import { InputTextYrl } from './ViewLibrary/InputTextYrl/InputTextYrl'
  * @import import { InputTextYrlPropsType } from './ViewLibrary/InputTextYrl/InputTextYrlType'
+ * @propsOut 
+  inputTextYrlProps: {
+    styleProps: { InputTextYrl: {}, inputText: {} },
+    multiline: false,
+    numberOfLines: 1,
+    onChangeText: () => {},
+    placeholder: '',
+    placeholderTextColor: '',
+    testID: 'InputTextYrl',
+    value: '',
+  }
  */
 export const InputTextYrl: InputTextYrlType = props => {
   const {
-    autofocus,
-    defaultValue,
-    maxlength,
+    styleProps = { InputTextYrl: {}, inputText: {} },
     multiline,
     numberOfLines,
     onChangeText,
     placeholder,
     placeholderTextColor,
-    reference,
-    styleProps = { InputTextYrl: {}, inputText: {} },
     testID = 'InputTextYrl',
     value,
   } = props

@@ -7,11 +7,17 @@ import { LoaderOverlayType } from './LoaderOverlayYrlType'
 /**
  * @import import { LoaderOverlayYrl } from './ViewLibrary/LoaderOverlay/LoaderOverlay'
  * @import import { LoaderOverlayPropsType } from './ViewLibrary/LoaderOverlay/LoaderOverlayType'
+ * @propsOut 
+  loaderOverlayYrl: {
+    propsStyle: { LoaderOverlay: {}, spinner: {} },
+    isLoaderOverlayVisible: false,
+    testID: 'LoaderOverlayYrl',
+  }
  */
 const LoaderOverlayYrl: LoaderOverlayType = props => {
   const {
-    isLoaderOverlayVisible,
     propsStyle = { LoaderOverlay: {}, spinner: {} },
+    isLoaderOverlayVisible,
     testID = 'LoaderOverlayYrl',
   } = props
 

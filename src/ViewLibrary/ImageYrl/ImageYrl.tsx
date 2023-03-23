@@ -6,6 +6,12 @@ import { ImageYrlStyle } from './ImageYrlStyle'
 /**
  * @import import { ImageYrl } from './ViewLibrary/ImageYrl/ImageYrl'
  * @import import { ImageYrlPropsType } from './ViewLibrary/ImageYrl/ImageYrlType'
+ * @propsOut 
+  imageYrlProps: {
+    styleProps: { ImageYrl: {}, image: {} },
+    testID: 'ImageYrl',
+    uri: '',
+  }
  */
 export const ImageYrl: ImageYrlType = props => {
   const {

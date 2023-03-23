@@ -7,6 +7,22 @@ import { IconYrl } from '../IconYrl/IconYrl'
 /**
  * @import import { ButtonYrl } from './ViewLibrary/ButtonYrl/ButtonYrl'
  * @import import { ButtonYrlPropsType } from './ViewLibrary/ButtonYrl/ButtonYrlType'
+ * @propsOut 
+  buttonYrl: {
+    styleProps: { ButtonYrl: {}, title: {} },
+    titleText: '',
+    testID: 'ButtonYrl',
+    disabled: false,
+    onPress: () => {},
+    iconProps: {
+      // || false
+      library: '',
+      name: '',
+      size: 10,
+      color: 'red',
+      testID: '',
+    },
+  }
  */
 export const ButtonYrl: ButtonYrlType = props => {
   const {
