@@ -22,6 +22,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
     telephone = '',
     email = '',
     locations = [],
+    contacts = [],
   } = user
 
   const getStringSpecs = (serviceSpecsIn: string[]) => {
@@ -69,6 +70,9 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
       </View>
       <View style={[style.serviceSpec]} testID='serviceSpec'>
         {getStringSpecs(locations)}
+      </View>
+      <View style={[style.serviceSpec]} testID='serviceSpec'>
+        {getStringSpecs(contacts)}
       </View>
     </View>
   )

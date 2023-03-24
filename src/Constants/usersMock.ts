@@ -8,6 +8,7 @@ export const users: User[] = [
     uriAvatar: 'https://yourails.com/images/_VVS3415-crop-4k.jpg',
     serviceSpecs: ['Full Stack Developer', 'Machine Learning Engineer'],
     locations: ['Remote', 'San Francisco, CA'],
+    contacts: ['415-650-9893', 't3531350@yahoo.com'],
   },
   {
     id: 1,
@@ -16,5 +17,6 @@ export const users: User[] = [
     uriAvatar: 'https://yourails.com/images/sphinx-01.jpg',
     serviceSpecs: ['Handyman', 'Carpenter'],
     locations: ['Remote', 'San Francisco, CA'],
+    contacts: ['415-340-9293', 'smiddist@gmail.com'],
   },
 ]

@@ -25,9 +25,7 @@ const PAGES: Record<string, any> = {
  * @links https://v5.reactrouter.com/web/api/
  */
 export const RouterScreensConfig: React.FunctionComponent<any> = () => {
-  const demoHostName = 'r1.userto.com'
-  const demoPath = '/demo-youtube-learn.html'
-  const rootPath = location.hostname === demoHostName ? demoPath : ''
+  const rootPath = ''
 
   const getRoutes: IGetRoutes = routesArg =>
     routesArg.map((route, index: number) => {

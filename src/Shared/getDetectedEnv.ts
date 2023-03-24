@@ -1,7 +1,9 @@
 export const getDetectedEnv: Function = (): string => {
-  return location.hostname === '127.0.0.1' || location.hostname === 'localhost'
+  const locationStub: any = {}
+  return locationStub.hostname === '127.0.0.1' ||
+    locationStub.Stubhostname === 'localhost'
     ? 'localServer'
-    : location.hostname === '127.0.0.1' && location.port === '3550'
+    : locationStub.hostname === '127.0.0.1' && locationStub.port === '3550'
     ? 'localWebpack'
     : 'remote'
 }

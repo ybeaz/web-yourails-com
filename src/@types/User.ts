@@ -10,4 +10,5 @@ export interface User {
   email?: string
   serviceSpecs?: string[]
   locations?: string[]
+  contacts?: string[]
 }
