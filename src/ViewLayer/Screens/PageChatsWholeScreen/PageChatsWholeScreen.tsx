@@ -48,6 +48,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     props,
     store,
     users01: users[0],
+    style: [style.PageChatsWholeScreen, themes['themeA'].colors01],
+    colors01: themes['themeA'].colors01,
   })
 
   // const canonicalUrl = `${URL_APP_BASE}${props?.routeProps.location.pathname}`
@@ -82,17 +84,28 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   return (
     <View
-      style={[style.PageChatsWholeScreen, themes['themeA'].colors03]}
+      style={[
+        style.PageChatsWholeScreen,
+        themes['themeA'].colors01,
+        { borderColor: themes['themeA'].colors01.borderColor },
+      ]}
       testID='PageChatsWholeScreen'
     >
       <View
-        style={[style.sidebarRight, themes['themeA'].colors01]}
+        style={[
+          style.sidebarRight,
+          themes['themeA'].colors01,
+          { borderColor: themes['themeA'].colors01.borderColor },
+        ]}
         testID='sidebarRight'
       >
         <TopBarChatCards />
         <ChatCard {...propsOut.ChatCardProps} />
       </View>
-      <View style={style.mainColumn} testID='mainColumn'>
+      <View
+        style={[style.mainColumn, themes['themeA'].colors03]}
+        testID='mainColumn'
+      >
         {/* <GiftedChatContainer /> */}
         <View style={style.topBarMainColumn} testID='topBarMainColumn'>
           <TopBarMainColumn />

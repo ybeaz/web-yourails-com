@@ -14,14 +14,14 @@ export const PageChatsWholeScreenStyle = StyleSheet.create({
     width: '100%',
     marginLeft: '7.5%',
     marginRight: '7.5%',
-    border: 'solid 1px grey',
+    border: 'solid 1px',
   },
   sidebarRight: {
     flex: 1,
     width: '30rem',
     height: '100%',
     flexDirection: 'column',
-    backgroundColor: 'blue',
+    border: 'solid 1px',
   },
   mainColumn: {
     flex: 2,

@@ -8,7 +8,7 @@ export interface IconYrlPropsType {
   library?: string
   name?: string
   color?: string
-  size?: number
+  size?: number | string
   testID?: string
 }
 

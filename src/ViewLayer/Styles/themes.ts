@@ -2,31 +2,33 @@ import { StyleSheet } from 'react-native'
 
 const themeA = StyleSheet.create({
   colors01: {
-    // color black, backgroundColor white
+    // color black, backgroundColor white, borderColor light-grey
     color: 'rgba(25, 35, 50, 0.9)',
-    backgroundColor: '#fcfdfc',
+    backgroundColor: 'rgba(252, 253, 252, 1)',
+    borderColor: 'rgba(223, 225, 229, 1)',
   },
   colors02: {
     // color blue, backgroundColor white
     color: '#3390ec',
-    backgroundColor: '#fcfdfc',
+    backgroundColor: 'rgba(252, 253, 252, 1)',
   },
   colors03: {
-    // color black, backgroundColor grey
+    // color black, backgroundColor grey, borderColor light-grey
     color: 'rgba(25, 35, 50, 0.9)',
     backgroundColor: '#e6ebee',
+    borderColor: 'rgba(223, 225, 229, 1)',
   },
   colors05: {
     // color grey, backgroundColor white
     color: '#707579',
-    backgroundColor: '#fcfdfc',
+    backgroundColor: 'rgba(252, 253, 252, 1)',
   },
   colors06: {
-    borderColor: '#fcfdfc',
+    borderColor: 'rgba(252, 253, 252, 1)',
   },
   colors07: {
     // color white, backgroundColor blue
-    color: '#fcfdfc',
+    color: 'rgba(252, 253, 252, 1)',
     backgroundColor: '#3390ec',
   },
 })

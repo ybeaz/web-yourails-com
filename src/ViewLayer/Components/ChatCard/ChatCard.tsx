@@ -3,9 +3,7 @@ import { View, Text, StyleSheet } from 'react-native'
 
 import { ChatCardType } from './ChatCardType'
 import { ChatCardStyle as style } from './ChatCardStyle'
-import { ButtonYrl } from '../../../ViewLibrary/ButtonYrl/ButtonYrl'
 import { themes } from '../../Styles/themes'
-import { ImageYrl } from '../../../ViewLibrary/ImageYrl/ImageYrl'
 import { AvatarNameStatus } from '../AvatarNameStatus/AvatarNameStatus'
 
 import { users } from '../../../Constants/usersMock'

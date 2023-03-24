@@ -5,6 +5,8 @@ import { TopBarChatCardsType } from './TopBarChatCardsType'
 import { TopBarChatCardsStyle as style } from './TopBarChatCardsStyle'
 import { ButtonYrl } from '../../../ViewLibrary/ButtonYrl/ButtonYrl'
 import { InputTextYrl } from '../../../ViewLibrary/InputTextYrl/InputTextYrl'
+import { IconYrl } from '../../../ViewLibrary/IconYrl/IconYrl'
+import { themes } from '../../Styles/themes'
 
 /**
  * @import import { TopBarChatCards } from '../Components/TopBarChatCards/TopBarChatCards'
@@ -14,30 +16,52 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
 
   const propsOut = {
     buttonHamburgerProps: {
-      styleProps: { ButtonYrl: {}, title: {} },
+      styleProps: {
+        ButtonYrl: {
+          cursor: 'not-allowed',
+        },
+        title: {},
+      },
       titleText: '',
       testID: 'ButtonYrl',
       disabled: false,
       onPress: () => {},
-      iconProps: undefined, // TODO: to make it alive
-      // {
-      //   // || false
-      //   library: '',
-      //   name: '',
-      //   size: 10,
-      //   color: 'red',
-      //   testID: '',
-      // },
+      iconProps: {
+        library: 'Ionicons',
+        name: 'ios-menu-outline',
+        size: '2rem',
+        color: themes['themeA'].colors01.borderColor,
+        testID: 'TopBarChatCardsComponent_ButtonYrl_ios-menu',
+      },
     },
     inputTextYrlProps: {
-      styleProps: { InputTextYrl: {}, inputText: {} },
+      styleProps: {
+        InputTextYrl: {
+          border: 'solid  1px',
+          borderColor: themes['themeA'].colors01.borderColor,
+          borderRadius: '5rem',
+        },
+        inputText: {
+          cursor: 'not-allowed',
+          border: 0,
+          outline: 0,
+          paddingLeft: '1rem',
+        },
+      },
       multiline: false,
       numberOfLines: 1,
       onChangeText: () => {},
-      placeholder: '',
-      placeholderTextColor: '',
-      testID: 'InputTextYrl',
+      placeholder: 'Search',
+      placeholderTextColor: themes['themeA'].colors01.borderColor,
+      testID: 'TopBarChatCards_InputTextYrl',
       value: '',
+    },
+    searchIconYrlProps: {
+      library: 'Ionicons',
+      name: 'ios-search-outline',
+      size: '1.5rem',
+      color: themes['themeA'].colors01.borderColor,
+      testID: 'TopBarChatCardsComponent_IconYrl_search',
     },
   }
 
@@ -46,8 +70,18 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       style={[style.TopBarChatCards, styleProps.TopBarChatCards]}
       testID='TopBarChatCards'
     >
-      <ButtonYrl {...propsOut.buttonHamburgerProps} />
-      <InputTextYrl {...propsOut.inputTextYrlProps} />
+      <View
+        style={[style.buttonHamburgerWrapper]}
+        testID='buttonHamburgerWrapper'
+      >
+        <ButtonYrl {...propsOut.buttonHamburgerProps} />
+      </View>
+      <View style={[style.inputTextYrlWrapper]} testID='inputTextYrlWrapper'>
+        <InputTextYrl {...propsOut.inputTextYrlProps} />
+        <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
+          <IconYrl {...propsOut.searchIconYrlProps} />
+        </View>
+      </View>
     </View>
   )
 }
