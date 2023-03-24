@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { SafeAreaView, TextInput } from 'react-native'
 import { InputTextYrlType } from './InputTextYrlType'
-import { InputTextYrlStyle } from './InputTextYrlStyle'
+import { InputTextYrlStyle as style } from './InputTextYrlStyle'
 
 /**
  * @import import { InputTextYrl } from './ViewLibrary/InputTextYrl/InputTextYrl'
@@ -32,11 +32,11 @@ export const InputTextYrl: InputTextYrlType = props => {
 
   return (
     <SafeAreaView
-      style={[InputTextYrlStyle.InputTextYrl, styleProps.InputTextYrl]}
+      style={[style.InputTextYrl, styleProps.InputTextYrl]}
       testID={testID}
     >
       <TextInput
-        style={[InputTextYrlStyle.inputText, styleProps.inputText]}
+        style={[style.inputText, styleProps.inputText]}
         testID={`${testID}_TextInput`}
         multiline={multiline}
         numberOfLines={numberOfLines}

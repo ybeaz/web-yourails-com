@@ -15,6 +15,7 @@ export const ChatInputStyle = StyleSheet.create({
   },
   InputTextYrl: {
     width: '100%',
+    cursor: 'pointer',
   },
   inputText: {
     width: '100%',
@@ -30,5 +31,12 @@ export const ChatInputStyle = StyleSheet.create({
   ButtonTitle: {
     fontSize: 17,
     fontWeight: '600',
+  },
+  iconYrlWrapper: {
+    position: 'absolute',
+    paddingRight: '1rem',
+    right: 0,
+    top: '20%',
+    bottom: '20%',
   },
 })

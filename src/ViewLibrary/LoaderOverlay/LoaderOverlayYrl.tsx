@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { LoaderOverlayYrlStyle } from './LoaderOverlayYrlStyle'
+import { LoaderOverlayYrlStyle as style } from './LoaderOverlayYrlStyle'
 import { LoaderOverlayType } from './LoaderOverlayYrlType'
 
 /**
@@ -23,11 +23,11 @@ const LoaderOverlayYrl: LoaderOverlayType = props => {
 
   return (
     <View
-      style={[LoaderOverlayYrlStyle.LoaderOverlay, propsStyle.LoaderOverlay]}
+      style={[style.LoaderOverlay, propsStyle.LoaderOverlay]}
       testID={testID}
     >
       <View
-        style={[LoaderOverlayYrlStyle.spinner, propsStyle.spinner]}
+        style={[style.spinner, propsStyle.spinner]}
         testID={`${testID}_View`}
       ></View>
     </View>

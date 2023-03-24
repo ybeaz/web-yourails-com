@@ -10,6 +10,7 @@ export const InputTextYrlStyle = StyleSheet.create({
     height: 40,
     padding: 10,
     flex: 1,
-    // alignItems: 'stretch',
+    border: 0,
+    outline: 0,
   },
 })

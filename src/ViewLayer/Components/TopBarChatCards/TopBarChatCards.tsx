@@ -59,6 +59,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     searchIconYrlProps: {
       library: 'Ionicons',
       name: 'ios-search-outline',
+      styleProps: { IconYrl: { cursor: 'not-allowed' } },
       size: '1.5rem',
       color: themes['themeA'].colors01.borderColor,
       testID: 'TopBarChatCardsComponent_IconYrl_search',

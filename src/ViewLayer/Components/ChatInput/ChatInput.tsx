@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 
 import { ButtonYrl } from '../../../ViewLibrary/ButtonYrl/ButtonYrl'
 import { InputTextYrl } from '../../../ViewLibrary/InputTextYrl/InputTextYrl'
-import { InputTextYrlPropsType } from '../../../ViewLibrary/InputTextYrl/InputTextYrlType'
+import { IconYrl } from '../../../ViewLibrary/IconYrl/IconYrl'
 import { ChatInputType } from './ChatInputType'
 import { ChatInputStyle as style } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
@@ -17,6 +17,8 @@ const ChatInputComponent: ChatInputType = props => {
         inputText: {
           ...style.inputText,
           ...themes.themeA.colors01,
+          border: 0,
+          outline: 0,
         },
       },
       testID: 'ChatInput_InputTextYrl',
@@ -25,16 +27,13 @@ const ChatInputComponent: ChatInputType = props => {
       placeholder: 'Message',
       placeholderTextColor: '#a2acb4',
     },
-    buttonYrlProps: {
-      testID: 'ChatInput_ButtonYrl',
-      styleProps: {
-        ButtonYrl: style.ButtonYrl,
-        title: {
-          ...style.ButtonTitle,
-          ...themes.themeA.colors02,
-        },
-      },
-      titleText: 'Send',
+    sendIconYrlProps: {
+      library: 'Ionicons',
+      name: 'ios-send',
+      styleProps: { IconYrl: { cursor: 'pointer' } },
+      size: '1.5rem',
+      color: themes['themeA'].colors02.color,
+      testID: 'TopBarChatCardsComponent_IconYrl_search',
     },
   }
 
@@ -42,7 +41,9 @@ const ChatInputComponent: ChatInputType = props => {
     <View style={[style.ChatInput]} testID='ChatInput'>
       <View style={[style.inputButton]} testID='ChatInput_inputButton'>
         <InputTextYrl {...propsOut.inputTextYrlProps} />
-        <ButtonYrl {...propsOut.buttonYrlProps} />
+        <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
+          <IconYrl {...propsOut.sendIconYrlProps} />
+        </View>
       </View>
     </View>
   )

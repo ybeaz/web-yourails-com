@@ -9,6 +9,7 @@ export interface IconYrlPropsType {
   name?: string
   color?: string
   size?: number | string
+  styleProps?: any
   testID?: string
 }
 

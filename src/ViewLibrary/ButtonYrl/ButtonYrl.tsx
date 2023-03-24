@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Pressable, Text } from 'react-native'
 import { ButtonYrlType } from './ButtonYrlType'
-import { ButtonYrlStyle } from './ButtonYrlStyle'
+import { ButtonYrlStyle as style } from './ButtonYrlStyle'
 import { IconYrl } from '../IconYrl/IconYrl'
 
 /**
@@ -18,6 +18,7 @@ import { IconYrl } from '../IconYrl/IconYrl'
       // || false
       library: '',
       name: '',
+      styleProps: {IconYrl: {},},
       size: 10,
       color: 'red',
       testID: '',
@@ -38,7 +39,7 @@ export const ButtonYrl: ButtonYrlType = props => {
   return (
     <Pressable
       testID={testID}
-      style={[ButtonYrlStyle.ButtonYrl, styleProps.ButtonYrl]}
+      style={[style.ButtonYrl, styleProps.ButtonYrl]}
       onPress={onPress}
       disabled={disabled}
     >
@@ -46,6 +47,7 @@ export const ButtonYrl: ButtonYrlType = props => {
         <IconYrl
           library={iconProps.library}
           name={iconProps.name}
+          styleProps={iconProps.styleProps}
           size={iconProps.size}
           color={iconProps.color}
           testID={`${testID}_IconYrl`}
@@ -53,10 +55,7 @@ export const ButtonYrl: ButtonYrlType = props => {
       )}
 
       {titleText && !iconProps && (
-        <Text
-          style={[ButtonYrlStyle.title, styleProps.title]}
-          testID={`${testID}_Text`}
-        >
+        <Text style={[style.title, styleProps.title]} testID={`${testID}_Text`}>
           {titleText}
         </Text>
       )}

@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { View } from 'react-native'
 import { TemplateYrlType } from './TemplateYrlType'
-import { TemplateYrlStyle } from './TemplateYrlStyle'
+import { TemplateYrlStyle as style } from './TemplateYrlStyle'
 
 /**
  * @import import { TemplateYrlYrl } from './ViewLibrary/TemplateYrl/TemplateYrl'
@@ -15,7 +15,7 @@ export const TemplateYrl: TemplateYrlType = props => {
 
   return (
     <View
-      style={[TemplateYrlStyle.TemplateYrl, styleProps.TemplateYrl]}
+      style={[style.TemplateYrl, styleProps.TemplateYrl]}
       testID={testID}
     ></View>
   )

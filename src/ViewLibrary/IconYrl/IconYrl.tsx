@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { IconYrlType } from './IconYrlType'
+import { IconYrlStyle as style } from './IconYrlStyle'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
@@ -18,6 +19,7 @@ const ICON: Record<string, any> = {
     name: '',
     size: 10,
     color: 'red',
+    styleProps: {IconYrl: {},},
     testID: ''
   }
  * @link https://oblador.github.io/react-native-vector-icons/
@@ -25,6 +27,7 @@ const ICON: Record<string, any> = {
 export const IconYrl: IconYrlType = props => {
   const {
     name = '',
+    styleProps = { IconYrl: {} },
     size = '',
     color = '',
     testID = 'IconYrl',
@@ -32,5 +35,13 @@ export const IconYrl: IconYrlType = props => {
   } = props
   const Icon = library ? ICON[library] : null
 
-  return <Icon name={name} size={size} color={color} testID={testID} />
+  return (
+    <Icon
+      name={name}
+      style={[style.IconYrl, styleProps.IconYrl]}
+      size={size}
+      color={color}
+      testID={testID}
+    />
+  )
 }

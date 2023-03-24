@@ -1,3 +1,5 @@
 import { StyleSheet } from 'react-native'
 
-export const iconYrlStyleDefault = StyleSheet.create({})
+export const IconYrlStyle = StyleSheet.create({
+  IconYrl: {},
+})
