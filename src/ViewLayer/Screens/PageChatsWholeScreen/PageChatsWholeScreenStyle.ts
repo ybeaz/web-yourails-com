@@ -30,6 +30,9 @@ export const PageChatsWholeScreenStyle = StyleSheet.create({
     height: '100%',
   },
   topBarMainColumn: {},
+  contentMenuMainColumn: {
+    borderTopWidth: 1,
+  },
   chatSpace: {
     flexDirection: 'column',
     padding: '1rem',

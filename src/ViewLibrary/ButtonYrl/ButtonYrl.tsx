@@ -54,7 +54,7 @@ export const ButtonYrl: ButtonYrlType = props => {
         />
       )}
 
-      {titleText && !iconProps && (
+      {titleText && (
         <Text style={[style.title, styleProps.title]} testID={`${testID}_Text`}>
           {titleText}
         </Text>

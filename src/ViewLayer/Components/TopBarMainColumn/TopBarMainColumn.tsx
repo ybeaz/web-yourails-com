@@ -60,10 +60,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
   }
 
   return (
-    <View
-      style={[style.TopBarMainColumn, themes['themeA'].colors01]}
-      testID='TopBarMainColumn'
-    >
+    <View style={[style.TopBarMainColumn]} testID='TopBarMainColumn'>
       <AvatarNameStatus {...propsOut.avatarNameStatusProps} />
       <View style={[style.serviceSpec]} testID='serviceSpec'>
         {getStringSpecs(serviceSpecs)}

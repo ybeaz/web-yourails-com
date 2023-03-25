@@ -16,6 +16,7 @@ import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 import { themes } from '../../Styles/themes'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
+import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
 
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
@@ -107,9 +108,24 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         testID='mainColumn'
       >
         {/* <GiftedChatContainer /> */}
-        <View style={style.topBarMainColumn} testID='topBarMainColumn'>
+        <View
+          style={[style.topBarMainColumn, themes['themeA'].colors01]}
+          testID='topBarMainColumn'
+        >
           <TopBarMainColumn />
         </View>
+
+        <View
+          style={[
+            style.contentMenuMainColumn,
+            themes['themeA'].colors01,
+            { borderColor: themes['themeA'].colors01.borderColor },
+          ]}
+          testID='contentMenuMainColumn'
+        >
+          <ContentMenuMainColumn />
+        </View>
+
         <View style={style.chatSpace} testID='chatSpace'>
           <View style={style.date} testID='date'>
             <Text style={style.dateText} testID='dateText'>

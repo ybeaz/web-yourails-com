@@ -11,4 +11,5 @@ export interface User {
   serviceSpecs?: string[]
   locations?: string[]
   contacts?: string[]
+  serviceSections?: []
 }
