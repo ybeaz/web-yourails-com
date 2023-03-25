@@ -18,7 +18,7 @@ import { themes } from '../../Styles/themes'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
-
+import { ModalFrameYrl } from '../../../ViewLibrary/ModalFrameYrl/ModalFrameYrl'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { RootStoreType } from '../../../Interfaces/RootStoreType'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
@@ -78,6 +78,16 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     ChatCardProps: {
       user: users[0],
     },
+    modalFrameYrl: {
+      styleProps: {
+        ModalFrameYrl: {
+          backgroundColor: themes['themeA'].colors03.backgroundColor,
+        },
+        content: {},
+      },
+      isShow: true,
+      testID: 'PageChatsWholeScreen_modalFrameYrl',
+    },
   }
 
   const createdAt = messages[0].createdAt
@@ -103,10 +113,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         <TopBarChatCards />
         <ChatCard {...propsOut.ChatCardProps} />
       </View>
-      <View
-        style={[style.mainColumn, themes['themeA'].colors03]}
-        testID='mainColumn'
-      >
+      <View style={[style.mainColumn]} testID='mainColumn'>
         {/* <GiftedChatContainer /> */}
         <View
           style={[style.topBarMainColumn, themes['themeA'].colors01]}
@@ -126,7 +133,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           <ContentMenuMainColumn />
         </View>
 
-        <View style={style.chatSpace} testID='chatSpace'>
+        <View
+          style={[style.chatSpace, themes['themeA'].colors03]}
+          testID='chatSpace'
+        >
           <View style={style.date} testID='date'>
             <Text style={style.dateText} testID='dateText'>
               {dateString}
@@ -139,6 +149,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           <View style={style.chatInput} testID='chatInput'>
             <ChatInput />
           </View>
+          <ModalFrameYrl {...propsOut.modalFrameYrl} />
         </View>
       </View>
     </View>

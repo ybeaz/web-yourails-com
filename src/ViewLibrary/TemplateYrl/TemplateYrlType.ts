@@ -2,7 +2,7 @@
  * ITemplateYrlProps Interface
  */
 export interface TemplateYrlPropsType {
-  styleProps?: { TemplateYrl: Object }
+  styleProps?: { TemplateYrl: any }
   testID: string
 }
 
