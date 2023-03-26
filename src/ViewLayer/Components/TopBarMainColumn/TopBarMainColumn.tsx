@@ -68,9 +68,6 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
       <View style={[style.serviceSpec]} testID='serviceSpec'>
         {getStringSpecs(locations)}
       </View>
-      <View style={[style.serviceSpec]} testID='serviceSpec'>
-        {getStringSpecs(contacts)}
-      </View>
     </View>
   )
 }
