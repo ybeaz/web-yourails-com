@@ -1,8 +1,8 @@
-import { User } from '../../../@types/User'
+import { UserType } from '../../../@types/UserType'
 
 export interface ChatCardPropsType {
   styleProps?: any
-  user: User
+  user: UserType
 }
 
 /**

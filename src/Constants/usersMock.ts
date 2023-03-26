@@ -1,6 +1,6 @@
-import { User } from '../@types/User'
+import { UserType } from '../@types/UserType'
 
-export const users: User[] = [
+export const users: UserType[] = [
   {
     id: 0,
     nameFirst: 'Roman',

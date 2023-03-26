@@ -39,10 +39,10 @@ export const componentsStateDefault: any = {
   isLoaderOverlayVisible: false,
   modalFrames: [
     {
-      childName: 'AuthUser',
+      childName: 'Profile',
       isActive: false,
       childProps: {
-        scenario: { branch: 'signInManually', step: '' },
+        scenario: {},
       },
     },
   ],

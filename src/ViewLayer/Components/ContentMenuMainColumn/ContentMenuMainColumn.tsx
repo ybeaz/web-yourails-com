@@ -13,7 +13,12 @@ import { themes } from '../../Styles/themes'
 const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
   const { styleProps = { ContentMenuMainColumn: {} } } = props
 
-  const menuUserItems = [
+  const menuContentItems = [
+    {
+      iconLibrary: 'Ionicons',
+      iconName: 'chatbubbles-outline',
+      iconTitleText: 'Chat',
+    },
     {
       iconLibrary: 'Ionicons',
       iconName: 'cog-outline',
@@ -31,9 +36,9 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
     },
   ]
 
-  const getMenuUser = (menuUserItemsIn: any[]) => {
-    return menuUserItemsIn.map((menuUserItem: any, index: number) => {
-      const { iconLibrary, iconName, iconTitleText } = menuUserItem
+  const getMenuContentItems = (menuContentItemsIn: any[]) => {
+    return menuContentItemsIn.map((menuContentItem: any, index: number) => {
+      const { iconLibrary, iconName, iconTitleText } = menuContentItem
 
       const propsOut = {
         buttonProps: {
@@ -77,7 +82,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
       style={[style.ContentMenuMainColumn, styleProps.ContentMenuMainColumn]}
       testID='ContentMenuMainColumn'
     >
-      {getMenuUser(menuUserItems)}
+      {getMenuContentItems(menuContentItems)}
     </View>
   )
 }

@@ -1,11 +1,11 @@
-import { User } from '../../../@types/User'
+import { UserType } from '../../../@types/UserType'
 
 export interface AvatarNameStatusPropsType {
   styleProps?: {
     AvatarNameStatus?: any
     viewStyle?: any
   }
-  user: User
+  user: UserType
 }
 
 /**

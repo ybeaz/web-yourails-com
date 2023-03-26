@@ -16,7 +16,7 @@ import { ModalFrameYrlStyle as style } from './ModalFrameYrlStyle'
 export const ModalFrameYrl: ModalFrameYrlType = props => {
   const {
     styleProps = { ModalFrameYrl: {}, content: {} },
-    children = <>I am not I and the house is not mine</>,
+    children = <>I am not I and the horse is not mine</>,
     isShow = false,
     testID = 'ModalFrameYrl',
   } = props

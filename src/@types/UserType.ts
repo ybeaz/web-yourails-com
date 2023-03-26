@@ -1,7 +1,7 @@
 /**
- * @import import { User } from '../@types/User'
+ * @import import { UserType } from '../@types/UserType'
  */
-export interface User {
+export interface UserType {
   id: string | number
   nameFirst?: string
   nameLast?: string
