@@ -18,7 +18,7 @@ const ChatInputComponent: ChatInputType = props => {
           ...style.inputText,
           ...themes.themeA.colors01,
           border: 0,
-          outline: 0,
+          outlineWidth: 0,
         },
       },
       testID: 'ChatInput_InputTextYrl',

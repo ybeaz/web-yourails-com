@@ -11,17 +11,18 @@ import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { Message } from '../../Components/Message/Message'
 import { ModalFrameYrl } from '../../../ViewLibrary/ModalFrameYrl/ModalFrameYrl'
 import { themes } from '../../Styles/themes'
-import { messages } from '../../../Constants/messagesMock'
-import { users } from '../../../Constants/usersMock'
+import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
  */
 const ChatSpaceComponent: ChatSpaceType = props => {
-  const { styleProps = { ChatSpace: {} }, users, messages } = props
+  const { styleProps = { ChatSpace: {} }, users, messages, modalFrame } = props
+  const { childName, isShow, childProps } = modalFrame
 
   const userFound = users.find(user => user.id === messages[0].idUser)
   const user = userFound ? userFound : users[0]
+  const Child = MODAL_CONTENTS[childName]
 
   const propsOut = {
     messageProps: {
@@ -39,8 +40,9 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         },
         content: {},
       },
-      isShow: false,
+      isShow,
       testID: 'PageChatsWholeScreen_modalFrameYrl',
+      children: <Child {...childProps} />,
     },
   }
 

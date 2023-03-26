@@ -54,11 +54,11 @@ export const ButtonYrl: ButtonYrlType = props => {
         />
       )}
 
-      {titleText && (
+      {titleText ? (
         <Text style={[style.title, styleProps.title]} testID={`${testID}_Text`}>
           {titleText}
         </Text>
-      )}
+      ) : null}
     </Pressable>
   )
 }

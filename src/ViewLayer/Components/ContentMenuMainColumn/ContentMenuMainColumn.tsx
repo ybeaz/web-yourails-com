@@ -24,7 +24,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
       iconLibrary: 'Ionicons',
       iconName: 'cog-outline',
       iconTitleText: 'Skills',
-      childName: 'Skills',
+      childName: 'TagsProperties',
     },
     {
       iconLibrary: 'Ionicons',

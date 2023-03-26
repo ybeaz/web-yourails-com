@@ -11,6 +11,6 @@ export const InputTextYrlStyle = StyleSheet.create({
     padding: 10,
     flex: 1,
     border: 0,
-    outline: 0,
+    outlineWidth: 0,
   },
 })

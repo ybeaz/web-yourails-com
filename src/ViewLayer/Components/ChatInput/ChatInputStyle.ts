@@ -24,7 +24,7 @@ export const ChatInputStyle = StyleSheet.create({
   },
   ButtonYrl: {
     position: 'absolute',
-    margin: '0 0 0 0',
+    margin: 0,
     padding: '10px',
     right: 20,
   },

@@ -40,7 +40,7 @@ export const RouterScreensConfig: React.FunctionComponent<any> = () => {
             const pageProps = { rootPath, routeProps, themeDafault }
             if (isHashRouter == true) {
               return (
-                <HashRouter basename='@admin' hashType='noslash'>
+                <HashRouter basename='@rome_sfba' hashType='noslash'>
                   <Page {...pageProps} />
                 </HashRouter>
               )

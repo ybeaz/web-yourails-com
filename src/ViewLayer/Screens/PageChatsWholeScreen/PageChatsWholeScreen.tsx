@@ -6,16 +6,12 @@ import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
 // import AppGiftedChat from '../../../react-native-gifted-chat/App'
-import { GiftedChatContainer } from '../../Components/GiftedChatContainer'
-import { GiftedChat } from 'react-native-gifted-chat'
+// import { GiftedChatContainer } from '../../Components/GiftedChatContainer'
+// import { GiftedChat } from 'react-native-gifted-chat'
 
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
-// import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
-// import { LOCALE, DATE_FORMAT } from '../../../Constants/locale.const'
-// import { Message } from '../../Components/Message/Message'
-// import { ModalFrameYrl } from '../../../ViewLibrary/ModalFrameYrl/ModalFrameYrl'
 import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { RootStoreType } from '../../../@types/RootStoreType'
@@ -34,18 +30,21 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const {
     globalVars: { language },
+    componentsState,
   } = store
+  const { modalFrame } = componentsState
 
   useEffect(() => {
     handleEvents.TEMPLATE({}, { id: '3' })
   }, [])
 
-  console.info('PageChatsWholeScreen [41]', {
-    props,
-    store,
-    style: [style.PageChatsWholeScreen, themes['themeA'].colors01],
-    colors01: themes['themeA'].colors01,
-  })
+  // console.info('PageChatsWholeScreen [41]', {
+  //   // props,
+  //   // store,
+  //   // style: [style.PageChatsWholeScreen, themes['themeA'].colors01],
+  //   // colors01: themes['themeA'].colors01,
+  //   componentsState,
+  // })
 
   const onPressButtonYrl = () => {
     console.info('App [14]', { action: 'It is pressed 3' })
@@ -62,7 +61,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     chatSpaceProps: {
       users,
       messages,
-      handleEvents,
+      modalFrame,
     },
     contentMenuMainColumn: {
       handleEvents,

@@ -1,6 +1,3 @@
-import { componentsStateDefault } from '../rootStoreDefault'
-import { getUniqArrDeep } from '../../Shared/getUniqArrDeep'
-import { getUpdatedArrByArrInput } from '../../Shared/getUpdatedArrByArrInput'
 import { RootStoreType } from '../../@types/RootStoreType'
 
 export const SET_MODAL_FRAME: Function = (
@@ -8,24 +5,16 @@ export const SET_MODAL_FRAME: Function = (
   data: any
 ): RootStoreType => {
   const { componentsState } = store
-  const { modalFrames } = componentsState
+  const { modalFrame } = componentsState
 
-  let modaleFramesNext = modalFrames.map(item => ({ ...item, isActive: false }))
-
-  if (data.length > 0) {
-    modaleFramesNext = getUniqArrDeep(modalFrames)
-    modaleFramesNext = getUpdatedArrByArrInput(
-      modaleFramesNext,
-      data,
-      'childName'
-    )
-  } else {
-    modaleFramesNext = componentsStateDefault.modalFrames
+  let dataNext = data
+  if (data.childName === 'Chat') {
+    dataNext = { ...modalFrame, isShow: false }
   }
 
   const componentsStateNext = {
     ...componentsState,
-    modalFrames: modaleFramesNext,
+    modalFrame: dataNext,
   }
   return { ...store, componentsState: componentsStateNext }
 }

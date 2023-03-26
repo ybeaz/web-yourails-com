@@ -2,7 +2,7 @@ import { UserType } from './UserType'
 
 export interface ComponentsStateType {
   isLoaderOverlayVisible: boolean
-  modalFrames: { childName: string; isActive: boolean; childProps: any }[]
+  modalFrame: { childName: string; isActive: boolean; childProps: any }
 }
 
 export interface FormsType {
