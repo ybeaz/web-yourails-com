@@ -18,7 +18,7 @@ import { handleEvents } from '../../../DataLayer/index.handleEvents'
 // import { ModalFrameYrl } from '../../../ViewLibrary/ModalFrameYrl/ModalFrameYrl'
 import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
-import { RootStoreType } from '../../../Interfaces/RootStoreType'
+import { RootStoreType } from '../../../@types/RootStoreType'
 import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
@@ -37,13 +37,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   } = store
 
   useEffect(() => {
-    handleEvents(
-      {},
-      {
-        typeEvent: 'TEMPLATE',
-        data: { id: '3' },
-      }
-    )
+    handleEvents.TEMPLATE({}, { id: '3' })
   }, [])
 
   console.info('PageChatsWholeScreen [41]', {
@@ -68,6 +62,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     chatSpaceProps: {
       users,
       messages,
+      handleEvents,
+    },
+    contentMenuMainColumn: {
+      handleEvents,
     },
   }
 
@@ -108,7 +106,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           ]}
           testID='contentMenuMainColumn'
         >
-          <ContentMenuMainColumn />
+          <ContentMenuMainColumn {...propsOut.contentMenuMainColumn} />
         </View>
 
         <View

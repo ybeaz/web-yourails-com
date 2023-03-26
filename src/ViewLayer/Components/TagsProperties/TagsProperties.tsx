@@ -17,7 +17,7 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
       style={[style.TagsProperties, styleProps.TagsProperties]}
       testID='TagsProperties'
     >
-      Good, Knowledgable, Reliable
+      <Text>Good, Knowledgable, Reliable</Text>
     </View>
   )
 }

@@ -1,7 +1,3 @@
-// import { IComponentsState, IForms, IRootStore } from '../Interfaces/IRootStore'
-
-// import { User } from '../Interfaces/User'
-
 export const userStoreDefault: any = {
   userAvatar: '',
   userBirthYear: null,

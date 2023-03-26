@@ -1,14 +1,14 @@
-import { IRootStore } from '../Interfaces/IRootStore'
-import { IAction } from '../Interfaces/IAction'
+import { RootStoreType } from '../@types/RootStoreType'
+import { ActionType } from '../@types/ActionType'
 
 import { TEMPLATE } from './reducers/TEMPLATE'
-import { SET_MODAL_FRAMES } from './reducers/SET_MODAL_FRAMES'
+import { SET_MODAL_FRAME } from './reducers/SET_MODAL_FRAME'
 import { TOGGLE_LOADER_OVERLAY } from './reducers/TOGGLE_LOADER_OVERLAY'
 
 import { rootStoreDefault } from './rootStoreDefault'
 
 export interface IIndexReducer {
-  (store: IRootStore, action: IAction): IRootStore
+  (store: RootStoreType, action: ActionType): RootStoreType
 }
 
 export const indexReducer: IIndexReducer = (
@@ -19,7 +19,7 @@ export const indexReducer: IIndexReducer = (
 
   const output = {
     TEMPLATE,
-    SET_MODAL_FRAMES,
+    SET_MODAL_FRAME,
     TOGGLE_LOADER_OVERLAY,
   }
 

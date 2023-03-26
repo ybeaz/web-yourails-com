@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 // import { LoaderOverlayYrl } from '../../ViewLibrary/LoaderOverlayYrl'
 
-import { IRootStore } from '../../Interfaces/IRootStore'
+import { RootStoreType } from '../../@types/RootStoreType'
 import { ModalFrames } from '../Frames/ModalFrames'
 interface HeaderFrameArgs {
   screenType?: string
@@ -15,7 +15,7 @@ export const HeaderFrame: React.FunctionComponent<HeaderFrameArgs> = props => {
 
   const {
     componentsState: { isLoaderOverlayVisible },
-  } = useSelector((store2: IRootStore) => store2)
+  } = useSelector((store2: RootStoreType) => store2)
 
   const propsOut = {
     loaderOverlayUsertoProps: {

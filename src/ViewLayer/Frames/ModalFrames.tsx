@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { ButtonYrl } from '../../ViewLibrary/ButtonYrl/ButtonYrl'
 
 import { handleEvents } from '../../DataLayer/index.handleEvents'
-import { IRootStore } from '../../Interfaces/IRootStore'
+import { RootStoreType } from '../../@types/RootStoreType'
 
 interface IGetChildren {
   (children: any[]): (JSX.Element | null)[]
@@ -16,7 +16,7 @@ const CHILDREN: any = {
 }
 
 export const ModalFrames: React.FunctionComponent = (): ReactElement => {
-  const store = useSelector((store2: IRootStore) => store2)
+  const store = useSelector((store2: RootStoreType) => store2)
   const {
     componentsState: { modalFrames },
   } = store

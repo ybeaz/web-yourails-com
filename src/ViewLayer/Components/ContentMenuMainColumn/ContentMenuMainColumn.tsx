@@ -11,34 +11,39 @@ import { themes } from '../../Styles/themes'
  * @import import { ContentMenuMainColumn } from '../Components/ContentMenuMainColumn/ContentMenuMainColumn'
  */
 const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
-  const { styleProps = { ContentMenuMainColumn: {} } } = props
+  const { styleProps = { ContentMenuMainColumn: {} }, handleEvents } = props
 
   const menuContentItems = [
     {
       iconLibrary: 'Ionicons',
       iconName: 'chatbubbles-outline',
       iconTitleText: 'Chat',
+      childName: 'Chat',
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'cog-outline',
       iconTitleText: 'Skills',
+      childName: 'Skills',
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'briefcase-outline',
       iconTitleText: 'Portfolio',
+      childName: 'Portfolio',
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'person-outline',
       iconTitleText: 'Profile',
+      childName: 'Profile',
     },
   ]
 
   const getMenuContentItems = (menuContentItemsIn: any[]) => {
     return menuContentItemsIn.map((menuContentItem: any, index: number) => {
-      const { iconLibrary, iconName, iconTitleText } = menuContentItem
+      const { iconLibrary, iconName, iconTitleText, childName } =
+        menuContentItem
 
       const propsOut = {
         buttonProps: {
@@ -53,7 +58,12 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
           titleText: iconTitleText,
           testID: 'ButtonYrl',
           disabled: false,
-          onPress: () => {},
+          onPress: (event: any) =>
+            handleEvents.SET_MODAL_FRAME(event, {
+              childName,
+              isShow: true,
+              childProps: {},
+            }),
           iconProps: {
             library: iconLibrary,
             name: iconName,
@@ -66,6 +76,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
 
       return (
         <View
+          key={`menuContentItem-${index}`}
           style={[style.buttonWrapper, themes['themeA'].colors01]}
           testID='buttonWrapper'
         >

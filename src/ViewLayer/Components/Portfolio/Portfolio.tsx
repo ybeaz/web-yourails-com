@@ -14,7 +14,7 @@ const PortfolioComponent: PortfolioType = props => {
 
   return (
     <View style={[style.Portfolio, styleProps.Portfolio]} testID='Portfolio'>
-      I have very diverse and rich portfolio
+      <Text>I have very diverse and rich portfolio!</Text>
     </View>
   )
 }

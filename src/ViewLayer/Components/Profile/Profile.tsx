@@ -14,7 +14,9 @@ const ProfileComponent: ProfileType = props => {
 
   return (
     <View style={[style.Profile, styleProps.Profile]} testID='Profile'>
-      My contacts are telephone 415-650-9893, email t3531350@yahoo.com
+      <Text>
+        My contacts are telephone 415-650-9893, email t3531350@yahoo.com
+      </Text>
     </View>
   )
 }

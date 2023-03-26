@@ -1,4 +1,5 @@
 import { UserType } from './UserType'
+
 export interface ComponentsStateType {
   isLoaderOverlayVisible: boolean
   modalFrames: { childName: string; isActive: boolean; childProps: any }[]
@@ -11,6 +12,9 @@ export interface FormsType {
   [key: string]: any
 }
 
+/**
+ * @import import { RootStoreType } from '../@types/RootStoreType'
+ */
 export interface RootStoreType {
   componentsState: ComponentsStateType
   users: UserType[]

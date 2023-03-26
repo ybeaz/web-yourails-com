@@ -41,13 +41,6 @@ const MessageComponent: MessageType = props => {
 
   const dateString = dayjs(createdAt).locale(LOCALE).format(TIME_FORMAT)
 
-  console.info('Message [43]', {
-    dateString,
-    roundAllCornersStyle,
-    isMessageTailed,
-    createdAt,
-  })
-
   return (
     <View style={[styles[position].Message]} testID='Message'>
       <TriangleCorner {...propsOut.TriangleCorner} />

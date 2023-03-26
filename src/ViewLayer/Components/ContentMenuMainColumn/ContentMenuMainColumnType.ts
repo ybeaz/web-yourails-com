@@ -1,5 +1,6 @@
 export interface ContentMenuMainColumnPropsType {
   styleProps?: any
+  handleEvents: any
 }
 
 /**

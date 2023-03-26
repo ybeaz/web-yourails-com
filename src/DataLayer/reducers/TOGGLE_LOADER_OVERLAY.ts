@@ -1,6 +1,6 @@
-import { IReducer } from '../../Interfaces/IReducer'
+import { ReducerType } from '../../@types/ReducerType'
 
-export const TOGGLE_LOADER_OVERLAY: IReducer = (store, data) => {
+export const TOGGLE_LOADER_OVERLAY: ReducerType = (store, data) => {
   const { componentsState } = store
   const componentsStateNext = {
     ...componentsState,

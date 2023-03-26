@@ -1,12 +1,12 @@
 import { componentsStateDefault } from '../rootStoreDefault'
 import { getUniqArrDeep } from '../../Shared/getUniqArrDeep'
 import { getUpdatedArrByArrInput } from '../../Shared/getUpdatedArrByArrInput'
-import { IRootStore } from '../../Interfaces/IRootStore'
+import { RootStoreType } from '../../@types/RootStoreType'
 
-export const SET_MODAL_FRAMES: Function = (
-  store: IRootStore,
+export const SET_MODAL_FRAME: Function = (
+  store: RootStoreType,
   data: any
-): IRootStore => {
+): RootStoreType => {
   const { componentsState } = store
   const { modalFrames } = componentsState
 
