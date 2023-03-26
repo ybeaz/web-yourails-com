@@ -1,5 +1,5 @@
 import { IHandleEventsInterface } from '../Interfaces/IHandleEventsInterface'
-import { IActionEvent } from '../Interfaces/IActionEvent'
+import { ActionEventType } from '../@types/ActionEventType'
 
 import { TEMPLATE } from './handlers/TEMPLATE'
 import { DEV_STAGE } from './handlers/DEV_STAGE'
@@ -10,7 +10,7 @@ export const handleEvents: IHandleEventsInterface = (event, props): void => {
   const { type: typeStore, typeEvent, data } = props
   const type = typeStore ? typeStore : typeEvent
 
-  const output: Record<string, IActionEvent> = {
+  const output: Record<string, ActionEventType> = {
     TEMPLATE,
     DEV_STAGE,
     SET_MODAL_FRAMES,

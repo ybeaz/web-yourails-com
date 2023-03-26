@@ -37,15 +37,13 @@ export const userStoreDefault: any = {
 
 export const componentsStateDefault: any = {
   isLoaderOverlayVisible: false,
-  modalFrames: [
-    {
-      childName: 'Profile',
-      isActive: false,
-      childProps: {
-        scenario: {},
-      },
+  modalFrames: {
+    childName: 'Profile',
+    isShow: false,
+    childProps: {
+      scenario: {},
     },
-  ],
+  },
 }
 
 export const formsDefault: any = {

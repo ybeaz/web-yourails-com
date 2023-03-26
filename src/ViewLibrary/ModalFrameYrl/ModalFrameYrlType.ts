@@ -6,8 +6,8 @@ import { ReactElement } from 'react'
 export interface ModalFrameYrlPropsType {
   styleProps?: { ModalFrameYrl: any; content: any }
   children?: ReactElement | ReactElement[]
-  isShow?: boolean
-  testID: string
+  isShow: boolean
+  testID?: string
 }
 
 export interface ModalFrameYrlType
