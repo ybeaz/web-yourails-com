@@ -16,49 +16,61 @@ import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
  */
 export const ModalFrameYrl: ModalFrameYrlType = props => {
   const {
-    styleProps = { ModalFrameYrl: {}, content: {} },
-    children = <>I am not I and the horse is not mine</>,
+    styleProps = { ModalFrameYrl: {}, imageBackground: {}, content: {} },
+    children = <>Your app is rendered ModalFrameYrl default child content</>,
     isShow = false,
     isShowImageBackground = false,
     testID = 'ModalFrameYrl',
-    iconClose = {
-      library: 'Ionicons',
-      name: 'close',
-      size: '1.5rem',
-      color: 'black',
-      testID: 'ModalFrameYrl_ButtonYrl_close',
+    buttonBack = {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: '',
+      testID: 'ModalFrameYrl-buttonBack',
+      disabled: false,
+      onPress: () => {
+        console.info('ModalFrameYrl [29]. You have pressed buttonBack-iconBack')
+      },
+      iconProps: {
+        library: 'Ionicons',
+        name: 'arrow-back-outline',
+        size: '1.5rem',
+        color: 'black',
+        testID: 'ModalFrameYrl-buttonBack-iconBack',
+      },
+    },
+    buttonClose = {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: '',
+      testID: 'ModalFrameYrl-buttonClose',
+      disabled: false,
+      onPress: () => {
+        console.info(
+          'ModalFrameYrl [43]. You have pressed buttonClose-iconClose'
+        )
+      },
+      iconProps: {
+        onPress: () => {},
+        library: 'Ionicons',
+        name: 'close',
+        size: '1.5rem',
+        color: 'black',
+        testID: 'ModalFrameYrl-buttonClose-iconClose',
+      },
     },
     imageBackgroundSource = '',
   } = props
 
-  console.info('ModalFrameYrl [33]', { imageBackgroundSource })
   const styleShowHide = isShow ? {} : style.hidden
 
   const propsOut = {
-    buttonCloseProps: {
-      styleProps: {
-        ButtonYrl: {
-          cursor: 'pointer',
-        },
-        title: {},
-      },
-      titleText: '',
-      testID: 'ButtonYrl',
-      disabled: false,
-      onPress: () => {},
-      iconProps: {
-        library: 'Ionicons',
-        name: 'close',
-        size: iconClose.size,
-        color: iconClose.color,
-        testID: 'ModalFrameYrl_ButtonYrl_close',
-      },
-    },
+    buttonBackProps: buttonBack,
+    buttonCloseProps: buttonClose,
   }
 
   const handlersAndContent = (
     <>
-      {' '}
+      <View style={[style.buttonBackWrapper]} testID={'buttonBackWrapper'}>
+        <ButtonYrl {...propsOut.buttonBackProps} />
+      </View>
       <View style={[style.buttonCloseWrapper]} testID={'buttonCloseWrapper'}>
         <ButtonYrl {...propsOut.buttonCloseProps} />
       </View>
@@ -82,8 +94,9 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
             // filter: 'brightness(50%)',
           }}
           source={imageBackgroundSource}
-          blurRadius={10}
+          blurRadius={5}
           resizeMode='repeat'
+          imageStyle={[style.imageBackground, styleProps.imageBackground]}
           testID={'ImageBackground'}
         >
           {handlersAndContent}

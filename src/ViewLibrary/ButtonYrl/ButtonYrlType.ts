@@ -4,22 +4,15 @@ import { PressableProps } from 'react-native'
 import { IconYrlPropsType } from '../IconYrl/IconYrlType'
 
 /**
- * IButtonYrlProps Interface
- * @prop title The Button's title and optional.
- * @prop styleProps The Button's styleProps and optional.
- * @prop backgroundColor The Button's background color and optional.
- * @prop color The Button's color and optional.
- * @prop disabled The Button's disabled and optional.
- * @prop onClick The Button's onClick function and optional.
- * @prop icon The Button's icon is a IButtonIcon and optional.
+ * @import import { ButtonYrlPropsType } from './ViewLibrary/ButtonYrl/ButtonYrlType'
  */
 export interface ButtonYrlPropsType {
   titleText?: string | ReactElement
-  styleProps?: { ButtonYrl: any; title: any } | undefined
+  styleProps?: { ButtonYrl: any; title: any }
   testID: string
   disabled?: boolean
   onPress?: PressableProps['onPress']
-  iconProps?: IconYrlPropsType | undefined
+  iconProps?: IconYrlPropsType
 }
 
 export interface ButtonYrlType

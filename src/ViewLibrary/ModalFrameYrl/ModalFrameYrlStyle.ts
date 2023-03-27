@@ -9,10 +9,19 @@ export const ModalFrameYrlStyle = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
+  imageBackground: {
+    // tintColor: 'rgba(255,255,255,0.95)',
+    opacity: 0.5,
+  },
+  buttonBackWrapper: {
+    position: 'absolute',
+    top: '0.5rem',
+    left: '1rem',
+  },
   buttonCloseWrapper: {
     position: 'absolute',
-    top: '-0.7rem',
-    right: '-0.5rem',
+    top: '0.5rem',
+    right: '1rem',
   },
   content: {
     backgroundColor: 'rgba(0,0,0,0.8)',

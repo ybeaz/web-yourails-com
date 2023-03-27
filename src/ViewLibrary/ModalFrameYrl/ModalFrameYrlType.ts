@@ -1,16 +1,18 @@
 import { ReactElement } from 'react'
 import { IconYrlPropsType } from '../IconYrl/IconYrlType'
+import { ButtonYrlPropsType } from '../ButtonYrl/ButtonYrlType'
 
 /**
  * IModalFrameYrlProps Interface
  */
 export interface ModalFrameYrlPropsType {
-  styleProps?: { ModalFrameYrl: any; content: any }
+  styleProps?: { ModalFrameYrl: any; imageBackground: any; content: any }
   children?: ReactElement | ReactElement[]
   isShow: boolean
   isShowImageBackground: boolean
   testID?: string
-  iconClose?: IconYrlPropsType
+  buttonBack?: ButtonYrlPropsType
+  buttonClose?: ButtonYrlPropsType
   imageBackgroundSource?: any
 }
 
