@@ -35,14 +35,16 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     },
     modalFrameYrl: {
       styleProps: {
-        ModalFrameYrl: {
-          backgroundColor: themes['themeA'].colors03.backgroundColor,
+        ModalFrameYrl: {},
+        content: {
+          ...themes['themeA'].colors03,
         },
-        content: {},
       },
       isShow,
-      testID: 'PageChatsWholeScreen_modalFrameYrl',
+      isShowImageBackground: true,
+      testID: 'ChatSpace_ModalFrameYrl',
       children: <Child {...childProps} />,
+      imageBackgroundSource: require('../../../Assets/canopy-of-leaves-2.jpg'),
     },
   }
 
@@ -50,24 +52,26 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const dateString = dayjs(createdAt).locale(LOCALE).format(DATE_FORMAT)
 
   return (
-    <View
-      style={[style.ChatSpace, themes['themeA'].colors03]}
-      testID='chatSpace'
-    >
-      <View style={style.date} testID='date'>
-        <Text style={style.dateText} testID='dateText'>
-          {dateString}
-        </Text>
-      </View>
-      <View style={style.messages} testID='messages'>
-        <Message {...propsOut.messageProps} />
-        <Message {...propsOut.messageProps} />
-      </View>
-      <View style={style.chatInput} testID='chatInput'>
-        <ChatInput />
+    <>
+      <View
+        style={[style.ChatSpace, themes['themeA'].colors03]}
+        testID='ChatSpace'
+      >
+        <View style={style.date} testID='date'>
+          <Text style={style.dateText} testID='dateText'>
+            {dateString}
+          </Text>
+        </View>
+        <View style={style.messages} testID='messages'>
+          <Message {...propsOut.messageProps} />
+          <Message {...propsOut.messageProps} />
+        </View>
+        <View style={style.chatInput} testID='chatInput'>
+          <ChatInput />
+        </View>
       </View>
       <ModalFrameYrl {...propsOut.modalFrameYrl} />
-    </View>
+    </>
   )
 }
 

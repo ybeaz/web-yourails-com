@@ -10,13 +10,22 @@ import { ProfileStyle as style } from './ProfileStyle'
 const ProfileComponent: ProfileType = props => {
   const { styleProps = { Profile: {} } } = props
 
+  const getContent = (num: number) => {
+    const repeat = new Array(num).fill(
+      'My contacts are telephone 415-650-9893, email t3531350@yahoo.com'
+    )
+    return repeat.map((item, index) => (
+      <Text key={`repeat=${index}`}>
+        My contacts are telephone 415-650-9893, email t3531350@yahoo.com
+      </Text>
+    ))
+  }
+
   const propsOut = {}
 
   return (
     <View style={[style.Profile, styleProps.Profile]} testID='Profile'>
-      <Text>
-        My contacts are telephone 415-650-9893, email t3531350@yahoo.com
-      </Text>
+      {getContent(30)}
     </View>
   )
 }

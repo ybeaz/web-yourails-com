@@ -1,8 +1,5 @@
 /**
- * IIconYrlProps Interface
- * @prop Icon's color and optional.
- * @prop Icon's size and optional.
- * @prop iconName A string that reflects the name of the icon and optional.
+ * @import import { IconYrlPropsType } from './ViewLibrary/IconYrl/IconYrlPropsType'
  */
 export interface IconYrlPropsType {
   library?: string

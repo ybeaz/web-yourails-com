@@ -9,7 +9,16 @@ export const ModalFrameYrlStyle = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  content: {},
+  buttonCloseWrapper: {
+    position: 'absolute',
+    top: '-0.7rem',
+    right: '-0.5rem',
+  },
+  content: {
+    backgroundColor: 'rgba(0,0,0,0.8)',
+    margin: '3rem',
+    padding: '3rem',
+  },
   hidden: {
     opacity: 0,
     height: 0,
