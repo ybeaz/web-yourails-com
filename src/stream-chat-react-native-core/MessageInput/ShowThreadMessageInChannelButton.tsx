@@ -1,19 +1,22 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import {
   MessageInputContextValue,
   useMessageInputContext,
-} from '../../contexts/messageInputContext/MessageInputContext';
-import { useTheme } from '../../contexts/themeContext/ThemeContext';
-import { ThreadContextValue, useThreadContext } from '../../contexts/threadContext/ThreadContext';
+} from '../../contexts/messageInputContext/MessageInputContext'
+import { useTheme } from '../../contexts/themeContext/ThemeContext'
+import {
+  ThreadContextValue,
+  useThreadContext,
+} from '../../contexts/threadContext/ThreadContext'
 import {
   TranslationContextValue,
   useTranslationContext,
-} from '../../contexts/translationContext/TranslationContext';
-import { Check } from '../../icons';
+} from '../../contexts/translationContext/TranslationContext'
+import { Check } from '../../icons'
 
-import type { DefaultStreamChatGenerics } from '../../types/types';
+import type { DefaultStreamChatGenerics } from '../../types/types'
 
 const styles = StyleSheet.create({
   checkBox: {
@@ -36,7 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     marginLeft: 12,
   },
-});
+})
 
 export type ShowThreadMessageInChannelButtonWithContextProps = Pick<
   MessageInputContextValue,
@@ -44,119 +47,128 @@ export type ShowThreadMessageInChannelButtonWithContextProps = Pick<
 > &
   Pick<ThreadContextValue, 'allowThreadMessagesInChannel'> &
   Pick<TranslationContextValue, 't'> & {
-    threadList?: boolean;
-  };
+    threadList?: boolean
+  }
 
-export const ShowThreadMessageInChannelButtonWithContext: React.FC<ShowThreadMessageInChannelButtonWithContextProps> =
-  (props) => {
-    const {
-      allowThreadMessagesInChannel,
-      sendThreadMessageInChannel,
-      setSendThreadMessageInChannel,
-      t,
-      threadList,
-    } = props;
+export const ShowThreadMessageInChannelButtonWithContext: React.FC<
+  ShowThreadMessageInChannelButtonWithContextProps
+> = props => {
+  const {
+    allowThreadMessagesInChannel,
+    sendThreadMessageInChannel,
+    setSendThreadMessageInChannel,
+    t,
+    threadList,
+  } = props
 
-    const {
-      theme: {
-        colors: { accent_blue, grey, white },
-        messageInput: {
-          showThreadMessageInChannelButton: {
-            check,
-            checkBoxActive,
-            checkBoxInactive,
-            container,
-            innerContainer,
-            text,
-          },
+  const {
+    theme: {
+      colors: { accent_blue, grey, white },
+      messageInput: {
+        showThreadMessageInChannelButton: {
+          check,
+          checkBoxActive,
+          checkBoxInactive,
+          container,
+          innerContainer,
+          text,
         },
       },
-    } = useTheme();
+    },
+  } = useTheme()
 
-    if (!threadList || !allowThreadMessagesInChannel) {
-      return null;
-    }
+  if (!threadList || !allowThreadMessagesInChannel) {
+    return null
+  }
 
-    return (
-      <View style={[styles.container, container]} testID='show-thread-message-in-channel-button'>
-        <TouchableOpacity
-          onPress={() => setSendThreadMessageInChannel((prevSendInChannel) => !prevSendInChannel)}
-        >
-          <View style={[styles.innerContainer, innerContainer]}>
-            <View
-              style={[
-                styles.checkBox,
-                sendThreadMessageInChannel
-                  ? {
-                      backgroundColor: accent_blue,
-                      borderColor: accent_blue,
-                      ...checkBoxActive,
-                    }
-                  : { borderColor: grey, ...checkBoxInactive },
-              ]}
-            >
-              {sendThreadMessageInChannel && (
-                <Check height={16} pathFill={white} width={16} {...check} />
-              )}
-            </View>
-            <Text style={[styles.text, { color: grey }, text]}>{t('Also send to channel')}</Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    );
-  };
+  return (
+    <SafeAreaView
+      style={[styles.container, container]}
+      testID='show-thread-message-in-channel-button'
+    >
+      <TouchableOpacity
+        onPress={() =>
+          setSendThreadMessageInChannel(prevSendInChannel => !prevSendInChannel)
+        }
+      >
+        <SafeAreaView style={[styles.innerContainer, innerContainer]}>
+          <SafeAreaView
+            style={[
+              styles.checkBox,
+              sendThreadMessageInChannel
+                ? {
+                    backgroundColor: accent_blue,
+                    borderColor: accent_blue,
+                    ...checkBoxActive,
+                  }
+                : { borderColor: grey, ...checkBoxInactive },
+            ]}
+          >
+            {sendThreadMessageInChannel && (
+              <Check height={16} pathFill={white} width={16} {...check} />
+            )}
+          </SafeAreaView>
+          <Text style={[styles.text, { color: grey }, text]}>
+            {t('Also send to channel')}
+          </Text>
+        </SafeAreaView>
+      </TouchableOpacity>
+    </SafeAreaView>
+  )
+}
 
 const areEqual = (
   prevProps: ShowThreadMessageInChannelButtonWithContextProps,
-  nextProps: ShowThreadMessageInChannelButtonWithContextProps,
+  nextProps: ShowThreadMessageInChannelButtonWithContextProps
 ) => {
   const {
     allowThreadMessagesInChannel: prevAllowThreadMessagesInChannel,
     sendThreadMessageInChannel: prevSendThreadMessageInChannel,
     t: prevT,
     threadList: prevThreadList,
-  } = prevProps;
+  } = prevProps
   const {
     allowThreadMessagesInChannel: nextAllowThreadMessagesInChannel,
     sendThreadMessageInChannel: nexSendThreadMessageInChannel,
     t: nextT,
     threadList: nextThreadList,
-  } = nextProps;
+  } = nextProps
 
-  const tEqual = prevT === nextT;
-  if (!tEqual) return false;
+  const tEqual = prevT === nextT
+  if (!tEqual) return false
 
   const sendThreadMessageInChannelEqual =
-    prevSendThreadMessageInChannel === nexSendThreadMessageInChannel;
-  if (!sendThreadMessageInChannelEqual) return false;
+    prevSendThreadMessageInChannel === nexSendThreadMessageInChannel
+  if (!sendThreadMessageInChannelEqual) return false
 
-  const threadListEqual = prevThreadList === nextThreadList;
-  if (!threadListEqual) return false;
+  const threadListEqual = prevThreadList === nextThreadList
+  if (!threadListEqual) return false
 
   const allowThreadMessagesInChannelEqual =
-    prevAllowThreadMessagesInChannel === nextAllowThreadMessagesInChannel;
-  if (!allowThreadMessagesInChannelEqual) return false;
+    prevAllowThreadMessagesInChannel === nextAllowThreadMessagesInChannel
+  if (!allowThreadMessagesInChannelEqual) return false
 
-  return true;
-};
+  return true
+}
 
 const MemoizedShowThreadMessageInChannelButton = React.memo(
   ShowThreadMessageInChannelButtonWithContext,
-  areEqual,
-) as typeof ShowThreadMessageInChannelButtonWithContext;
+  areEqual
+) as typeof ShowThreadMessageInChannelButtonWithContext
 
 export type ShowThreadMessageInChannelButtonProps =
-  Partial<ShowThreadMessageInChannelButtonWithContextProps>;
+  Partial<ShowThreadMessageInChannelButtonWithContextProps>
 
 export const ShowThreadMessageInChannelButton = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: ShowThreadMessageInChannelButtonProps,
+  props: ShowThreadMessageInChannelButtonProps
 ) => {
-  const { t } = useTranslationContext();
-  const { allowThreadMessagesInChannel } = useThreadContext<StreamChatGenerics>();
+  const { t } = useTranslationContext()
+  const { allowThreadMessagesInChannel } =
+    useThreadContext<StreamChatGenerics>()
   const { sendThreadMessageInChannel, setSendThreadMessageInChannel } =
-    useMessageInputContext<StreamChatGenerics>();
+    useMessageInputContext<StreamChatGenerics>()
 
   return (
     <MemoizedShowThreadMessageInChannelButton
@@ -168,8 +180,8 @@ export const ShowThreadMessageInChannelButton = <
       }}
       {...props}
     />
-  );
-};
+  )
+}
 
 ShowThreadMessageInChannelButton.displayName =
-  'ShowThreadMessageInChannelButton{messageInput{showThreadMessageInChannelButton}}';
+  'ShowThreadMessageInChannelButton{messageInput{showThreadMessageInChannelButton}}'

@@ -41,17 +41,17 @@ export interface InputToolbarProps<TMessage extends IMessage> {
 }
 
 export function InputToolbar<TMessage extends IMessage = IMessage>(
-  props: InputToolbarProps<TMessage>,
+  props: InputToolbarProps<TMessage>
 ) {
   const [position, setPosition] = useState('absolute')
   useEffect(() => {
     const keyboardWillShowListener = Keyboard.addListener(
       'keyboardWillShow',
-      () => setPosition('relative'),
+      () => setPosition('relative')
     )
     const keyboardWillHideListener = Keyboard.addListener(
       'keyboardWillHide',
-      () => setPosition('absolute'),
+      () => setPosition('absolute')
     )
     return () => {
       keyboardWillShowListener?.remove()
@@ -69,19 +69,21 @@ export function InputToolbar<TMessage extends IMessage = IMessage>(
   } = rest
 
   return (
-    <View style={[styles.container, { position }, containerStyle] as ViewStyle}>
-      <View style={[styles.primary, props.primaryStyle]}>
+    <SafeAreaView
+      style={[styles.container, { position }, containerStyle] as ViewStyle}
+    >
+      <SafeAreaView style={[styles.primary, props.primaryStyle]}>
         {renderActions?.(rest) ||
           (onPressActionButton && <Actions {...rest} />)}
         {renderComposer?.(props as ComposerProps) || <Composer {...props} />}
         {renderSend?.(props) || <Send {...props} />}
-      </View>
+      </SafeAreaView>
       {renderAccessory && (
-        <View style={[styles.accessory, props.accessoryStyle]}>
+        <SafeAreaView style={[styles.accessory, props.accessoryStyle]}>
           {renderAccessory(props)}
-        </View>
+        </SafeAreaView>
       )}
-    </View>
+    </SafeAreaView>
   )
 }
 

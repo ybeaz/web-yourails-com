@@ -2,7 +2,7 @@
 
 import PropTypes from 'prop-types'
 import React from 'react'
-import { View, ViewPropTypes, StyleSheet } from 'react-native'
+import { SafeAreaView, ViewPropTypes, StyleSheet } from 'react-native'
 
 import { Avatar, Day, utils } from 'react-native-gifted-chat'
 import Bubble from './SlackBubble'
@@ -63,15 +63,15 @@ export default class Message extends React.Component {
   render() {
     const marginBottom = isSameUser(
       this.props.currentMessage,
-      this.props.nextMessage,
+      this.props.nextMessage
     )
       ? 2
       : 10
 
     return (
-      <View>
+      <SafeAreaView>
         {this.renderDay()}
-        <View
+        <SafeAreaView
           style={[
             styles.container,
             { marginBottom },
@@ -80,8 +80,8 @@ export default class Message extends React.Component {
         >
           {this.renderAvatar()}
           {this.renderBubble()}
-        </View>
-      </View>
+        </SafeAreaView>
+      </SafeAreaView>
     )
   }
 }

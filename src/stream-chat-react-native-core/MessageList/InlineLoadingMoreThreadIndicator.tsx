@@ -1,63 +1,68 @@
-import React from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import React from 'react'
+import { ActivityIndicator, StyleSheet, View } from 'react-native'
 
-import { useTheme } from '../../contexts/themeContext/ThemeContext';
-import { useThreadContext } from '../../contexts/threadContext/ThreadContext';
+import { useTheme } from '../../contexts/themeContext/ThemeContext'
+import { useThreadContext } from '../../contexts/threadContext/ThreadContext'
 
-import type { DefaultStreamChatGenerics } from '../../types/types';
+import type { DefaultStreamChatGenerics } from '../../types/types'
 
 const styles = StyleSheet.create({
   activityIndicatorContainer: {
     padding: 10,
     width: '100%',
   },
-});
+})
 
 export type InlineLoadingMoreThreadIndicatorPropsWithContext = {
-  threadLoadingMore?: boolean;
-};
+  threadLoadingMore?: boolean
+}
 
-export const InlineLoadingMoreThreadIndicatorWithContext: React.FC<InlineLoadingMoreThreadIndicatorPropsWithContext> =
-  ({ threadLoadingMore }) => {
-    const { theme } = useTheme();
+export const InlineLoadingMoreThreadIndicatorWithContext: React.FC<
+  InlineLoadingMoreThreadIndicatorPropsWithContext
+> = ({ threadLoadingMore }) => {
+  const { theme } = useTheme()
 
-    const {
-      colors: { accent_blue },
-    } = theme;
+  const {
+    colors: { accent_blue },
+  } = theme
 
-    if (!threadLoadingMore) {
-      return null;
-    }
+  if (!threadLoadingMore) {
+    return null
+  }
 
-    return (
-      <View style={styles.activityIndicatorContainer}>
-        <ActivityIndicator color={accent_blue} size='small' />
-      </View>
-    );
-  };
+  return (
+    <SafeAreaView style={styles.activityIndicatorContainer}>
+      <ActivityIndicator color={accent_blue} size='small' />
+    </SafeAreaView>
+  )
+}
 
 const areEqual = (
   prevProps: InlineLoadingMoreThreadIndicatorPropsWithContext,
-  nextProps: InlineLoadingMoreThreadIndicatorPropsWithContext,
+  nextProps: InlineLoadingMoreThreadIndicatorPropsWithContext
 ) => {
-  const { threadLoadingMore: prevThreadLoadingMore } = prevProps;
-  const { threadLoadingMore: nextThreadLoadingMore } = nextProps;
+  const { threadLoadingMore: prevThreadLoadingMore } = prevProps
+  const { threadLoadingMore: nextThreadLoadingMore } = nextProps
 
-  const threadLoadingMoreEqual = prevThreadLoadingMore === nextThreadLoadingMore;
-  if (!threadLoadingMoreEqual) return false;
+  const threadLoadingMoreEqual = prevThreadLoadingMore === nextThreadLoadingMore
+  if (!threadLoadingMoreEqual) return false
 
-  return true;
-};
+  return true
+}
 
 const MemoizedInlineLoadingMoreThreadIndicator = React.memo(
   InlineLoadingMoreThreadIndicatorWithContext,
-  areEqual,
-) as typeof InlineLoadingMoreThreadIndicatorWithContext;
+  areEqual
+) as typeof InlineLoadingMoreThreadIndicatorWithContext
 
 export const InlineLoadingMoreThreadIndicator = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >() => {
-  const { threadLoadingMore } = useThreadContext<StreamChatGenerics>();
+  const { threadLoadingMore } = useThreadContext<StreamChatGenerics>()
 
-  return <MemoizedInlineLoadingMoreThreadIndicator threadLoadingMore={threadLoadingMore} />;
-};
+  return (
+    <MemoizedInlineLoadingMoreThreadIndicator
+      threadLoadingMore={threadLoadingMore}
+    />
+  )
+}

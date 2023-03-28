@@ -129,13 +129,13 @@ export function MessageText<TMessage extends IMessage = IMessage>({
           default:
             break
         }
-      },
+      }
     )
   }
 
   const onEmailPress = (email: string) =>
     Linking.openURL(`mailto:${email}`).catch(e =>
-      error(e, 'No handler for mailto'),
+      error(e, 'No handler for mailto')
     )
 
   const linkStyle = [
@@ -143,7 +143,7 @@ export function MessageText<TMessage extends IMessage = IMessage>({
     linkStyleProp && linkStyleProp[position],
   ]
   return (
-    <View
+    <SafeAreaView
       style={[
         styles[position].container,
         containerStyle && containerStyle[position],
@@ -165,7 +165,7 @@ export function MessageText<TMessage extends IMessage = IMessage>({
       >
         {currentMessage!.text}
       </ParsedText>
-    </View>
+    </SafeAreaView>
   )
 }
 

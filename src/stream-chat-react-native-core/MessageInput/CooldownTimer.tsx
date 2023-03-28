@@ -1,15 +1,16 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
-import { useTheme } from '../../contexts/themeContext/ThemeContext';
+import { useTheme } from '../../contexts/themeContext/ThemeContext'
 
 export type CooldownTimerProps = {
-  seconds: number;
-};
+  seconds: number
+}
 
-const CONTAINER_SIZE = 24;
-const CONTAINER_HORIZONTAL_PADDING = 6;
-const EXTRA_CHARACTER_PADDING = CONTAINER_SIZE - CONTAINER_HORIZONTAL_PADDING * 2;
+const CONTAINER_SIZE = 24
+const CONTAINER_HORIZONTAL_PADDING = 6
+const EXTRA_CHARACTER_PADDING =
+  CONTAINER_SIZE - CONTAINER_HORIZONTAL_PADDING * 2
 
 /**
  * To avoid the container jumping between sizes when there are more
@@ -17,7 +18,7 @@ const EXTRA_CHARACTER_PADDING = CONTAINER_SIZE - CONTAINER_HORIZONTAL_PADDING * 
  * using a monospaced font.
  */
 const normalizeWidth = (seconds: number) =>
-  CONTAINER_SIZE + EXTRA_CHARACTER_PADDING * (`${seconds}`.length - 1);
+  CONTAINER_SIZE + EXTRA_CHARACTER_PADDING * (`${seconds}`.length - 1)
 
 /**
  * Renders an amount of seconds left for a cooldown to finish.
@@ -26,7 +27,7 @@ const normalizeWidth = (seconds: number) =>
  * to use as the source of `seconds`.
  **/
 export const CooldownTimer = (props: CooldownTimerProps) => {
-  const { seconds } = props;
+  const { seconds } = props
   const {
     theme: {
       colors: { black, grey_gainsboro },
@@ -34,10 +35,10 @@ export const CooldownTimer = (props: CooldownTimerProps) => {
         cooldownTimer: { container, text },
       },
     },
-  } = useTheme();
+  } = useTheme()
 
   return (
-    <View
+    <SafeAreaView
       style={[
         styles.container,
         {
@@ -47,12 +48,15 @@ export const CooldownTimer = (props: CooldownTimerProps) => {
         container,
       ]}
     >
-      <Text style={[styles.text, { color: black }, text]} testID='cooldown-seconds'>
+      <Text
+        style={[styles.text, { color: black }, text]}
+        testID='cooldown-seconds'
+      >
         {seconds}
       </Text>
-    </View>
-  );
-};
+    </SafeAreaView>
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -64,4 +68,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: CONTAINER_HORIZONTAL_PADDING,
   },
   text: { fontSize: 16, fontWeight: '600' },
-});
+})

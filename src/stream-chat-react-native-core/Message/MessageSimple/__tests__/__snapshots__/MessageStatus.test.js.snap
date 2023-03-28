@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MessageStatus should render message status with read by container 1`] = `
-<View
+<SafeAreaView
   style={
     Array [
       Object {
@@ -86,5 +86,5 @@ exports[`MessageStatus should render message status with read by container 1`] =
       />
     </RNSVGGroup>
   </RNSVGSvgView>
-</View>
+</SafeAreaView>
 `;

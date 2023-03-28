@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View } from 'react-native'
+import { SafeAreaView } from 'react-native'
 import { useSelector } from 'react-redux'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { ButtonYrl, InputTextYrl, ImageYrl } from '../../../ViewLibrary/index'
@@ -48,7 +48,7 @@ const TemplateScreenComponent: TemplateScreenType = props => {
   }
 
   return (
-    <View></View>
+    <SafeAreaView></SafeAreaView>
 
     // <HelmetProvider>
     //   <div className='TemplateScreen'>

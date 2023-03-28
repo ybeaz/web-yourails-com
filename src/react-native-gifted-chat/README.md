@@ -68,12 +68,14 @@
   </p>
 </p>
 
-## The future of GiftedChat 🎉 
+## The future of GiftedChat 🎉
+
 Please give us your advice: [Related PR](https://github.com/FaridSafi/react-native-gifted-chat/pull/1775)
 
 ## Please vote
 
 **GiftedChat** depends on other packages and some needs a boost, please vote for PRs will improve it, thanks:
+
 - https://github.com/watadarkstar/react-native-typing-animation/issues/18
 
 ## Features
@@ -101,23 +103,24 @@ Please give us your advice: [Related PR](https://github.com/FaridSafi/react-nati
 - Use version `0.0.10` for RN `< 0.40.0`
 
 ## Testing
+
 `Test_ID` is exported as constants that can be used in your testing library of choice
 
-Gifted Chat uses `onLayout` to determine the height of the chat container.  To trigger `onLayout` during your tests, you can run the following bits of code.
+Gifted Chat uses `onLayout` to determine the height of the chat container. To trigger `onLayout` during your tests, you can run the following bits of code.
 
 ```typescript
 const WIDTH = 200 // or any number
 const HEIGHT = 2000 // or any number
 
 const loadingWrapper = getByTestId(Test_ID.LOADING.WRAPPER)
-fireEvent(loadingWrapper, "layout", {
+fireEvent(loadingWrapper, 'layout', {
   nativeEvent: {
     layout: {
       width: WIDTH,
       height: HEIGHT,
     },
   },
-});
+})
 ```
 
 ## Installation
@@ -144,7 +147,7 @@ import React, { useState, useCallback, useEffect } from 'react'
 import { GiftedChat } from 'react-native-gifted-chat'
 
 export function Example() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([])
 
   useEffect(() => {
     setMessages([
@@ -162,7 +165,9 @@ export function Example() {
   }, [])
 
   const onSend = useCallback((messages = []) => {
-    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+    setMessages(previousMessages =>
+      GiftedChat.append(previousMessages, messages)
+    )
   }, [])
 
   return (
@@ -443,12 +448,12 @@ If you are using Create React Native App / Expo, no Android specific installatio
   - Append [`KeyboardAvoidingView`](https://facebook.github.io/react-native/docs/keyboardavoidingview) after GiftedChat. This should only be done for Android, as `KeyboardAvoidingView` may conflict with the iOS keyboard avoidance already built into GiftedChat, e.g.:
 
 ```
-<View style={{ flex: 1 }}>
+<SafeAreaView style={{ flex: 1 }}>
    <GiftedChat />
    {
       Platform.OS === 'android' && <KeyboardAvoidingView behavior="padding" />
    }
-</View>
+</SafeAreaView>
 ```
 
 If you use React Navigation, additional handling may be required to account for navigation headers and tabs. `KeyboardAvoidingView`'s `keyboardVerticalOffset` property can be set to the height of the navigation header and [`tabBarOptions.keyboardHidesTabBar`](https://reactnavigation.org/docs/en/bottom-tab-navigator.html#bottomtabnavigatorconfig) can be set to keep the tab bar from being shown when the keyboard is up. Due to a [bug with calculating height on Android phones with notches](facebook/react-native#23693), `KeyboardAvoidingView` is recommended over other solutions that involve calculating the height of the window.
@@ -484,7 +489,8 @@ If you use React Navigation, additional handling may be required to account for 
 module.exports = function override(config, env) {
   config.module.rules.push({
     test: /\.js$/,
-    exclude: /node_modules[/\\](?!react-native-gifted-chat|react-native-lightbox|react-native-parsed-text)/,
+    exclude:
+      /node_modules[/\\](?!react-native-gifted-chat|react-native-lightbox|react-native-parsed-text)/,
     use: {
       loader: 'babel-loader',
       options: {

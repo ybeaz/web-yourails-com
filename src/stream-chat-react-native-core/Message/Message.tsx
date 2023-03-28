@@ -1,56 +1,68 @@
-import React from 'react';
-import { GestureResponderEvent, Keyboard, StyleProp, View, ViewStyle } from 'react-native';
+import React from 'react'
+import {
+  GestureResponderEvent,
+  Keyboard,
+  StyleProp,
+  View,
+  ViewStyle,
+} from 'react-native'
 
-import type { Attachment, UserResponse } from 'stream-chat';
+import type { Attachment, UserResponse } from 'stream-chat'
 
-import { useCreateMessageContext } from './hooks/useCreateMessageContext';
-import { useMessageActionHandlers } from './hooks/useMessageActionHandlers';
-import { useMessageActions } from './hooks/useMessageActions';
-import { messageActions as defaultMessageActions } from './utils/messageActions';
+import { useCreateMessageContext } from './hooks/useCreateMessageContext'
+import { useMessageActionHandlers } from './hooks/useMessageActionHandlers'
+import { useMessageActions } from './hooks/useMessageActions'
+import { messageActions as defaultMessageActions } from './utils/messageActions'
 
 import {
   ChannelContextValue,
   useChannelContext,
-} from '../../contexts/channelContext/ChannelContext';
-import { ChatContextValue, useChatContext } from '../../contexts/chatContext/ChatContext';
+} from '../../contexts/channelContext/ChannelContext'
+import {
+  ChatContextValue,
+  useChatContext,
+} from '../../contexts/chatContext/ChatContext'
 import {
   KeyboardContextValue,
   useKeyboardContext,
-} from '../../contexts/keyboardContext/KeyboardContext';
+} from '../../contexts/keyboardContext/KeyboardContext'
 import {
   MessageContextValue,
   MessageProvider,
   Reactions,
-} from '../../contexts/messageContext/MessageContext';
+} from '../../contexts/messageContext/MessageContext'
 import {
   MessageOverlayContextValue,
   useMessageOverlayContext,
-} from '../../contexts/messageOverlayContext/MessageOverlayContext';
+} from '../../contexts/messageOverlayContext/MessageOverlayContext'
 import {
   MessagesContextValue,
   useMessagesContext,
-} from '../../contexts/messagesContext/MessagesContext';
+} from '../../contexts/messagesContext/MessagesContext'
 import {
   OverlayContextValue,
   useOverlayContext,
-} from '../../contexts/overlayContext/OverlayContext';
-import { useOwnCapabilitiesContext } from '../../contexts/ownCapabilitiesContext/OwnCapabilitiesContext';
-import { useTheme } from '../../contexts/themeContext/ThemeContext';
-import { ThreadContextValue, useThreadContext } from '../../contexts/threadContext/ThreadContext';
+} from '../../contexts/overlayContext/OverlayContext'
+import { useOwnCapabilitiesContext } from '../../contexts/ownCapabilitiesContext/OwnCapabilitiesContext'
+import { useTheme } from '../../contexts/themeContext/ThemeContext'
+import {
+  ThreadContextValue,
+  useThreadContext,
+} from '../../contexts/threadContext/ThreadContext'
 import {
   TranslationContextValue,
   useTranslationContext,
-} from '../../contexts/translationContext/TranslationContext';
+} from '../../contexts/translationContext/TranslationContext'
 
-import { isVideoPackageAvailable, triggerHaptic } from '../../native';
-import type { DefaultStreamChatGenerics } from '../../types/types';
-import { emojiRegex, MessageStatusTypes } from '../../utils/utils';
+import { isVideoPackageAvailable, triggerHaptic } from '../../native'
+import type { DefaultStreamChatGenerics } from '../../types/types'
+import { emojiRegex, MessageStatusTypes } from '../../utils/utils'
 
 import {
   isMessageWithStylesReadByAndDateSeparator,
   MessageType,
-} from '../MessageList/hooks/useMessageList';
-import type { MessageActionListItemProps } from '../MessageOverlay/MessageActionListItem';
+} from '../MessageList/hooks/useMessageList'
+import type { MessageActionListItemProps } from '../MessageOverlay/MessageActionListItem'
 
 export type TouchableEmitter =
   | 'fileAttachment'
@@ -59,67 +71,72 @@ export type TouchableEmitter =
   | 'message'
   | 'messageContent'
   | 'messageReplies'
-  | 'reactionList';
+  | 'reactionList'
 
 export type TextMentionTouchableHandlerPayload<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 > = {
-  emitter: 'textMention';
-  additionalInfo?: { user?: UserResponse<StreamChatGenerics> };
-};
+  emitter: 'textMention'
+  additionalInfo?: { user?: UserResponse<StreamChatGenerics> }
+}
 
 export type UrlTouchableHandlerPayload = {
-  emitter: 'textLink' | 'card';
-  additionalInfo?: { url?: string };
-};
+  emitter: 'textLink' | 'card'
+  additionalInfo?: { url?: string }
+}
 
 export type FileAttachmentTouchableHandlerPayload<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 > = {
-  emitter: 'fileAttachment';
-  additionalInfo?: { attachment?: Attachment<StreamChatGenerics> };
-};
+  emitter: 'fileAttachment'
+  additionalInfo?: { attachment?: Attachment<StreamChatGenerics> }
+}
 
 export type TouchableHandlerPayload = {
-  defaultHandler?: () => void;
-  event?: GestureResponderEvent;
+  defaultHandler?: () => void
+  event?: GestureResponderEvent
 } & (
   | {
-      emitter?: Exclude<TouchableEmitter, 'textMention' | 'textLink' | 'card' | 'fileAttachment'>;
+      emitter?: Exclude<
+        TouchableEmitter,
+        'textMention' | 'textLink' | 'card' | 'fileAttachment'
+      >
     }
   | TextMentionTouchableHandlerPayload
   | UrlTouchableHandlerPayload
   | FileAttachmentTouchableHandlerPayload
-);
+)
 
 export type MessageTouchableHandlerPayload<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 > = TouchableHandlerPayload & {
-  actionHandlers?: MessageActionHandlers;
-  additionalInfo?: Record<string, unknown>;
-  message?: MessageType<StreamChatGenerics>;
-};
+  actionHandlers?: MessageActionHandlers
+  additionalInfo?: Record<string, unknown>
+  message?: MessageType<StreamChatGenerics>
+}
 
 export type MessageActionHandlers = {
-  deleteMessage: () => Promise<void>;
-  editMessage: () => void;
-  pinMessage: () => Promise<void>;
-  quotedReply: () => void;
-  resendMessage: () => Promise<void>;
-  showMessageOverlay: () => void;
-  toggleBanUser: () => Promise<void>;
-  toggleMuteUser: () => Promise<void>;
-  toggleReaction: (reactionType: string) => Promise<void>;
-};
+  deleteMessage: () => Promise<void>
+  editMessage: () => void
+  pinMessage: () => Promise<void>
+  quotedReply: () => void
+  resendMessage: () => Promise<void>
+  showMessageOverlay: () => void
+  toggleBanUser: () => Promise<void>
+  toggleMuteUser: () => Promise<void>
+  toggleReaction: (reactionType: string) => Promise<void>
+}
 
 export type MessagePropsWithContext<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 > = Pick<
   ChannelContextValue<StreamChatGenerics>,
   'channel' | 'disabled' | 'enforceUniqueReaction' | 'members'
 > &
   Pick<KeyboardContextValue, 'dismissKeyboard'> &
-  Partial<Omit<MessageContextValue<StreamChatGenerics>, 'groupStyles' | 'message'>> &
+  Partial<
+    Omit<MessageContextValue<StreamChatGenerics>, 'groupStyles' | 'message'>
+  > &
   Pick<MessageContextValue<StreamChatGenerics>, 'groupStyles' | 'message'> &
   Pick<
     MessagesContextValue<StreamChatGenerics>,
@@ -159,14 +176,14 @@ export type MessagePropsWithContext<
   Pick<OverlayContextValue, 'setOverlay'> &
   Pick<ThreadContextValue<StreamChatGenerics>, 'openThread'> &
   Pick<TranslationContextValue, 't'> & {
-    chatContext: ChatContextValue<StreamChatGenerics>;
-    messagesContext: MessagesContextValue<StreamChatGenerics>;
+    chatContext: ChatContextValue<StreamChatGenerics>
+    messagesContext: MessagesContextValue<StreamChatGenerics>
     /**
      * Whether or not users are able to long press messages.
      */
-    enableLongPress?: boolean;
-    goToMessage?: (messageId: string) => void;
-    isTargetedMessage?: boolean;
+    enableLongPress?: boolean
+    goToMessage?: (messageId: string) => void
+    isTargetedMessage?: boolean
     /**
      * Array of allowed actions or null on message, this can also be a function returning the array.
      * If all the actions need to be disabled an empty array should be provided as value of prop
@@ -182,7 +199,9 @@ export type MessagePropsWithContext<
      * @param message Message object which was long pressed
      * @param event   Event object for onLongPress event
      **/
-    onLongPress?: (payload: Partial<MessageTouchableHandlerPayload<StreamChatGenerics>>) => void;
+    onLongPress?: (
+      payload: Partial<MessageTouchableHandlerPayload<StreamChatGenerics>>
+    ) => void
 
     /**
      * You can call methods available on the Message
@@ -195,17 +214,21 @@ export type MessagePropsWithContext<
      * @param message Message object which was long pressed
      * @param event   Event object for onLongPress event
      * */
-    onPress?: (payload: Partial<MessageTouchableHandlerPayload<StreamChatGenerics>>) => void;
-    onPressIn?: (payload: Partial<MessageTouchableHandlerPayload<StreamChatGenerics>>) => void;
+    onPress?: (
+      payload: Partial<MessageTouchableHandlerPayload<StreamChatGenerics>>
+    ) => void
+    onPressIn?: (
+      payload: Partial<MessageTouchableHandlerPayload<StreamChatGenerics>>
+    ) => void
     /**
      * Handler to open the thread on message. This is callback for touch event for replies button.
      *
      * @param message A message object to open the thread upon.
      */
-    onThreadSelect?: (message: MessageType<StreamChatGenerics>) => void;
-    showUnreadUnderlay?: boolean;
-    style?: StyleProp<ViewStyle>;
-  };
+    onThreadSelect?: (message: MessageType<StreamChatGenerics>) => void
+    showUnreadUnderlay?: boolean
+    style?: StyleProp<ViewStyle>
+  }
 
 /**
  * Since this component doesn't consume `messages` from `MessagesContext`,
@@ -213,11 +236,11 @@ export type MessagePropsWithContext<
  * each individual Message component.
  */
 const MessageWithContext = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: MessagePropsWithContext<StreamChatGenerics>,
+  props: MessagePropsWithContext<StreamChatGenerics>
 ) => {
-  const isMessageTypeDeleted = props.message.type === 'deleted';
+  const isMessageTypeDeleted = props.message.type === 'deleted'
 
   const {
     sendReaction,
@@ -277,60 +300,65 @@ const MessageWithContext = <
     isTargetedMessage,
     threadList = false,
     updateMessage,
-  } = props;
-  const { client } = chatContext;
+  } = props
+  const { client } = chatContext
   const {
     theme: {
       colors: { bg_gradient_start, targetedMessageBackground },
       messageSimple: { targetedMessageContainer, targetedMessageUnderlay },
     },
-  } = useTheme();
+  } = useTheme()
 
   const actionsEnabled =
-    message.type === 'regular' && message.status === MessageStatusTypes.RECEIVED;
+    message.type === 'regular' && message.status === MessageStatusTypes.RECEIVED
 
-  const isMyMessage = client && message && client.userID === message.user?.id;
+  const isMyMessage = client && message && client.userID === message.user?.id
 
   const handleAction = async (name: string, value: string) => {
     if (message.id) {
-      const data = await channel?.sendAction(message.id, { [name]: value });
+      const data = await channel?.sendAction(message.id, { [name]: value })
       if (data?.message) {
-        updateMessage(data.message);
+        updateMessage(data.message)
       } else {
         removeMessage({
           id: message.id,
           parent_id: message.parent_id,
-        });
+        })
       }
     }
-  };
+  }
 
-  const onPressQuotedMessage = (quotedMessage: MessageType<StreamChatGenerics>) => {
-    if (!goToMessage) return;
+  const onPressQuotedMessage = (
+    quotedMessage: MessageType<StreamChatGenerics>
+  ) => {
+    if (!goToMessage) return
 
-    goToMessage(quotedMessage.id);
-  };
+    goToMessage(quotedMessage.id)
+  }
 
-  const errorOrFailed = message.type === 'error' || message.status === MessageStatusTypes.FAILED;
+  const errorOrFailed =
+    message.type === 'error' || message.status === MessageStatusTypes.FAILED
 
   const onPress = (error = errorOrFailed) => {
     if (dismissKeyboardOnMessageTouch) {
-      Keyboard.dismiss();
+      Keyboard.dismiss()
     }
-    const quotedMessage = message.quoted_message as MessageType<StreamChatGenerics>;
+    const quotedMessage =
+      message.quoted_message as MessageType<StreamChatGenerics>
     if (error) {
-      showMessageOverlay(false, true);
+      showMessageOverlay(false, true)
     } else if (quotedMessage) {
-      onPressQuotedMessage(quotedMessage);
+      onPressQuotedMessage(quotedMessage)
     }
-  };
+  }
 
   const alignment =
-    forceAlignMessages && (forceAlignMessages === 'left' || forceAlignMessages === 'right')
+    forceAlignMessages &&
+    (forceAlignMessages === 'left' || forceAlignMessages === 'right')
       ? forceAlignMessages
       : isMyMessage
       ? 'right'
-      : 'left';
+      : 'left'
 
   /**
    * attachments contain files/images or other attachments
@@ -344,115 +372,131 @@ const MessageWithContext = <
       ? message.attachments.reduce(
           (acc, cur) => {
             if (cur.type === 'file') {
-              acc.files.push(cur);
-              acc.other = []; // remove other attachments if a file exists
-            } else if (cur.type === 'video' && !cur.og_scrape_url && isVideoPackageAvailable()) {
+              acc.files.push(cur)
+              acc.other = [] // remove other attachments if a file exists
+            } else if (
+              cur.type === 'video' &&
+              !cur.og_scrape_url &&
+              isVideoPackageAvailable()
+            ) {
               acc.videos.push({
                 image_url: cur.asset_url,
                 thumb_url: cur.thumb_url,
                 type: 'video',
-              });
-              acc.other = [];
+              })
+              acc.other = []
             } else if (cur.type === 'video' && !cur.og_scrape_url) {
-              acc.files.push(cur);
-              acc.other = []; // remove other attachments if a file exists
+              acc.files.push(cur)
+              acc.other = [] // remove other attachments if a file exists
             } else if (cur.type === 'audio') {
-              acc.files.push(cur);
-            } else if (cur.type === 'image' && !cur.title_link && !cur.og_scrape_url) {
+              acc.files.push(cur)
+            } else if (
+              cur.type === 'image' &&
+              !cur.title_link &&
+              !cur.og_scrape_url
+            ) {
               /**
                * this next if is not combined with the above one for cases where we have
                * an image with no url links at all falling back to being an attachment
                */
               if (cur.image_url || cur.thumb_url) {
-                acc.images.push(cur);
-                acc.other = []; // remove other attachments if an image exists
+                acc.images.push(cur)
+                acc.other = [] // remove other attachments if an image exists
               }
               // only add other attachments if there are no files/images
-            } else if (!acc.files.length && !acc.images.length && !acc.videos.length) {
-              acc.other.push(cur);
+            } else if (
+              !acc.files.length &&
+              !acc.images.length &&
+              !acc.videos.length
+            ) {
+              acc.other.push(cur)
             }
 
-            return acc;
+            return acc
           },
           {
             files: [] as Attachment<StreamChatGenerics>[],
             images: [] as Attachment<StreamChatGenerics>[],
             other: [] as Attachment<StreamChatGenerics>[],
             videos: [] as Attachment<StreamChatGenerics>[],
-          },
+          }
         )
       : {
           files: [] as Attachment<StreamChatGenerics>[],
           images: [] as Attachment<StreamChatGenerics>[],
           other: [] as Attachment<StreamChatGenerics>[],
           videos: [] as Attachment<StreamChatGenerics>[],
-        };
+        }
   /**
    * Check if any actions to prevent long press
    */
   const hasAttachmentActions =
     !isMessageTypeDeleted &&
     Array.isArray(message.attachments) &&
-    message.attachments.some((attachment) => attachment.actions && attachment.actions.length);
+    message.attachments.some(
+      attachment => attachment.actions && attachment.actions.length
+    )
 
-  const messageContentOrder = messageContentOrderProp.filter((content) => {
+  const messageContentOrder = messageContentOrderProp.filter(content => {
     if (content === 'quoted_reply') {
-      return !!message.quoted_message;
+      return !!message.quoted_message
     }
 
     switch (content) {
       case 'attachments':
-        return !!attachments.other.length;
+        return !!attachments.other.length
       case 'files':
-        return !!attachments.files.length;
+        return !!attachments.files.length
       case 'gallery':
-        return !!attachments.images.length || !!attachments.videos.length;
+        return !!attachments.images.length || !!attachments.videos.length
       case 'text':
       default:
-        return !!message.text;
+        return !!message.text
     }
-  });
+  })
 
   const onlyEmojis =
     !attachments.files.length &&
     !attachments.images.length &&
     !attachments.other.length &&
     !!message.text &&
-    emojiRegex.test(message.text);
+    emojiRegex.test(message.text)
 
   const onOpenThread = () => {
     if (onThreadSelect) {
-      onThreadSelect(message);
+      onThreadSelect(message)
     }
     if (openThread) {
-      openThread(message);
+      openThread(message)
     }
-  };
+  }
 
   const hasReactions =
-    !isMessageTypeDeleted && !!message.latest_reactions && message.latest_reactions.length > 0;
+    !isMessageTypeDeleted &&
+    !!message.latest_reactions &&
+    message.latest_reactions.length > 0
 
-  const clientId = client.userID;
+  const clientId = client.userID
 
   const reactions = hasReactions
     ? supportedReactions.reduce((acc, cur) => {
-        const reactionType = cur.type;
+        const reactionType = cur.type
         const reactionsOfReactionType = message.latest_reactions?.filter(
-          (reaction) => reaction.type === reactionType,
-        );
+          reaction => reaction.type === reactionType
+        )
 
         if (reactionsOfReactionType?.length) {
           const hasOwnReaction = reactionsOfReactionType.some(
-            (reaction) => reaction.user_id === clientId,
-          );
-          acc.push({ own: hasOwnReaction, type: reactionType });
+            reaction => reaction.user_id === clientId
+          )
+          acc.push({ own: hasOwnReaction, type: reactionType })
         }
 
-        return acc;
+        return acc
       }, [] as Reactions)
-    : [];
+    : []
 
-  const ownCapabilities = useOwnCapabilitiesContext();
+  const ownCapabilities = useOwnCapabilitiesContext()
 
   const {
     handleDeleteMessage,
@@ -475,7 +519,7 @@ const MessageWithContext = <
     setEditingState,
     setQuotedMessageState,
     supportedReactions,
-  });
+  })
 
   const {
     blockUser,
@@ -520,16 +564,19 @@ const MessageWithContext = <
     supportedReactions,
     t,
     updateMessage,
-  });
+  })
 
-  const { userLanguage } = useTranslationContext();
+  const { userLanguage } = useTranslationContext()
 
-  const showMessageOverlay = async (messageReactions = false, error = errorOrFailed) => {
-    await dismissKeyboard();
+  const showMessageOverlay = async (
+    messageReactions = false,
+    error = errorOrFailed
+  ) => {
+    await dismissKeyboard()
 
-    const isThreadMessage = threadList || !!message.parent_id;
+    const isThreadMessage = threadList || !!message.parent_id
 
-    const dismissOverlay = () => setOverlay('none');
+    const dismissOverlay = () => setOverlay('none')
 
     const messageActions =
       typeof messageActionsProp !== 'function'
@@ -553,7 +600,7 @@ const MessageWithContext = <
             retry,
             threadReply,
             unpinMessage,
-          });
+          })
 
     setData({
       alignment,
@@ -564,9 +611,12 @@ const MessageWithContext = <
       handleReaction: ownCapabilities.sendReaction ? handleReaction : undefined,
       images: attachments.images,
       message,
-      messageActions: messageActions?.filter(Boolean) as MessageActionListItemProps[] | undefined,
+      messageActions: messageActions?.filter(Boolean) as
+        | MessageActionListItemProps[]
+        | undefined,
       messageContext: { ...messageContext, disabled: true, preventPress: true },
-      messageReactionTitle: !error && messageReactions ? t('Message Reactions') : undefined,
+      messageReactionTitle:
+        !error && messageReactions ? t('Message Reactions') : undefined,
       messagesContext: { ...messagesContext, messageContentOrder },
       onlyEmojis,
       otherAttachments: attachments.other,
@@ -576,10 +626,10 @@ const MessageWithContext = <
       threadList,
       userLanguage,
       videos: attachments.videos,
-    });
+    })
 
-    setOverlay('message');
-  };
+    setOverlay('message')
+  }
 
   const actionHandlers: MessageActionHandlers = {
     deleteMessage: handleDeleteMessage,
@@ -591,7 +641,7 @@ const MessageWithContext = <
     toggleBanUser: handleToggleBanUser,
     toggleMuteUser: handleToggleMuteUser,
     toggleReaction: handleToggleReaction,
-  };
+  }
 
   const onLongPressMessage =
     disabled || hasAttachmentActions
@@ -615,10 +665,10 @@ const MessageWithContext = <
           })
       : enableLongPress
       ? () => {
-          triggerHaptic('impactMedium');
-          showMessageOverlay(false);
+          triggerHaptic('impactMedium')
+          showMessageOverlay(false)
         }
-      : () => null;
+      : () => null
 
   const messageContext = useCreateMessageContext({
     actionsEnabled,
@@ -639,7 +689,8 @@ const MessageWithContext = <
     hasReactions,
     images: attachments.images,
     isMyMessage,
-    lastGroupMessage: groupStyles?.[0] === 'single' || groupStyles?.[0] === 'bottom',
+    lastGroupMessage:
+      groupStyles?.[0] === 'single' || groupStyles?.[0] === 'bottom',
     lastReceivedId,
     members,
     message,
@@ -647,7 +698,7 @@ const MessageWithContext = <
     onLongPress: onLongPressMessage,
     onlyEmojis,
     onOpenThread,
-    onPress: (payload) => {
+    onPress: payload => {
       const onPressArgs = {
         actionHandlers,
         additionalInfo: payload.additionalInfo,
@@ -655,33 +706,34 @@ const MessageWithContext = <
         emitter: payload.emitter || 'message',
         event: payload.event,
         message,
-      };
+      }
 
       const handleOnPress = () => {
-        if (onPressProp) return onPressProp(onPressArgs);
-        if (onPressMessageProp) return onPressMessageProp(onPressArgs);
-        if (payload.defaultHandler) return payload.defaultHandler();
+        if (onPressProp) return onPressProp(onPressArgs)
+        if (onPressMessageProp) return onPressMessageProp(onPressArgs)
+        if (payload.defaultHandler) return payload.defaultHandler()
 
-        return onPress();
-      };
+        return onPress()
+      }
 
-      handleOnPress();
+      handleOnPress()
     },
     onPressIn:
       onPressInProp || onPressInMessageProp
-        ? (payload) => {
+        ? payload => {
             const onPressInArgs = {
               actionHandlers,
               defaultHandler: payload.defaultHandler,
               emitter: payload.emitter || 'message',
               event: payload.event,
               message,
-            };
+            }
             const handleOnpressIn = () => {
-              if (onPressInProp) return onPressInProp(onPressInArgs);
-              if (onPressInMessageProp) return onPressInMessageProp(onPressInArgs);
-            };
-            handleOnpressIn();
+              if (onPressInProp) return onPressInProp(onPressInArgs)
+              if (onPressInMessageProp)
+                return onPressInMessageProp(onPressInArgs)
+            }
+            handleOnpressIn()
           }
         : null,
     otherAttachments: attachments.other,
@@ -689,15 +741,16 @@ const MessageWithContext = <
     reactions,
     showAvatar,
     showMessageOverlay,
-    showMessageStatus: typeof showMessageStatus === 'boolean' ? showMessageStatus : isMyMessage,
+    showMessageStatus:
+      typeof showMessageStatus === 'boolean' ? showMessageStatus : isMyMessage,
     threadList,
     videos: attachments.videos,
-  });
+  })
 
-  if (!(isMessageTypeDeleted || messageContentOrder.length)) return null;
+  if (!(isMessageTypeDeleted || messageContentOrder.length)) return null
 
   return (
-    <View
+    <SafeAreaView
       style={[
         message.pinned && {
           ...targetedMessageContainer,
@@ -706,7 +759,7 @@ const MessageWithContext = <
       ]}
       testID='message-wrapper'
     >
-      <View
+      <SafeAreaView
         style={[
           style,
           {
@@ -714,25 +767,30 @@ const MessageWithContext = <
           },
         ]}
       >
-        <View
+        <SafeAreaView
           style={[
             isTargetedMessage
-              ? { backgroundColor: targetedMessageBackground, ...targetedMessageUnderlay }
+              ? {
+                  backgroundColor: targetedMessageBackground,
+                  ...targetedMessageUnderlay,
+                }
               : {},
           ]}
         >
           <MessageProvider value={messageContext}>
             <MessageSimple />
           </MessageProvider>
-        </View>
-      </View>
-    </View>
-  );
-};
+        </SafeAreaView>
+      </SafeAreaView>
+    </SafeAreaView>
+  )
+}
 
-const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics>(
+const areEqual = <
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+>(
   prevProps: MessagePropsWithContext<StreamChatGenerics>,
-  nextProps: MessagePropsWithContext<StreamChatGenerics>,
+  nextProps: MessagePropsWithContext<StreamChatGenerics>
 ) => {
   const {
     chatContext: { mutedUsers: prevMutedUsers },
@@ -745,7 +803,7 @@ const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = Default
     message: prevMessage,
     showUnreadUnderlay: prevShowUnreadUnderlay,
     t: prevT,
-  } = prevProps;
+  } = prevProps
   const {
     chatContext: { mutedUsers: nextMutedUsers },
     goToMessage: nextGoToMessage,
@@ -756,61 +814,68 @@ const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = Default
     message: nextMessage,
     showUnreadUnderlay: nextShowUnreadUnderlay,
     t: nextT,
-  } = nextProps;
+  } = nextProps
 
-  const membersEqual = Object.keys(prevMembers).length === Object.keys(nextMembers).length;
-  if (!membersEqual) return false;
+  const membersEqual =
+    Object.keys(prevMembers).length === Object.keys(nextMembers).length
+  if (!membersEqual) return false
 
-  const repliesEqual = prevMessage.reply_count === nextMessage.reply_count;
-  if (!repliesEqual) return false;
+  const repliesEqual = prevMessage.reply_count === nextMessage.reply_count
+  if (!repliesEqual) return false
 
   const lastReceivedIdChangedAndMatters =
     prevLastReceivedId !== nextLastReceivedId &&
     (prevLastReceivedId === prevMessage.id ||
       prevLastReceivedId === nextMessage.id ||
       nextLastReceivedId === prevMessage.id ||
-      nextLastReceivedId === nextMessage.id);
+      nextLastReceivedId === nextMessage.id)
 
-  if (lastReceivedIdChangedAndMatters) return false;
+  if (lastReceivedIdChangedAndMatters) return false
 
   const goToMessageChangedAndMatters =
-    nextMessage.quoted_message_id && prevGoToMessage !== nextGoToMessage;
+    nextMessage.quoted_message_id && prevGoToMessage !== nextGoToMessage
 
-  if (goToMessageChangedAndMatters) return false;
+  if (goToMessageChangedAndMatters) return false
 
   const groupStylesEqual =
-    prevGroupStyles.length === nextGroupStyles.length && prevGroupStyles[0] === nextGroupStyles[0];
-  if (!groupStylesEqual) return false;
+    prevGroupStyles.length === nextGroupStyles.length &&
+    prevGroupStyles[0] === nextGroupStyles[0]
+  if (!groupStylesEqual) return false
 
-  const isPrevMessageTypeDeleted = prevMessage.type === 'deleted';
-  const isNextMessageTypeDeleted = nextMessage.type === 'deleted';
+  const isPrevMessageTypeDeleted = prevMessage.type === 'deleted'
+  const isNextMessageTypeDeleted = nextMessage.type === 'deleted'
 
   const messageEqual =
     isPrevMessageTypeDeleted === isNextMessageTypeDeleted &&
-    (isMessageWithStylesReadByAndDateSeparator(prevMessage) && prevMessage.readBy) ===
-      (isMessageWithStylesReadByAndDateSeparator(nextMessage) && nextMessage.readBy) &&
+    (isMessageWithStylesReadByAndDateSeparator(prevMessage) &&
+      prevMessage.readBy) ===
+      (isMessageWithStylesReadByAndDateSeparator(nextMessage) &&
+        nextMessage.readBy) &&
     prevMessage.status === nextMessage.status &&
     prevMessage.type === nextMessage.type &&
     prevMessage.text === nextMessage.text &&
     prevMessage.pinned === nextMessage.pinned &&
-    `${prevMessage?.updated_at}` === `${nextMessage?.updated_at}`;
+    `${prevMessage?.updated_at}` === `${nextMessage?.updated_at}`
 
-  if (!messageEqual) return false;
+  if (!messageEqual) return false
 
-  const isPrevQuotedMessageTypeDeleted = prevMessage.quoted_message?.type === 'deleted';
-  const isNextQuotedMessageTypeDeleted = nextMessage.quoted_message?.type === 'deleted';
+  const isPrevQuotedMessageTypeDeleted =
+    prevMessage.quoted_message?.type === 'deleted'
+  const isNextQuotedMessageTypeDeleted =
+    nextMessage.quoted_message?.type === 'deleted'
 
   const quotedMessageEqual =
     prevMessage.quoted_message?.id === nextMessage.quoted_message?.id &&
-    isPrevQuotedMessageTypeDeleted === isNextQuotedMessageTypeDeleted;
+    isPrevQuotedMessageTypeDeleted === isNextQuotedMessageTypeDeleted
 
-  if (!quotedMessageEqual) return false;
+  if (!quotedMessageEqual) return false
 
-  const messageUserBannedEqual = prevMessage.user?.banned === nextMessage.user?.banned;
-  if (!messageUserBannedEqual) return false;
+  const messageUserBannedEqual =
+    prevMessage.user?.banned === nextMessage.user?.banned
+  if (!messageUserBannedEqual) return false
 
-  const prevMessageAttachments = prevMessage.attachments;
-  const nextMessageAttachments = nextMessage.attachments;
+  const prevMessageAttachments = prevMessage.attachments
+  const nextMessageAttachments = nextMessage.attachments
   const attachmentsEqual =
     (Array.isArray(prevMessageAttachments) &&
       Array.isArray(nextMessageAttachments) &&
@@ -818,53 +883,68 @@ const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = Default
       prevMessageAttachments.every((attachment, index) => {
         const attachmentKeysEqual =
           attachment.type === 'image'
-            ? attachment.image_url === nextMessageAttachments[index].image_url &&
+            ? attachment.image_url ===
+                nextMessageAttachments[index].image_url &&
               attachment.thumb_url === nextMessageAttachments[index].thumb_url
-            : attachment.type === nextMessageAttachments[index].type;
+            : attachment.type === nextMessageAttachments[index].type
 
         if (isAttachmentEqual)
           return (
-            attachmentKeysEqual && !!isAttachmentEqual(attachment, nextMessageAttachments[index])
-          );
+            attachmentKeysEqual &&
+            !!isAttachmentEqual(attachment, nextMessageAttachments[index])
+          )
 
-        return attachmentKeysEqual;
+        return attachmentKeysEqual
       })) ||
-    prevMessageAttachments === nextMessageAttachments;
-  if (!attachmentsEqual) return false;
+    prevMessageAttachments === nextMessageAttachments
+  if (!attachmentsEqual) return false
 
   const latestReactionsEqual =
-    Array.isArray(prevMessage.latest_reactions) && Array.isArray(nextMessage.latest_reactions)
-      ? prevMessage.latest_reactions.length === nextMessage.latest_reactions.length &&
+    Array.isArray(prevMessage.latest_reactions) &&
+    Array.isArray(nextMessage.latest_reactions)
+      ? prevMessage.latest_reactions.length ===
+          nextMessage.latest_reactions.length &&
         prevMessage.latest_reactions.every(
-          ({ type }, index) => type === nextMessage.latest_reactions?.[index].type,
+          ({ type }, index) =>
+            type === nextMessage.latest_reactions?.[index].type
         )
-      : prevMessage.latest_reactions === nextMessage.latest_reactions;
-  if (!latestReactionsEqual) return false;
+      : prevMessage.latest_reactions === nextMessage.latest_reactions
+  if (!latestReactionsEqual) return false
 
   const mutedUserSame =
     prevMutedUsers.length === nextMutedUsers.length ||
-    prevMutedUsers.some((mutedUser) => mutedUser.target.id === prevMessage.user?.id) ===
-      nextMutedUsers.some((mutedUser) => mutedUser.target.id === nextMessage.user?.id);
-  if (!mutedUserSame) return false;
+    prevMutedUsers.some(
+      mutedUser => mutedUser.target.id === prevMessage.user?.id
+    ) ===
+      nextMutedUsers.some(
+        mutedUser => mutedUser.target.id === nextMessage.user?.id
+      )
+  if (!mutedUserSame) return false
 
-  const showUnreadUnderlayEqual = prevShowUnreadUnderlay === nextShowUnreadUnderlay;
-  if (!showUnreadUnderlayEqual) return false;
+  const showUnreadUnderlayEqual =
+    prevShowUnreadUnderlay === nextShowUnreadUnderlay
+  if (!showUnreadUnderlayEqual) return false
 
-  const tEqual = prevT === nextT;
-  if (!tEqual) return false;
+  const tEqual = prevT === nextT
+  if (!tEqual) return false
 
-  const targetedMessageEqual = prevIsTargetedMessage === nextIsTargetedMessage;
-  if (!targetedMessageEqual) return false;
+  const targetedMessageEqual = prevIsTargetedMessage === nextIsTargetedMessage
+  if (!targetedMessageEqual) return false
 
-  return true;
-};
+  return true
+}
 
-const MemoizedMessage = React.memo(MessageWithContext, areEqual) as typeof MessageWithContext;
+const MemoizedMessage = React.memo(
+  MessageWithContext,
+  areEqual
+) as typeof MessageWithContext
 
 export type MessageProps<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
-> = Partial<Omit<MessagePropsWithContext<StreamChatGenerics>, 'groupStyles' | 'message'>> &
-  Pick<MessagePropsWithContext<StreamChatGenerics>, 'groupStyles' | 'message'>;
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+> = Partial<
+  Omit<MessagePropsWithContext<StreamChatGenerics>, 'groupStyles' | 'message'>
+> &
+  Pick<MessagePropsWithContext<StreamChatGenerics>, 'groupStyles' | 'message'>
 
 /**
  * Message - A high level component which implements all the logic required for a message.
@@ -873,19 +953,19 @@ export type MessageProps<
  * @example ./Message.md
  */
 export const Message = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: MessageProps<StreamChatGenerics>,
+  props: MessageProps<StreamChatGenerics>
 ) => {
   const { channel, disabled, enforceUniqueReaction, members } =
-    useChannelContext<StreamChatGenerics>();
-  const chatContext = useChatContext<StreamChatGenerics>();
-  const { dismissKeyboard } = useKeyboardContext();
-  const { setData } = useMessageOverlayContext<StreamChatGenerics>();
-  const messagesContext = useMessagesContext<StreamChatGenerics>();
-  const { setOverlay } = useOverlayContext();
-  const { openThread } = useThreadContext<StreamChatGenerics>();
-  const { t } = useTranslationContext();
+    useChannelContext<StreamChatGenerics>()
+  const chatContext = useChatContext<StreamChatGenerics>()
+  const { dismissKeyboard } = useKeyboardContext()
+  const { setData } = useMessageOverlayContext<StreamChatGenerics>()
+  const messagesContext = useMessagesContext<StreamChatGenerics>()
+  const { setOverlay } = useOverlayContext()
+  const { openThread } = useThreadContext<StreamChatGenerics>()
+  const { t } = useTranslationContext()
 
   return (
     <MemoizedMessage<StreamChatGenerics>
@@ -905,5 +985,5 @@ export const Message = <
       }}
       {...props}
     />
-  );
-};
+  )
+}

@@ -46,11 +46,11 @@ export function SystemMessage<TMessage extends IMessage = IMessage>({
   }
 
   return (
-    <View style={[styles.container, containerStyle]}>
-      <View style={wrapperStyle}>
+    <SafeAreaView style={[styles.container, containerStyle]}>
+      <SafeAreaView style={wrapperStyle}>
         <Text style={[styles.text, textStyle]}>{currentMessage.text}</Text>
-      </View>
-    </View>
+      </SafeAreaView>
+    </SafeAreaView>
   )
 }
 

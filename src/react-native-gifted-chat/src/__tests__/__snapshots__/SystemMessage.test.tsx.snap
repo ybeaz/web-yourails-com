@@ -3,7 +3,7 @@
 exports[`SystemMessage should not render <SystemMessage /> and compare with snapshot 1`] = `null`;
 
 exports[`SystemMessage should render <SystemMessage /> and compare with snapshot 1`] = `
-<View
+<SafeAreaView
   style={
     Array [
       Object {
@@ -17,7 +17,7 @@ exports[`SystemMessage should render <SystemMessage /> and compare with snapshot
     ]
   }
 >
-  <View>
+  <SafeAreaView>
     <Text
       style={
         Array [
@@ -33,6 +33,6 @@ exports[`SystemMessage should render <SystemMessage /> and compare with snapshot
     >
       test
     </Text>
-  </View>
-</View>
+  </SafeAreaView>
+</SafeAreaView>
 `;

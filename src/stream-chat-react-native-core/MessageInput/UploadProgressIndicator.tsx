@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   ActivityIndicator,
   GestureResponderEvent,
@@ -7,13 +7,13 @@ import {
   TouchableOpacity,
   View,
   ViewStyle,
-} from 'react-native';
+} from 'react-native'
 
-import { useTheme } from '../../contexts/themeContext/ThemeContext';
-import { Refresh } from '../../icons';
-import { ProgressIndicatorTypes } from '../../utils/utils';
+import { useTheme } from '../../contexts/themeContext/ThemeContext'
+import { Refresh } from '../../icons'
+import { ProgressIndicatorTypes } from '../../utils/utils'
 
-const REFRESH_ICON_SIZE = 18;
+const REFRESH_ICON_SIZE = 18
 
 const styles = StyleSheet.create({
   activityIndicatorContainer: {
@@ -52,19 +52,21 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
   },
-});
+})
 
 export type UploadProgressIndicatorProps = {
   /** Action triggered when clicked indicator */
-  action?: (event: GestureResponderEvent) => void;
+  action?: (event: GestureResponderEvent) => void
   /** style */
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<ViewStyle>
   /** Type of active indicator */
-  type?: 'in_progress' | 'retry' | 'not_supported' | 'inactive' | null;
-};
+  type?: 'in_progress' | 'retry' | 'not_supported' | 'inactive' | null
+}
 
-export const UploadProgressIndicator: React.FC<UploadProgressIndicatorProps> = (props) => {
-  const { action, children, style, type } = props;
+export const UploadProgressIndicator: React.FC<
+  UploadProgressIndicatorProps
+> = props => {
+  const { action, children, style, type } = props
 
   const {
     theme: {
@@ -73,50 +75,65 @@ export const UploadProgressIndicator: React.FC<UploadProgressIndicatorProps> = (
         uploadProgressIndicator: { container },
       },
     },
-  } = useTheme();
+  } = useTheme()
 
   return type === ProgressIndicatorTypes.INACTIVE ? (
-    <View style={[styles.overflowHidden, style]} testID='inactive-upload-progress-indicator'>
+    <SafeAreaView
+      style={[styles.overflowHidden, style]}
+      testID='inactive-upload-progress-indicator'
+    >
       {children}
-    </View>
+    </SafeAreaView>
   ) : (
-    <View style={[styles.overflowHidden, style]} testID='active-upload-progress-indicator'>
+    <SafeAreaView
+      style={[styles.overflowHidden, style]}
+      testID='active-upload-progress-indicator'
+    >
       {children}
-      <View
+      <SafeAreaView
         style={[
-          type === ProgressIndicatorTypes.NOT_SUPPORTED ? styles.overflowHidden : styles.container,
+          type === ProgressIndicatorTypes.NOT_SUPPORTED
+            ? styles.overflowHidden
+            : styles.container,
           { backgroundColor: overlayColor },
           container,
         ]}
         testID='not-supported-upload-progress-indicator'
       >
         {type === ProgressIndicatorTypes.IN_PROGRESS && <InProgressIndicator />}
-        {type === ProgressIndicatorTypes.RETRY && <RetryIndicator action={action} />}
-      </View>
-    </View>
-  );
-};
+        {type === ProgressIndicatorTypes.RETRY && (
+          <RetryIndicator action={action} />
+        )}
+      </SafeAreaView>
+    </SafeAreaView>
+  )
+}
 
 const InProgressIndicator = () => {
   const {
     theme: {
       colors: { white_smoke },
     },
-  } = useTheme();
+  } = useTheme()
 
   return (
-    <View style={styles.activityIndicatorContainer}>
-      <ActivityIndicator color={white_smoke} testID='upload-progress-indicator' />
-    </View>
-  );
-};
+    <SafeAreaView style={styles.activityIndicatorContainer}>
+      <ActivityIndicator
+        color={white_smoke}
+        testID='upload-progress-indicator'
+      />
+    </SafeAreaView>
+  )
+}
 
-const RetryIndicator = ({ action }: Pick<UploadProgressIndicatorProps, 'action'>) => {
+const RetryIndicator = ({
+  action,
+}: Pick<UploadProgressIndicatorProps, 'action'>) => {
   const {
     theme: {
       colors: { white_smoke },
     },
-  } = useTheme();
+  } = useTheme()
 
   return (
     <TouchableOpacity onPress={action} style={styles.retryButtonContainer}>
@@ -127,8 +144,8 @@ const RetryIndicator = ({ action }: Pick<UploadProgressIndicatorProps, 'action'>
         width={REFRESH_ICON_SIZE}
       />
     </TouchableOpacity>
-  );
-};
+  )
+}
 
 UploadProgressIndicator.displayName =
-  'UploadProgressIndicator{messageInput{uploadProgressIndicator}}';
+  'UploadProgressIndicator{messageInput{uploadProgressIndicator}}'

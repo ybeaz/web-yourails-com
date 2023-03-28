@@ -680,7 +680,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
   renderMessages() {
     const { messagesContainerStyle, ...messagesContainerProps } = this.props
     const fragment = (
-      <View
+      <SafeAreaView
         style={[
           {
             height: this.state.messagesContainerHeight,
@@ -696,7 +696,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
           isTyping={this.props.isTyping}
         />
         {this.renderChatFooter()}
-      </View>
+      </SafeAreaView>
     )
 
     return this.props.isKeyboardInternallyHandled ? (
@@ -878,25 +878,28 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
             getLocale,
           }}
         >
-          <View testID={TEST_ID.WRAPPER} style={styles.wrapper}>
+          <SafeAreaView testID={TEST_ID.WRAPPER} style={styles.wrapper}>
             <ActionSheetProvider ref={this._actionSheetRef}>
-              <View style={styles.container} onLayout={this.onMainViewLayout}>
+              <SafeAreaView
+                style={styles.container}
+                onLayout={this.onMainViewLayout}
+              >
                 {this.renderMessages()}
                 {this.renderInputToolbar()}
-              </View>
+              </SafeAreaView>
             </ActionSheetProvider>
-          </View>
+          </SafeAreaView>
         </GiftedChatContext.Provider>
       )
     }
     return (
-      <View
+      <SafeAreaView
         testID={TEST_ID.LOADING_WRAPPER}
         style={styles.container}
         onLayout={this.onInitialLayoutViewLayout}
       >
         {this.renderLoading()}
-      </View>
+      </SafeAreaView>
     )
   }
 }

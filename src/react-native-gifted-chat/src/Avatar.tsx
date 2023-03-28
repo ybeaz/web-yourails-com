@@ -58,7 +58,7 @@ export interface AvatarProps<TMessage extends IMessage> {
 }
 
 export function Avatar<TMessage extends IMessage = IMessage>(
-  props: AvatarProps<TMessage>,
+  props: AvatarProps<TMessage>
 ) {
   const {
     renderAvatarOnTop,
@@ -86,7 +86,7 @@ export function Avatar<TMessage extends IMessage = IMessage>(
     isSameDay(currentMessage, messageToCompare)
   ) {
     return (
-      <View
+      <SafeAreaView
         style={[
           styles[position].container,
           containerStyle && containerStyle[position],
@@ -100,7 +100,7 @@ export function Avatar<TMessage extends IMessage = IMessage>(
             ] as ImageStyle
           }
         />
-      </View>
+      </SafeAreaView>
     )
   }
 
@@ -132,7 +132,7 @@ export function Avatar<TMessage extends IMessage = IMessage>(
   }
 
   return (
-    <View
+    <SafeAreaView
       style={[
         styles[position].container,
         styles[position][computedStyle],
@@ -140,7 +140,7 @@ export function Avatar<TMessage extends IMessage = IMessage>(
       ]}
     >
       {renderAvatarComponent()}
-    </View>
+    </SafeAreaView>
   )
 }
 

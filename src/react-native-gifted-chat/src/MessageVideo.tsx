@@ -1,10 +1,10 @@
 import React from 'react'
 import Color from './Color'
-import { View, Text } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 
 export function MessageVideo(_props: any) {
   return (
-    <View style={{ padding: 20 }}>
+    <SafeAreaView style={{ padding: 20 }}>
       <Text style={{ color: Color.alizarin, fontWeight: '600' }}>
         Video is not implemented by GiftedChat.
       </Text>
@@ -12,6 +12,6 @@ export function MessageVideo(_props: any) {
         You need to provide your own implementation by using renderMessageVideo
         prop.
       </Text>
-    </View>
+    </SafeAreaView>
   )
 }

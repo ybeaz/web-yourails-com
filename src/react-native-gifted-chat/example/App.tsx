@@ -21,8 +21,8 @@ import earlierMessages from './example-expo/data/earlierMessages'
 import { NavBar } from './components/navbar'
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f5f5f5', },
-  content: { backgroundColor: "#ffffff", flex: 1, }
+  container: { flex: 1, backgroundColor: '#f5f5f5' },
+  content: { backgroundColor: '#ffffff', flex: 1 },
 })
 
 const filterBotMessages = message =>
@@ -82,7 +82,7 @@ export default class App extends Component {
             messages: GiftedChat.prepend(
               previousState.messages,
               earlierMessages() as IMessage[],
-              Platform.OS !== 'web',
+              Platform.OS !== 'web'
             ),
             loadEarlier: true,
             isLoadingEarlier: false,
@@ -100,7 +100,7 @@ export default class App extends Component {
         messages: GiftedChat.append(
           previousState.messages,
           sentMessages,
-          Platform.OS !== 'web',
+          Platform.OS !== 'web'
         ),
         step,
       }
@@ -119,7 +119,7 @@ export default class App extends Component {
         messages: GiftedChat.append(
           previousState.messages,
           [newMessage],
-          Platform.OS !== 'web',
+          Platform.OS !== 'web'
         ),
       }))
     }
@@ -152,7 +152,7 @@ export default class App extends Component {
               user: otherUser,
             },
           ],
-          Platform.OS !== 'web',
+          Platform.OS !== 'web'
         ),
       }
     })
@@ -246,7 +246,7 @@ export default class App extends Component {
         testID='main'
       >
         <NavBar />
-        <View style={styles.content}>
+        <SafeAreaView style={styles.content}>
           <GiftedChat
             messages={this.state.messages}
             onSend={this.onSend}
@@ -263,7 +263,9 @@ export default class App extends Component {
             }}
             onQuickReply={this.onQuickReply}
             keyboardShouldPersistTaps='never'
-            renderAccessory={Platform.OS === 'web' ? null : this.renderAccessory}
+            renderAccessory={
+              Platform.OS === 'web' ? null : this.renderAccessory
+            }
             renderActions={this.renderCustomActions}
             renderBubble={this.renderBubble}
             renderSystemMessage={this.renderSystemMessage}
@@ -275,11 +277,14 @@ export default class App extends Component {
             }}
             renderQuickReplySend={this.renderQuickReplySend}
             inverted={Platform.OS !== 'web'}
-            timeTextStyle={{ left: { color: 'red' }, right: { color: 'yellow' } }}
+            timeTextStyle={{
+              left: { color: 'red' },
+              right: { color: 'yellow' },
+            }}
             isTyping={this.state.isTyping}
             infiniteScroll
           />
-        </View>
+        </SafeAreaView>
       </SafeAreaView>
     )
   }

@@ -49,7 +49,7 @@ export function MessageImage<TMessage extends IMessage = IMessage>({
   }
 
   return (
-    <View style={[styles.container, containerStyle]}>
+    <SafeAreaView style={[styles.container, containerStyle]}>
       <Lightbox
         activeProps={{
           style: styles.imageActive,
@@ -62,7 +62,7 @@ export function MessageImage<TMessage extends IMessage = IMessage>({
           source={{ uri: currentMessage.image }}
         />
       </Lightbox>
-    </View>
+    </SafeAreaView>
   )
 }
 

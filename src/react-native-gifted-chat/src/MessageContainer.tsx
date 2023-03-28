@@ -262,16 +262,18 @@ export default class MessageContainer<
       return this.props.inverted ? (
         this.props.renderChatEmpty()
       ) : (
-        <View style={styles.emptyChatContainer}>
+        <SafeAreaView style={styles.emptyChatContainer}>
           {this.props.renderChatEmpty()}
-        </View>
+        </SafeAreaView>
       )
     }
-    return <View style={styles.container} />
+    return <SafeAreaView style={styles.container} />
   }
 
   renderHeaderWrapper = () => (
-    <View style={styles.headerWrapper}>{this.renderLoadEarlier()}</View>
+    <SafeAreaView style={styles.headerWrapper}>
+      {this.renderLoadEarlier()}
+    </SafeAreaView>
   )
 
   renderScrollBottomComponent() {
@@ -287,14 +289,14 @@ export default class MessageContainer<
   renderScrollToBottomWrapper() {
     const propsStyle = this.props.scrollToBottomStyle || {}
     return (
-      <View style={[styles.scrollToBottomStyle, propsStyle]}>
+      <SafeAreaView style={[styles.scrollToBottomStyle, propsStyle]}>
         <TouchableOpacity
           onPress={() => this.scrollToBottom()}
           hitSlop={{ top: 5, left: 5, right: 5, bottom: 5 }}
         >
           {this.renderScrollBottomComponent()}
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
     )
   }
 
@@ -337,7 +339,7 @@ export default class MessageContainer<
     // })
 
     return (
-      <View
+      <SafeAreaView
         style={
           this.props.alignTop ? styles.containerAlignTop : styles.container
         }
@@ -371,7 +373,7 @@ export default class MessageContainer<
         {this.state.showScrollBottom && this.props.scrollToBottom
           ? this.renderScrollToBottomWrapper()
           : null}
-      </View>
+      </SafeAreaView>
     )
   }
 }

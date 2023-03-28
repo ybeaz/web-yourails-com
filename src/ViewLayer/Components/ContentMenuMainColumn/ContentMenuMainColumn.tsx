@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 
 import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'
 import { ContentMenuMainColumnStyle as style } from './ContentMenuMainColumnStyle'
@@ -51,13 +51,13 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
       }
 
       return (
-        <View
+        <SafeAreaView
           key={`menuContentItem-${index}`}
           style={[style.buttonWrapper, themes['themeA'].colors01]}
           testID='buttonWrapper'
         >
           <ButtonYrl {...propsOut.buttonProps} />
-        </View>
+        </SafeAreaView>
       )
     })
   }
@@ -65,12 +65,12 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
   const propsOut = {}
 
   return (
-    <View
+    <SafeAreaView
       style={[style.ContentMenuMainColumn, styleProps.ContentMenuMainColumn]}
       testID='ContentMenuMainColumn'
     >
       {getMenuContentItems(MENU_CONTENT_ITEMS)}
-    </View>
+    </SafeAreaView>
   )
 }
 

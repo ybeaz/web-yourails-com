@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   FlatList,
   Image,
@@ -7,25 +7,28 @@ import {
   TouchableOpacity,
   TouchableOpacityProps,
   View,
-} from 'react-native';
+} from 'react-native'
 
-import { UploadProgressIndicator } from './UploadProgressIndicator';
+import { UploadProgressIndicator } from './UploadProgressIndicator'
 
-import { ChatContextValue, useChatContext } from '../../contexts';
+import { ChatContextValue, useChatContext } from '../../contexts'
 import {
   ImageUpload,
   MessageInputContextValue,
   useMessageInputContext,
-} from '../../contexts/messageInputContext/MessageInputContext';
-import { useTheme } from '../../contexts/themeContext/ThemeContext';
-import { useTranslationContext } from '../../contexts/translationContext/TranslationContext';
-import { Close } from '../../icons/Close';
-import { Warning } from '../../icons/Warning';
-import type { DefaultStreamChatGenerics } from '../../types/types';
-import { getIndicatorTypeForFileState, ProgressIndicatorTypes } from '../../utils/utils';
+} from '../../contexts/messageInputContext/MessageInputContext'
+import { useTheme } from '../../contexts/themeContext/ThemeContext'
+import { useTranslationContext } from '../../contexts/translationContext/TranslationContext'
+import { Close } from '../../icons/Close'
+import { Warning } from '../../icons/Warning'
+import type { DefaultStreamChatGenerics } from '../../types/types'
+import {
+  getIndicatorTypeForFileState,
+  ProgressIndicatorTypes,
+} from '../../utils/utils'
 
-const IMAGE_PREVIEW_SIZE = 100;
-const WARNING_ICON_SIZE = 16;
+const IMAGE_PREVIEW_SIZE = 100
+const WARNING_ICON_SIZE = 16
 
 const styles = StyleSheet.create({
   dismiss: {
@@ -72,28 +75,28 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: 4,
   },
-});
+})
 
 type ImageUploadPreviewPropsWithContext<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 > = Pick<
   MessageInputContextValue<StreamChatGenerics>,
   'imageUploads' | 'removeImage' | 'uploadImage'
 > &
-  Pick<ChatContextValue<StreamChatGenerics>, 'enableOfflineSupport'>;
+  Pick<ChatContextValue<StreamChatGenerics>, 'enableOfflineSupport'>
 
 export type ImageUploadPreviewProps<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
-> = Partial<ImageUploadPreviewPropsWithContext<StreamChatGenerics>>;
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+> = Partial<ImageUploadPreviewPropsWithContext<StreamChatGenerics>>
 
-type ImageUploadPreviewItem = { index: number; item: ImageUpload };
+type ImageUploadPreviewItem = { index: number; item: ImageUpload }
 
 const ImageUploadPreviewWithContext = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: ImageUploadPreviewPropsWithContext<StreamChatGenerics>,
+  props: ImageUploadPreviewPropsWithContext<StreamChatGenerics>
 ) => {
-  const { enableOfflineSupport, imageUploads, removeImage, uploadImage } = props;
+  const { enableOfflineSupport, imageUploads, removeImage, uploadImage } = props
 
   const {
     theme: {
@@ -101,44 +104,56 @@ const ImageUploadPreviewWithContext = <
         imageUploadPreview: { flatList, itemContainer, upload },
       },
     },
-  } = useTheme();
+  } = useTheme()
 
   const UnsupportedImageTypeIndicator = ({
     indicatorType,
   }: {
-    indicatorType: typeof ProgressIndicatorTypes[keyof typeof ProgressIndicatorTypes] | null;
+    indicatorType:
+      | typeof ProgressIndicatorTypes[keyof typeof ProgressIndicatorTypes]
+      | null
   }) => {
     const {
       theme: {
         colors: { accent_red, overlay, white },
       },
-    } = useTheme();
+    } = useTheme()
 
-    const { t } = useTranslationContext();
+    const { t } = useTranslationContext()
     return indicatorType === ProgressIndicatorTypes.NOT_SUPPORTED ? (
-      <View style={[styles.unsupportedImage, { backgroundColor: overlay }]}>
-        <View style={[styles.iconContainer]}>
+      <SafeAreaView
+        style={[styles.unsupportedImage, { backgroundColor: overlay }]}
+      >
+        <SafeAreaView style={[styles.iconContainer]}>
           <Warning
             height={WARNING_ICON_SIZE}
             pathFill={accent_red}
             style={styles.warningIconStyle}
             width={WARNING_ICON_SIZE}
           />
-          <Text style={[styles.warningText, { color: white }]}>{t('Not supported')}</Text>
-        </View>
-      </View>
-    ) : null;
-  };
+          <Text style={[styles.warningText, { color: white }]}>
+            {t('Not supported')}
+          </Text>
+        </SafeAreaView>
+      </SafeAreaView>
+    ) : null
+  }
 
   const renderItem = ({ index, item }: ImageUploadPreviewItem) => {
-    const indicatorType = getIndicatorTypeForFileState(item.state, enableOfflineSupport);
-    const itemMarginForIndex = index === imageUploads.length - 1 ? { marginRight: 8 } : {};
+    const indicatorType = getIndicatorTypeForFileState(
+      item.state,
+      enableOfflineSupport
+    )
+    const itemMarginForIndex =
+      index === imageUploads.length - 1 ? { marginRight: 8 } : {}
 
     return (
-      <View style={[styles.itemContainer, itemMarginForIndex, itemContainer]}>
+      <SafeAreaView
+        style={[styles.itemContainer, itemMarginForIndex, itemContainer]}
+      >
         <UploadProgressIndicator
           action={() => {
-            uploadImage({ newImage: item });
+            uploadImage({ newImage: item })
           }}
           style={styles.upload}
           type={indicatorType}
@@ -151,13 +166,13 @@ const ImageUploadPreviewWithContext = <
         </UploadProgressIndicator>
         <DismissUpload
           onPress={() => {
-            removeImage(item.id);
+            removeImage(item.id)
           }}
         />
         <UnsupportedImageTypeIndicator indicatorType={indicatorType} />
-      </View>
-    );
-  };
+      </SafeAreaView>
+    )
+  }
 
   return imageUploads.length > 0 ? (
     <FlatList
@@ -168,14 +183,14 @@ const ImageUploadPreviewWithContext = <
         offset: (IMAGE_PREVIEW_SIZE + 8) * index,
       })}
       horizontal
-      keyExtractor={(item) => item.id}
+      keyExtractor={item => item.id}
       renderItem={renderItem}
       style={[styles.flatList, flatList]}
     />
-  ) : null;
-};
+  ) : null
+}
 
-type DismissUploadProps = Pick<TouchableOpacityProps, 'onPress'>;
+type DismissUploadProps = Pick<TouchableOpacityProps, 'onPress'>
 
 const DismissUpload = ({ onPress }: DismissUploadProps) => {
   const {
@@ -185,7 +200,7 @@ const DismissUpload = ({ onPress }: DismissUploadProps) => {
         imageUploadPreview: { dismiss, dismissIconColor },
       },
     },
-  } = useTheme();
+  } = useTheme()
 
   return (
     <TouchableOpacity
@@ -195,39 +210,43 @@ const DismissUpload = ({ onPress }: DismissUploadProps) => {
     >
       <Close pathFill={dismissIconColor || white} />
     </TouchableOpacity>
-  );
-};
+  )
+}
 
-const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics>(
+const areEqual = <
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+>(
   prevProps: ImageUploadPreviewPropsWithContext<StreamChatGenerics>,
-  nextProps: ImageUploadPreviewPropsWithContext<StreamChatGenerics>,
+  nextProps: ImageUploadPreviewPropsWithContext<StreamChatGenerics>
 ) => {
-  const { imageUploads: prevImageUploads } = prevProps;
-  const { imageUploads: nextImageUploads } = nextProps;
+  const { imageUploads: prevImageUploads } = prevProps
+  const { imageUploads: nextImageUploads } = nextProps
 
   return (
     prevImageUploads.length === nextImageUploads.length &&
     prevImageUploads.every(
-      (prevImageUpload, index) => prevImageUpload.state === nextImageUploads[index].state,
+      (prevImageUpload, index) =>
+        prevImageUpload.state === nextImageUploads[index].state
     )
-  );
-};
+  )
+}
 
 const MemoizedImageUploadPreviewWithContext = React.memo(
   ImageUploadPreviewWithContext,
-  areEqual,
-) as typeof ImageUploadPreviewWithContext;
+  areEqual
+) as typeof ImageUploadPreviewWithContext
 
 /**
  * UI Component to preview the images set for upload
  */
 export const ImageUploadPreview = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: ImageUploadPreviewProps<StreamChatGenerics>,
+  props: ImageUploadPreviewProps<StreamChatGenerics>
 ) => {
-  const { enableOfflineSupport } = useChatContext<StreamChatGenerics>();
-  const { imageUploads, removeImage, uploadImage } = useMessageInputContext<StreamChatGenerics>();
+  const { enableOfflineSupport } = useChatContext<StreamChatGenerics>()
+  const { imageUploads, removeImage, uploadImage } =
+    useMessageInputContext<StreamChatGenerics>()
 
   return (
     <MemoizedImageUploadPreviewWithContext
@@ -235,7 +254,8 @@ export const ImageUploadPreview = <
       {...{ enableOfflineSupport }}
       {...props}
     />
-  );
-};
+  )
+}
 
-ImageUploadPreview.displayName = 'ImageUploadPreview{messageInput{imageUploadPreview}}';
+ImageUploadPreview.displayName =
+  'ImageUploadPreview{messageInput{imageUploadPreview}}'

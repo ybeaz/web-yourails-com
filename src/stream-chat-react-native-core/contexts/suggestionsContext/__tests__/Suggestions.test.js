@@ -1,49 +1,52 @@
-import React from 'react';
+import React from 'react'
 
-import { View } from 'react-native';
+import { SafeAreaView } from 'react-native'
 
-import { cleanup, render, waitFor } from '@testing-library/react-native';
+import { cleanup, render, waitFor } from '@testing-library/react-native'
 
-import { SuggestionsProvider, useSuggestionsContext } from '../SuggestionsContext';
+import {
+  SuggestionsProvider,
+  useSuggestionsContext,
+} from '../SuggestionsContext'
 
 const SuggestionsContextConsumer = ({ fn }) => {
-  const value = useSuggestionsContext();
-  fn(value);
-  return <View testID='children' />;
-};
+  const value = useSuggestionsContext()
+  fn(value)
+  return <SafeAreaView testID='children' />
+}
 
 describe('SuggestionsProvider', () => {
-  afterEach(cleanup);
+  afterEach(cleanup)
 
   it('renders children without crashing', async () => {
     const { getByTestId } = render(
       <SuggestionsProvider>
-        <View testID='children' />
-      </SuggestionsProvider>,
-    );
+        <SafeAreaView testID='children' />
+      </SuggestionsProvider>
+    )
 
-    await waitFor(() => expect(getByTestId('children')).toBeTruthy());
-  });
+    await waitFor(() => expect(getByTestId('children')).toBeTruthy())
+  })
 
   it('exposes the suggestions context', async () => {
-    let context;
+    let context
 
     render(
       <SuggestionsProvider>
         <SuggestionsContextConsumer
-          fn={(ctx) => {
-            context = ctx;
+          fn={ctx => {
+            context = ctx
           }}
         ></SuggestionsContextConsumer>
-      </SuggestionsProvider>,
-    );
+      </SuggestionsProvider>
+    )
 
     await waitFor(() => {
-      expect(context).toBeInstanceOf(Object);
-      expect(context.closeSuggestions).toBeInstanceOf(Function);
-      expect(context.openSuggestions).toBeInstanceOf(Function);
-      expect(typeof context.suggestionsViewActive).toBe('boolean');
-      expect(context.updateSuggestions).toBeInstanceOf(Function);
-    });
-  });
-});
+      expect(context).toBeInstanceOf(Object)
+      expect(context.closeSuggestions).toBeInstanceOf(Function)
+      expect(context.openSuggestions).toBeInstanceOf(Function)
+      expect(typeof context.suggestionsViewActive).toBe('boolean')
+      expect(context.updateSuggestions).toBeInstanceOf(Function)
+    })
+  })
+})

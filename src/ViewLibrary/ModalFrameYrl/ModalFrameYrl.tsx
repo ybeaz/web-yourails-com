@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { View, ImageBackground, Dimensions } from 'react-native'
+import { SafeAreaView, ImageBackground, Dimensions } from 'react-native'
 import { ModalFrameYrlType } from './ModalFrameYrlType'
 import { ModalFrameYrlStyle as style } from './ModalFrameYrlStyle'
 import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
@@ -110,20 +110,29 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
 
   const handlersAndContentJsx = (
     <>
-      <View style={[style.buttonBackWrapper]} testID={'buttonBackWrapper'}>
+      <SafeAreaView
+        style={[style.buttonBackWrapper]}
+        testID={'buttonBackWrapper'}
+      >
         <ButtonYrl {...propsOut.buttonBackProps} />
-      </View>
-      <View style={[style.buttonCloseWrapper]} testID={'buttonCloseWrapper'}>
+      </SafeAreaView>
+      <SafeAreaView
+        style={[style.buttonCloseWrapper]}
+        testID={'buttonCloseWrapper'}
+      >
         <ButtonYrl {...propsOut.buttonCloseProps} />
-      </View>
-      <View style={[style.content, styleProps.content]} testID={'content'}>
+      </SafeAreaView>
+      <SafeAreaView
+        style={[style.content, styleProps.content]}
+        testID={'content'}
+      >
         {children}
-      </View>
+      </SafeAreaView>
     </>
   )
 
   const modalFrameJsx = (
-    <View
+    <SafeAreaView
       style={[style.ModalFrameYrl, styleProps.ModalFrameYrl]}
       testID={testID}
     >
@@ -145,7 +154,7 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
       ) : (
         handlersAndContentJsx
       )}
-    </View>
+    </SafeAreaView>
   )
 
   return isShow ? modalFrameJsx : null

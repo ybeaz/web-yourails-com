@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { SafeAreaView } from 'react-native'
 
 import { LoaderOverlayYrlStyle as style } from './LoaderOverlayYrlStyle'
 import { LoaderOverlayType } from './LoaderOverlayYrlType'
@@ -22,15 +22,15 @@ const LoaderOverlayYrl: LoaderOverlayType = props => {
   } = props
 
   return (
-    <View
+    <SafeAreaView
       style={[style.LoaderOverlay, propsStyle.LoaderOverlay]}
       testID={testID}
     >
-      <View
+      <SafeAreaView
         style={[style.spinner, propsStyle.spinner]}
         testID={`${testID}_View`}
-      ></View>
-    </View>
+      ></SafeAreaView>
+    </SafeAreaView>
   )
 }
 

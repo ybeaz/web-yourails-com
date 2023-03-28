@@ -1,8 +1,8 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
-import { useTheme } from '../../contexts/themeContext/ThemeContext';
-import { useTranslationContext } from '../../contexts/translationContext/TranslationContext';
+import { useTheme } from '../../contexts/themeContext/ThemeContext'
+import { useTranslationContext } from '../../contexts/translationContext/TranslationContext'
 
 const styles = StyleSheet.create({
   container: {
@@ -15,10 +15,10 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: '400',
   },
-});
+})
 
 export const SendMessageDisallowedIndicator = () => {
-  const { t } = useTranslationContext();
+  const { t } = useTranslationContext()
   const {
     theme: {
       colors: { border, grey_dark },
@@ -26,10 +26,10 @@ export const SendMessageDisallowedIndicator = () => {
         sendMessageDisallowedIndicator: { container, text },
       },
     },
-  } = useTheme();
+  } = useTheme()
 
   return (
-    <View
+    <SafeAreaView
       style={[
         styles.container,
         {
@@ -43,6 +43,6 @@ export const SendMessageDisallowedIndicator = () => {
       <Text style={[styles.text, { color: grey_dark }, text]}>
         {t("You can't send messages in this channel")}
       </Text>
-    </View>
-  );
-};
+    </SafeAreaView>
+  )
+}

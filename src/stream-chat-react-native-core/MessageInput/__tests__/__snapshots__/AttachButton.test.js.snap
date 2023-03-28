@@ -24,7 +24,7 @@ exports[`AttachButton should render a disabled AttachButton 1`] = `
   testID="attach-button"
   touchSoundDisabled={false}
 >
-  <View
+  <SafeAreaView
     accessible={true}
     collapsable={false}
     hitSlop={
@@ -83,7 +83,7 @@ exports[`AttachButton should render a disabled AttachButton 1`] = `
         />
       </RNSVGGroup>
     </RNSVGSvgView>
-  </View>
+  </SafeAreaView>
 </RNGestureHandlerButton>
 `;
 
@@ -111,7 +111,7 @@ exports[`AttachButton should render an enabled AttachButton 1`] = `
   testID="attach-button"
   touchSoundDisabled={false}
 >
-  <View
+  <SafeAreaView
     accessible={true}
     collapsable={false}
     hitSlop={
@@ -170,6 +170,6 @@ exports[`AttachButton should render an enabled AttachButton 1`] = `
         />
       </RNSVGGroup>
     </RNSVGSvgView>
-  </View>
+  </SafeAreaView>
 </RNGestureHandlerButton>
 `;

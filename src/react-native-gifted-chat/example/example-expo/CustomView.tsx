@@ -72,11 +72,11 @@ export default class CustomView extends React.Component<{
               zoomEnabled={false}
             />
           ) : (
-            <View style={{ padding: 15 }}>
+            <SafeAreaView style={{ padding: 15 }}>
               <Text style={{ color: 'tomato', fontWeight: 'bold' }}>
                 Map not supported in web yet, sorry!
               </Text>
-            </View>
+            </SafeAreaView>
           )}
         </TouchableOpacity>
       )

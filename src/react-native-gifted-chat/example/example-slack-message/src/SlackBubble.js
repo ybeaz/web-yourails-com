@@ -45,7 +45,7 @@ export default class Bubble extends React.Component {
                 Clipboard.setString(this.props.currentMessage.text)
                 break
             }
-          },
+          }
         )
       }
     }
@@ -105,7 +105,7 @@ export default class Bubble extends React.Component {
     }
     if (currentMessage.sent || currentMessage.received) {
       return (
-        <View style={[styles.headerItem, styles.tickView]}>
+        <SafeAreaView style={[styles.headerItem, styles.tickView]}>
           {currentMessage.sent && (
             <Text
               style={[styles.standardFont, styles.tick, this.props.tickStyle]}
@@ -120,7 +120,7 @@ export default class Bubble extends React.Component {
               ✓
             </Text>
           )}
-        </View>
+        </SafeAreaView>
       )
     }
     return null
@@ -186,30 +186,30 @@ export default class Bubble extends React.Component {
       isSameDay(this.props.currentMessage, this.props.previousMessage)
 
     const messageHeader = isSameThread ? null : (
-      <View style={styles.headerView}>
+      <SafeAreaView style={styles.headerView}>
         {this.renderUsername()}
         {this.renderTime()}
         {this.renderTicks()}
-      </View>
+      </SafeAreaView>
     )
 
     return (
-      <View style={[styles.container, this.props.containerStyle]}>
+      <SafeAreaView style={[styles.container, this.props.containerStyle]}>
         <TouchableOpacity
           onLongPress={this.onLongPress}
           accessibilityTraits='text'
           {...this.props.touchableProps}
         >
-          <View style={[styles.wrapper, this.props.wrapperStyle]}>
-            <View>
+          <SafeAreaView style={[styles.wrapper, this.props.wrapperStyle]}>
+            <SafeAreaView>
               {this.renderCustomView()}
               {messageHeader}
               {this.renderMessageImage()}
               {this.renderMessageText()}
-            </View>
-          </View>
+            </SafeAreaView>
+          </SafeAreaView>
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
     )
   }
 }

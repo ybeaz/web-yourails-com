@@ -1,15 +1,25 @@
-export default {
+const config = {
+  roots: ['<rootDir>/src'],
   verbose: true,
-  testURL: 'http://127.0.0.1/',
+  globalSetup: './globalSetup.ts',
+  testEnvironmentOptions: {
+    url: 'http://localhost/',
+  },
+  setupFilesAfterEnv: [],
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  preset: 'ts-jest',
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.tsx?$': ['ts-jest', {}],
+    '^.+\\.ts?$': ['ts-jest', {}],
   },
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
   },
-  testMatch: ['<rootDir>/**/(*.)test.(js|jsx|ts|tsx)'],
+  testMatch: [
+    '<rootDir>/**/(*.)test.(js|jsx|ts|tsx)',
+    '<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}',
+    '<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}',
+  ],
   globals: {
     'ts-jest': {
       babel: true,
@@ -17,3 +27,5 @@ export default {
     },
   },
 }
+
+module.exports = config

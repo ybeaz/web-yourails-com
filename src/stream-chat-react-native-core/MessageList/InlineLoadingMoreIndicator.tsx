@@ -1,63 +1,64 @@
-import React from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import React from 'react'
+import { ActivityIndicator, StyleSheet, View } from 'react-native'
 
-import { usePaginatedMessageListContext } from '../../contexts/paginatedMessageListContext/PaginatedMessageListContext';
-import { useTheme } from '../../contexts/themeContext/ThemeContext';
+import { usePaginatedMessageListContext } from '../../contexts/paginatedMessageListContext/PaginatedMessageListContext'
+import { useTheme } from '../../contexts/themeContext/ThemeContext'
 
-import type { DefaultStreamChatGenerics } from '../../types/types';
+import type { DefaultStreamChatGenerics } from '../../types/types'
 
 const styles = StyleSheet.create({
   activityIndicatorContainer: {
     padding: 10,
     width: '100%',
   },
-});
+})
 
 export type InlineLoadingMoreIndicatorPropsWithContext = {
-  loadingMore?: boolean;
-};
+  loadingMore?: boolean
+}
 
-export const InlineLoadingMoreIndicatorWithContext: React.FC<InlineLoadingMoreIndicatorPropsWithContext> =
-  ({ loadingMore }) => {
-    const { theme } = useTheme();
+export const InlineLoadingMoreIndicatorWithContext: React.FC<
+  InlineLoadingMoreIndicatorPropsWithContext
+> = ({ loadingMore }) => {
+  const { theme } = useTheme()
 
-    const {
-      colors: { accent_blue },
-    } = theme;
+  const {
+    colors: { accent_blue },
+  } = theme
 
-    if (!loadingMore) {
-      return null;
-    }
+  if (!loadingMore) {
+    return null
+  }
 
-    return (
-      <View style={styles.activityIndicatorContainer}>
-        <ActivityIndicator color={accent_blue} size='small' />
-      </View>
-    );
-  };
+  return (
+    <SafeAreaView style={styles.activityIndicatorContainer}>
+      <ActivityIndicator color={accent_blue} size='small' />
+    </SafeAreaView>
+  )
+}
 
 const areEqual = (
   prevProps: InlineLoadingMoreIndicatorPropsWithContext,
-  nextProps: InlineLoadingMoreIndicatorPropsWithContext,
+  nextProps: InlineLoadingMoreIndicatorPropsWithContext
 ) => {
-  const { loadingMore: prevLoadingMore } = prevProps;
-  const { loadingMore: nextLoadingMore } = nextProps;
+  const { loadingMore: prevLoadingMore } = prevProps
+  const { loadingMore: nextLoadingMore } = nextProps
 
-  const loadingMoreEqual = prevLoadingMore === nextLoadingMore;
-  if (!loadingMoreEqual) return false;
+  const loadingMoreEqual = prevLoadingMore === nextLoadingMore
+  if (!loadingMoreEqual) return false
 
-  return true;
-};
+  return true
+}
 
 const MemoizedInlineLoadingMoreIndicator = React.memo(
   InlineLoadingMoreIndicatorWithContext,
-  areEqual,
-) as typeof InlineLoadingMoreIndicatorWithContext;
+  areEqual
+) as typeof InlineLoadingMoreIndicatorWithContext
 
 export const InlineLoadingMoreIndicator = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >() => {
-  const { loadingMore } = usePaginatedMessageListContext<StreamChatGenerics>();
+  const { loadingMore } = usePaginatedMessageListContext<StreamChatGenerics>()
 
-  return <MemoizedInlineLoadingMoreIndicator loadingMore={loadingMore} />;
-};
+  return <MemoizedInlineLoadingMoreIndicator loadingMore={loadingMore} />
+}

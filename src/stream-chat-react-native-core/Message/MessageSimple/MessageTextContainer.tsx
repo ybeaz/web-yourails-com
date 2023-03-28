@@ -1,55 +1,63 @@
-import React from 'react';
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import React from 'react'
+import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native'
 
-import { renderText, RenderTextParams } from './utils/renderText';
+import { renderText, RenderTextParams } from './utils/renderText'
 
 import {
   MessageContextValue,
   useMessageContext,
-} from '../../../contexts/messageContext/MessageContext';
+} from '../../../contexts/messageContext/MessageContext'
 import {
   MessagesContextValue,
   useMessagesContext,
-} from '../../../contexts/messagesContext/MessagesContext';
-import { useTheme } from '../../../contexts/themeContext/ThemeContext';
+} from '../../../contexts/messagesContext/MessagesContext'
+import { useTheme } from '../../../contexts/themeContext/ThemeContext'
 
-import type { MarkdownStyle, Theme } from '../../../contexts/themeContext/utils/theme';
-import { useTranslatedMessage } from '../../../hooks/useTranslatedMessage';
-import type { DefaultStreamChatGenerics } from '../../../types/types';
-import type { MessageType } from '../../MessageList/hooks/useMessageList';
+import type {
+  MarkdownStyle,
+  Theme,
+} from '../../../contexts/themeContext/utils/theme'
+import { useTranslatedMessage } from '../../../hooks/useTranslatedMessage'
+import type { DefaultStreamChatGenerics } from '../../../types/types'
+import type { MessageType } from '../../MessageList/hooks/useMessageList'
 
 const styles = StyleSheet.create({
   textContainer: { maxWidth: 250, paddingHorizontal: 16 },
-});
+})
 
 export type MessageTextProps<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 > = MessageTextContainerProps<StreamChatGenerics> & {
-  renderText: (params: RenderTextParams<StreamChatGenerics>) => JSX.Element | null;
-  theme: { theme: Theme };
-};
+  renderText: (
+    params: RenderTextParams<StreamChatGenerics>
+  ) => JSX.Element | null
+  theme: { theme: Theme }
+}
 
 export type MessageTextContainerPropsWithContext<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 > = Pick<
   MessageContextValue<StreamChatGenerics>,
   'message' | 'onLongPress' | 'onlyEmojis' | 'onPress' | 'preventPress'
 > &
-  Pick<MessagesContextValue<StreamChatGenerics>, 'markdownRules' | 'MessageText'> & {
-    markdownStyles?: MarkdownStyle;
-    messageOverlay?: boolean;
-    messageTextNumberOfLines?: number;
+  Pick<
+    MessagesContextValue<StreamChatGenerics>,
+    'markdownRules' | 'MessageText'
+  > & {
+    markdownStyles?: MarkdownStyle
+    messageOverlay?: boolean
+    messageTextNumberOfLines?: number
     styles?: Partial<{
-      textContainer: StyleProp<ViewStyle>;
-    }>;
-  };
+      textContainer: StyleProp<ViewStyle>
+    }>
+  }
 
 const MessageTextContainerWithContext = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: MessageTextContainerPropsWithContext<StreamChatGenerics>,
+  props: MessageTextContainerPropsWithContext<StreamChatGenerics>
 ) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   const {
     markdownRules,
@@ -63,7 +71,7 @@ const MessageTextContainerWithContext = <
     onPress,
     preventPress,
     styles: stylesProp = {},
-  } = props;
+  } = props
 
   const {
     theme: {
@@ -75,18 +83,18 @@ const MessageTextContainerWithContext = <
         },
       },
     },
-  } = theme;
+  } = theme
 
   const translatedMessage = useTranslatedMessage<StreamChatGenerics>(
-    message,
-  ) as MessageType<StreamChatGenerics>;
+    message
+  ) as MessageType<StreamChatGenerics>
 
-  if (!message.text) return null;
+  if (!message.text) return null
 
-  const markdownStyles = { ...markdown, ...markdownStylesProp };
+  const markdownStyles = { ...markdown, ...markdownStylesProp }
 
   return (
-    <View
+    <SafeAreaView
       style={[styles.textContainer, textContainer, stylesProp.textContainer]}
       testID='message-text-container'
     >
@@ -109,38 +117,42 @@ const MessageTextContainerWithContext = <
           preventPress,
         })
       )}
-    </View>
-  );
-};
+    </SafeAreaView>
+  )
+}
 
-const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics>(
+const areEqual = <
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+>(
   prevProps: MessageTextContainerPropsWithContext<StreamChatGenerics>,
-  nextProps: MessageTextContainerPropsWithContext<StreamChatGenerics>,
+  nextProps: MessageTextContainerPropsWithContext<StreamChatGenerics>
 ) => {
   const {
     markdownStyles: prevMarkdownStyles,
     message: prevMessage,
     onlyEmojis: prevOnlyEmojis,
-  } = prevProps;
+  } = prevProps
   const {
     markdownStyles: nextMarkdownStyles,
     message: nextMessage,
     onlyEmojis: nextOnlyEmojis,
-  } = nextProps;
+  } = nextProps
 
-  const messageTextEqual = prevMessage.text === nextMessage.text;
-  if (!messageTextEqual) return false;
+  const messageTextEqual = prevMessage.text === nextMessage.text
+  if (!messageTextEqual) return false
 
-  const onlyEmojisEqual = prevOnlyEmojis === nextOnlyEmojis;
-  if (!onlyEmojisEqual) return false;
+  const onlyEmojisEqual = prevOnlyEmojis === nextOnlyEmojis
+  if (!onlyEmojisEqual) return false
 
   const mentionedUsersEqual =
-    prevMessage.mentioned_users?.length === nextMessage.mentioned_users?.length &&
+    prevMessage.mentioned_users?.length ===
+      nextMessage.mentioned_users?.length &&
     (nextMessage.mentioned_users?.length === 0 ||
       (prevMessage.mentioned_users?.length &&
         nextMessage.mentioned_users?.length &&
-        prevMessage.mentioned_users[0].name === nextMessage.mentioned_users[0].name));
-  if (!mentionedUsersEqual) return false;
+        prevMessage.mentioned_users[0].name ===
+          nextMessage.mentioned_users[0].name))
+  if (!mentionedUsersEqual) return false
 
   // stringify could be an expensive operation, so lets rule out the obvious
   // possibilities first such as different object reference or empty objects etc.
@@ -151,30 +163,31 @@ const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = Default
     prevMarkdownStyles === nextMarkdownStyles ||
     (Object.keys(prevMarkdownStyles || {}).length === 0 &&
       Object.keys(nextMarkdownStyles || {}).length === 0) ||
-    JSON.stringify(prevMarkdownStyles) === JSON.stringify(nextMarkdownStyles);
-  if (!markdownStylesEqual) return false;
+    JSON.stringify(prevMarkdownStyles) === JSON.stringify(nextMarkdownStyles)
+  if (!markdownStylesEqual) return false
 
-  return true;
-};
+  return true
+}
 
 const MemoizedMessageTextContainer = React.memo(
   MessageTextContainerWithContext,
-  areEqual,
-) as typeof MessageTextContainerWithContext;
+  areEqual
+) as typeof MessageTextContainerWithContext
 
 export type MessageTextContainerProps<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
-> = Partial<MessageTextContainerPropsWithContext<StreamChatGenerics>>;
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+> = Partial<MessageTextContainerPropsWithContext<StreamChatGenerics>>
 
 export const MessageTextContainer = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: MessageTextContainerProps<StreamChatGenerics>,
+  props: MessageTextContainerProps<StreamChatGenerics>
 ) => {
   const { message, onLongPress, onlyEmojis, onPress, preventPress } =
-    useMessageContext<StreamChatGenerics>();
-  const { markdownRules, MessageText } = useMessagesContext<StreamChatGenerics>();
-  const { messageTextNumberOfLines } = props;
+    useMessageContext<StreamChatGenerics>()
+  const { markdownRules, MessageText } =
+    useMessagesContext<StreamChatGenerics>()
+  const { messageTextNumberOfLines } = props
 
   return (
     <MemoizedMessageTextContainer
@@ -190,7 +203,8 @@ export const MessageTextContainer = <
       }}
       {...props}
     />
-  );
-};
+  )
+}
 
-MessageTextContainer.displayName = 'MessageTextContainer{messageSimple{content}}';
+MessageTextContainer.displayName =
+  'MessageTextContainer{messageSimple{content}}'

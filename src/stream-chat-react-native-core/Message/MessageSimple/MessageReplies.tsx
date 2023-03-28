@@ -1,21 +1,28 @@
-import React from 'react';
-import { ColorValue, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react'
+import {
+  ColorValue,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
 
 import {
   MessageContextValue,
   useMessageContext,
-} from '../../../contexts/messageContext/MessageContext';
+} from '../../../contexts/messageContext/MessageContext'
 import {
   MessagesContextValue,
   useMessagesContext,
-} from '../../../contexts/messagesContext/MessagesContext';
-import { useTheme } from '../../../contexts/themeContext/ThemeContext';
+} from '../../../contexts/messagesContext/MessagesContext'
+import { useTheme } from '../../../contexts/themeContext/ThemeContext'
 import {
   TranslationContextValue,
   useTranslationContext,
-} from '../../../contexts/translationContext/TranslationContext';
+} from '../../../contexts/translationContext/TranslationContext'
 
-import type { DefaultStreamChatGenerics } from '../../../types/types';
+import type { DefaultStreamChatGenerics } from '../../../types/types'
 
 const styles = StyleSheet.create({
   container: {
@@ -57,10 +64,10 @@ const styles = StyleSheet.create({
       },
     }),
   },
-});
+})
 
 export type MessageRepliesPropsWithContext<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 > = Pick<
   MessageContextValue<StreamChatGenerics>,
   | 'alignment'
@@ -74,14 +81,14 @@ export type MessageRepliesPropsWithContext<
 > &
   Pick<MessagesContextValue<StreamChatGenerics>, 'MessageRepliesAvatars'> &
   Pick<TranslationContextValue, 't'> & {
-    noBorder?: boolean;
-    repliesCurveColor?: ColorValue;
-  };
+    noBorder?: boolean
+    repliesCurveColor?: ColorValue
+  }
 
 const MessageRepliesWithContext = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: MessageRepliesPropsWithContext<StreamChatGenerics>,
+  props: MessageRepliesPropsWithContext<StreamChatGenerics>
 ) => {
   const {
     alignment,
@@ -96,7 +103,7 @@ const MessageRepliesWithContext = <
     repliesCurveColor,
     t,
     threadList,
-  } = props;
+  } = props
 
   const {
     theme: {
@@ -105,16 +112,16 @@ const MessageRepliesWithContext = <
         replies: { container, leftCurve, messageRepliesText, rightCurve },
       },
     },
-  } = useTheme();
+  } = useTheme()
 
-  if (threadList || !message.reply_count) return null;
+  if (threadList || !message.reply_count) return null
 
   return (
-    <View style={styles.curveContainer}>
+    <SafeAreaView style={styles.curveContainer}>
       {alignment === 'left' && (
-        <View testID='message-replies-left'>
+        <SafeAreaView testID='message-replies-left'>
           {!noBorder && (
-            <View
+            <SafeAreaView
               style={[
                 { borderColor: repliesCurveColor },
                 styles.messageRepliesCurve,
@@ -124,40 +131,46 @@ const MessageRepliesWithContext = <
             />
           )}
           <MessageRepliesAvatars alignment={alignment} message={message} />
-        </View>
+        </SafeAreaView>
       )}
       <TouchableOpacity
         disabled={preventPress}
-        onLongPress={(event) => {
+        onLongPress={event => {
           if (onLongPress) {
             onLongPress({
               emitter: 'messageReplies',
               event,
-            });
+            })
           }
         }}
-        onPress={(event) => {
+        onPress={event => {
           if (onPress) {
             onPress({
               defaultHandler: onOpenThread,
               emitter: 'messageReplies',
               event,
-            });
+            })
           }
         }}
-        onPressIn={(event) => {
+        onPressIn={event => {
           if (onPressIn) {
             onPressIn({
               defaultHandler: onOpenThread,
               emitter: 'messageReplies',
               event,
-            });
+            })
           }
         }}
         style={[styles.container, container]}
         testID='message-replies'
       >
-        <Text style={[styles.messageRepliesText, { color: accent_blue }, messageRepliesText]}>
+        <Text
+          style={[
+            styles.messageRepliesText,
+            { color: accent_blue },
+            messageRepliesText,
+          ]}
+        >
           {message.reply_count === 1
             ? t('1 Thread Reply')
             : t('{{ replyCount }} Thread Replies', {
@@ -166,10 +179,10 @@ const MessageRepliesWithContext = <
         </Text>
       </TouchableOpacity>
       {alignment === 'right' && (
-        <View testID='message-replies-right'>
+        <SafeAreaView testID='message-replies-right'>
           <MessageRepliesAvatars alignment={alignment} message={message} />
           {!noBorder && (
-            <View
+            <SafeAreaView
               style={[
                 { borderColor: repliesCurveColor },
                 styles.messageRepliesCurve,
@@ -178,15 +191,17 @@ const MessageRepliesWithContext = <
               ]}
             />
           )}
-        </View>
+        </SafeAreaView>
       )}
-    </View>
-  );
-};
+    </SafeAreaView>
+  )
+}
 
-const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics>(
+const areEqual = <
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+>(
   prevProps: MessageRepliesPropsWithContext<StreamChatGenerics>,
-  nextProps: MessageRepliesPropsWithContext<StreamChatGenerics>,
+  nextProps: MessageRepliesPropsWithContext<StreamChatGenerics>
 ) => {
   const {
     message: prevMessage,
@@ -194,46 +209,47 @@ const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = Default
     onOpenThread: prevOnOpenThread,
     t: prevT,
     threadList: prevThreadList,
-  } = prevProps;
+  } = prevProps
   const {
     message: nextMessage,
     noBorder: nextNoBorder,
     onOpenThread: nextOnOpenThread,
     t: nextT,
     threadList: nextThreadList,
-  } = nextProps;
+  } = nextProps
 
-  const threadListEqual = prevThreadList === nextThreadList;
-  if (!threadListEqual) return false;
+  const threadListEqual = prevThreadList === nextThreadList
+  if (!threadListEqual) return false
 
-  const messageReplyCountEqual = prevMessage.reply_count === nextMessage.reply_count;
-  if (!messageReplyCountEqual) return false;
+  const messageReplyCountEqual =
+    prevMessage.reply_count === nextMessage.reply_count
+  if (!messageReplyCountEqual) return false
 
-  const noBorderEqual = prevNoBorder === nextNoBorder;
-  if (!noBorderEqual) return false;
+  const noBorderEqual = prevNoBorder === nextNoBorder
+  if (!noBorderEqual) return false
 
-  const tEqual = prevT === nextT;
-  if (!tEqual) return false;
+  const tEqual = prevT === nextT
+  if (!tEqual) return false
 
-  const onOpenThreadEqual = prevOnOpenThread === nextOnOpenThread;
-  if (!onOpenThreadEqual) return false;
+  const onOpenThreadEqual = prevOnOpenThread === nextOnOpenThread
+  if (!onOpenThreadEqual) return false
 
-  return true;
-};
+  return true
+}
 
 const MemoizedMessageReplies = React.memo(
   MessageRepliesWithContext,
-  areEqual,
-) as typeof MessageRepliesWithContext;
+  areEqual
+) as typeof MessageRepliesWithContext
 
 export type MessageRepliesProps<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
-> = Partial<MessageRepliesPropsWithContext<StreamChatGenerics>>;
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+> = Partial<MessageRepliesPropsWithContext<StreamChatGenerics>>
 
 export const MessageReplies = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: MessageRepliesProps<StreamChatGenerics>,
+  props: MessageRepliesProps<StreamChatGenerics>
 ) => {
   const {
     alignment,
@@ -244,9 +260,9 @@ export const MessageReplies = <
     onPressIn,
     preventPress,
     threadList,
-  } = useMessageContext<StreamChatGenerics>();
-  const { MessageRepliesAvatars } = useMessagesContext<StreamChatGenerics>();
-  const { t } = useTranslationContext();
+  } = useMessageContext<StreamChatGenerics>()
+  const { MessageRepliesAvatars } = useMessagesContext<StreamChatGenerics>()
+  const { t } = useTranslationContext()
 
   return (
     <MemoizedMessageReplies
@@ -264,7 +280,7 @@ export const MessageReplies = <
       }}
       {...props}
     />
-  );
-};
+  )
+}
 
-MessageReplies.displayName = 'MessageReplies{messageSimple{replies}}';
+MessageReplies.displayName = 'MessageReplies{messageSimple{replies}}'

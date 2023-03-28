@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render <InputToolbar /> and compare with snapshot 1`] = `
-<View
+<SafeAreaView
   style={
     Array [
       Object {
@@ -19,7 +19,7 @@ exports[`should render <InputToolbar /> and compare with snapshot 1`] = `
     ]
   }
 >
-  <View
+  <SafeAreaView
     style={
       Array [
         Object {
@@ -64,6 +64,6 @@ exports[`should render <InputToolbar /> and compare with snapshot 1`] = `
       underlineColorAndroid="transparent"
       value=""
     />
-  </View>
-</View>
+  </SafeAreaView>
+</SafeAreaView>
 `;

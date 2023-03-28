@@ -44,7 +44,7 @@ export interface SendProps<TMessage extends IMessage> {
   sendButtonProps?: Partial<TouchableOpacityProps>
   onSend?(
     messages: Partial<TMessage> | Partial<TMessage>[],
-    shouldResetInputToolbar: boolean,
+    shouldResetInputToolbar: boolean
   ): void
 }
 
@@ -67,7 +67,7 @@ export const Send = <TMessage extends IMessage = IMessage>({
 
   const showSend = useMemoOne(
     () => alwaysShowSend || (text && text.trim().length > 0),
-    [alwaysShowSend, text],
+    [alwaysShowSend, text]
   )
 
   if (!showSend) {
@@ -85,9 +85,9 @@ export const Send = <TMessage extends IMessage = IMessage>({
       disabled={disabled}
       {...sendButtonProps}
     >
-      <View>
+      <SafeAreaView>
         {children || <Text style={[styles.text, textStyle]}>{label}</Text>}
-      </View>
+      </SafeAreaView>
     </TouchableOpacity>
   )
 }

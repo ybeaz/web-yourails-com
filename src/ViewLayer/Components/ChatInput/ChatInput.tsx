@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 
 import { ButtonYrl } from '../../../ViewLibrary/ButtonYrl/ButtonYrl'
 import { InputTextYrl } from '../../../ViewLibrary/InputTextYrl/InputTextYrl'
@@ -38,14 +38,14 @@ const ChatInputComponent: ChatInputType = props => {
   }
 
   return (
-    <View style={[style.ChatInput]} testID='ChatInput'>
-      <View style={[style.inputButton]} testID='ChatInput_inputButton'>
+    <SafeAreaView style={[style.ChatInput]} testID='ChatInput'>
+      <SafeAreaView style={[style.inputButton]} testID='ChatInput_inputButton'>
         <InputTextYrl {...propsOut.inputTextYrlProps} />
-        <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
+        <SafeAreaView style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
           <IconYrl {...propsOut.sendIconYrlProps} />
-        </View>
-      </View>
-    </View>
+        </SafeAreaView>
+      </SafeAreaView>
+    </SafeAreaView>
   )
 }
 

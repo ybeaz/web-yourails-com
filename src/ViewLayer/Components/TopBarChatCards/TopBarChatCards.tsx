@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 
 import { TopBarChatCardsType } from './TopBarChatCardsType'
 import { TopBarChatCardsStyle as style } from './TopBarChatCardsStyle'
@@ -67,23 +67,26 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
   }
 
   return (
-    <View
+    <SafeAreaView
       style={[style.TopBarChatCards, styleProps.TopBarChatCards]}
       testID='TopBarChatCards'
     >
-      <View
+      <SafeAreaView
         style={[style.buttonHamburgerWrapper]}
         testID='buttonHamburgerWrapper'
       >
         <ButtonYrl {...propsOut.buttonHamburgerProps} />
-      </View>
-      <View style={[style.inputTextYrlWrapper]} testID='inputTextYrlWrapper'>
+      </SafeAreaView>
+      <SafeAreaView
+        style={[style.inputTextYrlWrapper]}
+        testID='inputTextYrlWrapper'
+      >
         <InputTextYrl {...propsOut.inputTextYrlProps} />
-        <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
+        <SafeAreaView style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
           <IconYrl {...propsOut.searchIconYrlProps} />
-        </View>
-      </View>
-    </View>
+        </SafeAreaView>
+      </SafeAreaView>
+    </SafeAreaView>
   )
 }
 

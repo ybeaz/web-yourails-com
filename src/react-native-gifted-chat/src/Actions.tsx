@@ -48,7 +48,7 @@ export function Actions({
         if (key) {
           options[key]()
         }
-      },
+      }
     )
   }, [])
 
@@ -57,9 +57,9 @@ export function Actions({
       return icon()
     }
     return (
-      <View style={[styles.wrapper, wrapperStyle]}>
+      <SafeAreaView style={[styles.wrapper, wrapperStyle]}>
         <Text style={[styles.iconText, iconTextStyle]}>+</Text>
-      </View>
+      </SafeAreaView>
     )
   }, [])
 

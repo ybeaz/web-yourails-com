@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Send should always render <Send /> and compare with snapshot 1`] = `
-<View
+<SafeAreaView
   accessibilityLabel="send"
   accessibilityRole="button"
   accessible={true}
@@ -22,7 +22,7 @@ exports[`Send should always render <Send /> and compare with snapshot 1`] = `
   }
   testID="GC_SEND_TOUCHABLE"
 >
-  <View>
+  <SafeAreaView>
     <Text
       style={
         Array [
@@ -41,14 +41,14 @@ exports[`Send should always render <Send /> and compare with snapshot 1`] = `
     >
       Send
     </Text>
-  </View>
-</View>
+  </SafeAreaView>
+</SafeAreaView>
 `;
 
 exports[`Send should not render <Send /> and compare with snapshot 1`] = `null`;
 
 exports[`Send should render <Send /> where there is input and compare with snapshot 1`] = `
-<View
+<SafeAreaView
   accessibilityLabel="send"
   accessibilityRole="button"
   accessible={true}
@@ -69,7 +69,7 @@ exports[`Send should render <Send /> where there is input and compare with snaps
   }
   testID="GC_SEND_TOUCHABLE"
 >
-  <View>
+  <SafeAreaView>
     <Text
       style={
         Array [
@@ -88,6 +88,6 @@ exports[`Send should render <Send /> where there is input and compare with snaps
     >
       Send
     </Text>
-  </View>
-</View>
+  </SafeAreaView>
+</SafeAreaView>
 `;

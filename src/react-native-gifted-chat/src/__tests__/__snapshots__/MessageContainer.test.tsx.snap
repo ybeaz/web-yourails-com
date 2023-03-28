@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
       "flex": 1,
@@ -66,8 +66,8 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}
   >
-    <View>
-      <View
+    <SafeAreaView>
+      <SafeAreaView
         onLayout={[Function]}
         style={
           Object {
@@ -79,7 +79,7 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
           }
         }
       >
-        <View
+        <SafeAreaView
           style={
             Object {
               "backgroundColor": "#f0f0f0",
@@ -96,15 +96,15 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
             }
           }
         />
-      </View>
-      <View
+      </SafeAreaView>
+      <SafeAreaView
         style={
           Object {
             "flex": 1,
           }
         }
       />
-      <View
+      <SafeAreaView
         onLayout={[Function]}
         style={
           Object {
@@ -116,15 +116,15 @@ exports[`should render <MessageContainer /> and compare with snapshot 1`] = `
           }
         }
       >
-        <View
+        <SafeAreaView
           style={
             Object {
               "flex": 1,
             }
           }
         />
-      </View>
-    </View>
+      </SafeAreaView>
+    </SafeAreaView>
   </RCTScrollView>
-</View>
+</SafeAreaView>
 `;

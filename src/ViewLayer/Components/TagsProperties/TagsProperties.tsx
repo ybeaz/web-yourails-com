@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 
 import { TagsPropertiesType } from './TagsPropertiesType'
 import { TagsPropertiesStyle as style } from './TagsPropertiesStyle'
@@ -13,12 +13,12 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
   const propsOut = {}
 
   return (
-    <View
+    <SafeAreaView
       style={[style.TagsProperties, styleProps.TagsProperties]}
       testID='TagsProperties'
     >
       <Text>Good, Knowledgable, Reliable</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 

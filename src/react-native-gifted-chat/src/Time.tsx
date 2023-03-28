@@ -66,7 +66,7 @@ export function Time<TMessage extends IMessage = IMessage>({
   }
 
   return (
-    <View
+    <SafeAreaView
       style={[
         styles[position].container,
         containerStyle && containerStyle[position],
@@ -80,7 +80,7 @@ export function Time<TMessage extends IMessage = IMessage>({
       >
         {dayjs(currentMessage.createdAt).locale(getLocale()).format(timeFormat)}
       </Text>
-    </View>
+    </SafeAreaView>
   )
 }
 

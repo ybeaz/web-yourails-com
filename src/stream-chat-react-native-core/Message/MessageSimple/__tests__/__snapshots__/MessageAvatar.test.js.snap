@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MessageAvatar should render message avatar 1`] = `
-<View
+<SafeAreaView
   style={
     Array [
       Object {
@@ -12,8 +12,8 @@ exports[`MessageAvatar should render message avatar 1`] = `
   }
   testID="message-avatar"
 >
-  <View>
-    <View
+  <SafeAreaView>
+    <SafeAreaView
       style={
         Array [
           Object {
@@ -57,7 +57,7 @@ exports[`MessageAvatar should render message avatar 1`] = `
         }
         testID="avatar-image"
       />
-    </View>
-  </View>
-</View>
+    </SafeAreaView>
+  </SafeAreaView>
+</SafeAreaView>
 `;

@@ -153,7 +153,7 @@ export default class GiftedAvatar extends React.Component<GiftedAvatarProps> {
     ) {
       // render placeholder
       return (
-        <View
+        <SafeAreaView
           style={[
             styles.avatarStyle,
             styles.avatarTransparent,

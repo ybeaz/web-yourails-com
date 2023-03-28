@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render <Avatar /> and compare with snapshot 1`] = `
-<View
+<SafeAreaView
   style={
     Array [
       Object {
@@ -13,5 +13,5 @@ exports[`should render <Avatar /> and compare with snapshot 1`] = `
   }
 >
   renderAvatar
-</View>
+</SafeAreaView>
 `;

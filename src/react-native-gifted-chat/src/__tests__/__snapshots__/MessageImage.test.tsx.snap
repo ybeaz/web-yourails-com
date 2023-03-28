@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MessageImage should  render <MessageImage /> and compare with snapshot 1`] = `
-<View
+<SafeAreaView
   style={
     Array [
       Object {},
@@ -9,17 +9,17 @@ exports[`MessageImage should  render <MessageImage /> and compare with snapshot 
     ]
   }
 >
-  <View
+  <SafeAreaView
     onLayout={[Function]}
   >
-    <View
+    <SafeAreaView
       style={
         Object {
           "opacity": 1,
         }
       }
     >
-      <View
+      <SafeAreaView
         accessible={true}
         focusable={true}
         onClick={[Function]}
@@ -49,15 +49,15 @@ exports[`MessageImage should  render <MessageImage /> and compare with snapshot 
             ]
           }
         />
-      </View>
-    </View>
+      </SafeAreaView>
+    </SafeAreaView>
     <Modal
       hardwareAccelerated={false}
       onRequestClose={[Function]}
       transparent={true}
       visible={false}
     >
-      <View
+      <SafeAreaView
         style={
           Object {
             "backgroundColor": "black",
@@ -70,7 +70,7 @@ exports[`MessageImage should  render <MessageImage /> and compare with snapshot 
           }
         }
       />
-      <View
+      <SafeAreaView
         style={
           Object {
             "backgroundColor": "transparent",
@@ -97,8 +97,8 @@ exports[`MessageImage should  render <MessageImage /> and compare with snapshot 
             }
           }
         />
-      </View>
-      <View
+      </SafeAreaView>
+      <SafeAreaView
         style={
           Object {
             "backgroundColor": "transparent",
@@ -110,7 +110,7 @@ exports[`MessageImage should  render <MessageImage /> and compare with snapshot 
           }
         }
       >
-        <View
+        <SafeAreaView
           accessible={true}
           focusable={true}
           onClick={[Function]}
@@ -146,11 +146,11 @@ exports[`MessageImage should  render <MessageImage /> and compare with snapshot 
           >
             ×
           </Text>
-        </View>
-      </View>
+        </SafeAreaView>
+      </SafeAreaView>
     </Modal>
-  </View>
-</View>
+  </SafeAreaView>
+</SafeAreaView>
 `;
 
 exports[`MessageImage should not render <MessageImage /> and compare with snapshot 1`] = `null`;

@@ -6,7 +6,7 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom'
-import { Text, View } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 
 import { routes, RouteType } from './Constants/routes.const'
 import { PageChatsWholeScreen } from './ViewLayer/Screens/PageChatsWholeScreen/PageChatsWholeScreen'
@@ -82,9 +82,9 @@ export const RouterScreensConfig: React.FunctionComponent<any> = () => {
       <Route
         component={() => {
           return (
-            <View>
+            <SafeAreaView>
               <Text>Error404</Text>
-            </View>
+            </SafeAreaView>
           ) // <Error404 />
         }}
       />

@@ -1,8 +1,14 @@
-import React from 'react';
-import { GestureResponderEvent, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react'
+import {
+  GestureResponderEvent,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native'
 
-import { useTheme } from '../../contexts/themeContext/ThemeContext';
-import { Down } from '../../icons';
+import { useTheme } from '../../contexts/themeContext/ThemeContext'
+import { Down } from '../../icons'
 
 const styles = StyleSheet.create({
   container: {
@@ -45,18 +51,20 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'flex-end',
   },
-});
+})
 
 export type ScrollToBottomButtonProps = {
   /** onPress handler */
-  onPress: (event: GestureResponderEvent) => void;
+  onPress: (event: GestureResponderEvent) => void
   /** If we should show the notification or not */
-  showNotification?: boolean;
-  unreadCount?: number;
-};
+  showNotification?: boolean
+  unreadCount?: number
+}
 
-export const ScrollToBottomButton: React.FC<ScrollToBottomButtonProps> = (props) => {
-  const { onPress, showNotification = true, unreadCount } = props;
+export const ScrollToBottomButton: React.FC<
+  ScrollToBottomButtonProps
+> = props => {
+  const { onPress, showNotification = true, unreadCount } = props
 
   const {
     theme: {
@@ -72,9 +80,9 @@ export const ScrollToBottomButton: React.FC<ScrollToBottomButtonProps> = (props)
         },
       },
     },
-  } = useTheme();
+  } = useTheme()
 
-  if (!showNotification) return null;
+  if (!showNotification) return null
 
   return (
     <TouchableOpacity
@@ -82,12 +90,18 @@ export const ScrollToBottomButton: React.FC<ScrollToBottomButtonProps> = (props)
       style={[styles.touchable, touchable]}
       testID='message-notification'
     >
-      <View style={[styles.wrapper, wrapper]}>
-        <View style={[styles.container, { backgroundColor: white, shadowColor: black }, container]}>
+      <SafeAreaView style={[styles.wrapper, wrapper]}>
+        <SafeAreaView
+          style={[
+            styles.container,
+            { backgroundColor: white, shadowColor: black },
+            container,
+          ]}
+        >
           <Down pathFill={chevronColor ? chevronColor : black} />
-        </View>
+        </SafeAreaView>
         {!!unreadCount && (
-          <View
+          <SafeAreaView
             style={[
               styles.unreadCountNotificationContainer,
               { backgroundColor: accent_blue },
@@ -104,11 +118,12 @@ export const ScrollToBottomButton: React.FC<ScrollToBottomButtonProps> = (props)
             >
               {unreadCount}
             </Text>
-          </View>
+          </SafeAreaView>
         )}
-      </View>
+      </SafeAreaView>
     </TouchableOpacity>
-  );
-};
+  )
+}
 
-ScrollToBottomButton.displayName = 'ScrollToBottomButton{messageList{scrollToBottomButton}}';
+ScrollToBottomButton.displayName =
+  'ScrollToBottomButton{messageList{scrollToBottomButton}}'

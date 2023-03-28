@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
-import { useTheme } from '../../contexts/themeContext/ThemeContext';
+import { useTheme } from '../../contexts/themeContext/ThemeContext'
 
 const styles = StyleSheet.create({
   container: {
@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'center',
   },
-});
+})
 
 export type DateHeaderProps = {
-  dateString: string;
-};
+  dateString: string
+}
 
 export const DateHeader: React.FC<DateHeaderProps> = ({ dateString }) => {
   const {
@@ -30,11 +30,13 @@ export const DateHeader: React.FC<DateHeaderProps> = ({ dateString }) => {
       colors: { overlay, white },
       dateHeader: { container, text },
     },
-  } = useTheme();
+  } = useTheme()
 
   return (
-    <View style={[styles.container, { backgroundColor: overlay }, container]}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: overlay }, container]}
+    >
       <Text style={[styles.text, { color: white }, text]}>{dateString}</Text>
-    </View>
-  );
-};
+    </SafeAreaView>
+  )
+}

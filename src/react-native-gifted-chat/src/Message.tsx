@@ -1,6 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { View, StyleSheet, ViewStyle, LayoutChangeEvent } from 'react-native'
+import {
+  SafeAreaView,
+  StyleSheet,
+  ViewStyle,
+  LayoutChangeEvent,
+} from 'react-native'
 
 import { Avatar, AvatarProps } from './Avatar'
 import Bubble from './Bubble'
@@ -185,12 +190,12 @@ export default class Message<
     if (currentMessage) {
       const sameUser = isSameUser(currentMessage, nextMessage!)
       return (
-        <View onLayout={onMessageLayout}>
+        <SafeAreaView onLayout={onMessageLayout}>
           {this.renderDay()}
           {currentMessage.system ? (
             this.renderSystemMessage()
           ) : (
-            <View
+            <SafeAreaView
               style={[
                 styles[position].container,
                 { marginBottom: sameUser ? 2 : 10 },
@@ -201,9 +206,9 @@ export default class Message<
               {this.props.position === 'left' ? this.renderAvatar() : null}
               {this.renderBubble()}
               {this.props.position === 'right' ? this.renderAvatar() : null}
-            </View>
+            </SafeAreaView>
           )}
-        </View>
+        </SafeAreaView>
       )
     }
     return null

@@ -13,7 +13,7 @@ export default class AccessoryBar extends React.Component<any> {
     const { onSend, isTyping } = this.props
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Button onPress={() => pickImageAsync(onSend)} name='photo' />
         <Button onPress={() => takePictureAsync(onSend)} name='camera' />
         <Button onPress={() => getLocationAsync(onSend)} name='my-location' />
@@ -23,7 +23,7 @@ export default class AccessoryBar extends React.Component<any> {
           }}
           name='chat'
         />
-      </View>
+      </SafeAreaView>
     )
   }
 }

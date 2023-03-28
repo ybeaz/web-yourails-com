@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { SafeAreaView, Text, StyleSheet } from 'react-native'
 import dayjs from 'dayjs'
 
 import { MessageType } from './MessageType'
@@ -42,9 +42,9 @@ const MessageComponent: MessageType = props => {
   const dateString = dayjs(createdAt).locale(LOCALE).format(TIME_FORMAT)
 
   return (
-    <View style={[styles[position].Message]} testID='Message'>
+    <SafeAreaView style={[styles[position].Message]} testID='Message'>
       <TriangleCorner {...propsOut.TriangleCorner} />
-      <View
+      <SafeAreaView
         style={[
           styles[position].content,
           themes['themeA'].colors01,
@@ -58,8 +58,8 @@ const MessageComponent: MessageType = props => {
         <Text style={[styles[position].text]} testID='text'>
           {dateString}
         </Text>
-      </View>
-    </View>
+      </SafeAreaView>
+    </SafeAreaView>
   )
 }
 

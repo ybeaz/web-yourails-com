@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 
 import { PortfolioType } from './PortfolioType'
 import { PortfolioStyle as style } from './PortfolioStyle'
@@ -13,9 +13,12 @@ const PortfolioComponent: PortfolioType = props => {
   const propsOut = {}
 
   return (
-    <View style={[style.Portfolio, styleProps.Portfolio]} testID='Portfolio'>
+    <SafeAreaView
+      style={[style.Portfolio, styleProps.Portfolio]}
+      testID='Portfolio'
+    >
       <Text>I have very diverse and rich portfolio!</Text>
-    </View>
+    </SafeAreaView>
   )
 }
 

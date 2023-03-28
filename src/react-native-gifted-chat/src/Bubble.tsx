@@ -162,7 +162,7 @@ export interface BubbleProps<TMessage extends IMessage> {
   renderUsername?(user?: TMessage['user']): React.ReactNode
   renderQuickReplySend?(): React.ReactNode
   renderQuickReplies?(
-    quickReplies: QuickRepliesProps<TMessage>,
+    quickReplies: QuickRepliesProps<TMessage>
   ): React.ReactNode
 }
 
@@ -278,18 +278,14 @@ export default class Bubble<
             default:
               break
           }
-        },
+        }
       )
     }
   }
 
   styledBubbleToNext() {
-    const {
-      currentMessage,
-      nextMessage,
-      position,
-      containerToNextStyle,
-    } = this.props
+    const { currentMessage, nextMessage, position, containerToNextStyle } =
+      this.props
     if (
       currentMessage &&
       nextMessage &&
@@ -422,7 +418,7 @@ export default class Bubble<
       (currentMessage.sent || currentMessage.received || currentMessage.pending)
     ) {
       return (
-        <View style={styles.content.tickView}>
+        <SafeAreaView style={styles.content.tickView}>
           {!!currentMessage.sent && (
             <Text style={[styles.content.tick, this.props.tickStyle]}>✓</Text>
           )}
@@ -432,7 +428,7 @@ export default class Bubble<
           {!!currentMessage.pending && (
             <Text style={[styles.content.tick, this.props.tickStyle]}>🕓</Text>
           )}
-        </View>
+        </SafeAreaView>
       )
     }
     return null
@@ -440,12 +436,8 @@ export default class Bubble<
 
   renderTime() {
     if (this.props.currentMessage && this.props.currentMessage.createdAt) {
-      const {
-        containerStyle,
-        wrapperStyle,
-        textStyle,
-        ...timeProps
-      } = this.props
+      const { containerStyle, wrapperStyle, textStyle, ...timeProps } =
+        this.props
       if (this.props.renderTime) {
         return this.props.renderTime(timeProps)
       }
@@ -464,7 +456,7 @@ export default class Bubble<
         return renderUsername(currentMessage.user)
       }
       return (
-        <View style={styles.content.usernameView}>
+        <SafeAreaView style={styles.content.usernameView}>
           <Text
             style={
               [styles.content.username, this.props.usernameStyle] as TextStyle
@@ -472,7 +464,7 @@ export default class Bubble<
           >
             ~ {currentMessage.user.name}
           </Text>
-        </View>
+        </SafeAreaView>
       )
     }
     return null
@@ -487,39 +479,35 @@ export default class Bubble<
 
   renderBubbleContent() {
     return this.props.isCustomViewBottom ? (
-      <View>
+      <SafeAreaView>
         {this.renderMessageImage()}
         {this.renderMessageVideo()}
         {this.renderMessageAudio()}
         {this.renderMessageText()}
         {this.renderCustomView()}
-      </View>
+      </SafeAreaView>
     ) : (
-      <View>
+      <SafeAreaView>
         {this.renderCustomView()}
         {this.renderMessageImage()}
         {this.renderMessageVideo()}
         {this.renderMessageAudio()}
         {this.renderMessageText()}
-      </View>
+      </SafeAreaView>
     )
   }
 
   render() {
-    const {
-      position,
-      containerStyle,
-      wrapperStyle,
-      bottomContainerStyle,
-    } = this.props
+    const { position, containerStyle, wrapperStyle, bottomContainerStyle } =
+      this.props
     return (
-      <View
+      <SafeAreaView
         style={[
           styles[position].container,
           containerStyle && containerStyle[position],
         ]}
       >
-        <View
+        <SafeAreaView
           style={[
             styles[position].wrapper,
             this.styledBubbleToNext(),
@@ -533,9 +521,9 @@ export default class Bubble<
             accessibilityRole='text'
             {...this.props.touchableProps}
           >
-            <View>
+            <SafeAreaView>
               {this.renderBubbleContent()}
-              <View
+              <SafeAreaView
                 style={[
                   styles[position].bottom,
                   bottomContainerStyle && bottomContainerStyle[position],
@@ -544,12 +532,12 @@ export default class Bubble<
                 {this.renderUsername()}
                 {this.renderTime()}
                 {this.renderTicks()}
-              </View>
-            </View>
+              </SafeAreaView>
+            </SafeAreaView>
           </TouchableWithoutFeedback>
-        </View>
+        </SafeAreaView>
         {this.renderQuickReplies()}
-      </View>
+      </SafeAreaView>
     )
   }
 }

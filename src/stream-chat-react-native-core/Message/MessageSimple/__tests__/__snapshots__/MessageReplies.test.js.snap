@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MessageReplies should render message replies 1`] = `
-<View
+<SafeAreaView
   style={
     Object {
       "flexDirection": "row",
     }
   }
 >
-  <View
+  <SafeAreaView
     testID="message-replies-left"
   >
-    <View
+    <SafeAreaView
       style={
         Array [
           Object {
@@ -32,7 +32,7 @@ exports[`MessageReplies should render message replies 1`] = `
         ]
       }
     />
-    <View
+    <SafeAreaView
       style={
         Array [
           Object {
@@ -44,8 +44,8 @@ exports[`MessageReplies should render message replies 1`] = `
         ]
       }
     />
-  </View>
-  <View
+  </SafeAreaView>
+  <SafeAreaView
     accessible={true}
     collapsable={false}
     focusable={true}
@@ -84,6 +84,6 @@ exports[`MessageReplies should render message replies 1`] = `
     >
       1 Thread Reply
     </Text>
-  </View>
-</View>
+  </SafeAreaView>
+</SafeAreaView>
 `;

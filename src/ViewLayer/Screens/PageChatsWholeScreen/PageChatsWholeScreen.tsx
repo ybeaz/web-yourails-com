@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { Text, View } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 import { useSelector } from 'react-redux'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
@@ -75,7 +75,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   }
 
   return (
-    <View
+    <SafeAreaView
       style={[
         style.PageChatsWholeScreen,
         themes['themeA'].colors01,
@@ -83,7 +83,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       ]}
       testID='PageChatsWholeScreen'
     >
-      <View
+      <SafeAreaView
         style={[
           style.sidebarRight,
           themes['themeA'].colors01,
@@ -94,9 +94,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       >
         <TopBarChatCards />
         <ChatCard {...propsOut.chatCardProps} />
-      </View>
-      <View style={[style.mainColumn]} testID='mainColumn'>
-        <View
+      </SafeAreaView>
+      <SafeAreaView style={[style.mainColumn]} testID='mainColumn'>
+        <SafeAreaView
           style={[
             style.topBarMainColumn,
             { borderColor: themes['themeA'].colors01.borderColor },
@@ -104,9 +104,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           testID='topBarMainColumn'
         >
           <TopBarMainColumn />
-        </View>
+        </SafeAreaView>
 
-        <View
+        <SafeAreaView
           style={[
             style.contentMenuMainColumn,
             themes['themeA'].colors01,
@@ -115,9 +115,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           testID='contentMenuMainColumn'
         >
           <ContentMenuMainColumn {...propsOut.contentMenuMainColumn} />
-        </View>
+        </SafeAreaView>
 
-        <View
+        <SafeAreaView
           style={[
             style.chatSpace,
             // themes['themeA'].colors03
@@ -125,9 +125,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           testID='chatSpace'
         >
           <ChatSpace {...propsOut.chatSpaceProps} />
-        </View>
-      </View>
-    </View>
+        </SafeAreaView>
+      </SafeAreaView>
+    </SafeAreaView>
   )
 }
 

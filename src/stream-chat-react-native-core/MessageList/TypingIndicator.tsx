@@ -1,12 +1,12 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StyleSheet, Text, View } from 'react-native'
 
-import { useTypingString } from './hooks/useTypingString';
+import { useTypingString } from './hooks/useTypingString'
 
-import { useTheme } from '../../contexts/themeContext/ThemeContext';
+import { useTheme } from '../../contexts/themeContext/ThemeContext'
 
-import type { DefaultStreamChatGenerics } from '../../types/types';
-import { LoadingDots } from '../Indicators/LoadingDots';
+import type { DefaultStreamChatGenerics } from '../../types/types'
+import { LoadingDots } from '../Indicators/LoadingDots'
 
 const styles = StyleSheet.create({
   container: {
@@ -21,28 +21,34 @@ const styles = StyleSheet.create({
   typingText: {
     marginLeft: 8,
   },
-});
+})
 
 export const TypingIndicator = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >() => {
   const {
     theme: {
       colors: { grey, white_snow },
       typingIndicator: { container, text },
     },
-  } = useTheme();
-  const typingString = useTypingString<StreamChatGenerics>();
+  } = useTheme()
+  const typingString = useTypingString<StreamChatGenerics>()
 
   return (
-    <View
-      style={[styles.container, { backgroundColor: `${white_snow}E6` }, container]}
+    <SafeAreaView
+      style={[
+        styles.container,
+        { backgroundColor: `${white_snow}E6` },
+        container,
+      ]}
       testID='typing-indicator'
     >
       <LoadingDots style={styles.loadingDots} />
-      <Text style={[styles.typingText, { color: grey }, text]}>{typingString}</Text>
-    </View>
-  );
-};
+      <Text style={[styles.typingText, { color: grey }, text]}>
+        {typingString}
+      </Text>
+    </SafeAreaView>
+  )
+}
 
-TypingIndicator.displayName = 'TypingIndicator{typingIndicator}';
+TypingIndicator.displayName = 'TypingIndicator{typingIndicator}'

@@ -41,7 +41,7 @@ export default class CustomActions extends React.Component {
             getLocationAsync(onSend)
             return
         }
-      },
+      }
     )
   }
 
@@ -50,9 +50,9 @@ export default class CustomActions extends React.Component {
       return this.props.renderIcon()
     }
     return (
-      <View style={[styles.wrapper, this.props.wrapperStyle]}>
+      <SafeAreaView style={[styles.wrapper, this.props.wrapperStyle]}>
         <Text style={[styles.iconText, this.props.iconTextStyle]}>+</Text>
-      </View>
+      </SafeAreaView>
     )
   }
 

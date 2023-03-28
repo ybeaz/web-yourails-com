@@ -6,5 +6,6 @@ export const TagsPropertiesStyle = StyleSheet.create({
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
+    padding: '3rem',
   },
 })

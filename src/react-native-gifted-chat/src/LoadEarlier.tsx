@@ -73,9 +73,9 @@ export function LoadEarlier({
       disabled={isLoadingEarlier}
       accessibilityRole='button'
     >
-      <View style={[styles.wrapper, wrapperStyle]}>
+      <SafeAreaView style={[styles.wrapper, wrapperStyle]}>
         {isLoadingEarlier ? (
-          <View>
+          <SafeAreaView>
             <Text style={[styles.text, textStyle, { opacity: 0 }]}>
               {label}
             </Text>
@@ -84,11 +84,11 @@ export function LoadEarlier({
               size={activityIndicatorSize!}
               style={[styles.activityIndicator, activityIndicatorStyle]}
             />
-          </View>
+          </SafeAreaView>
         ) : (
           <Text style={[styles.text, textStyle]}>{label}</Text>
         )}
-      </View>
+      </SafeAreaView>
     </TouchableOpacity>
   )
 }

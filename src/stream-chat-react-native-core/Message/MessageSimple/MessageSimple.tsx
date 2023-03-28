@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, { useState } from 'react'
+import { StyleSheet, View } from 'react-native'
 
 import {
   MessageContextValue,
   useMessageContext,
-} from '../../../contexts/messageContext/MessageContext';
+} from '../../../contexts/messageContext/MessageContext'
 import {
   MessagesContextValue,
   useMessagesContext,
-} from '../../../contexts/messagesContext/MessagesContext';
-import { useTheme } from '../../../contexts/themeContext/ThemeContext';
+} from '../../../contexts/messagesContext/MessagesContext'
+import { useTheme } from '../../../contexts/themeContext/ThemeContext'
 
-import type { DefaultStreamChatGenerics } from '../../../types/types';
+import type { DefaultStreamChatGenerics } from '../../../types/types'
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'flex-end',
     flexDirection: 'row',
   },
-});
+})
 
 export type MessageSimplePropsWithContext<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 > = Pick<
   MessageContextValue<StreamChatGenerics>,
   'alignment' | 'channel' | 'groupStyles' | 'hasReactions' | 'message'
@@ -33,12 +33,12 @@ export type MessageSimplePropsWithContext<
     | 'MessageContent'
     | 'MessagePinnedHeader'
     | 'ReactionList'
-  >;
+  >
 
 const MessageSimpleWithContext = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: MessageSimplePropsWithContext<StreamChatGenerics>,
+  props: MessageSimplePropsWithContext<StreamChatGenerics>
 ) => {
   const {
     alignment,
@@ -51,27 +51,29 @@ const MessageSimpleWithContext = <
     MessageContent,
     MessagePinnedHeader,
     ReactionList,
-  } = props;
+  } = props
 
   const {
     theme: {
       messageSimple: { container },
     },
-  } = useTheme();
+  } = useTheme()
 
-  const [messageContentWidth, setMessageContentWidth] = useState(0);
+  const [messageContentWidth, setMessageContentWidth] = useState(0)
 
   const isVeryLastMessage =
-    channel?.state.messages[channel?.state.messages.length - 1]?.id === message.id;
+    channel?.state.messages[channel?.state.messages.length - 1]?.id ===
+    message.id
 
-  const hasMarginBottom = groupStyles.includes('single') || groupStyles.includes('bottom');
+  const hasMarginBottom =
+    groupStyles.includes('single') || groupStyles.includes('bottom')
 
-  const showReactions = hasReactions && ReactionList;
+  const showReactions = hasReactions && ReactionList
 
   return (
     <>
       {message.pinned && <MessagePinnedHeader />}
-      <View
+      <SafeAreaView
         style={[
           styles.container,
           {
@@ -89,116 +91,129 @@ const MessageSimpleWithContext = <
       >
         {alignment === 'left' && <MessageAvatar />}
         <MessageContent setMessageContentWidth={setMessageContentWidth} />
-        {showReactions && <ReactionList messageContentWidth={messageContentWidth} />}
-      </View>
+        {showReactions && (
+          <ReactionList messageContentWidth={messageContentWidth} />
+        )}
+      </SafeAreaView>
     </>
-  );
-};
+  )
+}
 
-const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics>(
+const areEqual = <
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+>(
   prevProps: MessageSimplePropsWithContext<StreamChatGenerics>,
-  nextProps: MessageSimplePropsWithContext<StreamChatGenerics>,
+  nextProps: MessageSimplePropsWithContext<StreamChatGenerics>
 ) => {
   const {
     channel: prevChannel,
     groupStyles: prevGroupStyles,
     hasReactions: prevHasReactions,
     message: prevMessage,
-  } = prevProps;
+  } = prevProps
   const {
     channel: nextChannel,
     groupStyles: nextGroupStyles,
     hasReactions: nextHasReactions,
     message: nextMessage,
-  } = nextProps;
+  } = nextProps
 
-  const hasReactionsEqual = prevHasReactions === nextHasReactions;
-  if (!hasReactionsEqual) return false;
+  const hasReactionsEqual = prevHasReactions === nextHasReactions
+  if (!hasReactionsEqual) return false
 
-  const repliesEqual = prevMessage.reply_count === nextMessage.reply_count;
-  if (!repliesEqual) return false;
+  const repliesEqual = prevMessage.reply_count === nextMessage.reply_count
+  if (!repliesEqual) return false
 
-  const groupStylesEqual = JSON.stringify(prevGroupStyles) === JSON.stringify(nextGroupStyles);
-  if (!groupStylesEqual) return false;
+  const groupStylesEqual =
+    JSON.stringify(prevGroupStyles) === JSON.stringify(nextGroupStyles)
+  if (!groupStylesEqual) return false
 
-  const isPrevMessageTypeDeleted = prevMessage.type === 'deleted';
-  const isNextMessageTypeDeleted = nextMessage.type === 'deleted';
+  const isPrevMessageTypeDeleted = prevMessage.type === 'deleted'
+  const isNextMessageTypeDeleted = nextMessage.type === 'deleted'
 
   const messageEqual =
     isPrevMessageTypeDeleted === isNextMessageTypeDeleted &&
     prevMessage.status === nextMessage.status &&
     prevMessage.type === nextMessage.type &&
     prevMessage.text === nextMessage.text &&
-    prevMessage.pinned === nextMessage.pinned;
-  if (!messageEqual) return false;
+    prevMessage.pinned === nextMessage.pinned
+  if (!messageEqual) return false
 
-  const isPrevQuotedMessageTypeDeleted = prevMessage.quoted_message?.type === 'deleted';
-  const isNextQuotedMessageTypeDeleted = nextMessage.quoted_message?.type === 'deleted';
+  const isPrevQuotedMessageTypeDeleted =
+    prevMessage.quoted_message?.type === 'deleted'
+  const isNextQuotedMessageTypeDeleted =
+    nextMessage.quoted_message?.type === 'deleted'
 
   const quotedMessageEqual =
     prevMessage.quoted_message?.id === nextMessage.quoted_message?.id &&
-    isPrevQuotedMessageTypeDeleted === isNextQuotedMessageTypeDeleted;
+    isPrevQuotedMessageTypeDeleted === isNextQuotedMessageTypeDeleted
 
-  if (!quotedMessageEqual) return false;
+  if (!quotedMessageEqual) return false
 
-  const channelEqual = prevChannel?.state.messages.length === nextChannel?.state.messages.length;
-  if (!channelEqual) return false;
+  const channelEqual =
+    prevChannel?.state.messages.length === nextChannel?.state.messages.length
+  if (!channelEqual) return false
 
-  const prevMessageAttachments = prevMessage.attachments;
-  const nextMessageAttachments = nextMessage.attachments;
+  const prevMessageAttachments = prevMessage.attachments
+  const nextMessageAttachments = nextMessage.attachments
   const attachmentsEqual =
-    Array.isArray(prevMessageAttachments) && Array.isArray(nextMessageAttachments)
+    Array.isArray(prevMessageAttachments) &&
+    Array.isArray(nextMessageAttachments)
       ? prevMessageAttachments.length === nextMessageAttachments.length &&
         prevMessageAttachments.every((attachment, index) => {
           const attachmentKeysEqual =
             attachment.image_url === nextMessageAttachments[index].image_url &&
-            attachment.og_scrape_url === nextMessageAttachments[index].og_scrape_url &&
-            attachment.thumb_url === nextMessageAttachments[index].thumb_url;
+            attachment.og_scrape_url ===
+              nextMessageAttachments[index].og_scrape_url &&
+            attachment.thumb_url === nextMessageAttachments[index].thumb_url
 
-          return attachmentKeysEqual;
+          return attachmentKeysEqual
         })
-      : prevMessageAttachments === nextMessageAttachments;
-  if (!attachmentsEqual) return false;
+      : prevMessageAttachments === nextMessageAttachments
+  if (!attachmentsEqual) return false
 
   const latestReactionsEqual =
-    Array.isArray(prevMessage.latest_reactions) && Array.isArray(nextMessage.latest_reactions)
-      ? prevMessage.latest_reactions.length === nextMessage.latest_reactions.length &&
+    Array.isArray(prevMessage.latest_reactions) &&
+    Array.isArray(nextMessage.latest_reactions)
+      ? prevMessage.latest_reactions.length ===
+          nextMessage.latest_reactions.length &&
         prevMessage.latest_reactions.every(
-          ({ type }, index) => type === nextMessage.latest_reactions?.[index].type,
+          ({ type }, index) =>
+            type === nextMessage.latest_reactions?.[index].type
         )
-      : prevMessage.latest_reactions === nextMessage.latest_reactions;
-  if (!latestReactionsEqual) return false;
+      : prevMessage.latest_reactions === nextMessage.latest_reactions
+  if (!latestReactionsEqual) return false
 
-  return true;
-};
+  return true
+}
 
 const MemoizedMessageSimple = React.memo(
   MessageSimpleWithContext,
-  areEqual,
-) as typeof MessageSimpleWithContext;
+  areEqual
+) as typeof MessageSimpleWithContext
 
 export type MessageSimpleProps<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
-> = Partial<MessageSimplePropsWithContext<StreamChatGenerics>>;
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+> = Partial<MessageSimplePropsWithContext<StreamChatGenerics>>
 
 /**
  *
  * Message UI component
  */
 export const MessageSimple = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: MessageSimpleProps<StreamChatGenerics>,
+  props: MessageSimpleProps<StreamChatGenerics>
 ) => {
   const { alignment, channel, groupStyles, hasReactions, message } =
-    useMessageContext<StreamChatGenerics>();
+    useMessageContext<StreamChatGenerics>()
   const {
     enableMessageGroupingByUser,
     MessageAvatar,
     MessageContent,
     MessagePinnedHeader,
     ReactionList,
-  } = useMessagesContext<StreamChatGenerics>();
+  } = useMessagesContext<StreamChatGenerics>()
 
   return (
     <MemoizedMessageSimple<StreamChatGenerics>
@@ -216,7 +231,7 @@ export const MessageSimple = <
       }}
       {...props}
     />
-  );
-};
+  )
+}
 
-MessageSimple.displayName = 'MessageSimple{messageSimple{container}}';
+MessageSimple.displayName = 'MessageSimple{messageSimple{container}}'

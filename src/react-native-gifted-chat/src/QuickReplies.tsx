@@ -115,7 +115,7 @@ export function QuickReplies({
         }
       }
     },
-    [replies, currentMessage],
+    [replies, currentMessage]
   )
 
   const handleSend = (repliesData: Reply[]) => () => {
@@ -123,7 +123,7 @@ export function QuickReplies({
       repliesData.map((reply: Reply) => ({
         ...reply,
         messageId: currentMessage!._id,
-      })),
+      }))
     )
   }
 
@@ -132,7 +132,7 @@ export function QuickReplies({
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {currentMessage!.quickReplies!.values.map(
         (reply: Reply, index: number) => {
           const selected = type === 'checkbox' && replies.find(sameReply(reply))
@@ -161,7 +161,7 @@ export function QuickReplies({
               </Text>
             </TouchableOpacity>
           )
-        },
+        }
       )}
       {replies.length > 0 && (
         <TouchableOpacity
@@ -173,7 +173,7 @@ export function QuickReplies({
           )}
         </TouchableOpacity>
       )}
-    </View>
+    </SafeAreaView>
   )
 }
 

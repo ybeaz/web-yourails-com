@@ -1,7 +1,7 @@
-import React from 'react';
-import { View } from 'react-native';
+import React from 'react'
+import { SafeAreaView } from 'react-native'
 
-import { render } from '@testing-library/react-native';
+import { render } from '@testing-library/react-native'
 
 import {
   useAttachmentPickerContext,
@@ -18,16 +18,18 @@ import {
   useTheme,
   useThreadContext,
   useTypingContext,
-} from '../';
-import { useChannelsStateContext } from '../channelsStateContext/ChannelsStateContext';
+} from '../'
+import { useChannelsStateContext } from '../channelsStateContext/ChannelsStateContext'
 
-jest.mock('../utils/isTestEnvironment', () => ({ isTestEnvironment: jest.fn(() => false) }));
-console.error = jest.fn();
+jest.mock('../utils/isTestEnvironment', () => ({
+  isTestEnvironment: jest.fn(() => false),
+}))
+console.error = jest.fn()
 describe('contexts hooks in a component throws an error with message when not wrapped in a provider', () => {
   const TestComponent = ({ useContextHook }: { useContextHook(): void }) => {
-    useContextHook();
-    return <View />;
-  };
+    useContextHook()
+    return <SafeAreaView />
+  }
 
   it.each([
     [
@@ -91,8 +93,8 @@ describe('contexts hooks in a component throws an error with message when not wr
       `The useAttachmentPickerContext hook was called outside the AttachmentPickerContext provider. Make sure you have configured OverlayProvider component correctly - https://getstream.io/chat/docs/sdk/reactnative/basics/hello_stream_chat/#overlay-provider`,
     ],
   ])('calls %p results in error %p', (useContextHook, expectedErrorMessage) => {
-    expect(() => render(<TestComponent useContextHook={useContextHook} />)).toThrowError(
-      expectedErrorMessage,
-    );
-  });
-});
+    expect(() =>
+      render(<TestComponent useContextHook={useContextHook} />)
+    ).toThrowError(expectedErrorMessage)
+  })
+})

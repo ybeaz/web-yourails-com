@@ -542,7 +542,7 @@ const MessageInputWithContext = <
 
   return (
     <>
-      <View
+      <SafeAreaView
         onLayout={({
           nativeEvent: {
             layout: { height: newHeight },
@@ -556,7 +556,7 @@ const MessageInputWithContext = <
       >
         {editing && <InputEditingStateHeader />}
         {quotedMessage && <InputReplyStateHeader />}
-        <View style={[styles.composerContainer, composerContainer]}>
+        <SafeAreaView style={[styles.composerContainer, composerContainer]}>
           {Input ? (
             <Input
               additionalTextInputProps={additionalTextInputContainerProps}
@@ -564,10 +564,10 @@ const MessageInputWithContext = <
             />
           ) : (
             <>
-              <View style={[styles.optionsContainer, optionsContainer]}>
+              <SafeAreaView style={[styles.optionsContainer, optionsContainer]}>
                 {InputButtons && <InputButtons />}
-              </View>
-              <View
+              </SafeAreaView>
+              <SafeAreaView
                 style={[
                   styles.inputBoxContainer,
                   {
@@ -579,13 +579,13 @@ const MessageInputWithContext = <
               >
                 {((typeof editing !== 'boolean' && editing?.quoted_message) ||
                   quotedMessage) && (
-                  <View style={[styles.replyContainer, replyContainer]}>
+                  <SafeAreaView style={[styles.replyContainer, replyContainer]}>
                     <Reply />
-                  </View>
+                  </SafeAreaView>
                 )}
                 {imageUploads.length ? <ImageUploadPreview /> : null}
                 {imageUploads.length && fileUploads.length ? (
-                  <View
+                  <SafeAreaView
                     style={[
                       styles.attachmentSeparator,
                       {
@@ -599,7 +599,7 @@ const MessageInputWithContext = <
                 {giphyActive ? (
                   <InputGiphySearch disabled={!isOnline} />
                 ) : (
-                  <View
+                  <SafeAreaView
                     style={[
                       styles.autoCompleteInputContainer,
                       autoCompleteInputContainer,
@@ -609,10 +609,12 @@ const MessageInputWithContext = <
                       additionalTextInputProps={additionalTextInputProps}
                       cooldownActive={!!cooldownRemainingSeconds}
                     /> */}
-                  </View>
+                  </SafeAreaView>
                 )}
-              </View>
-              <View style={[styles.sendButtonContainer, sendButtonContainer]}>
+              </SafeAreaView>
+              <SafeAreaView
+                style={[styles.sendButtonContainer, sendButtonContainer]}
+              >
                 {cooldownRemainingSeconds ? (
                   <CooldownTimer seconds={cooldownRemainingSeconds} />
                 ) : (
@@ -625,15 +627,15 @@ const MessageInputWithContext = <
                     }
                   />
                 )}
-              </View>
+              </SafeAreaView>
             </>
           )}
-        </View>
+        </SafeAreaView>
         <ShowThreadMessageInChannelButton threadList={threadList} />
-      </View>
+      </SafeAreaView>
 
       {triggerType && suggestions ? (
-        <View
+        <SafeAreaView
           style={[
             suggestionListContainer,
             styles.suggestionsListContainer,
@@ -647,10 +649,10 @@ const MessageInputWithContext = <
             queryText={suggestions.queryText}
             triggerType={triggerType}
           />
-        </View>
+        </SafeAreaView>
       ) : null}
       {selectedPicker && (
-        <View
+        <SafeAreaView
           style={[
             {
               backgroundColor: white_smoke,
@@ -664,7 +666,7 @@ const MessageInputWithContext = <
           ]}
         >
           {/* <AttachmentSelectionBar /> */}
-        </View>
+        </SafeAreaView>
       )}
     </>
   )

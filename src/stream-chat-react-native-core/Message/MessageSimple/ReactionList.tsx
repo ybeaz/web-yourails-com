@@ -1,24 +1,29 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity, useWindowDimensions, View } from 'react-native';
+import React from 'react'
+import {
+  StyleSheet,
+  TouchableOpacity,
+  useWindowDimensions,
+  View,
+} from 'react-native'
 
-import Svg, { Circle } from 'react-native-svg';
+import Svg, { Circle } from 'react-native-svg'
 
 import {
   MessageContextValue,
   Reactions,
   useMessageContext,
-} from '../../../contexts/messageContext/MessageContext';
+} from '../../../contexts/messageContext/MessageContext'
 import {
   MessagesContextValue,
   useMessagesContext,
-} from '../../../contexts/messagesContext/MessagesContext';
-import { useTheme } from '../../../contexts/themeContext/ThemeContext';
+} from '../../../contexts/messagesContext/MessagesContext'
+import { useTheme } from '../../../contexts/themeContext/ThemeContext'
 
-import { Unknown } from '../../../icons/Unknown';
+import { Unknown } from '../../../icons/Unknown'
 
-import type { IconProps } from '../../../icons/utils/base';
-import type { DefaultStreamChatGenerics } from '../../../types/types';
-import type { ReactionData } from '../../../utils/utils';
+import type { IconProps } from '../../../icons/utils/base'
+import type { DefaultStreamChatGenerics } from '../../../types/types'
+import type { ReactionData } from '../../../utils/utils'
 
 const styles = StyleSheet.create({
   container: {
@@ -35,32 +40,37 @@ const styles = StyleSheet.create({
   reactionBubbleBackground: {
     position: 'absolute',
   },
-});
+})
 
 export type MessageReactions = {
-  reactions: Reactions;
-  supportedReactions?: ReactionData[];
-};
+  reactions: Reactions
+  supportedReactions?: ReactionData[]
+}
 
 const Icon: React.FC<
   Pick<IconProps, 'pathFill' | 'style'> & {
-    size: number;
-    supportedReactions: ReactionData[];
-    type: string;
+    size: number
+    supportedReactions: ReactionData[]
+    type: string
   }
 > = ({ pathFill, size, style, supportedReactions, type }) => {
   const ReactionIcon =
-    supportedReactions.find((reaction) => reaction.type === type)?.Icon || Unknown;
+    supportedReactions.find(reaction => reaction.type === type)?.Icon || Unknown
 
   return (
-    <View>
-      <ReactionIcon height={size} pathFill={pathFill} style={style} width={size} />
-    </View>
-  );
-};
+    <SafeAreaView>
+      <ReactionIcon
+        height={size}
+        pathFill={pathFill}
+        style={style}
+        width={size}
+      />
+    </SafeAreaView>
+  )
+}
 
 export type ReactionListPropsWithContext<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 > = Pick<
   MessageContextValue<StreamChatGenerics>,
   | 'alignment'
@@ -73,19 +83,19 @@ export type ReactionListPropsWithContext<
   | 'showMessageOverlay'
 > &
   Pick<MessagesContextValue<StreamChatGenerics>, 'targetedMessage'> & {
-    messageContentWidth: number;
-    supportedReactions: ReactionData[];
-    fill?: string;
-    radius?: number; // not recommended to change this
-    reactionSize?: number;
-    stroke?: string;
-    strokeSize?: number; // not recommended to change this
-  };
+    messageContentWidth: number
+    supportedReactions: ReactionData[]
+    fill?: string
+    radius?: number // not recommended to change this
+    reactionSize?: number
+    stroke?: string
+    strokeSize?: number // not recommended to change this
+  }
 
 const ReactionListWithContext = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: ReactionListPropsWithContext<StreamChatGenerics>,
+  props: ReactionListPropsWithContext<StreamChatGenerics>
 ) => {
   const {
     alignment,
@@ -104,7 +114,7 @@ const ReactionListWithContext = <
     strokeSize: propStrokeSize,
     supportedReactions,
     targetedMessage,
-  } = props;
+  } = props
 
   const {
     theme: {
@@ -131,42 +141,45 @@ const ReactionListWithContext = <
       },
       screenPadding,
     },
-  } = useTheme();
+  } = useTheme()
 
-  const width = useWindowDimensions().width;
+  const width = useWindowDimensions().width
 
   const supportedReactionTypes = supportedReactions.map(
-    (supportedReaction) => supportedReaction.type,
-  );
-  const hasSupportedReactions = reactions.some((reaction) =>
-    supportedReactionTypes.includes(reaction.type),
-  );
+    supportedReaction => supportedReaction.type
+  )
+  const hasSupportedReactions = reactions.some(reaction =>
+    supportedReactionTypes.includes(reaction.type)
+  )
 
   if (!hasSupportedReactions || messageContentWidth === 0) {
-    return null;
+    return null
   }
 
-  const alignmentLeft = alignment === 'left';
-  const fill = propFill || alignmentLeft ? grey_gainsboro : grey_whisper;
-  const radius = propRadius || themeRadius;
-  const reactionSize = propReactionSize || themeReactionSize;
-  const highlighted = message.pinned || targetedMessage === message.id;
-  const stroke = propStroke || (highlighted ? targetedMessageBackground : white_snow);
-  const strokeSize = propStrokeSize || themeStrokeSize;
+  const alignmentLeft = alignment === 'left'
+  const fill = propFill || alignmentLeft ? grey_gainsboro : grey_whisper
+  const radius = propRadius || themeRadius
+  const reactionSize = propReactionSize || themeReactionSize
+  const highlighted = message.pinned || targetedMessage === message.id
+  const stroke =
+    propStroke || (highlighted ? targetedMessageBackground : white_snow)
+  const strokeSize = propStrokeSize || themeStrokeSize
 
   const x1 = alignmentLeft
     ? messageContentWidth +
       (Number(leftAlign.marginRight) || 0) +
       (Number(spacer.width) || 0) -
       radius * 0.5
-    : width - screenPadding * 2 - messageContentWidth;
-  const x2 = x1 + radius * 2 * (alignmentLeft ? 1 : -1);
-  const y1 = reactionSize + radius * 2;
-  const y2 = reactionSize - radius;
+    : width - screenPadding * 2 - messageContentWidth
+  const x2 = x1 + radius * 2 * (alignmentLeft ? 1 : -1)
+  const y1 = reactionSize + radius * 2
+  const y2 = reactionSize - radius
 
-  const insideLeftBound = x2 - (reactionSize * reactions.length) / 2 > screenPadding;
+  const insideLeftBound =
+    x2 - (reactionSize * reactions.length) / 2 > screenPadding
   const insideRightBound =
-    x2 + strokeSize + (reactionSize * reactions.length) / 2 < width - screenPadding * 2;
+    x2 + strokeSize + (reactionSize * reactions.length) / 2 <
+    width - screenPadding * 2
   const left =
     reactions.length === 1
       ? x1 + (alignmentLeft ? -radius : radius - reactionSize)
@@ -174,10 +187,10 @@ const ReactionListWithContext = <
       ? screenPadding
       : !insideRightBound
       ? width - screenPadding * 2 - reactionSize * reactions.length - strokeSize
-      : x2 - (reactionSize * reactions.length) / 2 - strokeSize;
+      : x2 - (reactionSize * reactions.length) / 2 - strokeSize
 
   return (
-    <View
+    <SafeAreaView
       style={[
         styles.container,
         {
@@ -189,16 +202,31 @@ const ReactionListWithContext = <
       testID='reaction-list'
     >
       {reactions.length ? (
-        <View style={[StyleSheet.absoluteFill]}>
+        <SafeAreaView style={[StyleSheet.absoluteFill]}>
           <Svg>
             <Circle cx={x1} cy={y1} fill={stroke} r={radius + strokeSize * 3} />
-            <Circle cx={x2} cy={y2} fill={stroke} r={radius * 2 + strokeSize * 3} />
+            <Circle
+              cx={x2}
+              cy={y2}
+              fill={stroke}
+              r={radius * 2 + strokeSize * 3}
+            />
             <Circle cx={x1} cy={y1} fill={fill} r={radius + strokeSize} />
             <Circle cx={x2} cy={y2} fill={fill} r={radius * 2 + strokeSize} />
-            <Circle cx={x1} cy={y1} fill={alignmentLeft ? fill : white} r={radius} />
-            <Circle cx={x2} cy={y2} fill={alignmentLeft ? fill : white} r={radius * 2} />
+            <Circle
+              cx={x1}
+              cy={y1}
+              fill={alignmentLeft ? fill : white}
+              r={radius}
+            />
+            <Circle
+              cx={x2}
+              cy={y2}
+              fill={alignmentLeft ? fill : white}
+              r={radius * 2}
+            />
           </Svg>
-          <View
+          <SafeAreaView
             style={[
               styles.reactionBubbleBackground,
               {
@@ -213,37 +241,42 @@ const ReactionListWithContext = <
               reactionBubbleBackground,
             ]}
           />
-          <View style={[StyleSheet.absoluteFill]}>
+          <SafeAreaView style={[StyleSheet.absoluteFill]}>
             <Svg>
-              <Circle cx={x2} cy={y2} fill={alignmentLeft ? fill : white} r={radius * 2} />
+              <Circle
+                cx={x2}
+                cy={y2}
+                fill={alignmentLeft ? fill : white}
+                r={radius * 2}
+              />
             </Svg>
-          </View>
+          </SafeAreaView>
           <TouchableOpacity
             disabled={preventPress}
-            onLongPress={(event) => {
+            onLongPress={event => {
               if (onLongPress) {
                 onLongPress({
                   emitter: 'reactionList',
                   event,
-                });
+                })
               }
             }}
-            onPress={(event) => {
+            onPress={event => {
               if (onPress) {
                 onPress({
                   defaultHandler: () => showMessageOverlay(true),
                   emitter: 'reactionList',
                   event,
-                });
+                })
               }
             }}
-            onPressIn={(event) => {
+            onPressIn={event => {
               if (onPressIn) {
                 onPressIn({
                   defaultHandler: () => showMessageOverlay(true),
                   emitter: 'reactionList',
                   event,
-                });
+                })
               }
             }}
             style={[
@@ -259,7 +292,7 @@ const ReactionListWithContext = <
               reactionBubble,
             ]}
           >
-            {reactions.map((reaction) => (
+            {reactions.map(reaction => (
               <Icon
                 key={reaction.type}
                 pathFill={reaction.own ? accent_blue : grey}
@@ -270,67 +303,75 @@ const ReactionListWithContext = <
               />
             ))}
           </TouchableOpacity>
-        </View>
+        </SafeAreaView>
       ) : null}
-    </View>
-  );
-};
+    </SafeAreaView>
+  )
+}
 
-const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics>(
+const areEqual = <
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+>(
   prevProps: ReactionListPropsWithContext<StreamChatGenerics>,
-  nextProps: ReactionListPropsWithContext<StreamChatGenerics>,
+  nextProps: ReactionListPropsWithContext<StreamChatGenerics>
 ) => {
   const {
     message: prevMessage,
     messageContentWidth: prevMessageContentWidth,
     targetedMessage: prevTargetedMessage,
-  } = prevProps;
+  } = prevProps
   const {
     message: nextMessage,
     messageContentWidth: nextMessageContentWidth,
     targetedMessage: nextTargetedMessage,
-  } = nextProps;
+  } = nextProps
 
-  const messageContentWidthEqual = prevMessageContentWidth === nextMessageContentWidth;
-  if (!messageContentWidthEqual) return false;
+  const messageContentWidthEqual =
+    prevMessageContentWidth === nextMessageContentWidth
+  if (!messageContentWidthEqual) return false
 
-  const messagePinnedEqual = prevMessage.pinned === nextMessage.pinned;
+  const messagePinnedEqual = prevMessage.pinned === nextMessage.pinned
 
-  if (!messagePinnedEqual) return false;
+  if (!messagePinnedEqual) return false
 
-  const targetedMessageEqual = prevTargetedMessage === nextTargetedMessage;
+  const targetedMessageEqual = prevTargetedMessage === nextTargetedMessage
 
-  if (!targetedMessageEqual) return false;
+  if (!targetedMessageEqual) return false
 
   const latestReactionsEqual =
-    Array.isArray(prevMessage.latest_reactions) && Array.isArray(nextMessage.latest_reactions)
-      ? prevMessage.latest_reactions.length === nextMessage.latest_reactions.length &&
+    Array.isArray(prevMessage.latest_reactions) &&
+    Array.isArray(nextMessage.latest_reactions)
+      ? prevMessage.latest_reactions.length ===
+          nextMessage.latest_reactions.length &&
         prevMessage.latest_reactions.every(
-          ({ type }, index) => type === nextMessage.latest_reactions?.[index].type,
+          ({ type }, index) =>
+            type === nextMessage.latest_reactions?.[index].type
         )
-      : prevMessage.latest_reactions === nextMessage.latest_reactions;
-  if (!latestReactionsEqual) return false;
+      : prevMessage.latest_reactions === nextMessage.latest_reactions
+  if (!latestReactionsEqual) return false
 
-  return true;
-};
+  return true
+}
 
 const MemoizedReactionList = React.memo(
   ReactionListWithContext,
-  areEqual,
-) as typeof ReactionListWithContext;
+  areEqual
+) as typeof ReactionListWithContext
 
 export type ReactionListProps<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
-> = Partial<Omit<ReactionListPropsWithContext<StreamChatGenerics>, 'messageContentWidth'>> &
-  Pick<ReactionListPropsWithContext<StreamChatGenerics>, 'messageContentWidth'>;
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+> = Partial<
+  Omit<ReactionListPropsWithContext<StreamChatGenerics>, 'messageContentWidth'>
+> &
+  Pick<ReactionListPropsWithContext<StreamChatGenerics>, 'messageContentWidth'>
 
 /**
  * ReactionList - A high level component which implements all the logic required for a message reaction list
  */
 export const ReactionList = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: ReactionListProps<StreamChatGenerics>,
+  props: ReactionListProps<StreamChatGenerics>
 ) => {
   const {
     alignment,
@@ -341,8 +382,9 @@ export const ReactionList = <
     preventPress,
     reactions,
     showMessageOverlay,
-  } = useMessageContext<StreamChatGenerics>();
-  const { supportedReactions, targetedMessage } = useMessagesContext<StreamChatGenerics>();
+  } = useMessageContext<StreamChatGenerics>()
+  const { supportedReactions, targetedMessage } =
+    useMessagesContext<StreamChatGenerics>()
 
   return (
     <MemoizedReactionList
@@ -360,5 +402,5 @@ export const ReactionList = <
       }}
       {...props}
     />
-  );
-};
+  )
+}

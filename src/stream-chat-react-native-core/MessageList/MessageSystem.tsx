@@ -1,16 +1,16 @@
-import React from 'react';
-import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native';
+import React from 'react'
+import { StyleProp, StyleSheet, Text, View, ViewStyle } from 'react-native'
 
-import type { MessageType } from './hooks/useMessageList';
+import type { MessageType } from './hooks/useMessageList'
 
-import { useTheme } from '../../contexts/themeContext/ThemeContext';
+import { useTheme } from '../../contexts/themeContext/ThemeContext'
 import {
   isDayOrMoment,
   TDateTimeParserInput,
   useTranslationContext,
-} from '../../contexts/translationContext/TranslationContext';
+} from '../../contexts/translationContext/TranslationContext'
 
-import type { DefaultStreamChatGenerics } from '../../types/types';
+import type { DefaultStreamChatGenerics } from '../../types/types'
 
 const styles = StyleSheet.create({
   container: {
@@ -32,22 +32,22 @@ const styles = StyleSheet.create({
     flex: 3,
     marginTop: 10,
   },
-});
+})
 
 export type MessageSystemProps<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 > = {
   /** Current [message object](https://getstream.io/chat/docs/#message_format) */
-  message: MessageType<StreamChatGenerics>;
+  message: MessageType<StreamChatGenerics>
   /**
    * Formatter function for date object.
    *
    * @param date TDateTimeParserInput object of message
    * @returns string
    */
-  formatDate?: (date: TDateTimeParserInput) => string;
-  style?: StyleProp<ViewStyle>;
-};
+  formatDate?: (date: TDateTimeParserInput) => string
+  style?: StyleProp<ViewStyle>
+}
 
 /**
  * A component to display system message. e.g, when someone updates the channel,
@@ -55,11 +55,11 @@ export type MessageSystemProps<
  * in message list as (type) system message.
  */
 export const MessageSystem = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: MessageSystemProps<StreamChatGenerics>,
+  props: MessageSystemProps<StreamChatGenerics>
 ) => {
-  const { formatDate, message, style } = props;
+  const { formatDate, message, style } = props
 
   const {
     theme: {
@@ -68,30 +68,37 @@ export const MessageSystem = <
         messageSystem: { container, dateText, line, text, textContainer },
       },
     },
-  } = useTheme();
-  const { tDateTimeParser } = useTranslationContext();
+  } = useTheme()
+  const { tDateTimeParser } = useTranslationContext()
 
-  const createdAt = message.created_at;
-  const parsedDate = tDateTimeParser(createdAt);
+  const createdAt = message.created_at
+  const parsedDate = tDateTimeParser(createdAt)
   const date =
     formatDate && createdAt
       ? formatDate(createdAt)
       : parsedDate && isDayOrMoment(parsedDate)
       ? parsedDate.calendar().toUpperCase()
-      : parsedDate;
+      : parsedDate
 
   return (
-    <View style={[styles.container, style, container]} testID='message-system'>
-      <View style={[styles.line, { backgroundColor: grey_whisper }, line]} />
-      <View style={[styles.textContainer, textContainer]}>
+    <SafeAreaView
+      style={[styles.container, style, container]}
+      testID='message-system'
+    >
+      <SafeAreaView
+        style={[styles.line, { backgroundColor: grey_whisper }, line]}
+      />
+      <SafeAreaView style={[styles.textContainer, textContainer]}>
         <Text style={[styles.text, { color: grey }, text]}>
           {message.text?.toUpperCase() || ''}
         </Text>
         <Text style={[styles.text, { color: grey }, dateText]}>{date}</Text>
-      </View>
-      <View style={[styles.line, { backgroundColor: grey_whisper }, line]} />
-    </View>
-  );
-};
+      </SafeAreaView>
+      <SafeAreaView
+        style={[styles.line, { backgroundColor: grey_whisper }, line]}
+      />
+    </SafeAreaView>
+  )
+}
 
-MessageSystem.displayName = 'MessageSystem{messageList{messageSystem}}';
+MessageSystem.displayName = 'MessageSystem{messageList{messageSystem}}'

@@ -3,7 +3,7 @@
 exports[`Day should not render <Day /> and compare with snapshot 1`] = `null`;
 
 exports[`Day should render <Day /> and compare with snapshot 1`] = `
-<View
+<SafeAreaView
   style={
     Array [
       Object {
@@ -16,7 +16,7 @@ exports[`Day should render <Day /> and compare with snapshot 1`] = `
     ]
   }
 >
-  <View>
+  <SafeAreaView>
     <Text
       style={
         Array [
@@ -32,6 +32,6 @@ exports[`Day should render <Day /> and compare with snapshot 1`] = `
     >
       Apr 17, 2022
     </Text>
-  </View>
-</View>
+  </SafeAreaView>
+</SafeAreaView>
 `;

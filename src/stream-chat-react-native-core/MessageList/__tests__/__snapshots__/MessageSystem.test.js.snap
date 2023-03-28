@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MessageSystem should match the snapshot for message system 1`] = `
-<View
+<SafeAreaView
   style={
     Array [
       Object {
@@ -16,7 +16,7 @@ exports[`MessageSystem should match the snapshot for message system 1`] = `
   }
   testID="message-system"
 >
-  <View
+  <SafeAreaView
     style={
       Array [
         Object {
@@ -30,7 +30,7 @@ exports[`MessageSystem should match the snapshot for message system 1`] = `
       ]
     }
   />
-  <View
+  <SafeAreaView
     style={
       Array [
         Object {
@@ -75,8 +75,8 @@ exports[`MessageSystem should match the snapshot for message system 1`] = `
     >
       04/27/2020
     </Text>
-  </View>
-  <View
+  </SafeAreaView>
+  <SafeAreaView
     style={
       Array [
         Object {
@@ -90,5 +90,5 @@ exports[`MessageSystem should match the snapshot for message system 1`] = `
       ]
     }
   />
-</View>
+</SafeAreaView>
 `;

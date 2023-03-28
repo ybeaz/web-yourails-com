@@ -60,15 +60,15 @@ export function Day<TMessage extends IMessage = IMessage>({
   }
 
   return (
-    <View style={[styles.container, containerStyle]}>
-      <View style={wrapperStyle}>
+    <SafeAreaView style={[styles.container, containerStyle]}>
+      <SafeAreaView style={wrapperStyle}>
         <Text style={[styles.text, textStyle]}>
           {dayjs(currentMessage.createdAt)
             .locale(getLocale())
             .format(dateFormat)}
         </Text>
-      </View>
-    </View>
+      </SafeAreaView>
+    </SafeAreaView>
   )
 }
 

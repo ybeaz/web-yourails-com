@@ -1,27 +1,32 @@
-import React from 'react';
-import { LayoutChangeEvent, StyleSheet, TouchableOpacity, View } from 'react-native';
+import React from 'react'
+import {
+  LayoutChangeEvent,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native'
 
-import { MessageTextContainer } from './MessageTextContainer';
+import { MessageTextContainer } from './MessageTextContainer'
 
 import {
   MessageContextValue,
   useMessageContext,
-} from '../../../contexts/messageContext/MessageContext';
+} from '../../../contexts/messageContext/MessageContext'
 import {
   MessagesContextValue,
   useMessagesContext,
-} from '../../../contexts/messagesContext/MessagesContext';
-import { useTheme } from '../../../contexts/themeContext/ThemeContext';
+} from '../../../contexts/messagesContext/MessagesContext'
+import { useTheme } from '../../../contexts/themeContext/ThemeContext'
 import {
   isDayOrMoment,
   TDateTimeParserInput,
   TranslationContextValue,
   useTranslationContext,
-} from '../../../contexts/translationContext/TranslationContext';
+} from '../../../contexts/translationContext/TranslationContext'
 
-import { Error } from '../../../icons';
-import type { DefaultStreamChatGenerics } from '../../../types/types';
-import { MessageStatusTypes, vw } from '../../../utils/utils';
+import { Error } from '../../../icons'
+import type { DefaultStreamChatGenerics } from '../../../types/types'
+import { MessageStatusTypes, vw } from '../../../utils/utils'
 
 const styles = StyleSheet.create({
   containerInner: {
@@ -52,10 +57,10 @@ const styles = StyleSheet.create({
   rightAlignItems: {
     alignItems: 'flex-end',
   },
-});
+})
 
 export type MessageContentPropsWithContext<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 > = Pick<
   MessageContextValue<StreamChatGenerics>,
   | 'alignment'
@@ -94,16 +99,16 @@ export type MessageContentPropsWithContext<
     | 'Reply'
   > &
   Pick<TranslationContextValue, 't' | 'tDateTimeParser'> & {
-    setMessageContentWidth: React.Dispatch<React.SetStateAction<number>>;
-  };
+    setMessageContentWidth: React.Dispatch<React.SetStateAction<number>>
+  }
 
 /**
  * Child of MessageSimple that displays a message's content
  */
 const MessageContentWithContext = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: MessageContentPropsWithContext<StreamChatGenerics>,
+  props: MessageContentPropsWithContext<StreamChatGenerics>
 ) => {
   const {
     additionalTouchableProps,
@@ -136,11 +141,18 @@ const MessageContentWithContext = <
     showMessageStatus,
     tDateTimeParser,
     threadList,
-  } = props;
+  } = props
 
   const {
     theme: {
-      colors: { accent_red, blue_alice, grey_gainsboro, grey_whisper, transparent, white },
+      colors: {
+        accent_red,
+        blue_alice,
+        grey_gainsboro,
+        grey_whisper,
+        transparent,
+        white,
+      },
       messageSimple: {
         content: {
           container: {
@@ -164,47 +176,48 @@ const MessageContentWithContext = <
         reactionList: { radius, reactionSize },
       },
     },
-  } = useTheme();
+  } = useTheme()
 
   const getDateText = (formatter?: (date: TDateTimeParserInput) => string) => {
-    if (!message.created_at) return '';
+    if (!message.created_at) return ''
 
     if (formatter) {
-      return formatter(message.created_at);
+      return formatter(message.created_at)
     }
 
-    const parserOutput = tDateTimeParser(message.created_at);
+    const parserOutput = tDateTimeParser(message.created_at)
 
     if (isDayOrMoment(parserOutput)) {
-      return parserOutput.format('LT');
+      return parserOutput.format('LT')
     }
-    return message.created_at;
-  };
+    return message.created_at
+  }
 
   const onLayout: (event: LayoutChangeEvent) => void = ({
     nativeEvent: {
       layout: { width },
     },
   }) => {
-    setMessageContentWidth(width);
-  };
+    setMessageContentWidth(width)
+  }
 
-  const error = message.type === 'error' || message.status === MessageStatusTypes.FAILED;
+  const error =
+    message.type === 'error' || message.status === MessageStatusTypes.FAILED
 
-  const groupStyle = `${alignment}_${groupStyles?.[0]?.toLowerCase?.()}`;
+  const groupStyle = `${alignment}_${groupStyles?.[0]?.toLowerCase?.()}`
 
-  const hasThreadReplies = !!message?.reply_count;
+  const hasThreadReplies = !!message?.reply_count
 
-  let noBorder = onlyEmojis && !message.quoted_message;
+  let noBorder = onlyEmojis && !message.quoted_message
   if (otherAttachments.length) {
     if (otherAttachments[0].type === 'giphy' && !isMyMessage) {
-      noBorder = false;
+      noBorder = false
     } else {
-      noBorder = true;
+      noBorder = true
     }
   }
 
-  const isMessageTypeDeleted = message.type === 'deleted';
+  const isMessageTypeDeleted = message.type === 'deleted'
 
   if (isMessageTypeDeleted) {
     return (
@@ -214,48 +227,50 @@ const MessageContentWithContext = <
         noBorder={noBorder}
         onLayout={onLayout}
       />
-    );
+    )
   }
 
-  let backgroundColor = grey_gainsboro;
+  let backgroundColor = grey_gainsboro
   if (onlyEmojis && !message.quoted_message) {
-    backgroundColor = transparent;
+    backgroundColor = transparent
   } else if (otherAttachments.length) {
     if (otherAttachments[0].type === 'giphy') {
-      backgroundColor = message.quoted_message ? grey_gainsboro : transparent;
+      backgroundColor = message.quoted_message ? grey_gainsboro : transparent
     } else {
-      backgroundColor = blue_alice;
+      backgroundColor = blue_alice
     }
   } else if (alignment === 'left' || error) {
-    backgroundColor = white;
+    backgroundColor = white
   }
 
-  const repliesCurveColor = isMyMessage && !error ? backgroundColor : grey_whisper;
+  const repliesCurveColor =
+    isMyMessage && !error ? backgroundColor : grey_whisper
 
-  const isBorderColor = isMyMessage && !error;
+  const isBorderColor = isMyMessage && !error
 
   const getBorderRadius = () => {
     // enum('top', 'middle', 'bottom', 'single')
-    const groupPosition = groupStyles?.[0];
+    const groupPosition = groupStyles?.[0]
 
-    const isBottomOrSingle = groupPosition === 'single' || groupPosition === 'bottom';
-    let borderBottomLeftRadius = borderRadiusL;
-    let borderBottomRightRadius = borderRadiusL;
+    const isBottomOrSingle =
+      groupPosition === 'single' || groupPosition === 'bottom'
+    let borderBottomLeftRadius = borderRadiusL
+    let borderBottomRightRadius = borderRadiusL
 
     if (isBottomOrSingle && (!hasThreadReplies || threadList)) {
       // add relevant sharp corner
       if (alignment === 'left') {
-        borderBottomLeftRadius = borderRadiusS;
+        borderBottomLeftRadius = borderRadiusS
       } else {
-        borderBottomRightRadius = borderRadiusS;
+        borderBottomRightRadius = borderRadiusS
       }
     }
 
     return {
       borderBottomLeftRadius,
       borderBottomRightRadius,
-    };
-  };
+    }
+  }
 
   const getBorderRadiusFromTheme = () => {
     const bordersFromTheme: Record<string, number | undefined> = {
@@ -264,44 +279,44 @@ const MessageContentWithContext = <
       borderRadius,
       borderTopLeftRadius,
       borderTopRightRadius,
-    };
+    }
 
     // filter out undefined values
     for (const key in bordersFromTheme) {
       if (bordersFromTheme[key] === undefined) {
-        delete bordersFromTheme[key];
+        delete bordersFromTheme[key]
       }
     }
 
-    return bordersFromTheme;
-  };
+    return bordersFromTheme
+  }
 
   return (
     <TouchableOpacity
       activeOpacity={0.7}
       disabled={disabled || preventPress}
-      onLongPress={(event) => {
+      onLongPress={event => {
         if (onLongPress) {
           onLongPress({
             emitter: 'messageContent',
             event,
-          });
+          })
         }
       }}
-      onPress={(event) => {
+      onPress={event => {
         if (onPress) {
           onPress({
             emitter: 'messageContent',
             event,
-          });
+          })
         }
       }}
-      onPressIn={(event) => {
+      onPressIn={event => {
         if (onPressIn) {
           onPressIn({
             emitter: 'messageContent',
             event,
-          });
+          })
         }
       }}
       testID='message-content'
@@ -330,9 +345,9 @@ const MessageContentWithContext = <
           showMessageStatus={showMessageStatus}
         />
       )}
-      <View onLayout={onLayout} style={wrapper}>
+      <SafeAreaView onLayout={onLayout} style={wrapper}>
         {hasThreadReplies && !threadList && !noBorder && (
-          <View
+          <SafeAreaView
             style={[
               styles.replyBorder,
               {
@@ -345,7 +360,7 @@ const MessageContentWithContext = <
             ]}
           />
         )}
-        <View
+        <SafeAreaView
           style={[
             styles.containerInner,
             {
@@ -359,59 +374,75 @@ const MessageContentWithContext = <
           ]}
           testID='message-content-wrapper'
         >
-          {messageContentOrder.map((messageContentType, messageContentOrderIndex) => {
-            switch (messageContentType) {
-              case 'quoted_reply':
-                return (
-                  message.quoted_message && (
-                    <View
-                      key={`quoted_reply_${messageContentOrderIndex}`}
-                      style={[styles.replyContainer, replyContainer]}
-                    >
-                      <Reply styles={{ messageContainer: { maxWidth: vw(60) } }} />
-                    </View>
+          {messageContentOrder.map(
+            (messageContentType, messageContentOrderIndex) => {
+              switch (messageContentType) {
+                case 'quoted_reply':
+                  return (
+                    message.quoted_message && (
+                      <SafeAreaView
+                        key={`quoted_reply_${messageContentOrderIndex}`}
+                        style={[styles.replyContainer, replyContainer]}
+                      >
+                        <Reply
+                          styles={{ messageContainer: { maxWidth: vw(60) } }}
+                        />
+                      </SafeAreaView>
+                    )
                   )
-                );
-              case 'attachments':
-                return otherAttachments.map((attachment, attachmentIndex) => (
-                  <Attachment attachment={attachment} key={`${message.id}-${attachmentIndex}`} />
-                ));
-              case 'files':
-                return (
-                  <FileAttachmentGroup
-                    key={`file_attachment_group_${messageContentOrderIndex}`}
-                    messageId={message.id}
-                  />
-                );
-              case 'gallery':
-                return <Gallery key={`gallery_${messageContentOrderIndex}`} />;
-              case 'text':
-              default:
-                return otherAttachments.length && otherAttachments[0].actions ? null : (
-                  <MessageTextContainer<StreamChatGenerics>
-                    key={`message_text_container_${messageContentOrderIndex}`}
-                  />
-                );
+                case 'attachments':
+                  return otherAttachments.map((attachment, attachmentIndex) => (
+                    <Attachment
+                      attachment={attachment}
+                      key={`${message.id}-${attachmentIndex}`}
+                    />
+                  ))
+                case 'files':
+                  return (
+                    <FileAttachmentGroup
+                      key={`file_attachment_group_${messageContentOrderIndex}`}
+                      messageId={message.id}
+                    />
+                  )
+                case 'gallery':
+                  return <Gallery key={`gallery_${messageContentOrderIndex}`} />
+                case 'text':
+                default:
+                  return otherAttachments.length &&
+                    otherAttachments[0].actions ? null : (
+                    <MessageTextContainer<StreamChatGenerics>
+                      key={`message_text_container_${messageContentOrderIndex}`}
+                    />
+                  )
+              }
             }
-          })}
-        </View>
+          )}
+        </SafeAreaView>
         {error && (
-          <View style={StyleSheet.absoluteFill} testID='message-error'>
-            <View style={errorIconContainer}>
+          <SafeAreaView style={StyleSheet.absoluteFill} testID='message-error'>
+            <SafeAreaView style={errorIconContainer}>
               <Error pathFill={accent_red} {...errorIcon} />
-            </View>
-          </View>
+            </SafeAreaView>
+          </SafeAreaView>
         )}
-      </View>
-      <MessageReplies noBorder={noBorder} repliesCurveColor={repliesCurveColor} />
-      <MessageFooter formattedDate={getDateText(formatDate)} isDeleted={!!isMessageTypeDeleted} />
+      </SafeAreaView>
+      <MessageReplies
+        noBorder={noBorder}
+        repliesCurveColor={repliesCurveColor}
+      />
+      <MessageFooter
+        formattedDate={getDateText(formatDate)}
+        isDeleted={!!isMessageTypeDeleted}
+      />
     </TouchableOpacity>
-  );
-};
+  )
+}
 
-const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics>(
+const areEqual = <
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+>(
   prevProps: MessageContentPropsWithContext<StreamChatGenerics>,
-  nextProps: MessageContentPropsWithContext<StreamChatGenerics>,
+  nextProps: MessageContentPropsWithContext<StreamChatGenerics>
 ) => {
   const {
     goToMessage: prevGoToMessage,
@@ -426,7 +457,7 @@ const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = Default
     otherAttachments: prevOtherAttachments,
     t: prevT,
     tDateTimeParser: prevTDateTimeParser,
-  } = prevProps;
+  } = prevProps
   const {
     goToMessage: nextGoToMessage,
     groupStyles: nextGroupStyles,
@@ -439,36 +470,38 @@ const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = Default
     otherAttachments: nextOtherAttachments,
     t: nextT,
     tDateTimeParser: nextTDateTimeParser,
-  } = nextProps;
+  } = nextProps
 
-  const hasReactionsEqual = prevHasReactions === nextHasReactions;
-  if (!hasReactionsEqual) return false;
+  const hasReactionsEqual = prevHasReactions === nextHasReactions
+  if (!hasReactionsEqual) return false
 
-  const lastGroupMessageEqual = prevLastGroupMessage === nextLastGroupMessage;
-  if (!lastGroupMessageEqual) return false;
+  const lastGroupMessageEqual = prevLastGroupMessage === nextLastGroupMessage
+  if (!lastGroupMessageEqual) return false
 
   const goToMessageChangedAndMatters =
-    nextMessage.quoted_message_id && prevGoToMessage !== nextGoToMessage;
-  if (goToMessageChangedAndMatters) return false;
+    nextMessage.quoted_message_id && prevGoToMessage !== nextGoToMessage
+  if (goToMessageChangedAndMatters) return false
 
-  const onlyEmojisEqual = prevOnlyEmojis === nextOnlyEmojis;
-  if (!onlyEmojisEqual) return false;
+  const onlyEmojisEqual = prevOnlyEmojis === nextOnlyEmojis
+  if (!onlyEmojisEqual) return false
 
   const otherAttachmentsEqual =
     prevOtherAttachments.length === nextOtherAttachments.length &&
-    prevOtherAttachments?.[0]?.actions?.length === nextOtherAttachments?.[0]?.actions?.length;
-  if (!otherAttachmentsEqual) return false;
+    prevOtherAttachments?.[0]?.actions?.length ===
+      nextOtherAttachments?.[0]?.actions?.length
+  if (!otherAttachmentsEqual) return false
 
-  const membersEqual = Object.keys(prevMembers).length === Object.keys(nextMembers).length;
-  if (!membersEqual) return false;
+  const membersEqual =
+    Object.keys(prevMembers).length === Object.keys(nextMembers).length
+  if (!membersEqual) return false
 
   const groupStylesEqual =
     prevGroupStyles.length === nextGroupStyles.length &&
-    prevGroupStyles?.[0] === nextGroupStyles?.[0];
-  if (!groupStylesEqual) return false;
+    prevGroupStyles?.[0] === nextGroupStyles?.[0]
+  if (!groupStylesEqual) return false
 
-  const isPrevMessageTypeDeleted = prevMessage.type === 'deleted';
-  const isNextMessageTypeDeleted = nextMessage.type === 'deleted';
+  const isPrevMessageTypeDeleted = prevMessage.type === 'deleted'
+  const isNextMessageTypeDeleted = nextMessage.type === 'deleted'
 
   const messageEqual =
     isPrevMessageTypeDeleted === isNextMessageTypeDeleted &&
@@ -476,80 +509,97 @@ const areEqual = <StreamChatGenerics extends DefaultStreamChatGenerics = Default
     prevMessage.status === nextMessage.status &&
     prevMessage.type === nextMessage.type &&
     prevMessage.text === nextMessage.text &&
-    prevMessage.pinned === nextMessage.pinned;
-  if (!messageEqual) return false;
+    prevMessage.pinned === nextMessage.pinned
+  if (!messageEqual) return false
 
-  const isPrevQuotedMessageTypeDeleted = prevMessage.quoted_message?.type === 'deleted';
-  const isNextQuotedMessageTypeDeleted = nextMessage.quoted_message?.type === 'deleted';
+  const isPrevQuotedMessageTypeDeleted =
+    prevMessage.quoted_message?.type === 'deleted'
+  const isNextQuotedMessageTypeDeleted =
+    nextMessage.quoted_message?.type === 'deleted'
 
   const quotedMessageEqual =
     prevMessage.quoted_message?.id === nextMessage.quoted_message?.id &&
-    isPrevQuotedMessageTypeDeleted === isNextQuotedMessageTypeDeleted;
-  if (!quotedMessageEqual) return false;
+    isPrevQuotedMessageTypeDeleted === isNextQuotedMessageTypeDeleted
+  if (!quotedMessageEqual) return false
 
-  const prevMessageAttachments = prevMessage.attachments;
-  const nextMessageAttachments = nextMessage.attachments;
+  const prevMessageAttachments = prevMessage.attachments
+  const nextMessageAttachments = nextMessage.attachments
   const attachmentsEqual =
-    Array.isArray(prevMessageAttachments) && Array.isArray(nextMessageAttachments)
+    Array.isArray(prevMessageAttachments) &&
+    Array.isArray(nextMessageAttachments)
       ? prevMessageAttachments.length === nextMessageAttachments.length &&
         prevMessageAttachments.every((attachment, index) => {
           const attachmentKeysEqual =
             attachment.image_url === nextMessageAttachments[index].image_url &&
-            attachment.og_scrape_url === nextMessageAttachments[index].og_scrape_url &&
-            attachment.thumb_url === nextMessageAttachments[index].thumb_url;
+            attachment.og_scrape_url ===
+              nextMessageAttachments[index].og_scrape_url &&
+            attachment.thumb_url === nextMessageAttachments[index].thumb_url
 
           if (isAttachmentEqual)
             return (
-              attachmentKeysEqual && !!isAttachmentEqual(attachment, nextMessageAttachments[index])
-            );
+              attachmentKeysEqual &&
+              !!isAttachmentEqual(attachment, nextMessageAttachments[index])
+            )
 
-          return attachmentKeysEqual;
+          return attachmentKeysEqual
         })
-      : prevMessageAttachments === nextMessageAttachments;
-  if (!attachmentsEqual) return false;
+      : prevMessageAttachments === nextMessageAttachments
+  if (!attachmentsEqual) return false
 
   const latestReactionsEqual =
-    Array.isArray(prevMessage.latest_reactions) && Array.isArray(nextMessage.latest_reactions)
-      ? prevMessage.latest_reactions.length === nextMessage.latest_reactions.length &&
+    Array.isArray(prevMessage.latest_reactions) &&
+    Array.isArray(nextMessage.latest_reactions)
+      ? prevMessage.latest_reactions.length ===
+          nextMessage.latest_reactions.length &&
         prevMessage.latest_reactions.every(
-          ({ type }, index) => type === nextMessage.latest_reactions?.[index].type,
+          ({ type }, index) =>
+            type === nextMessage.latest_reactions?.[index].type
         )
-      : prevMessage.latest_reactions === nextMessage.latest_reactions;
-  if (!latestReactionsEqual) return false;
+      : prevMessage.latest_reactions === nextMessage.latest_reactions
+  if (!latestReactionsEqual) return false
 
   const messageContentOrderEqual =
     prevMessageContentOrder.length === nextMessageContentOrder.length &&
     prevMessageContentOrder.every(
-      (messageContentType, index) => messageContentType === nextMessageContentOrder[index],
-    );
-  if (!messageContentOrderEqual) return false;
+      (messageContentType, index) =>
+        messageContentType === nextMessageContentOrder[index]
+    )
+  if (!messageContentOrderEqual) return false
 
-  const tEqual = prevT === nextT;
-  if (!tEqual) return false;
+  const tEqual = prevT === nextT
+  if (!tEqual) return false
 
-  const tDateTimeParserEqual = prevTDateTimeParser === nextTDateTimeParser;
-  if (!tDateTimeParserEqual) return false;
+  const tDateTimeParserEqual = prevTDateTimeParser === nextTDateTimeParser
+  if (!tDateTimeParserEqual) return false
 
-  return true;
-};
+  return true
+}
 
 const MemoizedMessageContent = React.memo(
   MessageContentWithContext,
-  areEqual,
-) as typeof MessageContentWithContext;
+  areEqual
+) as typeof MessageContentWithContext
 
 export type MessageContentProps<
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
-> = Partial<Omit<MessageContentPropsWithContext<StreamChatGenerics>, 'setMessageContentWidth'>> &
-  Pick<MessageContentPropsWithContext<StreamChatGenerics>, 'setMessageContentWidth'>;
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
+> = Partial<
+  Omit<
+    MessageContentPropsWithContext<StreamChatGenerics>,
+    'setMessageContentWidth'
+  >
+> &
+  Pick<
+    MessageContentPropsWithContext<StreamChatGenerics>,
+    'setMessageContentWidth'
+  >
 
 /**
  * Child of MessageSimple that displays a message's content
  */
 export const MessageContent = <
-  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics,
+  StreamChatGenerics extends DefaultStreamChatGenerics = DefaultStreamChatGenerics
 >(
-  props: MessageContentProps<StreamChatGenerics>,
+  props: MessageContentProps<StreamChatGenerics>
 ) => {
   const {
     alignment,
@@ -571,7 +621,7 @@ export const MessageContent = <
     preventPress,
     showMessageStatus,
     threadList,
-  } = useMessageContext<StreamChatGenerics>();
+  } = useMessageContext<StreamChatGenerics>()
   const {
     additionalTouchableProps,
     Attachment,
@@ -585,8 +635,8 @@ export const MessageContent = <
     MessageReplies,
     MessageStatus,
     Reply,
-  } = useMessagesContext<StreamChatGenerics>();
-  const { t, tDateTimeParser } = useTranslationContext();
+  } = useMessagesContext<StreamChatGenerics>()
+  const { t, tDateTimeParser } = useTranslationContext()
 
   return (
     <MemoizedMessageContent<StreamChatGenerics>
@@ -627,7 +677,7 @@ export const MessageContent = <
       }}
       {...props}
     />
-  );
-};
+  )
+}
 
-MessageContent.displayName = 'MessageContent{messageSimple{content}}';
+MessageContent.displayName = 'MessageContent{messageSimple{content}}'
