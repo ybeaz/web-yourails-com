@@ -7,6 +7,7 @@ export const ChatSpaceStyle = StyleSheet.create({
     flexDirection: 'column',
     padding: '1rem',
     width: '100%',
+    height: '100%',
     flex: 1,
     justifyContent: 'flex-end',
   },

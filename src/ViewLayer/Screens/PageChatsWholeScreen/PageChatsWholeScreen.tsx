@@ -79,7 +79,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       style={[
         style.PageChatsWholeScreen,
         themes['themeA'].colors01,
-        { borderColor: themes['themeA'].colors01.borderColor },
+        { borderColor: 'white' },
       ]}
       testID='PageChatsWholeScreen'
     >
@@ -97,7 +97,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       </View>
       <View style={[style.mainColumn]} testID='mainColumn'>
         <View
-          style={[style.topBarMainColumn, themes['themeA'].colors01]}
+          style={[
+            style.topBarMainColumn,
+            { borderColor: themes['themeA'].colors01.borderColor },
+          ]}
           testID='topBarMainColumn'
         >
           <TopBarMainColumn />
@@ -115,7 +118,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         </View>
 
         <View
-          style={[style.chatSpace, themes['themeA'].colors03]}
+          style={[
+            style.chatSpace,
+            // themes['themeA'].colors03
+          ]}
           testID='chatSpace'
         >
           <ChatSpace {...propsOut.chatSpaceProps} />

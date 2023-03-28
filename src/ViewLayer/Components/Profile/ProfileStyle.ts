@@ -6,5 +6,6 @@ export const ProfileStyle = StyleSheet.create({
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
+    // height: '100%',
   },
 })

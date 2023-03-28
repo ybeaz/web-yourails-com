@@ -14,28 +14,30 @@ export const PageChatsWholeScreenStyle = StyleSheet.create({
     width: '100%',
     marginLeft: '7.5%',
     marginRight: '7.5%',
-    border: 'solid 1px',
   },
   sidebarRight: {
     flex: 1,
     width: '30rem',
     height: '100%',
     flexDirection: 'column',
+    // @ts-ignore
     border: 'solid 1px',
   },
   mainColumn: {
-    flex: 2,
-    flexGrow: 2,
+    flex: 3,
+    flexGrow: 3,
     flexDirection: 'column',
     height: '100%',
   },
-  topBarMainColumn: {},
+  topBarMainColumn: {
+    // @ts-ignore
+    border: 'solid 1px',
+  },
   contentMenuMainColumn: {
     borderTopWidth: 1,
   },
   chatSpace: {
     flexDirection: 'column',
-    padding: '1rem',
     width: '100%',
     flex: 1,
     justifyContent: 'flex-end',

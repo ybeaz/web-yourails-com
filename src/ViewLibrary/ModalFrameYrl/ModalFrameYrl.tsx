@@ -97,60 +97,16 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
     imageBackgroundSource = '',
   } = props
 
-  const heightWindow = Dimensions.get('window').height
-  const [heightContent, setHeightContent] = useState(0)
-  const [heightImageBackground, setHeightImageBackground] =
-    useState(heightWindow)
-
-  const hightModalFrameYrl = useRef(100)
-
-  const numberRendering = useRef(0)
-
+  // TODO: Remove after 2023-04-01
   const onLayoutModalFrameYrl = (event: any) => {
-    const { x, y, height, width } = event.nativeEvent.layout
-    const heightNext =
-      heightImageBackground < height + 16 * (3 + 3)
-        ? height + 16 * (3 + 3)
-        : heightImageBackground
-    hightModalFrameYrl.current =
-      numberRendering.current === 0 ? heightNext : hightModalFrameYrl.current
-    numberRendering.current = numberRendering.current + 1
-  }
-
-  const onLayoutContent = (event: any) => {
-    const { x, y, height, width } = event.nativeEvent.layout
-    let heightNext = heightImageBackground
-    if (heightImageBackground < height + 16 * (3 + 3)) {
-      heightNext = height + 16 * (3 + 3)
-      setHeightImageBackground(heightNext)
-      if (numberRendering.current === 0) {
-        heightNext = height + 16 * (3 + 3)
-        setHeightContent(heightNext)
-      }
-    } else if (hightModalFrameYrl.current > height) {
-      heightNext = hightModalFrameYrl.current + 16 * (3 + 3)
-      setHeightContent(heightNext)
-    }
-
-    console.info('ModalFrameYrl [131]', {
-      height,
-      heightNext,
-      heightContent,
-      heightImageBackground,
-      'hightModalFrameYrl.current': hightModalFrameYrl.current,
-    })
+    const heightWindow = Dimensions.get('window').height
+    const { x, y, height: heightModalFrame, width } = event.nativeEvent.layout
   }
 
   const propsOut = {
     buttonBackProps: buttonBack,
     buttonCloseProps: buttonClose,
   }
-
-  console.info('ModalFrameYrl [136]', {
-    heightContent,
-    heightImageBackground,
-    dimensionsHeight: Dimensions.get('window').height,
-  })
 
   const handlersAndContentJsx = (
     <>
@@ -160,15 +116,7 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
       <View style={[style.buttonCloseWrapper]} testID={'buttonCloseWrapper'}>
         <ButtonYrl {...propsOut.buttonCloseProps} />
       </View>
-      <View
-        style={[
-          style.content,
-          styleProps.content,
-          { height: `${heightContent}px` },
-        ]}
-        testID={'content'}
-        onLayout={event => onLayoutContent(event)}
-      >
+      <View style={[style.content, styleProps.content]} testID={'content'}>
         {children}
       </View>
     </>
@@ -177,7 +125,6 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
   const modalFrameJsx = (
     <View
       style={[style.ModalFrameYrl, styleProps.ModalFrameYrl]}
-      onLayout={event => onLayoutModalFrameYrl(event)}
       testID={testID}
     >
       {isShowImageBackground ? (
@@ -185,7 +132,6 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
           style={{
             flex: 1,
             zIndex: 10,
-            height: `${heightImageBackground}px`,
             // filter: 'brightness(50%)',
           }}
           source={imageBackgroundSource}
