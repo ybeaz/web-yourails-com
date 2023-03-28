@@ -4,7 +4,10 @@ import { View, Text } from 'react-native'
 import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'
 import { ContentMenuMainColumnStyle as style } from './ContentMenuMainColumnStyle'
 import { ButtonYrl } from '../../../ViewLibrary/ButtonYrl/ButtonYrl'
-import { IconYrl } from '../../../ViewLibrary/IconYrl/IconYrl'
+import {
+  MENU_CONTENT_ITEMS,
+  MenuContentItemsType,
+} from '../../../Constants/menuContentItems.const'
 import { themes } from '../../Styles/themes'
 
 /**
@@ -13,34 +16,7 @@ import { themes } from '../../Styles/themes'
 const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
   const { styleProps = { ContentMenuMainColumn: {} }, handleEvents } = props
 
-  const menuContentItems = [
-    {
-      iconLibrary: 'Ionicons',
-      iconName: 'chatbubbles-outline',
-      iconTitleText: 'Chat',
-      childName: 'Chat',
-    },
-    {
-      iconLibrary: 'Ionicons',
-      iconName: 'cog-outline',
-      iconTitleText: 'Skills',
-      childName: 'TagsProperties',
-    },
-    {
-      iconLibrary: 'Ionicons',
-      iconName: 'briefcase-outline',
-      iconTitleText: 'Portfolio',
-      childName: 'Portfolio',
-    },
-    {
-      iconLibrary: 'Ionicons',
-      iconName: 'person-outline',
-      iconTitleText: 'Profile',
-      childName: 'Profile',
-    },
-  ]
-
-  const getMenuContentItems = (menuContentItemsIn: any[]) => {
+  const getMenuContentItems = (menuContentItemsIn: MenuContentItemsType[]) => {
     return menuContentItemsIn.map((menuContentItem: any, index: number) => {
       const { iconLibrary, iconName, iconTitleText, childName } =
         menuContentItem
@@ -93,7 +69,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
       style={[style.ContentMenuMainColumn, styleProps.ContentMenuMainColumn]}
       testID='ContentMenuMainColumn'
     >
-      {getMenuContentItems(menuContentItems)}
+      {getMenuContentItems(MENU_CONTENT_ITEMS)}
     </View>
   )
 }

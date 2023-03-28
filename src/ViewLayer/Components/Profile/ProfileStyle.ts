@@ -4,6 +4,7 @@ import { styleGlobal } from '../../Styles/styleGlobal'
 export const ProfileStyle = StyleSheet.create({
   Profile: {
     ...styleGlobal.typography,
+    flex: 1,
     flexDirection: 'column',
   },
 })

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useCallback } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { Text, View } from 'react-native'
 import { useSelector } from 'react-redux'
@@ -67,10 +67,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       users,
       messages,
       modalFrame,
-      handleEvents,
+      handleEvents: useCallback(handleEvents, []),
     },
     contentMenuMainColumn: {
-      handleEvents,
+      handleEvents: useCallback(handleEvents, []),
     },
   }
 
@@ -96,7 +96,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         <ChatCard {...propsOut.chatCardProps} />
       </View>
       <View style={[style.mainColumn]} testID='mainColumn'>
-        {/* <GiftedChatContainer /> */}
         <View
           style={[style.topBarMainColumn, themes['themeA'].colors01]}
           testID='topBarMainColumn'
@@ -109,7 +108,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             style.contentMenuMainColumn,
             themes['themeA'].colors01,
             { borderColor: themes['themeA'].colors01.borderColor },
-            // styleAddSidebarRight,
           ]}
           testID='contentMenuMainColumn'
         >

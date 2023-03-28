@@ -35,7 +35,7 @@ export const componentsStateDefault: any = {
   isLoaderOverlayVisible: false,
   modalFrame: {
     childName: 'Profile',
-    isShow: true,
+    isShow: false,
     childProps: {},
   },
 }

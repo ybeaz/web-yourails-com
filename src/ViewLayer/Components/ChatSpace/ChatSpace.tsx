@@ -123,7 +123,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           <Message {...propsOut.messageProps} />
         </View>
         <View style={style.chatInput} testID='chatInput'>
-          <ChatInput />
+          {/* <ChatInput /> */}
         </View>
       </View>
       <ModalFrameYrl {...propsOut.modalFrameYrlProps} />

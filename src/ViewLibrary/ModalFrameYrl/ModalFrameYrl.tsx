@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { View, ImageBackground } from 'react-native'
+import { View, ImageBackground, Dimensions } from 'react-native'
 import { ModalFrameYrlType } from './ModalFrameYrlType'
 import { ModalFrameYrlStyle as style } from './ModalFrameYrlStyle'
 import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
@@ -98,7 +98,8 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
   } = props
 
   const styleShowHide = isShow ? {} : style.hidden
-  const [heightContent, setHeightContent] = useState('auto')
+  const heightWindow = Dimensions.get('window').height
+  const [heightContent, setHeightContent] = useState(heightWindow)
   const [heightImageBackground, setHeightImageBackground] = useState(100)
 
   const hightModalFrameYrl = useRef(100)
@@ -122,16 +123,34 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
     if (heightImageBackground < height + 16 * (3 + 3)) {
       heightNext = height + 16 * (3 + 3)
       setHeightImageBackground(heightNext)
+      if (numberRendering.current === 0) {
+        heightNext = height + 16 * (3 + 3)
+        setHeightContent(heightNext)
+      }
     } else if (hightModalFrameYrl.current > height) {
       heightNext = hightModalFrameYrl.current + 16 * (3 + 3)
-      setHeightContent(`${heightNext}px`)
+      setHeightContent(heightNext)
     }
+
+    console.info('ModalFrameYrl [131]', {
+      height,
+      heightNext,
+      heightContent,
+      heightImageBackground,
+      'hightModalFrameYrl.current': hightModalFrameYrl.current,
+    })
   }
 
   const propsOut = {
     buttonBackProps: buttonBack,
     buttonCloseProps: buttonClose,
   }
+
+  console.info('ModalFrameYrl [136]', {
+    heightContent,
+    heightImageBackground,
+    dimensionsHeight: Dimensions.get('window').height,
+  })
 
   const handlersAndContent = (
     <>
@@ -142,7 +161,11 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
         <ButtonYrl {...propsOut.buttonCloseProps} />
       </View>
       <View
-        style={[style.content, styleProps.content, { height: heightContent }]}
+        style={[
+          style.content,
+          styleProps.content,
+          { height: `${heightContent}px` },
+        ]}
         testID={'content'}
         onLayout={event => onLayoutContent(event)}
       >
