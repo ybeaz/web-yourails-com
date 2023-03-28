@@ -23,17 +23,17 @@ export const ModalFrames: React.FunctionComponent = (): ReactElement => {
 
   const getChildren: IGetChildren = children => {
     return children.map((child, index) => {
-      const { childName, isActive, childProps } = child
+      const { childName, isShow, childProps } = child
       const CHILD = CHILDREN[childName]
 
       if (!CHILD) return null
 
       const closeAction = {
         typeEvent: 'SET_MODAL_FRAMES',
-        data: [{ childName, isActive: false, childProps }],
+        data: [{ childName, isShow: false, childProps }],
       }
 
-      const addClass = !isActive ? '' : 'ModalFrames_display'
+      const addClass = !isShow ? '' : 'ModalFrames_display'
 
       const propsOut = {
         buttonCloseProps: {

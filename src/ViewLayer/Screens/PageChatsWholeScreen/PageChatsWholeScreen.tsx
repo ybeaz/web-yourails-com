@@ -16,6 +16,7 @@ import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { RootStoreType } from '../../../@types/RootStoreType'
 import { themes } from '../../Styles/themes'
+import { styleGlobal } from '../../Styles/styleGlobal'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
@@ -33,6 +34,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     componentsState,
   } = store
   const { modalFrame } = componentsState
+  const { isShow: isShowModalFrame } = modalFrame
 
   useEffect(() => {
     handleEvents.TEMPLATE({}, { id: '3' })
@@ -44,6 +46,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   //   // style: [style.PageChatsWholeScreen, themes['themeA'].colors01],
   //   // colors01: themes['themeA'].colors01,
   //   componentsState,
+  //   isShowModalFrame,
   // })
 
   const onPressButtonYrl = () => {
@@ -54,6 +57,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     console.info('App [24]', { value })
   }
 
+  const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
+
   const propsOut = {
     chatCardProps: {
       user: users[0],
@@ -62,6 +67,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       users,
       messages,
       modalFrame,
+      handleEvents,
     },
     contentMenuMainColumn: {
       handleEvents,
@@ -82,6 +88,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           style.sidebarRight,
           themes['themeA'].colors01,
           { borderColor: themes['themeA'].colors01.borderColor },
+          styleAddSidebarRight,
         ]}
         testID='sidebarRight'
       >
@@ -102,6 +109,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             style.contentMenuMainColumn,
             themes['themeA'].colors01,
             { borderColor: themes['themeA'].colors01.borderColor },
+            // styleAddSidebarRight,
           ]}
           testID='contentMenuMainColumn'
         >

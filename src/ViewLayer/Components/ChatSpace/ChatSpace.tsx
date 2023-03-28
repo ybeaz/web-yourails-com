@@ -11,18 +11,27 @@ import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { Message } from '../../Components/Message/Message'
 import { ModalFrameYrl } from '../../../ViewLibrary/ModalFrameYrl/ModalFrameYrl'
 import { themes } from '../../Styles/themes'
+import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
  */
 const ChatSpaceComponent: ChatSpaceType = props => {
-  const { styleProps = { ChatSpace: {} }, users, messages, modalFrame } = props
-  const { childName, isShow, childProps } = modalFrame
+  const {
+    styleProps = { ChatSpace: {} },
+    users,
+    messages,
+    modalFrame,
+    handleEvents,
+  } = props
+  const { childName, isShow: isShowModalFrame, childProps } = modalFrame
 
   const userFound = users.find(user => user.id === messages[0].idUser)
   const user = userFound ? userFound : users[0]
   const Child = MODAL_CONTENTS[childName]
+
+  const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
 
   const propsOut = {
     messageProps: {
@@ -33,17 +42,60 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     ChatCardProps: {
       user: users[0],
     },
-    modalFrameYrl: {
+    modalFrameYrlProps: {
       styleProps: {
         ModalFrameYrl: {},
-        content: {
-          ...themes['themeA'].colors03,
+        imageBackground: {},
+        content: { ...themes['themeA'].colors03 },
+      },
+      children: <Child {...childProps} />,
+      isShow: isShowModalFrame,
+      isShowImageBackground: true,
+      testID: 'ChatSpace_modalFrameYrl',
+      buttonBack: {
+        styleProps: { ButtonYrl: {}, title: {} },
+        titleText: '',
+        testID: 'ModalFrameYrl-buttonBack',
+        disabled: false,
+        onPress: () =>
+          handleEvents.SET_MODAL_FRAME(
+            {},
+            {
+              childName,
+              isShow: false,
+              childProps: {},
+            }
+          ),
+        iconProps: {
+          library: 'Ionicons',
+          name: 'arrow-back-outline',
+          size: '1.5rem',
+          color: 'black',
+          testID: 'ModalFrameYrl-buttonBack-iconBack',
         },
       },
-      isShow,
-      isShowImageBackground: true,
-      testID: 'ChatSpace_ModalFrameYrl',
-      children: <Child {...childProps} />,
+      buttonClose: {
+        styleProps: { ButtonYrl: {}, title: {} },
+        titleText: '',
+        testID: 'ModalFrameYrl-buttonClose',
+        disabled: false,
+        onPress: () =>
+          handleEvents.SET_MODAL_FRAME(
+            {},
+            {
+              childName,
+              isShow: false,
+              childProps: {},
+            }
+          ),
+        iconProps: {
+          library: 'Ionicons',
+          name: 'close',
+          size: '1.5rem',
+          color: 'black',
+          testID: 'ModalFrameYrl-buttonClose-iconClose',
+        },
+      },
       imageBackgroundSource: require('../../../Assets/canopy-of-leaves-2.jpg'),
     },
   }
@@ -54,7 +106,11 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   return (
     <>
       <View
-        style={[style.ChatSpace, themes['themeA'].colors03]}
+        style={[
+          style.ChatSpace,
+          themes['themeA'].colors03,
+          styleAddSidebarRight,
+        ]}
         testID='ChatSpace'
       >
         <View style={style.date} testID='date'>
@@ -70,7 +126,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           <ChatInput />
         </View>
       </View>
-      <ModalFrameYrl {...propsOut.modalFrameYrl} />
+      <ModalFrameYrl {...propsOut.modalFrameYrlProps} />
     </>
   )
 }

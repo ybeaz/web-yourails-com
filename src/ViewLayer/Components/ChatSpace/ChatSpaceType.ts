@@ -6,6 +6,7 @@ export interface ChatSpacePropsType {
   users: UserType[]
   messages: MessageType[]
   modalFrame: any
+  handleEvents: any
 }
 
 /**
