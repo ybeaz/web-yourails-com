@@ -18,5 +18,5 @@ export interface ModalFrameYrlPropsType {
 
 export interface ModalFrameYrlType
   extends React.FunctionComponent<ModalFrameYrlPropsType> {
-  (props: ModalFrameYrlPropsType): React.ReactElement
+  (props: ModalFrameYrlPropsType): React.ReactElement | null
 }

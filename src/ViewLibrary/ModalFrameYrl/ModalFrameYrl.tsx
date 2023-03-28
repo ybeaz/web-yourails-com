@@ -97,10 +97,10 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
     imageBackgroundSource = '',
   } = props
 
-  const styleShowHide = isShow ? {} : style.hidden
   const heightWindow = Dimensions.get('window').height
-  const [heightContent, setHeightContent] = useState(heightWindow)
-  const [heightImageBackground, setHeightImageBackground] = useState(100)
+  const [heightContent, setHeightContent] = useState(0)
+  const [heightImageBackground, setHeightImageBackground] =
+    useState(heightWindow)
 
   const hightModalFrameYrl = useRef(100)
 
@@ -152,7 +152,7 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
     dimensionsHeight: Dimensions.get('window').height,
   })
 
-  const handlersAndContent = (
+  const handlersAndContentJsx = (
     <>
       <View style={[style.buttonBackWrapper]} testID={'buttonBackWrapper'}>
         <ButtonYrl {...propsOut.buttonBackProps} />
@@ -174,9 +174,9 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
     </>
   )
 
-  return (
+  const modalFrameJsx = (
     <View
-      style={[style.ModalFrameYrl, styleShowHide, styleProps.ModalFrameYrl]}
+      style={[style.ModalFrameYrl, styleProps.ModalFrameYrl]}
       onLayout={event => onLayoutModalFrameYrl(event)}
       testID={testID}
     >
@@ -194,11 +194,13 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
           imageStyle={[style.imageBackground, styleProps.imageBackground]}
           testID={'ImageBackground'}
         >
-          {handlersAndContent}
+          {handlersAndContentJsx}
         </ImageBackground>
       ) : (
-        handlersAndContent
+        handlersAndContentJsx
       )}
     </View>
   )
+
+  return isShow ? modalFrameJsx : null
 }

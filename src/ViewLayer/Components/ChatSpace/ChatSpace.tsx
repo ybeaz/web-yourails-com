@@ -103,30 +103,33 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const createdAt = messages[0].createdAt
   const dateString = dayjs(createdAt).locale(LOCALE).format(DATE_FORMAT)
 
+  const chatSpaceJsx = (
+    <View
+      style={[style.ChatSpace, themes['themeA'].colors03, styleAddSidebarRight]}
+      testID='ChatSpace'
+    >
+      <View style={style.date} testID='date'>
+        <Text style={style.dateText} testID='dateText'>
+          {dateString}
+        </Text>
+      </View>
+      <View style={style.messages} testID='messages'>
+        <Message {...propsOut.messageProps} />
+        <Message {...propsOut.messageProps} />
+      </View>
+      <View style={style.chatInput} testID='chatInput'>
+        <ChatInput />
+      </View>
+    </View>
+  )
+
   return (
     <>
-      <View
-        style={[
-          style.ChatSpace,
-          themes['themeA'].colors03,
-          styleAddSidebarRight,
-        ]}
-        testID='ChatSpace'
-      >
-        <View style={style.date} testID='date'>
-          <Text style={style.dateText} testID='dateText'>
-            {dateString}
-          </Text>
-        </View>
-        <View style={style.messages} testID='messages'>
-          <Message {...propsOut.messageProps} />
-          <Message {...propsOut.messageProps} />
-        </View>
-        <View style={style.chatInput} testID='chatInput'>
-          {/* <ChatInput /> */}
-        </View>
-      </View>
-      <ModalFrameYrl {...propsOut.modalFrameYrlProps} />
+      {!isShowModalFrame ? (
+        chatSpaceJsx
+      ) : (
+        <ModalFrameYrl {...propsOut.modalFrameYrlProps} />
+      )}
     </>
   )
 }

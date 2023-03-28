@@ -7,7 +7,6 @@ export const ModalFrameYrlStyle = StyleSheet.create({
     left: 0,
     top: 0,
     width: '100%',
-    height: '100%',
   },
   imageBackground: {
     // tintColor: 'rgba(255,255,255,0.95)',
@@ -27,7 +26,6 @@ export const ModalFrameYrlStyle = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,0.8)',
     margin: '3rem',
     padding: '3rem',
-    // height: '100%',
   },
   hidden: {
     opacity: 0,
