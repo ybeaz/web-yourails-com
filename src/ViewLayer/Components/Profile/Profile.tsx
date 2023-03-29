@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { SafeAreaView, Text } from 'react-native'
+import { SafeAreaView, View, Text } from 'react-native'
 
 import { ProfileType } from './ProfileType'
 import { ProfileStyle as style } from './ProfileStyle'
@@ -25,7 +25,9 @@ const ProfileComponent: ProfileType = props => {
 
   return (
     <SafeAreaView style={[style.Profile, styleProps.Profile]} testID='Profile'>
-      {getContent(30)}
+      <View style={[style.viewPadding]} testID='viewPadding'>
+        {getContent(30)}
+      </View>
     </SafeAreaView>
   )
 }

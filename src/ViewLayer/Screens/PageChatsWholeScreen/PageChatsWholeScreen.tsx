@@ -1,6 +1,12 @@
-import React, { useEffect, useCallback } from 'react'
+import React, {
+  useRef,
+  useEffect,
+  useCallback,
+  PropsWithChildren,
+  useMemo,
+} from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { SafeAreaView, Text } from 'react-native'
+import { SafeAreaView, Text, View, ViewStyle } from 'react-native'
 import { useSelector } from 'react-redux'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
@@ -9,6 +15,7 @@ dayjs.extend(localizedFormat)
 // import { GiftedChatContainer } from '../../Components/GiftedChatContainer'
 // import { GiftedChat } from 'react-native-gifted-chat'
 
+import { useFadeIn } from '../../Hooks/useFadeIn'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
@@ -26,6 +33,36 @@ import { users } from '../../../Constants/usersMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
+type FadeInViewProps = PropsWithChildren<{
+  style?: ViewStyle
+  isShowModalFrame: boolean
+}>
+
+const FadeInViewComponent: React.FC<FadeInViewProps> = props => {
+  // const animatedValue = useRef(new Animated.Value(0)).current // Initial value for opacity: 0
+  const { isShowModalFrame } = props
+  const fadeInViewRef = useRef(null)
+
+  const useFadeInProps = {
+    mode: 'Out',
+    ref: fadeInViewRef,
+    valueInit: 1,
+    valueTarget: 0.5,
+    duration: 1000,
+    isShow: isShowModalFrame,
+  }
+  useFadeIn(useFadeInProps)
+
+  console.info('PageChatsWholeScreen [40]', {})
+  return (
+    <View style={[]} testID={'FadeInView'} ref={fadeInViewRef}>
+      {props.children}
+    </View>
+  )
+}
+
+const FadeInView = React.memo(FadeInViewComponent)
+
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const store = useSelector((store2: RootStoreType) => store2)
 
@@ -37,17 +74,15 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const { isShow: isShowModalFrame } = modalFrame
 
   useEffect(() => {
-    handleEvents.TEMPLATE({}, { id: '3' })
+    // handleEvents.TEMPLATE({}, { id: '3' })
   }, [])
 
-  // console.info('PageChatsWholeScreen [41]', {
-  //   // props,
-  //   // store,
-  //   // style: [style.PageChatsWholeScreen, themes['themeA'].colors01],
-  //   // colors01: themes['themeA'].colors01,
-  //   componentsState,
-  //   isShowModalFrame,
-  // })
+  console.info('PageChatsWholeScreen [41]', {
+    // props,
+    // store,
+    // componentsState,
+    // fadeAnim,
+  })
 
   const onPressButtonYrl = () => {
     console.info('App [14]', { action: 'It is pressed 3' })
@@ -83,18 +118,22 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       ]}
       testID='PageChatsWholeScreen'
     >
-      <SafeAreaView
-        style={[
-          style.sidebarRight,
-          themes['themeA'].colors01,
-          { borderColor: themes['themeA'].colors01.borderColor },
-          styleAddSidebarRight,
-        ]}
-        testID='sidebarRight'
-      >
-        <TopBarChatCards />
-        <ChatCard {...propsOut.chatCardProps} />
-      </SafeAreaView>
+      {!isShowModalFrame ? (
+        <SafeAreaView
+          style={[
+            style.sidebarRight,
+            themes['themeA'].colors01,
+            { borderColor: themes['themeA'].colors01.borderColor },
+            styleAddSidebarRight,
+          ]}
+          testID='sidebarRight'
+        >
+          <FadeInView {...{ isShowModalFrame }}>
+            <TopBarChatCards />
+            <ChatCard {...propsOut.chatCardProps} />
+          </FadeInView>
+        </SafeAreaView>
+      ) : null}
       <SafeAreaView style={[style.mainColumn]} testID='mainColumn'>
         <SafeAreaView
           style={[

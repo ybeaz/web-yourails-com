@@ -11,6 +11,9 @@ export const ChatSpaceStyle = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
   },
+  viewPadding: {
+    paddingBottom: '3rem',
+  },
   date: {
     alignItems: 'center',
     padding: '1rem',

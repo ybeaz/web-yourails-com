@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { SafeAreaView, Text } from 'react-native'
+import { SafeAreaView, View, Text } from 'react-native'
 
 import { TagsPropertiesType } from './TagsPropertiesType'
 import { TagsPropertiesStyle as style } from './TagsPropertiesStyle'
@@ -17,7 +17,9 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
       style={[style.TagsProperties, styleProps.TagsProperties]}
       testID='TagsProperties'
     >
-      <Text>Good, Knowledgable, Reliable</Text>
+      <View style={[style.viewPadding]} testID='viewPadding'>
+        <Text>Good, Knowledgable, Reliable</Text>
+      </View>
     </SafeAreaView>
   )
 }

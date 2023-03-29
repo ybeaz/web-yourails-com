@@ -6,4 +6,7 @@ export const TemplateStyle = StyleSheet.create({
     ...styleGlobal.typography,
     flexDirection: 'column',
   },
+  viewPadding: {
+    padding: '1rem',
+  },
 })

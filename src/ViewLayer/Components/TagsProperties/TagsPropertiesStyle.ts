@@ -8,4 +8,7 @@ export const TagsPropertiesStyle = StyleSheet.create({
     flexDirection: 'column',
     padding: '3rem',
   },
+  viewPadding: {
+    padding: '3rem',
+  },
 })

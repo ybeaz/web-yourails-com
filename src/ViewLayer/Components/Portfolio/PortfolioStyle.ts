@@ -7,4 +7,7 @@ export const PortfolioStyle = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
   },
+  viewPadding: {
+    padding: '3rem',
+  },
 })

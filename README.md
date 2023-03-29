@@ -11,6 +11,10 @@ react-native-gifted-chat[https://github.com/FaridSafi/react-native-gifted-chat/t
 
 ## How to, architecture / development notes
 
+### How to install dependencies, for example module-resolver
+
+`npx expo install module-resolver`
+
 ### How to (web) add screens
 
 1.  Use one of two templates
@@ -51,7 +55,7 @@ react-native-gifted-chat[https://github.com/FaridSafi/react-native-gifted-chat/t
 4.  sagas
 5.  connectors
 
-### To run the mobile app
+### How to run the mobile app
 
 1.  To build Docker image from `docker-compose-mongodb.yml`\
     See here [`Docker.md`](https://github.com/ybeaz/manuals/blob/main/Docker.md)
@@ -67,16 +71,16 @@ react-native-gifted-chat[https://github.com/FaridSafi/react-native-gifted-chat/t
 5.  To run the app: `yarn expo:start`
     To check xCode version: `/usr/bin/xcodebuild -version`
 
-### To troubleshoot running the app
+### How to troubleshoot running the app
 
 1. if you have exception `CommandError: Can't determine id of Simulator app; the Simulator is most likely not installed on this machine. Run sudo xcode-select -s /Applications/Xcode.app` then I run xcode.app and macbook suggested to update xcode. This solved the issue
 
-### To create/ update `src/types/graphql.tsx`
+### How to create/ update `src/types/graphql.tsx`
 
 To run `yarn codegen`
 Note: to config `codegen` edit ??? `codegen.yml`
 
-### To use react-chat-elements
+### How to use react-chat-elements
 
 1. gfd
 2. yarn `react-native link react-native-vector-icons`
