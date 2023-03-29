@@ -15,7 +15,7 @@ dayjs.extend(localizedFormat)
 // import { GiftedChatContainer } from '../../Components/GiftedChatContainer'
 // import { GiftedChat } from 'react-native-gifted-chat'
 
-import { useFadeIn } from '../../Hooks/useFadeIn'
+import { AnimatedYrl } from '../../../ViewLibrary/AnimatedYrl/AnimatedYrl'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
@@ -33,35 +33,14 @@ import { users } from '../../../Constants/usersMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
-type FadeInViewProps = PropsWithChildren<{
+type AnimatedYrlProps = PropsWithChildren<{
   style?: ViewStyle
-  isShowModalFrame: boolean
+  nameHtmlCssAttribute: string
+  valueInit: number
+  valueTarget: number
+  duration: number
+  isShow: boolean
 }>
-
-const FadeInViewComponent: React.FC<FadeInViewProps> = props => {
-  // const animatedValue = useRef(new Animated.Value(0)).current // Initial value for opacity: 0
-  const { isShowModalFrame } = props
-  const fadeInViewRef = useRef(null)
-
-  const useFadeInProps = {
-    mode: 'Out',
-    ref: fadeInViewRef,
-    valueInit: 1,
-    valueTarget: 0.5,
-    duration: 1000,
-    isShow: isShowModalFrame,
-  }
-  useFadeIn(useFadeInProps)
-
-  console.info('PageChatsWholeScreen [40]', {})
-  return (
-    <View style={[]} testID={'FadeInView'} ref={fadeInViewRef}>
-      {props.children}
-    </View>
-  )
-}
-
-const FadeInView = React.memo(FadeInViewComponent)
 
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const store = useSelector((store2: RootStoreType) => store2)
@@ -107,6 +86,14 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     contentMenuMainColumn: {
       handleEvents: useCallback(handleEvents, []),
     },
+    sidebarRightInAnimatedYrl: {
+      valueInit: 0,
+      valueTarget: 1,
+      nameHtmlCssAttribute: 'opacity',
+      duration: 1000,
+      isShow: isShowModalFrame,
+      testID: 'sidebarRightIn_animatedYrl',
+    },
   }
 
   return (
@@ -119,7 +106,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       testID='PageChatsWholeScreen'
     >
       {!isShowModalFrame ? (
-        <SafeAreaView
+        <View
           style={[
             style.sidebarRight,
             themes['themeA'].colors01,
@@ -128,14 +115,14 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           ]}
           testID='sidebarRight'
         >
-          <FadeInView {...{ isShowModalFrame }}>
+          <AnimatedYrl {...propsOut.sidebarRightInAnimatedYrl}>
             <TopBarChatCards />
             <ChatCard {...propsOut.chatCardProps} />
-          </FadeInView>
-        </SafeAreaView>
+          </AnimatedYrl>
+        </View>
       ) : null}
-      <SafeAreaView style={[style.mainColumn]} testID='mainColumn'>
-        <SafeAreaView
+      <View style={[style.mainColumn]} testID='mainColumn'>
+        <View
           style={[
             style.topBarMainColumn,
             { borderColor: themes['themeA'].colors01.borderColor },
@@ -143,9 +130,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           testID='topBarMainColumn'
         >
           <TopBarMainColumn />
-        </SafeAreaView>
+        </View>
 
-        <SafeAreaView
+        <View
           style={[
             style.contentMenuMainColumn,
             themes['themeA'].colors01,
@@ -154,9 +141,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           testID='contentMenuMainColumn'
         >
           <ContentMenuMainColumn {...propsOut.contentMenuMainColumn} />
-        </SafeAreaView>
+        </View>
 
-        <SafeAreaView
+        <View
           style={[
             style.chatSpace,
             // themes['themeA'].colors03
@@ -164,8 +151,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           testID='chatSpace'
         >
           <ChatSpace {...propsOut.chatSpaceProps} />
-        </SafeAreaView>
-      </SafeAreaView>
+        </View>
+      </View>
     </SafeAreaView>
   )
 }

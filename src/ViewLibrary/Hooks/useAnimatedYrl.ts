@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 // import { experimental_useEffectEvent as useEffectEvent } from 'react';
 
-type UseFadeInProps = {
-  mode: string
+type useAnimatedYrlProps = {
   ref: any
+  nameHtmlCssAttribute: string
   valueInit: number
   valueTarget: number
   duration: number
@@ -11,37 +11,30 @@ type UseFadeInProps = {
 }
 
 /**
- * @import import { useFadeIn } from 'src/ViewLayer/Hooks/useFadeIn.ts'
+ * @import import { useAnimatedYrl } from 'src/ViewLayer/Hooks/useAnimatedYrl.ts'
  */
 
-export const useFadeIn = ({
-  mode = 'In',
+export const useAnimatedYrl = ({
   ref,
   valueInit,
   valueTarget,
+  nameHtmlCssAttribute,
   duration,
   isShow,
-}: UseFadeInProps) => {
-  const [valueTargetState, setValueTargetState] = useState(valueTarget)
+}: useAnimatedYrlProps) => {
+  const mode = valueInit < valueTarget ? 'In' : 'Out'
 
   useEffect(() => {
     let startTime: any = performance.now()
     let frameId: any = null
 
     const onProgress = (progress: number) => {
-      ref.current.style.opacity = progress // TODO Stopped here
+      ref.current.style[nameHtmlCssAttribute] = progress // TODO Stopped here
     }
 
     const onFrameIn = (now: any) => {
       const timePassed = now - startTime
       const progress = Math.min(timePassed / duration, valueTarget)
-
-      console.info('useFadeIn [30]', {
-        now,
-        timePassed,
-        startTime,
-        progress,
-      })
       onProgress(progress)
       if (progress < valueTarget) {
         frameId = requestAnimationFrame(onFrameIn)
@@ -52,14 +45,6 @@ export const useFadeIn = ({
       const timePassed = now - startTime < 0 ? 0 : now - startTime
       const durationTimePassed = (duration - timePassed) / timePassed
       const progress = Math.max(durationTimePassed, valueTarget)
-      console.info('useFadeIn [30]', {
-        now,
-        duration,
-        durationTimePassed,
-        timePassed,
-        startTime,
-        progress,
-      })
       onProgress(progress)
       if (progress > valueTarget) {
         frameId = requestAnimationFrame(onFrameOut)
@@ -85,5 +70,5 @@ export const useFadeIn = ({
     return () => stop()
   }, [ref, duration, isShow])
 
-  return valueTargetState
+  return undefined
 }
