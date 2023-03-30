@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { SafeAreaView, View, Text } from 'react-native'
+import { View, Text } from 'react-native'
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 dayjs.extend(localizedFormat)
@@ -105,7 +105,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const dateString = dayjs(createdAt).locale(LOCALE).format(DATE_FORMAT)
 
   const ChatSpaceJsx = () => (
-    <SafeAreaView
+    <View
       style={[style.ChatSpace, themes['themeA'].colors03, styleAddSidebarRight]}
       testID='ChatSpace'
     >
@@ -123,7 +123,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           <ChatInput />
         </View>
       </View>
-    </SafeAreaView>
+    </View>
   )
 
   return (

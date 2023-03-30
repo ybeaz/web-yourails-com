@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { SafeAreaView, Text } from 'react-native'
+import { View, Text } from 'react-native'
 
 import { StubUserGoodbyeType } from './StubUserGoodbyeType'
 import { StubUserGoodbyeStyle as style } from './StubUserGoodbyeStyle'
@@ -14,13 +14,13 @@ const StubUserGoodbyeComponent: StubUserGoodbyeType = props => {
   } = store
 
   return (
-    <SafeAreaView style={style.StubUserGoodbye}>
+    <View style={style.StubUserGoodbye}>
       <Text style={style.StubUserGoodbye.text}>
         {DICTIONARY.This_functionality_is_under_development[language]}
       </Text>
-      <SafeAreaView style={style.StubUserGoodbye.text}>
+      <View style={style.StubUserGoodbye.text}>
         {DICTIONARY.We_are_currently_looking_for_support_and_feedback[language]}
-      </SafeAreaView>
+      </View>
       <Text style={style.StubUserGoodbye.text}>
         {DICTIONARY.If_you_have_any_ideas_or_opinions[language]}
       </Text>
@@ -35,7 +35,7 @@ const StubUserGoodbyeComponent: StubUserGoodbyeType = props => {
         {': '}
         email@futuralis.com
       </Text>
-    </SafeAreaView>
+    </View>
   )
 }
 

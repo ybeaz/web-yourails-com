@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { SafeAreaView, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { nanoid } from 'nanoid'
 
 import { TopBarMainColumnType } from './TopBarMainColumnType'
@@ -60,15 +60,15 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
   }
 
   return (
-    <SafeAreaView style={[style.TopBarMainColumn]} testID='TopBarMainColumn'>
+    <View style={[style.TopBarMainColumn]} testID='TopBarMainColumn'>
       <AvatarNameStatus {...propsOut.avatarNameStatusProps} />
-      <SafeAreaView style={[style.serviceSpec]} testID='serviceSpec'>
+      <View style={[style.serviceSpec]} testID='serviceSpec'>
         {getStringSpecs(serviceSpecs)}
-      </SafeAreaView>
-      <SafeAreaView style={[style.serviceSpec]} testID='serviceSpec'>
+      </View>
+      <View style={[style.serviceSpec]} testID='serviceSpec'>
         {getStringSpecs(locations)}
-      </SafeAreaView>
-    </SafeAreaView>
+      </View>
+    </View>
   )
 }
 

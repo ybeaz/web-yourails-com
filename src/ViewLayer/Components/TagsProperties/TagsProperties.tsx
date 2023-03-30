@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { SafeAreaView, View, FlatList, Text } from 'react-native'
+import { View, FlatList, Text } from 'react-native'
 
 import {
   getCompetencyTagsR1,
@@ -20,21 +20,6 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
     competencyTagsR1,
   })
 
-  const DATA = [
-    {
-      id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-      title: 'First Item',
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Second Item',
-    },
-    {
-      id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Third Item',
-    },
-  ]
-
   type TagPropertyProps = { title: string }
 
   const TagProperty = ({ title }: TagPropertyProps) => (
@@ -46,7 +31,7 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
   const propsOut = {}
 
   return (
-    <SafeAreaView
+    <View
       style={[style.TagsProperties, styleProps.TagsProperties]}
       testID='TagsProperties'
     >
@@ -57,7 +42,7 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
           keyExtractor={item => item.id}
         />
       </View>
-    </SafeAreaView>
+    </View>
   )
 }
 

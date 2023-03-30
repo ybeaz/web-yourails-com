@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { SafeAreaView, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
 import { AvatarNameStatusType } from './AvatarNameStatusType'
 import { AvatarNameStatusStyle as style } from './AvatarNameStatusStyle'
@@ -14,7 +14,7 @@ const AvatarNameStatusComponent: AvatarNameStatusType = props => {
   const { nameFirst, nameLast, uriAvatar = '' } = user
 
   const nameStatus = (
-    <SafeAreaView style={[style.nameStatus]} testID='nameStatus'>
+    <View style={[style.nameStatus]} testID='nameStatus'>
       <Text
         style={[style.name]}
         numberOfLines={1}
@@ -31,7 +31,7 @@ const AvatarNameStatusComponent: AvatarNameStatusType = props => {
       >
         last seen recently
       </Text>
-    </SafeAreaView>
+    </View>
   )
 
   const propsOut = {
@@ -56,7 +56,7 @@ const AvatarNameStatusComponent: AvatarNameStatusType = props => {
   }
 
   return (
-    <SafeAreaView
+    <View
       style={[
         style.AvatarNameStatus,
         styleProps.AvatarNameStatus,
@@ -64,11 +64,11 @@ const AvatarNameStatusComponent: AvatarNameStatusType = props => {
       ]}
       testID='AvatarNameStatus'
     >
-      <SafeAreaView style={[style.avatar]} testID='avatar'>
+      <View style={[style.avatar]} testID='avatar'>
         <ImageYrl {...propsOut.imageYrlProps} />
-      </SafeAreaView>
+      </View>
       <ButtonYrl {...propsOut.ButtonYrl} />
-    </SafeAreaView>
+    </View>
   )
 }
 

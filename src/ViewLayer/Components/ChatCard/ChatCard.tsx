@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { SafeAreaView, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 
 import { ChatCardType } from './ChatCardType'
 import { ChatCardStyle as style } from './ChatCardStyle'
@@ -24,12 +24,12 @@ const ChatCardComponent: ChatCardType = props => {
   }
 
   return (
-    <SafeAreaView
+    <View
       style={[style.ChatCard, styleProps.ChatCard, themes['themeA'].colors07]}
       testID='ChatCard'
     >
       <AvatarNameStatus {...propsOut.avatarNameStatusProps} />
-    </SafeAreaView>
+    </View>
   )
 }
 
