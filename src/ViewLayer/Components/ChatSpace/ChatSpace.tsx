@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 dayjs.extend(localizedFormat)
 
+import { AnimatedYrl } from '../../../ViewLibrary/AnimatedYrl/AnimatedYrl'
 import { LOCALE, DATE_FORMAT } from '../../../Constants/locale.const'
 import { ChatSpaceType } from './ChatSpaceType'
 import { ChatSpaceStyle as style } from './ChatSpaceStyle'

@@ -17,7 +17,6 @@ export const PageChatsWholeScreenStyle = StyleSheet.create({
   },
   sidebarRight: {
     flex: 1,
-    width: '30rem',
     height: '100%',
     flexDirection: 'column',
     // @ts-ignore

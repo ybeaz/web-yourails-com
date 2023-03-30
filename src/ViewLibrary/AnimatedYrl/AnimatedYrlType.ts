@@ -3,11 +3,13 @@ import { ViewStyle } from 'react-native'
 
 export type AnimatedYrlProps = PropsWithChildren<{
   styleProps?: any
+  isActive?: boolean
   nameHtmlCssAttribute: string
   valueInit: number
   valueTarget: number
   duration: number
-  isShow: boolean
+  trigger: any
+  triggerShouldEqual: any
   testID?: string
 }>
 

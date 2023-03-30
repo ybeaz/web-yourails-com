@@ -8,32 +8,41 @@ import { useAnimatedYrl } from '../Hooks/useAnimatedYrl'
  * @import import { AnimatedYrlPropsType } from './ViewLibrary/AnimatedYrl/AnimatedYrlType'
  * @propsOut 
   AnimatedYrlProps: {
+    styleProps: { AnimatedYrl: { } },
+    isActive: true,
     valueInit: 0,
     valueTarget: 1,
     nameHtmlCssAttribute: 'opacity',
     duration: 1000,
-    isShow: false,
+    trigger: <variable>,
+    triggerShouldEqual: true,
+    testID: 'sidebarRightIn_animatedYrl_OuterOut',
   }
  */
 export const AnimatedYrl: AnimatedYrlType = props => {
   const {
     styleProps = { AnimatedYrl: {} },
+    isActive = true,
     valueInit,
     valueTarget,
     nameHtmlCssAttribute,
     duration,
-    isShow,
+    trigger,
+    triggerShouldEqual,
     testID = 'AnimatedYrl',
   } = props
   const fadeInViewRef = useRef(null)
 
   const animatedYrlProps = {
     ref: fadeInViewRef,
+    isActive,
     valueInit,
     valueTarget,
     nameHtmlCssAttribute,
     duration,
-    isShow,
+    trigger,
+    triggerShouldEqual,
+    testID,
   }
   useAnimatedYrl(animatedYrlProps)
 
