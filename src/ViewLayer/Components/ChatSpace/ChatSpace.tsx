@@ -104,7 +104,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const createdAt = messages[0].createdAt
   const dateString = dayjs(createdAt).locale(LOCALE).format(DATE_FORMAT)
 
-  const chatSpaceJsx = (
+  const ChatSpaceJsx = () => (
     <SafeAreaView
       style={[style.ChatSpace, themes['themeA'].colors03, styleAddSidebarRight]}
       testID='ChatSpace'
@@ -129,7 +129,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   return (
     <>
       {!isShowModalFrame ? (
-        chatSpaceJsx
+        <ChatSpaceJsx />
       ) : (
         <ModalFrameYrl {...propsOut.modalFrameYrlProps} />
       )}

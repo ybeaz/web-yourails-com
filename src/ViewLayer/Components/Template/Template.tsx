@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { SafeAreaView, View, Text } from 'react-native'
+import { View, Text } from 'react-native'
 
 import { TemplateType } from './TemplateType'
 import { TemplateStyle as style } from './TemplateStyle'
@@ -13,14 +13,9 @@ const TemplateComponent: TemplateType = props => {
   const propsOut = {}
 
   return (
-    <SafeAreaView
-      style={[style.Template, styleProps.Template]}
-      testID='Template'
-    >
-      <View style={[style.viewPadding]} testID='viewPadding'>
-        null
-      </View>
-    </SafeAreaView>
+    <View style={[style.Template, styleProps.Template]} testID='Template'>
+      null
+    </View>
   )
 }
 
