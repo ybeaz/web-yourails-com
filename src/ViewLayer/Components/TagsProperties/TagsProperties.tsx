@@ -5,6 +5,7 @@ import {
   getCompetencyTagsR1,
   CompetencyTagsObj,
 } from '../../../r1Content/getCompetencyTagsR1'
+import { TagProperty } from '../TagProperty/TagProperty'
 import { TagsPropertiesType } from './TagsPropertiesType'
 import { TagsPropertiesStyle as style } from './TagsPropertiesStyle'
 
@@ -20,15 +21,9 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
     competencyTagsR1,
   })
 
-  type TagPropertyProps = { title: string }
-
-  const TagProperty = ({ title }: TagPropertyProps) => (
-    <View style={[]}>
-      <Text style={[]}>{title}</Text>
-    </View>
-  )
-
-  const propsOut = {}
+  const propsOut = {
+    tagPropertyProps: {},
+  }
 
   return (
     <View
@@ -37,8 +32,15 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
     >
       <View style={[style.viewPadding]} testID='viewPadding'>
         <FlatList
+          horizontal={true}
           data={competencyTagsR1['general']}
-          renderItem={({ item }) => <TagProperty title={item.title} />}
+          renderItem={({ item }) => {
+            const tagPropertyProps = {
+              title: item.title,
+              testID: 'TagsProperties_item',
+            }
+            return <TagProperty {...tagPropertyProps} />
+          }}
           keyExtractor={item => item.id}
         />
       </View>
