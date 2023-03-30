@@ -163,13 +163,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             <ContentMenuMainColumn {...propsOut.contentMenuMainColumn} />
           </View>
 
-          <View
-            style={[
-              style.chatSpace,
-              // themes['themeA'].colors03
-            ]}
-            testID='chatSpace'
-          >
+          <View style={[style.chatSpace]} testID='chatSpace'>
             <ChatSpace {...propsOut.chatSpaceProps} />
           </View>
         </View>
