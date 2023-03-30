@@ -1,19 +1,20 @@
-import { StyleSheet } from 'react-native'
+import { StatusBar, StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
 export const PageChatsWholeScreenStyle = StyleSheet.create({
   PageChatsWholeScreen: {
     ...styleGlobal.typography,
     flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+    marginRight: '7.5%',
+    marginBottom: 0,
+    marginLeft: '7.5%',
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'center',
-    margin: 0,
     minHeight: '100%',
     height: '100%',
     width: '100%',
-    marginLeft: '7.5%',
-    marginRight: '7.5%',
   },
   sidebarRight: {
     flex: 1,

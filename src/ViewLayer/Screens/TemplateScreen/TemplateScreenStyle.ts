@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StatusBar, StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
 export const TemplateScreenStyle = StyleSheet.create({
@@ -6,6 +6,9 @@ export const TemplateScreenStyle = StyleSheet.create({
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
-    margin: 'auto',
+    marginTop: StatusBar.currentHeight || 0,
+    marginRight: 0,
+    marginBottom: 0,
+    marginLeft: 0,
   },
 })
