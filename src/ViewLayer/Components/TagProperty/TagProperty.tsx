@@ -3,6 +3,7 @@ import { View, Text } from 'react-native'
 
 import { TagPropertyType } from './TagPropertyType'
 import { TagPropertyStyle as style } from './TagPropertyStyle'
+import { themes } from '../../Styles/themes'
 
 /**
  * @import import { TagProperty } from '../Components/TagProperty/TagProperty'
@@ -18,7 +19,11 @@ const TagPropertyComponent: TagPropertyType = props => {
 
   return (
     <View style={[style.TagProperty, styleProps.TagProperty]} testID={testID}>
-      <Text style={[]}>{title}</Text>
+      <Text
+        style={[style.titleText, { color: themes['themeA'].colors08.color }]}
+      >
+        {title}
+      </Text>
     </View>
   )
 }

@@ -6,14 +6,33 @@ export const TagsPropertiesStyle = StyleSheet.create({
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
-    padding: '3rem',
+    padding: '2rem',
   },
-  viewPadding: {
-    padding: '3rem',
+  headerView: {},
+  headerText: {
+    paddingLeft: '0.5rem',
+    fontSize: 20,
+    lineHight: '125%',
+  },
+  tagListWrapper: {
+    paddingTop: '1rem',
     flexDirection: 'row',
+    flexWrap: 'wrap',
   },
-  // row: {
-  //   flex: 1,
-  //   flexDirection: 'column',
-  // },
+  flatListWrapper: {
+    padding: '2rem',
+    // flexShrink: 1,
+  },
+  flatList: {
+    // flexWrap: 'wrap',
+  },
+  flatListContentContainerStyle: {
+    flex: 1,
+    flexDirection: 'row',
+    // flexWrap: 'wrap',
+  },
+  row: {
+    flex: 1,
+    flexDirection: 'column',
+  },
 })

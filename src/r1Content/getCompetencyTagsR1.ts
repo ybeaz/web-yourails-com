@@ -1,36 +1,36 @@
 import { nanoid } from 'nanoid'
 
-type CompetencyNoId = {
+type CompetencyNoIdType = {
   title: string
   linkHref: string
   tooltips: string
 }
 
-export type CompetencyTagsObjNoId = {
-  general: CompetencyNoId[]
-  clientSide: CompetencyNoId[]
-  serverSide: CompetencyNoId[]
+export type CompetencyTagsObjNoIdType = {
+  general: CompetencyNoIdType[]
+  clientSide: CompetencyNoIdType[]
+  serverSide: CompetencyNoIdType[]
 }
 
-type Competency = {
+export type CompetencyType = {
   id: string
   title: string
   linkHref: string
   tooltips: string
 }
 
-export type CompetencyTagsObj = {
-  general: Competency[]
-  clientSide: Competency[]
-  serverSide: Competency[]
+export type CompetencyTagsObjType = {
+  general: CompetencyType[]
+  clientSide: CompetencyType[]
+  serverSide: CompetencyType[]
 }
 
-interface GetCompetencyTagsR1 {
-  (): CompetencyTagsObj
+interface GetCompetencyTagsR1Type {
+  (): CompetencyTagsObjType
 }
 
-export const getCompetencyTagsR1: GetCompetencyTagsR1 = () => {
-  const competencyTagsObj: CompetencyTagsObjNoId = {
+export const getCompetencyTagsR1: GetCompetencyTagsR1Type = () => {
+  const competencyTagsObj: CompetencyTagsObjNoIdType = {
     general: [],
     clientSide: [],
     serverSide: [],
@@ -2493,19 +2493,19 @@ DOM Clone Nodes',
     },
   ]
 
-  const competencyTagsObjNext: CompetencyTagsObj = {
+  const competencyTagsObjNext: CompetencyTagsObjType = {
     general: [],
     clientSide: [],
     serverSide: [],
   }
-  ;(Object.keys(competencyTagsObj) as Array<keyof CompetencyTagsObj>).forEach(
-    (key: keyof CompetencyTagsObj) => {
-      competencyTagsObjNext[key] = competencyTagsObj[key].map((item: any) => {
-        const id = nanoid()
-        return { id, ...item }
-      })
-    }
-  )
+  ;(
+    Object.keys(competencyTagsObj) as Array<keyof CompetencyTagsObjType>
+  ).forEach((key: keyof CompetencyTagsObjType) => {
+    competencyTagsObjNext[key] = competencyTagsObj[key].map((item: any) => {
+      const id = nanoid()
+      return { id, ...item }
+    })
+  })
 
   return competencyTagsObjNext
 }
