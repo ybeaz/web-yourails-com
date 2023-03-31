@@ -8,6 +8,8 @@ import {
   Text as TextRrneui,
   lightColors,
 } from '@rneui/themed'
+
+import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
 import { TagPropertyType } from './TagPropertyType'
 import { TagPropertyStyle as style } from './TagPropertyStyle'

@@ -4,8 +4,8 @@ import { TemplateYrlType } from './TemplateYrlType'
 import { TemplateYrlStyle as style } from './TemplateYrlStyle'
 
 /**
- * @import import { TemplateYrlYrl } from './ViewLibrary/TemplateYrl/TemplateYrl'
- * @import import { TemplateYrlPropsType } from './ViewLibrary/TemplateYrl/TemplateYrlType'
+ * @import import { TemplateYrlYrl } from './YrlNativeViewLibrary/TemplateYrl/TemplateYrl'
+ * @import import { TemplateYrlPropsType } from './YrlNativeViewLibrary/TemplateYrl/TemplateYrlType'
  * @propsOut 
   templateYrlProps: {
   }

@@ -1,5 +1,5 @@
 /**
- * @import import { IconYrlPropsType } from './ViewLibrary/IconYrl/IconYrlPropsType'
+ * @import import { IconYrlPropsType } from './YrlNativeViewLibrary/IconYrl/IconYrlPropsType'
  */
 export interface IconYrlPropsType {
   library?: string

@@ -4,7 +4,7 @@ import { PressableProps } from 'react-native'
 import { IconYrlPropsType } from '../IconYrl/IconYrlType'
 
 /**
- * @import import { ButtonYrlPropsType } from './ViewLibrary/ButtonYrl/ButtonYrlType'
+ * @import import { ButtonYrlPropsType } from './YrlNativeViewLibrary/ButtonYrl/ButtonYrlType'
  */
 export interface ButtonYrlPropsType {
   titleText?: string | ReactElement

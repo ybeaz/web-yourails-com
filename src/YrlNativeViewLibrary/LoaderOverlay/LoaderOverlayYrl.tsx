@@ -5,8 +5,8 @@ import { LoaderOverlayYrlStyle as style } from './LoaderOverlayYrlStyle'
 import { LoaderOverlayType } from './LoaderOverlayYrlType'
 
 /**
- * @import import { LoaderOverlayYrl } from './ViewLibrary/LoaderOverlay/LoaderOverlay'
- * @import import { LoaderOverlayPropsType } from './ViewLibrary/LoaderOverlay/LoaderOverlayType'
+ * @import import { LoaderOverlayYrl } from './YrlNativeViewLibrary/LoaderOverlay/LoaderOverlay'
+ * @import import { LoaderOverlayPropsType } from './YrlNativeViewLibrary/LoaderOverlay/LoaderOverlayType'
  * @propsOut 
   loaderOverlayYrl: {
     propsStyle: { LoaderOverlay: {}, spinner: {} },

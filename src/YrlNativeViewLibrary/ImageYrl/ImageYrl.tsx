@@ -4,8 +4,8 @@ import { ImageYrlType } from './ImageYrlType'
 import { ImageYrlStyle as style } from './ImageYrlStyle'
 
 /**
- * @import import { ImageYrl } from './ViewLibrary/ImageYrl/ImageYrl'
- * @import import { ImageYrlPropsType } from './ViewLibrary/ImageYrl/ImageYrlType'
+ * @import import { ImageYrl } from './YrlNativeViewLibrary/ImageYrl/ImageYrl'
+ * @import import { ImageYrlPropsType } from './YrlNativeViewLibrary/ImageYrl/ImageYrlType'
  * @propsOut 
   imageYrlProps: {
     styleProps: { ImageYrl: {}, image: {} },

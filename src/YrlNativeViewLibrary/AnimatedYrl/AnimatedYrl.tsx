@@ -4,8 +4,8 @@ import { AnimatedYrlType } from './AnimatedYrlType'
 import { AnimatedYrlStyle as style } from './AnimatedYrlStyle'
 import { useAnimatedYrl } from '../Hooks/useAnimatedYrl'
 /**
- * @import import { AnimatedYrl } from './ViewLibrary/AnimatedYrl/AnimatedYrl'
- * @import import { AnimatedYrlPropsType } from './ViewLibrary/AnimatedYrl/AnimatedYrlType'
+ * @import import { AnimatedYrl } from './YrlNativeViewLibrary/AnimatedYrl/AnimatedYrl'
+ * @import import { AnimatedYrlPropsType } from './YrlNativeViewLibrary/AnimatedYrl/AnimatedYrlType'
  * @propsOut 
   AnimatedYrlProps: {
     styleProps: { AnimatedYrl: { } },
