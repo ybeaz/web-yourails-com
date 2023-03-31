@@ -19,4 +19,16 @@ export const TagPropertyStyle = StyleSheet.create({
     width: 'min-content',
     whiteSpace: 'nowrap',
   },
+  tooltip_container: {
+    width: 'auto',
+    height: 'auto',
+  },
+  tooltip_containerView: {
+    maxHeight: 200,
+  },
+  tooltip_scrollView: {
+    marginHorizontal: 20,
+  },
+  tooltip_buttonYrlLinking: {},
+  tooltip_textRrneui: {},
 })

@@ -12,6 +12,7 @@ const { height } = Dimensions.get('window')
 
 /**
  * @import import { ControlledTooltip } from '../Components/ControlledTooltip/ControlledTooltip'
+ * @link Tooltip props: https://reactnativeelements.com/docs/components/tooltip
  */
 export const ControlledTooltip: React.FC<
   ControlledTooltipPropsType

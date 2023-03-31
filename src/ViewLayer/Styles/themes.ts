@@ -15,7 +15,7 @@ const themeA = StyleSheet.create({
   colors03: {
     // color black, backgroundColor grey, borderColor light-grey
     color: 'rgba(25, 35, 50, 0.9)',
-    backgroundColor: 'rgba(230, 235, 238, 1)',
+    backgroundColor: 'rgba(245, 245, 245, 1)',
     borderColor: 'rgba(223, 225, 229, 1)',
   },
   colors05: {
@@ -32,9 +32,14 @@ const themeA = StyleSheet.create({
     backgroundColor: '#3390ec',
   },
   colors08: {
-    // color dark-blue, backgroundColor blue, backgroundColor grey,
+    // color dark-blue, backgroundColor white
     color: 'rgba(63, 81, 181, 1)',
     backgroundColor: 'rgba(230, 235, 238, 1',
+  },
+  colors09: {
+    // color black, backgroundColor whitesmoke
+    color: 'rgba(63, 81, 181, 1)',
+    backgroundColor: 'rgba(230, 235, 238, 1)',
   },
 })
 
