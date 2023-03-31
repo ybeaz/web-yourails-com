@@ -1,6 +1,9 @@
 export interface TagPropertyPropsType {
   styleProps?: any
+  id?: string
   title: string
+  linkHref: string
+  tooltips: string
   testID?: string
 }
 

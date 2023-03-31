@@ -1,6 +1,14 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Modal } from 'react-native'
+// import Modal from 'modal-react-native-web';
 
+import {
+  Tooltip,
+  TooltipProps,
+  Text as TextRrneui,
+  lightColors,
+} from '@rneui/themed'
+import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
 import { TagPropertyType } from './TagPropertyType'
 import { TagPropertyStyle as style } from './TagPropertyStyle'
 import { themes } from '../../Styles/themes'
@@ -11,19 +19,39 @@ import { themes } from '../../Styles/themes'
 const TagPropertyComponent: TagPropertyType = props => {
   const {
     styleProps = { TagProperty: {} },
+    id,
     title,
+    linkHref,
+    tooltips,
     testID = 'TagProperty',
   } = props
+
+  if (title === 'Agile') {
+    console.info('TagProperty [23]', { id, title, linkHref, tooltips })
+  }
 
   const propsOut = {}
 
   return (
     <View style={[style.TagProperty, styleProps.TagProperty]} testID={testID}>
-      <Text
-        style={[style.titleText, { color: themes['themeA'].colors08.color }]}
+      <ControlledTooltip
+        ModalComponent={Modal}
+        backgroundColor={lightColors.secondary}
+        popover={
+          <TextRrneui>
+            Tooltip info goes here too. Find tooltip everywhere
+          </TextRrneui>
+        }
+        containerStyle={{ width: 200, height: 60 }}
+        withOverlay={true}
+        // withPointer={true}
       >
-        {title}
-      </Text>
+        <TextRrneui
+          style={[style.titleText, { color: themes['themeA'].colors08.color }]}
+        >
+          {title}
+        </TextRrneui>
+      </ControlledTooltip>
     </View>
   )
 }
