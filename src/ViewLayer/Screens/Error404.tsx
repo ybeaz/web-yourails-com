@@ -1,5 +1,5 @@
 import React, { useEffect, ReactElement } from 'react'
-import { ImageYrl } from '../../ViewLibrary/ImageYrl/ImageYrl'
+import { ImageYrl } from '../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
 
 import { FooterFrame } from '../Frames/FooterFrame'
 import { HeaderFrame } from '../Frames/HeaderFrame'

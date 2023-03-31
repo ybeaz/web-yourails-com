@@ -3,8 +3,8 @@ import { View, Text, StyleSheet } from 'react-native'
 
 import { AvatarNameStatusType } from './AvatarNameStatusType'
 import { AvatarNameStatusStyle as style } from './AvatarNameStatusStyle'
-import { ImageYrl } from '../../../ViewLibrary/ImageYrl/ImageYrl'
-import { ButtonYrl } from '../../../ViewLibrary/ButtonYrl/ButtonYrl'
+import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 
 /**
  * @import import { AvatarNameStatus } from '../Components/AvatarNameStatus/AvatarNameStatus'

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View, Text } from 'react-native'
 
-import { ButtonYrl } from '../../../ViewLibrary/ButtonYrl/ButtonYrl'
-import { InputTextYrl } from '../../../ViewLibrary/InputTextYrl/InputTextYrl'
-import { IconYrl } from '../../../ViewLibrary/IconYrl/IconYrl'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
+import { InputTextYrl } from '../../../YrlNativeViewLibrary/InputTextYrl/InputTextYrl'
+import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
 import { ChatInputType } from './ChatInputType'
 import { ChatInputStyle as style } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'

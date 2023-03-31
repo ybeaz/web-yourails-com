@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 
 import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'
 import { ContentMenuMainColumnStyle as style } from './ContentMenuMainColumnStyle'
-import { ButtonYrl } from '../../../ViewLibrary/ButtonYrl/ButtonYrl'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import {
   MENU_CONTENT_ITEMS,
   MenuContentItemsType,

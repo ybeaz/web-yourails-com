@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { useSelector } from 'react-redux'
-import { ButtonYrl } from '../../ViewLibrary/ButtonYrl/ButtonYrl'
+import { ButtonYrl } from '../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 
 import { handleEvents } from '../../DataLayer/index.handleEvents'
 import { RootStoreType } from '../../@types/RootStoreType'

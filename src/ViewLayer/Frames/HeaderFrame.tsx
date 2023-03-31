@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
-// import { LoaderOverlayYrl } from '../../ViewLibrary/LoaderOverlayYrl'
+// import { LoaderOverlayYrl } from '../../YrlNativeViewLibrary/LoaderOverlayYrl'
 
 import { RootStoreType } from '../../@types/RootStoreType'
 import { ModalFrames } from '../Frames/ModalFrames'

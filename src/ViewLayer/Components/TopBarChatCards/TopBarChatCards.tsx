@@ -3,9 +3,9 @@ import { View, Text } from 'react-native'
 
 import { TopBarChatCardsType } from './TopBarChatCardsType'
 import { TopBarChatCardsStyle as style } from './TopBarChatCardsStyle'
-import { ButtonYrl } from '../../../ViewLibrary/ButtonYrl/ButtonYrl'
-import { InputTextYrl } from '../../../ViewLibrary/InputTextYrl/InputTextYrl'
-import { IconYrl } from '../../../ViewLibrary/IconYrl/IconYrl'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
+import { InputTextYrl } from '../../../YrlNativeViewLibrary/InputTextYrl/InputTextYrl'
+import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
 import { themes } from '../../Styles/themes'
 
 /**

@@ -15,7 +15,7 @@ dayjs.extend(localizedFormat)
 // import { GiftedChatContainer } from '../../Components/GiftedChatContainer'
 // import { GiftedChat } from 'react-native-gifted-chat'
 
-import { AnimatedYrl } from '../../../ViewLibrary/AnimatedYrl/AnimatedYrl'
+import { AnimatedYrl } from '../../../YrlNativeViewLibrary/AnimatedYrl/AnimatedYrl'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'

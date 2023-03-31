@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native'
 import { useSelector } from 'react-redux'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
-import { ButtonYrl, InputTextYrl, ImageYrl } from '../../../ViewLibrary/index'
+import {
+  ButtonYrl,
+  InputTextYrl,
+  ImageYrl,
+} from '../../../YrlNativeViewLibrary/index'
 
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { URL_APP_BASE } from '../../../Constants/servers.const'
