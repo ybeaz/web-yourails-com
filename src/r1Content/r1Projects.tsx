@@ -1,4 +1,20 @@
-export const projectList = () => {
+export type ProjectType = {
+  title: string
+  pathname: string
+  typeDemo: string
+  subtitle: string
+  descript: string
+  customer: string
+  builtwith: string
+  imgSrc: string
+  linkHref: string
+}
+
+interface GetProjectsType {
+  (): ProjectType[]
+}
+
+export const getProjectList: GetProjectsType = () => {
   const arrObj = [
     /*
     {

@@ -13,6 +13,7 @@ export interface ButtonYrlPropsType {
   disabled?: boolean
   onPress?: PressableProps['onPress']
   iconProps?: IconYrlPropsType
+  children?: string | ReactElement
 }
 
 export interface ButtonYrlType

@@ -61,9 +61,10 @@ const TagPropertyComponent: TagPropertyType = props => {
         title: {
           color: themes['themeA'].colors08.color,
           textDecoration: 'underline',
+          paddingBottom: '0.5rem',
         },
       },
-      titleText: '<Documentation />',
+      titleText: `<${title}/>`, //'<Documentation />',
       testID: 'tooltip_buttonYrl',
       disabled: false,
       onPress: () => handlePress(),

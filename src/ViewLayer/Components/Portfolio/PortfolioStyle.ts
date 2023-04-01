@@ -6,8 +6,14 @@ export const PortfolioStyle = StyleSheet.create({
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
-  },
-  viewPadding: {
     padding: '3rem',
   },
+  projectView: {
+    flexDirection: 'row',
+    paddingBottom: '2rem',
+  },
+  imageView: {
+    flex: 1,
+  },
+  projectProfileView: { flex: 1 },
 })

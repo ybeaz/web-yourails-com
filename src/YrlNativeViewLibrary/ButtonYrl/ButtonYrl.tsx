@@ -34,7 +34,10 @@ export const ButtonYrl: ButtonYrlType = props => {
     disabled,
     onPress,
     iconProps,
+    children,
   } = props
+
+  console.info('ButtonYrl [40]', { children })
 
   return (
     <Pressable
@@ -59,6 +62,7 @@ export const ButtonYrl: ButtonYrlType = props => {
           {titleText}
         </Text>
       ) : null}
+      {children}
     </Pressable>
   )
 }
