@@ -37,8 +37,6 @@ export const ButtonYrl: ButtonYrlType = props => {
     children,
   } = props
 
-  console.info('ButtonYrl [40]', { children })
-
   return (
     <Pressable
       testID={testID}
