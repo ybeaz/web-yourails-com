@@ -53,7 +53,7 @@ const TagPropertyComponent: TagPropertyType = props => {
           paddingBottom: '0.5rem',
         },
       },
-      titleText: `<${title}/>`, //'<Documentation />',
+      titleText: `<${title} />`, //'<Documentation />',
       testID: 'tooltip_buttonYrl',
       disabled: false,
       onPress: () => handlePress(),

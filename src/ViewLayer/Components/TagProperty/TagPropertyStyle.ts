@@ -30,5 +30,7 @@ export const TagPropertyStyle = StyleSheet.create({
     marginHorizontal: 20,
   },
   tooltip_buttonYrlLinking: {},
-  tooltip_textRrneui: {},
+  tooltip_textRrneui: {
+    paddingBottom: '1rem',
+  },
 })
