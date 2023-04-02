@@ -15,12 +15,12 @@ const ICON: Record<string, any> = {
  * @propsOut 
   iconYrlProps: {
     // || undefined
-    library: '',
-    name: '',
-    size: 10,
-    color: 'red',
-    styleProps: {IconYrl: {},},
-    testID: ''
+    library: 'Ionicons',
+    name: 'ios-send',
+    styleProps: { IconYrl: { cursor: 'pointer' } },
+    size: '1.5rem',
+    color: themes['themeA'].colors02.color,
+    testID: '<entity>_IconYrl_ios_send',
   }
  * @link https://oblador.github.io/react-native-vector-icons/
  */

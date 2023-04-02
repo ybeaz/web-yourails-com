@@ -39,9 +39,9 @@ export const getTranslatedPropNamesToSubheadings: GetTranslatedPropNamesToSubhea
   prop => {
     const PROP_NAMES_TO_SUBHEADINGS_DICT: Record<string, string> = {
       general: 'Professional Excellence',
-      clientSide: 'Front-end:',
-      serverSide: 'Back-end:',
-      machineLearning: 'AI/ ML:',
+      clientSide: 'Front-end',
+      serverSide: 'Back-end',
+      machineLearning: 'AI/ ML',
     }
 
     return PROP_NAMES_TO_SUBHEADINGS_DICT[prop]

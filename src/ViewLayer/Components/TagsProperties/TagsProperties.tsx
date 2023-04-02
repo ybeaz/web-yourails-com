@@ -55,7 +55,7 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
           testID='tagListWrapper'
         >
           <Text style={[style.tagSubheading]} testID='tagSubheadingText'>
-            {tagSubheading}
+            {tagSubheading + ':'}
           </Text>
           {getTagList(competencyTagsGroup)}
         </View>
@@ -74,7 +74,7 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
     >
       <View style={[style.headerView]} testID='headerView'>
         <Text style={[style.headerText]} testID='headerText'>
-          Competency Tags:
+          Competency Tags
         </Text>
       </View>
       {competencyTagsR1Jsx}

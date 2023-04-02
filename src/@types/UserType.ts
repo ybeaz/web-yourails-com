@@ -1,5 +1,10 @@
+export type MessengerType = {
+  name: string
+  username: string | number
+}
+
 /**
- * @import import { UserType } from '../@types/UserType'
+ * @import import { UserType, MessengerType } from '../@types/UserType'
  */
 export interface UserType {
   id: string | number
@@ -7,8 +12,9 @@ export interface UserType {
   nameLast?: string
   uriAvatar?: string
   username?: string | number
-  phone?: string | number
-  email?: string
+  phones?: (string | number | undefined)[]
+  emails?: string[]
+  messengers?: MessengerType[]
   serviceSpecs?: string[]
   locations?: string[]
   contacts?: string[]

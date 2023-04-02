@@ -10,10 +10,27 @@ export const ProfileStyle = StyleSheet.create({
   },
   rowView: {
     flexDirection: 'row',
+    flex: 1,
+    padding: '0.5rem',
   },
-  column1Text: {
-    padding: '1rem',
+  column1: {
+    paddingRight: '1rem',
+  },
+  column2: {
     flex: 1,
   },
-  column2Text: { padding: '1rem', flex: 6 },
+  content: {},
+  label: {
+    fontSize: 13,
+    paddingTop: '0.25rem',
+  },
+
+  // column1Text: {
+  //   padding: '1rem',
+  //   flex: 1,
+  // },
+  // column2Text: { padding: '1rem', flex: 6 },
+  messengerView: { flexDirection: 'row' },
+  messengerNameText: {},
+  usernameText: {},
 })

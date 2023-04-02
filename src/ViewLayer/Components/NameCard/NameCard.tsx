@@ -14,10 +14,11 @@ const NameCardComponent: NameCardType = props => {
     nameFirst,
     nameLast,
     username,
-    phone,
-    email,
+    phones,
+    emails,
     locations,
     serviceSpecs,
+    summary,
   } = user
 
   const propsOut = {}
