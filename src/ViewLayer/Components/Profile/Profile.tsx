@@ -11,6 +11,13 @@ import { UserType, MessengerType } from '../../../@types/UserType'
 
 import { users } from '../../../Constants/usersMock'
 
+type ProfileItemType = {
+  iconLibrary: string
+  iconName: string
+  content: string | ReactElement | ReactElement[]
+  label: string
+}
+
 /**
  * @import import { Profile } from '../Components/Profile/Profile'
  */
@@ -45,13 +52,6 @@ const ProfileComponent: ProfileType = props => {
         </View>
       )
     })
-
-  type ProfileItemType = {
-    iconLibrary: string
-    iconName: string
-    content: string | ReactElement | ReactElement[]
-    label: string
-  }
 
   const profileItems: ProfileItemType[] = [
     {
