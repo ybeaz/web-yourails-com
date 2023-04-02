@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-export const AvatarNameStatusStyle = StyleSheet.create({
-  AvatarNameStatus: {
+export const AvatarPlusInfoStyle = StyleSheet.create({
+  AvatarPlusInfo: {
     ...styleGlobal.typography,
     flexDirection: 'row',
     justifyContent: 'flex-start',

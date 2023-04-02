@@ -2,26 +2,26 @@ import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
 
 import { Text } from '../../Components/Text/Text'
-import { AvatarNameStatusType } from './AvatarNameStatusType'
-import { AvatarNameStatusStyle as style } from './AvatarNameStatusStyle'
+import { AvatarPlusInfoType } from './AvatarPlusInfoType'
+import { AvatarPlusInfoStyle as style } from './AvatarPlusInfoStyle'
 import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 
 /**
- * @import import { AvatarNameStatus } from '../Components/AvatarNameStatus/AvatarNameStatus'
+ * @import import { AvatarPlusInfo } from '../Components/AvatarPlusInfo/AvatarPlusInfo'
  */
-const AvatarNameStatusComponent: AvatarNameStatusType = props => {
+const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
   const {
     user,
-    styleProps = { AvatarNameStatus: {}, viewStyle: {} },
+    styleProps = { AvatarPlusInfo: {}, viewStyle: {} },
     status,
   } = props
   const { nameFirst, nameLast, uriAvatar = '' } = user
 
-  const nameStatus = (
+  const NameStatus = () => (
     <View style={[style.nameStatus]} testID='nameStatus'>
       <Text
-        style={[style.name]}
+        style={[style.name, styleProps.viewStyle]}
         numberOfLines={1}
         adjustsFontSizeToFit
         testID='name'
@@ -49,7 +49,7 @@ const AvatarNameStatusComponent: AvatarNameStatusType = props => {
       uri: uriAvatar,
     },
     ButtonYrl: {
-      titleText: nameStatus,
+      // titleText: nameStatus,
       styleProps: { ButtonYrl: {}, title: styleProps.viewStyle },
       testID: 'ButtonYrl',
       disabled: false,
@@ -63,18 +63,22 @@ const AvatarNameStatusComponent: AvatarNameStatusType = props => {
   return (
     <View
       style={[
-        style.AvatarNameStatus,
-        styleProps.AvatarNameStatus,
+        style.AvatarPlusInfo,
+        styleProps.AvatarPlusInfo,
         styleProps.viewStyle,
       ]}
-      testID='AvatarNameStatus'
+      testID='AvatarPlusInfo'
     >
-      <View style={[style.avatar]} testID='avatar'>
-        <ImageYrl {...propsOut.imageYrlProps} />
-      </View>
-      <ButtonYrl {...propsOut.ButtonYrl} />
+      <ButtonYrl {...propsOut.ButtonYrl}>
+        <>
+          <View style={[style.avatar]} testID='avatar'>
+            <ImageYrl {...propsOut.imageYrlProps} />
+          </View>
+          <NameStatus />
+        </>
+      </ButtonYrl>
     </View>
   )
 }
 
-export const AvatarNameStatus = React.memo(AvatarNameStatusComponent)
+export const AvatarPlusInfo = React.memo(AvatarPlusInfoComponent)

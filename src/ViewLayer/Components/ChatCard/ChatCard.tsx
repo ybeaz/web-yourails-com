@@ -4,7 +4,7 @@ import { View } from 'react-native'
 import { ChatCardType } from './ChatCardType'
 import { ChatCardStyle as style } from './ChatCardStyle'
 import { themes } from '../../Styles/themes'
-import { AvatarNameStatus } from '../AvatarNameStatus/AvatarNameStatus'
+import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 
 import { users } from '../../../Constants/usersMock'
 
@@ -15,7 +15,7 @@ const ChatCardComponent: ChatCardType = props => {
   const { user, styleProps = { ChatCard: {} } } = props
 
   const propsOut = {
-    avatarNameStatusProps: {
+    AvatarPlusInfoProps: {
       user,
       styleProps: {
         viewStyle: themes['themeA'].colors07,
@@ -29,7 +29,7 @@ const ChatCardComponent: ChatCardType = props => {
       style={[style.ChatCard, styleProps.ChatCard, themes['themeA'].colors07]}
       testID='ChatCard'
     >
-      <AvatarNameStatus {...propsOut.avatarNameStatusProps} />
+      <AvatarPlusInfo {...propsOut.AvatarPlusInfoProps} />
     </View>
   )
 }

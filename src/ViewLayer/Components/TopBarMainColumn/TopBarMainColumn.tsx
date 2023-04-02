@@ -7,7 +7,7 @@ import { TopBarMainColumnType } from './TopBarMainColumnType'
 import { TopBarMainColumnStyle as style } from './TopBarMainColumnStyle'
 import { themes } from '../../Styles/themes'
 import { users } from '../../../Constants/usersMock'
-import { AvatarNameStatus } from '../AvatarNameStatus/AvatarNameStatus'
+import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 
 /**
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
@@ -44,7 +44,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
   }
 
   const propsOut = {
-    avatarNameStatusProps: {
+    AvatarPlusInfoProps: {
       user,
       styleProps: {
         viewStyle: themes['themeA'].colors01,
@@ -63,7 +63,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
 
   return (
     <View style={[style.TopBarMainColumn]} testID='TopBarMainColumn'>
-      <AvatarNameStatus {...propsOut.avatarNameStatusProps} />
+      <AvatarPlusInfo {...propsOut.AvatarPlusInfoProps} />
       <View style={[style.serviceSpec]} testID='serviceSpec'>
         {getStringSpecs(serviceSpecs)}
       </View>
