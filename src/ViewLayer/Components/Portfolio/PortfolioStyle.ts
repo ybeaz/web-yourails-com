@@ -24,7 +24,7 @@ export const PortfolioStyle = StyleSheet.create({
     flex: 1,
   },
   column2Style: {
-    flex: 6,
+    flex: 5,
   },
   titleView: {
     padding: '1rem',

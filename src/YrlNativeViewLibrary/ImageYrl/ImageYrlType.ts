@@ -8,7 +8,7 @@ export interface ImageYrlPropsType {
   styleProps?: { ImageYrl: any; image: any }
   testID: string
   uri: string
-  resizeMode: ImageResizeMode
+  resizeMode?: ImageResizeMode
 }
 
 export interface ImageYrlType

@@ -8,12 +8,13 @@ import {
   ImageYrl,
 } from '../../../YrlNativeViewLibrary/index'
 
+import { Text } from '../../Components/Text/Text'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { URL_APP_BASE } from '../../../Constants/servers.const'
 import { HeaderFrame } from '../../Frames/HeaderFrame'
 import { FooterFrame } from '../../Frames/FooterFrame'
 import { MainFrame } from '../../Frames/MainFrame'
-import { RootStoreType } from '../../../Interfaces/RootStoreType'
+import { RootStoreType } from '../../../@types/RootStoreType'
 import { TemplateScreenType } from './TemplateScreenType'
 import { TemplateScreenStyle as style } from './TemplateScreenStyle'
 

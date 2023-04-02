@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 
+import { Text } from '../../Components/Text/Text'
 import { TemplateType } from './TemplateType'
 import { TemplateStyle as style } from './TemplateStyle'
 

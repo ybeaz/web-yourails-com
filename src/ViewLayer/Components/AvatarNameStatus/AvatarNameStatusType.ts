@@ -6,6 +6,7 @@ export interface AvatarNameStatusPropsType {
     viewStyle?: any
   }
   user: UserType
+  status: string
 }
 
 /**

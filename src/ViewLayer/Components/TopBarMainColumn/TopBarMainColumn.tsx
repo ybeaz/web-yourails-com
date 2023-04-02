@@ -48,6 +48,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
       styleProps: {
         viewStyle: themes['themeA'].colors01,
       },
+      status: 'last seen recently',
     },
     imageYrlProps: {
       styleProps: {

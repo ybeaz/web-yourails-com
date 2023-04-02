@@ -27,11 +27,15 @@ const ProfileComponent: ProfileType = props => {
   return (
     <View style={[style.Profile, styleProps.Profile]} testID='Profile'>
       <View style={[style.rowView]} testID='rowView'>
-        <Text style={[style.column1Text]}>telephone</Text>
+        <Text style={[style.column1Text]}>Username</Text>
+        <Text style={[style.column2Text]}>@rome_sfba</Text>
+      </View>
+      <View style={[style.rowView]} testID='rowView'>
+        <Text style={[style.column1Text]}>Phone</Text>
         <Text style={[style.column2Text]}>415-650-9893</Text>
       </View>
       <View style={[style.rowView]} testID='rowView'>
-        <Text style={[style.column1Text]}>email</Text>
+        <Text style={[style.column1Text]}>Email</Text>
         <Text style={[style.column2Text]}>t3531350@yahoo.com</Text>
       </View>
     </View>

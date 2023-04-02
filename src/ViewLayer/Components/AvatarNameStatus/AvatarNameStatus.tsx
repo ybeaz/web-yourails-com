@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text } from 'react-native'
 
 import { AvatarNameStatusType } from './AvatarNameStatusType'
 import { AvatarNameStatusStyle as style } from './AvatarNameStatusStyle'
@@ -10,7 +10,11 @@ import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
  * @import import { AvatarNameStatus } from '../Components/AvatarNameStatus/AvatarNameStatus'
  */
 const AvatarNameStatusComponent: AvatarNameStatusType = props => {
-  const { user, styleProps = { AvatarNameStatus: {}, viewStyle: {} } } = props
+  const {
+    user,
+    styleProps = { AvatarNameStatus: {}, viewStyle: {} },
+    status,
+  } = props
   const { nameFirst, nameLast, uriAvatar = '' } = user
 
   const nameStatus = (
@@ -29,12 +33,20 @@ const AvatarNameStatusComponent: AvatarNameStatusType = props => {
         adjustsFontSizeToFit
         testID='status'
       >
-        last seen recently
+        {status}
       </Text>
     </View>
   )
 
   const propsOut = {
+    imageYrlProps: {
+      styleProps: {
+        ImageYrl: style.ImageYrl,
+        image: style.image,
+      },
+      testID: 'ChatCard_imageYrl',
+      uri: uriAvatar,
+    },
     ButtonYrl: {
       titleText: nameStatus,
       styleProps: { ButtonYrl: {}, title: styleProps.viewStyle },
@@ -44,14 +56,6 @@ const AvatarNameStatusComponent: AvatarNameStatusType = props => {
         console.info('ChatCard [29]')
       },
       iconProps: undefined,
-    },
-    imageYrlProps: {
-      styleProps: {
-        ImageYrl: style.ImageYrl,
-        image: style.image,
-      },
-      testID: 'ChatCard_imageYrl',
-      uri: uriAvatar,
     },
   }
 

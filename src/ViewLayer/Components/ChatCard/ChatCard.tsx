@@ -20,6 +20,7 @@ const ChatCardComponent: ChatCardType = props => {
       styleProps: {
         viewStyle: themes['themeA'].colors07,
       },
+      status: 'last seen recently',
     },
   }
 
