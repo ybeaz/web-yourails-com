@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import dayjs from 'dayjs'
 
+import { Text } from '../../Components/Text/Text'
 import { MessageType } from './MessageType'
 import { MessageStyles as styles } from './MessageStyle'
 import { themes } from '../../Styles/themes'

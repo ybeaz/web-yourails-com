@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 import { nanoid } from 'nanoid'
 
+import { Text } from '../../Components/Text/Text'
 import { TopBarMainColumnType } from './TopBarMainColumnType'
 import { TopBarMainColumnStyle as style } from './TopBarMainColumnStyle'
 import { themes } from '../../Styles/themes'

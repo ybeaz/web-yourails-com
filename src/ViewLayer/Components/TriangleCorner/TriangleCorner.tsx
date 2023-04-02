@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 
 import { TriangleCornerType } from './TriangleCornerType'
 import { TriangleCornerStyle as style } from './TriangleCornerStyle'

@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, FlatList, Text } from 'react-native'
+import { View } from 'react-native'
 
 import {
   getCompetencyTagsR1,
   CompetencyTagsObjType,
   CompetencyType,
 } from '../../../r1Content/getCompetencyTagsR1'
+import { Text } from '../../Components/Text/Text'
 import { TagProperty } from '../TagProperty/TagProperty'
 import { TagsPropertiesType } from './TagsPropertiesType'
 import { TagsPropertiesStyle as style } from './TagsPropertiesStyle'
-import { themes } from '../../Styles/themes'
 
 /**
  * @import import { TagsProperties } from '../Components/TagsProperties/TagsProperties'

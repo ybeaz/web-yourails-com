@@ -1,11 +1,5 @@
-import React, {
-  useCallback,
-  useState,
-  useEffect,
-  useRef,
-  ReactElement,
-} from 'react'
-import { Alert, Linking, ScrollView, View, Text, Modal } from 'react-native'
+import React, { useCallback } from 'react'
+import { Alert, Linking, ScrollView, View, Modal } from 'react-native'
 // import Modal from 'modal-react-native-web';
 
 import {

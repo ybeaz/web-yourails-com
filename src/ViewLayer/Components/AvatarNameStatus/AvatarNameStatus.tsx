@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 
+import { Text } from '../../Components/Text/Text'
 import { AvatarNameStatusType } from './AvatarNameStatusType'
 import { AvatarNameStatusStyle as style } from './AvatarNameStatusStyle'
 import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'

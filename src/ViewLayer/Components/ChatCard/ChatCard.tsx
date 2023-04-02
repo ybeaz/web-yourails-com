@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 
 import { ChatCardType } from './ChatCardType'
 import { ChatCardStyle as style } from './ChatCardStyle'

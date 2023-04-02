@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 
 import { TopBarChatCardsType } from './TopBarChatCardsType'
 import { TopBarChatCardsStyle as style } from './TopBarChatCardsStyle'

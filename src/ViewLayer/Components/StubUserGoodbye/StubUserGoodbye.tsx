@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 
+import { Text } from '../../Components/Text/Text'
 import { StubUserGoodbyeType } from './StubUserGoodbyeType'
 import { StubUserGoodbyeStyle as style } from './StubUserGoodbyeStyle'
-import { RootStoreType } from '../../../Interfaces/RootStoreType'
+import { RootStoreType } from '../../../@types/RootStoreType'
 import { DICTIONARY } from '../../../Constants/dictionary.const'
 
 const StubUserGoodbyeComponent: StubUserGoodbyeType = props => {

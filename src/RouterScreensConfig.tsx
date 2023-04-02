@@ -6,8 +6,9 @@ import {
   Switch,
   Redirect,
 } from 'react-router-dom'
-import { SafeAreaView, Text } from 'react-native'
+import { SafeAreaView } from 'react-native'
 
+import { Text } from './ViewLayer/Components/Text/Text'
 import { routes, RouteType } from './Constants/routes.const'
 import { PageChatsWholeScreen } from './ViewLayer/Screens/PageChatsWholeScreen/PageChatsWholeScreen'
 

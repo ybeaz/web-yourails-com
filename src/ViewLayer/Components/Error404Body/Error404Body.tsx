@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 
+import { Text } from '../../Components/Text/Text'
 import { Error404BodyType } from './Error404BodyType'
 import { Error404BodyStyle as style } from './Error404BodyStyle'
 

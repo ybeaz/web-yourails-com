@@ -1,19 +1,9 @@
-import React, {
-  useRef,
-  useEffect,
-  useCallback,
-  PropsWithChildren,
-  useMemo,
-} from 'react'
+import React, { useRef, useEffect, useCallback } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { SafeAreaView, Text, View, ViewStyle } from 'react-native'
+import { SafeAreaView, View } from 'react-native'
 import { useSelector } from 'react-redux'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
-
-// import AppGiftedChat from '../../../react-native-gifted-chat/App'
-// import { GiftedChatContainer } from '../../Components/GiftedChatContainer'
-// import { GiftedChat } from 'react-native-gifted-chat'
 
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary/AnimatedYrl/AnimatedYrl'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'

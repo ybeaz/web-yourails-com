@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 
 import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'
 import { ContentMenuMainColumnStyle as style } from './ContentMenuMainColumnStyle'
