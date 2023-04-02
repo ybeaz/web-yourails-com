@@ -29,11 +29,6 @@ const TagPropertyComponent: TagPropertyType = props => {
     testID = 'TagProperty',
   } = props
 
-  // Remove
-  if (title === 'Agile') {
-    console.info('TagProperty [23]', { id, title, linkHref, tooltips })
-  }
-
   const url = linkHref
   const handlePress = useCallback(async () => {
     // Checking if the link is supported for links with custom URL scheme.

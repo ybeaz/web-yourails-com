@@ -6,7 +6,8 @@ export interface UserType {
   nameFirst?: string
   nameLast?: string
   uriAvatar?: string
-  telephone?: string | number
+  username?: string | number
+  phone?: string | number
   email?: string
   serviceSpecs?: string[]
   locations?: string[]

@@ -15,7 +15,6 @@ const PortfolioComponent: PortfolioType = props => {
   const { styleProps = { Portfolio: {} } } = props
 
   const projectsList: ProjectType[] = getProjectList()
-  console.info('Portfolio [17]', { projectsList })
 
   const getProjects = (projectsList: ProjectType[]): ReactElement[] => {
     return projectsList

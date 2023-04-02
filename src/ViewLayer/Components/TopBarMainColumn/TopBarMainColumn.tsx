@@ -21,10 +21,10 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
     nameLast,
     uriAvatar = '',
     serviceSpecs = [],
-    telephone = '',
+    username = '',
+    phone = '',
     email = '',
     locations = [],
-    contacts = [],
   } = user
 
   const getStringSpecs = (serviceSpecsIn: string[]) => {
