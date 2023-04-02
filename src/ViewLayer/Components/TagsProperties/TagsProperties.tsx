@@ -5,6 +5,7 @@ import {
   getCompetencyTagsR1,
   CompetencyTagsObjType,
   CompetencyType,
+  getTranslatedPropNamesToSubheadings,
 } from '../../../r1Content/getCompetencyTagsR1'
 import { Text } from '../../Components/Text/Text'
 import { TagProperty } from '../TagProperty/TagProperty'
@@ -45,12 +46,17 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
         key
       ] as CompetencyType[]
 
+      const tagSubheading = getTranslatedPropNamesToSubheadings(key)
+
       return (
         <View
           key={`competencyTags-${index}`}
           style={[style.tagListWrapper]}
           testID='tagListWrapper'
         >
+          <Text style={[style.tagSubheading]} testID='tagSubheadingText'>
+            {tagSubheading}
+          </Text>
           {getTagList(competencyTagsGroup)}
         </View>
       )

@@ -10,6 +10,7 @@ export type CompetencyTagsObjNoIdType = {
   general: CompetencyNoIdType[]
   clientSide: CompetencyNoIdType[]
   serverSide: CompetencyNoIdType[]
+  machineLearning: CompetencyNoIdType[]
 }
 
 export type CompetencyType = {
@@ -23,17 +24,35 @@ export type CompetencyTagsObjType = {
   general: CompetencyType[]
   clientSide: CompetencyType[]
   serverSide: CompetencyType[]
+  machineLearning: CompetencyNoIdType[]
 }
 
 interface GetCompetencyTagsR1Type {
   (): CompetencyTagsObjType
 }
 
+type GetTranslatedPropNamesToSubheadingsType = {
+  (prop: string): string
+}
+
+export const getTranslatedPropNamesToSubheadings: GetTranslatedPropNamesToSubheadingsType =
+  prop => {
+    const PROP_NAMES_TO_SUBHEADINGS_DICT: Record<string, string> = {
+      general: 'Professional Excellence',
+      clientSide: 'Front-end:',
+      serverSide: 'Back-end:',
+      machineLearning: 'AI/ ML:',
+    }
+
+    return PROP_NAMES_TO_SUBHEADINGS_DICT[prop]
+  }
+
 export const getCompetencyTagsR1: GetCompetencyTagsR1Type = () => {
   const competencyTagsObj: CompetencyTagsObjNoIdType = {
     general: [],
     clientSide: [],
     serverSide: [],
+    machineLearning: [],
   }
 
   //Methodologies competencies
@@ -730,24 +749,35 @@ JS JSON',
     },
 
     {
-      title: 'JS Frameworks',
-      linkHref: '',
+      title: 'Jest',
+      linkHref: 'https://jestjs.io/docs/api',
       tooltips:
         '\
-AMP\n\
-AngularJS\n\
-Bootstrap\n\
-jQuery\n\
-jQuery-UI\n\
-Less\n\
-Lodash\n\
-Material Design\n\
-Moment\n\
-Normalizr\n\
-ReactJS\n\
-React-router\n\
-Redux\n\
-Semantic-ui-react',
+afterAll(fn, timeout)\n\
+afterEach(fn, timeout)\n\
+beforeAll(fn, timeout)\n\
+beforeEach(fn, timeout)\n\
+describe(name, fn)\n\
+describe.each(table)(name, fn, timeout)\n\
+describe.only(name, fn)\n\
+describe.only.each(table)(name, fn)\n\
+describe.skip(name, fn)\n\
+describe.skip.each(table)(name, fn)\n\
+test(name, fn, timeout)\n\
+test.concurrent(name, fn, timeout)\n\
+test.concurrent.each(table)(name, fn, timeout)\n\
+test.concurrent.only.each(table)(name, fn)\n\
+test.concurrent.skip.each(table)(name, fn)\n\
+test.each(table)(name, fn, timeout)\n\
+test.failing(name, fn, timeout)\n\
+test.failing.each(name, fn, timeout)\n\
+test.only.failing(name, fn, timeout)\n\
+test.skip.failing(name, fn, timeout)\n\
+test.only(name, fn, timeout)\n\
+test.only.each(table)(name, fn)\n\
+test.skip(name, fn)\n\
+test.skip.each(table)(name, fn)\n\
+test.todo(name)',
     },
 
     {
@@ -824,6 +854,28 @@ Toggle Class\n\
 UTILITIES\n\
 Position\n\
 Widget Factory',
+    },
+
+    {
+      title: 'JS Frameworks',
+      linkHref: '',
+      tooltips:
+        '\
+AMP\n\
+AngularJS\n\
+Bootstrap\n\
+jQuery\n\
+jQuery-UI\n\
+Less\n\
+Lodash\n\
+Material Design\n\
+Moment\n\
+Normalizr\n\
+ReactJS\n\
+React native\n\
+React-router\n\
+Redux\n\
+Semantic-ui-react',
     },
 
     {
@@ -1314,85 +1366,6 @@ Targets',
   //Backend compentencies
   competencyTagsObj['serverSide'] = [
     {
-      title: 'AI & Machine Learning',
-      linkHref: 'https://keras.io/',
-      tooltips:
-        '\
-★ To define task in the ML terms \n\
-★ To build hypothesis (data > outcome) \n\
-★ To state statistical parameters of accepted results (metrics, confidence interval) \n\
-★ To pick up data, sources, units \n\
-★ To chose type and techniques and algorithm \n\
-  Data mining types: ✔ clustering/ pattern recognition, ✔ classification, ✔ regression/ forecasting \n\
-  Data mining techniques: ● Supervised Learning ● Unsupervised Learning ● Reinforcement Learning \n\
-  Data mining types:: On-line learning (Real-time learning), Off-line learning, mini sampling \n\
-★ To prepare data (input, output) \n\
-  Dimensionality reducing \n\
-  Data preprocessing (data cleaning, optimizing): dublicates, dummy values, abnormal value, data integrity \n\
-★ To normalize data \n\
-★ To sample data sets \n\
-  Training Dataset. The sample of data used to fit the model \n\
-  Validation Dataset. The sample of data used to evaluate of a model fit while tuning model hyperparameters or online fitting \n\
-  Test Dataset. The sample of data used to provide an unbiased evaluation of a final model fit \n\
-★ To architect layers: input, output, multi-layer, hidden layer \n\
-★ To set up hyperparameters. For neuro networs: optimises, loss, metrics, quantity of epoches, is shuffling, number votes, model fit acceptance, learning rate, train speed, coefficient of train speed, gradient method, activation function Compressive function: Sigmoid, Hyperbolic tangent \n\
-★ To process results \n\
-  plotting, graphics building \n\
-  build tables with models results and metaparameters \n\
-  statistic analysis: confidence interval, statistical significance \n\
-\n\
-Mean Median Mode\n\
-Standard Deviation\n\
-Percentile\n\
-Data Distribution\n\
-Normal Data Distribution\n\
-Scatter Plot\n\
-Linear Regression\n\
-Polynomial Regression\n\
-Multiple Regression\n\
-Scale\n\
-Train/Test\n\
-Decision Tree\n\
-',
-    },
-
-    {
-      title: 'Algoritms for ML & AI',
-      linkHref:
-        'https://www.analyticsvidhya.com/blog/2017/09/common-machine-learning-algorithms/',
-      tooltips:
-        '\
-\n\
-Types of Machine Learning Algorithms\n\
-  ✔ Clustering (unsupervised) is a categorisation of objects into one or more classes without predifined labels\n\
-  ✔ Classification (supervised) is to partition n observations into k predifined classes \n\
-  ✔ Regression (supervised) is a processes for estimating the relationships between a dependent variable and one or more independent variables \n\
-  \n\
-Techniques of Machine Learning Algorithms \n\
-  ● Supervised Learning - Y(X1, X2, ...Xn). There are a target / outcome variable (or dependent variable) and a given set of predictors (independent variables)\n\
-  ● Unsupervised Learning - There is no any target or outcome variable to predict / estimate. It is used for clustering population in different groups \n\
-  ● Reinforcement Learning - The machine is exposed to an environment where it trains itself continually using trial and error.\n\
-\n\
-★ Linear Regression - (regression) to establish relationship between independent and dependent variables targeting to a linear equation Y= a + b *X \n\
-★ Simplex algorithm (or simplex method) - to optimize decisiion based on constraints, a popular algorithm for linear programming \n\
-★ Polynomial Regression - (regression) to establish relationship between independent and dependent variables targeting to a polinomal equation Y = a + b * X + c * X ^ 2 + ...d * X ^ n \n\
-★ Multiple Regression - (regression) to predict a value based on two or more variables \n\
-★ Logistic Regression - (classification) to predict the probability of occurrence of an event by fitting data to a logit function \n\
-★ Decision Tree - (classification) to split the population into two or more homogeneous sets to make as distinct groups as possible \n\
-★ SVM - (classification) to plot each data item as a point in n-dimensional space and find line (space) of the our classifier \n\
-★ Naive Bayes - (classification) to consider all of these properties to independently contribute to the probability of the output \n\
-★ kNN/ k- Nearest Neighbors - (classification/ regression) to store all available cases and classifies new cases by a majority vote of its k neighbors \n\
-★ K-Means - (classification) to classify a given data set through a certain number of clusters (assume k clusters) that are homogeneous and heterogeneous to peer groups. \n\
-★ Random Forest - (classification) to interpret observations as votes that "forest" chooses the classification (over all the trees in the forest) \n\
-★ Dimensionality Reduction Algorithms - to escape high unwanted dimensions and chose meaning dimentions by dimension reduction \n\
-★ Gradient Boosting algorithms \n\
-    * GBM - to ensemble of learning algorithms which combines the prediction of several base estimators (weak or average) \n\
-    * XGBoost - to offer support of various objective functions, including regression, classification and ranking \n\
-    * LightGBM - to use tree based learning algorithms. It is designed to be distributed \n\
-    * CatBoost - to deal with categorical variables without showing the type conversion error, which helps you to focus on tuning your model',
-    },
-
-    {
       title: 'Apollo Graphql',
       linkHref: 'https://www.apollographql.com/docs/',
       tooltips:
@@ -1513,23 +1486,6 @@ router.use()\n\
     },
 
     {
-      title: 'Fann',
-      linkHref: 'https://leenissen.dk/fann/wp/',
-      tooltips:
-        '\
-FANN Artificial Neural Network Library Features:\n\
-Multilayer Artificial Neural Network Library in C\n\
-Backpropagation training (RPROP, Quickprop, Batch, Incremental)\n\
-Evolving topology training which dynamically builds and trains the ANN (Cascade2)\n\
-Easy to use (create, train and run an ANN with just three function calls)\n\
-Fast (up to 150 times faster execution than other libraries)\n\
-Versatile (possible to adjust many parameters and features on-the-fly)\n\
-Well documented (An easy to read introduction article\n\
-Cross-platform \n\
-Several different activation functions implemented (including stepwise linear functions for that extra bit of speed)',
-    },
-
-    {
       title: 'Json',
       linkHref: 'https://json-schema.org/',
       tooltips:
@@ -1541,106 +1497,6 @@ JSON Stringify\n\
 JSON PHP\n\
 JSON HTML\n\
 JSON JSONP',
-    },
-
-    {
-      title: 'Keras',
-      linkHref: 'https://keras.io/api/',
-      tooltips:
-        '\
-Models API\n\
-Layers API\n\
-Callbacks API\n\
-Data preprocessing\n\
-Optimizers\n\
-Metrics\n\
-Losses\n\
-Built-in small datasets\n\
-Keras Applications\n\
-Utilities\n\
-\n\
-Models API\n\
-The Model class\n\
-The Sequential class\n\
-Model training APIs\n\
-Model saving & serialization APIs\n\
-Layers API\n\
-The base Layer class\n\
-Layer activations\n\
-Layer weight initializers\n\
-Layer weight regularizers\n\
-Layer weight constraints\n\
-Core layers\n\
-Convolution layers\n\
-Pooling layers\n\
-Recurrent layers\n\
-Preprocessing layers\n\
-Normalization layers\n\
-Regularization layers\n\
-Attention layers\n\
-Reshaping layers\n\
-Merging layers\n\
-Locally-connected layers\n\
-Activation layers\n\
-Callbacks API\n\
-Base Callback class\n\
-ModelCheckpoint\n\
-TensorBoard\n\
-EarlyStopping\n\
-LearningRateScheduler\n\
-ReduceLROnPlateau\n\
-RemoteMonitor\n\
-LambdaCallback\n\
-TerminateOnNaN\n\
-CSVLogger\n\
-ProgbarLogger\n\
-Data preprocessing\n\
-Image data preprocessing\n\
-Timeseries data preprocessing\n\
-Text data preprocessing\n\
-Optimizers\n\
-SGD\n\
-RMSprop\n\
-Adam\n\
-Adadelta\n\
-Adagrad\n\
-Adamax\n\
-Nadam\n\
-Ftrl\n\
-Metrics\n\
-Accuracy metrics\n\
-Probabilistic metrics\n\
-Regression metrics\n\
-Classification metrics based on True/False positives & negatives\n\
-Image segmentation metrics\n\
-Hinge metrics for "maximum-margin" classification\n\
-Losses\n\
-Probabilistic losses\n\
-Regression losses\n\
-Hinge losses for "maximum-margin" classification\n\
-Built-in small datasets\n\
-MNIST digits classification dataset\n\
-CIFAR10 small images classification dataset\n\
-CIFAR100 small images classification dataset\n\
-IMDB movie review sentiment classification dataset\n\
-Reuters newswire classification dataset\n\
-Fashion MNIST dataset, an alternative to MNIST\n\
-Boston Housing price regression dataset\n\
-Keras Applications\n\
-Xception\n\
-EfficientNet B0 to B7\n\
-VGG16 and VGG19\n\
-ResNet and ResNetV2\n\
-MobileNet and MobileNetV2\n\
-DenseNet\n\
-NasNetLarge and NasNetMobile\n\
-InceptionV3\n\
-InceptionResNetV2\n\
-Utilities\n\
-Model plotting utilities\n\
-Serialization utilities\n\
-Python & NumPy utilities\n\
-Backend utilities',
     },
 
     {
@@ -1732,43 +1588,13 @@ Testing\n\
         ',
     },
 
-    { title: 'Node.js', linkHref: 'https://nodejs.org/en/', tooltips: '' },
-
     {
-      title: 'NumPy',
-      linkHref: 'https://numpy.org/',
+      title: 'Node.js',
+      linkHref: 'https://nodejs.org/en/',
       tooltips:
         '\
-Creating Arrays\n\
-Array Indexing\n\
-Array Slicing\n\
-Data Types\n\
-Copy vs View\n\
-Array Shape\n\
-Array Reshape\n\
-Array Iterating\n\
-Array Join\n\
-Array Split\n\
-Array Search\n\
-Array Sort\n\
-Array Filter\n\
-Random\n\
-ufunc',
-    },
-
-    {
-      title: 'Pandas',
-      linkHref: 'https://pandas.pydata.org/docs/',
-      tooltips:
-        '\
-Series\n\
-DataFrames\n\
-Read CSV\n\
-Read JSON\n\
-Analyzing Data\n\
-Cleaning Data\n\
-Correlations\n\
-Plotting',
+thread workers\n\
+child processes',
     },
 
     {
@@ -1821,50 +1647,6 @@ PHP XML DOM',
     },
 
     {
-      title: 'Python',
-      linkHref: 'https://docs.python.org/3/',
-      tooltips:
-        '\
-Py General\n\
-Comments\n\
-Variables\n\
-Data Types\n\
-Numbers\n\
-Casting\n\
-Strings\n\
-Booleans\n\
-Operators\n\
-Lists\n\
-Tuples\n\
-Sets\n\
-Dictionaries\n\
-If...Else\n\
-While Loops\n\
-For Loops\n\
-Functions\n\
-Lambda\n\
-Arrays\n\
-Classes/Objects\n\
-Inheritance\n\
-Iterators\n\
-Scope\n\
-Modules\n\
-Dates\n\
-Math\n\
-JSON\n\
-RegEx\n\
-PIP\n\
-Try...Except\n\
-User Input\n\
-String Formatting\n\
-Py File Handling\n\
-File Handling\n\
-Read Files\n\
-Write/Create Files\n\
-Delete Files',
-    },
-
-    {
       title: 'Regex',
       linkHref:
         'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp',
@@ -1896,21 +1678,6 @@ Constructing links to routes and go to routes programmatically\n\
 Bookmarking - Users can bookmark URLs in their web browser to save content they want to come back to later.\n\
 Sharing - Users can share content with others by sending a link to a certain page.\n\
 Navigation - URLs are used to drive the web browser’s back/forward functions.',
-    },
-
-    {
-      title: 'SciPy',
-      linkHref: 'https://www.scipy.org/docs.html',
-      tooltips:
-        '\
-Constants\n\
-Optimizers\n\
-Sparse Data\n\
-Graphs\n\
-Spatial Data\n\
-Matlab Arrays\n\
-Interpolation\n\
-Significance Tests',
     },
 
     {
@@ -1946,50 +1713,7 @@ Get PHP Session Variable Values\n\
 Modify a PHP Session Variable\n\
 Destroy a PHP Session',
     },
-    {
-      title: 'Scikit-Learn',
-      linkHref: 'https://scikit-learn.org/stable/modules/classes.html',
-      tooltips:
-        '\
-Base classes and utility functions\n\
-Probability Calibration\n\
-Clustering\n\
-Composite Estimators\n\
-Covariance Estimators\n\
-Cross decomposition\n\
-Datasets\n\
-Matrix Decomposition\n\
-Discriminant Analysis\n\
-Dummy estimators\n\
-Ensemble Methods\n\
-Exceptions and warnings\n\
-Experimental\n\
-Feature Extraction\n\
-Feature Selection\n\
-Gaussian Processes\n\
-Impute\n\
-Inspection\n\
-Isotonic regression\n\
-Kernel Approximation\n\
-Kernel Ridge Regression\n\
-Linear Models\n\
-Manifold Learning\n\
-Metrics\n\
-Gaussian Mixture Models\n\
-Model Selection\n\
-Multiclass classification\n\
-Multioutput regression and classification\n\
-Naive Bayes\n\
-Nearest Neighbors\n\
-Neural network models\n\
-Pipeline\n\
-Preprocessing and Normalization\n\
-Random projection\n\
-Semi-Supervised Learning\n\
-Support Vector Machines\n\
-Decision Trees\n\
-Utilities',
-    },
+
     {
       title: 'Sql',
       linkHref:
@@ -2110,6 +1834,413 @@ Create custom tools. \n\
 Build single- and multiplayer games. \n\
 Build social services. \n\
 Do virtually anything else.',
+    },
+
+    {
+      title: 'Ubuntu',
+      linkHref: 'https://www.ubuntu.com/',
+      tooltips:
+        '\
+Install with GParted\n\
+Change default loading system on systemd\n\
+Set up Aptitude, Synaptic package manager, Wine\n\
+Install MySQL, apache2, PHP, phpmyadmin, Python\n\
+Enable SSH via OpenSSH\n\
+Host multiple Websites on Apache2\n\
+Enable mod_rewrite on Apache2\n\
+Specify A Custom php.ini For A Web Site\n\
+Install Git\n\
+Change privileges for folders\n\
+Install NodeJS\n\
+Install Virtual Box, pm2, Docker\n\
+',
+    },
+
+    {
+      title: 'Xml',
+      linkHref: 'https://www.w3.org/TR/REC-xml/',
+      tooltips:
+        '\
+XML General\n\
+XML Tree\n\
+XML Syntax\n\
+XML Elements\n\
+XML Attributes\n\
+XML Namespaces\n\
+XML Display\n\
+XML HttpRequest\n\
+XML Parser\n\
+XML DOM\n\
+XML XPath\n\
+XML XSLT\n\
+XML XQuery\n\
+XML XLink\n\
+XML Validator\n\
+XML DTD\n\
+XML Schema\n\
+XML Server\n\
+XML AJAX\n\
+AJAX XMLHttp\n\
+AJAX Request\n\
+AJAX Response\n\
+AJAX XML File\n\
+AJAX PHP\n\
+AJAX ASP\n\
+AJAX Database\n\
+AJAX Applications\n\
+XML DOM\n\
+DOM Nodes\n\
+DOM Accessing\n\
+DOM Node Info\n\
+DOM Node List\n\
+DOM Traversing\n\
+DOM Navigating\n\
+DOM Get Values\n\
+DOM Change Nodes\n\
+DOM Remove Nodes\n\
+DOM Replace Nodes\n\
+DOM Create Nodes\n\
+DOM Add Nodes\n\
+DOM Clone Nodes',
+    },
+  ]
+
+  competencyTagsObj['machineLearning'] = [
+    {
+      title: 'AI & Machine Learning',
+      linkHref: 'https://keras.io/',
+      tooltips:
+        '\
+★ To define task in the ML terms \n\
+★ To build hypothesis (data > outcome) \n\
+★ To state statistical parameters of accepted results (metrics, confidence interval) \n\
+★ To pick up data, sources, units \n\
+★ To chose type and techniques and algorithm \n\
+  Data mining types: ✔ clustering/ pattern recognition, ✔ classification, ✔ regression/ forecasting \n\
+  Data mining techniques: ● Supervised Learning ● Unsupervised Learning ● Reinforcement Learning \n\
+  Data mining types:: On-line learning (Real-time learning), Off-line learning, mini sampling \n\
+★ To prepare data (input, output) \n\
+  Dimensionality reducing \n\
+  Data preprocessing (data cleaning, optimizing): dublicates, dummy values, abnormal value, data integrity \n\
+★ To normalize data \n\
+★ To sample data sets \n\
+  Training Dataset. The sample of data used to fit the model \n\
+  Validation Dataset. The sample of data used to evaluate of a model fit while tuning model hyperparameters or online fitting \n\
+  Test Dataset. The sample of data used to provide an unbiased evaluation of a final model fit \n\
+★ To architect layers: input, output, multi-layer, hidden layer \n\
+★ To set up hyperparameters. For neuro networs: optimises, loss, metrics, quantity of epoches, is shuffling, number votes, model fit acceptance, learning rate, train speed, coefficient of train speed, gradient method, activation function Compressive function: Sigmoid, Hyperbolic tangent \n\
+★ To process results \n\
+  plotting, graphics building \n\
+  build tables with models results and metaparameters \n\
+  statistic analysis: confidence interval, statistical significance \n\
+\n\
+Mean Median Mode\n\
+Standard Deviation\n\
+Percentile\n\
+Data Distribution\n\
+Normal Data Distribution\n\
+Scatter Plot\n\
+Linear Regression\n\
+Polynomial Regression\n\
+Multiple Regression\n\
+Scale\n\
+Train/Test\n\
+Decision Tree\n\
+',
+    },
+
+    {
+      title: 'Algoritms for ML & AI',
+      linkHref:
+        'https://www.analyticsvidhya.com/blog/2017/09/common-machine-learning-algorithms/',
+      tooltips:
+        '\
+\n\
+Types of Machine Learning Algorithms\n\
+  ✔ Clustering (unsupervised) is a categorisation of objects into one or more classes without predifined labels\n\
+  ✔ Classification (supervised) is to partition n observations into k predifined classes \n\
+  ✔ Regression (supervised) is a processes for estimating the relationships between a dependent variable and one or more independent variables \n\
+  \n\
+Techniques of Machine Learning Algorithms \n\
+  ● Supervised Learning - Y(X1, X2, ...Xn). There are a target / outcome variable (or dependent variable) and a given set of predictors (independent variables)\n\
+  ● Unsupervised Learning - There is no any target or outcome variable to predict / estimate. It is used for clustering population in different groups \n\
+  ● Reinforcement Learning - The machine is exposed to an environment where it trains itself continually using trial and error.\n\
+\n\
+★ Linear Regression - (regression) to establish relationship between independent and dependent variables targeting to a linear equation Y= a + b *X \n\
+★ Simplex algorithm (or simplex method) - to optimize decisiion based on constraints, a popular algorithm for linear programming \n\
+★ Polynomial Regression - (regression) to establish relationship between independent and dependent variables targeting to a polinomal equation Y = a + b * X + c * X ^ 2 + ...d * X ^ n \n\
+★ Multiple Regression - (regression) to predict a value based on two or more variables \n\
+★ Logistic Regression - (classification) to predict the probability of occurrence of an event by fitting data to a logit function \n\
+★ Decision Tree - (classification) to split the population into two or more homogeneous sets to make as distinct groups as possible \n\
+★ SVM - (classification) to plot each data item as a point in n-dimensional space and find line (space) of the our classifier \n\
+★ Naive Bayes - (classification) to consider all of these properties to independently contribute to the probability of the output \n\
+★ kNN/ k- Nearest Neighbors - (classification/ regression) to store all available cases and classifies new cases by a majority vote of its k neighbors \n\
+★ K-Means - (classification) to classify a given data set through a certain number of clusters (assume k clusters) that are homogeneous and heterogeneous to peer groups. \n\
+★ Random Forest - (classification) to interpret observations as votes that "forest" chooses the classification (over all the trees in the forest) \n\
+★ Dimensionality Reduction Algorithms - to escape high unwanted dimensions and chose meaning dimentions by dimension reduction \n\
+★ Gradient Boosting algorithms \n\
+    * GBM - to ensemble of learning algorithms which combines the prediction of several base estimators (weak or average) \n\
+    * XGBoost - to offer support of various objective functions, including regression, classification and ranking \n\
+    * LightGBM - to use tree based learning algorithms. It is designed to be distributed \n\
+    * CatBoost - to deal with categorical variables without showing the type conversion error, which helps you to focus on tuning your model',
+    },
+
+    {
+      title: 'Fann',
+      linkHref: 'https://leenissen.dk/fann/wp/',
+      tooltips:
+        '\
+FANN Artificial Neural Network Library Features:\n\
+Multilayer Artificial Neural Network Library in C\n\
+Backpropagation training (RPROP, Quickprop, Batch, Incremental)\n\
+Evolving topology training which dynamically builds and trains the ANN (Cascade2)\n\
+Easy to use (create, train and run an ANN with just three function calls)\n\
+Fast (up to 150 times faster execution than other libraries)\n\
+Versatile (possible to adjust many parameters and features on-the-fly)\n\
+Well documented (An easy to read introduction article\n\
+Cross-platform \n\
+Several different activation functions implemented (including stepwise linear functions for that extra bit of speed)',
+    },
+
+    {
+      title: 'Keras',
+      linkHref: 'https://keras.io/api/',
+      tooltips:
+        '\
+Models API\n\
+Layers API\n\
+Callbacks API\n\
+Data preprocessing\n\
+Optimizers\n\
+Metrics\n\
+Losses\n\
+Built-in small datasets\n\
+Keras Applications\n\
+Utilities\n\
+\n\
+Models API\n\
+The Model class\n\
+The Sequential class\n\
+Model training APIs\n\
+Model saving & serialization APIs\n\
+Layers API\n\
+The base Layer class\n\
+Layer activations\n\
+Layer weight initializers\n\
+Layer weight regularizers\n\
+Layer weight constraints\n\
+Core layers\n\
+Convolution layers\n\
+Pooling layers\n\
+Recurrent layers\n\
+Preprocessing layers\n\
+Normalization layers\n\
+Regularization layers\n\
+Attention layers\n\
+Reshaping layers\n\
+Merging layers\n\
+Locally-connected layers\n\
+Activation layers\n\
+Callbacks API\n\
+Base Callback class\n\
+ModelCheckpoint\n\
+TensorBoard\n\
+EarlyStopping\n\
+LearningRateScheduler\n\
+ReduceLROnPlateau\n\
+RemoteMonitor\n\
+LambdaCallback\n\
+TerminateOnNaN\n\
+CSVLogger\n\
+ProgbarLogger\n\
+Data preprocessing\n\
+Image data preprocessing\n\
+Timeseries data preprocessing\n\
+Text data preprocessing\n\
+Optimizers\n\
+SGD\n\
+RMSprop\n\
+Adam\n\
+Adadelta\n\
+Adagrad\n\
+Adamax\n\
+Nadam\n\
+Ftrl\n\
+Metrics\n\
+Accuracy metrics\n\
+Probabilistic metrics\n\
+Regression metrics\n\
+Classification metrics based on True/False positives & negatives\n\
+Image segmentation metrics\n\
+Hinge metrics for "maximum-margin" classification\n\
+Losses\n\
+Probabilistic losses\n\
+Regression losses\n\
+Hinge losses for "maximum-margin" classification\n\
+Built-in small datasets\n\
+MNIST digits classification dataset\n\
+CIFAR10 small images classification dataset\n\
+CIFAR100 small images classification dataset\n\
+IMDB movie review sentiment classification dataset\n\
+Reuters newswire classification dataset\n\
+Fashion MNIST dataset, an alternative to MNIST\n\
+Boston Housing price regression dataset\n\
+Keras Applications\n\
+Xception\n\
+EfficientNet B0 to B7\n\
+VGG16 and VGG19\n\
+ResNet and ResNetV2\n\
+MobileNet and MobileNetV2\n\
+DenseNet\n\
+NasNetLarge and NasNetMobile\n\
+InceptionV3\n\
+InceptionResNetV2\n\
+Utilities\n\
+Model plotting utilities\n\
+Serialization utilities\n\
+Python & NumPy utilities\n\
+Backend utilities',
+    },
+
+    {
+      title: 'NumPy',
+      linkHref: 'https://numpy.org/',
+      tooltips:
+        '\
+Creating Arrays\n\
+Array Indexing\n\
+Array Slicing\n\
+Data Types\n\
+Copy vs View\n\
+Array Shape\n\
+Array Reshape\n\
+Array Iterating\n\
+Array Join\n\
+Array Split\n\
+Array Search\n\
+Array Sort\n\
+Array Filter\n\
+Random\n\
+ufunc',
+    },
+
+    {
+      title: 'Pandas',
+      linkHref: 'https://pandas.pydata.org/docs/',
+      tooltips:
+        '\
+Series\n\
+DataFrames\n\
+Read CSV\n\
+Read JSON\n\
+Analyzing Data\n\
+Cleaning Data\n\
+Correlations\n\
+Plotting',
+    },
+
+    {
+      title: 'Python',
+      linkHref: 'https://docs.python.org/3/',
+      tooltips:
+        '\
+Py General\n\
+Comments\n\
+Variables\n\
+Data Types\n\
+Numbers\n\
+Casting\n\
+Strings\n\
+Booleans\n\
+Operators\n\
+Lists\n\
+Tuples\n\
+Sets\n\
+Dictionaries\n\
+If...Else\n\
+While Loops\n\
+For Loops\n\
+Functions\n\
+Lambda\n\
+Arrays\n\
+Classes/Objects\n\
+Inheritance\n\
+Iterators\n\
+Scope\n\
+Modules\n\
+Dates\n\
+Math\n\
+JSON\n\
+RegEx\n\
+PIP\n\
+Try...Except\n\
+User Input\n\
+String Formatting\n\
+Py File Handling\n\
+File Handling\n\
+Read Files\n\
+Write/Create Files\n\
+Delete Files',
+    },
+
+    {
+      title: 'SciPy',
+      linkHref: 'https://www.scipy.org/docs.html',
+      tooltips:
+        '\
+Constants\n\
+Optimizers\n\
+Sparse Data\n\
+Graphs\n\
+Spatial Data\n\
+Matlab Arrays\n\
+Interpolation\n\
+Significance Tests',
+    },
+
+    {
+      title: 'Scikit-Learn',
+      linkHref: 'https://scikit-learn.org/stable/modules/classes.html',
+      tooltips:
+        '\
+Base classes and utility functions\n\
+Probability Calibration\n\
+Clustering\n\
+Composite Estimators\n\
+Covariance Estimators\n\
+Cross decomposition\n\
+Datasets\n\
+Matrix Decomposition\n\
+Discriminant Analysis\n\
+Dummy estimators\n\
+Ensemble Methods\n\
+Exceptions and warnings\n\
+Experimental\n\
+Feature Extraction\n\
+Feature Selection\n\
+Gaussian Processes\n\
+Impute\n\
+Inspection\n\
+Isotonic regression\n\
+Kernel Approximation\n\
+Kernel Ridge Regression\n\
+Linear Models\n\
+Manifold Learning\n\
+Metrics\n\
+Gaussian Mixture Models\n\
+Model Selection\n\
+Multiclass classification\n\
+Multioutput regression and classification\n\
+Naive Bayes\n\
+Nearest Neighbors\n\
+Neural network models\n\
+Pipeline\n\
+Preprocessing and Normalization\n\
+Random projection\n\
+Semi-Supervised Learning\n\
+Support Vector Machines\n\
+Decision Trees\n\
+Utilities',
     },
 
     {
@@ -2423,80 +2554,13 @@ uint64 tf.dtypes.DType \n\
 uint8 tf.dtypes.DType \n\
 variant tf.dtypes.DType',
     },
-
-    {
-      title: 'Ubuntu',
-      linkHref: 'https://www.ubuntu.com/',
-      tooltips:
-        '\
-Install with GParted\n\
-Change default loading system on systemd\n\
-Set up Aptitude, Synaptic package manager, Wine\n\
-Install MySQL, apache2, PHP, phpmyadmin, Python\n\
-Enable SSH via OpenSSH\n\
-Host multiple Websites on Apache2\n\
-Enable mod_rewrite on Apache2\n\
-Specify A Custom php.ini For A Web Site\n\
-Install Git\n\
-Change privileges for folders\n\
-Install NodeJS\n\
-Install Virtual Box, pm2, Docker\n\
-',
-    },
-
-    {
-      title: 'Xml',
-      linkHref: 'https://www.w3.org/TR/REC-xml/',
-      tooltips:
-        '\
-XML General\n\
-XML Tree\n\
-XML Syntax\n\
-XML Elements\n\
-XML Attributes\n\
-XML Namespaces\n\
-XML Display\n\
-XML HttpRequest\n\
-XML Parser\n\
-XML DOM\n\
-XML XPath\n\
-XML XSLT\n\
-XML XQuery\n\
-XML XLink\n\
-XML Validator\n\
-XML DTD\n\
-XML Schema\n\
-XML Server\n\
-XML AJAX\n\
-AJAX XMLHttp\n\
-AJAX Request\n\
-AJAX Response\n\
-AJAX XML File\n\
-AJAX PHP\n\
-AJAX ASP\n\
-AJAX Database\n\
-AJAX Applications\n\
-XML DOM\n\
-DOM Nodes\n\
-DOM Accessing\n\
-DOM Node Info\n\
-DOM Node List\n\
-DOM Traversing\n\
-DOM Navigating\n\
-DOM Get Values\n\
-DOM Change Nodes\n\
-DOM Remove Nodes\n\
-DOM Replace Nodes\n\
-DOM Create Nodes\n\
-DOM Add Nodes\n\
-DOM Clone Nodes',
-    },
   ]
 
   const competencyTagsObjNext: CompetencyTagsObjType = {
     general: [],
     clientSide: [],
     serverSide: [],
+    machineLearning: [],
   }
   ;(
     Object.keys(competencyTagsObj) as Array<keyof CompetencyTagsObjType>

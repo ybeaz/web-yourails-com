@@ -18,13 +18,12 @@ export const TagsPropertiesStyle = StyleSheet.create({
     paddingTop: '1rem',
     flexDirection: 'row',
     flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
-  flatListWrapper: {
-    padding: '2rem',
-    // flexShrink: 1,
-  },
-  flatList: {
-    // flexWrap: 'wrap',
+  tagSubheading: {
+    paddingLeft: '0.5rem',
+    fontWeight: 'bold',
   },
   flatListContentContainerStyle: {
     flex: 1,

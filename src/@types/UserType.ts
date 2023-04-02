@@ -13,4 +13,5 @@ export interface UserType {
   locations?: string[]
   contacts?: string[]
   serviceSections?: []
+  summary: string
 }

@@ -7,6 +7,13 @@ updated 2022-10-05
 updated 2023-03-17
 react-native-gifted-chat[https://github.com/FaridSafi/react-native-gifted-chat/tree/master/src] is used for chat
 
+## Decisions made
+
+1. We consider as a Container, the root for loading the store the following types
+
+- screens
+- parent modal window frames
+
 ## Plan for work
 
 ## How to, architecture / development notes

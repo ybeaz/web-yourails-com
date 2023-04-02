@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
 
-import { TopBarChatCardsType } from './TopBarChatCardsType'
-import { TopBarChatCardsStyle as style } from './TopBarChatCardsStyle'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
-import { InputTextYrl } from '../../../YrlNativeViewLibrary/InputTextYrl/InputTextYrl'
 import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
+import { InputTextYrl } from '../../../YrlNativeViewLibrary/InputTextYrl/InputTextYrl'
 import { themes } from '../../Styles/themes'
+import { TopBarChatCardsStyle as style } from './TopBarChatCardsStyle'
+import { TopBarChatCardsType } from './TopBarChatCardsType'
 
 /**
  * @import import { TopBarChatCards } from '../Components/TopBarChatCards/TopBarChatCards'

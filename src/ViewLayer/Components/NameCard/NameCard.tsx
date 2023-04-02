@@ -9,7 +9,7 @@ import { NameCardStyle as style } from './NameCardStyle'
  * @import import { NameCard } from '../Components/NameCard/NameCard'
  */
 const NameCardComponent: NameCardType = props => {
-  const { styleProps = { NameCard: {}, viewStyle: {} }, user, status } = props
+  const { styleProps = { NameCard: {} }, user, status } = props
   const {
     nameFirst,
     nameLast,

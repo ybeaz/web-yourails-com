@@ -11,6 +11,7 @@ export const users: UserType[] = [
     email: 't3531350@yahoo.com',
     locations: ['Remote', 'San Francisco, CA'],
     serviceSpecs: ['Full Stack Developer', 'Machine Learning Engineer'],
+    summary: '',
   },
   {
     id: 1,
@@ -22,5 +23,6 @@ export const users: UserType[] = [
     email: 'smiddist@gmail.com',
     locations: ['Remote', 'San Francisco, CA'],
     serviceSpecs: ['Handyman', 'Carpenter'],
+    summary: '',
   },
 ]

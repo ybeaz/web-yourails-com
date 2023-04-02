@@ -1,12 +1,13 @@
 import React, { useCallback, ReactElement } from 'react'
 import { ImageResizeMode, View, Linking, Alert } from 'react-native'
 
-import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
-import { getProjectList, ProjectType } from '../../../r1Content/r1Projects'
-import { PortfolioType } from './PortfolioType'
+import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
 import { PortfolioStyle as style } from './PortfolioStyle'
+import { PortfolioType } from './PortfolioType'
 import { Text } from '../../Components/Text/Text'
+
+import { getProjectList, ProjectType } from '../../../r1Content/r1Projects'
 
 /**
  * @import import { Portfolio } from '../Components/Portfolio/Portfolio'
