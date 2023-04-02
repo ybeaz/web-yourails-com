@@ -7,6 +7,15 @@ import { NameStatusStyle as style } from './NameStatusStyle'
 
 /**
  * @import import { NameStatus } from '../Components/NameStatus/NameStatus'
+ * @propsOut
+    nameStatusProps: {
+      styleProps: {
+        NameStatus: {},
+        viewStyle: themes['themeA'].colors07,
+      },
+      user,
+      status: 'last seen recently',
+    },
  */
 const NameStatusComponent: NameStatusType = props => {
   const { styleProps = { NameStatus: {}, viewStyle: {} }, user, status } = props

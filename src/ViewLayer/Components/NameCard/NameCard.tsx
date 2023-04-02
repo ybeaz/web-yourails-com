@@ -10,7 +10,15 @@ import { NameCardStyle as style } from './NameCardStyle'
  */
 const NameCardComponent: NameCardType = props => {
   const { styleProps = { NameCard: {}, viewStyle: {} }, user, status } = props
-  const { nameFirst, nameLast, username, phone, email } = user
+  const {
+    nameFirst,
+    nameLast,
+    username,
+    phone,
+    email,
+    locations,
+    serviceSpecs,
+  } = user
 
   const propsOut = {}
 

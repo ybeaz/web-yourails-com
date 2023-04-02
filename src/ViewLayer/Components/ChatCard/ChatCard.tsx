@@ -7,8 +7,6 @@ import { themes } from '../../Styles/themes'
 import { NameStatus } from '../NameStatus/NameStatus'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 
-import { users } from '../../../Constants/usersMock'
-
 /**
  * @import import { ChatCard } from '../Components/ChatCard/ChatCard'
  */

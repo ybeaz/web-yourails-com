@@ -9,6 +9,13 @@ import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 
 /**
  * @import import { AvatarPlusInfo } from '../Components/AvatarPlusInfo/AvatarPlusInfo'
+ * @propsOut
+    avatarPlusInfoProps: {
+      user,
+      styleProps: {
+        viewStyle: themes['themeA'].colors07,
+      },
+    },
  */
 const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
   const {
@@ -17,27 +24,6 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
     children,
   } = props
   const { uriAvatar = '' } = user
-
-  // const NameStatus = () => (
-  //   <View style={[style.nameStatus]} testID='nameStatus'>
-  //     <Text
-  //       style={[style.name, styleProps.viewStyle]}
-  //       numberOfLines={1}
-  //       adjustsFontSizeToFit
-  //       testID='name'
-  //     >
-  //       {`${nameFirst} ${nameLast}`}
-  //     </Text>
-  //     <Text
-  //       style={[style.status, styleProps.viewStyle]}
-  //       numberOfLines={1}
-  //       adjustsFontSizeToFit
-  //       testID='status'
-  //     >
-  //       {status}
-  //     </Text>
-  //   </View>
-  // )
 
   const propsOut = {
     imageYrlProps: {
