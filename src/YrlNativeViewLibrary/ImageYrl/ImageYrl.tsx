@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SafeAreaView, Image } from 'react-native'
+import { View, Image } from 'react-native'
 import { ImageYrlType } from './ImageYrlType'
 import { ImageYrlStyle as style } from './ImageYrlStyle'
 
@@ -11,6 +11,7 @@ import { ImageYrlStyle as style } from './ImageYrlStyle'
     styleProps: { ImageYrl: {}, image: {} },
     testID: 'ImageYrl',
     uri: '',
+    resizeMode: 'cover' // 'cover' | 'contain' | 'stretch' | 'repeat' | 'center'
   }
  */
 export const ImageYrl: ImageYrlType = props => {
@@ -18,15 +19,17 @@ export const ImageYrl: ImageYrlType = props => {
     styleProps = { ImageYrl: {}, image: {} },
     testID = 'ImageYrl',
     uri,
+    resizeMode = 'contain',
   } = props
 
   return (
-    <SafeAreaView style={[style.ImageYrl, styleProps.ImageYrl]} testID={testID}>
+    <View style={[style.ImageYrl, styleProps.ImageYrl]} testID={testID}>
       <Image
         style={[style.image, styleProps.image]}
-        testID={`${testID}_Image`}
         source={{ uri }}
+        resizeMode={resizeMode}
+        testID={`${testID}_Image`}
       />
-    </SafeAreaView>
+    </View>
   )
 }

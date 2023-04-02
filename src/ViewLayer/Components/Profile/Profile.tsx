@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 
 import { ProfileType } from './ProfileType'
 import { ProfileStyle as style } from './ProfileStyle'
+import { Text } from '../Text/Text'
 
 /**
  * @import import { Profile } from '../Components/Profile/Profile'
@@ -25,8 +26,13 @@ const ProfileComponent: ProfileType = props => {
 
   return (
     <View style={[style.Profile, styleProps.Profile]} testID='Profile'>
-      <View style={[style.viewPadding]} testID='viewPadding'>
-        {getContent(30)}
+      <View style={[style.rowView]} testID='rowView'>
+        <Text style={[style.column1Text]}>telephone</Text>
+        <Text style={[style.column2Text]}>415-650-9893</Text>
+      </View>
+      <View style={[style.rowView]} testID='rowView'>
+        <Text style={[style.column1Text]}>email</Text>
+        <Text style={[style.column2Text]}>t3531350@yahoo.com</Text>
       </View>
     </View>
   )

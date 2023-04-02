@@ -16,4 +16,44 @@ export const PortfolioStyle = StyleSheet.create({
     flex: 1,
   },
   projectProfileView: { flex: 1 },
+  rowStyle: {
+    flexDirection: 'row',
+    padding: '0.5rem',
+  },
+  column1Style: {
+    flex: 1,
+  },
+  column2Style: {
+    flex: 6,
+  },
+  titleView: {
+    padding: '1rem',
+  },
+  titleText: {
+    ...styleGlobal.h2,
+  },
+  subtitleView: {},
+  subtitleTextName: {
+    paddingRight: '0.5rem',
+    fontWeight: 'bold',
+  },
+  subtitleText: {},
+  descriptionView: {},
+  descriptionTextName: {
+    paddingRight: '0.5rem',
+    fontWeight: 'bold',
+  },
+  descriptionText: {},
+  customerView: {},
+  customerTextName: {
+    paddingRight: '0.5rem',
+    fontWeight: 'bold',
+  },
+  customerText: {},
+  builtwithView: {},
+  builtwithTextName: {
+    paddingRight: '0.5rem',
+    fontWeight: 'bold',
+  },
+  builtwithText: {},
 })

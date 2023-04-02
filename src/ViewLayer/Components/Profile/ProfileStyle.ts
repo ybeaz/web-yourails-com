@@ -6,8 +6,14 @@ export const ProfileStyle = StyleSheet.create({
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
-  },
-  viewPadding: {
     padding: '3rem',
   },
+  rowView: {
+    flexDirection: 'row',
+  },
+  column1Text: {
+    padding: '1rem',
+    flex: 1,
+  },
+  column2Text: { padding: '1rem', flex: 6 },
 })

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SafeAreaView } from 'react-native'
+import { View } from 'react-native'
 import { TemplateYrlType } from './TemplateYrlType'
 import { TemplateYrlStyle as style } from './TemplateYrlStyle'
 
@@ -14,9 +14,9 @@ export const TemplateYrl: TemplateYrlType = props => {
   const { styleProps = { TemplateYrl: {} }, testID = 'TemplateYrl' } = props
 
   return (
-    <SafeAreaView
+    <View
       style={[style.TemplateYrl, styleProps.TemplateYrl]}
       testID={testID}
-    ></SafeAreaView>
+    ></View>
   )
 }

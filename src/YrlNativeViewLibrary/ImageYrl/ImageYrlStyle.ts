@@ -5,5 +5,6 @@ export const ImageYrlStyle = StyleSheet.create({
   image: {
     width: 50,
     height: 50,
+    backgroundPosition: 'top',
   },
 })
