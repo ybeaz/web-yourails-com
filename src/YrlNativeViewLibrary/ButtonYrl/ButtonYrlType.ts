@@ -8,7 +8,7 @@ import { IconYrlPropsType } from '../IconYrl/IconYrlType'
  */
 export interface ButtonYrlPropsType {
   titleText?: string | ReactElement
-  styleProps?: { ButtonYrl: any; title: any }
+  styleProps?: { ButtonYrl: any; title?: any }
   testID: string
   disabled?: boolean
   onPress?: PressableProps['onPress']

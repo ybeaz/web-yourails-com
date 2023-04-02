@@ -1,3 +1,4 @@
+import { ReactElement } from 'react'
 import { UserType } from '../../../@types/UserType'
 
 export interface AvatarPlusInfoPropsType {
@@ -6,7 +7,7 @@ export interface AvatarPlusInfoPropsType {
     viewStyle?: any
   }
   user: UserType
-  status: string
+  children: ReactElement
 }
 
 /**

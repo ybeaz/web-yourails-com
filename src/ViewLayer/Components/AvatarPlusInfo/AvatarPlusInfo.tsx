@@ -12,32 +12,32 @@ import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
  */
 const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
   const {
-    user,
     styleProps = { AvatarPlusInfo: {}, viewStyle: {} },
-    status,
+    user,
+    children,
   } = props
-  const { nameFirst, nameLast, uriAvatar = '' } = user
+  const { uriAvatar = '' } = user
 
-  const NameStatus = () => (
-    <View style={[style.nameStatus]} testID='nameStatus'>
-      <Text
-        style={[style.name, styleProps.viewStyle]}
-        numberOfLines={1}
-        adjustsFontSizeToFit
-        testID='name'
-      >
-        {`${nameFirst} ${nameLast}`}
-      </Text>
-      <Text
-        style={[style.status, styleProps.viewStyle]}
-        numberOfLines={1}
-        adjustsFontSizeToFit
-        testID='status'
-      >
-        {status}
-      </Text>
-    </View>
-  )
+  // const NameStatus = () => (
+  //   <View style={[style.nameStatus]} testID='nameStatus'>
+  //     <Text
+  //       style={[style.name, styleProps.viewStyle]}
+  //       numberOfLines={1}
+  //       adjustsFontSizeToFit
+  //       testID='name'
+  //     >
+  //       {`${nameFirst} ${nameLast}`}
+  //     </Text>
+  //     <Text
+  //       style={[style.status, styleProps.viewStyle]}
+  //       numberOfLines={1}
+  //       adjustsFontSizeToFit
+  //       testID='status'
+  //     >
+  //       {status}
+  //     </Text>
+  //   </View>
+  // )
 
   const propsOut = {
     imageYrlProps: {
@@ -50,7 +50,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
     },
     ButtonYrl: {
       // titleText: nameStatus,
-      styleProps: { ButtonYrl: {}, title: styleProps.viewStyle },
+      styleProps: { ButtonYrl: {} },
       testID: 'ButtonYrl',
       disabled: false,
       onPress: () => {
@@ -74,7 +74,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
           <View style={[style.avatar]} testID='avatar'>
             <ImageYrl {...propsOut.imageYrlProps} />
           </View>
-          <NameStatus />
+          {children}
         </>
       </ButtonYrl>
     </View>
