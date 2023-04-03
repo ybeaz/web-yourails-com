@@ -14,6 +14,8 @@ export interface ModalFrameYrlPropsType {
   buttonBack?: ButtonYrlPropsType
   buttonClose?: ButtonYrlPropsType
   imageBackgroundSource?: any
+  isButtonBack?: boolean
+  isButtonClose?: boolean
 }
 
 export interface ModalFrameYrlType

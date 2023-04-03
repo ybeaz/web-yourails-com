@@ -15,17 +15,7 @@ import { users } from '../../../Constants/usersMock'
  */
 const TopBarMainColumnComponent: TopBarMainColumnType = props => {
   const user = users[0]
-  const {
-    id,
-    nameFirst,
-    nameLast,
-    uriAvatar = '',
-    serviceSpecs = [],
-    username = '',
-    phone = '',
-    email = '',
-    locations = [],
-  } = user
+  const { uriAvatar = '', serviceSpecs = [] } = user
 
   const getStringSpecs = (serviceSpecsIn: string[]) => {
     return serviceSpecsIn.map((serviceSpec: string, index: number) => {
@@ -76,9 +66,6 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
       </AvatarPlusInfo>
       <View style={[style.serviceSpec]} testID='serviceSpec'>
         {getStringSpecs(serviceSpecs)}
-      </View>
-      <View style={[style.serviceSpec]} testID='serviceSpec'>
-        {getStringSpecs(locations)}
       </View>
     </View>
   )

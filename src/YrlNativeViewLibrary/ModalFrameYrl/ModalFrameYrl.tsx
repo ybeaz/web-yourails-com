@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { SafeAreaView, ImageBackground, Dimensions } from 'react-native'
+import { View, SafeAreaView, ImageBackground, Dimensions } from 'react-native'
 import { ModalFrameYrlType } from './ModalFrameYrlType'
 import { ModalFrameYrlStyle as style } from './ModalFrameYrlStyle'
 import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
@@ -49,7 +49,9 @@ import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
         testID: 'ModalFrameYrl-buttonClose-iconClose',
       },
     },
-    imageBackgroundSource: '', // Example: require('../../../Assets/canopy-of-leaves-2.jpg')
+    imageBackgroundSource: '', // Example: require('../../../Assets/canopy-of-leaves-2.jpg'),
+    isButtonBack: true
+    isButtonClose: true
   }
  */
 export const ModalFrameYrl: ModalFrameYrlType = props => {
@@ -95,13 +97,9 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
       },
     },
     imageBackgroundSource = '',
+    isButtonBack = true,
+    isButtonClose = true,
   } = props
-
-  // TODO: Remove after 2023-04-01
-  const onLayoutModalFrameYrl = (event: any) => {
-    const heightWindow = Dimensions.get('window').height
-    const { x, y, height: heightModalFrame, width } = event.nativeEvent.layout
-  }
 
   const propsOut = {
     buttonBackProps: buttonBack,
@@ -110,24 +108,19 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
 
   const handlersAndContentJsx = (
     <>
-      <SafeAreaView
-        style={[style.buttonBackWrapper]}
-        testID={'buttonBackWrapper'}
-      >
-        <ButtonYrl {...propsOut.buttonBackProps} />
-      </SafeAreaView>
-      <SafeAreaView
-        style={[style.buttonCloseWrapper]}
-        testID={'buttonCloseWrapper'}
-      >
-        <ButtonYrl {...propsOut.buttonCloseProps} />
-      </SafeAreaView>
-      <SafeAreaView
-        style={[style.content, styleProps.content]}
-        testID={'content'}
-      >
+      {isButtonBack && (
+        <View style={[style.buttonBackWrapper]} testID={'buttonBackWrapper'}>
+          <ButtonYrl {...propsOut.buttonBackProps} />
+        </View>
+      )}
+      {isButtonClose && (
+        <View style={[style.buttonCloseWrapper]} testID={'buttonCloseWrapper'}>
+          <ButtonYrl {...propsOut.buttonCloseProps} />
+        </View>
+      )}
+      <View style={[style.content, styleProps.content]} testID={'content'}>
         {children}
-      </SafeAreaView>
+      </View>
     </>
   )
 

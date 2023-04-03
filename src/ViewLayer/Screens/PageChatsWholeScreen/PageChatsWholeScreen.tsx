@@ -39,16 +39,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     // handleEvents.TEMPLATE({}, { id: '3' })
   }, [])
 
-  console.info('PageChatsWholeScreen [41]', {
-    isShowModalFrame,
-    'renderCounter.current !== 0': renderCounter.current !== 0,
-    'renderCounter.current': renderCounter.current,
-    // props,
-    // store,
-    // componentsState,
-    // fadeAnim,
-  })
-
   const onPressButtonYrl = () => {
     console.info('App [14]', { action: 'It is pressed 3' })
   }

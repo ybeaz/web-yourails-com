@@ -98,6 +98,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         },
       },
       imageBackgroundSource: require('../../../Assets/canopy-of-leaves-2.jpg'),
+      isButtonBack: true,
+      isButtonClose: true,
     },
   }
 
