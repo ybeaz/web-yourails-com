@@ -20,6 +20,7 @@ export const ImageYrl: ImageYrlType = props => {
     testID = 'ImageYrl',
     uri,
     resizeMode = 'contain',
+    onLayout = () => {},
   } = props
 
   return (
@@ -28,6 +29,7 @@ export const ImageYrl: ImageYrlType = props => {
         style={[style.image, styleProps.image]}
         source={{ uri }}
         resizeMode={resizeMode}
+        onLayout={onLayout}
         testID={`${testID}_Image`}
       />
     </View>

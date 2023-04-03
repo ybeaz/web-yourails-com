@@ -34,7 +34,7 @@ export const userStoreDefault: any = {
 export const componentsStateDefault: any = {
   isLoaderOverlayVisible: false,
   modalFrame: {
-    childName: 'Profile', // Portfolio, Profile
+    childName: 'Portfolio', // Portfolio, Profile
     isShow: true,
     childProps: {},
   },

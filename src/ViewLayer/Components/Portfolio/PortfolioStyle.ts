@@ -1,21 +1,19 @@
 import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-export const PortfolioStyle = StyleSheet.create({
+const PortfolioStyleDefault: any = {
   Portfolio: {
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
     padding: '3rem',
   },
-  projectView: {
-    flexDirection: 'row',
-    paddingBottom: '2rem',
-  },
+  buttonImageView: { paddingTop: '0.5rem' },
   imageView: {
-    flex: 1,
+    // height: '100%',
+    // width: '100%',
+    // height: '16.8rem',
   },
-  projectProfileView: { flex: 1 },
   rowStyle: {
     flexDirection: 'row',
     padding: '0.5rem',
@@ -27,7 +25,7 @@ export const PortfolioStyle = StyleSheet.create({
     flex: 5,
   },
   titleView: {
-    padding: '1rem',
+    // padding: '1rem',
   },
   titleText: {
     ...styleGlobal.h2,
@@ -56,4 +54,33 @@ export const PortfolioStyle = StyleSheet.create({
     fontWeight: 'bold',
   },
   builtwithText: {},
+}
+
+const lgDevice = StyleSheet.create({
+  ...PortfolioStyleDefault,
+  projectView: {
+    flexDirection: 'row',
+    paddingBottom: '2rem',
+  },
+  projectProfileView: { flex: 1, paddingLeft: '1rem' },
 })
+
+const smDevice = StyleSheet.create({
+  ...PortfolioStyleDefault,
+  projectView: {
+    flexDirection: 'column',
+    paddingBottom: '2rem',
+  },
+  projectProfileView: { flex: 1, paddingBottom: '1rem' },
+})
+
+/**
+ * @import import { themes } from '../Styles/themes'
+ */
+export const PortfolioStyles = {
+  xsDevice: smDevice,
+  smDevice: smDevice,
+  mdDevice: smDevice,
+  lgDevice: lgDevice,
+  xlDevice: lgDevice,
+}

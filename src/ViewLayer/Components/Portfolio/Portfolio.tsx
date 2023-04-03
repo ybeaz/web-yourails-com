@@ -1,9 +1,12 @@
-import React, { useCallback, ReactElement } from 'react'
-import { ImageResizeMode, View, Linking, Alert } from 'react-native'
+import React, { useState, useCallback, ReactElement } from 'react'
+import { Dimensions, ImageResizeMode, View, Linking, Alert } from 'react-native'
+import '@expo/match-media'
 
+import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
+import { useMediaQueryRes, ScreenCaseType } from '../../Hooks/useMediaQueryRes'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
-import { PortfolioStyle as style } from './PortfolioStyle'
+import { PortfolioStyles as styles } from './PortfolioStyle'
 import { PortfolioType } from './PortfolioType'
 import { Text } from '../../Components/Text/Text'
 
@@ -15,8 +18,16 @@ import { getProjectList, ProjectType } from '../../../r1Content/r1Projects'
 const PortfolioComponent: PortfolioType = props => {
   const { styleProps = { Portfolio: {} } } = props
 
-  const projectsList: ProjectType[] = getProjectList()
+  const { deviceType, screenCase, width } = useMediaQueryRes()
 
+  const style = styles[deviceType]
+
+  const { imageWidth, imageHeight } = getImageSizesFor1of2Columns(
+    screenCase,
+    width
+  )
+
+  const projectsList: ProjectType[] = getProjectList()
   const getProjects = (projectsList: ProjectType[]): ReactElement[] => {
     return projectsList
       .filter((project: ProjectType) => project.isActive === true)
@@ -47,11 +58,14 @@ const PortfolioComponent: PortfolioType = props => {
           }
         }, [url])
 
-        const contain: ImageResizeMode = 'contain'
+        const imageResizeMode: ImageResizeMode = 'cover' // 'cover' 'contain' 'center'
 
         const propsOut = {
           projectButtonYrl: {
-            styleProps: { ButtonYrl: {}, title: {} },
+            styleProps: {
+              ButtonYrl: { justifyContent: 'flex-start' },
+              title: {},
+            },
             titleText: '',
             testID: 'projectButtonYrl',
             disabled: false,
@@ -61,15 +75,94 @@ const PortfolioComponent: PortfolioType = props => {
             styleProps: {
               ImageYrl: {},
               image: {
-                width: '30rem',
-                height: '16.8rem',
+                width: imageWidth,
+                height: imageHeight,
               },
             },
+            // onLayout: onImageLayout,
             testID: `projectImageYrl-${index}`,
             uri: imgSrc,
-            resizeMode: contain,
+            resizeMode: imageResizeMode,
           },
         }
+
+        const ProjectProfileView = () => (
+          <View style={[style.projectProfileView]} testID='projectProfileView'>
+            <View style={[style.titleView, style.rowStyle]} testID='titleView'>
+              <Text style={[style.titleText]} testID='titleText'>
+                {title}
+              </Text>
+            </View>
+            <View
+              style={[style.subtitleView, style.rowStyle]}
+              testID='subtitleView'
+            >
+              <Text
+                style={[style.subtitleTextName, style.column1Style]}
+                testID='subtitleTextName'
+              >
+                Subtitle:
+              </Text>
+              <Text
+                style={[style.subtitleText, style.column2Style]}
+                testID='subtitleTex'
+              >
+                {subtitle}
+              </Text>
+            </View>
+            <View
+              style={[style.descriptionView, style.rowStyle]}
+              testID='descriptionView'
+            >
+              <Text
+                style={[style.descriptionTextName, style.column1Style]}
+                testID='subtitleTextName'
+              >
+                Description:
+              </Text>
+              <Text
+                style={[style.descriptionText, style.column2Style]}
+                testID='descriptionText'
+              >
+                {description}
+              </Text>
+            </View>
+            <View
+              style={[style.customerView, style.rowStyle]}
+              testID='customerView'
+            >
+              <Text
+                style={[style.customerTextName, style.column1Style]}
+                testID='customerTextName'
+              >
+                Industry:
+              </Text>
+              <Text
+                style={[style.customerText, style.column2Style]}
+                testID='customerText'
+              >
+                {customer}
+              </Text>
+            </View>
+            <View
+              style={[style.builtwithView, style.rowStyle]}
+              testID='builtwithView'
+            >
+              <Text
+                style={[style.builtwithTextName, style.column1Style]}
+                testID='subtitleTextName'
+              >
+                Built with:
+              </Text>
+              <Text
+                style={[style.builtwithText, style.column2Style]}
+                testID='builtwithText'
+              >
+                {builtwith}
+              </Text>
+            </View>
+          </View>
+        )
 
         return (
           <View
@@ -77,89 +170,15 @@ const PortfolioComponent: PortfolioType = props => {
             style={[style.projectView]}
             testID='projectView'
           >
-            <View style={[style.imageView]} testID='imageView'>
+            {screenCase === 'xsSmMd' && <ProjectProfileView />}
+            <View style={[style.buttonImageView]} testID='buttonImageView'>
               <ButtonYrl {...propsOut.projectButtonYrl}>
-                <ImageYrl {...propsOut.projectImageYrlProps} />
+                <View style={[style.imageView]} testID='imageView'>
+                  <ImageYrl {...propsOut.projectImageYrlProps} />
+                </View>
               </ButtonYrl>
             </View>
-            <View
-              style={[style.projectProfileView]}
-              testID='projectProfileView'
-            >
-              <View style={[style.titleView]} testID='titleView'>
-                <Text style={[style.titleText]} testID='titleText'>
-                  {title}
-                </Text>
-              </View>
-              <View
-                style={[style.subtitleView, style.rowStyle]}
-                testID='subtitleView'
-              >
-                <Text
-                  style={[style.subtitleTextName, style.column1Style]}
-                  testID='subtitleTextName'
-                >
-                  Subtitle:
-                </Text>
-                <Text
-                  style={[style.subtitleText, style.column2Style]}
-                  testID='subtitleTex'
-                >
-                  {subtitle}
-                </Text>
-              </View>
-              <View
-                style={[style.descriptionView, style.rowStyle]}
-                testID='descriptionView'
-              >
-                <Text
-                  style={[style.descriptionTextName, style.column1Style]}
-                  testID='subtitleTextName'
-                >
-                  Description:
-                </Text>
-                <Text
-                  style={[style.descriptionText, style.column2Style]}
-                  testID='descriptionText'
-                >
-                  {description}
-                </Text>
-              </View>
-              <View
-                style={[style.customerView, style.rowStyle]}
-                testID='customerView'
-              >
-                <Text
-                  style={[style.customerTextName, style.column1Style]}
-                  testID='customerTextName'
-                >
-                  Industry:
-                </Text>
-                <Text
-                  style={[style.customerText, style.column2Style]}
-                  testID='customerText'
-                >
-                  {customer}
-                </Text>
-              </View>
-              <View
-                style={[style.builtwithView, style.rowStyle]}
-                testID='builtwithView'
-              >
-                <Text
-                  style={[style.builtwithTextName, style.column1Style]}
-                  testID='subtitleTextName'
-                >
-                  Built with:
-                </Text>
-                <Text
-                  style={[style.builtwithText, style.column2Style]}
-                  testID='builtwithText'
-                >
-                  {builtwith}
-                </Text>
-              </View>
-            </View>
+            {screenCase === 'lgXl' && <ProjectProfileView />}
           </View>
         )
       })

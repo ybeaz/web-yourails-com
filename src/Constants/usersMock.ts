@@ -3,7 +3,7 @@ import { UserType } from '../@types/UserType'
 export const users: UserType[] = [
   {
     id: 0,
-    username: 'rome_sfba',
+    username: '@rome_sfba',
     nameFirst: 'Roman',
     nameLast: 'Cheskidov',
     uriAvatar: 'https://yourails.com/images/_VVS3415-crop-4k.jpg',
@@ -17,7 +17,7 @@ export const users: UserType[] = [
   },
   {
     id: 1,
-    username: 'smiddist',
+    username: '@smiddist',
     nameFirst: 'Dmitrii',
     nameLast: 'Cheskidov',
     uriAvatar: 'https://yourails.com/images/sphinx-01.jpg',

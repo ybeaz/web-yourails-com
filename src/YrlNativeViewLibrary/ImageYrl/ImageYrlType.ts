@@ -9,6 +9,7 @@ export interface ImageYrlPropsType {
   testID: string
   uri: string
   resizeMode?: ImageResizeMode
+  onLayout?: any
 }
 
 export interface ImageYrlType
