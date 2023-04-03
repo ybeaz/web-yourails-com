@@ -4,6 +4,10 @@ import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 dayjs.extend(localizedFormat)
 
+import {
+  IS_BOTTON_BACK,
+  IS_BOTTON_CLOSE,
+} from '../../../Constants/modalContents.const'
 import { Text } from '../../Components/Text/Text'
 import { LOCALE, DATE_FORMAT } from '../../../Constants/locale.const'
 import { ChatSpaceType } from './ChatSpaceType'
@@ -98,8 +102,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         },
       },
       imageBackgroundSource: require('../../../Assets/canopy-of-leaves-2.jpg'),
-      isButtonBack: true,
-      isButtonClose: true,
+      isButtonBack: IS_BOTTON_BACK,
+      isButtonClose: IS_BOTTON_CLOSE,
     },
   }
 

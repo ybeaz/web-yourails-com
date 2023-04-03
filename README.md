@@ -14,9 +14,7 @@ react-native-gifted-chat[https://github.com/FaridSafi/react-native-gifted-chat/t
 - screens
 - parent modal window frames
 
-## Plan for work
-
-## How to, architecture / development notes
+## How to section, architecture / development notes
 
 ### How to install dependencies, for example module-resolver
 
@@ -34,12 +32,7 @@ react-native-gifted-chat[https://github.com/FaridSafi/react-native-gifted-chat/t
 
 ### How to (web) manage color themes `GLOBAL_THEME.colors`, `BRIGHTNESS` and `ALPHAS`
 
-1.  Setup colors in `src/Constants/globalTheme.const.ts` Pay attention [0, 0, 12.5, 1] means for HSLA [hue, saturation, lightness, alphas] and for RGBA [red, green, blue, alpha]
-2.  Set a default theme in `rootStoreDefault.globalVars.theme` in `src/DataLayer/rootStoreDefault.ts`
-3.  Global theme has been added with `<GlobalTheme>` in `src/initializeBrowserApp.tsx`, and then with `getCreatedGlobalStyle` in `src/ViewLayer/Styles/getCreatedGlobalStyle.ts`
-4.  Change default theme on the screen level such has been done in `useEffect(...)` in `SkillExchangeSeach.tsx`
-5.  Add a custom theme color to the element in `getCreatedGlobalStyle` in `src/ViewLayer/Styles/getCreatedGlobalStyle.ts`
-6.  You can specify a separate colors for each theme as it is done for example for `.ModalFrames ._content`
+TODO: Need to write
 
 ### How to Input values. Passing input values from input component is implemented by event.target.value in handleEvents function of the related property name in `src/DataLayer/index.handleEvents.ts`
 
@@ -92,8 +85,15 @@ Note: to config `codegen` edit ??? `codegen.yml`
 1. gfd
 2. yarn `react-native link react-native-vector-icons`
 
-## How to change locale
+### How to change locale
 
 - **`locale`** _(String)_ - Locale to localize the dates. You need first to import the locale you need (ie. `require('dayjs/locale/de')` or `import 'dayjs/locale/fr'`)
 - **`timeFormat`** _(String)_ - Format to use for rendering times; default is `'LT'` (see [Day.js Format](https://day.js.org/docs/en/display/format))
 - **`dateFormat`** _(String)_ - Forma
+
+### How to build for web environment
+
+@link https://docs.expo.dev/distribution/publishing-websites/
+
+- To build: `npx expo export:web`
+- To serve locally: `npx serve web-build`
