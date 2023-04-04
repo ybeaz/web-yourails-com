@@ -12,6 +12,7 @@ export const ProfileItemStyle = StyleSheet.create({
     padding: '0.5rem',
   },
   column1: {
+    minWidth: '2.5rem',
     paddingRight: '1rem',
   },
   column2: {

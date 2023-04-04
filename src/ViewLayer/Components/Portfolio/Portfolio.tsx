@@ -1,7 +1,8 @@
-import React, { useState, useCallback, ReactElement } from 'react'
-import { Dimensions, ImageResizeMode, View, Linking, Alert } from 'react-native'
+import React, { useCallback, ReactElement } from 'react'
+import { ImageResizeMode, View, Linking, Alert } from 'react-native'
 import '@expo/match-media'
 
+import { useLinkClickRes } from '../../Hooks/useLinkClickRes'
 import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
 import { useMediaQueryRes, ScreenCaseType } from '../../Hooks/useMediaQueryRes'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
@@ -44,20 +45,6 @@ const PortfolioComponent: PortfolioType = props => {
           linkHref,
         } = project
 
-        const url = linkHref
-        const handlePress = useCallback(async () => {
-          // Checking if the link is supported for links with custom URL scheme.
-          const supported = await Linking.canOpenURL(url)
-
-          if (supported) {
-            // Opening the link with some app, if the URL scheme is "http" the web link should be opened
-            // by some browser in the mobile
-            await Linking.openURL(url)
-          } else {
-            Alert.alert(`Don't know how to open this URL: ${url}`)
-          }
-        }, [url])
-
         const imageResizeMode: ImageResizeMode = 'cover' // 'cover' 'contain' 'center'
 
         const propsOut = {
@@ -69,7 +56,7 @@ const PortfolioComponent: PortfolioType = props => {
             titleText: '',
             testID: 'projectButtonYrl',
             disabled: false,
-            onPress: () => handlePress(),
+            onPress: useLinkClickRes(linkHref),
           },
           projectImageYrlProps: {
             styleProps: {

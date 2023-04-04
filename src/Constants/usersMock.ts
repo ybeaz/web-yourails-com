@@ -5,7 +5,7 @@ export const users: UserType[] = [
     id: 0,
     username: '@rome_sfba',
     nameFirst: 'Roman',
-    nameLast: 'Cheskidov',
+    nameLast: 'Ches',
     uriAvatar: 'https://yourails.com/images/_VVS3415-crop-4k.jpg',
     phones: ['415-650-9893'],
     emails: ['t3531350@yahoo.com'],
@@ -13,13 +13,17 @@ export const users: UserType[] = [
     locations: ['Remote', 'San Francisco, CA'],
     serviceSpecs: ['Full Stack Developer', 'Machine Learning Engineer'],
     summary:
-      'Full Stack programmer with 12+ years of experience with Javascript, Typescript, 4 in React-Native, 8 in React.js, Redux, GraphQL, REST API, Node.js, AWS, Python, AI-ML: a broad outlook from MERN design patterns to LAMP OOP and focus on product requirements',
+      '\
+Full Stack Engineer with 12+ years of experience: a broad overview from MERN to LAMP, from AWS CDK to AI and Machine Learning.\n\
+Frontend and backend Javascript, Typescript, ES6, 4 in React-Native, 8 in React.js, Redux, GraphQL, REST API, Node.js, AWS serveless: CDK, CloudFront, Lambda, API Gateway, Python, AI-ML: a broad outlook from MERN design patterns to LAMP OOP and focus on product requirements\n\
+ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, AWS, API\n\
+',
   },
   {
     id: 1,
     username: '@smiddist',
     nameFirst: 'Dmitrii',
-    nameLast: 'Cheskidov',
+    nameLast: 'Ches',
     uriAvatar: 'https://yourails.com/images/sphinx-01.jpg',
     phones: ['415-340-9293'],
     emails: ['smiddist@gmail.com'],

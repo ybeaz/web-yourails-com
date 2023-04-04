@@ -1,10 +1,14 @@
+import { ReactElement } from 'react'
+
 import { UserType } from '../../../@types/UserType'
 
 export interface ProfileItemPropsType {
   styleProps?: any
-  iconLibrary: string
-  iconName: string
-  content: string | React.ReactElement | React.ReactElement[]
+  iconLibrary?: string
+  iconName?: string
+  contentType?: string
+  contentSrc?: string
+  content?: string | ReactElement | ReactElement[]
   label: string
 }
 

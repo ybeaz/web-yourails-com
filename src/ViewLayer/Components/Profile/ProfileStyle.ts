@@ -8,6 +8,8 @@ export const ProfileStyle = StyleSheet.create({
     flexDirection: 'column',
     padding: '3rem',
   },
+  profileItemsWrapper: {},
+  qrCodeImageWrapper: {},
   rowView: {
     flexDirection: 'row',
     flex: 1,

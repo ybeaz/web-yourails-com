@@ -23,6 +23,8 @@ export const ImageYrl: ImageYrlType = props => {
     onLayout = () => {},
   } = props
 
+  if (!uri) null
+
   return (
     <View style={[style.ImageYrl, styleProps.ImageYrl]} testID={testID}>
       <Image

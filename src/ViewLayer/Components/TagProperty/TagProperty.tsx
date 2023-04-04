@@ -9,6 +9,7 @@ import {
   lightColors,
 } from '@rneui/themed'
 
+import { useLinkClickRes } from '../../Hooks/useLinkClickRes'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
 import { TagPropertyType } from './TagPropertyType'
@@ -29,20 +30,6 @@ const TagPropertyComponent: TagPropertyType = props => {
     testID = 'TagProperty',
   } = props
 
-  const url = linkHref
-  const handlePress = useCallback(async () => {
-    // Checking if the link is supported for links with custom URL scheme.
-    const supported = await Linking.canOpenURL(url)
-
-    if (supported) {
-      // Opening the link with some app, if the URL scheme is "http" the web link should be opened
-      // by some browser in the mobile
-      await Linking.openURL(url)
-    } else {
-      Alert.alert(`Don't know how to open this URL: ${url}`)
-    }
-  }, [url])
-
   const propsOut = {
     tooltip_buttonYrlLinking: {
       styleProps: {
@@ -56,7 +43,7 @@ const TagPropertyComponent: TagPropertyType = props => {
       titleText: `<${title} />`, //'<Documentation />',
       testID: 'tooltip_buttonYrl',
       disabled: false,
-      onPress: () => handlePress(),
+      onPress: useLinkClickRes(linkHref),
       iconProps: undefined,
     },
   }

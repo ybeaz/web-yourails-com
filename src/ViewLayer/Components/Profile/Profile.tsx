@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View } from 'react-native'
+import { View, ImageResizeMode } from 'react-native'
 
 import { ProfileItem } from '../ProfileItem/ProfileItem'
-import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
+import { ProfileItemPropsType } from '../ProfileItem/ProfileItemType'
 import { ProfileStyle as style } from './ProfileStyle'
 import { ProfileType } from './ProfileType'
 import { Text } from '../Text/Text'
@@ -11,20 +11,28 @@ import { UserType, MessengerType } from '../../../@types/UserType'
 
 import { users } from '../../../Constants/usersMock'
 
-type ProfileItemType = {
-  iconLibrary: string
-  iconName: string
-  content: string | ReactElement | ReactElement[]
-  label: string
-}
+// TODO Refactor wile moving to multiuser service
+const getMessengesString = (messengers: MessengerType[]) =>
+  messengers.map((messenger: MessengerType, index: number) => {
+    const { name: messengerName, username } = messenger
+    return (
+      <View
+        key={`messenger-${index}`}
+        style={[style.messengerView]}
+        testID='messengerView'
+      >
+        <Text style={[style.messengerNameText]} testID='messengerNameText'>
+          {messengerName + ' > '}
+        </Text>
+        <Text style={[style.usernameText]} testID='usernameText'>
+          {username}
+        </Text>
+      </View>
+    )
+  })
 
-/**
- * @import import { Profile } from '../Components/Profile/Profile'
- */
-const ProfileComponent: ProfileType = props => {
-  const { styleProps = { Profile: {} } } = props
-
-  const user: UserType = users[0]
+// TODO Refactor wile moving to multiuser service
+const getProfileItemsObjList = (userIn: UserType): ProfileItemPropsType[] => {
   const {
     username = '',
     phones = [],
@@ -32,31 +40,13 @@ const ProfileComponent: ProfileType = props => {
     messengers = [],
     locations = [],
     summary,
-  } = user
+  } = userIn
 
-  const getMessengesString = (messengers: MessengerType[]) =>
-    messengers.map((messenger: MessengerType, index: number) => {
-      const { name: messengerName, username } = messenger
-      return (
-        <View
-          key={`messenger-${index}`}
-          style={[style.messengerView]}
-          testID='messengerView'
-        >
-          <Text style={[style.messengerNameText]} testID='messengerNameText'>
-            {messengerName + ' > '}
-          </Text>
-          <Text style={[style.usernameText]} testID='usernameText'>
-            {username}
-          </Text>
-        </View>
-      )
-    })
-
-  const profileItems: ProfileItemType[] = [
+  return [
     {
       iconLibrary: 'Ionicons',
       iconName: 'albums-outline',
+      contentType: 'string',
       content: summary,
       label: 'Summary',
     },
@@ -90,18 +80,64 @@ const ProfileComponent: ProfileType = props => {
       content: emails.join(', '),
       label: 'Email',
     },
+    {
+      iconLibrary: 'Ionicons',
+      iconName: 'ios-logo-linkedin',
+      contentType: 'linkHref',
+      contentSrc: 'https://www.linkedin.com/in/romanches',
+      content: 'Profile in Linkedin.com',
+      label: 'Link',
+    },
+    {
+      iconLibrary: 'Ionicons',
+      iconName: 'ios-logo-stackoverflow',
+      contentType: 'linkHref',
+      contentSrc: 'https://stackoverflow.com/users/4791116/roman',
+      content: 'Profile in Stackoverflow',
+      label: 'Link',
+    },
+    {
+      iconLibrary: 'Ionicons',
+      iconName: 'ios-logo-github',
+      contentType: 'linkHref',
+      contentSrc: 'https://github.com/ybeaz',
+      content: 'Profile in Github',
+      label: 'Link',
+    },
+    {
+      iconLibrary: undefined,
+      iconName: undefined,
+      contentType: 'imageSrc',
+      contentSrc: 'https://r1.userto.com/img/romanChesQrCodeQuietZone00.png',
+      content: '',
+      label: 'QR code with contacts',
+    },
   ]
+}
 
-  const getProfileItems = (profileItemsIn: ProfileItemType[]) =>
-    profileItemsIn.map((profileItemProps: ProfileItemType, index: number) => (
-      <ProfileItem key={`profileItem-${index}`} {...profileItemProps} />
-    ))
+/**
+ * @import import { Profile } from '../Components/Profile/Profile'
+ */
+const ProfileComponent: ProfileType = props => {
+  const { styleProps = { Profile: {} } } = props
+
+  const user: UserType = users[0]
+
+  const profileItems = getProfileItemsObjList(user)
+  const getProfileItems = (profileItemsIn: ProfileItemPropsType[]) =>
+    profileItemsIn.map(
+      (profileItemProps: ProfileItemPropsType, index: number) => (
+        <ProfileItem key={`profileItem-${index}`} {...profileItemProps} />
+      )
+    )
 
   const propsOut = {}
 
   return (
     <View style={[style.Profile, styleProps.Profile]} testID='Profile'>
-      {getProfileItems(profileItems)}
+      <View style={[style.profileItemsWrapper]} testID='profileItemsWrapper'>
+        {getProfileItems(profileItems)}
+      </View>
     </View>
   )
 }

@@ -18,6 +18,7 @@ type UseMediaQueryResType = {
 }
 
 /**
+ * @description React Native hook to determine device type and related parameters to provide adaptive web design
  * @import import { useMediaQueryRes } from './Hooks/useMediaQueryRes
  * @media accepted sizes:
   xs 320-480px
