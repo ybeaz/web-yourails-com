@@ -4,25 +4,19 @@
       "path": "."
     },
     {
-      "path": "node_modules/expo"
+      "path": "node_modules/stream-chat-react-native-core"
+    },
+    {
+      "path": "node_modules/react-native-gifted-chat"
     },
     {
       "path": "node_modules/react-chat-elements"
     },
     {
-      "path": "node_modules/react-native"
-    },
-    {
-      "path": "node_modules/@types/react-native"
+      "path": "node_modules/expo"
     }
   ],
   "settings": {
-    "[json]": {
-      "editor.quickSuggestions": {
-        "strings": true
-      },
-      "editor.suggest.insertMode": "replace"
-    },
     "js/ts.implicitProjectConfig.strictNullChecks": true,
     "window.zoomLevel": 1,
     "diffEditor.ignoreTrimWhitespace": false,
@@ -45,7 +39,7 @@
       "**/public": true
     },
     "javascript.validate.enable": true,
-    "editor.find.autoFindInSelection": true,
+    "editor.find.autoFindInSelection": "never",
     "editor.suggestSelection": "first",
     "files.exclude": {
       "**/.classpath": true,
@@ -67,7 +61,12 @@
       "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[json]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+      "editor.quickSuggestions": {
+        "strings": true
+      },
+      "editor.suggest.insertMode": "replace"
     },
     "[typescriptreact]": {
       "editor.defaultFormatter": "esbenp.prettier-vscode"

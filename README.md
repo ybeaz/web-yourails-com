@@ -3,14 +3,22 @@
 ## Revisions history notes
 
 created 2022
-
-based on [React Typescript UI Web Template](https://github.com/ybeaz/react-ui-template-2021)
-
 updated 2022-10-05
+updated 2023-03-17
+react-native-gifted-chat[https://github.com/FaridSafi/react-native-gifted-chat/tree/master/src] is used for chat
 
-## Plan for work
+## Decisions made
 
-## How to, architecture / development notes
+1. We consider as a Container, the root for loading the store the following types
+
+- screens
+- parent modal window frames
+
+## How to section, architecture / development notes
+
+### How to install dependencies, for example module-resolver
+
+`npx expo install module-resolver`
 
 ### How to (web) add screens
 
@@ -24,12 +32,7 @@ updated 2022-10-05
 
 ### How to (web) manage color themes `GLOBAL_THEME.colors`, `BRIGHTNESS` and `ALPHAS`
 
-1.  Setup colors in `src/Constants/globalTheme.const.ts` Pay attention [0, 0, 12.5, 1] means for HSLA [hue, saturation, lightness, alphas] and for RGBA [red, green, blue, alpha]
-2.  Set a default theme in `rootStoreDefault.globalVars.theme` in `src/DataLayer/rootStoreDefault.ts`
-3.  Global theme has been added with `<GlobalTheme>` in `src/initializeBrowserApp.tsx`, and then with `getCreatedGlobalStyle` in `src/ViewLayer/Styles/getCreatedGlobalStyle.ts`
-4.  Change default theme on the screen level such has been done in `useEffect(...)` in `SkillExchangeSeach.tsx`
-5.  Add a custom theme color to the element in `getCreatedGlobalStyle` in `src/ViewLayer/Styles/getCreatedGlobalStyle.ts`
-6.  You can specify a separate colors for each theme as it is done for example for `.ModalFrames ._content`
+TODO: Need to write
 
 ### How to Input values. Passing input values from input component is implemented by event.target.value in handleEvents function of the related property name in `src/DataLayer/index.handleEvents.ts`
 
@@ -52,7 +55,7 @@ updated 2022-10-05
 4.  sagas
 5.  connectors
 
-### To run the mobile app
+### How to run the mobile app
 
 1.  To build Docker image from `docker-compose-mongodb.yml`\
     See here [`Docker.md`](https://github.com/ybeaz/manuals/blob/main/Docker.md)
@@ -68,17 +71,29 @@ updated 2022-10-05
 5.  To run the app: `yarn expo:start`
     To check xCode version: `/usr/bin/xcodebuild -version`
 
+### How to troubleshoot running the app
 
-### To troubleshoot running the app
 1. if you have exception `CommandError: Can't determine id of Simulator app; the Simulator is most likely not installed on this machine. Run sudo xcode-select -s /Applications/Xcode.app` then I run xcode.app and macbook suggested to update xcode. This solved the issue
 
-
-### To create/ update `src/types/graphql.tsx`
+### How to create/ update `src/types/graphql.tsx`
 
 To run `yarn codegen`
 Note: to config `codegen` edit ??? `codegen.yml`
 
-### To use react-chat-elements
+### How to use react-chat-elements
 
 1. gfd
 2. yarn `react-native link react-native-vector-icons`
+
+### How to change locale
+
+- **`locale`** _(String)_ - Locale to localize the dates. You need first to import the locale you need (ie. `require('dayjs/locale/de')` or `import 'dayjs/locale/fr'`)
+- **`timeFormat`** _(String)_ - Format to use for rendering times; default is `'LT'` (see [Day.js Format](https://day.js.org/docs/en/display/format))
+- **`dateFormat`** _(String)_ - Forma
+
+### How to build for web environment
+
+@link https://docs.expo.dev/distribution/publishing-websites/
+
+- To build: `npx expo export:web`
+- To serve locally: `npx serve web-build`

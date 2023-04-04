@@ -1,10 +1,10 @@
 import { store } from '../store'
-import { IActionEvent } from '../../Interfaces/IActionEvent'
+import { ActionEventType } from '../../@types/ActionEventType'
 import { DICTIONARY } from '../../Constants/dictionary.const'
 
 const { getState } = store
 
-export const DEV_STAGE: IActionEvent = (event, data) => {
+export const DEV_STAGE: ActionEventType = (event, data) => {
   const {
     globalVars: { language },
   } = getState()

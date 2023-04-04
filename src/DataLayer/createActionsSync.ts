@@ -1,7 +1,4 @@
-interface IAction {
-  type: string
-  data?: any
-}
+import { ActionType } from '../@types/ActionType'
 
 export interface CreateSyncAction {
   [key: string]: Function
@@ -17,7 +14,7 @@ export const createSyncActions: Function = (
 ): CreateSyncAction => {
   return actions.reduce((actionsSync, currentAction) => {
     const currentActionNext = {
-      [currentAction]: (data: any): IAction => ({
+      [currentAction]: (data: any): ActionType => ({
         type: currentAction,
         data,
       }),

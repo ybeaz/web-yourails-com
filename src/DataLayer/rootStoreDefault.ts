@@ -1,8 +1,4 @@
-import { IComponentsState, IForms, IRootStore } from '../Interfaces/IRootStore'
-
-import { IUser } from '../Interfaces/IUser'
-
-export const userStoreDefault: IUser = {
+export const userStoreDefault: any = {
   userAvatar: '',
   userBirthYear: null,
   userDateCreated: '',
@@ -35,26 +31,22 @@ export const userStoreDefault: IUser = {
   userTimeZone: '',
 }
 
-export const componentsStateDefault: IComponentsState = {
+export const componentsStateDefault: any = {
   isLoaderOverlayVisible: false,
-  modalFrames: [
-    {
-      childName: 'AuthUser',
-      isActive: false,
-      childProps: {
-        scenario: { branch: 'signInManually', step: '' },
-      },
-    },
-  ],
+  modalFrame: {
+    childName: 'Profile', // Portfolio, Profile TagsProperties
+    isShow: true,
+    childProps: {},
+  },
 }
 
-export const formsDefault: IForms = {
+export const formsDefault: any = {
   searchInput: '',
   userPrev: userStoreDefault,
   user: userStoreDefault,
 }
 
-export const rootStoreDefault: IRootStore = {
+export const rootStoreDefault: any = {
   componentsState: componentsStateDefault,
   users: [],
   forms: formsDefault,
@@ -63,6 +55,6 @@ export const rootStoreDefault: IRootStore = {
   },
   globalVars: {
     theme: 'Dark',
-    language: localStorage.getItem('language') || 'en',
+    // language: localStorage ? localStorage?.getItem('language') || 'en' : 'en',
   },
 }

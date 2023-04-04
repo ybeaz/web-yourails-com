@@ -63,3 +63,4 @@ Thumbs.db
 archive/
 workspace.code-workspace
 .expo/
+web-build/

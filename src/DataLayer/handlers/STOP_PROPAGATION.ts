@@ -1,4 +1,4 @@
-import { IActionEvent } from '../../Interfaces/IActionEvent'
-export const STOP_PROPAGATION: IActionEvent = (event, data) => {
+import { ActionEventType } from '../../@types/ActionEventType'
+export const STOP_PROPAGATION: ActionEventType = (event, data) => {
   event.stopPropagation()
 }

@@ -1,11 +1,12 @@
 import { createSyncActions, CreateSyncAction } from './createActionsSync'
 import { createAsyncAction, CreateAsyncAction } from './createActionsAsync'
+import { ActionType } from '../@types/ActionType'
 
 /** @description  Synchroneours redux actions */
 const ACTIONS_SYNC: string[] = [
-  // 'SET_THEME',
-  'SET_MODAL_FRAMES',
-  'TOGGLE_LOADER_OVERLAY',
+  'SET_MODAL_FRAME',
+  'TOGGLE_LOADER_OVERLAY', // TODO
+  'SET_THEME', // TODO
   'TEMPLATE',
 ]
 
@@ -16,7 +17,7 @@ export const actionSync: CreateSyncAction = createSyncActions(ACTIONS_SYNC)
 export const actionAsync: CreateAsyncAction = createAsyncAction(ACTION_ASYNC)
 
 // Example of the sync action
-// export const TEST_ACTION: Function = (data: any = true): IAction => ({
+// export const TEST_ACTION: Function = (data: any = true): ActionType => ({
 //   type: 'TEST_ACTION',
 //   data,
 // })

@@ -1,22 +1,14 @@
 import { IHandleEventsInterface } from '../Interfaces/IHandleEventsInterface'
-import { IActionEvent } from '../Interfaces/IActionEvent'
+import { ActionEventType } from '../@types/ActionEventType'
 
 import { TEMPLATE } from './handlers/TEMPLATE'
 import { DEV_STAGE } from './handlers/DEV_STAGE'
-import { SET_MODAL_FRAMES } from './handlers/SET_MODAL_FRAMES'
+import { SET_MODAL_FRAME } from './handlers/SET_MODAL_FRAME'
 import { STOP_PROPAGATION } from './handlers/STOP_PROPAGATION'
 
-export const handleEvents: IHandleEventsInterface = (event, props): void => {
-  const { type: typeStore, typeEvent, data } = props
-  const type = typeStore ? typeStore : typeEvent
-
-  const output: Record<string, IActionEvent> = {
-    TEMPLATE,
-    DEV_STAGE,
-    SET_MODAL_FRAMES,
-    STOP_PROPAGATION,
-  }
-
-  // @ts-ignore
-  output[type] && output[type](event, data)
+export const handleEvents: any = {
+  TEMPLATE,
+  DEV_STAGE,
+  SET_MODAL_FRAME,
+  STOP_PROPAGATION,
 }

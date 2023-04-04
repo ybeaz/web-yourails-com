@@ -1,4 +1,4 @@
-interface ITemplate {
+interface TemplateType {
   (): void
 }
 
@@ -6,6 +6,6 @@ interface ITemplate {
  * @description Function to
  */
 
-export const template: ITemplate = () => {
+export const template: TemplateType = () => {
   return
 }

@@ -1,9 +1,9 @@
 import React, { useEffect, ReactElement } from 'react'
-import { Image as ImageUserto } from 'userto-components'
+import { ImageYrl } from '../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
 
 import { FooterFrame } from '../Frames/FooterFrame'
 import { HeaderFrame } from '../Frames/HeaderFrame'
-import { Error404Body } from '../Components/Error404Body'
+import { Error404Body } from '../Components/Error404Body/Error404Body'
 import { MainFrame } from '../Frames/MainFrame'
 import { handleEvents } from '../../DataLayer/index.handleEvents'
 
@@ -16,7 +16,7 @@ interface Error404Args {
   themeDafault: string
 }
 
-export const Error404: React.FunctionComponent<Error404Args> = (
+const Error404Component: React.FunctionComponent<Error404Args> = (
   props: Error404Args
 ): ReactElement => {
   const { themeDafault } = props
@@ -31,7 +31,7 @@ export const Error404: React.FunctionComponent<Error404Args> = (
     footerFrameProps: {},
     imageBottomProps: {
       className: 'Image_bottom',
-      src: 'https://yourails.com/images/bottomRightBackground.jpg',
+      uri: 'https://yourails.com/images/bottomRightBackground.jpg',
     },
   }
 
@@ -60,9 +60,11 @@ export const Error404: React.FunctionComponent<Error404Args> = (
           {/* footer-main */}
           {null}
           {/* footer-right */}
-          <ImageUserto {...propsOut.imageBottomProps} />
+          <ImageYrl {...propsOut.imageBottomProps} />
         </FooterFrame>
       </MainFrame>
     </div>
   )
 }
+
+export const Error404 = React.memo(Error404Component)
