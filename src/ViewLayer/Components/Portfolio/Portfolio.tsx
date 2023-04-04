@@ -2,13 +2,14 @@ import React, { useCallback, ReactElement } from 'react'
 import { ImageResizeMode, View, Linking, Alert } from 'react-native'
 import '@expo/match-media'
 
+import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { useLinkClickRes } from '../../Hooks/useLinkClickRes'
 import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
 import { useMediaQueryRes, ScreenCaseType } from '../../Hooks/useMediaQueryRes'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
-import { PortfolioStyles as styles } from './PortfolioStyle'
-import { PortfolioType } from './PortfolioType'
+import { styles } from './PortfolioStyles'
+import { PortfolioType } from './PortfolioTypes'
 import { Text } from '../../Components/Text/Text'
 
 import { getProjectList, ProjectType } from '../../../r1Content/r1Projects'
@@ -17,10 +18,9 @@ import { getProjectList, ProjectType } from '../../../r1Content/r1Projects'
  * @import import { Portfolio } from '../Components/Portfolio/Portfolio'
  */
 const PortfolioComponent: PortfolioType = props => {
-  const { styleProps = { Portfolio: {} } } = props
-
-  const { deviceType, screenCase, width } = useMediaQueryRes()
-
+  const { styleProps = { Portfolio: {} }, mediaParams = mediaParamsDefault } =
+    props
+  const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
 
   const { imageWidth, imageHeight } = getImageSizesFor1of2Columns(
@@ -180,4 +180,4 @@ const PortfolioComponent: PortfolioType = props => {
   )
 }
 
-export const Portfolio = React.memo(PortfolioComponent)
+export const Portfolio = React.memo(withDeviceType(PortfolioComponent))

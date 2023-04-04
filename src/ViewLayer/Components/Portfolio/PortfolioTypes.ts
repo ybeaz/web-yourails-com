@@ -1,5 +1,8 @@
+import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
+
 export interface PortfolioPropsType {
   styleProps?: any
+  mediaParams?: UseMediaQueryResType
 }
 
 /**

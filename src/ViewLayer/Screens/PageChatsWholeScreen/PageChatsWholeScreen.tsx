@@ -7,16 +7,17 @@ dayjs.extend(localizedFormat)
 
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary/AnimatedYrl/AnimatedYrl'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
+import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { RootStoreType } from '../../../@types/RootStoreType'
-import { themes } from '../../Styles/themes'
 import { styleGlobal } from '../../Styles/styleGlobal'
+import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
-import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
+import { useMediaQueryRes, ScreenCaseType } from '../../Hooks/useMediaQueryRes'
 
 import { messages } from '../../../Constants/messagesMock'
 import { users } from '../../../Constants/usersMock'
@@ -34,6 +35,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   } = store
   const { modalFrame } = componentsState
   const { isShow: isShowModalFrame } = modalFrame
+
+  const { deviceType, screenCase, width } = useMediaQueryRes()
 
   useEffect(() => {
     // handleEvents.TEMPLATE({}, { id: '3' })
@@ -56,7 +59,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     chatSpaceProps: {
       users,
       messages,
-      modalFrame,
+      modalFrame: { ...modalFrame, childProps: { a: 1 } },
       handleEvents: useCallback(handleEvents, []),
     },
     contentMenuMainColumn: {

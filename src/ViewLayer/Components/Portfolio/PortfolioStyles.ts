@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-const PortfolioStyleDefault: any = {
+const stylesDefault: any = {
   Portfolio: {
     ...styleGlobal.typography,
     flex: 1,
@@ -56,17 +56,8 @@ const PortfolioStyleDefault: any = {
   builtwithText: {},
 }
 
-const lgDevice = StyleSheet.create({
-  ...PortfolioStyleDefault,
-  projectView: {
-    flexDirection: 'row',
-    paddingBottom: '2rem',
-  },
-  projectProfileView: { flex: 1, paddingLeft: '1rem' },
-})
-
-const smDevice = StyleSheet.create({
-  ...PortfolioStyleDefault,
+const xmDevice = StyleSheet.create({
+  ...stylesDefault,
   projectView: {
     flexDirection: 'column',
     paddingBottom: '2rem',
@@ -74,13 +65,34 @@ const smDevice = StyleSheet.create({
   projectProfileView: { flex: 1, paddingBottom: '1rem' },
 })
 
+const smDevice = StyleSheet.create({
+  ...xmDevice,
+})
+
+const mdDevice = StyleSheet.create({
+  ...xmDevice,
+})
+
+const lgDevice = StyleSheet.create({
+  ...stylesDefault,
+  projectView: {
+    flexDirection: 'row',
+    paddingBottom: '2rem',
+  },
+  projectProfileView: { flex: 1, paddingLeft: '1rem' },
+})
+
+const xlDevice = StyleSheet.create({
+  ...lgDevice,
+})
+
 /**
- * @import import { themes } from '../Styles/themes'
+ * @import import { styles } from './PortfolioStyles'
  */
-export const PortfolioStyles = {
+export const styles: Record<string, any> = {
   xsDevice: smDevice,
   smDevice: smDevice,
-  mdDevice: smDevice,
+  mdDevice: mdDevice,
   lgDevice: lgDevice,
-  xlDevice: lgDevice,
+  xlDevice: xlDevice,
 }

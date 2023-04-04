@@ -1,3 +1,4 @@
+import { useState, useMemo } from 'react'
 import '@expo/match-media'
 import { useMediaQuery } from 'react-responsive'
 import { Dimensions } from 'react-native'
@@ -10,11 +11,11 @@ export type DeviceType =
   | 'xlDevice'
 export type ScreenCaseType = 'xsSmMd' | 'lgXl'
 
-type UseMediaQueryResType = {
-  deviceType: DeviceType
-  screenCase: ScreenCaseType
-  width: number
-  height: number
+export type UseMediaQueryResType = {
+  deviceType: DeviceType | 'lgDevice'
+  screenCase: ScreenCaseType | 'lgXl'
+  width: number | 1024
+  height: number | 800
 }
 
 /**
@@ -25,9 +26,11 @@ type UseMediaQueryResType = {
   mobile sm 481-768
   tablets md 769 - 1024
   Desktop/laptop lg 1025 - 1620
-  Wide screens xl 1621 - 160000'
+  Wide screens xl 1621 - 16000'
  */
 export const useMediaQueryRes = (): UseMediaQueryResType => {
+  const { width, height } = Dimensions.get('window')
+
   const isXsDevice = useMediaQuery({
     query: '(min-width: 320px) and (max-width: 480px)',
   })
@@ -54,8 +57,6 @@ export const useMediaQueryRes = (): UseMediaQueryResType => {
   let screenCase: any = 'xsSmMd'
   if (deviceType === 'lgDevice' || deviceType === 'xlDevice')
     screenCase = 'lgXl'
-
-  const { width, height } = Dimensions.get('window')
 
   return {
     deviceType,
