@@ -15,12 +15,12 @@ export const routes: RouteType[] = [
     isHashRouter: true,
     themeDafault: 'Light',
   },
-  {
-    path: `/TemplateScreen`,
-    exact: true,
-    page: 'TemplateScreen',
-    themeDafault: 'Light',
-  },
+  // {
+  //   path: `/TemplateScreen`,
+  //   exact: true,
+  //   page: 'TemplateScreen',
+  //   themeDafault: 'Light',
+  // },
   {
     path: `/stub`,
     exact: true,

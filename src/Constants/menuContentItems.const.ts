@@ -12,6 +12,12 @@ export type MenuContentItemsType = {
 export const MENU_CONTENT_ITEMS: MenuContentItemsType[] = [
   {
     iconLibrary: 'Ionicons',
+    iconName: 'person-outline',
+    iconTitleText: 'Profile',
+    childName: 'Profile',
+  },
+  {
+    iconLibrary: 'Ionicons',
     iconName: 'cog-outline',
     iconTitleText: 'Skills',
     childName: 'TagsProperties',
@@ -21,11 +27,5 @@ export const MENU_CONTENT_ITEMS: MenuContentItemsType[] = [
     iconName: 'briefcase-outline',
     iconTitleText: 'Portfolio',
     childName: 'Portfolio',
-  },
-  {
-    iconLibrary: 'Ionicons',
-    iconName: 'person-outline',
-    iconTitleText: 'Profile',
-    childName: 'Profile',
   },
 ]
