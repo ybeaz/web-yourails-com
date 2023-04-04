@@ -4,7 +4,7 @@ import { View } from 'react-native'
 import { InputTextYrl } from '../../../YrlNativeViewLibrary/InputTextYrl/InputTextYrl'
 import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
 import { ChatInputType } from './ChatInputType'
-import { ChatInputStyle as style } from './ChatInputStyle'
+import { style } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
 
 const ChatInputComponent: ChatInputType = props => {

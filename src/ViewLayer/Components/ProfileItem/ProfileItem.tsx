@@ -6,7 +6,7 @@ import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
 import { Text } from '../../Components/Text/Text'
 import { ProfileItemType } from './ProfileItemType'
-import { ProfileItemStyle as style } from './ProfileItemStyle'
+import { style } from './ProfileItemStyle'
 import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
 import { themes } from '../../Styles/themes'
 

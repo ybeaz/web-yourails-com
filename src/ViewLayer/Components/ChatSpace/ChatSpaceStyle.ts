@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-export const ChatSpaceStyle = StyleSheet.create({
+export const style = StyleSheet.create({
   ChatSpace: {
     ...styleGlobal.typography,
     flexDirection: 'column',

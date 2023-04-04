@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
 
 import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'
-import { ContentMenuMainColumnStyle as style } from './ContentMenuMainColumnStyle'
+import { style } from './ContentMenuMainColumnStyle'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import {
   MENU_CONTENT_ITEMS,

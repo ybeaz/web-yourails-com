@@ -3,7 +3,7 @@ import { View, ImageResizeMode } from 'react-native'
 
 import { ProfileItem } from '../ProfileItem/ProfileItem'
 import { ProfileItemPropsType } from '../ProfileItem/ProfileItemType'
-import { ProfileStyle as style } from './ProfileStyle'
+import { style } from './ProfileStyle'
 import { ProfileType } from './ProfileType'
 import { Text } from '../Text/Text'
 import { themes } from '../../Styles/themes'

@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal } from '../../Styles/StyleGlobal'
 
-export const ProfileItemStyle = StyleSheet.create({
+export const style = StyleSheet.create({
   ProfileItem: {
     ...styleGlobal.typography,
     paddingLeft: '1rem',

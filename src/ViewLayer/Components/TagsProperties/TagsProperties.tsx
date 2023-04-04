@@ -10,7 +10,7 @@ import {
 import { Text } from '../../Components/Text/Text'
 import { TagProperty } from '../TagProperty/TagProperty'
 import { TagsPropertiesType } from './TagsPropertiesType'
-import { TagsPropertiesStyle as style } from './TagsPropertiesStyle'
+import { style } from './TagsPropertiesStyle'
 
 /**
  * @import import { TagsProperties } from '../Components/TagsProperties/TagsProperties'

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
 
 import { TriangleCornerType } from './TriangleCornerType'
-import { TriangleCornerStyle as style } from './TriangleCornerStyle'
+import { style } from './TriangleCornerStyle'
 
 /**
  * @import import { TriangleCorner } from '../Components/TriangleCorner/TriangleCorner'

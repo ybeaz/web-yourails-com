@@ -16,7 +16,7 @@ import { FooterFrame } from '../../Frames/FooterFrame'
 import { MainFrame } from '../../Frames/MainFrame'
 import { RootStoreType } from '../../../@types/RootStoreType'
 import { TemplateScreenType } from './TemplateScreenType'
-import { TemplateScreenStyle as style } from './TemplateScreenStyle'
+import { style } from './TemplateScreenStyle'
 
 const TemplateScreenComponent: TemplateScreenType = props => {
   const store = useSelector((store2: RootStoreType) => store2)

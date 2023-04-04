@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-export const ChatCardStyle = StyleSheet.create({
+export const style = StyleSheet.create({
   ChatCard: {
     ...styleGlobal.typography,
     flexDirection: 'row',

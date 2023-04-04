@@ -13,7 +13,7 @@ import { useLinkClickRes } from '../../Hooks/useLinkClickRes'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
 import { TagPropertyType } from './TagPropertyType'
-import { TagPropertyStyle as style } from './TagPropertyStyle'
+import { style } from './TagPropertyStyle'
 import { themes } from '../../Styles/themes'
 
 /**
