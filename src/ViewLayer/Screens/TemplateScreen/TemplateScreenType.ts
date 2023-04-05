@@ -1,10 +1,14 @@
+import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
+
 export interface TemplateScreenPropsType {
-  routeProps: {
+  styleProps?: any
+  mediaParams?: UseMediaQueryResType
+  routeProps?: {
     location: {
       pathname: string
     }
   }
-  themeDafault: string
+  themeDafault?: string
 }
 
 export interface TemplateScreenType

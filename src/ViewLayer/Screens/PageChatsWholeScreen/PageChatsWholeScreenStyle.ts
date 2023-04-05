@@ -1,7 +1,7 @@
 import { StatusBar, StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-export const style = StyleSheet.create({
+export const stylesDefault = StyleSheet.create({
   PageChatsWholeScreen: {
     ...styleGlobal.typography,
     flex: 1,
@@ -43,3 +43,34 @@ export const style = StyleSheet.create({
     justifyContent: 'flex-end',
   },
 })
+
+const xmDevice = StyleSheet.create({
+  ...stylesDefault,
+})
+
+const smDevice = StyleSheet.create({
+  ...xmDevice,
+})
+
+const mdDevice = StyleSheet.create({
+  ...xmDevice,
+})
+
+const lgDevice = StyleSheet.create({
+  ...xmDevice,
+})
+
+const xlDevice = StyleSheet.create({
+  ...xmDevice,
+})
+
+/**
+ * @import import { styles } from './TemplateStyles'
+ */
+export const styles: Record<string, any> = {
+  xsDevice: smDevice,
+  smDevice: smDevice,
+  mdDevice: mdDevice,
+  lgDevice: lgDevice,
+  xlDevice: xlDevice,
+}

@@ -8,6 +8,7 @@ import {
   ImageYrl,
 } from '../../../YrlNativeViewLibrary/index'
 
+import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { Text } from '../../Components/Text/Text'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { URL_APP_BASE } from '../../../Constants/servers.const'
@@ -16,9 +17,22 @@ import { FooterFrame } from '../../Frames/FooterFrame'
 import { MainFrame } from '../../Frames/MainFrame'
 import { RootStoreType } from '../../../@types/RootStoreType'
 import { TemplateScreenType } from './TemplateScreenType'
-import { style } from './TemplateScreenStyle'
+import { styles } from './TemplateScreenStyle'
 
 const TemplateScreenComponent: TemplateScreenType = props => {
+  const {
+    styleProps = { Template: {} },
+    routeProps = {
+      location: {
+        pathname: '',
+      },
+    },
+    mediaParams = mediaParamsDefault,
+    themeDafault = '',
+  } = props
+  const { deviceType, screenCase, width, height } = mediaParams
+  const style = styles[deviceType]
+
   const store = useSelector((store2: RootStoreType) => store2)
 
   const {
@@ -39,7 +53,7 @@ const TemplateScreenComponent: TemplateScreenType = props => {
     store,
   })
 
-  const canonicalUrl = `${URL_APP_BASE}${props?.routeProps.location.pathname}`
+  const canonicalUrl = `${URL_APP_BASE}${props?.routeProps?.location.pathname}`
 
   const propsOut = {
     mainFrameProps: {},
@@ -95,4 +109,6 @@ const TemplateScreenComponent: TemplateScreenType = props => {
   )
 }
 
-export const TemplateScreen = React.memo(TemplateScreenComponent)
+export const TemplateScreen = React.memo(
+  withDeviceType(TemplateScreenComponent)
+)
