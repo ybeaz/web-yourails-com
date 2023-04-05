@@ -6,9 +6,7 @@ export const stylesDefault = StyleSheet.create({
     ...styleGlobal.typography,
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    marginRight: '7.5%',
     marginBottom: 0,
-    marginLeft: '7.5%',
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'center',
@@ -49,19 +47,29 @@ const xmDevice = StyleSheet.create({
 })
 
 const smDevice = StyleSheet.create({
-  ...xmDevice,
+  ...stylesDefault,
 })
 
 const mdDevice = StyleSheet.create({
-  ...xmDevice,
+  ...stylesDefault,
 })
 
 const lgDevice = StyleSheet.create({
-  ...xmDevice,
+  ...stylesDefault,
+  PageChatsWholeScreen: {
+    ...stylesDefault.PageChatsWholeScreen,
+    marginRight: '7.5%',
+    marginLeft: '7.5%',
+  },
 })
 
 const xlDevice = StyleSheet.create({
-  ...xmDevice,
+  ...stylesDefault,
+  PageChatsWholeScreen: {
+    ...stylesDefault.PageChatsWholeScreen,
+    marginRight: '7.5%',
+    marginLeft: '7.5%',
+  },
 })
 
 /**

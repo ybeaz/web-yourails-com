@@ -8,6 +8,7 @@ import {
   IS_BOTTON_BACK,
   IS_BOTTON_CLOSE,
 } from '../../../Constants/modalContents.const'
+import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { Text } from '../../Components/Text/Text'
 import { LOCALE, DATE_FORMAT } from '../../../Constants/locale.const'
 import { ChatSpaceType } from './ChatSpaceType'
@@ -25,11 +26,14 @@ import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 const ChatSpaceComponent: ChatSpaceType = props => {
   const {
     styleProps = { ChatSpace: {} },
+    mediaParams = mediaParamsDefault,
     users,
     messages,
     modalFrame,
     handleEvents,
   } = props
+
+  const { deviceType, screenCase, width, height } = mediaParams
   const { childName, isShow: isShowModalFrame, childProps } = modalFrame
 
   const userFound = users.find(user => user.id === messages[0].idUser)
@@ -51,7 +55,10 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       styleProps: {
         ModalFrameYrl: {},
         imageBackground: {},
-        content: { ...themes['themeA'].colors03 },
+        content: {
+          margin: '3rem',
+          ...themes['themeA'].colors03,
+        },
       },
       children: <Child {...childProps} />,
       isShow: isShowModalFrame,
@@ -143,4 +150,4 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   )
 }
 
-export const ChatSpace = React.memo(ChatSpaceComponent)
+export const ChatSpace = React.memo(withDeviceType(ChatSpaceComponent))

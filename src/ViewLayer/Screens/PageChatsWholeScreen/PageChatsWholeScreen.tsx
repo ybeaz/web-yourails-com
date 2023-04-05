@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
+import { ChatSpaceType } from '../../Components/ChatSpace/ChatSpaceType'
 import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary/AnimatedYrl/AnimatedYrl'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
@@ -63,7 +64,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     chatCardProps: {
       user: users[0],
     },
@@ -109,6 +110,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       testID: 'sidebarRightIn_animatedYrl_Inner',
     },
   }
+
+  console.info('PageChatsWholeScreen [113]', { deviceType })
 
   return (
     <SafeAreaView

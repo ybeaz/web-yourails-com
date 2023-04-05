@@ -55,7 +55,7 @@ const TemplateScreenComponent: TemplateScreenType = props => {
 
   const canonicalUrl = `${URL_APP_BASE}${props?.routeProps?.location.pathname}`
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     mainFrameProps: {},
     headerFrameProps: {},
     templateBodyProps: {},
