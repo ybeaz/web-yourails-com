@@ -1,5 +1,5 @@
 import { StatusBar, StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/StyleGlobal'
+import { styleGlobal } from '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   templateScreen: {

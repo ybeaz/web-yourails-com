@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/StyleGlobal'
+import { styleGlobal } from '../../Styles/styleGlobal'
 
 const Message: any = StyleSheet.create({
   MessageCommon: {
