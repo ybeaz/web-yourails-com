@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from 'react'
-import { View, SafeAreaView, ImageBackground, Dimensions } from 'react-native'
+import { View, SafeAreaView, ImageBackground } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
 import { ModalFrameYrlType } from './ModalFrameYrlType'
 import { ModalFrameYrlStyle as style } from './ModalFrameYrlStyle'
 import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
@@ -130,7 +131,12 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
           imageStyle={[style.imageBackground, styleProps.imageBackground]}
           testID={'ImageBackground'}
         >
+          {/* <LinearGradient
+            colors={['rgba(0,0,0,0.7)', 'rgba(0,0,0,0)']}
+            // style={styles.gradient}
+          > */}
           {handlersAndContentJsx}
+          {/* </LinearGradient> */}
         </ImageBackground>
       ) : (
         handlersAndContentJsx

@@ -112,7 +112,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           testID: 'ModalFrameYrl-buttonClose-iconClose',
         },
       },
-      imageBackgroundSource: require('../../../Assets/canopy-of-leaves-2.jpg'),
+      imageBackgroundSource: undefined, // require('../../../Assets/canopy-of-leaves-2.jpg'),
       isButtonBack: IS_BOTTON_BACK,
       isButtonClose: IS_BOTTON_CLOSE,
     },

@@ -178,7 +178,7 @@ const PortfolioComponent: PortfolioType = props => {
         headerText: {},
       },
       mediaParams: { deviceType: '' },
-      headerText: 'Projects & widgets',
+      headerText: 'Side projects & widgets',
     },
   }
 
