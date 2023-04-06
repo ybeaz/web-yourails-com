@@ -36,7 +36,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     mediaParams = mediaParamsDefault,
     themeDafault = '',
   } = props
-  const { deviceType, screenCase, width, height } = mediaParams
+  const { deviceType } = mediaParams
   const style = styles[deviceType]
 
   const store = useSelector((store2: RootStoreType) => store2)
@@ -54,13 +54,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     // handleEvents.TEMPLATE({}, { id: '3' })
   }, [])
 
-  const onPressButtonYrl = () => {
-    console.info('App [14]', { action: 'It is pressed 3' })
-  }
+  const onPressButtonYrl = () => {}
 
-  const onChangeText = (value: string | undefined) => {
-    console.info('App [24]', { value })
-  }
+  const onChangeText = (value: string | undefined) => {}
 
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
 
@@ -75,6 +71,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       handleEvents: useCallback(handleEvents, []),
     },
     contentMenuMainColumn: {
+      store,
       handleEvents: useCallback(handleEvents, []),
     },
     sidebarRightOuterAnimatedYrl: {
@@ -110,8 +107,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       testID: 'sidebarRightIn_animatedYrl_Inner',
     },
   }
-
-  console.info('PageChatsWholeScreen [113]', { deviceType })
 
   return (
     <SafeAreaView

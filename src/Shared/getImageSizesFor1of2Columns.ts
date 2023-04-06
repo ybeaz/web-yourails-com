@@ -21,8 +21,8 @@ export const getImageSizesFor1of2Columns: GetImageSizesFor1of2ColumnsType = (
 
   if (screenCaseIn === 'xsSmMd') {
     output = {
-      imageWidth: widthIn * 0.45,
-      imageHeight: (widthIn * 0.45 * 9) / 16,
+      imageWidth: widthIn * 0.7,
+      imageHeight: (widthIn * 0.7 * 9) / 16,
     }
   }
 

@@ -15,7 +15,7 @@ const stylesDefault: any = {
     // height: '16.8rem',
   },
   rowStyle: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     padding: '0.5rem',
   },
   column1Style: {
@@ -80,6 +80,10 @@ const lgDevice = StyleSheet.create({
     paddingBottom: '2rem',
   },
   projectProfileView: { flex: 1, paddingLeft: '1rem' },
+  rowStyle: {
+    ...stylesDefault.rowStyle,
+    flexDirection: 'row',
+  },
 })
 
 const xlDevice = StyleSheet.create({

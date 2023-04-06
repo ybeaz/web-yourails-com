@@ -76,6 +76,14 @@ const getProfileItemsObjList = (userIn: UserType): ProfileItemPropsType[] => {
     },
     {
       iconLibrary: 'Ionicons',
+      iconName: 'ios-calendar-outline',
+      contentType: 'linkHref',
+      contentSrc: 'https://calendly.com/romanch',
+      content: 'Feel free to setup a phone call',
+      label: 'Link',
+    },
+    {
+      iconLibrary: 'Ionicons',
       iconName: 'mail-outline',
       content: emails.join(', '),
       label: 'Email',

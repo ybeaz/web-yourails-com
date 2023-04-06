@@ -33,7 +33,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     handleEvents,
   } = props
 
-  const { deviceType, screenCase, width, height } = mediaParams
+  const { deviceType } = mediaParams
   const { childName, isShow: isShowModalFrame, childProps } = modalFrame
 
   const userFound = users.find(user => user.id === messages[0].idUser)
@@ -41,6 +41,10 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const Child = MODAL_CONTENTS[childName]
 
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
+
+  let modalContentMargin: string | number = '3rem'
+  if (deviceType === 'xsDevice') modalContentMargin = 0
+  else if (deviceType === 'smDevice') modalContentMargin = '2rem'
 
   const propsOut = {
     messageProps: {
@@ -56,7 +60,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         ModalFrameYrl: {},
         imageBackground: {},
         content: {
-          margin: '3rem',
+          margin: modalContentMargin,
           ...themes['themeA'].colors03,
         },
       },

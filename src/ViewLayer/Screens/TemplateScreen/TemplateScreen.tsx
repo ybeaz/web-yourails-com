@@ -49,10 +49,6 @@ const TemplateScreenComponent: TemplateScreenType = props => {
     )
   }, [])
 
-  console.info('TemplateScreen  [41]', {
-    store,
-  })
-
   const canonicalUrl = `${URL_APP_BASE}${props?.routeProps?.location.pathname}`
 
   const propsOut: Record<string, any> = {

@@ -39,9 +39,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
       styleProps: { ButtonYrl: {} },
       testID: 'ButtonYrl',
       disabled: false,
-      onPress: () => {
-        console.info('ChatCard [29]')
-      },
+      onPress: () => {},
       iconProps: undefined,
     },
   }

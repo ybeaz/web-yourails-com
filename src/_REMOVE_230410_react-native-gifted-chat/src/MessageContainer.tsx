@@ -334,10 +334,6 @@ export default class MessageContainer<
   render() {
     const { inverted } = this.props
 
-    // console.info('MessageContainer [339]', {
-    //   'this.props.messages': this.props.messages,
-    // })
-
     return (
       <SafeAreaView
         style={

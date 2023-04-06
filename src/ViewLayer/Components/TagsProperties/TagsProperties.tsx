@@ -26,7 +26,6 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
 
   const getTagList = (competencies: any[]): ReactElement[] => {
     return competencies.map((competency, index: number) => {
-      // console.info('TagsProperties [28]', { competency })
       const { id, title, linkHref, tooltips } = competency
       const tagPropertyProps = {
         key: `tagProperty-${index}`,
