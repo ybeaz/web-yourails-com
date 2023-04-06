@@ -25,7 +25,7 @@ export const MENU_CONTENT_ITEMS: MenuContentItemsType[] = [
   {
     iconLibrary: 'Ionicons',
     iconName: 'person-outline',
-    iconTitleText: 'Profile',
+    iconTitleText: 'Contacts',
     childName: 'Profile',
   },
 ]

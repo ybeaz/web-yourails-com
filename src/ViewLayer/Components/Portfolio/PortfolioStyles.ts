@@ -28,7 +28,7 @@ const stylesDefault: any = {
     // padding: '1rem',
   },
   titleText: {
-    ...styleGlobal.h2,
+    ...styleGlobal.h3,
   },
   subtitleView: {},
   subtitleTextName: {

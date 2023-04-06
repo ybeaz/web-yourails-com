@@ -6,7 +6,7 @@ export const style = StyleSheet.create({
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
-    padding: '2rem',
+    padding: '3rem',
   },
   headerView: {},
   headerText: {

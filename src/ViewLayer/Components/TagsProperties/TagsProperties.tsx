@@ -7,6 +7,7 @@ import {
   CompetencyType,
   getTranslatedPropNamesToSubheadings,
 } from '../../../r1Content/getCompetencyTagsR1'
+import { Header } from '../Header/Header'
 import { Text } from '../../Components/Text/Text'
 import { TagProperty } from '../TagProperty/TagProperty'
 import { TagsPropertiesType } from './TagsPropertiesType'
@@ -62,8 +63,16 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
     }
   )
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     tagPropertyProps: {},
+    headerProps: {
+      styleProps: {
+        Header: { paddingBottom: '1rem' },
+        headerText: {},
+      },
+      mediaParams: { deviceType: '' },
+      headerText: 'Competency Tags',
+    },
   }
 
   return (
@@ -71,11 +80,7 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
       style={[style.TagsProperties, styleProps.TagsProperties]}
       testID='TagsProperties'
     >
-      <View style={[style.headerView]} testID='headerView'>
-        <Text style={[style.headerText]} testID='headerText'>
-          Competency Tags
-        </Text>
-      </View>
+      <Header {...propsOut.headerProps} />
       {competencyTagsR1Jsx}
     </View>
   )
