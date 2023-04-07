@@ -1,9 +1,17 @@
 import { useRef, useState, useEffect } from 'react'
 import { View, SafeAreaView, ImageBackground } from 'react-native'
+import { Platform } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
+// @ts-ignore
+import WebLinearGradient from 'react-native-web-linear-gradient'
 import { ModalFrameYrlType } from './ModalFrameYrlType'
 import { ModalFrameYrlStyle as style } from './ModalFrameYrlStyle'
 import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
+
+console.info('ModalFrameYrl [11]', { 'Platform.OS': Platform.OS })
+
+const LinearGradientUniPlatform =
+  Platform.OS === 'web' ? WebLinearGradient : View // LinearGradient
 
 /**
  * @import import { ModalFrameYrl } from './YrlNativeViewLibrary/ModalFrameYrl/ModalFrameYrl'
@@ -11,6 +19,7 @@ import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
  * @propsOut
   modalFrameYrlProps: {
     styleProps: { ModalFrameYrl: {}, imageBackground: {}, content: {} },
+    linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.5)'],
     children: <>Your app is rendered ModalFrameYrl default child content</>,
     isShow: false,
     isShowImageBackground: false,
@@ -52,6 +61,7 @@ import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
 export const ModalFrameYrl: ModalFrameYrlType = props => {
   const {
     styleProps = { ModalFrameYrl: {}, imageBackground: {}, content: {} },
+    linearGradientColors = ['rgba(0,0,0,0)', 'rgba(0,0,0,0.5)'],
     children = <>Your app is rendered ModalFrameYrl default child content</>,
     isShow = false,
     isShowImageBackground = false,
@@ -131,12 +141,14 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
           imageStyle={[style.imageBackground, styleProps.imageBackground]}
           testID={'ImageBackground'}
         >
-          {/* <LinearGradient
-            colors={['rgba(0,0,0,0.7)', 'rgba(0,0,0,0)']}
-            // style={styles.gradient}
-          > */}
-          {handlersAndContentJsx}
-          {/* </LinearGradient> */}
+          <LinearGradientUniPlatform
+            colors={linearGradientColors}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            // colors={['#4c669f', '#3b5998', '#192f6a']}
+          >
+            {handlersAndContentJsx}
+          </LinearGradientUniPlatform>
         </ImageBackground>
       ) : (
         handlersAndContentJsx

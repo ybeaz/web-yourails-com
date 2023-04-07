@@ -26,7 +26,7 @@ export const ModalFrameYrlStyle = StyleSheet.create({
   content: {
     backgroundColor: 'rgba(0,0,0,0.8)',
     margin: '3rem',
-    borderRadius: 5,
+    borderRadius: 3,
   },
   hidden: {
     opacity: 0,
