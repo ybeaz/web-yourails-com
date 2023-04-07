@@ -8,8 +8,6 @@ import { ModalFrameYrlType } from './ModalFrameYrlType'
 import { ModalFrameYrlStyle as style } from './ModalFrameYrlStyle'
 import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
 
-console.info('ModalFrameYrl [11]', { 'Platform.OS': Platform.OS })
-
 const LinearGradientUniPlatform =
   Platform.OS === 'web' ? WebLinearGradient : View // LinearGradient
 
