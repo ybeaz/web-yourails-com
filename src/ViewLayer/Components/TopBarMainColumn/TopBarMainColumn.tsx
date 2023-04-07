@@ -2,20 +2,22 @@ import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
 import { nanoid } from 'nanoid'
 
+import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { NameStatus } from '../NameStatus/NameStatus'
 import { Text } from '../../Components/Text/Text'
 import { themes } from '../../Styles/themes'
-import { style } from './TopBarMainColumnStyle'
+import { styles } from './TopBarMainColumnStyle'
 import { TopBarMainColumnType } from './TopBarMainColumnType'
-import { users } from '../../../Constants/usersMock'
 
 /**
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
  */
 const TopBarMainColumnComponent: TopBarMainColumnType = props => {
-  const { user } = props
-  // const user = users[0]
+  const { user, mediaParams = mediaParamsDefault } = props
+  const { deviceType } = mediaParams
+  const style = styles[deviceType]
   const { uriAvatar = '', serviceSpecs = [] } = user
 
   const getStringSpecs = (serviceSpecsIn: string[]) => {
@@ -36,6 +38,23 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
   }
 
   const propsOut: Record<string, any> = {
+    buttonBackToCards: {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: '',
+      testID: 'ButtonYrl',
+      disabled: false,
+      onPress: () => {
+        console.info('ButtonYrl []', 'click test')
+      },
+      iconProps: {
+        library: 'Ionicons',
+        name: 'arrow-back-outline',
+        styleProps: { IconYrl: {} },
+        size: '1.5rem',
+        color: themes['themeA'].colors01.color,
+        testID: 'ButtonYrl',
+      },
+    },
     avatarPlusInfoProps: {
       user,
       styleProps: {
@@ -62,6 +81,12 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
 
   return (
     <View style={[style.TopBarMainColumn]} testID='TopBarMainColumn'>
+      <View
+        style={[style.buttonBackToCardsWrapper]}
+        testID='buttonBackToCardsWrapper'
+      >
+        <ButtonYrl {...propsOut.buttonBackToCards} />
+      </View>
       <AvatarPlusInfo {...propsOut.avatarPlusInfoProps}>
         <NameStatus {...propsOut.nameStatusProps} />
       </AvatarPlusInfo>
@@ -72,4 +97,6 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
   )
 }
 
-export const TopBarMainColumn = React.memo(TopBarMainColumnComponent)
+export const TopBarMainColumn = React.memo(
+  withDeviceType(TopBarMainColumnComponent)
+)
