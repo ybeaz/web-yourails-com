@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-export const ProfileStyle = StyleSheet.create({
+export const style = StyleSheet.create({
   Profile: {
     ...styleGlobal.typography,
     flex: 1,

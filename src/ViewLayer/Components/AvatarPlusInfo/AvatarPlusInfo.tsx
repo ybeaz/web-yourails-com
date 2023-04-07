@@ -3,7 +3,7 @@ import { View } from 'react-native'
 
 import { Text } from '../../Components/Text/Text'
 import { AvatarPlusInfoType } from './AvatarPlusInfoType'
-import { AvatarPlusInfoStyle as style } from './AvatarPlusInfoStyle'
+import { style } from './AvatarPlusInfoStyle'
 import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 
@@ -39,9 +39,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
       styleProps: { ButtonYrl: {} },
       testID: 'ButtonYrl',
       disabled: false,
-      onPress: () => {
-        console.info('ChatCard [29]')
-      },
+      onPress: () => {},
       iconProps: undefined,
     },
   }

@@ -3,7 +3,7 @@ import { View } from 'react-native'
 
 import { Text } from '../../Components/Text/Text'
 import { NameStatusType } from './NameStatusType'
-import { NameStatusStyle as style } from './NameStatusStyle'
+import { style } from './NameStatusStyle'
 
 /**
  * @import import { NameStatus } from '../Components/NameStatus/NameStatus'

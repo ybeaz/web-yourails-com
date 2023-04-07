@@ -6,7 +6,7 @@ import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { NameStatus } from '../NameStatus/NameStatus'
 import { Text } from '../../Components/Text/Text'
 import { themes } from '../../Styles/themes'
-import { TopBarMainColumnStyle as style } from './TopBarMainColumnStyle'
+import { style } from './TopBarMainColumnStyle'
 import { TopBarMainColumnType } from './TopBarMainColumnType'
 import { users } from '../../../Constants/usersMock'
 

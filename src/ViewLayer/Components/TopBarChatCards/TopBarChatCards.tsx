@@ -5,7 +5,7 @@ import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
 import { InputTextYrl } from '../../../YrlNativeViewLibrary/InputTextYrl/InputTextYrl'
 import { themes } from '../../Styles/themes'
-import { TopBarChatCardsStyle as style } from './TopBarChatCardsStyle'
+import { style } from './TopBarChatCardsStyle'
 import { TopBarChatCardsType } from './TopBarChatCardsType'
 
 /**

@@ -7,10 +7,11 @@ import {
   CompetencyType,
   getTranslatedPropNamesToSubheadings,
 } from '../../../r1Content/getCompetencyTagsR1'
+import { Header } from '../Header/Header'
 import { Text } from '../../Components/Text/Text'
 import { TagProperty } from '../TagProperty/TagProperty'
 import { TagsPropertiesType } from './TagsPropertiesType'
-import { TagsPropertiesStyle as style } from './TagsPropertiesStyle'
+import { style } from './TagsPropertiesStyle'
 
 /**
  * @import import { TagsProperties } from '../Components/TagsProperties/TagsProperties'
@@ -26,7 +27,6 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
 
   const getTagList = (competencies: any[]): ReactElement[] => {
     return competencies.map((competency, index: number) => {
-      // console.info('TagsProperties [28]', { competency })
       const { id, title, linkHref, tooltips } = competency
       const tagPropertyProps = {
         key: `tagProperty-${index}`,
@@ -63,8 +63,16 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
     }
   )
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     tagPropertyProps: {},
+    headerProps: {
+      styleProps: {
+        Header: { paddingBottom: '1rem' },
+        headerText: {},
+      },
+      mediaParams: { deviceType: '' },
+      headerText: 'Competency Tags',
+    },
   }
 
   return (
@@ -72,11 +80,7 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
       style={[style.TagsProperties, styleProps.TagsProperties]}
       testID='TagsProperties'
     >
-      <View style={[style.headerView]} testID='headerView'>
-        <Text style={[style.headerText]} testID='headerText'>
-          Competency Tags
-        </Text>
-      </View>
+      <Header {...propsOut.headerProps} />
       {competencyTagsR1Jsx}
     </View>
   )

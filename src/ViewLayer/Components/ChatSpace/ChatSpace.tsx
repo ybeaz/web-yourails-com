@@ -8,10 +8,11 @@ import {
   IS_BOTTON_BACK,
   IS_BOTTON_CLOSE,
 } from '../../../Constants/modalContents.const'
+import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { Text } from '../../Components/Text/Text'
 import { LOCALE, DATE_FORMAT } from '../../../Constants/locale.const'
 import { ChatSpaceType } from './ChatSpaceType'
-import { ChatSpaceStyle as style } from './ChatSpaceStyle'
+import { style } from './ChatSpaceStyle'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { Message } from '../../Components/Message/Message'
 import { ModalFrameYrl } from '../../../YrlNativeViewLibrary/ModalFrameYrl/ModalFrameYrl'
@@ -25,11 +26,14 @@ import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 const ChatSpaceComponent: ChatSpaceType = props => {
   const {
     styleProps = { ChatSpace: {} },
+    mediaParams = mediaParamsDefault,
     users,
     messages,
     modalFrame,
     handleEvents,
   } = props
+
+  const { deviceType } = mediaParams
   const { childName, isShow: isShowModalFrame, childProps } = modalFrame
 
   const userFound = users.find(user => user.id === messages[0].idUser)
@@ -37,6 +41,10 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const Child = MODAL_CONTENTS[childName]
 
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
+
+  let modalContentMargin: string | number = '3rem'
+  if (deviceType === 'xsDevice') modalContentMargin = 0
+  else if (deviceType === 'smDevice') modalContentMargin = '2rem'
 
   const propsOut = {
     messageProps: {
@@ -51,7 +59,10 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       styleProps: {
         ModalFrameYrl: {},
         imageBackground: {},
-        content: { ...themes['themeA'].colors03 },
+        content: {
+          margin: modalContentMargin,
+          ...themes['themeA'].colors03,
+        },
       },
       children: <Child {...childProps} />,
       isShow: isShowModalFrame,
@@ -101,7 +112,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           testID: 'ModalFrameYrl-buttonClose-iconClose',
         },
       },
-      imageBackgroundSource: require('../../../Assets/canopy-of-leaves-2.jpg'),
+      imageBackgroundSource: undefined, // require('../../../Assets/canopy-of-leaves-2.jpg'),
       isButtonBack: IS_BOTTON_BACK,
       isButtonClose: IS_BOTTON_CLOSE,
     },
@@ -143,4 +154,4 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   )
 }
 
-export const ChatSpace = React.memo(ChatSpaceComponent)
+export const ChatSpace = React.memo(withDeviceType(ChatSpaceComponent))

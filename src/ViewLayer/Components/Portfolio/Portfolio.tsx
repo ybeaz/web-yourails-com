@@ -2,10 +2,10 @@ import React, { useCallback, ReactElement } from 'react'
 import { ImageResizeMode, View, Linking, Alert } from 'react-native'
 import '@expo/match-media'
 
+import { Header } from '../Header/Header'
 import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { useLinkClickRes } from '../../Hooks/useLinkClickRes'
 import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
-import { useMediaQueryRes, ScreenCaseType } from '../../Hooks/useMediaQueryRes'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
 import { styles } from './PortfolioStyles'
@@ -171,10 +171,20 @@ const PortfolioComponent: PortfolioType = props => {
       })
   }
 
-  const propsOut = {}
+  const propsOut: Record<string, any> = {
+    headerProps: {
+      styleProps: {
+        Header: { paddingBottom: '1.5rem' },
+        headerText: {},
+      },
+      mediaParams: { deviceType: '' },
+      headerText: 'Side projects & widgets',
+    },
+  }
 
   return (
     <View style={[style.Portfolio, styleProps.Portfolio]} testID='Portfolio'>
+      <Header {...propsOut.headerProps} />
       {getProjects(projectsList)}
     </View>
   )

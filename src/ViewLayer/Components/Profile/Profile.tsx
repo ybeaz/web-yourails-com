@@ -3,7 +3,7 @@ import { View, ImageResizeMode } from 'react-native'
 
 import { ProfileItem } from '../ProfileItem/ProfileItem'
 import { ProfileItemPropsType } from '../ProfileItem/ProfileItemType'
-import { ProfileStyle as style } from './ProfileStyle'
+import { style } from './ProfileStyle'
 import { ProfileType } from './ProfileType'
 import { Text } from '../Text/Text'
 import { themes } from '../../Styles/themes'
@@ -73,6 +73,14 @@ const getProfileItemsObjList = (userIn: UserType): ProfileItemPropsType[] => {
       iconName: 'call-outline',
       content: phones.join(', '),
       label: 'Phons',
+    },
+    {
+      iconLibrary: 'Ionicons',
+      iconName: 'ios-calendar-outline',
+      contentType: 'linkHref',
+      contentSrc: 'https://calendly.com/romanch',
+      content: 'Feel free to setup a phone call',
+      label: 'Link',
     },
     {
       iconLibrary: 'Ionicons',

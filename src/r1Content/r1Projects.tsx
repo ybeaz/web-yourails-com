@@ -33,33 +33,6 @@ const a = `
 export const getProjectList: GetProjectsType = () => {
   const arrObj = [
     {
-      title: 'Web game. Tic Tac Toe game with random logic',
-      isActive: true,
-      pathname: 'demo-tic-tak-toe-js.html',
-      subtitle: 'Play in the web',
-      description: (
-        <View>
-          <Text>
-            This Tic Tac Toe game is a classic game that offers an exciting and
-            unpredictable experience with its random reply logic. Built with
-            pure JavaScript, it provides a lightweight and fast gaming
-            experience without any dependencies.
-          </Text>
-          <Text>
-            Our game features an intuitive design and customizable settings, so
-            players can easily adjust the game to their preferences. With its
-            user-friendly interface, players can quickly start playing without
-            any hassle.
-          </Text>
-        </View>
-      ),
-      customer: 'Gaming, leasure time',
-      builtwith: 'ES7, ESLint, Babel, Webpack',
-      imgSrc: 'https://r1.userto.com/img/yrl-23-demo-tic-tak-toe-js.jpg',
-      linkHref: 'https://r1.userto.com/demo-tic-tak-toe-js.html',
-    },
-
-    {
       title: 'Web service. YouRails Academy',
       isActive: true,
       pathname: 'demo-yourails-academy.html',
@@ -126,6 +99,33 @@ export const getProjectList: GetProjectsType = () => {
         'React, React-dom, ES7, Babel, Webpack, Jest, Enzyme, JSONP, Php, MySQL',
       imgSrc: 'https://r1.userto.com/img/yrl-23-demo-site-windows.jpg',
       linkHref: 'https://sitewindows.com/site-windows-info.html', //'https://r1.userto.com/demo-site-windows.html',
+    },
+
+    {
+      title: 'Web game. Tic Tac Toe game with random logic',
+      isActive: true,
+      pathname: 'demo-tic-tak-toe-js.html',
+      subtitle: 'Play in the web',
+      description: (
+        <View>
+          <Text>
+            This Tic Tac Toe game is a classic game that offers an exciting and
+            unpredictable experience with its random reply logic. Built with
+            pure JavaScript, it provides a lightweight and fast gaming
+            experience without any dependencies.
+          </Text>
+          <Text>
+            Our game features an intuitive design and customizable settings, so
+            players can easily adjust the game to their preferences. With its
+            user-friendly interface, players can quickly start playing without
+            any hassle.
+          </Text>
+        </View>
+      ),
+      customer: 'Gaming, leasure time',
+      builtwith: 'ES7, ESLint, Babel, Webpack',
+      imgSrc: 'https://r1.userto.com/img/yrl-23-demo-tic-tak-toe-js.jpg',
+      linkHref: 'https://r1.userto.com/demo-tic-tak-toe-js.html',
     },
 
     {

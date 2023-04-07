@@ -11,7 +11,7 @@ export const users: UserType[] = [
     emails: ['t3531350@yahoo.com'],
     messengers: [{ name: 'Telegram', username: '@rome_sfba2' }],
     locations: ['Remote', 'San Francisco, CA'],
-    serviceSpecs: ['Full Stack Developer', 'Machine Learning Engineer'],
+    serviceSpecs: ['Full Stack Developer', 'Machine Learning'],
     summary:
       '\
 Full Stack Engineer with 12+ years of experience: a broad overview from MERN to LAMP, from AWS CDK to AI and Machine Learning.\n\

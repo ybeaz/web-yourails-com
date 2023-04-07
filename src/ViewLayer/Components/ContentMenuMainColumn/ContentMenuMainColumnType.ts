@@ -1,5 +1,8 @@
+import { RootStoreType } from '../../../@types/RootStoreType'
+
 export interface ContentMenuMainColumnPropsType {
   styleProps?: any
+  store: RootStoreType
   handleEvents: any
 }
 

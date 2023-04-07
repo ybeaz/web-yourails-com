@@ -9,6 +9,12 @@ import { useMediaQueryRes, UseMediaQueryResType } from './useMediaQueryRes'
  * @import import { withDeviceType } from '../../Hooks/withDeviceType'
  * @import import { UseMediaQueryResType  } from '../../Hooks/useMediaQueryRes'
  * @use export const Portfolio = React.memo(withDeviceType(PortfolioComponent))
+ * @media accepted sizes:
+  xs 320-480px
+  mobile sm 481-768
+  tablets md 769 - 1024
+  Desktop/laptop lg 1025 - 1620
+  Wide screens xl 1621 - 16000'
  */
 
 export const mediaParamsDefault: UseMediaQueryResType = {
@@ -19,7 +25,7 @@ export const mediaParamsDefault: UseMediaQueryResType = {
 }
 
 export function withDeviceType(
-  Component: FunctionComponent
+  Component: FunctionComponent<any>
 ): FunctionComponent {
   return function WrappedComponent(props: any) {
     const mediaParams: UseMediaQueryResType = useMediaQueryRes()

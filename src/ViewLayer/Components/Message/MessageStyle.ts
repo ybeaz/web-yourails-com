@@ -19,7 +19,7 @@ const Message: any = StyleSheet.create({
   },
 })
 
-export const MessageStyles: any = {
+export const styles: any = {
   left: StyleSheet.create({
     Message: {
       ...Message.MessageCommon,

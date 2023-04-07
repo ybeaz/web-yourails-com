@@ -15,7 +15,7 @@ const TemplateComponent: TemplateType = props => {
   const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
 
-  const propsOut = {}
+  const propsOut: Record<string, any> = {}
 
   return (
     <View style={[style.Template, styleProps.Template]} testID='Template'>

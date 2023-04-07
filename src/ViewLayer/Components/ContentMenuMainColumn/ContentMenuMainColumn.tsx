@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
 
 import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'
-import { ContentMenuMainColumnStyle as style } from './ContentMenuMainColumnStyle'
+import { style } from './ContentMenuMainColumnStyle'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import {
   MENU_CONTENT_ITEMS,
@@ -14,7 +14,17 @@ import { themes } from '../../Styles/themes'
  * @import import { ContentMenuMainColumn } from '../Components/ContentMenuMainColumn/ContentMenuMainColumn'
  */
 const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
-  const { styleProps = { ContentMenuMainColumn: {} }, handleEvents } = props
+  const {
+    styleProps = { ContentMenuMainColumn: {} },
+    store,
+    handleEvents,
+  } = props
+
+  const {
+    componentsState: {
+      modalFrame: { childName: childNameModalStore, isShow: isShowModalStore },
+    },
+  } = store
 
   const getMenuContentItems = (menuContentItemsIn: MenuContentItemsType[]) => {
     return menuContentItemsIn.map((menuContentItem: any, index: number) => {
@@ -50,10 +60,19 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
         },
       }
 
+      const styleForActiveMenuItem =
+        childNameModalStore === childName && isShowModalStore
+          ? { backgroundColor: themes['themeA'].colors03.backgroundColor }
+          : {}
+
       return (
         <View
           key={`menuContentItem-${index}`}
-          style={[style.buttonWrapper, themes['themeA'].colors01]}
+          style={[
+            style.buttonWrapper,
+            themes['themeA'].colors01,
+            styleForActiveMenuItem,
+          ]}
           testID='buttonWrapper'
         >
           <ButtonYrl {...propsOut.buttonProps} />

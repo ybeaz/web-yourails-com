@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-export const TopBarChatCardsStyle = StyleSheet.create({
+export const style = StyleSheet.create({
   TopBarChatCards: {
     ...styleGlobal.typography,
     flexDirection: 'row',

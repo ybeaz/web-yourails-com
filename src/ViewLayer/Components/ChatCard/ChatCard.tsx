@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
 
 import { ChatCardType } from './ChatCardType'
-import { ChatCardStyle as style } from './ChatCardStyle'
+import { style } from './ChatCardStyle'
 import { themes } from '../../Styles/themes'
 import { NameStatus } from '../NameStatus/NameStatus'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
