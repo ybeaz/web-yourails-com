@@ -69,6 +69,7 @@ TODO: Need to write
     Probably `import App from '../../src/App';`
 
 5.  To run the app: `yarn expo:start`
+    To run the app specifically for web: `yarn expo:start --web`
     To check xCode version: `/usr/bin/xcodebuild -version`
 
 ### How to troubleshoot running the app

@@ -16,6 +16,7 @@ const LinearGradientUniPlatform =
 /**
  * @import import { ModalFrameYrl } from './YrlNativeViewLibrary/ModalFrameYrl/ModalFrameYrl'
  * @import import { ModalFrameYrlPropsType } from './YrlNativeViewLibrary/ModalFrameYrl/ModalFrameYrlType'
+ * @links for LinearGradient: https://github.com/react-native-linear-gradient/react-native-linear-gradient
  * @propsOut
   modalFrameYrlProps: {
     styleProps: { ModalFrameYrl: {}, imageBackground: {}, content: {} },

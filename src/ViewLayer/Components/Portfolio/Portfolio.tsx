@@ -2,6 +2,7 @@ import React, { useCallback, ReactElement } from 'react'
 import { ImageResizeMode, View, Linking, Alert } from 'react-native'
 import '@expo/match-media'
 
+import { ProjectInfoView } from '../ProjectInfoView/ProjectInfoView'
 import { Header } from '../Header/Header'
 import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { useLinkClickRes } from '../../Hooks/useLinkClickRes'
@@ -47,7 +48,7 @@ const PortfolioComponent: PortfolioType = props => {
 
         const imageResizeMode: ImageResizeMode = 'cover' // 'cover' 'contain' 'center'
 
-        const propsOut = {
+        const propsOut: Record<string, any> = {
           projectButtonYrl: {
             styleProps: {
               ButtonYrl: { justifyContent: 'flex-start' },
@@ -62,6 +63,7 @@ const PortfolioComponent: PortfolioType = props => {
             styleProps: {
               ImageYrl: {},
               image: {
+                borderRadius: 3,
                 width: imageWidth,
                 height: imageHeight,
               },
@@ -71,85 +73,14 @@ const PortfolioComponent: PortfolioType = props => {
             uri: imgSrc,
             resizeMode: imageResizeMode,
           },
+          projectInfoViewProps: {
+            title,
+            subtitle,
+            description,
+            customer,
+            builtwith,
+          },
         }
-
-        const ProjectProfileView = () => (
-          <View style={[style.projectProfileView]} testID='projectProfileView'>
-            <View style={[style.titleView, style.rowStyle]} testID='titleView'>
-              <Text style={[style.titleText]} testID='titleText'>
-                {title}
-              </Text>
-            </View>
-            <View
-              style={[style.subtitleView, style.rowStyle]}
-              testID='subtitleView'
-            >
-              <Text
-                style={[style.subtitleTextName, style.column1Style]}
-                testID='subtitleTextName'
-              >
-                Subtitle:
-              </Text>
-              <Text
-                style={[style.subtitleText, style.column2Style]}
-                testID='subtitleTex'
-              >
-                {subtitle}
-              </Text>
-            </View>
-            <View
-              style={[style.descriptionView, style.rowStyle]}
-              testID='descriptionView'
-            >
-              <Text
-                style={[style.descriptionTextName, style.column1Style]}
-                testID='subtitleTextName'
-              >
-                Description:
-              </Text>
-              <Text
-                style={[style.descriptionText, style.column2Style]}
-                testID='descriptionText'
-              >
-                {description}
-              </Text>
-            </View>
-            <View
-              style={[style.customerView, style.rowStyle]}
-              testID='customerView'
-            >
-              <Text
-                style={[style.customerTextName, style.column1Style]}
-                testID='customerTextName'
-              >
-                Industry:
-              </Text>
-              <Text
-                style={[style.customerText, style.column2Style]}
-                testID='customerText'
-              >
-                {customer}
-              </Text>
-            </View>
-            <View
-              style={[style.builtwithView, style.rowStyle]}
-              testID='builtwithView'
-            >
-              <Text
-                style={[style.builtwithTextName, style.column1Style]}
-                testID='subtitleTextName'
-              >
-                Built with:
-              </Text>
-              <Text
-                style={[style.builtwithText, style.column2Style]}
-                testID='builtwithText'
-              >
-                {builtwith}
-              </Text>
-            </View>
-          </View>
-        )
 
         return (
           <View
@@ -157,7 +88,9 @@ const PortfolioComponent: PortfolioType = props => {
             style={[style.projectView]}
             testID='projectView'
           >
-            {screenCase === 'xsSmMd' && <ProjectProfileView />}
+            {screenCase === 'xsSmMd' && (
+              <ProjectInfoView {...propsOut.projectInfoViewProps} />
+            )}
             <View style={[style.buttonImageView]} testID='buttonImageView'>
               <ButtonYrl {...propsOut.projectButtonYrl}>
                 <View style={[style.imageView]} testID='imageView'>
@@ -165,7 +98,9 @@ const PortfolioComponent: PortfolioType = props => {
                 </View>
               </ButtonYrl>
             </View>
-            {screenCase === 'lgXl' && <ProjectProfileView />}
+            {screenCase === 'lgXl' && (
+              <ProjectInfoView {...propsOut.projectInfoViewProps} />
+            )}
           </View>
         )
       })
