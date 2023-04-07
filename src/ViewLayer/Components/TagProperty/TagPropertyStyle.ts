@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-export const TagPropertyStyle = StyleSheet.create({
+export const style = StyleSheet.create({
   TagProperty: {
     ...styleGlobal.typography,
     flex: 1,

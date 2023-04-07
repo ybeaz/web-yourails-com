@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-export const AvatarPlusInfoStyle = StyleSheet.create({
+export const style = StyleSheet.create({
   AvatarPlusInfo: {
     ...styleGlobal.typography,
     flexDirection: 'row',

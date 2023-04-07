@@ -38,8 +38,6 @@ describe('Test function template', () => {
 
       const outputed = getIndicesAdd2Nums(nums, target)
 
-      // console.info('getIndicesAdd2Nums [29]', { outputed, expected })
-
       expect(outputed).toEqual(expected)
     })
   })

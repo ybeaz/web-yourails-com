@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-export const Error404BodyStyle = StyleSheet.create({
+export const style = StyleSheet.create({
   Error404Body: {
     flex: 1,
     flexDirection: 'column',

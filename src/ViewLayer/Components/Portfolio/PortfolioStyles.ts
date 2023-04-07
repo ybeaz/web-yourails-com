@@ -15,7 +15,7 @@ const stylesDefault: any = {
     // height: '16.8rem',
   },
   rowStyle: {
-    flexDirection: 'row',
+    flexDirection: 'column',
     padding: '0.5rem',
   },
   column1Style: {
@@ -28,7 +28,7 @@ const stylesDefault: any = {
     // padding: '1rem',
   },
   titleText: {
-    ...styleGlobal.h2,
+    ...styleGlobal.h3,
   },
   subtitleView: {},
   subtitleTextName: {
@@ -80,6 +80,10 @@ const lgDevice = StyleSheet.create({
     paddingBottom: '2rem',
   },
   projectProfileView: { flex: 1, paddingLeft: '1rem' },
+  rowStyle: {
+    ...stylesDefault.rowStyle,
+    flexDirection: 'row',
+  },
 })
 
 const xlDevice = StyleSheet.create({

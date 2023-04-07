@@ -1,14 +1,12 @@
 import { StatusBar, StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-export const PageChatsWholeScreenStyle = StyleSheet.create({
+export const stylesDefault = StyleSheet.create({
   PageChatsWholeScreen: {
     ...styleGlobal.typography,
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    marginRight: '7.5%',
     marginBottom: 0,
-    marginLeft: '7.5%',
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'center',
@@ -43,3 +41,44 @@ export const PageChatsWholeScreenStyle = StyleSheet.create({
     justifyContent: 'flex-end',
   },
 })
+
+const xmDevice = StyleSheet.create({
+  ...stylesDefault,
+})
+
+const smDevice = StyleSheet.create({
+  ...stylesDefault,
+})
+
+const mdDevice = StyleSheet.create({
+  ...stylesDefault,
+})
+
+const lgDevice = StyleSheet.create({
+  ...stylesDefault,
+  PageChatsWholeScreen: {
+    ...stylesDefault.PageChatsWholeScreen,
+    marginRight: '7.5%',
+    marginLeft: '7.5%',
+  },
+})
+
+const xlDevice = StyleSheet.create({
+  ...stylesDefault,
+  PageChatsWholeScreen: {
+    ...stylesDefault.PageChatsWholeScreen,
+    marginRight: '7.5%',
+    marginLeft: '7.5%',
+  },
+})
+
+/**
+ * @import import { styles } from './TemplateStyles'
+ */
+export const styles: Record<string, any> = {
+  xsDevice: smDevice,
+  smDevice: smDevice,
+  mdDevice: mdDevice,
+  lgDevice: lgDevice,
+  xlDevice: xlDevice,
+}

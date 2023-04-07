@@ -4,7 +4,7 @@ import dayjs from 'dayjs'
 
 import { Text } from '../../Components/Text/Text'
 import { MessageType } from './MessageType'
-import { MessageStyles as styles } from './MessageStyle'
+import { styles } from './MessageStyle'
 import { themes } from '../../Styles/themes'
 import { TriangleCorner } from '../TriangleCorner/TriangleCorner'
 import { LOCALE, TIME_FORMAT } from '../../../Constants/locale.const'

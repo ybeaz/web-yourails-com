@@ -1,8 +1,17 @@
 import { useRef, useState, useEffect } from 'react'
-import { View, SafeAreaView, ImageBackground, Dimensions } from 'react-native'
+import { View, SafeAreaView, ImageBackground } from 'react-native'
+import { Platform } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
+// @ts-ignore
+import WebLinearGradient from 'react-native-web-linear-gradient'
 import { ModalFrameYrlType } from './ModalFrameYrlType'
 import { ModalFrameYrlStyle as style } from './ModalFrameYrlStyle'
 import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
+
+console.info('ModalFrameYrl [11]', { 'Platform.OS': Platform.OS })
+
+const LinearGradientUniPlatform =
+  Platform.OS === 'web' ? WebLinearGradient : View // LinearGradient
 
 /**
  * @import import { ModalFrameYrl } from './YrlNativeViewLibrary/ModalFrameYrl/ModalFrameYrl'
@@ -10,6 +19,7 @@ import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
  * @propsOut
   modalFrameYrlProps: {
     styleProps: { ModalFrameYrl: {}, imageBackground: {}, content: {} },
+    linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.5)'],
     children: <>Your app is rendered ModalFrameYrl default child content</>,
     isShow: false,
     isShowImageBackground: false,
@@ -19,9 +29,7 @@ import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
       titleText: '',
       testID: 'ModalFrameYrl-buttonBack',
       disabled: false,
-      onPress: () => {
-        console.info('ModalFrameYrl [29]. You have pressed buttonBack-iconBack')
-      },
+      onPress: () => {},
       iconProps: {
         library: 'Ionicons',
         name: 'arrow-back-outline',
@@ -35,11 +43,7 @@ import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
       titleText: '',
       testID: 'ModalFrameYrl-buttonClose',
       disabled: false,
-      onPress: () => {
-        console.info(
-          'ModalFrameYrl [43]. You have pressed buttonClose-iconClose'
-        )
-      },
+      onPress: () => {},
       iconProps: {
         onPress: () => {},
         library: 'Ionicons',
@@ -57,6 +61,7 @@ import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
 export const ModalFrameYrl: ModalFrameYrlType = props => {
   const {
     styleProps = { ModalFrameYrl: {}, imageBackground: {}, content: {} },
+    linearGradientColors = ['rgba(0,0,0,0)', 'rgba(0,0,0,0.5)'],
     children = <>Your app is rendered ModalFrameYrl default child content</>,
     isShow = false,
     isShowImageBackground = false,
@@ -66,9 +71,7 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
       titleText: '',
       testID: 'ModalFrameYrl-buttonBack',
       disabled: false,
-      onPress: () => {
-        console.info('ModalFrameYrl [29]. You have pressed buttonBack-iconBack')
-      },
+      onPress: () => {},
       iconProps: {
         library: 'Ionicons',
         name: 'arrow-back-outline',
@@ -82,11 +85,7 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
       titleText: '',
       testID: 'ModalFrameYrl-buttonClose',
       disabled: false,
-      onPress: () => {
-        console.info(
-          'ModalFrameYrl [43]. You have pressed buttonClose-iconClose'
-        )
-      },
+      onPress: () => {},
       iconProps: {
         onPress: () => {},
         library: 'Ionicons',
@@ -142,7 +141,14 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
           imageStyle={[style.imageBackground, styleProps.imageBackground]}
           testID={'ImageBackground'}
         >
-          {handlersAndContentJsx}
+          <LinearGradientUniPlatform
+            colors={linearGradientColors}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            // colors={['#4c669f', '#3b5998', '#192f6a']}
+          >
+            {handlersAndContentJsx}
+          </LinearGradientUniPlatform>
         </ImageBackground>
       ) : (
         handlersAndContentJsx

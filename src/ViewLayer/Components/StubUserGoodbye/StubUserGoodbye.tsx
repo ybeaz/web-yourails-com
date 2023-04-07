@@ -4,7 +4,7 @@ import { View } from 'react-native'
 
 import { Text } from '../../Components/Text/Text'
 import { StubUserGoodbyeType } from './StubUserGoodbyeType'
-import { StubUserGoodbyeStyle as style } from './StubUserGoodbyeStyle'
+import { style } from './StubUserGoodbyeStyle'
 import { RootStoreType } from '../../../@types/RootStoreType'
 import { DICTIONARY } from '../../../Constants/dictionary.const'
 

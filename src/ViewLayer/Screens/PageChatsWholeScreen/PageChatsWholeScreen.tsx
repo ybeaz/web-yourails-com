@@ -5,19 +5,20 @@ import { useSelector } from 'react-redux'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
+import { ChatSpaceType } from '../../Components/ChatSpace/ChatSpaceType'
+import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary/AnimatedYrl/AnimatedYrl'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
-import { PageChatsWholeScreenStyle as style } from './PageChatsWholeScreenStyle'
+import { styles } from './PageChatsWholeScreenStyle'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { RootStoreType } from '../../../@types/RootStoreType'
 import { styleGlobal } from '../../Styles/styleGlobal'
 import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
-import { useMediaQueryRes, ScreenCaseType } from '../../Hooks/useMediaQueryRes'
 
 import { messages } from '../../../Constants/messagesMock'
 import { users } from '../../../Constants/usersMock'
@@ -25,6 +26,19 @@ import { users } from '../../../Constants/usersMock'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
+  const {
+    styleProps = { PageChatsWholeScreen: {} },
+    routeProps = {
+      location: {
+        pathname: '',
+      },
+    },
+    mediaParams = mediaParamsDefault,
+    themeDafault = '',
+  } = props
+  const { deviceType } = mediaParams
+  const style = styles[deviceType]
+
   const store = useSelector((store2: RootStoreType) => store2)
   const renderCounter = useRef(0)
   renderCounter.current = renderCounter.current + 1
@@ -36,23 +50,17 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const { modalFrame } = componentsState
   const { isShow: isShowModalFrame } = modalFrame
 
-  const { deviceType, screenCase, width } = useMediaQueryRes()
-
   useEffect(() => {
     // handleEvents.TEMPLATE({}, { id: '3' })
   }, [])
 
-  const onPressButtonYrl = () => {
-    console.info('App [14]', { action: 'It is pressed 3' })
-  }
+  const onPressButtonYrl = () => {}
 
-  const onChangeText = (value: string | undefined) => {
-    console.info('App [24]', { value })
-  }
+  const onChangeText = (value: string | undefined) => {}
 
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     chatCardProps: {
       user: users[0],
     },
@@ -63,6 +71,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       handleEvents: useCallback(handleEvents, []),
     },
     contentMenuMainColumn: {
+      store,
       handleEvents: useCallback(handleEvents, []),
     },
     sidebarRightOuterAnimatedYrl: {
@@ -155,4 +164,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   )
 }
 
-export const PageChatsWholeScreen = React.memo(PageChatsWholeScreenComponent)
+export const PageChatsWholeScreen = React.memo(
+  withDeviceType(PageChatsWholeScreenComponent)
+)

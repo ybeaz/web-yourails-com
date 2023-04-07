@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-export const TagsPropertiesStyle = StyleSheet.create({
+export const style = StyleSheet.create({
   TagsProperties: {
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
-    padding: '2rem',
+    padding: '3rem',
   },
   headerView: {},
   headerText: {

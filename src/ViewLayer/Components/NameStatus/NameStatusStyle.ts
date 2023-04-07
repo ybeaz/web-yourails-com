@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-export const NameStatusStyle = StyleSheet.create({
+export const style = StyleSheet.create({
   NameStatus: {
     ...styleGlobal.typography,
     paddingLeft: '1rem',

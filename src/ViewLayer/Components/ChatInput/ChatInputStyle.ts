@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-export const ChatInputStyle = StyleSheet.create({
+export const style = StyleSheet.create({
   ChatInput: {
     flex: 1,
     width: '100%',

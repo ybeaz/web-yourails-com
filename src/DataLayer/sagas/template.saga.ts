@@ -24,13 +24,11 @@ function* template(input: any) {
     //   variables,
     // })
 
-    console.info('template.saga [21]', { data })
     yield put(actionAsync.TEMPLATE_ASYNC.SUCCESS(data))
 
     yield put(actionSync.TOGGLE_LOADER_OVERLAY(false))
   } catch (error) {
     const err: any = error
-    console.info('template.saga [40]', err.name + ': ' + err.message)
   }
 }
 

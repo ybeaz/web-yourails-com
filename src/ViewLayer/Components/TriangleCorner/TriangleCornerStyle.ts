@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-export const TriangleCornerStyle = StyleSheet.create({
+export const style = StyleSheet.create({
   TriangleCorner: {
     width: 0,
     height: 0,

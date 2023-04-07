@@ -3,7 +3,7 @@ import { View } from 'react-native'
 
 import { Text } from '../../Components/Text/Text'
 import { Error404BodyType } from './Error404BodyType'
-import { Error404BodyStyle as style } from './Error404BodyStyle'
+import { style } from './Error404BodyStyle'
 
 const Error404BodyComponent: Error404BodyType = () => {
   return (
