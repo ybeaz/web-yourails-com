@@ -6,6 +6,7 @@ const Message: any = StyleSheet.create({
     ...styleGlobal.typography,
     flexDirection: 'row',
     alignItems: 'flex-end',
+    marginBottom: '0.125rem',
   },
   // viewPadding: {
   //   padding: '1rem',

@@ -13,6 +13,6 @@ export const style = StyleSheet.create({
     borderTopRightRadius: 10,
   },
   notShow: {
-    display: 'none',
+    opacity: 0,
   },
 })

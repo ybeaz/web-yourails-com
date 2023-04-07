@@ -17,7 +17,6 @@ const MessageComponent: MessageType = props => {
     id,
     text,
     createdAt,
-    user,
     position = 'right',
     isTail = false,
     image,
@@ -29,10 +28,12 @@ const MessageComponent: MessageType = props => {
     isPending,
   } = props
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     TriangleCorner: {
       isShow: !!isTail,
-      styleProps: StyleSheet.create({ borderColor: themes['themeA'].colors06 }),
+      styleProps: {
+        borderColor: themes['themeA'].colors06,
+      },
     },
   }
 

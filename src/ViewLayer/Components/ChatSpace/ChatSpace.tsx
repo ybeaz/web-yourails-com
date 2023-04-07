@@ -9,6 +9,7 @@ import {
   IS_BOTTON_CLOSE,
 } from '../../../Constants/modalContents.const'
 import { UserType } from '../../../@types/UserType'
+import { MessageType } from '../../../@types/MessageType'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { Text } from '../../Components/Text/Text'
@@ -43,8 +44,9 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     users.find((userIn: UserType) => userIn.id !== idUserHost) || users[0]
   const Child = MODAL_CONTENTS[childName]
 
-  const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
+  const messagesPrep = getPreproccedMessages(messages, idUserHost)
 
+  const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
   let modalContentMargin: string | number = '3rem'
   if (deviceType === 'xsDevice') modalContentMargin = 0
   else if (deviceType === 'smDevice') modalContentMargin = '2rem'
@@ -127,6 +129,15 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const createdAt = messages[0].createdAt
   const dateString = dayjs(createdAt).locale(LOCALE).format(DATE_FORMAT)
 
+  const getMessagesJsx = (messagesIn: MessageType[]): ReactElement[] => {
+    return messagesIn.map((message: MessageType, index: number) => {
+      const propsOut = {
+        messageProps: message,
+      }
+      return <Message key={`message-${index}`} {...propsOut.messageProps} />
+    })
+  }
+
   const ChatSpaceJsx = () => (
     <View
       style={[style.ChatSpace, themes['themeA'].colors03, styleAddSidebarRight]}
@@ -139,8 +150,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           </Text>
         </View>
         <View style={style.messages} testID='messages'>
-          <Message {...propsOut.messageProps} />
-          <Message {...propsOut.messageProps} />
+          {getMessagesJsx(messagesPrep)}
         </View>
         <View style={style.chatInput} testID='chatInput'>
           <ChatInput />

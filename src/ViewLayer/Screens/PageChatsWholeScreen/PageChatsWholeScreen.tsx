@@ -111,8 +111,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
   }
 
-  console.info('PageChatsWholeScreen [112]', { user })
-
   return (
     <SafeAreaView
       style={[
