@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
-import { ChatSpaceType } from '../../Components/ChatSpace/ChatSpaceType'
+import { UserType } from '../../../@types/UserType'
 import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary/AnimatedYrl/AnimatedYrl'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
@@ -44,11 +44,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   renderCounter.current = renderCounter.current + 1
 
   const {
-    globalVars: { language },
+    globalVars: { language, idUserHost },
     componentsState,
   } = store
   const { modalFrame } = componentsState
   const { isShow: isShowModalFrame } = modalFrame
+  const user = users.find((userIn: UserType) => userIn.id === idUserHost)
 
   useEffect(() => {
     // handleEvents.TEMPLATE({}, { id: '3' })
@@ -62,19 +63,20 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const propsOut: Record<string, any> = {
     chatCardProps: {
-      user: users[0],
+      user,
     },
     chatSpaceProps: {
+      idUserHost,
       users,
       messages,
       modalFrame: { ...modalFrame, childProps: { a: 1 } },
       handleEvents: useCallback(handleEvents, []),
     },
-    contentMenuMainColumn: {
+    contentMenuMainColumnProps: {
       store,
       handleEvents: useCallback(handleEvents, []),
     },
-    sidebarRightOuterAnimatedYrl: {
+    sidebarRightOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 1 : 0,
@@ -85,7 +87,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       triggerShouldEqual: isShowModalFrame ? true : false,
       testID: 'sidebarRight_Outer_AnimatedYrl',
     },
-    mainColumnOuterAnimatedYrl: {
+    topBarMainColumnProps: { user },
+    mainColumnOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 3, opacity: 1 } },
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 0 : 1,
@@ -96,7 +99,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       triggerShouldEqual: isShowModalFrame ? true : false,
       testID: 'mainColumn_Outer_AnimatedYrl',
     },
-    sidebarRightInnerInAnimatedYrl: {
+    sidebarRightInnerInAnimatedYrlProps: {
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 1 : 0,
       valueTarget: isShowModalFrame ? 0 : 1,
@@ -107,6 +110,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       testID: 'sidebarRightIn_animatedYrl_Inner',
     },
   }
+
+  console.info('PageChatsWholeScreen [112]', { user })
 
   return (
     <SafeAreaView
@@ -126,13 +131,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         ]}
         testID='sidebarRight'
       >
-        <AnimatedYrl {...propsOut.sidebarRightInnerInAnimatedYrl}>
+        <AnimatedYrl {...propsOut.sidebarRightInnerInAnimatedYrlProps}>
           <TopBarChatCards />
           <ChatCard {...propsOut.chatCardProps} />
         </AnimatedYrl>
       </View>
 
-      <AnimatedYrl {...propsOut.mainColumnOuterAnimatedYrl}>
+      <AnimatedYrl {...propsOut.mainColumnOuterAnimatedYrlProps}>
         <View style={[style.mainColumn]} testID='mainColumn'>
           <View
             style={[
@@ -141,7 +146,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             ]}
             testID='topBarMainColumn'
           >
-            <TopBarMainColumn />
+            <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
           </View>
 
           <View
@@ -152,7 +157,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             ]}
             testID='contentMenuMainColumn'
           >
-            <ContentMenuMainColumn {...propsOut.contentMenuMainColumn} />
+            <ContentMenuMainColumn {...propsOut.contentMenuMainColumnProps} />
           </View>
 
           <View style={[style.chatSpace]} testID='chatSpace'>

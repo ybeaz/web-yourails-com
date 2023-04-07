@@ -10,11 +10,6 @@ describe('Test function getPreproccedMessages', () => {
     const outputed = getPreproccedMessages(messages, idUserHost)
     const expected = messagesPreprocceced
 
-    console.info('getPreproccedMessages.test [11]', {
-      outputed: outputed.slice(0, 1),
-      expected: expected.slice(0, 1),
-    })
-
-    // expect(outputed).toEqual(expected)
+    expect(outputed).toEqual(expected)
   })
 })

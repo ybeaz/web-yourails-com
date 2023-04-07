@@ -1,4 +1,8 @@
-export interface TopBarMainColumnPropsType {}
+import { UserType } from '../../../@types/UserType'
+
+export interface TopBarMainColumnPropsType {
+  user: UserType
+}
 
 /**
  * @import import { TopBarMainColumnType } from './TopBarMainColumnType'

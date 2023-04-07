@@ -75,7 +75,7 @@ export const messagesPreprocceced: MessageType[] = [
     id: 'y3pp3EGkPuaZTsMi_g6t5',
     idUser: '1',
     text: '1-0 Hey developer',
-    position: 'right',
+    position: 'left',
     isTail: false,
   },
   {

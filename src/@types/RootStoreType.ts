@@ -23,6 +23,7 @@ export interface RootStoreType {
     isLoadedGlobalVars: boolean
   }
   globalVars: {
+    idUserHost: string
     theme: string
     language: string
   }

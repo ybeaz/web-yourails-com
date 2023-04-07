@@ -13,5 +13,5 @@ export const MODAL_CONTENTS: Record<string, any> = {
   TagsProperties,
 }
 
-export const IS_BOTTON_BACK: boolean = false
-export const IS_BOTTON_CLOSE: boolean = false
+export const IS_BOTTON_BACK: boolean = true
+export const IS_BOTTON_CLOSE: boolean = true

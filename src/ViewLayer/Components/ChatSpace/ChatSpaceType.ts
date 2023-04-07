@@ -5,6 +5,7 @@ import { MessageType } from '../../../@types/MessageType'
 export interface ChatSpacePropsType {
   styleProps?: any
   mediaParams?: UseMediaQueryResType
+  idUserHost: string
   users: UserType[]
   messages: MessageType[]
   modalFrame: any

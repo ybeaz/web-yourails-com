@@ -35,7 +35,7 @@ export const componentsStateDefault: any = {
   isLoaderOverlayVisible: false,
   modalFrame: {
     childName: 'Portfolio', // Portfolio, Profile TagsProperties
-    isShow: true,
+    isShow: false,
     childProps: {},
   },
 }
@@ -54,7 +54,8 @@ export const rootStoreDefault: any = {
     isLoadedGlobalVars: false,
   },
   globalVars: {
-    theme: 'Dark',
+    idUserHost: '0',
+    theme: 'light',
     // language: localStorage ? localStorage?.getItem('language') || 'en' : 'en',
   },
 }

@@ -14,7 +14,8 @@ import { users } from '../../../Constants/usersMock'
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
  */
 const TopBarMainColumnComponent: TopBarMainColumnType = props => {
-  const user = users[0]
+  const { user } = props
+  // const user = users[0]
   const { uriAvatar = '', serviceSpecs = [] } = user
 
   const getStringSpecs = (serviceSpecsIn: string[]) => {

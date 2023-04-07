@@ -8,6 +8,7 @@ import {
   IS_BOTTON_BACK,
   IS_BOTTON_CLOSE,
 } from '../../../Constants/modalContents.const'
+import { UserType } from '../../../@types/UserType'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { Text } from '../../Components/Text/Text'
@@ -28,6 +29,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const {
     styleProps = { ChatSpace: {} },
     mediaParams = mediaParamsDefault,
+    idUserHost,
     users,
     messages,
     modalFrame,
@@ -37,8 +39,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const { deviceType } = mediaParams
   const { childName, isShow: isShowModalFrame, childProps } = modalFrame
 
-  const userFound = users.find(user => user.id === messages[0].idUser)
-  const user = userFound ? userFound : users[0]
+  const user =
+    users.find((userIn: UserType) => userIn.id !== idUserHost) || users[0]
   const Child = MODAL_CONTENTS[childName]
 
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
@@ -54,7 +56,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       isTail: true,
     },
     ChatCardProps: {
-      user: users[0],
+      user,
     },
     modalFrameYrlProps: {
       styleProps: {
