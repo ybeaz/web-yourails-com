@@ -25,7 +25,6 @@ const HeaderComponent: HeaderType = props => {
   const style = styles[deviceType]
 
   const propsOut: Record<string, any> = {}
-  console.info('Header [28]', { 'styleProps.Header': styleProps.Header })
 
   return (
     <View style={[style.Header, styleProps.Header]} testID='Header'>
