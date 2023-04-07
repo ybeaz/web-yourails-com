@@ -17,7 +17,7 @@ export const messages: MessageType[] = [
     createdAt: 3,
     id: '3',
     idUser: '0',
-    text: '0-2 I say you hello',
+    text: '0-2 How is it going?',
   },
   {
     createdAt: 4,
