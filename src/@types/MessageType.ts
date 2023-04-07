@@ -6,5 +6,6 @@ export type MessageType = {
   idUser: string | number
   createdAt: number
   text: string
-  position: string
+  position?: string
+  isTail?: boolean
 }

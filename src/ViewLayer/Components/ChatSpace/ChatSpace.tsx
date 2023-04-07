@@ -8,6 +8,7 @@ import {
   IS_BOTTON_BACK,
   IS_BOTTON_CLOSE,
 } from '../../../Constants/modalContents.const'
+import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { Text } from '../../Components/Text/Text'
 import { LOCALE, DATE_FORMAT } from '../../../Constants/locale.const'
@@ -50,7 +51,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     messageProps: {
       ...messages[0],
       user,
-      isMessageTailed: true,
+      isTail: true,
     },
     ChatCardProps: {
       user: users[0],

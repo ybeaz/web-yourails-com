@@ -18,8 +18,8 @@ const MessageComponent: MessageType = props => {
     text,
     createdAt,
     user,
-    position,
-    isMessageTailed,
+    position = 'right',
+    isTail = false,
     image,
     video,
     audio,
@@ -31,14 +31,12 @@ const MessageComponent: MessageType = props => {
 
   const propsOut = {
     TriangleCorner: {
-      isShow: !!isMessageTailed,
+      isShow: !!isTail,
       styleProps: StyleSheet.create({ borderColor: themes['themeA'].colors06 }),
     },
   }
 
-  const roundAllCornersStyle = !isMessageTailed
-    ? styles.roundAllCorners.style
-    : {}
+  const roundAllCornersStyle = !isTail ? styles.roundAllCorners.style : {}
 
   const dateString = dayjs(createdAt).locale(LOCALE).format(TIME_FORMAT)
 

@@ -6,8 +6,8 @@ export interface MessagePropsType {
   user: UserType
   text: string
   createdAt: Date | number | string
-  position: string
-  isMessageTailed: boolean
+  position?: string
+  isTail?: boolean
   image?: string
   video?: string
   audio?: string
