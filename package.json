@@ -2,6 +2,7 @@
   "name": "javascript-react-chat-app",
   "version": "3.0.6-1",
   "private": true,
+  "main": "./src/App",
   "dependencies": {
     "@apollo/client": "^3.6.8",
     "@babel/core": "^7.20.0",
