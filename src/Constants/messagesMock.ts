@@ -1,6 +1,6 @@
 import { MessageType } from '../@types/MessageType'
 
-export const messages: MessageType[] = [
+export const messages: Omit<MessageType, 'position' | 'isTail'>[] = [
   {
     createdAt: 1,
     id: '1',
