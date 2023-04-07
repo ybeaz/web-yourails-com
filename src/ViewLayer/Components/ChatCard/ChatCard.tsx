@@ -13,7 +13,7 @@ import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 const ChatCardComponent: ChatCardType = props => {
   const { user, styleProps = { ChatCard: {} } } = props
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     avatarPlusInfoProps: {
       user,
       styleProps: {

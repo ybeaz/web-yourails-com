@@ -99,7 +99,7 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
     isButtonClose = true,
   } = props
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     buttonBackProps: buttonBack,
     buttonCloseProps: buttonClose,
   }

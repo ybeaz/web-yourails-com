@@ -26,7 +26,7 @@ const ProfileItemComponent: ProfileItemType = props => {
     label,
   } = props
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     iconPhoneProps: {
       library: iconLibrary,
       name: iconName,
@@ -44,7 +44,7 @@ const ProfileItemComponent: ProfileItemType = props => {
   }): ReactElement => {
     if (!contentSrc) null
     const resizeMode: ImageResizeMode = 'cover'
-    const propsOut = {
+    const propsOut: Record<string, any> = {
       qrCodeImageProps: {
         styleProps: {
           ImageYrl: {},
@@ -67,7 +67,7 @@ const ProfileItemComponent: ProfileItemType = props => {
     content: any
   }): ReactElement => {
     if (!contentSrc) null
-    const propsOut = {
+    const propsOut: Record<string, any> = {
       qrCodeImageProps: {
         styleProps: {
           ButtonYrl: {},

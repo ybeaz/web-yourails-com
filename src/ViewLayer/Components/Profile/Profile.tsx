@@ -139,7 +139,7 @@ const ProfileComponent: ProfileType = props => {
       )
     )
 
-  const propsOut = {}
+  const propsOut: Record<string, any> = {}
 
   return (
     <View style={[style.Profile, styleProps.Profile]} testID='Profile'>

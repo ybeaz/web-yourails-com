@@ -31,7 +31,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
       const { iconLibrary, iconName, iconTitleText, childName } =
         menuContentItem
 
-      const propsOut = {
+      const propsOut: Record<string, any> = {
         buttonProps: {
           styleProps: {
             ButtonYrl: {
@@ -81,7 +81,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
     })
   }
 
-  const propsOut = {}
+  const propsOut: Record<string, any> = {}
 
   return (
     <View

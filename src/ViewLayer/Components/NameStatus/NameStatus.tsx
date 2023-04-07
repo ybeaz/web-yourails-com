@@ -21,7 +21,7 @@ const NameStatusComponent: NameStatusType = props => {
   const { styleProps = { NameStatus: {}, viewStyle: {} }, user, status } = props
   const { nameFirst, nameLast } = user
 
-  const propsOut = {}
+  const propsOut: Record<string, any> = {}
 
   return (
     <View style={[style.NameStatus, styleProps.NameStatus]} testID='NameStatus'>

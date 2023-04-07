@@ -14,7 +14,7 @@ import { TopBarChatCardsType } from './TopBarChatCardsType'
 export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
   const { styleProps = { TopBarChatCards: {} } } = props
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     buttonHamburgerProps: {
       styleProps: {
         ButtonYrl: {

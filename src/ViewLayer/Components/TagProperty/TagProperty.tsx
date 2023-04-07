@@ -30,7 +30,7 @@ const TagPropertyComponent: TagPropertyType = props => {
     testID = 'TagProperty',
   } = props
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     tooltip_buttonYrlLinking: {
       styleProps: {
         ButtonYrl: {},

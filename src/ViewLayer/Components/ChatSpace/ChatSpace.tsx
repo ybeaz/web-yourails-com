@@ -51,7 +51,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   if (deviceType === 'xsDevice') modalContentMargin = 0
   else if (deviceType === 'smDevice') modalContentMargin = '2rem'
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     messageProps: {
       ...messages[0],
       user,
@@ -131,7 +131,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const getMessagesJsx = (messagesIn: MessageType[]): ReactElement[] => {
     return messagesIn.map((message: MessageType, index: number) => {
-      const propsOut = {
+      const propsOut: Record<string, any> = {
         messageProps: message,
       }
       return <Message key={`message-${index}`} {...propsOut.messageProps} />

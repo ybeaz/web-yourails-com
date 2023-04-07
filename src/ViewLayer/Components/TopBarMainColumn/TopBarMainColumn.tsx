@@ -35,7 +35,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
     })
   }
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     avatarPlusInfoProps: {
       user,
       styleProps: {

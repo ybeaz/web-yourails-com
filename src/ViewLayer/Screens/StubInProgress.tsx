@@ -24,7 +24,7 @@ export const StubInProgress: React.FunctionComponent<StubInProgressArgs> = (
     handleEvents({}, { typeEvent: 'SET_THEME', data: themeDafault })
   }, [])
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     mainFrameProps: {},
     headerFrameProps: {},
     templateBodyProps: {},

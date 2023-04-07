@@ -17,7 +17,7 @@ export const HeaderFrame: React.FunctionComponent<HeaderFrameArgs> = props => {
     componentsState: { isLoaderOverlayVisible },
   } = useSelector((store2: RootStoreType) => store2)
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     loaderOverlayUsertoProps: {
       isLoaderOverlayVisible,
     },

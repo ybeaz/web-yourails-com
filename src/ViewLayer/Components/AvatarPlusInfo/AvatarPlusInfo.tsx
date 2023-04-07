@@ -25,7 +25,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
   } = props
   const { uriAvatar = '' } = user
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     imageYrlProps: {
       styleProps: {
         ImageYrl: style.ImageYrl,
