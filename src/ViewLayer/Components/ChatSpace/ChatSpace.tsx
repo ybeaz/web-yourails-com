@@ -15,7 +15,7 @@ import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { Text } from '../../Components/Text/Text'
 import { LOCALE, DATE_FORMAT } from '../../../Constants/locale.const'
 import { ChatSpaceType } from './ChatSpaceType'
-import { style } from './ChatSpaceStyle'
+import { styles } from './ChatSpaceStyle'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { Message } from '../../Components/Message/Message'
 import { ModalFrameYrl } from '../../../YrlNativeViewLibrary/ModalFrameYrl/ModalFrameYrl'
@@ -38,6 +38,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   } = props
 
   const { deviceType } = mediaParams
+  const style = styles[deviceType]
+
   const { childName, isShow: isShowModalFrame, childProps } = modalFrame
 
   const user =
