@@ -40,14 +40,6 @@ export const SET_SIDEBAR_MAIN_LAYOUT: ActionEventType = (
     }
   }
 
-  console.info('SET_SIDEBAR_MAIN_LAYOUT [12]', {
-    isSidebarRight,
-    isMainColumn,
-    dataHandle,
-    isSidebarRightNext,
-    isMainColumnNext,
-  })
-
   dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isSidebarRightNext))
   dispatch(actionSync.TOGGLE_MAIN_COLUMN(isMainColumnNext))
 }

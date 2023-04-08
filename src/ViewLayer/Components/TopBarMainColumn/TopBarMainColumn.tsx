@@ -14,6 +14,7 @@ import { Text } from '../../Components/Text/Text'
 import { themes } from '../../Styles/themes'
 import { styles } from './TopBarMainColumnStyle'
 import { TopBarMainColumnType } from './TopBarMainColumnType'
+import { handleEvents } from '../../../DataLayer/index.handleEvents'
 
 /**
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
@@ -57,7 +58,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
       testID: 'ButtonYrl',
       disabled: false,
       onPress: () => {
-        console.info('ButtonYrl []', 'click test')
+        handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
       },
       iconProps: {
         library: 'Ionicons',

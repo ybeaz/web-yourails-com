@@ -20,6 +20,7 @@ import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
   const {
     styleProps = { AvatarPlusInfo: {}, viewStyle: {} },
+    onPress = () => {},
     user,
     children,
   } = props
@@ -39,7 +40,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
       styleProps: { ButtonYrl: {} },
       testID: 'ButtonYrl',
       disabled: false,
-      onPress: () => {},
+      onPress: onPress,
       iconProps: undefined,
     },
   }

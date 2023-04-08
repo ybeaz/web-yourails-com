@@ -6,6 +6,7 @@ export interface AvatarPlusInfoPropsType {
     AvatarPlusInfo?: any
     viewStyle?: any
   }
+  onPress: () => any
   user: UserType
   children: ReactElement
 }

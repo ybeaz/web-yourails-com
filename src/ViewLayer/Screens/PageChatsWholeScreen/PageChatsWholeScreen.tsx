@@ -55,12 +55,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     handleEvents.SET_SIDEBAR_MAIN_LAYOUT({}, { deviceType })
   }, [deviceType])
 
-  const onPressButtonYrl = () => {}
-
-  const onChangeText = (value: string | undefined) => {}
-
-  console.info('PageChatsWholeScreen [63]', { isSidebarRight, isMainColumn })
-
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
 
   const propsOut: Record<string, any> = {
