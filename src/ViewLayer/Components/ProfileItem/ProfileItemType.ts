@@ -10,6 +10,7 @@ export interface ProfileItemPropsType {
   contentSrc?: string
   content?: string | ReactElement | ReactElement[]
   label: string
+  isActive: boolean
 }
 
 /**

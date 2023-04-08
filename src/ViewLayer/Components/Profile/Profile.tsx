@@ -1,9 +1,14 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View, ImageResizeMode } from 'react-native'
 
+import {
+  withDeviceType,
+  mediaParamsDefault,
+  DeviceType,
+} from '../../Hooks/withDeviceType'
 import { ProfileItem } from '../ProfileItem/ProfileItem'
 import { ProfileItemPropsType } from '../ProfileItem/ProfileItemType'
-import { style } from './ProfileStyle'
+import { styles } from './ProfileStyle'
 import { ProfileType } from './ProfileType'
 import { Text } from '../Text/Text'
 import { themes } from '../../Styles/themes'
@@ -12,7 +17,7 @@ import { UserType, MessengerType } from '../../../@types/UserType'
 import { users } from '../../../Constants/usersMock'
 
 // TODO Refactor wile moving to multiuser service
-const getMessengesString = (messengers: MessengerType[]) =>
+const getMessengesString = (messengers: MessengerType[], style: any) =>
   messengers.map((messenger: MessengerType, index: number) => {
     const { name: messengerName, username } = messenger
     return (
@@ -32,7 +37,11 @@ const getMessengesString = (messengers: MessengerType[]) =>
   })
 
 // TODO Refactor wile moving to multiuser service
-const getProfileItemsObjList = (userIn: UserType): ProfileItemPropsType[] => {
+const getProfileItemsObjList = (
+  userIn: UserType,
+  style: any,
+  deviceType: DeviceType
+): ProfileItemPropsType[] => {
   const {
     username = '',
     phones = [],
@@ -40,39 +49,57 @@ const getProfileItemsObjList = (userIn: UserType): ProfileItemPropsType[] => {
     messengers = [],
     locations = [],
     summary,
+    serviceSpecs = [],
   } = userIn
 
   return [
+    {
+      iconLibrary: 'Ionicons',
+      iconName: 'checkmark-outline',
+      contentType: 'string',
+      content: serviceSpecs.join(', '),
+      label: 'Service specs',
+      isActive:
+        deviceType === DeviceType['xsDevice'] ||
+        deviceType === DeviceType['smDevice']
+          ? true
+          : false,
+    },
     {
       iconLibrary: 'Ionicons',
       iconName: 'albums-outline',
       contentType: 'string',
       content: summary,
       label: 'Summary',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'at',
       content: username.toString(),
       label: 'Username',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'location-outline',
       content: locations.join(', '),
       label: 'Locations',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'chatbox-ellipses-outline',
-      content: getMessengesString(messengers),
+      content: getMessengesString(messengers, style),
       label: 'Messengers',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'call-outline',
       content: phones.join(', '),
       label: 'Phons',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
@@ -81,12 +108,14 @@ const getProfileItemsObjList = (userIn: UserType): ProfileItemPropsType[] => {
       contentSrc: 'https://calendly.com/romanch',
       content: 'Feel free to setup a phone call',
       label: 'Link',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'mail-outline',
       content: emails.join(', '),
       label: 'Email',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
@@ -95,6 +124,7 @@ const getProfileItemsObjList = (userIn: UserType): ProfileItemPropsType[] => {
       contentSrc: 'https://www.linkedin.com/in/romanches',
       content: 'Profile in Linkedin.com',
       label: 'Link',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
@@ -103,6 +133,7 @@ const getProfileItemsObjList = (userIn: UserType): ProfileItemPropsType[] => {
       contentSrc: 'https://stackoverflow.com/users/4791116/roman',
       content: 'Profile in Stackoverflow',
       label: 'Link',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
@@ -111,6 +142,7 @@ const getProfileItemsObjList = (userIn: UserType): ProfileItemPropsType[] => {
       contentSrc: 'https://github.com/ybeaz',
       content: 'Profile in Github',
       label: 'Link',
+      isActive: true,
     },
     {
       iconLibrary: undefined,
@@ -119,6 +151,7 @@ const getProfileItemsObjList = (userIn: UserType): ProfileItemPropsType[] => {
       contentSrc: 'https://r1.userto.com/img/romanChesQrCodeQuietZone00.png',
       content: '',
       label: 'QR code with contacts',
+      isActive: true,
     },
   ]
 }
@@ -127,11 +160,16 @@ const getProfileItemsObjList = (userIn: UserType): ProfileItemPropsType[] => {
  * @import import { Profile } from '../Components/Profile/Profile'
  */
 const ProfileComponent: ProfileType = props => {
-  const { styleProps = { Profile: {} } } = props
+  const { styleProps = { Profile: {} }, mediaParams = mediaParamsDefault } =
+    props
+  const { deviceType } = mediaParams
+  const style = styles[deviceType]
 
   const user: UserType = users[0]
 
-  const profileItems = getProfileItemsObjList(user)
+  const profileItems = getProfileItemsObjList(user, style, deviceType).filter(
+    profileItemObj => profileItemObj.isActive === true
+  )
   const getProfileItems = (profileItemsIn: ProfileItemPropsType[]) =>
     profileItemsIn.map(
       (profileItemProps: ProfileItemPropsType, index: number) => (
@@ -150,4 +188,4 @@ const ProfileComponent: ProfileType = props => {
   )
 }
 
-export const Profile = React.memo(ProfileComponent)
+export const Profile = React.memo(withDeviceType(ProfileComponent))

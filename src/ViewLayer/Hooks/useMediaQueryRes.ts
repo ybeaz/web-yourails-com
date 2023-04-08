@@ -3,16 +3,17 @@ import '@expo/match-media'
 import { useMediaQuery } from 'react-responsive'
 import { Dimensions } from 'react-native'
 
-export type DeviceType =
-  | 'xsDevice'
-  | 'smDevice'
-  | 'mdDevice'
-  | 'lgDevice'
-  | 'xlDevice'
+export enum DeviceType {
+  xsDevice = 'xsDevice',
+  smDevice = 'smDevice',
+  mdDevice = 'mdDevice',
+  lgDevice = 'lgDevice',
+  xlDevice = 'xlDevice',
+}
 export type ScreenCaseType = 'xsSmMd' | 'lgXl'
 
 export type UseMediaQueryResType = {
-  deviceType: DeviceType | 'lgDevice'
+  deviceType: DeviceType
   screenCase: ScreenCaseType | 'lgXl'
   width: number | 1024
   height: number | 800

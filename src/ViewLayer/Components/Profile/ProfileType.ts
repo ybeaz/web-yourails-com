@@ -1,5 +1,8 @@
+import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
+
 export interface ProfilePropsType {
   styleProps?: any
+  mediaParams?: UseMediaQueryResType
 }
 
 /**

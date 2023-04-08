@@ -1,5 +1,17 @@
 import { FunctionComponent } from 'react'
-import { useMediaQueryRes, UseMediaQueryResType } from './useMediaQueryRes'
+import {
+  useMediaQueryRes,
+  UseMediaQueryResType,
+  DeviceType as DeviceTypeIn,
+} from './useMediaQueryRes'
+
+export enum DeviceType {
+  xsDevice = DeviceTypeIn['xsDevice'],
+  smDevice = DeviceTypeIn['smDevice'],
+  mdDevice = DeviceTypeIn['mdDevice'],
+  lgDevice = DeviceTypeIn['lgDevice'],
+  xlDevice = DeviceTypeIn['xlDevice'],
+}
 
 /**
  * @description Function decorator for React Functional Component
@@ -18,7 +30,7 @@ import { useMediaQueryRes, UseMediaQueryResType } from './useMediaQueryRes'
  */
 
 export const mediaParamsDefault: UseMediaQueryResType = {
-  deviceType: 'lgDevice',
+  deviceType: DeviceTypeIn.lgDevice,
   screenCase: 'lgXl',
   width: 1024,
   height: 800,

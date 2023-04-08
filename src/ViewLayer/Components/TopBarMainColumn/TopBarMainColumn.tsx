@@ -2,7 +2,11 @@ import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
 import { nanoid } from 'nanoid'
 
-import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
+import {
+  withDeviceType,
+  mediaParamsDefault,
+  DeviceType,
+} from '../../Hooks/withDeviceType'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { NameStatus } from '../NameStatus/NameStatus'
@@ -79,6 +83,11 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
     },
   }
 
+  console.info('TopBarMainColumn [86]', {
+    'DeviceType.mdDevice': DeviceType['mdDevice'],
+    deviceType,
+  })
+
   return (
     <View style={[style.TopBarMainColumn]} testID='TopBarMainColumn'>
       <View
@@ -90,9 +99,13 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
       <AvatarPlusInfo {...propsOut.avatarPlusInfoProps}>
         <NameStatus {...propsOut.nameStatusProps} />
       </AvatarPlusInfo>
-      <View style={[style.serviceSpec]} testID='serviceSpec'>
-        {getStringSpecs(serviceSpecs)}
-      </View>
+      {(deviceType === DeviceType['mdDevice'] ||
+        deviceType === DeviceType['lgDevice'] ||
+        deviceType === DeviceType['xlDevice']) && (
+        <View style={[style.serviceSpec]} testID='serviceSpec'>
+          {getStringSpecs(serviceSpecs)}
+        </View>
+      )}
     </View>
   )
 }
