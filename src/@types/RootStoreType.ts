@@ -2,18 +2,15 @@ import { UserType } from './UserType'
 
 export interface ComponentsStateType {
   isLoaderOverlayVisible: boolean
+  isSidebarRight: boolean
+  isMainColumn: boolean
   modalFrame: { childName: string; isShow: boolean; childProps: any }
 }
 
-export interface FormsType {
-  searchInput: string
-  userPrev: UserType
-  user: UserType
-  [key: string]: any
-}
+export interface FormsType {}
 
 /**
- * @import import { RootStoreType } from '../@types/RootStoreType'
+ * @import import { RootStoreType, ComponentsStateType, FormsType } from '../@types/RootStoreType'
  */
 export interface RootStoreType {
   componentsState: ComponentsStateType

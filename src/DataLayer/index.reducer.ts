@@ -2,6 +2,8 @@ import { RootStoreType } from '../@types/RootStoreType'
 import { ActionType } from '../@types/ActionType'
 
 import { TEMPLATE } from './reducers/TEMPLATE'
+import { TOGGLE_MAIN_COLUMN } from './reducers/TOGGLE_MAIN_COLUMN'
+import { TOGGLE_SIDEBAR_RIGHT } from './reducers/TOGGLE_SIDEBAR_RIGHT'
 import { SET_MODAL_FRAME } from './reducers/SET_MODAL_FRAME'
 import { TOGGLE_LOADER_OVERLAY } from './reducers/TOGGLE_LOADER_OVERLAY'
 
@@ -19,6 +21,8 @@ export const indexReducer: IIndexReducer = (
 
   const output = {
     TEMPLATE,
+    TOGGLE_MAIN_COLUMN,
+    TOGGLE_SIDEBAR_RIGHT,
     SET_MODAL_FRAME,
     TOGGLE_LOADER_OVERLAY,
   }

@@ -1,3 +1,9 @@
+import {
+  RootStoreType,
+  ComponentsStateType,
+  FormsType,
+} from '../@types/RootStoreType'
+
 export const userStoreDefault: any = {
   userAvatar: '',
   userBirthYear: null,
@@ -31,8 +37,10 @@ export const userStoreDefault: any = {
   userTimeZone: '',
 }
 
-export const componentsStateDefault: any = {
+export const componentsStateDefault: ComponentsStateType = {
   isLoaderOverlayVisible: false,
+  isSidebarRight: true,
+  isMainColumn: true,
   modalFrame: {
     childName: 'Portfolio', // Portfolio, Profile TagsProperties
     isShow: false,
@@ -40,13 +48,9 @@ export const componentsStateDefault: any = {
   },
 }
 
-export const formsDefault: any = {
-  searchInput: '',
-  userPrev: userStoreDefault,
-  user: userStoreDefault,
-}
+export const formsDefault: FormsType = {}
 
-export const rootStoreDefault: any = {
+export const rootStoreDefault: RootStoreType = {
   componentsState: componentsStateDefault,
   users: [],
   forms: formsDefault,
@@ -56,6 +60,6 @@ export const rootStoreDefault: any = {
   globalVars: {
     idUserHost: '0',
     theme: 'light',
-    // language: localStorage ? localStorage?.getItem('language') || 'en' : 'en',
+    language: 'en',
   },
 }
