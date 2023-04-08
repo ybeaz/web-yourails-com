@@ -47,17 +47,19 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     globalVars: { language, idUserHost },
     componentsState,
   } = store
-  const { modalFrame } = componentsState
+  const { modalFrame, isSidebarRight, isMainColumn } = componentsState
   const { isShow: isShowModalFrame } = modalFrame
   const user = users.find((userIn: UserType) => userIn.id === idUserHost)
 
   useEffect(() => {
-    // handleEvents.TEMPLATE({}, { id: '3' })
-  }, [])
+    handleEvents.SET_SIDEBAR_MAIN_LAYOUT({}, { deviceType })
+  }, [deviceType])
 
   const onPressButtonYrl = () => {}
 
   const onChangeText = (value: string | undefined) => {}
+
+  console.info('PageChatsWholeScreen [63]', { isSidebarRight, isMainColumn })
 
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
 
@@ -120,49 +122,53 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       ]}
       testID='PageChatsWholeScreen'
     >
-      <View
-        style={[
-          style.sidebarRight,
-          themes['themeA'].colors01,
-          { borderColor: themes['themeA'].colors01.borderColor },
-          styleAddSidebarRight,
-        ]}
-        testID='sidebarRight'
-      >
-        <AnimatedYrl {...propsOut.sidebarRightInnerInAnimatedYrlProps}>
-          <TopBarChatCards />
-          <ChatCard {...propsOut.chatCardProps} />
-        </AnimatedYrl>
-      </View>
-
-      <AnimatedYrl {...propsOut.mainColumnOuterAnimatedYrlProps}>
-        <View style={[style.mainColumn]} testID='mainColumn'>
-          <View
-            style={[
-              style.topBarMainColumn,
-              { borderColor: themes['themeA'].colors01.borderColor },
-            ]}
-            testID='topBarMainColumn'
-          >
-            <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
-          </View>
-
-          <View
-            style={[
-              style.contentMenuMainColumn,
-              themes['themeA'].colors01,
-              { borderColor: themes['themeA'].colors01.borderColor },
-            ]}
-            testID='contentMenuMainColumn'
-          >
-            <ContentMenuMainColumn {...propsOut.contentMenuMainColumnProps} />
-          </View>
-
-          <View style={[style.chatSpace]} testID='chatSpace'>
-            <ChatSpace {...propsOut.chatSpaceProps} />
-          </View>
+      {isSidebarRight && (
+        <View
+          style={[
+            style.sidebarRight,
+            themes['themeA'].colors01,
+            { borderColor: themes['themeA'].colors01.borderColor },
+            styleAddSidebarRight,
+          ]}
+          testID='sidebarRight'
+        >
+          <AnimatedYrl {...propsOut.sidebarRightInnerInAnimatedYrlProps}>
+            <TopBarChatCards />
+            <ChatCard {...propsOut.chatCardProps} />
+          </AnimatedYrl>
         </View>
-      </AnimatedYrl>
+      )}
+
+      {isMainColumn && (
+        <AnimatedYrl {...propsOut.mainColumnOuterAnimatedYrlProps}>
+          <View style={[style.mainColumn]} testID='mainColumn'>
+            <View
+              style={[
+                style.topBarMainColumn,
+                { borderColor: themes['themeA'].colors01.borderColor },
+              ]}
+              testID='topBarMainColumn'
+            >
+              <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
+            </View>
+
+            <View
+              style={[
+                style.contentMenuMainColumn,
+                themes['themeA'].colors01,
+                { borderColor: themes['themeA'].colors01.borderColor },
+              ]}
+              testID='contentMenuMainColumn'
+            >
+              <ContentMenuMainColumn {...propsOut.contentMenuMainColumnProps} />
+            </View>
+
+            <View style={[style.chatSpace]} testID='chatSpace'>
+              <ChatSpace {...propsOut.chatSpaceProps} />
+            </View>
+          </View>
+        </AnimatedYrl>
+      )}
     </SafeAreaView>
   )
 }

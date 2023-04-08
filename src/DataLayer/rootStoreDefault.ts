@@ -39,7 +39,7 @@ export const userStoreDefault: any = {
 
 export const componentsStateDefault: ComponentsStateType = {
   isLoaderOverlayVisible: false,
-  isSidebarRight: true,
+  isSidebarRight: false,
   isMainColumn: true,
   modalFrame: {
     childName: 'Portfolio', // Portfolio, Profile TagsProperties

@@ -4,6 +4,8 @@ import { ActionType } from '../@types/ActionType'
 
 /** @description  Synchroneours redux actions */
 const ACTIONS_SYNC: string[] = [
+  'TOGGLE_MAIN_COLUMN',
+  'TOGGLE_SIDEBAR_RIGHT',
   'SET_MODAL_FRAME',
   'TOGGLE_LOADER_OVERLAY', // TODO
   'SET_THEME', // TODO

@@ -24,6 +24,15 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
   const style = styles[deviceType]
   const { uriAvatar = '', serviceSpecs = [] } = user
 
+  let isButtonBackToCard = true
+  if (
+    deviceType === DeviceType['mdDevice'] ||
+    deviceType === DeviceType['lgDevice'] ||
+    deviceType === DeviceType['xlDevice']
+  ) {
+    isButtonBackToCard = false
+  }
+
   const getStringSpecs = (serviceSpecsIn: string[]) => {
     return serviceSpecsIn.map((serviceSpec: string, index: number) => {
       const key = nanoid()
@@ -83,19 +92,16 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
     },
   }
 
-  console.info('TopBarMainColumn [86]', {
-    'DeviceType.mdDevice': DeviceType['mdDevice'],
-    deviceType,
-  })
-
   return (
     <View style={[style.TopBarMainColumn]} testID='TopBarMainColumn'>
-      <View
-        style={[style.buttonBackToCardsWrapper]}
-        testID='buttonBackToCardsWrapper'
-      >
-        <ButtonYrl {...propsOut.buttonBackToCards} />
-      </View>
+      {isButtonBackToCard && (
+        <View
+          style={[style.buttonBackToCardsWrapper]}
+          testID='buttonBackToCardsWrapper'
+        >
+          <ButtonYrl {...propsOut.buttonBackToCards} />
+        </View>
+      )}
       <AvatarPlusInfo {...propsOut.avatarPlusInfoProps}>
         <NameStatus {...propsOut.nameStatusProps} />
       </AvatarPlusInfo>
