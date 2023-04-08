@@ -29,7 +29,7 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
     emails: ['smiddist@gmail.com'],
     messengers: [],
     locations: ['Remote', 'San Francisco, CA'],
-    serviceSpecs: ['Handyman', 'Carpenter'],
+    serviceSpecs: ['Electrician', 'Carpenter'],
     summary: '',
   },
 ]

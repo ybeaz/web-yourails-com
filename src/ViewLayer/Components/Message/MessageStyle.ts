@@ -17,6 +17,7 @@ const Message: any = StyleSheet.create({
     borderTopRightRadius: 15,
     borderBottomRightRadius: 15,
     padding: '1rem',
+    maxWidth: '75%',
   },
 })
 

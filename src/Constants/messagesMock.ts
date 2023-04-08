@@ -1,105 +1,75 @@
 import { MessageType } from '../@types/MessageType'
 
+/*
+Individual: Hi! Need an electrician for some lighting fixtures.
+
+Electrician: Hey there! What are you thinking?
+
+Individual: Recessed lights in living & kitchen, new chandelier in dining. Got any recommendations?
+
+Electrician: Sure thing! What's your budget?
+
+Individual: Around $1500, including everything.
+
+Electrician: Got it. When can I take a look at the space?
+
+ 1673904347
+ 1673904967
+ 1673905580
+ 1673906187
+ 1673906807
+ 1673907431
+ 1673908047
+ 1673908667
+*/
+
 export const messages: Omit<MessageType, 'position' | 'isTail'>[] = [
   {
-    createdAt: 1,
+    createdAt: 1673904347000,
+    id: '0',
+    idUser: '2',
+    text: 'Hi! Need an electrician for some lighting fixtures.',
+  },
+  {
+    createdAt: 1673904967000,
     id: '1',
-    idUser: '0',
-    text: '0-0 Hello developer',
+    idUser: '1',
+    text: 'Hey there! What are you thinking?',
   },
   {
-    createdAt: 2,
-    id: '2',
-    idUser: '0',
-    text: '0-1 I am another developer',
-  },
-  {
-    createdAt: 3,
+    createdAt: 1673905580000,
     id: '3',
-    idUser: '0',
-    text: '0-2 How is it going?',
+    idUser: '2',
+    text: 'Recessed lights in living & kitchen, new chandelier in dining. Got any recommendations?',
   },
   {
-    createdAt: 4,
+    createdAt: 1673906187000,
     id: '4',
     idUser: '1',
-    text: '1-0 Hey developer',
+    text: "Sure thing! What's your budget?",
   },
   {
-    createdAt: 5,
+    createdAt: 1673906807000,
     id: '5',
-    idUser: '1',
-    text: '1-1 Nice to hear you',
+    idUser: '2',
+    text: 'Around $1500, including everything.',
   },
   {
-    createdAt: 6,
+    createdAt: 1673907431000,
     id: '6',
-    idUser: '0',
-    text: '0-3 Whats up?',
+    idUser: '1',
+    text: 'Got it. When can I take a look at the space??',
   },
   {
-    createdAt: 7,
+    createdAt: 1673908047000,
     id: '7',
+    idUser: '2',
+    text: 'How is about this Saturday around the noon?',
+  },
+  {
+    createdAt: 1673908667000,
+    id: '8',
     idUser: '1',
-    text: '1-2 Nothing special',
-  },
-]
-
-export const messagesPreprocceced: MessageType[] = [
-  {
-    createdAt: 1,
-    id: '1',
-    idUser: '0',
-    text: '0-0 Hello developer',
-    position: 'right',
-    isTail: false,
-  },
-  {
-    createdAt: 2,
-    id: '2',
-    idUser: '0',
-    text: '0-1 I am another developer',
-    position: 'right',
-    isTail: false,
-  },
-  {
-    createdAt: 3,
-    id: '3',
-    idUser: '0',
-    text: '0-2 How is it going?',
-    position: 'right',
-    isTail: true,
-  },
-  {
-    createdAt: 4,
-    id: '4',
-    idUser: '1',
-    text: '1-0 Hey developer',
-    position: 'left',
-    isTail: false,
-  },
-  {
-    createdAt: 5,
-    id: '5',
-    idUser: '1',
-    text: '1-1 Nice to hear you',
-    position: 'left',
-    isTail: true,
-  },
-  {
-    createdAt: 6,
-    id: '6',
-    idUser: '0',
-    text: '0-3 Whats up?',
-    position: 'right',
-    isTail: true,
-  },
-  {
-    createdAt: 7,
-    id: '7',
-    idUser: '1',
-    text: '1-2 Nothing special',
-    position: 'left',
-    isTail: true,
+    text: 'That works for me, see you then!',
   },
 ]

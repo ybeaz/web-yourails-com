@@ -13,19 +13,19 @@ const xmDevice = StyleSheet.create({
 })
 
 const smDevice = StyleSheet.create({
-  ...xmDevice,
+  ...stylesDefault,
 })
 
 const mdDevice = StyleSheet.create({
-  ...xmDevice,
+  ...stylesDefault,
 })
 
 const lgDevice = StyleSheet.create({
-  ...xmDevice,
+  ...stylesDefault,
 })
 
 const xlDevice = StyleSheet.create({
-  ...xmDevice,
+  ...stylesDefault,
 })
 
 /**
