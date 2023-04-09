@@ -1,68 +1,31 @@
-import { nanoid } from 'nanoid'
+import { CompetencyType, CompetencyTagsObjType } from '../@types/CompetencyType'
 
-type CompetencyNoIdType = {
-  title: string
-  linkHref: string
-  tooltips: string
-}
-
-export type CompetencyTagsObjNoIdType = {
-  general: CompetencyNoIdType[]
-  clientSide: CompetencyNoIdType[]
-  serverSide: CompetencyNoIdType[]
-  machineLearning: CompetencyNoIdType[]
-}
-
-export type CompetencyType = {
-  id: string
-  title: string
-  linkHref: string
-  tooltips: string
-}
-
-export type CompetencyTagsObjType = {
-  general: CompetencyType[]
-  clientSide: CompetencyType[]
-  serverSide: CompetencyType[]
-  machineLearning: CompetencyNoIdType[]
-}
-
-interface GetCompetencyTagsR1Type {
-  (): CompetencyTagsObjType
-}
-
-type GetTranslatedPropNamesToSubheadingsType = {
-  (prop: string): string
-}
-
-export const getTranslatedPropNamesToSubheadings: GetTranslatedPropNamesToSubheadingsType =
-  prop => {
-    const PROP_NAMES_TO_SUBHEADINGS_DICT: Record<string, string> = {
-      general: 'Professional Excellence',
-      clientSide: 'Front-end',
-      serverSide: 'Back-end',
-      machineLearning: 'AI/ ML',
-    }
-
-    return PROP_NAMES_TO_SUBHEADINGS_DICT[prop]
+export const getTranslatedPropNamesToSubheadings = (prop: any) => {
+  const PROP_NAMES_TO_SUBHEADINGS_DICT: Record<string, string> = {
+    general: 'Professional Excellence',
+    clientSide: 'Front-end',
+    serverSide: 'Back-end',
+    machineLearning: 'AI/ ML',
   }
 
-export const getCompetencyTagsR1: GetCompetencyTagsR1Type = () => {
-  const competencyTagsObj: CompetencyTagsObjNoIdType = {
-    general: [],
-    clientSide: [],
-    serverSide: [],
-    machineLearning: [],
-  }
+  return PROP_NAMES_TO_SUBHEADINGS_DICT[prop]
+}
 
-  //Methodologies competencies
-  competencyTagsObj['general'] = [
-    {
-      title: 'Agile',
-      linkHref:
-        'https://www.agilealliance.org/agile101/12-principles-behind-the-agile-manifesto/',
-      tooltips:
-        '\
+export const competencyTags: any = {
+  general: [],
+  clientSide: [],
+  serverSide: [],
+  machineLearning: [],
+}
+
+//Methodologies competencies
+competencyTags['general'] = [
+  {
+    title: 'Agile',
+    linkHref:
+      'https://www.agilealliance.org/agile101/12-principles-behind-the-agile-manifesto/',
+    tooltips:
+      '\
 1. Our highest priority is to satisfy the customer through early and continuous delivery of valuable software\n\
 2. Welcome changing requirements, even late in development.\n\
 3. Deliver working software frequently with a preference to the shorter timescale\n\
@@ -75,13 +38,13 @@ export const getCompetencyTagsR1: GetCompetencyTagsR1Type = () => {
 10. Simplicity--the art of maximizing the amount of work not done--is essential\n\
 11. The best architectures, requirements, and designs emerge from self-organizing teams\n\
 12. At regular intervals, the team reflects, tunes and adjusts its behavior accordingly',
-    },
+  },
 
-    {
-      title: 'Automation Tools',
-      linkHref: 'https://webpack.js.org/',
-      tooltips:
-        '\
+  {
+    title: 'Automation Tools',
+    linkHref: 'https://webpack.js.org/',
+    tooltips:
+      '\
 Webpack dev server\n\
 Jenkins automation server\n\
 Browser devtools\n\
@@ -91,13 +54,13 @@ Browser devtools\n\
   Performance\n\
   Profiler (dev React)\n\
 ',
-    },
+  },
 
-    {
-      title: 'CLI',
-      linkHref: 'https://docs.npmjs.com/cli/npm',
-      tooltips:
-        '\
+  {
+    title: 'CLI',
+    linkHref: 'https://docs.npmjs.com/cli/npm',
+    tooltips:
+      '\
 Anaconda prompt\n\
 ConEmu Windows Terminal\n\
 Jenkins terminal\n\
@@ -107,13 +70,13 @@ NodeJs command prompt\n\
 Ubuntu terminal\n\
 Windows Powershell\n\
 Windows CMD',
-    },
+  },
 
-    {
-      title: 'Design Patterns',
-      linkHref: 'https://en.wikipedia.org/wiki/Software_design_pattern',
-      tooltips:
-        '\
+  {
+    title: 'Design Patterns',
+    linkHref: 'https://en.wikipedia.org/wiki/Software_design_pattern',
+    tooltips:
+      '\
 Design patterns are advanced object-oriented solutions to commonly occurring software problems.  Patterns are about reusable designs and interactions of objects.\n\
 * Frequently used\n\
   Facade, Singleton, Observer, State, Decorator\n\
@@ -144,14 +107,14 @@ Design patterns are advanced object-oriented solutions to commonly occurring sof
   Observer - to perform (fire) actions (run function for example) on an objects (after and once they are subscribed); to unsubscribe it from that action if necessary \n\
   State - to store, change and return an object, that reflects state of the app. Optionally, to keep state history\n\
   Chain of responsibility - to create a method that can get (extract) a sense from data in a chain, like doing math, or processing consequently',
-    },
+  },
 
-    {
-      title: 'DevOps',
-      linkHref:
-        'https://www.digital-management-blog.de/wp-content/uploads/2017/06/devops.jpg',
-      tooltips:
-        '\
+  {
+    title: 'DevOps',
+    linkHref:
+      'https://www.digital-management-blog.de/wp-content/uploads/2017/06/devops.jpg',
+    tooltips:
+      '\
 * Plan -> Code -> Build -> Test <-> Release -> Deploy -> Operate -> Monitor\n\n\
 CALMS framework:\n\
 C   Culture - a culture of shared responsibility.\n\
@@ -167,14 +130,14 @@ S   Sharing - there are user-friendly communication channels that encourage ongo
 * Configure — infrastructure configuration and management, Infrastructure as Code tools\n\
 * Monitor — applications performance monitoring, end–user experience\n\
 ',
-    },
+  },
 
-    {
-      title: 'Docker',
-      linkHref:
-        'https://docs.docker.com/develop/develop-images/dockerfile_best-practices/',
-      tooltips:
-        '\
+  {
+    title: 'Docker',
+    linkHref:
+      'https://docs.docker.com/develop/develop-images/dockerfile_best-practices/',
+    tooltips:
+      '\
 The Dockerfile instructions: \n\
 \n\
 FROM - to define the origin of the package, better to use current Official Repositories, whenever possible. Example: FROM ubuntu: 18.04 \n\
@@ -190,38 +153,38 @@ USER - to change to a non-root user \n\
 WORKDIR - to define paths (preferably absolute) for your WORKDIR \n\
 ONBUILD - to execute command after the current Dockerfile build completes. It is an instruction the parent Dockerfile gives to the child Dockerfile.\n\
 ',
-    },
+  },
 
-    {
-      title: 'Issue-tracking systems',
-      linkHref:
-        'https://en.wikipedia.org/wiki/Comparison_of_issue-tracking_systems',
-      tooltips:
-        '\
+  {
+    title: 'Issue-tracking systems',
+    linkHref:
+      'https://en.wikipedia.org/wiki/Comparison_of_issue-tracking_systems',
+    tooltips:
+      '\
 JIRA\n\
 Redmine\n\
 Bugzilla\n\
 ...',
-    },
+  },
 
-    {
-      title: 'Kanban',
-      linkHref:
-        'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
-      tooltips:
-        '\
+  {
+    title: 'Kanban',
+    linkHref:
+      'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
+    tooltips:
+      '\
 1. Visualize work\n\
 2. Limit work in process (WIP)\n\
 3. Focus on work flow\n\
 4. Continuously improve\n\
 ',
-    },
+  },
 
-    {
-      title: 'Lints',
-      linkHref: '',
-      tooltips:
-        '\
+  {
+    title: 'Lints',
+    linkHref: '',
+    tooltips:
+      '\
 1. Prettier\n\
 2. ESLint\n\
 3. SonarLint\n\
@@ -230,13 +193,13 @@ Bugzilla\n\
 6. Pylance\n\
 7. PHP-sat\n\
 ',
-    },
+  },
 
-    {
-      title: 'OOP',
-      linkHref: 'https://en.wikipedia.org/wiki/Object-oriented_programming',
-      tooltips:
-        'The four principles of OOP\n\
+  {
+    title: 'OOP',
+    linkHref: 'https://en.wikipedia.org/wiki/Object-oriented_programming',
+    tooltips:
+      'The four principles of OOP\n\
 1. Encapsulation:\n\
 Encapsulation means that the internal representation of an object is generally \
 hidden from view outside of the object’s definition. \
@@ -250,13 +213,13 @@ Inheritance is a way to reuse code of existing objects, or to establish a subtyp
 Polymorphism means one name, many forms. \
 Polymorphism manifests itself by having multiple methods all with the same name, but slightly different functionality.\
 ',
-    },
+  },
 
-    {
-      title: 'RESTful-API',
-      linkHref: 'https://www.restapitutorial.com/lessons/whatisrest.html',
-      tooltips:
-        '\
+  {
+    title: 'RESTful-API',
+    linkHref: 'https://www.restapitutorial.com/lessons/whatisrest.html',
+    tooltips:
+      '\
 REpresentational\n\
 State\n\
 Transfer\n\
@@ -275,14 +238,14 @@ HTTP methods (GET, PUT, POST, DELETE),\n\
 HTTP headers,\n\
 Query parameters,\n\
 Status codes',
-    },
+  },
 
-    {
-      title: 'Scrum',
-      linkHref:
-        'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
-      tooltips:
-        '\
+  {
+    title: 'Scrum',
+    linkHref:
+      'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
+    tooltips:
+      '\
 Roles: Product Owner, Scrum Master, and Team Members\n\
 \n\
 1.  Iterative development\n\
@@ -299,13 +262,13 @@ Roles: Product Owner, Scrum Master, and Team Members\n\
 12. Planning poker\n\
 13. Backlog\n\
 14. Backlog grooming',
-    },
+  },
 
-    {
-      title: 'SDLC',
-      linkHref: 'https://en.wikipedia.org/wiki/Systems_development_life_cycle',
-      tooltips:
-        'The systems development life cycle (SDLC), \n\
+  {
+    title: 'SDLC',
+    linkHref: 'https://en.wikipedia.org/wiki/Systems_development_life_cycle',
+    tooltips:
+      'The systems development life cycle (SDLC), \n\
 or application development life-cycle: \n\
 ● Requirement analysis\n\
 ● Planning\n\
@@ -314,13 +277,13 @@ or application development life-cycle: \n\
 ● Testing\n\
 ● Deploymenth\n\
 ',
-    },
+  },
 
-    {
-      title: 'SOLID',
-      linkHref: 'https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)',
-      tooltips:
-        "\
+  {
+    title: 'SOLID',
+    linkHref: 'https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)',
+    tooltips:
+      "\
 * Single responsibility principle:\t\
 a class should have only a single responsibility (i.e. changes to only one part of the software's \
 specification should be able to affect the specification of the class), \n\
@@ -333,13 +296,13 @@ the correctness of that program. \n\
 many client-specific interfaces are better than one general-purpose interface. \n\
 * Dependency inversion principle\t\
 one should depend upon abstractions, [not] concretions.",
-    },
+  },
 
-    {
-      title: 'Testing/Debugging',
-      linkHref: '',
-      tooltips:
-        '\
+  {
+    title: 'Testing/Debugging',
+    linkHref: '',
+    tooltips:
+      '\
 BDD Behavior Driven Development\n\
 TDD Test Driven Development\n\
 Unit testing\n\
@@ -363,14 +326,14 @@ Lint\n\
   ✔ Eslint google style: npm run eslint filename.js\n\
   ✔ NodeJs htmllint: htmllint filename.html\n\
 ',
-    },
+  },
 
-    {
-      title: 'Version Control/Git',
-      linkHref:
-        'https://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html',
-      tooltips:
-        '\
+  {
+    title: 'Version Control/Git',
+    linkHref:
+      'https://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html',
+    tooltips:
+      '\
 Bitbucket.org\n\
 Github.com\n\
 \n\
@@ -385,46 +348,46 @@ $ git commit -m "..."\n\
 $ git pull\n\
 $ git push -u origin ...\n\
 ',
-    },
-  ]
+  },
+]
 
-  //Frontend competencies
-  competencyTagsObj['clientSide'] = [
-    {
-      title: 'Ajax',
-      linkHref: 'https://www.w3.org/TR/XMLHttpRequest/',
-      tooltips:
-        '\
+//Frontend competencies
+competencyTags['clientSide'] = [
+  {
+    title: 'Ajax',
+    linkHref: 'https://www.w3.org/TR/XMLHttpRequest/',
+    tooltips:
+      '\
 The XMLHttpRequest specification is an API that \n\
 provides scripted client functionality \n\
 for transferring data between a client and a server',
-    },
+  },
 
-    {
-      title: 'Amp',
-      linkHref: 'https://www.ampproject.org/',
-      tooltips:
-        '\
+  {
+    title: 'Amp',
+    linkHref: 'https://www.ampproject.org/',
+    tooltips:
+      '\
 The AMP Project is an open-source initiative aiming to make the web better for all. \n\
 The project enables the creation of websites and ads that are \n\
 consistently fast, beautiful and high-performing \n\
 across devices and distribution platforms.',
-    },
+  },
 
-    {
-      title: 'Ant Design',
-      linkHref: 'https://ant.design/docs/react/introduce',
-      tooltips:
-        '\
+  {
+    title: 'Ant Design',
+    linkHref: 'https://ant.design/docs/react/introduce',
+    tooltips:
+      '\
 A React UI library antd that contains a set of high quality components and demos for building rich,\n\
 interactive user interfaces.',
-    },
+  },
 
-    {
-      title: 'Axios',
-      linkHref: 'https://github.com/axios/axios',
-      tooltips:
-        '\
+  {
+    title: 'Axios',
+    linkHref: 'https://github.com/axios/axios',
+    tooltips:
+      '\
 Request method aliases \n\
 Concurrency (Deprecated) \n\
 Creating an instance \n\
@@ -445,9 +408,9 @@ Query string \n\
 Form data \n\
 Semver \n\
 Promises',
-    },
+  },
 
-    /*
+  /*
       {
         title: 'AngularJS',
         linkHref: 'https://angularjs.org/',
@@ -457,11 +420,11 @@ HTML vocabulary for your application.',
       },
       */
 
-    {
-      title: 'Bootstrap',
-      linkHref: 'https://bootstrapdocs.com/',
-      tooltips:
-        '\
+  {
+    title: 'Bootstrap',
+    linkHref: 'https://bootstrapdocs.com/',
+    tooltips:
+      '\
 Bootstrap is the most popular HTML, CSS, and JavaScript framework \n\
 for developing responsive, mobile-first web sites.\n\n\
 BOOTSTRAP GRID\n\
@@ -498,13 +461,13 @@ BS Tooltip\n\
 BS Popover\n\
 BS Scrollspy\n\
 BS Utilities',
-    },
+  },
 
-    {
-      title: 'BEM methodology',
-      linkHref: 'https://en.bem.info/methodology/',
-      tooltips:
-        '\
+  {
+    title: 'BEM methodology',
+    linkHref: 'https://en.bem.info/methodology/',
+    tooltips:
+      '\
 * to work in the common terms of blocks, elements and modifiers in all technologies (HTML~CSS~JS)\n\
 * to create independent components (blocks) at the level of JavaScript\n\
 * to divide the code into small independent pieces, for ease of working with individual blocks\n\
@@ -512,26 +475,26 @@ BS Utilities',
 * to access the elements of a block using the block API and does not violate the principle of encapsulation\n\
 * to change the behavior of blocks, elements and modifiers level overrides by analogy with CSS\n\
 * re-use the blocks',
-    },
+  },
 
-    {
-      title: 'Browser Developer Tools',
-      linkHref: 'https://developers.google.com/web/tools/chrome-devtools/',
-      tooltips:
-        '\
+  {
+    title: 'Browser Developer Tools',
+    linkHref: 'https://developers.google.com/web/tools/chrome-devtools/',
+    tooltips:
+      '\
 Console debugging\n\
 Source variable observing\n\
 Element browsing\n\
 Network request analysing\n\
 Device Mode for testing Responsive and Device-specific Viewports\n\
 Profiling',
-    },
+  },
 
-    {
-      title: 'Cookie',
-      linkHref: 'https://tools.ietf.org/html/rfc6265',
-      tooltips:
-        "\
+  {
+    title: 'Cookie',
+    linkHref: 'https://tools.ietf.org/html/rfc6265',
+    tooltips:
+      "\
 An HTTP cookie is a small piece of data sent from a website \n\
 and stored on the user's computer \n\
 by the user's web browser while the user is browsing.\n\
@@ -541,23 +504,23 @@ to remember stateful information \n\
 to record the user's browsing activity \n\
 (including clicking particular buttons, logging in, \n\
 or recording which pages were visited in the past).",
-    },
+  },
 
-    {
-      title: 'CSS Preprocessing',
-      linkHref: 'https://lesscss.org/functions/',
-      tooltips:
-        '\
+  {
+    title: 'CSS Preprocessing',
+    linkHref: 'https://lesscss.org/functions/',
+    tooltips:
+      '\
 Lesscss.org\n\
 Sass-lang.com\n\
 Stylus-lang.com',
-    },
+  },
 
-    {
-      title: 'Css3',
-      linkHref: 'https://www.w3.org/Style/CSS/specs.en.html',
-      tooltips:
-        '\
+  {
+    title: 'Css3',
+    linkHref: 'https://www.w3.org/Style/CSS/specs.en.html',
+    tooltips:
+      '\
 Rounded Corners \n\
 Border Images \n\
 Backgrounds \n\
@@ -579,13 +542,13 @@ User Interface \n\
 Box Sizing \n\
 Flexbox \n\
 Media Queries',
-    },
+  },
 
-    {
-      title: 'ECMAScript6',
-      linkHref: 'https://github.com/lukehoban/es6features',
-      tooltips:
-        '\
+  {
+    title: 'ECMAScript6',
+    linkHref: 'https://github.com/lukehoban/es6features',
+    tooltips:
+      '\
 ES7 includes the following new features:\n\
 arrows\n\
 classes\n\
@@ -608,9 +571,9 @@ math + number + string + array + object APIs\n\
 binary and octal literals\n\
 reflect api\n\
 tail calls',
-    },
+  },
 
-    /*
+  /*
       {
         title: 'Enzyme',
         linkHref: 'https://airbnb.io/enzyme/',
@@ -621,42 +584,42 @@ to assert, manipulate, and traverse your React Components' output.",
       },
       */
 
-    {
-      title: 'ESLint',
-      linkHref: 'https://eslint.org/',
-      tooltips:
-        '\
+  {
+    title: 'ESLint',
+    linkHref: 'https://eslint.org/',
+    tooltips:
+      '\
 ESLint statically analyzes your code to quickly find problems. \n\
 Many problems ESLint finds can be automatically fixed.',
-    },
+  },
 
-    {
-      title: 'Web Analytics',
-      linkHref: 'https://www.google.com/analytics/',
-      tooltips:
-        '\
+  {
+    title: 'Web Analytics',
+    linkHref: 'https://www.google.com/analytics/',
+    tooltips:
+      '\
 Splunk \n\
 New relic \n\
 Google Analytics \n\
 Yandex Analytics\
 ',
-    },
+  },
 
-    {
-      title: 'Icons lib',
-      linkHref: 'https://www.w3schools.com/icons/icons_reference.asp',
-      tooltips:
-        '\
+  {
+    title: 'Icons lib',
+    linkHref: 'https://www.w3schools.com/icons/icons_reference.asp',
+    tooltips:
+      '\
 Font-awesome https://fontawesome.io/\n\
 Bootstrap icons\n\
 Google icons',
-    },
+  },
 
-    {
-      title: 'Html5',
-      linkHref: 'https://www.w3.org/TR/html5/',
-      tooltips:
-        '\
+  {
+    title: 'Html5',
+    linkHref: 'https://www.w3.org/TR/html5/',
+    tooltips:
+      '\
 HTML GRAPHICS\n\
 HTML Canvas\n\
 HTML SVG\n\
@@ -672,13 +635,13 @@ HTML Drag/Drop\n\
 HTML Web Storage\n\
 HTML Web Workers\n\
 HTML SSE',
-    },
+  },
 
-    {
-      title: 'HTML DOM',
-      linkHref: 'https://www.w3.org/TR/DOM-Level-1/introduction.html',
-      tooltips:
-        '\
+  {
+    title: 'HTML DOM',
+    linkHref: 'https://www.w3.org/TR/DOM-Level-1/introduction.html',
+    tooltips:
+      '\
 The Document Object Model (DOM) \n\
 is an application programming interface (API) for HTML and XML documents.\n\
 It defines the logical structure of documents and the way a document is accessed and manipulated.\n\n\
@@ -694,14 +657,14 @@ DOM Elements\n\
 DOM Attributes\n\
 DOM Events\n\
 DOM Style',
-    },
+  },
 
-    {
-      title: 'JavaScript',
-      linkHref:
-        'https://www.ecma-international.org/publications/standards/Stnindex.htm',
-      tooltips:
-        '\
+  {
+    title: 'JavaScript',
+    linkHref:
+      'https://www.ecma-international.org/publications/standards/Stnindex.htm',
+    tooltips:
+      '\
 JS Statements\n\
 JS Comments\n\
 JS Variables\n\
@@ -746,13 +709,13 @@ JS Performance\n\
 JS Reserved Words\n\
 JS Versions\n\
 JS JSON',
-    },
+  },
 
-    {
-      title: 'Jest',
-      linkHref: 'https://jestjs.io/docs/api',
-      tooltips:
-        '\
+  {
+    title: 'Jest',
+    linkHref: 'https://jestjs.io/docs/api',
+    tooltips:
+      '\
 afterAll(fn, timeout)\n\
 afterEach(fn, timeout)\n\
 beforeAll(fn, timeout)\n\
@@ -778,13 +741,13 @@ test.only.each(table)(name, fn)\n\
 test.skip(name, fn)\n\
 test.skip.each(table)(name, fn)\n\
 test.todo(name)',
-    },
+  },
 
-    {
-      title: 'jQuery',
-      linkHref: 'https://jquery.com/',
-      tooltips:
-        '\
+  {
+    title: 'jQuery',
+    linkHref: 'https://jquery.com/',
+    tooltips:
+      '\
 jQuery Effects\n\
 jQuery Hide/Show\n\
 jQuery Fade\n\
@@ -812,13 +775,13 @@ jQuery Get/Post\n\
 jQuery Misc\n\
 jQuery noConflict()\n\
 jQuery Filters',
-    },
+  },
 
-    {
-      title: 'jQuery-UI',
-      linkHref: 'https://jqueryui.com/',
-      tooltips:
-        '\
+  {
+    title: 'jQuery-UI',
+    linkHref: 'https://jqueryui.com/',
+    tooltips:
+      '\
 INTERACTIONS\n\
 Draggable\n\
 Droppable\n\
@@ -854,13 +817,13 @@ Toggle Class\n\
 UTILITIES\n\
 Position\n\
 Widget Factory',
-    },
+  },
 
-    {
-      title: 'JS Frameworks',
-      linkHref: '',
-      tooltips:
-        '\
+  {
+    title: 'JS Frameworks',
+    linkHref: '',
+    tooltips:
+      '\
 AMP\n\
 AngularJS\n\
 Bootstrap\n\
@@ -876,13 +839,13 @@ React native\n\
 React-router\n\
 Redux\n\
 Semantic-ui-react',
-    },
+  },
 
-    {
-      title: 'JSON',
-      linkHref: 'https://json-schema.org/',
-      tooltips:
-        '\
+  {
+    title: 'JSON',
+    linkHref: 'https://json-schema.org/',
+    tooltips:
+      '\
 JSON Objects\n\
 JSON Arrays\n\
 JSON Parse\n\
@@ -890,72 +853,72 @@ JSON Stringify\n\
 JSON PHP\n\
 JSON HTML\n\
 JSON JSONP',
-    },
+  },
 
-    {
-      title: 'JSONP',
-      linkHref: 'https://en.wikipedia.org/wiki/JSONP',
-      tooltips:
-        '\
+  {
+    title: 'JSONP',
+    linkHref: 'https://en.wikipedia.org/wiki/JSONP',
+    tooltips:
+      '\
 JSONP works by constructing a “script” element (either in HTML markup or\n\
 inserted into the DOM via JavaScript),\n\
 which requests to a remote data service location. The response is a javascript\n\
 loaded on to your browser with name of the pre-defined function along with parameter\n\
 being passed that is tht JSON data being requested. When the script executes,\n\
 the function is called along with JSON data, allowing the requesting page to receive and process the data.',
-    },
+  },
 
-    {
-      title: 'JWT',
-      linkHref: 'https://jwt.io/',
-      tooltips:
-        '\
+  {
+    title: 'JWT',
+    linkHref: 'https://jwt.io/',
+    tooltips:
+      '\
 JSON Web Tokens are an open, industry standard RFC 7519 method for\n\
 representing claims securely between two parties.\n\
 ',
-    },
+  },
 
-    {
-      title: 'Less',
-      linkHref: 'https://lesscss.org/functions/',
-      tooltips:
-        '\
+  {
+    title: 'Less',
+    linkHref: 'https://lesscss.org/functions/',
+    tooltips:
+      '\
 As an extension to CSS, Less \n\
 is not only backwards compatible with CSS,\n\
 but the extra features it adds use existing CSS syntax.\n\
 This makes learning Less a breeze, and if in doubt,\n\
 lets you fall back to vanilla CSS.',
-    },
+  },
 
-    {
-      title: 'Lodash',
-      linkHref: 'https://lodash.com/docs/',
-      tooltips:
-        '\
+  {
+    title: 'Lodash',
+    linkHref: 'https://lodash.com/docs/',
+    tooltips:
+      '\
 Array\n\
 Collection\n\
 Date\n\
 Function\n\
 Lang\n\
 Util',
-    },
-    {
-      title: 'Material Design',
-      linkHref: 'https://material.io/',
-      tooltips:
-        '\
+  },
+  {
+    title: 'Material Design',
+    linkHref: 'https://material.io/',
+    tooltips:
+      '\
 Tools: COLOR TOOL\n\
 \n\
 Material Design is a unified system \n\
 that combines theory, resources, and tools\n\
 for crafting digital experiences.',
-    },
+  },
 
-    {
-      title: 'Microformats/Schema.org',
-      linkHref: 'https://schema.org/',
-      tooltips:
-        '\
+  {
+    title: 'Microformats/Schema.org',
+    linkHref: 'https://schema.org/',
+    tooltips:
+      '\
 Schema.org is a joint effort, in the spirit of sitemaps.org, \n\
 to improve the web by creating a structured data markup schema \n\
 supported by major search engines. \n\
@@ -965,13 +928,13 @@ A shared markup vocabulary makes easier for webmasters \n\
 to decide on a markup schema and get the maximum benefit for their efforts. \n\
 Search engines want to make it easier for people to find relevant information on the web. \n\
 Markup can also enable new tools and applications that make use of the structure.',
-    },
+  },
 
-    {
-      title: 'Mocha',
-      linkHref: 'https://mochajs.org/',
-      tooltips:
-        '\
+  {
+    title: 'Mocha',
+    linkHref: 'https://mochajs.org/',
+    tooltips:
+      '\
 Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, \n\
 making asynchronous testing simple and fun. Mocha tests run serially, \n\
 allowing for flexible and accurate reporting, \n\
@@ -1006,14 +969,14 @@ extensible test DSLs or “interfaces”\n\
 before, after, before each, after each hooks\n\
 arbitrary transpiler support (coffee-script etc)\n\
 TextMate bundle',
-    },
+  },
 
-    {
-      title: 'MVC',
-      linkHref:
-        'https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller',
-      tooltips:
-        "\
+  {
+    title: 'MVC',
+    linkHref:
+      'https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller',
+    tooltips:
+      "\
 Components\n\
 MODEL expresses the application's behavior in terms of the problem domain, independent of the user interface.\
 It directly manages the data, logic and rules of the application.\n\
@@ -1027,13 +990,13 @@ VIEW generates new output to the user based on changes in the model.\n\
 CONTROLLER can send commands to the model to update the model's state (e.g., editing a document). \
 It can also send commands to its associated view to change the view's presentation of the model \
 (e.g., scrolling through a document, movement of document).",
-    },
+  },
 
-    {
-      title: 'OAuth',
-      linkHref: 'https://en.wikipedia.org/wiki/OAuth',
-      tooltips:
-        '\
+  {
+    title: 'OAuth',
+    linkHref: 'https://en.wikipedia.org/wiki/OAuth',
+    tooltips:
+      '\
 OAuth (Open Authorization[1][2]) is an open standard for access delegation,\n\
 commonly used as a way for Internet users to grant websites or applications access\n\
 to their information on other websites but without giving them the passwords.\n\
@@ -1041,13 +1004,13 @@ This mechanism is used by companies such as Google, Facebook, VKontakte, Amazon,
 Twitter to permit the users to share information about their accounts with third-party\n\
 applications or websites.\n\
 ',
-    },
+  },
 
-    {
-      title: 'ReactJS',
-      linkHref: 'https://facebook.github.io/react/',
-      tooltips:
-        '\
+  {
+    title: 'ReactJS',
+    linkHref: 'https://facebook.github.io/react/',
+    tooltips:
+      '\
 REACT\n\
 Rendering Elements\n\
 Components and Props\n\
@@ -1058,13 +1021,13 @@ Lists and Keys\n\
 Forms\n\
 Lifting State Up\n\
 Composition vs Inheritance',
-    },
+  },
 
-    {
-      title: 'React Native',
-      linkHref: 'https://reactnative.dev/',
-      tooltips:
-        '\
+  {
+    title: 'React Native',
+    linkHref: 'https://reactnative.dev/',
+    tooltips:
+      '\
 ActivityIndicator\n\
 Button\n\
 FlatList\n\
@@ -1121,13 +1084,13 @@ ToastAndroid\n\
 iOS APIs\n\
 ActionSheetIOS\n\
 Settings',
-    },
+  },
 
-    {
-      title: 'React-router',
-      linkHref: 'https://reacttraining.com/react-router/',
-      tooltips:
-        '\
+  {
+    title: 'React-router',
+    linkHref: 'https://reacttraining.com/react-router/',
+    tooltips:
+      '\
 REACT-ROUTER API\n\
 <BrowserRouter>\n\
 <HashRouter>\n\
@@ -1145,12 +1108,12 @@ location\n\
 match\n\
 matchPath\n\
 withRouter',
-    },
-    {
-      title: 'Redux',
-      linkHref: 'https://redux.js.org',
-      tooltips:
-        '\
+  },
+  {
+    title: 'Redux',
+    linkHref: 'https://redux.js.org',
+    tooltips:
+      '\
 Actions\n\
 Reducers\n\
 Store\n\
@@ -1158,13 +1121,13 @@ Data Flow\n\
 Async Actions\n\
 Async Flow\n\
 Middleware',
-    },
+  },
 
-    {
-      title: 'Redux-saga',
-      linkHref: 'https://redux-saga.js.org/',
-      tooltips:
-        '\
+  {
+    title: 'Redux-saga',
+    linkHref: 'https://redux-saga.js.org/',
+    tooltips:
+      '\
 Middleware API\n\
 createSagaMiddleware(options)\n\
 middleware.run(saga, ...args)\n\
@@ -1217,13 +1180,13 @@ race(effects)\n\
 race([...effects])\n\
 all([...effects]) (aka parallel effects)\n\
 all(effects)',
-    },
+  },
 
-    {
-      title: 'Regex',
-      linkHref: 'https://perldoc.perl.org/perlre.html',
-      tooltips:
-        '\
+  {
+    title: 'Regex',
+    linkHref: 'https://perldoc.perl.org/perlre.html',
+    tooltips:
+      '\
 Modifiers\n\
 Regular Expressions\n\
 Quoting metacharacters\n\
@@ -1232,26 +1195,26 @@ Backtracking\n\
 Special Backtracking Control Verbs\n\
 \\1 and $1\n\
 Repeated Patterns Matching a Zero-length Substring',
-    },
+  },
 
-    {
-      title: 'Responsive Design',
-      linkHref: 'https://bootstrapdocs.com/',
-      tooltips:
-        '\
+  {
+    title: 'Responsive Design',
+    linkHref: 'https://bootstrapdocs.com/',
+    tooltips:
+      '\
 Responsive Web Design makes your web page \n\
 look good on all devices (desktops, tablets, and phones).\n\
 \n\
 Responsive Web Design is about using HTML and CSS to\n\
 resize, hide, shrink, enlarge, or move the content \n\
 to make it look good on any screen',
-    },
+  },
 
-    {
-      title: 'Semantic-UI-React',
-      linkHref: 'https://react.semantic-ui.com/introduction',
-      tooltips:
-        '\
+  {
+    title: 'Semantic-UI-React',
+    linkHref: 'https://react.semantic-ui.com/introduction',
+    tooltips:
+      '\
 Semantic UI React is the official React integration for Semantic UI:\n\
 Elements\n\
 Collections\n\
@@ -1260,13 +1223,13 @@ Modules\n\
 Behaviors\n\
 Addons\n\
 ',
-    },
+  },
 
-    {
-      title: 'Seo',
-      linkHref: 'https://support.google.com/webmasters/answer/35769?hl=en',
-      tooltips:
-        '\
+  {
+    title: 'Seo',
+    linkHref: 'https://support.google.com/webmasters/answer/35769?hl=en',
+    tooltips:
+      '\
 Submitting to Search Engines\n\
 Search Appearance\n\
 Structured Data\n\
@@ -1294,34 +1257,34 @@ Sitemaps\n\
 URL Parameters\n\
 Security Issues\n\
 Web Tools',
-    },
-    {
-      title: 'Session',
-      linkHref: 'https://php.net/manual/en/features.sessions.php',
-      tooltips:
-        '\
+  },
+  {
+    title: 'Session',
+    linkHref: 'https://php.net/manual/en/features.sessions.php',
+    tooltips:
+      '\
 Session support consists of a way \n\
 to preserve certain data across subsequent accesses.\n\
 This enables you to build more customized applications \n\
 and increase the appeal of your web site.',
-    },
-    {
-      title: 'SPA',
-      linkHref: 'https://en.wikipedia.org/wiki/Single-page_application',
-      tooltips:
-        '\
+  },
+  {
+    title: 'SPA',
+    linkHref: 'https://en.wikipedia.org/wiki/Single-page_application',
+    tooltips:
+      '\
 A single-page application (SPA) is a web application or web site that\n\
 interacts with the user by dynamically rewriting the current page \n\
 rather than loading entire new pages from a server.\n\
 Interaction with the single page application often involves \n\
 dynamic communication with the web server behind the scenes.',
-    },
+  },
 
-    {
-      title: 'Typescript',
-      linkHref: 'https://www.typescriptlang.org/docs/home.html',
-      tooltips:
-        '\
+  {
+    title: 'Typescript',
+    linkHref: 'https://www.typescriptlang.org/docs/home.html',
+    tooltips:
+      '\
 Basic Types\n\
 Variable Declarations\n\
 Interfaces\n\
@@ -1344,13 +1307,13 @@ Decorators\n\
 Mixins\n\
 Triple-Slash Directives\n\
 Type Checking JavaScript Files',
-    },
+  },
 
-    {
-      title: 'Webpack',
-      linkHref: 'https://webpack.js.org/',
-      tooltips:
-        '\
+  {
+    title: 'Webpack',
+    linkHref: 'https://webpack.js.org/',
+    tooltips:
+      '\
 Entry Points\n\
 Output\n\
 Loaders\n\
@@ -1360,16 +1323,16 @@ Modules\n\
 Module Resolution\n\
 Dependency Graph\n\
 Targets',
-    },
-  ]
+  },
+]
 
-  //Backend compentencies
-  competencyTagsObj['serverSide'] = [
-    {
-      title: 'Apollo Graphql',
-      linkHref: 'https://www.apollographql.com/docs/',
-      tooltips:
-        '\
+//Backend compentencies
+competencyTags['serverSide'] = [
+  {
+    title: 'Apollo Graphql',
+    linkHref: 'https://www.apollographql.com/docs/',
+    tooltips:
+      '\
 Apollo Server\n\
 Apollo Client\n\
 iOS and Android clients\n\
@@ -1378,13 +1341,13 @@ Cloud services\n\
 Client registry\n\
 Operation registry\n\
 Trace warehouse',
-    },
+  },
 
-    {
-      title: 'ExpressJS',
-      linkHref: 'https://expressjs.com/en/4x/api.html',
-      tooltips:
-        '\
+  {
+    title: 'ExpressJS',
+    linkHref: 'https://expressjs.com/en/4x/api.html',
+    tooltips:
+      '\
 Express()\n\
 Methods\n\
 express.json()\n\
@@ -1483,13 +1446,13 @@ router.param()\n\
 router.route()\n\
 router.use()\n\
 ',
-    },
+  },
 
-    {
-      title: 'Json',
-      linkHref: 'https://json-schema.org/',
-      tooltips:
-        '\
+  {
+    title: 'Json',
+    linkHref: 'https://json-schema.org/',
+    tooltips:
+      '\
 JSON Objects\n\
 JSON Arrays\n\
 JSON Parse\n\
@@ -1497,24 +1460,24 @@ JSON Stringify\n\
 JSON PHP\n\
 JSON HTML\n\
 JSON JSONP',
-    },
+  },
 
-    {
-      title: 'LAMP',
-      linkHref: 'https://en.wikipedia.org/wiki/LAMP_(software_bundle)',
-      tooltips:
-        '\
+  {
+    title: 'LAMP',
+    linkHref: 'https://en.wikipedia.org/wiki/LAMP_(software_bundle)',
+    tooltips:
+      '\
 Linux operating system (Ubuntu),\n\
 Apache HTTP Server,\n\
 MySQL relational database,\n\
 PHP programming language',
-    },
+  },
 
-    {
-      title: 'Matplotlib',
-      linkHref: 'https://matplotlib.org/contents.html',
-      tooltips:
-        '\
+  {
+    title: 'Matplotlib',
+    linkHref: 'https://matplotlib.org/contents.html',
+    tooltips:
+      '\
 Pyplot\n\
 Plotting\n\
 Markers\n\
@@ -1524,38 +1487,38 @@ Scatter\n\
 Bars\n\
 Histograms\n\
 Pie Charts',
-    },
+  },
 
-    {
-      title: 'MERN',
-      linkHref:
-        'https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274',
-      tooltips:
-        '\
+  {
+    title: 'MERN',
+    linkHref:
+      'https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274',
+    tooltips:
+      '\
 MongoDB\n\
 ExpressJS\n\
 ReactJS\n\
 NodeJS',
-    },
+  },
 
-    {
-      title: 'MongoDB',
-      linkHref: 'https://www.mysql.com/',
-      tooltips:
-        '\
+  {
+    title: 'MongoDB',
+    linkHref: 'https://www.mysql.com/',
+    tooltips:
+      '\
 MongoDB CRUD Operations\n\
 Create Operations\n\
 Read Operations\n\
 Update Operations\n\
 Delete Operations\n\
 Bulk Write',
-    },
+  },
 
-    {
-      title: 'MySQL',
-      linkHref: 'https://www.mysql.com/',
-      tooltips:
-        '\
+  {
+    title: 'MySQL',
+    linkHref: 'https://www.mysql.com/',
+    tooltips:
+      '\
 MySQL Database\n\
 MySQL Connect\n\
 MySQL Create DB\n\
@@ -1568,13 +1531,13 @@ MySQL Select Data\n\
 MySQL Delete Data\n\
 MySQL Update Data\n\
 MySQL Limit Data',
-    },
+  },
 
-    {
-      title: 'NestJS',
-      linkHref: 'https://docs.nestjs.com/',
-      tooltips:
-        '\
+  {
+    title: 'NestJS',
+    linkHref: 'https://docs.nestjs.com/',
+    tooltips:
+      '\
 Custom providers\n\
 Asynchronous providers\n\
 Dynamic modules\n\
@@ -1586,22 +1549,22 @@ Lifecycle events\n\
 Platform agnosticism\n\
 Testing\n\
         ',
-    },
+  },
 
-    {
-      title: 'Node.js',
-      linkHref: 'https://nodejs.org/en/',
-      tooltips:
-        '\
+  {
+    title: 'Node.js',
+    linkHref: 'https://nodejs.org/en/',
+    tooltips:
+      '\
 thread workers\n\
 child processes',
-    },
+  },
 
-    {
-      title: 'Php',
-      linkHref: 'https://php.net/manual/en/langref.php',
-      tooltips:
-        '\
+  {
+    title: 'Php',
+    linkHref: 'https://php.net/manual/en/langref.php',
+    tooltips:
+      '\
 PHP General\n\
 PHP Syntax\n\
 PHP Variables\n\
@@ -1644,14 +1607,14 @@ PHP SimpleXML Parser\n\
 PHP SimpleXML - Get\n\
 PHP XML Expat\n\
 PHP XML DOM',
-    },
+  },
 
-    {
-      title: 'Regex',
-      linkHref:
-        'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp',
-      tooltips:
-        '\
+  {
+    title: 'Regex',
+    linkHref:
+      'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp',
+    tooltips:
+      '\
 pattern: The text of the regular expression.\n\
 flags: If specified, flags can have any combination of the following values:\n\
 g - global match; find all matches rather than stopping after the first match\n\
@@ -1667,25 +1630,25 @@ Alternation\n\
 Grouping and back references\n\
 Quantifiers\n\
 Assertions',
-    },
-    {
-      title: 'Routing',
-      linkHref: '',
-      tooltips:
-        'Routing provides site users with the following:\n\
+  },
+  {
+    title: 'Routing',
+    linkHref: '',
+    tooltips:
+      'Routing provides site users with the following:\n\
 Displaying different content depending on the URL\n\
 Constructing links to routes and go to routes programmatically\n\
 Bookmarking - Users can bookmark URLs in their web browser to save content they want to come back to later.\n\
 Sharing - Users can share content with others by sending a link to a certain page.\n\
 Navigation - URLs are used to drive the web browser’s back/forward functions.',
-    },
+  },
 
-    {
-      title: 'Seo',
-      linkHref:
-        'https://www.searchenginejournal.com/200-parameters-in-google-algorithm/15457/',
-      tooltips:
-        '\
+  {
+    title: 'Seo',
+    linkHref:
+      'https://www.searchenginejournal.com/200-parameters-in-google-algorithm/15457/',
+    tooltips:
+      '\
 Domain factors\n\
 Server-side factors\n\
 Architecture factors\n\
@@ -1699,27 +1662,27 @@ Backlink profile factors\n\
 Visitor Profile and Behavior\n\
 Penalties, Filters and Manipulation\n\
 More Factors',
-    },
+  },
 
-    {
-      title: 'Session',
-      linkHref: 'https://php.net/manual/en/features.sessions.php',
-      tooltips:
-        '\
+  {
+    title: 'Session',
+    linkHref: 'https://php.net/manual/en/features.sessions.php',
+    tooltips:
+      '\
 Session stores user information to be used across multiple pages (e.g. username, favorite color, etc).\n\
 By default, session variables last until the user closes the browser. Mehods:\n\
 Start a PHP Session\n\
 Get PHP Session Variable Values\n\
 Modify a PHP Session Variable\n\
 Destroy a PHP Session',
-    },
+  },
 
-    {
-      title: 'Sql',
-      linkHref:
-        'https://docs.oracle.com/cd/B28359_01/server.111/b28286/intro002.htm#SQLRF50928',
-      tooltips:
-        '\
+  {
+    title: 'Sql',
+    linkHref:
+      'https://docs.oracle.com/cd/B28359_01/server.111/b28286/intro002.htm#SQLRF50928',
+    tooltips:
+      '\
 SQL General\n\
 SQL Syntax\n\
 SQL Select\n\
@@ -1780,13 +1743,13 @@ MS Access Functions\n\
 Oracle Functions\n\
 SQL Operators\n\
 SQL Data Types',
-    },
+  },
 
-    {
-      title: 'Swagger-OpenAPI',
-      linkHref: 'https://swagger.io/docs/specification/about/',
-      tooltips:
-        '\
+  {
+    title: 'Swagger-OpenAPI',
+    linkHref: 'https://swagger.io/docs/specification/about/',
+    tooltips:
+      '\
 API Server and Base Path\n\
 Media Types\n\
 Paths and Operations\n\
@@ -1819,13 +1782,13 @@ Using $ref\n\
 API General Info\n\
 Grouping Operations With Tags\n\
 OpenAPI Extensions',
-    },
+  },
 
-    {
-      title: 'Telegram-bot',
-      linkHref: 'https://telegram-bot-sdk.readme.io/docs/commands-system',
-      tooltips:
-        '\
+  {
+    title: 'Telegram-bot',
+    linkHref: 'https://telegram-bot-sdk.readme.io/docs/commands-system',
+    tooltips:
+      '\
 Fetures and usage cases\n\
 Get customized notifications and news. \n\
 Integrate with other services. \n\
@@ -1834,13 +1797,13 @@ Create custom tools. \n\
 Build single- and multiplayer games. \n\
 Build social services. \n\
 Do virtually anything else.',
-    },
+  },
 
-    {
-      title: 'Ubuntu',
-      linkHref: 'https://www.ubuntu.com/',
-      tooltips:
-        '\
+  {
+    title: 'Ubuntu',
+    linkHref: 'https://www.ubuntu.com/',
+    tooltips:
+      '\
 Install with GParted\n\
 Change default loading system on systemd\n\
 Set up Aptitude, Synaptic package manager, Wine\n\
@@ -1854,13 +1817,13 @@ Change privileges for folders\n\
 Install NodeJS\n\
 Install Virtual Box, pm2, Docker\n\
 ',
-    },
+  },
 
-    {
-      title: 'Xml',
-      linkHref: 'https://www.w3.org/TR/REC-xml/',
-      tooltips:
-        '\
+  {
+    title: 'Xml',
+    linkHref: 'https://www.w3.org/TR/REC-xml/',
+    tooltips:
+      '\
 XML General\n\
 XML Tree\n\
 XML Syntax\n\
@@ -1902,15 +1865,15 @@ DOM Replace Nodes\n\
 DOM Create Nodes\n\
 DOM Add Nodes\n\
 DOM Clone Nodes',
-    },
-  ]
+  },
+]
 
-  competencyTagsObj['machineLearning'] = [
-    {
-      title: 'AI & Machine Learning',
-      linkHref: 'https://keras.io/',
-      tooltips:
-        '\
+competencyTags['machineLearning'] = [
+  {
+    title: 'AI & Machine Learning',
+    linkHref: 'https://keras.io/',
+    tooltips:
+      '\
 ★ To define task in the ML terms \n\
 ★ To build hypothesis (data > outcome) \n\
 ★ To state statistical parameters of accepted results (metrics, confidence interval) \n\
@@ -1947,14 +1910,14 @@ Scale\n\
 Train/Test\n\
 Decision Tree\n\
 ',
-    },
+  },
 
-    {
-      title: 'Algoritms for ML & AI',
-      linkHref:
-        'https://www.analyticsvidhya.com/blog/2017/09/common-machine-learning-algorithms/',
-      tooltips:
-        '\
+  {
+    title: 'Algoritms for ML & AI',
+    linkHref:
+      'https://www.analyticsvidhya.com/blog/2017/09/common-machine-learning-algorithms/',
+    tooltips:
+      '\
 \n\
 Types of Machine Learning Algorithms\n\
   ✔ Clustering (unsupervised) is a categorisation of objects into one or more classes without predifined labels\n\
@@ -1983,13 +1946,13 @@ Techniques of Machine Learning Algorithms \n\
     * XGBoost - to offer support of various objective functions, including regression, classification and ranking \n\
     * LightGBM - to use tree based learning algorithms. It is designed to be distributed \n\
     * CatBoost - to deal with categorical variables without showing the type conversion error, which helps you to focus on tuning your model',
-    },
+  },
 
-    {
-      title: 'Fann',
-      linkHref: 'https://leenissen.dk/fann/wp/',
-      tooltips:
-        '\
+  {
+    title: 'Fann',
+    linkHref: 'https://leenissen.dk/fann/wp/',
+    tooltips:
+      '\
 FANN Artificial Neural Network Library Features:\n\
 Multilayer Artificial Neural Network Library in C\n\
 Backpropagation training (RPROP, Quickprop, Batch, Incremental)\n\
@@ -2000,13 +1963,13 @@ Versatile (possible to adjust many parameters and features on-the-fly)\n\
 Well documented (An easy to read introduction article\n\
 Cross-platform \n\
 Several different activation functions implemented (including stepwise linear functions for that extra bit of speed)',
-    },
+  },
 
-    {
-      title: 'Keras',
-      linkHref: 'https://keras.io/api/',
-      tooltips:
-        '\
+  {
+    title: 'Keras',
+    linkHref: 'https://keras.io/api/',
+    tooltips:
+      '\
 Models API\n\
 Layers API\n\
 Callbacks API\n\
@@ -2100,13 +2063,13 @@ Model plotting utilities\n\
 Serialization utilities\n\
 Python & NumPy utilities\n\
 Backend utilities',
-    },
+  },
 
-    {
-      title: 'NumPy',
-      linkHref: 'https://numpy.org/',
-      tooltips:
-        '\
+  {
+    title: 'NumPy',
+    linkHref: 'https://numpy.org/',
+    tooltips:
+      '\
 Creating Arrays\n\
 Array Indexing\n\
 Array Slicing\n\
@@ -2122,13 +2085,13 @@ Array Sort\n\
 Array Filter\n\
 Random\n\
 ufunc',
-    },
+  },
 
-    {
-      title: 'Pandas',
-      linkHref: 'https://pandas.pydata.org/docs/',
-      tooltips:
-        '\
+  {
+    title: 'Pandas',
+    linkHref: 'https://pandas.pydata.org/docs/',
+    tooltips:
+      '\
 Series\n\
 DataFrames\n\
 Read CSV\n\
@@ -2137,13 +2100,13 @@ Analyzing Data\n\
 Cleaning Data\n\
 Correlations\n\
 Plotting',
-    },
+  },
 
-    {
-      title: 'Python',
-      linkHref: 'https://docs.python.org/3/',
-      tooltips:
-        '\
+  {
+    title: 'Python',
+    linkHref: 'https://docs.python.org/3/',
+    tooltips:
+      '\
 Py General\n\
 Comments\n\
 Variables\n\
@@ -2181,13 +2144,13 @@ File Handling\n\
 Read Files\n\
 Write/Create Files\n\
 Delete Files',
-    },
+  },
 
-    {
-      title: 'SciPy',
-      linkHref: 'https://www.scipy.org/docs.html',
-      tooltips:
-        '\
+  {
+    title: 'SciPy',
+    linkHref: 'https://www.scipy.org/docs.html',
+    tooltips:
+      '\
 Constants\n\
 Optimizers\n\
 Sparse Data\n\
@@ -2196,13 +2159,13 @@ Spatial Data\n\
 Matlab Arrays\n\
 Interpolation\n\
 Significance Tests',
-    },
+  },
 
-    {
-      title: 'Scikit-Learn',
-      linkHref: 'https://scikit-learn.org/stable/modules/classes.html',
-      tooltips:
-        '\
+  {
+    title: 'Scikit-Learn',
+    linkHref: 'https://scikit-learn.org/stable/modules/classes.html',
+    tooltips:
+      '\
 Base classes and utility functions\n\
 Probability Calibration\n\
 Clustering\n\
@@ -2241,13 +2204,13 @@ Semi-Supervised Learning\n\
 Support Vector Machines\n\
 Decision Trees\n\
 Utilities',
-    },
+  },
 
-    {
-      title: 'TensorFlow',
-      linkHref: 'https://www.tensorflow.org/api_docs/python/tf',
-      tooltips:
-        '\
+  {
+    title: 'TensorFlow',
+    linkHref: 'https://www.tensorflow.org/api_docs/python/tf',
+    tooltips:
+      '\
 Modules\n\
 Classes\n\
 Functions\n\
@@ -2553,23 +2516,5 @@ uint32 tf.dtypes.DType \n\
 uint64 tf.dtypes.DType \n\
 uint8 tf.dtypes.DType \n\
 variant tf.dtypes.DType',
-    },
-  ]
-
-  const competencyTagsObjNext: CompetencyTagsObjType = {
-    general: [],
-    clientSide: [],
-    serverSide: [],
-    machineLearning: [],
-  }
-  ;(
-    Object.keys(competencyTagsObj) as Array<keyof CompetencyTagsObjType>
-  ).forEach((key: keyof CompetencyTagsObjType) => {
-    competencyTagsObjNext[key] = competencyTagsObj[key].map((item: any) => {
-      const id = nanoid()
-      return { id, ...item }
-    })
-  })
-
-  return competencyTagsObjNext
-}
+  },
+]

@@ -1,14 +1,4 @@
-export type ProjectType = {
-  title: string
-  isActive: boolean
-  pathname: string
-  subtitle: string
-  description: string | string[]
-  customer: string
-  builtwith: string
-  imgSrc: string
-  linkHref: string
-}
+import { ProjectType } from '../@types/ProjectType'
 
 const projectsListR1: ProjectType[] = [
   {

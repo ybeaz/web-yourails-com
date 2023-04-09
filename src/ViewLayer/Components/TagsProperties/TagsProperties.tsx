@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
 
 import {
-  getCompetencyTagsR1,
-  CompetencyTagsObjType,
   CompetencyType,
+  CompetencyTagsObjType,
+} from '../../../@types/CompetencyType'
+import {
+  competencyTags,
   getTranslatedPropNamesToSubheadings,
-} from '../../../ContentMock/getCompetencyTagsR1'
+} from '../../../ContentMock/competencyTagsMock'
 import { Header } from '../Header/Header'
 import { Text } from '../../Components/Text/Text'
 import { TagProperty } from '../TagProperty/TagProperty'
@@ -19,10 +21,8 @@ import { style } from './TagsPropertiesStyle'
 const TagsPropertiesComponent: TagsPropertiesType = props => {
   const { styleProps = { TagsProperties: {} } } = props
 
-  const competencyTagsR1: CompetencyTagsObjType = getCompetencyTagsR1()
-
-  const competencyTagsR1Keys: Array<keyof CompetencyTagsObjType> = Object.keys(
-    competencyTagsR1
+  const competencyTagsKeys: Array<keyof CompetencyTagsObjType> = Object.keys(
+    competencyTags
   ) as Array<keyof CompetencyTagsObjType>
 
   const getTagList = (competencies: any[]): ReactElement[] => {
@@ -30,7 +30,6 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
       const { id, title, linkHref, tooltips } = competency
       const tagPropertyProps = {
         key: `tagProperty-${index}`,
-        id,
         title,
         linkHref,
         tooltips,
@@ -40,9 +39,9 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
     })
   }
 
-  const competencyTagsR1Jsx = competencyTagsR1Keys.map(
+  const competencyTagsJsx = competencyTagsKeys.map(
     (key: keyof CompetencyTagsObjType, index: number) => {
-      const competencyTagsGroup: CompetencyType[] = competencyTagsR1[
+      const competencyTagsGroup: CompetencyType[] = competencyTags[
         key
       ] as CompetencyType[]
 
@@ -81,7 +80,7 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
       testID='TagsProperties'
     >
       <Header {...propsOut.headerProps} />
-      {competencyTagsR1Jsx}
+      {competencyTagsJsx}
     </View>
   )
 }

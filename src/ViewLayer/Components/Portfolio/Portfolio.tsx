@@ -2,6 +2,7 @@ import React, { useCallback, ReactElement } from 'react'
 import { ImageResizeMode, View, Linking, Alert } from 'react-native'
 import '@expo/match-media'
 
+import { ProjectType } from '../../../@types/ProjectType'
 import { ProjectInfoView } from '../ProjectInfoView/ProjectInfoView'
 import { Header } from '../Header/Header'
 import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
@@ -12,7 +13,7 @@ import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
 import { styles } from './PortfolioStyles'
 import { PortfolioType } from './PortfolioTypes'
 
-import { projectsList, ProjectType } from '../../../ContentMock/projectsMock'
+import { projectsList } from '../../../ContentMock/projectsMock'
 
 /**
  * @import import { Portfolio } from '../Components/Portfolio/Portfolio'
