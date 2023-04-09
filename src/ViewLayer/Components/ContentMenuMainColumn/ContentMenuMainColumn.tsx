@@ -70,7 +70,16 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
           key={`menuContentItem-${index}`}
           style={[
             style.buttonWrapper,
-            themes['themeA'].colors01,
+            {
+              borderTopWidth: 0,
+              borderRightWidth: 1,
+              borderBottomWidth: 0,
+              borderLeftWidth: 1,
+              borderTopColor: themes['themeA'].colors01.borderColor,
+              borderRightColor: themes['themeA'].colors01.borderColor,
+              borderBottomColor: themes['themeA'].colors01.borderColor,
+              borderLeftColor: themes['themeA'].colors01.borderColor,
+            },
             styleForActiveMenuItem,
           ]}
           testID='buttonWrapper'

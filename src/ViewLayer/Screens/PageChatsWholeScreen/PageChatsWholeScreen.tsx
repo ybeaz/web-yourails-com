@@ -69,6 +69,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       handleEvents: useCallback(handleEvents, []),
     },
     contentMenuMainColumnProps: {
+      // styleProps: {
+      //   borderColor: 'white',
+      // },
       store,
       handleEvents: useCallback(handleEvents, []),
     },
@@ -83,7 +86,22 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       triggerShouldEqual: isShowModalFrame ? true : false,
       testID: 'sidebarRight_Outer_AnimatedYrl',
     },
-    topBarMainColumnProps: { user },
+    topBarMainColumnProps: {
+      styleProps: {
+        TopBarMainColumn: {
+          // borderStyle: 'solid',
+          // borderTopWidth: '1px',
+          // borderRightWidth: '1px',
+          // borderBottomWidth: 1,
+          // borderLeftWidth: 1,
+          // borderTopColor: themes['themeA'].colors01.borderColor,
+          // borderRightColor: 'red', // themes['themeA'].colors01.borderColor,
+          // borderBottomColor: themes['themeA'].colors01.borderColor,
+          // borderLeftColor: themes['themeA'].colors01.borderColor,
+        },
+      },
+      user,
+    },
     mainColumnOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 3, opacity: 1 } },
       isActive: renderCounter.current !== 1,
@@ -139,7 +157,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             <View
               style={[
                 style.topBarMainColumn,
-                { borderColor: themes['themeA'].colors01.borderColor },
+                {
+                  borderTopColor: themes['themeA'].colors01.borderColor,
+                  borderRightColor: themes['themeA'].colors01.borderColor,
+                  borderBottomColor: themes['themeA'].colors01.borderColor,
+                  borderLeftColor: themes['themeA'].colors01.borderColor,
+                },
               ]}
               testID='topBarMainColumn'
             >
@@ -147,11 +170,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             </View>
 
             <View
-              style={[
-                style.contentMenuMainColumn,
-                themes['themeA'].colors01,
-                { borderColor: themes['themeA'].colors01.borderColor },
-              ]}
+              style={[style.contentMenuMainColumn, themes['themeA'].colors01]}
               testID='contentMenuMainColumn'
             >
               <ContentMenuMainColumn {...propsOut.contentMenuMainColumnProps} />

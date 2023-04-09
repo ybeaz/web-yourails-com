@@ -18,8 +18,11 @@ export const stylesDefault = StyleSheet.create({
     flex: 1,
     height: '100%',
     flexDirection: 'column',
-    // @ts-ignore
-    border: 'solid 1px',
+    borderStyle: 'solid',
+    borderTopWidth: 1,
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+    borderLeftWidth: 1,
   },
   mainColumn: {
     flex: 3,
@@ -28,12 +31,13 @@ export const stylesDefault = StyleSheet.create({
     height: '100%',
   },
   topBarMainColumn: {
-    // @ts-ignore
-    border: 'solid 1px',
-  },
-  contentMenuMainColumn: {
+    borderStyle: 'solid',
     borderTopWidth: 1,
+    borderRightWidth: 1,
+    borderBottomWidth: 1,
+    borderLeftWidth: 1,
   },
+  contentMenuMainColumn: {},
   chatSpace: {
     flexDirection: 'column',
     width: '100%',
