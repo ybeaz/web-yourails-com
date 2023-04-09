@@ -1,17 +1,6 @@
-import { CompetencyType, CompetencyTagsObjType } from '../@types/CompetencyType'
+import { CompetencyTagsObjType } from '../@types/CompetencyType'
 
-export const getTranslatedPropNamesToSubheadings = (prop: any) => {
-  const PROP_NAMES_TO_SUBHEADINGS_DICT: Record<string, string> = {
-    general: 'Professional Excellence',
-    clientSide: 'Front-end',
-    serverSide: 'Back-end',
-    machineLearning: 'AI/ ML',
-  }
-
-  return PROP_NAMES_TO_SUBHEADINGS_DICT[prop]
-}
-
-export const competencyTags: any = {
+export const competencyTags: CompetencyTagsObjType = {
   general: [],
   clientSide: [],
   serverSide: [],

@@ -5,10 +5,8 @@ import {
   CompetencyType,
   CompetencyTagsObjType,
 } from '../../../@types/CompetencyType'
-import {
-  competencyTags,
-  getTranslatedPropNamesToSubheadings,
-} from '../../../ContentMock/competencyTagsMock'
+import { COMPETENCY_TAGS_SUBHEADING_R1_DICT } from '../../../Constants/competencyTagsSubheading.cont'
+import { competencyTags } from '../../../ContentMock/competencyTagsMock'
 import { Header } from '../Header/Header'
 import { Text } from '../../Components/Text/Text'
 import { TagProperty } from '../TagProperty/TagProperty'
@@ -45,7 +43,7 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
         key
       ] as CompetencyType[]
 
-      const tagSubheading = getTranslatedPropNamesToSubheadings(key)
+      const tagSubheading = COMPETENCY_TAGS_SUBHEADING_R1_DICT[key]
 
       return (
         <View
