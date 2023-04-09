@@ -22,13 +22,27 @@ const ProjectInfoViewComponent: ProjectInfoViewType = props => {
   const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
 
+  const getContentFromStingOrArray = (
+    contentIn: string | string[]
+  ): string | ReactElement => {
+    if (typeof contentIn === 'string') return contentIn
+
+    return (
+      <View>
+        {contentIn.map((line: string, index: number) => (
+          <Text key={`descriptionLine-${index}`}>{line}</Text>
+        ))}
+      </View>
+    )
+  }
+
   const propsOut: Record<string, any> = {}
 
   return (
     <View style={[style.ProjectInfoView]} testID='ProjectInfoView'>
       <View style={[style.titleView, style.rowStyle]} testID='titleView'>
         <Text style={[style.titleText]} testID='titleText'>
-          {title}
+          {getContentFromStingOrArray(title)}
         </Text>
       </View>
       <View style={[style.subtitleView, style.rowStyle]} testID='subtitleView'>
@@ -42,7 +56,7 @@ const ProjectInfoViewComponent: ProjectInfoViewType = props => {
           style={[style.subtitleText, style.column2Style]}
           testID='subtitleTex'
         >
-          {subtitle}
+          {getContentFromStingOrArray(subtitle)}
         </Text>
       </View>
       <View
@@ -59,7 +73,7 @@ const ProjectInfoViewComponent: ProjectInfoViewType = props => {
           style={[style.descriptionText, style.column2Style]}
           testID='descriptionText'
         >
-          {description}
+          {getContentFromStingOrArray(description)}
         </Text>
       </View>
       <View style={[style.customerView, style.rowStyle]} testID='customerView'>
@@ -73,7 +87,7 @@ const ProjectInfoViewComponent: ProjectInfoViewType = props => {
           style={[style.customerText, style.column2Style]}
           testID='customerText'
         >
-          {customer}
+          {getContentFromStingOrArray(customer)}
         </Text>
       </View>
       <View
@@ -90,7 +104,7 @@ const ProjectInfoViewComponent: ProjectInfoViewType = props => {
           style={[style.builtwithText, style.column2Style]}
           testID='builtwithText'
         >
-          {builtwith}
+          {getContentFromStingOrArray(builtwith)}
         </Text>
       </View>
     </View>

@@ -11,9 +11,8 @@ import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
 import { styles } from './PortfolioStyles'
 import { PortfolioType } from './PortfolioTypes'
-import { Text } from '../../Components/Text/Text'
 
-import { getProjectList, ProjectType } from '../../../r1Content/r1Projects'
+import { projectsList, ProjectType } from '../../../ContentMock/projectsMock'
 
 /**
  * @import import { Portfolio } from '../Components/Portfolio/Portfolio'
@@ -21,7 +20,7 @@ import { getProjectList, ProjectType } from '../../../r1Content/r1Projects'
 const PortfolioComponent: PortfolioType = props => {
   const { styleProps = { Portfolio: {} }, mediaParams = mediaParamsDefault } =
     props
-  const { deviceType, screenCase, width, height } = mediaParams
+  const { deviceType, screenCase, width } = mediaParams
   const style = styles[deviceType]
 
   const { imageWidth, imageHeight } = getImageSizesFor1of2Columns(
@@ -29,7 +28,6 @@ const PortfolioComponent: PortfolioType = props => {
     width
   )
 
-  const projectsList: ProjectType[] = getProjectList()
   const getProjects = (projectsList: ProjectType[]): ReactElement[] => {
     return projectsList
       .filter((project: ProjectType) => project.isActive === true)

@@ -9,10 +9,12 @@ react-native-gifted-chat[https://github.com/FaridSafi/react-native-gifted-chat/t
 
 ## Decisions made
 
-1. We consider as a Container, the root for loading the store the following types
+1. We consider as a Container, the root for loading the store the following types. These components are "smart". We put in there store. All descendents are "dumb". Smart/ container components are:
 
 - screens
 - parent modal window frames
+
+2. All business logic is in handles, not in the reducers or actions. Actions are only a contraction and manifest the name. Reducers do only what directly matches their names.
 
 ## How to section, architecture / development notes
 

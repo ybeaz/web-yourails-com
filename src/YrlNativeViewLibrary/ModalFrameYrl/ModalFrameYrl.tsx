@@ -59,7 +59,13 @@ const LinearGradientUniPlatform =
  */
 export const ModalFrameYrl: ModalFrameYrlType = props => {
   const {
-    styleProps = { ModalFrameYrl: {}, imageBackground: {}, content: {} },
+    styleProps = {
+      ModalFrameYrl: {},
+      imageBackground: {},
+      content: {},
+      buttonBackWrapper: {},
+      buttonCloseWrapper: {},
+    },
     linearGradientColors = ['rgba(0,0,0,0)', 'rgba(0,0,0,0.5)'],
     children = <>Your app is rendered ModalFrameYrl default child content</>,
     isShow = false,
@@ -107,12 +113,18 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
   const handlersAndContentJsx = (
     <>
       {isButtonBack && (
-        <View style={[style.buttonBackWrapper]} testID={'buttonBackWrapper'}>
+        <View
+          style={[style.buttonBackWrapper, styleProps.buttonBackWrapper]}
+          testID={'buttonBackWrapper'}
+        >
           <ButtonYrl {...propsOut.buttonBackProps} />
         </View>
       )}
       {isButtonClose && (
-        <View style={[style.buttonCloseWrapper]} testID={'buttonCloseWrapper'}>
+        <View
+          style={[style.buttonCloseWrapper, styleProps.buttonCloseWrapper]}
+          testID={'buttonCloseWrapper'}
+        >
           <ButtonYrl {...propsOut.buttonCloseProps} />
         </View>
       )}

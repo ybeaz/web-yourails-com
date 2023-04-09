@@ -6,7 +6,7 @@ import {
   CompetencyTagsObjType,
   CompetencyType,
   getTranslatedPropNamesToSubheadings,
-} from '../../../r1Content/getCompetencyTagsR1'
+} from '../../../ContentMock/getCompetencyTagsR1'
 import { Header } from '../Header/Header'
 import { Text } from '../../Components/Text/Text'
 import { TagProperty } from '../TagProperty/TagProperty'

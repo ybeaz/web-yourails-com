@@ -48,10 +48,26 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const messagesPrep = getPreproccedMessages(messages, idUserHost)
 
+  /**
+   * @description Styles adjustments for different devices
+   */
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
   let modalContentMargin: string | number = '3rem'
-  if (deviceType === 'xsDevice') modalContentMargin = 0
-  else if (deviceType === 'smDevice') modalContentMargin = '2rem'
+  let buttonTop = '0.5rem'
+  let buttonLeft = '1rem'
+  let buttonRight = '1rem'
+  if (deviceType === 'xsDevice') {
+    modalContentMargin = 0
+  } else if (deviceType === 'smDevice') {
+    modalContentMargin = '2rem'
+    buttonTop = '0.25rem'
+    buttonLeft = '0.5rem'
+    buttonRight = '0.5rem'
+  } else if (deviceType === 'mdDevice') {
+    buttonTop = '0.7rem'
+  } else if (deviceType === 'lgDevice' || deviceType === 'xlDevice') {
+    buttonTop = '1rem'
+  }
 
   const propsOut = {
     messageProps: {
@@ -72,9 +88,11 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           margin: modalContentMargin,
           ...themes['themeA'].colors03,
         },
+        buttonBackWrapper: { top: buttonTop, left: buttonLeft },
+        buttonCloseWrapper: { top: buttonTop, right: buttonRight },
       },
       linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.25)'],
-      children: <Child {...childProps} />,
+      children: childName ? <Child {...childProps} /> : null,
       isShow: isShowModalFrame,
       isShowImageBackground: true,
       testID: 'ChatSpace_modalFrameYrl',
