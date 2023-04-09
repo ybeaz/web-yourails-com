@@ -2,7 +2,7 @@ import { UserType } from '../@types/UserType'
 
 export const users: UserType[] = [
   {
-    id: '0',
+    id: '1',
     username: '@rome_sfba2',
     nameFirst: 'Roman',
     nameLast: 'Ches',
@@ -20,7 +20,7 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
 ',
   },
   {
-    id: '1',
+    id: '2',
     username: '@smiddist',
     nameFirst: 'Dmitrii',
     nameLast: 'Ches',
