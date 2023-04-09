@@ -35,7 +35,7 @@ export const stylesDefault = StyleSheet.create({
     borderTopWidth: 1,
     borderRightWidth: 1,
     borderBottomWidth: 1,
-    borderLeftWidth: 1,
+    borderLeftWidth: 0,
   },
   contentMenuMainColumn: {},
   chatSpace: {

@@ -74,7 +74,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
               borderTopWidth: 0,
               borderRightWidth: 1,
               borderBottomWidth: 0,
-              borderLeftWidth: 1,
+              borderLeftWidth: 0,
               borderTopColor: themes['themeA'].colors01.borderColor,
               borderRightColor: themes['themeA'].colors01.borderColor,
               borderBottomColor: themes['themeA'].colors01.borderColor,
