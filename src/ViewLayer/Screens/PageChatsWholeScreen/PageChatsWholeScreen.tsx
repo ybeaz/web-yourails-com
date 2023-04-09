@@ -20,8 +20,8 @@ import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 
-import { messages } from '../../../Constants/messagesMock'
-import { users } from '../../../Constants/usersMock'
+import { messages } from '../../../ContentMock/messagesMock'
+import { users } from '../../../ContentMock/usersMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 

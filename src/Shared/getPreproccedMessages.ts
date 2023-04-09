@@ -27,7 +27,7 @@ export const getPreproccedMessages: getPreproccedMessagesType = (
       const position = idUser === idUserHost ? 'right' : 'left'
 
       let isTail = false
-      if (idUserPrev && idUser !== idUserNext) isTail = true
+      if (idUser !== idUserNext) isTail = true
       else if (idUserPrev && idUserNext && idUser === idUserNext) isTail = false
 
       const itemNext = { ...item, position, isTail }

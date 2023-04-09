@@ -14,7 +14,7 @@ import { Text } from '../Text/Text'
 import { themes } from '../../Styles/themes'
 import { UserType, MessengerType } from '../../../@types/UserType'
 
-import { users } from '../../../Constants/usersMock'
+import { users } from '../../../ContentMock/usersMock'
 
 // TODO Refactor wile moving to multiuser service
 const getMessengesString = (messengers: MessengerType[], style: any) =>
