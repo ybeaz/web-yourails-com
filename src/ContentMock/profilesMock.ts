@@ -3,6 +3,7 @@ import { ProfileType } from '../@types/ProfileType'
 export const profiles: ProfileType[] = [
   {
     idProfile: '1',
+    idUser: '1',
     profilename: '@rome',
     nameFirst: 'Roman',
     nameLast: 'Ches',
@@ -21,7 +22,8 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
   },
   {
     idProfile: '2',
-    profilename: '@smiddist',
+    idUser: '2',
+    profilename: '@smid',
     nameFirst: 'Dmitrii',
     nameLast: 'Smid',
     uriAvatar: 'https://yourails.com/images/sphinx-01.jpg',
@@ -29,7 +31,8 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
     emails: ['smiddist@gmail.com'],
     messengers: [],
     locations: ['Remote', 'San Francisco, CA'],
-    serviceSpecs: ['Electrician', 'Carpenter'],
-    summary: '',
+    serviceSpecs: ['Electrician', 'Appliance technician'],
+    summary:
+      'Motivated and detail-oriented electrician with experience in installing and maintaining electrical systems in residential settings. Skilled in using hand and power tools to complete tasks accurately and efficiently.',
   },
 ]
