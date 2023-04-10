@@ -6,7 +6,7 @@ export interface ChatSpacePropsType {
   styleProps?: any
   mediaParams?: UseMediaQueryResType
   idUserHost: string
-  users: UserType[]
+  profiles: UserType[]
   messages: Omit<MessageType, 'position' | 'isTail'>[]
   modalFrame: any
   handleEvents: any

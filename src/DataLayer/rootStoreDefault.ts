@@ -52,7 +52,7 @@ export const formsDefault: FormsType = {}
 
 export const rootStoreDefault: RootStoreType = {
   componentsState: componentsStateDefault,
-  users: [],
+  profiles: [],
   forms: formsDefault,
   isLoaded: {
     isLoadedGlobalVars: false,

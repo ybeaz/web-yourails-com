@@ -14,7 +14,7 @@ export interface FormsType {}
  */
 export interface RootStoreType {
   componentsState: ComponentsStateType
-  users: UserType[]
+  profiles: UserType[]
   forms: FormsType | any
   isLoaded: {
     isLoadedGlobalVars: boolean

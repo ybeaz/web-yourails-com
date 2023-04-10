@@ -21,7 +21,7 @@ import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCard
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 
 import { messages } from '../../../ContentMock/messagesMock'
-import { users } from '../../../ContentMock/profilesMock'
+import { profiles } from '../../../ContentMock/profilesMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
@@ -49,7 +49,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   } = store
   const { modalFrame, isSidebarRight, isMainColumn } = componentsState
   const { isShow: isShowModalFrame } = modalFrame
-  const user = users.find((userIn: UserType) => userIn.id === idUserHost)
+  const user = profiles.find((userIn: UserType) => userIn.id === idUserHost)
 
   useEffect(() => {
     handleEvents.SET_SIDEBAR_MAIN_LAYOUT({}, { deviceType })
@@ -63,7 +63,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
     chatSpaceProps: {
       idUserHost,
-      users,
+      profiles,
       messages,
       modalFrame: { ...modalFrame, childProps: { a: 1 } },
       handleEvents: useCallback(handleEvents, []),

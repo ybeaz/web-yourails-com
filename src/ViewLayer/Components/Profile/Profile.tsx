@@ -14,7 +14,7 @@ import { Text } from '../Text/Text'
 import { themes } from '../../Styles/themes'
 import { UserType, MessengerType } from '../../../@types/UserType'
 
-import { users } from '../../../ContentMock/profilesMock'
+import { profiles } from '../../../ContentMock/profilesMock'
 
 // TODO Refactor wile moving to multiuser service
 const getMessengesString = (messengers: MessengerType[], style: any) =>
@@ -130,7 +130,7 @@ const getProfileItemsObjList = (
       iconLibrary: 'Ionicons',
       iconName: 'ios-logo-stackoverflow',
       contentType: 'linkHref',
-      contentSrc: 'https://stackoverflow.com/users/4791116/roman',
+      contentSrc: 'https://stackoverflow.com/profiles/4791116/roman',
       content: 'Profile in Stackoverflow',
       label: 'Link',
       isActive: true,
@@ -165,7 +165,7 @@ const ProfileComponent: ProfileType = props => {
   const { deviceType } = mediaParams
   const style = styles[deviceType]
 
-  const user: UserType = users[0]
+  const user: UserType = profiles[0]
 
   const profileItems = getProfileItemsObjList(user, style, deviceType).filter(
     profileItemObj => profileItemObj.isActive === true

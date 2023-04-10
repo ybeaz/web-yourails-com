@@ -7,9 +7,9 @@ const projectsListR1: ProjectType[] = [
     pathname: 'demo-yourails-academy.html',
     subtitle: 'Enjoy Creating Courses Quickly',
     description: [
-      "YouRails is a platform that has been designed with the aim of making the creation and deployment of educational services based on YouTube video content as easy and as rapid as possible. The platform is incredibly user-friendly, so users don't need any coding experience to be able to create and take quizzes. With YouRails, the process of creating educational content is streamlined, making it quicker and more efficient.",
+      "YouRails is a platform that has been designed with the aim of making the creation and deployment of educational services based on YouTube video content as easy and as rapid as possible. The platform is incredibly user-friendly, so profiles don't need any coding experience to be able to create and take quizzes. With YouRails, the process of creating educational content is streamlined, making it quicker and more efficient.",
 
-      "One of the key benefits of YouRails is that it allows users to receive certificates for their achievements, which is a great way to demonstrate their knowledge and skills to potential employers. The platform is designed to be customizable, which means that users can tailor their educational content to their specific needs. Whether you're looking to create content for a specific course, or you want to create content for multiple courses, YouRails is the perfect platform for you.",
+      "One of the key benefits of YouRails is that it allows profiles to receive certificates for their achievements, which is a great way to demonstrate their knowledge and skills to potential employers. The platform is designed to be customizable, which means that profiles can tailor their educational content to their specific needs. Whether you're looking to create content for a specific course, or you want to create content for multiple courses, YouRails is the perfect platform for you.",
     ],
 
     customer: 'Business, hobby, leasure communities',
@@ -25,9 +25,9 @@ const projectsListR1: ProjectType[] = [
     pathname: 'site-windows',
     subtitle: 'Visualize and manupulate data in web page',
     description: [
-      'This is an SPA service that creates a multi-task environment on a single browser tab. It shifts the concept of a personal dashboard and empowers users to organize information according to their own preferences, rather than conforming to the hierarchy of websites or predefined UX scenarios.',
+      'This is an SPA service that creates a multi-task environment on a single browser tab. It shifts the concept of a personal dashboard and empowers profiles to organize information according to their own preferences, rather than conforming to the hierarchy of websites or predefined UX scenarios.',
 
-      'With this service, users can open and reorder various modal windows, such as shopping carts, price lists, comparison tables, reports, tasks, offers, messages, notes, and more. This open source project is built around reusable components, featuring high-level visualization, encapsulation of functions, and polymorphism. It offers flexible user stories or a combination thereof, allowing users to tailor their experience to their needs.',
+      'With this service, profiles can open and reorder various modal windows, such as shopping carts, price lists, comparison tables, reports, tasks, offers, messages, notes, and more. This open source project is built around reusable components, featuring high-level visualization, encapsulation of functions, and polymorphism. It offers flexible user stories or a combination thereof, allowing profiles to tailor their experience to their needs.',
     ],
 
     customer: 'Not limited',
@@ -61,7 +61,7 @@ const projectsListR1: ProjectType[] = [
     description: [
       'Customer Proposition Core: YouRails.com helps people connect with others through a chat-first/messenger platform with multiple user profiles, enabling them to accomplish tasks, pursue hobbies, or engage in personal or business activities.',
 
-      "Secret Sauce: YouRails.com's secret sauce lies in its chat-first/messenger platform with multiple user profiles, allowing users to connect with others easily and efficiently. It provides a user-friendly interface and tools that enable seamless collaboration, making it easier for people to work on tasks or pursue hobbies and interests with others. With YouRails.com, users can find the right people to work with or connect with individuals who share common interests, leading to more productive and enjoyable experiences.",
+      "Secret Sauce: YouRails.com's secret sauce lies in its chat-first/messenger platform with multiple user profiles, allowing profiles to connect with others easily and efficiently. It provides a user-friendly interface and tools that enable seamless collaboration, making it easier for people to work on tasks or pursue hobbies and interests with others. With YouRails.com, profiles can find the right people to work with or connect with individuals who share common interests, leading to more productive and enjoyable experiences.",
     ],
     customer: 'Business, hobby, leasure communities',
     builtwith:
@@ -92,7 +92,7 @@ const projectsListR1: ProjectType[] = [
     pathname: 'learning-text-learn-phrases-learn-words',
     subtitle: 'Learn by heart easily',
     description:
-      'The service assists users with memorizing texts or word sets: hiding text parts, mark difficult words, active reading, 25th frame, etc.',
+      'The service assists profiles with memorizing texts or word sets: hiding text parts, mark difficult words, active reading, 25th frame, etc.',
     customer: 'Education. Language training provider',
     builtwith: 'Bootstrap, Bootstrap-select, javascript',
     imgSrc: 'https://r1.userto.com/img/yrl-23-demo-learnByHeartService.jpg',
@@ -106,7 +106,7 @@ const projectsListR1: ProjectType[] = [
     pathname: 'demo-tel-book-reactjs',
     subtitle: 'Find a new way to keep your contacts',
     description:
-      'The service allows users to create telephone directory and keep contacts locally on their computers. This is a prototype for various dashboard function architectures.',
+      'The service allows profiles to create telephone directory and keep contacts locally on their computers. This is a prototype for various dashboard function architectures.',
     customer: 'Not limited',
     builtwith: 'React, React-dom, ES7, Bootstrap, Webpack',
     imgSrc: 'https://r1.userto.com/img/yrl-23-demo-tel-book.jpg',
@@ -229,7 +229,7 @@ const projectsListR1: ProjectType[] = [
     pathname: 'demo-file-upload',
     subtitle: 'Be free to manage images and files',
     description:
-      'The function allows users to show, upload, delete images and files on the server',
+      'The function allows profiles to show, upload, delete images and files on the server',
     customer: 'Dashboards and services creation',
     builtwith:
       'jQuery File Upload API (AngularJS case), Angular 1.7, jQuery, Bootstrap, AJAX, PHP, GET, POST requests',
@@ -334,9 +334,9 @@ const projectsListR1: ProjectType[] = [
       'Web widget. Not supported. JS Feedback Forms Builder with Telegram messaging feature',
     isActive: true,
     pathname: 'demo-feedback-field',
-    subtitle: 'Allow users to leave a feedback',
+    subtitle: 'Allow profiles to leave a feedback',
     description:
-      'The project involved a development of the javascript micro-library and light server part for fast creating feedback forms. The script allows developers to include an unlimited number of feedback forms for one page, to use an unlimited number of fields on one form, to build various scenarious for users utilizing modal window techniques, to apply standards for field description, to validate fields and alert user before form submitting',
+      'The project involved a development of the javascript micro-library and light server part for fast creating feedback forms. The script allows developers to include an unlimited number of feedback forms for one page, to use an unlimited number of fields on one form, to build various scenarious for profiles utilizing modal window techniques, to apply standards for field description, to validate fields and alert user before form submitting',
     customer: '',
     builtwith: 'Bootstrap, jQuery, AJAX, PHP, POST requests, Telegram API, OOP',
     imgSrc: 'https://r1.userto.com/img/feedbackFormExample05.png', //'https://r1.userto.com/img/feedbackFormDemo.png',
@@ -390,7 +390,7 @@ const projectsListR1: ProjectType[] = [
     title: 'Web service. Not supported. JS Feedback widget for sites',
     isActive: true,
     pathname: 'demo-feedback-widget',
-    subtitle: 'Allow users to contact you',
+    subtitle: 'Allow profiles to contact you',
     description:
       'Widget for user feedback with flexible configuration providing: Multi platform CMS support (JS script solution), Multi-language support, Social network sharing, Page rating, Perform an advanced search on the site, Possibility of widget customization, Automatic messages upload to the page, where a user asks the question ',
     customer: '',
@@ -449,7 +449,7 @@ const projectsListR1: ProjectType[] = [
     subtitle: 'Play in the web',
     description:
       'This is a smart phone app for friends to buy, lend, give for free things easily and get fun of the process',
-    customer: 'Mobile users',
+    customer: 'Mobile profiles',
     builtwith: 'React Native, Expo, ES7, ESLint, Babel',
     imgSrc: 'https://r1.userto.com/img/yunazon-screens.png',
     linkHref: 'https://r1.userto.com/img/yunazon-screens.png', // https://r1.userto.com/lib-catalog-items

@@ -22,7 +22,7 @@ competencyTags['general'] = [
 5. Build projects around motivated individuals. Give them the environment, support they need, and trust them\n\
 6. The most efficient method of conveying information to and within a development team is face-to-face conversation\n\
 7. Working software is the primary measure of progress\n\
-8. The sponsors, developers, and users should be able to maintain a constant pace indefinitely\n\
+8. The sponsors, developers, and profiles should be able to maintain a constant pace indefinitely\n\
 9. Continuous attention to technical excellence and good design enhances agility\n\
 10. Simplicity--the art of maximizing the amount of work not done--is essential\n\
 11. The best architectures, requirements, and designs emerge from self-organizing teams\n\
@@ -987,10 +987,10 @@ It can also send commands to its associated view to change the view's presentati
     tooltips:
       '\
 OAuth (Open Authorization[1][2]) is an open standard for access delegation,\n\
-commonly used as a way for Internet users to grant websites or applications access\n\
+commonly used as a way for Internet profiles to grant websites or applications access\n\
 to their information on other websites but without giving them the passwords.\n\
 This mechanism is used by companies such as Google, Facebook, VKontakte, Amazon, Microsoft and\n\
-Twitter to permit the users to share information about their accounts with third-party\n\
+Twitter to permit the profiles to share information about their accounts with third-party\n\
 applications or websites.\n\
 ',
   },
@@ -1624,7 +1624,7 @@ Assertions',
     title: 'Routing',
     linkHref: '',
     tooltips:
-      'Routing provides site users with the following:\n\
+      'Routing provides site profiles with the following:\n\
 Displaying different content depending on the URL\n\
 Constructing links to routes and go to routes programmatically\n\
 Bookmarking - Users can bookmark URLs in their web browser to save content they want to come back to later.\n\
@@ -1781,7 +1781,7 @@ OpenAPI Extensions',
 Fetures and usage cases\n\
 Get customized notifications and news. \n\
 Integrate with other services. \n\
-Accept payments from Telegram users. \n\
+Accept payments from Telegram profiles. \n\
 Create custom tools. \n\
 Build single- and multiplayer games. \n\
 Build social services. \n\
