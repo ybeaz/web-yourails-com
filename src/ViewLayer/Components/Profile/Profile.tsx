@@ -9,10 +9,10 @@ import {
 import { ProfileItem } from '../ProfileItem/ProfileItem'
 import { ProfileItemPropsType } from '../ProfileItem/ProfileItemType'
 import { styles } from './ProfileStyle'
-import { ProfileType } from './ProfileType'
+import { ProfileComponentType } from './ProfileComponentType'
 import { Text } from '../Text/Text'
 import { themes } from '../../Styles/themes'
-import { UserType, MessengerType } from '../../../@types/UserType'
+import { ProfileType, MessengerType } from '../../../@types/ProfileType'
 
 import { profiles } from '../../../ContentMock/profilesMock'
 
@@ -38,7 +38,7 @@ const getMessengesString = (messengers: MessengerType[], style: any) =>
 
 // TODO Refactor wile moving to multiuser service
 const getProfileItemsObjList = (
-  userIn: UserType,
+  userIn: ProfileType,
   style: any,
   deviceType: DeviceType
 ): ProfileItemPropsType[] => {
@@ -159,13 +159,13 @@ const getProfileItemsObjList = (
 /**
  * @import import { Profile } from '../Components/Profile/Profile'
  */
-const ProfileComponent: ProfileType = props => {
+const ProfileComponent: ProfileComponentType = props => {
   const { styleProps = { Profile: {} }, mediaParams = mediaParamsDefault } =
     props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
 
-  const user: UserType = profiles[0]
+  const user: ProfileType = profiles[0]
 
   const profileItems = getProfileItemsObjList(user, style, deviceType).filter(
     profileItemObj => profileItemObj.isActive === true

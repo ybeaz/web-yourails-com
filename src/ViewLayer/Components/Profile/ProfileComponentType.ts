@@ -8,6 +8,7 @@ export interface ProfilePropsType {
 /**
  * @import import { ProfileType } from './ProfileType'
  */
-export interface ProfileType extends React.FunctionComponent<ProfilePropsType> {
+export interface ProfileComponentType
+  extends React.FunctionComponent<ProfilePropsType> {
   (props: ProfilePropsType): React.ReactElement
 }

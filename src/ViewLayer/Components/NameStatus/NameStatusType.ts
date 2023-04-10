@@ -1,8 +1,8 @@
-import { UserType } from '../../../@types/UserType'
+import { ProfileType } from '../../../@types/ProfileType'
 
 export interface NameStatusPropsType {
   styleProps?: any
-  user: UserType
+  user: ProfileType
   status: string
 }
 

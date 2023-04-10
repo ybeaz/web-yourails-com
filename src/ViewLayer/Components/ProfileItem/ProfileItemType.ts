@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 
-import { UserType } from '../../../@types/UserType'
+import { ProfileType } from '../../../@types/ProfileType'
 
 export interface ProfileItemPropsType {
   styleProps?: any

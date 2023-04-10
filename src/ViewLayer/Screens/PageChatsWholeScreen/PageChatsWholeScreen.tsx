@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
-import { UserType } from '../../../@types/UserType'
+import { ProfileType } from '../../../@types/ProfileType'
 import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary/AnimatedYrl/AnimatedYrl'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
@@ -49,7 +49,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   } = store
   const { modalFrame, isSidebarRight, isMainColumn } = componentsState
   const { isShow: isShowModalFrame } = modalFrame
-  const user = profiles.find((userIn: UserType) => userIn.id === idUserHost)
+  const user = profiles.find((userIn: ProfileType) => userIn.id === idUserHost)
 
   useEffect(() => {
     handleEvents.SET_SIDEBAR_MAIN_LAYOUT({}, { deviceType })

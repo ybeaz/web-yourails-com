@@ -1,4 +1,4 @@
-import { UserType } from './UserType'
+import { ProfileType } from './ProfileType'
 
 export interface ComponentsStateType {
   isLoaderOverlayVisible: boolean
@@ -14,7 +14,7 @@ export interface FormsType {}
  */
 export interface RootStoreType {
   componentsState: ComponentsStateType
-  profiles: UserType[]
+  profiles: ProfileType[]
   forms: FormsType | any
   isLoaded: {
     isLoadedGlobalVars: boolean

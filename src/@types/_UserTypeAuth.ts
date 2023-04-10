@@ -1,4 +1,4 @@
-export interface UserType {
+export interface ProfileType {
   userAvatar: string
   userBirthYear: number | null
   userDateCreated: string

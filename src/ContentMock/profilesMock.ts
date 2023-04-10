@@ -1,6 +1,6 @@
-import { UserType } from '../@types/UserType'
+import { ProfileType } from '../@types/ProfileType'
 
-export const profiles: UserType[] = [
+export const profiles: ProfileType[] = [
   {
     id: '1',
     username: '@rome',

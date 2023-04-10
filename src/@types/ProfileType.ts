@@ -4,9 +4,9 @@ export type MessengerType = {
 }
 
 /**
- * @import import { UserType, MessengerType } from '../@types/UserType'
+ * @import import { ProfileType, MessengerType } from '../@types/ProfileType'
  */
-export interface UserType {
+export interface ProfileType {
   id: string | number
   nameFirst?: string
   nameLast?: string

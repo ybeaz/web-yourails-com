@@ -1,8 +1,8 @@
 import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
-import { UserType } from '../../../@types/UserType'
+import { ProfileType } from '../../../@types/ProfileType'
 
 export interface TopBarMainColumnPropsType {
-  user: UserType
+  user: ProfileType
   mediaParams?: UseMediaQueryResType
 }
 

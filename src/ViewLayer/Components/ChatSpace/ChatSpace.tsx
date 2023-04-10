@@ -8,7 +8,7 @@ import {
   IS_BOTTON_BACK,
   IS_BOTTON_CLOSE,
 } from '../../../Constants/modalContents.const'
-import { UserType } from '../../../@types/UserType'
+import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
@@ -43,7 +43,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const { childName, isShow: isShowModalFrame, childProps } = modalFrame
 
   const user =
-    profiles.find((userIn: UserType) => userIn.id !== idUserHost) || profiles[0]
+    profiles.find((userIn: ProfileType) => userIn.id !== idUserHost) ||
+    profiles[0]
   const Child = MODAL_CONTENTS[childName]
 
   const messagesPrep = getPreproccedMessages(messages, idUserHost)

@@ -1,10 +1,10 @@
 import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
-import { UserType } from '../../../@types/UserType'
+import { ProfileType } from '../../../@types/ProfileType'
 
 export interface ChatCardPropsType {
   styleProps?: any
   mediaParams?: UseMediaQueryResType
-  user: UserType
+  user: ProfileType
 }
 
 /**
