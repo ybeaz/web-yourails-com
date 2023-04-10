@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, ImageResizeMode } from 'react-native'
+import { View } from 'react-native'
 
 import {
   withDeviceType,
@@ -13,28 +13,9 @@ import { ProfileComponentType } from './ProfileComponentType'
 import { Text } from '../Text/Text'
 import { themes } from '../../Styles/themes'
 import { ProfileType, MessengerType } from '../../../@types/ProfileType'
+import { getMessengesString } from '../../../Shared/getMessengesString'
 
 import { profiles } from '../../../ContentMock/profilesMock'
-
-// TODO Refactor wile moving to multiuser service
-const getMessengesString = (messengers: MessengerType[], style: any) =>
-  messengers.map((messenger: MessengerType, index: number) => {
-    const { name: messengerName, username } = messenger
-    return (
-      <View
-        key={`messenger-${index}`}
-        style={[style.messengerView]}
-        testID='messengerView'
-      >
-        <Text style={[style.messengerNameText]} testID='messengerNameText'>
-          {messengerName + ' > '}
-        </Text>
-        <Text style={[style.usernameText]} testID='usernameText'>
-          {username}
-        </Text>
-      </View>
-    )
-  })
 
 // TODO Refactor wile moving to multiuser service
 const getProfileItemsObjList = (
