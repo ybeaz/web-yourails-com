@@ -26,5 +26,5 @@ export const style = StyleSheet.create({
 
   messengerView: { flexDirection: 'row' },
   messengerNameText: {},
-  usernameText: {},
+  profilenameText: {},
 })

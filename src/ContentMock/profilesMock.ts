@@ -2,14 +2,14 @@ import { ProfileType } from '../@types/ProfileType'
 
 export const profiles: ProfileType[] = [
   {
-    id: '1',
-    username: '@rome',
+    idProfile: '1',
+    profilename: '@rome',
     nameFirst: 'Roman',
     nameLast: 'Ches',
     uriAvatar: 'https://yourails.com/images/_VVS3415-crop-4k.jpg',
     phones: ['415-650-9893'],
     emails: ['t3531350@yahoo.com'],
-    messengers: [{ name: 'Telegram', username: '@rome_sfba2' }],
+    messengers: [{ name: 'Telegram', profilename: '@rome_sfba2' }],
     locations: ['Remote', 'San Francisco, CA'],
     serviceSpecs: ['Full Stack Developer', 'Machine Learning'],
     summary:
@@ -20,10 +20,10 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
 ',
   },
   {
-    id: '2',
-    username: '@smiddist',
+    idProfile: '2',
+    profilename: '@smiddist',
     nameFirst: 'Dmitrii',
-    nameLast: 'Ches',
+    nameLast: 'Smid',
     uriAvatar: 'https://yourails.com/images/sphinx-01.jpg',
     phones: ['415-340-9293'],
     emails: ['smiddist@gmail.com'],

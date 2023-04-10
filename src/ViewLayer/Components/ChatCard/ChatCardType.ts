@@ -4,7 +4,7 @@ import { ProfileType } from '../../../@types/ProfileType'
 export interface ChatCardPropsType {
   styleProps?: any
   mediaParams?: UseMediaQueryResType
-  user: ProfileType
+  profile: ProfileType
 }
 
 /**

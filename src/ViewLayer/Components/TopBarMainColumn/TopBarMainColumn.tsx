@@ -20,10 +20,10 @@ import { handleEvents } from '../../../DataLayer/index.handleEvents'
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
  */
 const TopBarMainColumnComponent: TopBarMainColumnType = props => {
-  const { user, mediaParams = mediaParamsDefault } = props
+  const { profile, mediaParams = mediaParamsDefault } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
-  const { uriAvatar = '', serviceSpecs = [] } = user
+  const { uriAvatar = '', serviceSpecs = [] } = profile
 
   let isButtonBackToCard = true
   if (
@@ -70,7 +70,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
       },
     },
     avatarPlusInfoProps: {
-      user,
+      profile,
       styleProps: {
         viewStyle: themes['themeA'].colors01,
       },
@@ -88,7 +88,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
         NameStatus: {},
         viewStyle: themes['themeA'].colors01,
       },
-      user,
+      profile,
       status: 'last seen recently',
     },
   }

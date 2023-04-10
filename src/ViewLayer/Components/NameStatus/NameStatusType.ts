@@ -2,7 +2,7 @@ import { ProfileType } from '../../../@types/ProfileType'
 
 export interface NameStatusPropsType {
   styleProps?: any
-  user: ProfileType
+  profile: ProfileType
   status: string
 }
 

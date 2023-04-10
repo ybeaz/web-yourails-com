@@ -10,28 +10,26 @@ import { ProfileItem } from '../ProfileItem/ProfileItem'
 import { ProfileItemPropsType } from '../ProfileItem/ProfileItemType'
 import { styles } from './ProfileStyle'
 import { ProfileComponentType } from './ProfileComponentType'
-import { Text } from '../Text/Text'
-import { themes } from '../../Styles/themes'
-import { ProfileType, MessengerType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/ProfileType'
 import { getMessengesString } from '../../../Shared/getMessengesString'
 
 import { profiles } from '../../../ContentMock/profilesMock'
 
-// TODO Refactor wile moving to multiuser service
+// TODO Refactor wile moving to multiprofile and multiprofiler service
 const getProfileItemsObjList = (
-  userIn: ProfileType,
+  profileIn: ProfileType,
   style: any,
   deviceType: DeviceType
 ): ProfileItemPropsType[] => {
   const {
-    username = '',
+    profilename = '',
     phones = [],
     emails = [],
     messengers = [],
     locations = [],
     summary,
     serviceSpecs = [],
-  } = userIn
+  } = profileIn
 
   return [
     {
@@ -57,7 +55,7 @@ const getProfileItemsObjList = (
     {
       iconLibrary: 'Ionicons',
       iconName: 'at',
-      content: username.toString(),
+      content: profilename.toString(),
       label: 'Username',
       isActive: true,
     },
@@ -129,7 +127,7 @@ const getProfileItemsObjList = (
       iconLibrary: undefined,
       iconName: undefined,
       contentType: 'imageSrc',
-      contentSrc: 'https://r1.userto.com/img/romanChesQrCodeQuietZone00.png',
+      contentSrc: 'https://r1.profileto.com/img/romanChesQrCodeQuietZone00.png',
       content: '',
       label: 'QR code with contacts',
       isActive: true,
@@ -146,11 +144,13 @@ const ProfileComponent: ProfileComponentType = props => {
   const { deviceType } = mediaParams
   const style = styles[deviceType]
 
-  const user: ProfileType = profiles[0]
+  const profile: ProfileType = profiles[0]
 
-  const profileItems = getProfileItemsObjList(user, style, deviceType).filter(
-    profileItemObj => profileItemObj.isActive === true
-  )
+  const profileItems = getProfileItemsObjList(
+    profile,
+    style,
+    deviceType
+  ).filter(profileItemObj => profileItemObj.isActive === true)
   const getProfileItems = (profileItemsIn: ProfileItemPropsType[]) =>
     profileItemsIn.map(
       (profileItemProps: ProfileItemPropsType, index: number) => (

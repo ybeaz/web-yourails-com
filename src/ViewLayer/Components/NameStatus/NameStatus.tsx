@@ -13,13 +13,17 @@ import { style } from './NameStatusStyle'
         NameStatus: {},
         viewStyle: themes['themeA'].colors07,
       },
-      user,
+      profile,
       status: 'last seen recently',
     },
  */
 const NameStatusComponent: NameStatusType = props => {
-  const { styleProps = { NameStatus: {}, viewStyle: {} }, user, status } = props
-  const { nameFirst, nameLast } = user
+  const {
+    styleProps = { NameStatus: {}, viewStyle: {} },
+    profile,
+    status,
+  } = props
+  const { nameFirst, nameLast } = profile
 
   const propsOut: Record<string, any> = {}
 

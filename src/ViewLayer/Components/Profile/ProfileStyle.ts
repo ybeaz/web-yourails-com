@@ -29,7 +29,7 @@ export const stylesDefault = StyleSheet.create({
 
   messengerView: { flexDirection: 'row' },
   messengerNameText: {},
-  usernameText: {},
+  profilenameText: {},
 })
 
 const xmDevice = StyleSheet.create({

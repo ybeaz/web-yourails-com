@@ -15,7 +15,7 @@ export enum DeviceType {
 
 /**
  * @description Function decorator for React Functional Component
- *    to add mediaParams property that contains data about the user's device
+ *    to add mediaParams property that contains data about the profile's device
  *    from useMediaQueryRes hook:
  *    const { deviceType, screenCase, width, height } = mediaParams
  * @import import { withDeviceType } from '../../Hooks/withDeviceType'

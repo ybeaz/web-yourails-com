@@ -14,7 +14,7 @@ import { handleEvents } from '../../../DataLayer/index.handleEvents'
  */
 const ChatCardComponent: ChatCardType = props => {
   const {
-    user,
+    profile,
     styleProps = { ChatCard: {} },
     mediaParams = mediaParamsDefault,
   } = props
@@ -22,7 +22,7 @@ const ChatCardComponent: ChatCardType = props => {
 
   const propsOut: Record<string, any> = {
     avatarPlusInfoProps: {
-      user,
+      profile,
       styleProps: {
         viewStyle: themes['themeA'].colors07,
       },
@@ -35,7 +35,7 @@ const ChatCardComponent: ChatCardType = props => {
         NameStatus: {},
         viewStyle: themes['themeA'].colors07,
       },
-      user,
+      profile,
       status: 'last seen recently',
     },
   }

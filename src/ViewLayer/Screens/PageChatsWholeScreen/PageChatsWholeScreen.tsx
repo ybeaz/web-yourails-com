@@ -49,7 +49,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   } = store
   const { modalFrame, isSidebarRight, isMainColumn } = componentsState
   const { isShow: isShowModalFrame } = modalFrame
-  const user = profiles.find((userIn: ProfileType) => userIn.id === idUserHost)
+  const profile = profiles.find(
+    (profileIn: ProfileType) => profileIn.idProfile === idUserHost
+  )
 
   useEffect(() => {
     handleEvents.SET_SIDEBAR_MAIN_LAYOUT({}, { deviceType })
@@ -59,7 +61,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const propsOut: Record<string, any> = {
     chatCardProps: {
-      user,
+      profile,
     },
     chatSpaceProps: {
       idUserHost,
@@ -100,7 +102,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           // borderLeftColor: themes['themeA'].colors01.borderColor,
         },
       },
-      user,
+      profile,
     },
     mainColumnOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 3, opacity: 1 } },

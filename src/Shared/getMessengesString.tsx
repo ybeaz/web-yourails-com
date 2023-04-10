@@ -9,7 +9,7 @@ import { MessengerType } from '../@types/ProfileType'
 
 export const getMessengesString = (messengers: MessengerType[], style: any) =>
   messengers.map((messenger: MessengerType, index: number) => {
-    const { name: messengerName, username } = messenger
+    const { name: messengerName, profilename } = messenger
     return (
       <View
         key={`messenger-${index}`}
@@ -19,8 +19,8 @@ export const getMessengesString = (messengers: MessengerType[], style: any) =>
         <Text style={[style.messengerNameText]} testID='messengerNameText'>
           {messengerName + ' > '}
         </Text>
-        <Text style={[style.usernameText]} testID='usernameText'>
-          {username}
+        <Text style={[style.profilenameText]} testID='profilenameText'>
+          {profilename}
         </Text>
       </View>
     )
