@@ -4,7 +4,7 @@
  * @returns
  */
 
-export const getMsToTime = duration => {
+export const getMsToTime = (duration: number) => {
   let milliseconds = Math.floor((duration % 1000) / 100),
     seconds = Math.floor((duration / 1000) % 60),
     minutes = Math.floor((duration / (1000 * 60)) % 60),

@@ -5,6 +5,7 @@ import {
   CompetencyType,
   CompetencyTagsObjType,
 } from '../../../@types/CompetencyType'
+import { getSectionsFromTagsCompetencies } from '../../../Shared/getSectionsFromTagsCompetencies'
 import { COMPETENCY_TAGS_SUBHEADING_R1_DICT } from '../../../Constants/competencyTagsSubheading.cont'
 import { competencyTags } from '../../../ContentMock/competencyTagsMock'
 import { Header } from '../Header/Header'
@@ -22,6 +23,7 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
   const competencyTagsKeys: Array<keyof CompetencyTagsObjType> = Object.keys(
     competencyTags
   ) as Array<keyof CompetencyTagsObjType>
+  // TODO: Stopped here getSectionsFromTagsCompetencies
 
   const getTagList = (competencies: any[]): ReactElement[] => {
     return competencies.map((competency, index: number) => {
