@@ -21,7 +21,7 @@ import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCard
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 
 import { messages } from '../../../ContentMock/messagesMock'
-import { users } from '../../../ContentMock/usersMock'
+import { users } from '../../../ContentMock/profilesMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
