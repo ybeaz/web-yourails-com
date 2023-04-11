@@ -2,6 +2,7 @@ import { ProjectType } from '../@types/ProjectType'
 
 export const projects: ProjectType[] = [
   {
+    idUser: '1',
     title: 'Web service. YouRails Academy',
     isActive: true,
     pathname: 'demo-yourails-academy.html',
@@ -20,6 +21,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web service. SPA Windows in Browser Tabs',
     isActive: true,
     pathname: 'site-windows',
@@ -38,6 +40,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web game. Tic Tac Toe game with random logic',
     isActive: true,
     pathname: 'demo-tic-tak-toe-js.html',
@@ -54,6 +57,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web app. Prototype: Experience Exchange Messenger',
     isActive: true,
     pathname: 'demo-experience-exchange-messenger.html',
@@ -72,6 +76,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web compoment. Authorization with Social Media',
     isActive: true,
     pathname: 'login-social-media.html',
@@ -87,6 +92,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web app. SPA Active Learning Text',
     isActive: true,
     pathname: 'learning-text-learn-phrases-learn-words',
@@ -101,6 +107,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. SPA Online telephone directory',
     isActive: true,
     pathname: 'demo-tel-book-reactjs',
@@ -114,6 +121,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. Earthquake Zen Garden ver. 3.12.3',
     isActive: true,
     pathname: 'demo-js-item-carousel.html/',
@@ -127,6 +135,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web component. A dynamic tree component',
     isActive: true,
     pathname: 'demo-dynamic-tree-component.html/',
@@ -140,6 +149,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web service. Prototype for service Ecom-Yunazon',
     isActive: true,
     pathname: 'demo-ecom-yunazon-espa-neptun-FL60.html/',
@@ -155,6 +165,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. Item card screen',
     isActive: true,
     pathname: 'demo-js-item-carousel.html/',
@@ -168,6 +179,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title:
       'Web widget. Tables with sorting and filtering features, popup row menu, inline editable',
     isActive: true,
@@ -183,6 +195,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. Purchase summary',
     isActive: true,
     pathname: 'demo-purchase-summary',
@@ -197,6 +210,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Content site. Arbir.ru - SEO, content management',
     isActive: true,
     pathname: 'arbir-ru-collection-thematic-articles',
@@ -211,6 +225,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web service. View Domain Statistics',
     isActive: true,
     pathname: 'domain-statistics-service',
@@ -224,6 +239,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. Upload images',
     isActive: true,
     pathname: 'demo-file-upload',
@@ -238,6 +254,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web page. JS Algorithms and Questions',
     isActive: true,
     pathname: 'demo-js-algorithms-problems',
@@ -251,6 +268,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. Demo Telegram bot',
     isActive: true,
     pathname: 'feedback-via-telegram',
@@ -264,6 +282,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Landing Page. Immigration Service Provider',
     isActive: true,
     pathname: 'landing-page-immigration-service-provider',
@@ -277,6 +296,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Landing page. Not supported. Wiki Goods Startup',
     isActive: true,
     pathname: 'landing-page-wiki-goods-startup',
@@ -290,6 +310,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. Not supported. Online Notes Keeper',
     isActive: true,
     pathname: 'lib-catalog-notes',
@@ -304,6 +325,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. Not supported. Automatic image resizing on the fly',
     isActive: true,
     pathname: 'function-automatic-image-resizing',
@@ -316,6 +338,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title:
       'Web landing page. Not supported. AAA Advertising Aggregator for Applications, Brand Banner Project',
     isActive: true,
@@ -330,6 +353,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title:
       'Web widget. Not supported. JS Feedback Forms Builder with Telegram messaging feature',
     isActive: true,
@@ -344,6 +368,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. Not supported. Demo registration and authorization',
     isActive: true,
     pathname: 'cabinet-registration-authorization',
@@ -358,6 +383,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title:
       'Web service. Not supported. Language detection with artificial neuro network (ANN)',
     isActive: true,
@@ -373,6 +399,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. Not supported. TRIZ Language Problem Description',
     isActive: true,
     pathname: 'triz-lang-forms',
@@ -387,6 +414,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web service. Not supported. JS Feedback widget for sites',
     isActive: true,
     pathname: 'demo-feedback-widget',
@@ -401,6 +429,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title:
       'Web service. Not supported. Question-answers site for legal questions',
     isActive: true,
@@ -416,6 +445,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. Not supported. Demo online shoping cart',
     isActive: true,
     pathname: 'demo-basket-cart',
@@ -429,6 +459,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. Not supported. Catalog for goods, films, books, etc.',
     isActive: true,
     pathname: 'lib-catalog-items',
@@ -443,6 +474,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Mobile app. Smartphone app for transactions between friends',
     isActive: false,
     pathname: 'lib-catalog-items',
@@ -456,6 +488,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title:
       'Landing page. Not supported. MMS Marketplace Management System, API avoiding API™',
     isActive: false,
@@ -471,6 +504,7 @@ export const projects: ProjectType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Web widget. Not supported. Feedback Widget Project',
     isActive: false,
     pathname: 'landing-page-feedback-widget',
