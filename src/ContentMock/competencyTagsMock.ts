@@ -2,6 +2,7 @@ import { CompetencyTagType } from '../@types/CompetencyTagType'
 
 export const competencyTags: CompetencyTagType[] = [
   {
+    idUser: '1',
     title: 'Agile',
     section: 'Best Practices and Methodologies',
     linkHref:
@@ -23,6 +24,7 @@ export const competencyTags: CompetencyTagType[] = [
   },
 
   {
+    idUser: '1',
     title: 'Automation Tools',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://webpack.js.org/',
@@ -40,6 +42,7 @@ Browser devtools\n\
   },
 
   {
+    idUser: '1',
     title: 'CLI',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://docs.npmjs.com/cli/npm',
@@ -57,6 +60,7 @@ Windows CMD',
   },
 
   {
+    idUser: '1',
     title: 'Design Patterns',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Software_design_pattern',
@@ -95,6 +99,7 @@ Design patterns are advanced object-oriented solutions to commonly occurring sof
   },
 
   {
+    idUser: '1',
     title: 'DevOps',
     section: 'Best Practices and Methodologies',
     linkHref:
@@ -119,6 +124,7 @@ S   Sharing - there are user-friendly communication channels that encourage ongo
   },
 
   {
+    idUser: '1',
     title: 'Docker',
     section: 'Best Practices and Methodologies',
     linkHref:
@@ -143,6 +149,7 @@ ONBUILD - to execute command after the current Dockerfile build completes. It is
   },
 
   {
+    idUser: '1',
     title: 'Issue-tracking systems',
     section: 'Best Practices and Methodologies',
     linkHref:
@@ -156,6 +163,7 @@ Bugzilla\n\
   },
 
   {
+    idUser: '1',
     title: 'Kanban',
     section: 'Best Practices and Methodologies',
     linkHref:
@@ -170,6 +178,7 @@ Bugzilla\n\
   },
 
   {
+    idUser: '1',
     title: 'Lints',
     section: 'Best Practices and Methodologies',
     linkHref: '',
@@ -186,6 +195,7 @@ Bugzilla\n\
   },
 
   {
+    idUser: '1',
     title: 'OOP',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Object-oriented_programming',
@@ -207,6 +217,7 @@ Polymorphism manifests itself by having multiple methods all with the same name,
   },
 
   {
+    idUser: '1',
     title: 'RESTful-API',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://www.restapitutorial.com/lessons/whatisrest.html',
@@ -233,6 +244,7 @@ Status codes',
   },
 
   {
+    idUser: '1',
     title: 'Scrum',
     section: 'Best Practices and Methodologies',
     linkHref:
@@ -258,6 +270,7 @@ Roles: Product Owner, Scrum Master, and Team Members\n\
   },
 
   {
+    idUser: '1',
     title: 'SDLC',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Systems_development_life_cycle',
@@ -274,6 +287,7 @@ or application development life-cycle: \n\
   },
 
   {
+    idUser: '1',
     title: 'SOLID',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)',
@@ -294,6 +308,7 @@ one should depend upon abstractions, [not] concretions.",
   },
 
   {
+    idUser: '1',
     title: 'Testing/Debugging',
     section: 'Best Practices and Methodologies',
     linkHref: '',
@@ -325,6 +340,7 @@ Lint\n\
   },
 
   {
+    idUser: '1',
     title: 'Version Control/Git',
     section: 'Best Practices and Methodologies',
     linkHref:
@@ -348,6 +364,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Ajax',
     section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/XMLHttpRequest/',
@@ -359,6 +376,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Amp',
     section: 'Front-end',
     linkHref: 'https://www.ampproject.org/',
@@ -371,6 +389,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Ant Design',
     section: 'Front-end',
     linkHref: 'https://ant.design/docs/react/introduce',
@@ -381,6 +400,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Axios',
     section: 'Front-end',
     linkHref: 'https://github.com/axios/axios',
@@ -419,6 +439,7 @@ $ git push -u origin ...\n\
       */
 
   {
+    idUser: '1',
     title: 'Bootstrap',
     section: 'Front-end',
     linkHref: 'https://bootstrapdocs.com/',
@@ -463,6 +484,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'BEM methodology',
     section: 'Front-end',
     linkHref: 'https://en.bem.info/methodology/',
@@ -478,6 +500,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Browser Developer Tools',
     section: 'Front-end',
     linkHref: 'https://developers.google.com/web/tools/chrome-devtools/',
@@ -492,6 +515,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Cookie',
     section: 'Front-end',
     linkHref: 'https://tools.ietf.org/html/rfc6265',
@@ -509,6 +533,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'CSS Preprocessing',
     section: 'Front-end',
     linkHref: 'https://lesscss.org/functions/',
@@ -520,6 +545,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Css3',
     section: 'Front-end',
     linkHref: 'https://www.w3.org/Style/CSS/specs.en.html',
@@ -549,6 +575,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'ECMAScript6',
     section: 'Front-end',
     linkHref: 'https://github.com/lukehoban/es6features',
@@ -590,6 +617,7 @@ $ git push -u origin ...\n\
       */
 
   {
+    idUser: '1',
     title: 'ESLint',
     section: 'Front-end',
     linkHref: 'https://eslint.org/',
@@ -600,6 +628,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Web Analytics',
     section: 'Front-end',
     linkHref: 'https://www.google.com/analytics/',
@@ -613,6 +642,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Icons lib',
     section: 'Front-end',
     linkHref: 'https://www.w3schools.com/icons/icons_reference.asp',
@@ -624,6 +654,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Html5',
     section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/html5/',
@@ -647,6 +678,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'HTML DOM',
     section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/DOM-Level-1/introduction.html',
@@ -670,6 +702,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'JavaScript',
     section: 'Front-end',
     linkHref:
@@ -723,6 +756,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Jest',
     section: 'Front-end',
     linkHref: 'https://jestjs.io/docs/api',
@@ -756,6 +790,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'jQuery',
     section: 'Front-end',
     linkHref: 'https://jquery.com/',
@@ -791,6 +826,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'jQuery-UI',
     section: 'Front-end',
     linkHref: 'https://jqueryui.com/',
@@ -834,6 +870,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'JS Frameworks',
     section: 'Front-end',
     linkHref: '',
@@ -857,6 +894,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'JSON',
     section: 'Front-end',
     linkHref: 'https://json-schema.org/',
@@ -872,6 +910,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'JSONP',
     section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/JSONP',
@@ -886,6 +925,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'JWT',
     section: 'Front-end',
     linkHref: 'https://jwt.io/',
@@ -897,6 +937,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Less',
     section: 'Front-end',
     linkHref: 'https://lesscss.org/functions/',
@@ -910,6 +951,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Lodash',
     section: 'Front-end',
     linkHref: 'https://lodash.com/docs/',
@@ -923,6 +965,7 @@ $ git push -u origin ...\n\
   Util',
   },
   {
+    idUser: '1',
     title: 'Material Design',
     section: 'Front-end',
     linkHref: 'https://material.io/',
@@ -936,6 +979,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Microformats/Schema.org',
     section: 'Front-end',
     linkHref: 'https://schema.org/',
@@ -953,6 +997,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Mocha',
     section: 'Front-end',
     linkHref: 'https://mochajs.org/',
@@ -995,6 +1040,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'MVC',
     section: 'Front-end',
     linkHref:
@@ -1017,6 +1063,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'OAuth',
     section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/OAuth',
@@ -1032,6 +1079,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'ReactJS',
     section: 'Front-end',
     linkHref: 'https://facebook.github.io/react/',
@@ -1050,6 +1098,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'React Native',
     section: 'Front-end',
     linkHref: 'https://reactnative.dev/',
@@ -1114,6 +1163,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'React-router',
     section: 'Front-end',
     linkHref: 'https://reacttraining.com/react-router/',
@@ -1138,6 +1188,7 @@ $ git push -u origin ...\n\
   withRouter',
   },
   {
+    idUser: '1',
     title: 'Redux',
     section: 'Front-end',
     linkHref: 'https://redux.js.org',
@@ -1153,6 +1204,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Redux-saga',
     section: 'Front-end',
     linkHref: 'https://redux-saga.js.org/',
@@ -1213,6 +1265,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Regex',
     section: 'Front-end',
     linkHref: 'https://perldoc.perl.org/perlre.html',
@@ -1229,6 +1282,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Responsive Design',
     section: 'Front-end',
     linkHref: 'https://bootstrapdocs.com/',
@@ -1243,6 +1297,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Semantic-UI-React',
     section: 'Front-end',
     linkHref: 'https://react.semantic-ui.com/introduction',
@@ -1259,6 +1314,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Seo',
     section: 'Front-end',
     linkHref: 'https://support.google.com/webmasters/answer/35769?hl=en',
@@ -1293,6 +1349,7 @@ $ git push -u origin ...\n\
   Web Tools',
   },
   {
+    idUser: '1',
     title: 'Session',
     section: 'Front-end',
     linkHref: 'https://php.net/manual/en/features.sessions.php',
@@ -1304,6 +1361,7 @@ $ git push -u origin ...\n\
   and increase the appeal of your web site.',
   },
   {
+    idUser: '1',
     title: 'SPA',
     section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/Single-page_application',
@@ -1317,6 +1375,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Typescript',
     section: 'Front-end',
     linkHref: 'https://www.typescriptlang.org/docs/home.html',
@@ -1347,6 +1406,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Webpack',
     section: 'Front-end',
     linkHref: 'https://webpack.js.org/',
@@ -1364,6 +1424,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Apollo Graphql',
     section: 'Back-end',
     linkHref: 'https://www.apollographql.com/docs/',
@@ -1380,6 +1441,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'ExpressJS',
     section: 'Back-end',
     linkHref: 'https://expressjs.com/en/4x/api.html',
@@ -1486,6 +1548,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Json',
     section: 'Back-end',
     linkHref: 'https://json-schema.org/',
@@ -1501,6 +1564,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'LAMP',
     section: 'Back-end',
     linkHref: 'https://en.wikipedia.org/wiki/LAMP_(software_bundle)',
@@ -1513,6 +1577,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Matplotlib',
     section: 'Back-end',
     linkHref: 'https://matplotlib.org/contents.html',
@@ -1530,6 +1595,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'MERN',
     section: 'Back-end',
     linkHref:
@@ -1543,6 +1609,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'MongoDB',
     section: 'Back-end',
     linkHref: 'https://www.mysql.com/',
@@ -1557,6 +1624,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'MySQL',
     section: 'Back-end',
     linkHref: 'https://www.mysql.com/',
@@ -1577,6 +1645,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'NestJS',
     section: 'Back-end',
     linkHref: 'https://docs.nestjs.com/',
@@ -1596,6 +1665,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Node.js',
     section: 'Back-end',
     linkHref: 'https://nodejs.org/en/',
@@ -1606,6 +1676,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Php',
     section: 'Back-end',
     linkHref: 'https://php.net/manual/en/langref.php',
@@ -1656,6 +1727,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Regex',
     section: 'Back-end',
     linkHref:
@@ -1679,6 +1751,7 @@ $ git push -u origin ...\n\
   Assertions',
   },
   {
+    idUser: '1',
     title: 'Routing',
     section: 'Back-end',
     linkHref: '',
@@ -1692,6 +1765,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Seo',
     section: 'Back-end',
     linkHref:
@@ -1714,6 +1788,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Session',
     section: 'Back-end',
     linkHref: 'https://php.net/manual/en/features.sessions.php',
@@ -1728,6 +1803,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Sql',
     section: 'Back-end',
     linkHref:
@@ -1797,6 +1873,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Swagger-OpenAPI',
     section: 'Back-end',
     linkHref: 'https://swagger.io/docs/specification/about/',
@@ -1837,6 +1914,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Telegram-bot',
     section: 'Back-end',
     linkHref: 'https://telegram-bot-sdk.readme.io/docs/commands-system',
@@ -1853,6 +1931,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Ubuntu',
     section: 'Back-end',
     linkHref: 'https://www.ubuntu.com/',
@@ -1874,6 +1953,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Xml',
     section: 'Back-end',
     linkHref: 'https://www.w3.org/TR/REC-xml/',
@@ -1923,6 +2003,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'AI & Machine Learning',
     section: 'AI/ ML',
     linkHref: 'https://keras.io/',
@@ -1967,6 +2048,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Algoritms for ML & AI',
     section: 'AI/ ML',
     linkHref:
@@ -2004,6 +2086,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Fann',
     section: 'AI/ ML',
     linkHref: 'https://leenissen.dk/fann/wp/',
@@ -2022,6 +2105,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Keras',
     section: 'AI/ ML',
     linkHref: 'https://keras.io/api/',
@@ -2123,6 +2207,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'NumPy',
     section: 'AI/ ML',
     linkHref: 'https://numpy.org/',
@@ -2146,6 +2231,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Pandas',
     section: 'AI/ ML',
     linkHref: 'https://pandas.pydata.org/docs/',
@@ -2162,6 +2248,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Python',
     section: 'AI/ ML',
     linkHref: 'https://docs.python.org/3/',
@@ -2207,6 +2294,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'SciPy',
     section: 'AI/ ML',
     linkHref: 'https://www.scipy.org/docs.html',
@@ -2223,6 +2311,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'Scikit-Learn',
     section: 'AI/ ML',
     linkHref: 'https://scikit-learn.org/stable/modules/classes.html',
@@ -2269,6 +2358,7 @@ $ git push -u origin ...\n\
   },
 
   {
+    idUser: '1',
     title: 'TensorFlow',
     section: 'AI/ ML',
     linkHref: 'https://www.tensorflow.org/api_docs/python/tf',
