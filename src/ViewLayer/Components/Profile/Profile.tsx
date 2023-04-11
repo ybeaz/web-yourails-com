@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
+import { useSelector } from 'react-redux'
 
+import { RootStoreType } from '../../../@types/RootStoreType'
 import {
   withDeviceType,
   mediaParamsDefault,
@@ -143,6 +145,8 @@ const ProfileComponent: ProfileComponentType = props => {
     props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
+
+  const store = useSelector((store2: RootStoreType) => store2)
 
   const profile: ProfileType = profiles[0]
 

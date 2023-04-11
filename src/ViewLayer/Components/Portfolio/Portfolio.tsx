@@ -1,7 +1,8 @@
 import React, { useCallback, ReactElement } from 'react'
 import { ImageResizeMode, View, Linking, Alert } from 'react-native'
-import '@expo/match-media'
+import { useSelector } from 'react-redux'
 
+import { RootStoreType } from '../../../@types/RootStoreType'
 import { ProjectType } from '../../../@types/ProjectType'
 import { ProjectInfoView } from '../ProjectInfoView/ProjectInfoView'
 import { Header } from '../Header/Header'
@@ -23,6 +24,8 @@ const PortfolioComponent: PortfolioType = props => {
     props
   const { deviceType, screenCase, width } = mediaParams
   const style = styles[deviceType]
+
+  const store = useSelector((store2: RootStoreType) => store2)
 
   const { imageWidth, imageHeight } = getImageSizesFor1of2Columns(
     screenCase,

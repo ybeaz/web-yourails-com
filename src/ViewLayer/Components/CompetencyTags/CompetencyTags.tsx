@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
+import { useSelector } from 'react-redux'
 
+import { RootStoreType } from '../../../@types/RootStoreType'
 import {
   CompetencyTagType,
   CompetencyTagsObjType,
@@ -21,6 +23,8 @@ import { competencyTags } from '../../../ContentMock/competencyTagsMock'
  */
 const CompetencyTagsComponent: CompetencyTagsType = props => {
   const { styleProps = { CompetencyTags: {} } } = props
+
+  const store = useSelector((store2: RootStoreType) => store2)
 
   const competencyTags2Keys: Array<keyof CompetencyTagsObjType> = Object.keys(
     competencyTags2
@@ -45,7 +49,7 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   }
 
   // TODO
-  // const competencyTags2sx = competencyTagsKeys.map(
+  // const competencyTagsJsx = competencyTagsKeys.map(
   //   (tagSubheading: string, index: number) => {
 
   //     return (
