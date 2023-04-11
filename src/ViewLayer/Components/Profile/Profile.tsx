@@ -147,8 +147,12 @@ const ProfileComponent: ProfileComponentType = props => {
   const style = styles[deviceType]
 
   const store = useSelector((store2: RootStoreType) => store2)
+  const {
+    globalVars: { idUserHost },
+  } = store
 
-  const profile: ProfileType = profiles[0]
+  const profile: ProfileType =
+    profiles.find(profile => profile.idUser === idUserHost) || profiles[0]
 
   const profileItems = getProfileItemsObjList(
     profile,

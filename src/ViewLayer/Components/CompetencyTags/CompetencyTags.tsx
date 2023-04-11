@@ -25,6 +25,9 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   const { styleProps = { CompetencyTags: {} } } = props
 
   const store = useSelector((store2: RootStoreType) => store2)
+  const {
+    globalVars: { idUserHost },
+  } = store
 
   const competencyTags2Keys: Array<keyof CompetencyTagsObjType> = Object.keys(
     competencyTags2

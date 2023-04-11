@@ -26,6 +26,9 @@ const PortfolioComponent: PortfolioType = props => {
   const style = styles[deviceType]
 
   const store = useSelector((store2: RootStoreType) => store2)
+  const {
+    globalVars: { idUserHost },
+  } = store
 
   const { imageWidth, imageHeight } = getImageSizesFor1of2Columns(
     screenCase,
