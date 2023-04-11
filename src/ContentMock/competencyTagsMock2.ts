@@ -1,4 +1,4 @@
-import { CompetencyTagsObjType } from '../@types/CompetencyType'
+import { CompetencyTagsObjType } from '../@types/CompetencyTagType'
 
 export const competencyTags2: CompetencyTagsObjType = {
   general: [],

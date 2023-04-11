@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
 
 import {
-  CompetencyType,
+  CompetencyTagType,
   CompetencyTagsObjType,
-} from '../../../@types/CompetencyType'
+} from '../../../@types/CompetencyTagType'
 import { getSectionsFromTagsCompetencies } from '../../../Shared/getSectionsFromTagsCompetencies'
 import { COMPETENCY_TAGS_SUBHEADING_R1_DICT } from '../../../Constants/competencyTagsSubheading.cont'
 import { competencyTags2 } from '../../../ContentMock/competencyTagsMock2'
@@ -64,9 +64,9 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
 
   const competencyTags2Jsx = competencyTags2Keys.map(
     (key: keyof CompetencyTagsObjType, index: number) => {
-      const competencyTagsGroup: CompetencyType[] = competencyTags2[
+      const competencyTagsGroup: CompetencyTagType[] = competencyTags2[
         key
-      ] as CompetencyType[]
+      ] as CompetencyTagType[]
 
       const tagSubheading = COMPETENCY_TAGS_SUBHEADING_R1_DICT[key]
 

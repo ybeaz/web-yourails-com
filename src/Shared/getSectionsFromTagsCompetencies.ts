@@ -1,7 +1,7 @@
-import { CompetencyType } from '../@types/CompetencyType'
+import { CompetencyTagType } from '../@types/CompetencyTagType'
 
 interface GetSectionsFromTagsCompetenciesType {
-  (competencyTags: CompetencyType[]): string[]
+  (competencyTags: CompetencyTagType[]): string[]
 }
 
 /**
@@ -12,7 +12,7 @@ interface GetSectionsFromTagsCompetenciesType {
 export const getSectionsFromTagsCompetencies: GetSectionsFromTagsCompetenciesType =
   competencyTags => {
     const output = competencyTags.reduce(
-      (accumulator: string[], tag: CompetencyType) => {
+      (accumulator: string[], tag: CompetencyTagType) => {
         let output: string[] = []
         const sectionFound = accumulator.find(
           (section: string) => section === tag.section

@@ -1,6 +1,6 @@
-import { CompetencyType } from '../@types/CompetencyType'
+import { CompetencyTagType } from '../@types/CompetencyTagType'
 
-export const competencyTags: CompetencyType[] = [
+export const competencyTags: CompetencyTagType[] = [
   {
     title: 'Agile',
     section: 'Best Practices and Methodologies',
