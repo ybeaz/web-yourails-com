@@ -7,26 +7,27 @@ import {
 } from '../../../@types/CompetencyTagType'
 import { getSectionsFromTagsCompetencies } from '../../../Shared/getSectionsFromTagsCompetencies'
 import { COMPETENCY_TAGS_SUBHEADING_R1_DICT } from '../../../Constants/competencyTagsSubheading.cont'
-import { competencyTags2 } from '../../../ContentMock/competencyTagsMock2'
-import { competencyTags } from '../../../ContentMock/competencyTagsMock'
 import { Header } from '../Header/Header'
 import { Text } from '../../Components/Text/Text'
 import { TagProperty } from '../TagProperty/TagProperty'
-import { TagsPropertiesType } from './TagsPropertiesType'
-import { style } from './TagsPropertiesStyle'
+import { CompetencyTagsType } from './CompetencyTagsType'
+import { style } from './CompetencyTagsStyle'
+
+import { competencyTags2 } from '../../../ContentMock/competencyTagsMock2'
+import { competencyTags } from '../../../ContentMock/competencyTagsMock'
 
 /**
- * @import import { TagsProperties } from '../Components/TagsProperties/TagsProperties'
+ * @import import { CompetencyTags } from '../Components/CompetencyTags/CompetencyTags'
  */
-const TagsPropertiesComponent: TagsPropertiesType = props => {
-  const { styleProps = { TagsProperties: {} } } = props
+const CompetencyTagsComponent: CompetencyTagsType = props => {
+  const { styleProps = { CompetencyTags: {} } } = props
 
   const competencyTags2Keys: Array<keyof CompetencyTagsObjType> = Object.keys(
     competencyTags2
   ) as Array<keyof CompetencyTagsObjType>
 
   const competencyTagsKeys = getSectionsFromTagsCompetencies(competencyTags)
-  console.info('TagsProperties [30]', { competencyTagsKeys })
+  console.info('CompetencyTags [30]', { competencyTagsKeys })
   // TODO: Stopped here getSectionsFromTagsCompetencies
 
   const getTagList = (competencies: any[]): ReactElement[] => {
@@ -37,7 +38,7 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
         title,
         linkHref,
         tooltips,
-        testID: 'TagsProperties_item',
+        testID: 'CompetencyTags_item',
       }
       return <TagProperty {...tagPropertyProps} />
     })
@@ -99,8 +100,8 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
 
   return (
     <View
-      style={[style.TagsProperties, styleProps.TagsProperties]}
-      testID='TagsProperties'
+      style={[style.CompetencyTags, styleProps.CompetencyTags]}
+      testID='CompetencyTags'
     >
       <Header {...propsOut.headerProps} />
       {competencyTags2Jsx}
@@ -108,4 +109,4 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
   )
 }
 
-export const TagsProperties = React.memo(TagsPropertiesComponent)
+export const CompetencyTags = React.memo(CompetencyTagsComponent)

@@ -21,8 +21,6 @@ import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCard
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 
 import { messages } from '../../../ContentMock/messagesMock'
-import { competencyTags } from '../../../ContentMock/competencyTagsMock'
-import { projects } from '../../../ContentMock/projectsMock'
 import { profiles } from '../../../ContentMock/profilesMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
@@ -67,8 +65,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
     chatSpaceProps: {
       idUserHost,
-      competencyTags,
-      projects,
       profiles,
       messages,
       modalFrame: { ...modalFrame, childProps: { a: 1 } },

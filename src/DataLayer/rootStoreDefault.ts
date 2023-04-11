@@ -42,7 +42,7 @@ export const componentsStateDefault: ComponentsStateType = {
   isSidebarRight: false,
   isMainColumn: true,
   modalFrame: {
-    childName: 'TagsProperties', // Portfolio, Profile TagsProperties
+    childName: 'CompetencyTags', // Portfolio, Profile CompetencyTags
     isShow: true,
     childProps: {},
   },
