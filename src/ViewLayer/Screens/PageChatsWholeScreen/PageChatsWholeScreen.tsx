@@ -67,6 +67,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
     chatSpaceProps: {
       idUserHost,
+      competencyTags,
+      projects,
       profiles,
       messages,
       modalFrame: { ...modalFrame, childProps: { a: 1 } },

@@ -1,11 +1,15 @@
 import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
 import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
+import { CompetencyType } from '../../../@types/CompetencyType'
+import { ProjectType } from '../../../@types/ProjectType'
 
 export interface ChatSpacePropsType {
   styleProps?: any
   mediaParams?: UseMediaQueryResType
   idUserHost: string
+  competencyTags: CompetencyType[]
+  projects: ProjectType[]
   profiles: ProfileType[]
   messages: Omit<MessageType, 'position' | 'isTail'>[]
   modalFrame: any
