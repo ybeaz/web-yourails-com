@@ -1,6 +1,6 @@
 import { ProjectType } from '../@types/ProjectType'
 
-const projectsListR1: ProjectType[] = [
+export const projects: ProjectType[] = [
   {
     title: 'Web service. YouRails Academy',
     isActive: true,
@@ -483,5 +483,3 @@ const projectsListR1: ProjectType[] = [
     linkHref: 'https://r1.userto.com/img/feedbackWidgetPromo.png', // https://my.yacontent.com/services/LpUserTo/index.html
   },
 ]
-
-export const projectsList: ProjectType[] = [...projectsListR1]

@@ -1,6 +1,6 @@
 export type CompetencyType = {
   title: string
-  section: string
+  section?: string
   linkHref: string
   tooltips: string
 }

@@ -42,8 +42,8 @@ export const componentsStateDefault: ComponentsStateType = {
   isSidebarRight: false,
   isMainColumn: true,
   modalFrame: {
-    childName: 'Portfolio', // Portfolio, Profile TagsProperties
-    isShow: false,
+    childName: 'TagsProperties', // Portfolio, Profile TagsProperties
+    isShow: true,
     childProps: {},
   },
 }

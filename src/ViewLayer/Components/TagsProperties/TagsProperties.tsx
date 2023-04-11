@@ -7,6 +7,7 @@ import {
 } from '../../../@types/CompetencyType'
 import { getSectionsFromTagsCompetencies } from '../../../Shared/getSectionsFromTagsCompetencies'
 import { COMPETENCY_TAGS_SUBHEADING_R1_DICT } from '../../../Constants/competencyTagsSubheading.cont'
+import { competencyTags2 } from '../../../ContentMock/competencyTagsMock2'
 import { competencyTags } from '../../../ContentMock/competencyTagsMock'
 import { Header } from '../Header/Header'
 import { Text } from '../../Components/Text/Text'
@@ -20,9 +21,12 @@ import { style } from './TagsPropertiesStyle'
 const TagsPropertiesComponent: TagsPropertiesType = props => {
   const { styleProps = { TagsProperties: {} } } = props
 
-  const competencyTagsKeys: Array<keyof CompetencyTagsObjType> = Object.keys(
-    competencyTags
+  const competencyTags2Keys: Array<keyof CompetencyTagsObjType> = Object.keys(
+    competencyTags2
   ) as Array<keyof CompetencyTagsObjType>
+
+  const competencyTagsKeys = getSectionsFromTagsCompetencies(competencyTags)
+  console.info('TagsProperties [30]', { competencyTagsKeys })
   // TODO: Stopped here getSectionsFromTagsCompetencies
 
   const getTagList = (competencies: any[]): ReactElement[] => {
@@ -39,9 +43,28 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
     })
   }
 
-  const competencyTagsJsx = competencyTagsKeys.map(
+  // TODO
+  // const competencyTags2sx = competencyTagsKeys.map(
+  //   (tagSubheading: string, index: number) => {
+
+  //     return (
+  //       <View
+  //         key={`competencyTags-${index}`}
+  //         style={[style.tagListWrapper]}
+  //         testID='tagListWrapper'
+  //       >
+  //         <Text style={[style.tagSubheading]} testID='tagSubheadingText'>
+  //           {`${tagSubheading}:`}
+  //         </Text>
+  //         {getTagList(competencyTagsGroup)}
+  //       </View>
+  //     )
+  //   }
+  // )
+
+  const competencyTags2Jsx = competencyTags2Keys.map(
     (key: keyof CompetencyTagsObjType, index: number) => {
-      const competencyTagsGroup: CompetencyType[] = competencyTags[
+      const competencyTagsGroup: CompetencyType[] = competencyTags2[
         key
       ] as CompetencyType[]
 
@@ -80,7 +103,7 @@ const TagsPropertiesComponent: TagsPropertiesType = props => {
       testID='TagsProperties'
     >
       <Header {...propsOut.headerProps} />
-      {competencyTagsJsx}
+      {competencyTags2Jsx}
     </View>
   )
 }

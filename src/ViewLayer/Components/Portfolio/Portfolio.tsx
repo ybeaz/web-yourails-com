@@ -13,7 +13,7 @@ import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
 import { styles } from './PortfolioStyles'
 import { PortfolioType } from './PortfolioTypes'
 
-import { projectsList } from '../../../ContentMock/projectsMock'
+import { projects } from '../../../ContentMock/projectsMock'
 
 /**
  * @import import { Portfolio } from '../Components/Portfolio/Portfolio'
@@ -29,8 +29,8 @@ const PortfolioComponent: PortfolioType = props => {
     width
   )
 
-  const getProjects = (projectsList: ProjectType[]): ReactElement[] => {
-    return projectsList
+  const getProjects = (projects: ProjectType[]): ReactElement[] => {
+    return projects
       .filter((project: ProjectType) => project.isActive === true)
       .map((project: ProjectType, index: number) => {
         const {
@@ -119,7 +119,7 @@ const PortfolioComponent: PortfolioType = props => {
   return (
     <View style={[style.Portfolio, styleProps.Portfolio]} testID='Portfolio'>
       <Header {...propsOut.headerProps} />
-      {getProjects(projectsList)}
+      {getProjects(projects)}
     </View>
   )
 }

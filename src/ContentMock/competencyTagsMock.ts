@@ -1,16 +1,9 @@
-import { CompetencyTagsObjType } from '../@types/CompetencyType'
+import { CompetencyType } from '../@types/CompetencyType'
 
-export const competencyTags: CompetencyTagsObjType = {
-  general: [],
-  clientSide: [],
-  serverSide: [],
-  machineLearning: [],
-}
-
-//Methodologies competencies
-competencyTags['general'] = [
+export const competencyTags: CompetencyType[] = [
   {
     title: 'Agile',
+    section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.agilealliance.org/agile101/12-principles-behind-the-agile-manifesto/',
     tooltips:
@@ -31,6 +24,7 @@ competencyTags['general'] = [
 
   {
     title: 'Automation Tools',
+    section: 'Best Practices and Methodologies',
     linkHref: 'https://webpack.js.org/',
     tooltips:
       '\
@@ -47,6 +41,7 @@ Browser devtools\n\
 
   {
     title: 'CLI',
+    section: 'Best Practices and Methodologies',
     linkHref: 'https://docs.npmjs.com/cli/npm',
     tooltips:
       '\
@@ -63,6 +58,7 @@ Windows CMD',
 
   {
     title: 'Design Patterns',
+    section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Software_design_pattern',
     tooltips:
       '\
@@ -100,6 +96,7 @@ Design patterns are advanced object-oriented solutions to commonly occurring sof
 
   {
     title: 'DevOps',
+    section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.digital-management-blog.de/wp-content/uploads/2017/06/devops.jpg',
     tooltips:
@@ -123,6 +120,7 @@ S   Sharing - there are user-friendly communication channels that encourage ongo
 
   {
     title: 'Docker',
+    section: 'Best Practices and Methodologies',
     linkHref:
       'https://docs.docker.com/develop/develop-images/dockerfile_best-practices/',
     tooltips:
@@ -146,6 +144,7 @@ ONBUILD - to execute command after the current Dockerfile build completes. It is
 
   {
     title: 'Issue-tracking systems',
+    section: 'Best Practices and Methodologies',
     linkHref:
       'https://en.wikipedia.org/wiki/Comparison_of_issue-tracking_systems',
     tooltips:
@@ -158,6 +157,7 @@ Bugzilla\n\
 
   {
     title: 'Kanban',
+    section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
     tooltips:
@@ -171,6 +171,7 @@ Bugzilla\n\
 
   {
     title: 'Lints',
+    section: 'Best Practices and Methodologies',
     linkHref: '',
     tooltips:
       '\
@@ -186,6 +187,7 @@ Bugzilla\n\
 
   {
     title: 'OOP',
+    section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Object-oriented_programming',
     tooltips:
       'The four principles of OOP\n\
@@ -206,6 +208,7 @@ Polymorphism manifests itself by having multiple methods all with the same name,
 
   {
     title: 'RESTful-API',
+    section: 'Best Practices and Methodologies',
     linkHref: 'https://www.restapitutorial.com/lessons/whatisrest.html',
     tooltips:
       '\
@@ -231,6 +234,7 @@ Status codes',
 
   {
     title: 'Scrum',
+    section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
     tooltips:
@@ -255,6 +259,7 @@ Roles: Product Owner, Scrum Master, and Team Members\n\
 
   {
     title: 'SDLC',
+    section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Systems_development_life_cycle',
     tooltips:
       'The systems development life cycle (SDLC), \n\
@@ -270,6 +275,7 @@ or application development life-cycle: \n\
 
   {
     title: 'SOLID',
+    section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)',
     tooltips:
       "\
@@ -289,6 +295,7 @@ one should depend upon abstractions, [not] concretions.",
 
   {
     title: 'Testing/Debugging',
+    section: 'Best Practices and Methodologies',
     linkHref: '',
     tooltips:
       '\
@@ -319,6 +326,7 @@ Lint\n\
 
   {
     title: 'Version Control/Git',
+    section: 'Best Practices and Methodologies',
     linkHref:
       'https://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html',
     tooltips:
@@ -338,65 +346,66 @@ $ git pull\n\
 $ git push -u origin ...\n\
 ',
   },
-]
 
-//Frontend competencies
-competencyTags['clientSide'] = [
   {
     title: 'Ajax',
+    section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/XMLHttpRequest/',
     tooltips:
       '\
-The XMLHttpRequest specification is an API that \n\
-provides scripted client functionality \n\
-for transferring data between a client and a server',
+  The XMLHttpRequest specification is an API that \n\
+  provides scripted client functionality \n\
+  for transferring data between a client and a server',
   },
 
   {
     title: 'Amp',
+    section: 'Front-end',
     linkHref: 'https://www.ampproject.org/',
     tooltips:
       '\
-The AMP Project is an open-source initiative aiming to make the web better for all. \n\
-The project enables the creation of websites and ads that are \n\
-consistently fast, beautiful and high-performing \n\
-across devices and distribution platforms.',
+  The AMP Project is an open-source initiative aiming to make the web better for all. \n\
+  The project enables the creation of websites and ads that are \n\
+  consistently fast, beautiful and high-performing \n\
+  across devices and distribution platforms.',
   },
 
   {
     title: 'Ant Design',
+    section: 'Front-end',
     linkHref: 'https://ant.design/docs/react/introduce',
     tooltips:
       '\
-A React UI library antd that contains a set of high quality components and demos for building rich,\n\
-interactive user interfaces.',
+  A React UI library antd that contains a set of high quality components and demos for building rich,\n\
+  interactive user interfaces.',
   },
 
   {
     title: 'Axios',
+    section: 'Front-end',
     linkHref: 'https://github.com/axios/axios',
     tooltips:
       '\
-Request method aliases \n\
-Concurrency (Deprecated) \n\
-Creating an instance \n\
-Instance methods \n\
-Request Config \n\
-Response Schema \n\
-Config Defaults \n\
-Global axios defaults \n\
-Custom instance defaults \n\
-Config order of precedence \n\
-Interceptors \n\
-Handling Errors \n\
-Cancellation \n\
-Using application/x-www-form-urlencoded format \n\
-Browser \n\
-Node.js \n\
-Query string \n\
-Form data \n\
-Semver \n\
-Promises',
+  Request method aliases \n\
+  Concurrency (Deprecated) \n\
+  Creating an instance \n\
+  Instance methods \n\
+  Request Config \n\
+  Response Schema \n\
+  Config Defaults \n\
+  Global axios defaults \n\
+  Custom instance defaults \n\
+  Config order of precedence \n\
+  Interceptors \n\
+  Handling Errors \n\
+  Cancellation \n\
+  Using application/x-www-form-urlencoded format \n\
+  Browser \n\
+  Node.js \n\
+  Query string \n\
+  Form data \n\
+  Semver \n\
+  Promises',
   },
 
   /*
@@ -404,162 +413,169 @@ Promises',
         title: 'AngularJS',
         linkHref: 'https://angularjs.org/',
         tooltips: '\
-AngularJS lets you extend \n\
-HTML vocabulary for your application.',
+  AngularJS lets you extend \n\
+  HTML vocabulary for your application.',
       },
       */
 
   {
     title: 'Bootstrap',
+    section: 'Front-end',
     linkHref: 'https://bootstrapdocs.com/',
     tooltips:
       '\
-Bootstrap is the most popular HTML, CSS, and JavaScript framework \n\
-for developing responsive, mobile-first web sites.\n\n\
-BOOTSTRAP GRID\n\
-BS Grid System\n\
-BS Stacked/Horizontal\n\
-BS Grid XSmall\n\
-BS Grid Small\n\
-BS Grid Medium\n\
-BS Grid Large\n\
-BS Grid XLarge\n\
-BOOTSTRAP\n\
-BS Typography\n\
-BS Colors\n\
-BS Tables\n\
-BS Images\n\
-BS Jumbotron\n\
-BS Alerts\n\
-BS Buttons\n\
-BS Button Groups\n\
-BS Badges\n\
-BS Progress Bars\n\
-BS Pagination\n\
-BS List Groups\n\
-BS Cards\n\
-BS Dropdowns\n\
-BS Collapse\n\
-BS Navs\n\
-BS Navbar\n\
-BS Forms\n\
-BS Inputs\n\
-BS Carousel\n\
-BS Modal\n\
-BS Tooltip\n\
-BS Popover\n\
-BS Scrollspy\n\
-BS Utilities',
+  Bootstrap is the most popular HTML, CSS, and JavaScript framework \n\
+  for developing responsive, mobile-first web sites.\n\n\
+  BOOTSTRAP GRID\n\
+  BS Grid System\n\
+  BS Stacked/Horizontal\n\
+  BS Grid XSmall\n\
+  BS Grid Small\n\
+  BS Grid Medium\n\
+  BS Grid Large\n\
+  BS Grid XLarge\n\
+  BOOTSTRAP\n\
+  BS Typography\n\
+  BS Colors\n\
+  BS Tables\n\
+  BS Images\n\
+  BS Jumbotron\n\
+  BS Alerts\n\
+  BS Buttons\n\
+  BS Button Groups\n\
+  BS Badges\n\
+  BS Progress Bars\n\
+  BS Pagination\n\
+  BS List Groups\n\
+  BS Cards\n\
+  BS Dropdowns\n\
+  BS Collapse\n\
+  BS Navs\n\
+  BS Navbar\n\
+  BS Forms\n\
+  BS Inputs\n\
+  BS Carousel\n\
+  BS Modal\n\
+  BS Tooltip\n\
+  BS Popover\n\
+  BS Scrollspy\n\
+  BS Utilities',
   },
 
   {
     title: 'BEM methodology',
+    section: 'Front-end',
     linkHref: 'https://en.bem.info/methodology/',
     tooltips:
       '\
-* to work in the common terms of blocks, elements and modifiers in all technologies (HTML~CSS~JS)\n\
-* to create independent components (blocks) at the level of JavaScript\n\
-* to divide the code into small independent pieces, for ease of working with individual blocks\n\
-* to describe the behavior of a block as a set of actions and conditions for their implementation\n\
-* to access the elements of a block using the block API and does not violate the principle of encapsulation\n\
-* to change the behavior of blocks, elements and modifiers level overrides by analogy with CSS\n\
-* re-use the blocks',
+  * to work in the common terms of blocks, elements and modifiers in all technologies (HTML~CSS~JS)\n\
+  * to create independent components (blocks) at the level of JavaScript\n\
+  * to divide the code into small independent pieces, for ease of working with individual blocks\n\
+  * to describe the behavior of a block as a set of actions and conditions for their implementation\n\
+  * to access the elements of a block using the block API and does not violate the principle of encapsulation\n\
+  * to change the behavior of blocks, elements and modifiers level overrides by analogy with CSS\n\
+  * re-use the blocks',
   },
 
   {
     title: 'Browser Developer Tools',
+    section: 'Front-end',
     linkHref: 'https://developers.google.com/web/tools/chrome-devtools/',
     tooltips:
       '\
-Console debugging\n\
-Source variable observing\n\
-Element browsing\n\
-Network request analysing\n\
-Device Mode for testing Responsive and Device-specific Viewports\n\
-Profiling',
+  Console debugging\n\
+  Source variable observing\n\
+  Element browsing\n\
+  Network request analysing\n\
+  Device Mode for testing Responsive and Device-specific Viewports\n\
+  Profiling',
   },
 
   {
     title: 'Cookie',
+    section: 'Front-end',
     linkHref: 'https://tools.ietf.org/html/rfc6265',
     tooltips:
       "\
-An HTTP cookie is a small piece of data sent from a website \n\
-and stored on the user's computer \n\
-by the user's web browser while the user is browsing.\n\
-Cookies were designed to be a reliable mechanism for websites \n\
-to remember stateful information \n\
-(such as items added in the shopping cart in an online store) or \n\
-to record the user's browsing activity \n\
-(including clicking particular buttons, logging in, \n\
-or recording which pages were visited in the past).",
+  An HTTP cookie is a small piece of data sent from a website \n\
+  and stored on the user's computer \n\
+  by the user's web browser while the user is browsing.\n\
+  Cookies were designed to be a reliable mechanism for websites \n\
+  to remember stateful information \n\
+  (such as items added in the shopping cart in an online store) or \n\
+  to record the user's browsing activity \n\
+  (including clicking particular buttons, logging in, \n\
+  or recording which pages were visited in the past).",
   },
 
   {
     title: 'CSS Preprocessing',
+    section: 'Front-end',
     linkHref: 'https://lesscss.org/functions/',
     tooltips:
       '\
-Lesscss.org\n\
-Sass-lang.com\n\
-Stylus-lang.com',
+  Lesscss.org\n\
+  Sass-lang.com\n\
+  Stylus-lang.com',
   },
 
   {
     title: 'Css3',
+    section: 'Front-end',
     linkHref: 'https://www.w3.org/Style/CSS/specs.en.html',
     tooltips:
       '\
-Rounded Corners \n\
-Border Images \n\
-Backgrounds \n\
-Colors \n\
-Gradients \n\
-Shadows \n\
-Text \n\
-Fonts \n\
-2D Transforms \n\
-3D Transforms \n\
-Transitions \n\
-Animations \n\
-Images \n\
-object-fit \n\
-Buttons \n\
-Pagination \n\
-Multiple Columns \n\
-User Interface \n\
-Box Sizing \n\
-Flexbox \n\
-Media Queries',
+  Rounded Corners \n\
+  Border Images \n\
+  Backgrounds \n\
+  Colors \n\
+  Gradients \n\
+  Shadows \n\
+  Text \n\
+  Fonts \n\
+  2D Transforms \n\
+  3D Transforms \n\
+  Transitions \n\
+  Animations \n\
+  Images \n\
+  object-fit \n\
+  Buttons \n\
+  Pagination \n\
+  Multiple Columns \n\
+  User Interface \n\
+  Box Sizing \n\
+  Flexbox \n\
+  Media Queries',
   },
 
   {
     title: 'ECMAScript6',
+    section: 'Front-end',
     linkHref: 'https://github.com/lukehoban/es6features',
     tooltips:
       '\
-ES7 includes the following new features:\n\
-arrows\n\
-classes\n\
-enhanced object literals\n\
-template strings\n\
-destructuring\n\
-default + rest + spread\n\
-let + const\n\
-iterators + for..of\n\
-generators\n\
-unicode\n\
-modules\n\
-module loaders\n\
-map + set + weakmap + weakset\n\
-proxies\n\
-symbols\n\
-subclassable built-ins\n\
-promises\n\
-math + number + string + array + object APIs\n\
-binary and octal literals\n\
-reflect api\n\
-tail calls',
+  ES7 includes the following new features:\n\
+  arrows\n\
+  classes\n\
+  enhanced object literals\n\
+  template strings\n\
+  destructuring\n\
+  default + rest + spread\n\
+  let + const\n\
+  iterators + for..of\n\
+  generators\n\
+  unicode\n\
+  modules\n\
+  module loaders\n\
+  map + set + weakmap + weakset\n\
+  proxies\n\
+  symbols\n\
+  subclassable built-ins\n\
+  promises\n\
+  math + number + string + array + object APIs\n\
+  binary and octal literals\n\
+  reflect api\n\
+  tail calls',
   },
 
   /*
@@ -568,1369 +584,1419 @@ tail calls',
         linkHref: 'https://airbnb.io/enzyme/',
         tooltips:
           "\
-Enzyme is a JavaScript Testing utility for React that makes it easier \n\
-to assert, manipulate, and traverse your React Components' output.",
+  Enzyme is a JavaScript Testing utility for React that makes it easier \n\
+  to assert, manipulate, and traverse your React Components' output.",
       },
       */
 
   {
     title: 'ESLint',
+    section: 'Front-end',
     linkHref: 'https://eslint.org/',
     tooltips:
       '\
-ESLint statically analyzes your code to quickly find problems. \n\
-Many problems ESLint finds can be automatically fixed.',
+  ESLint statically analyzes your code to quickly find problems. \n\
+  Many problems ESLint finds can be automatically fixed.',
   },
 
   {
     title: 'Web Analytics',
+    section: 'Front-end',
     linkHref: 'https://www.google.com/analytics/',
     tooltips:
       '\
-Splunk \n\
-New relic \n\
-Google Analytics \n\
-Yandex Analytics\
-',
+  Splunk \n\
+  New relic \n\
+  Google Analytics \n\
+  Yandex Analytics\
+  ',
   },
 
   {
     title: 'Icons lib',
+    section: 'Front-end',
     linkHref: 'https://www.w3schools.com/icons/icons_reference.asp',
     tooltips:
       '\
-Font-awesome https://fontawesome.io/\n\
-Bootstrap icons\n\
-Google icons',
+  Font-awesome https://fontawesome.io/\n\
+  Bootstrap icons\n\
+  Google icons',
   },
 
   {
     title: 'Html5',
+    section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/html5/',
     tooltips:
       '\
-HTML GRAPHICS\n\
-HTML Canvas\n\
-HTML SVG\n\
-HTML Google Maps\n\
-HTML MEDIA\n\
-HTML Video\n\
-HTML Audio\n\
-HTML Plug-ins\n\
-HTML YouTube \n\
-HTML APIs\n\
-HTML Geolocation\n\
-HTML Drag/Drop\n\
-HTML Web Storage\n\
-HTML Web Workers\n\
-HTML SSE',
+  HTML GRAPHICS\n\
+  HTML Canvas\n\
+  HTML SVG\n\
+  HTML Google Maps\n\
+  HTML MEDIA\n\
+  HTML Video\n\
+  HTML Audio\n\
+  HTML Plug-ins\n\
+  HTML YouTube \n\
+  HTML APIs\n\
+  HTML Geolocation\n\
+  HTML Drag/Drop\n\
+  HTML Web Storage\n\
+  HTML Web Workers\n\
+  HTML SSE',
   },
 
   {
     title: 'HTML DOM',
+    section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/DOM-Level-1/introduction.html',
     tooltips:
       '\
-The Document Object Model (DOM) \n\
-is an application programming interface (API) for HTML and XML documents.\n\
-It defines the logical structure of documents and the way a document is accessed and manipulated.\n\n\
-Browser BOM\n\
-Window\n\
-Navigator\n\
-Screen\n\
-History\n\
-Location \n\n\
-HTML DOM\n\
-DOM Document \n\
-DOM Elements\n\
-DOM Attributes\n\
-DOM Events\n\
-DOM Style',
+  The Document Object Model (DOM) \n\
+  is an application programming interface (API) for HTML and XML documents.\n\
+  It defines the logical structure of documents and the way a document is accessed and manipulated.\n\n\
+  Browser BOM\n\
+  Window\n\
+  Navigator\n\
+  Screen\n\
+  History\n\
+  Location \n\n\
+  HTML DOM\n\
+  DOM Document \n\
+  DOM Elements\n\
+  DOM Attributes\n\
+  DOM Events\n\
+  DOM Style',
   },
 
   {
     title: 'JavaScript',
+    section: 'Front-end',
     linkHref:
       'https://www.ecma-international.org/publications/standards/Stnindex.htm',
     tooltips:
       '\
-JS Statements\n\
-JS Comments\n\
-JS Variables\n\
-JS Operators\n\
-JS Arithmetic\n\
-JS Assignment\n\
-JS Data Types\n\
-JS Functions\n\
-JS Objects\n\
-JS Scope\n\
-JS Events\n\
-JS Strings\n\
-JS String Methods\n\
-JS Numbers\n\
-JS Number Methods\n\
-JS Math\n\
-JS Random\n\
-JS Dates\n\
-JS Date Formats\n\
-JS Date Methods\n\
-JS Arrays\n\
-JS Array Methods\n\
-JS Array Sort\n\
-JS Booleans\n\
-JS Comparisons\n\
-JS Conditions\n\
-JS Switch\n\
-JS Loop For\n\
-JS Loop While\n\
-JS Break\n\
-JS Type Conversion\n\
-JS Bitwise\n\
-JS RegExp\n\
-JS Errors\n\
-JS Debugging\n\
-JS Hoisting\n\
-JS Strict Mode\n\
-JS Style Guide\n\
-JS Best Practices\n\
-JS Mistakes\n\
-JS Performance\n\
-JS Reserved Words\n\
-JS Versions\n\
-JS JSON',
+  JS Statements\n\
+  JS Comments\n\
+  JS Variables\n\
+  JS Operators\n\
+  JS Arithmetic\n\
+  JS Assignment\n\
+  JS Data Types\n\
+  JS Functions\n\
+  JS Objects\n\
+  JS Scope\n\
+  JS Events\n\
+  JS Strings\n\
+  JS String Methods\n\
+  JS Numbers\n\
+  JS Number Methods\n\
+  JS Math\n\
+  JS Random\n\
+  JS Dates\n\
+  JS Date Formats\n\
+  JS Date Methods\n\
+  JS Arrays\n\
+  JS Array Methods\n\
+  JS Array Sort\n\
+  JS Booleans\n\
+  JS Comparisons\n\
+  JS Conditions\n\
+  JS Switch\n\
+  JS Loop For\n\
+  JS Loop While\n\
+  JS Break\n\
+  JS Type Conversion\n\
+  JS Bitwise\n\
+  JS RegExp\n\
+  JS Errors\n\
+  JS Debugging\n\
+  JS Hoisting\n\
+  JS Strict Mode\n\
+  JS Style Guide\n\
+  JS Best Practices\n\
+  JS Mistakes\n\
+  JS Performance\n\
+  JS Reserved Words\n\
+  JS Versions\n\
+  JS JSON',
   },
 
   {
     title: 'Jest',
+    section: 'Front-end',
     linkHref: 'https://jestjs.io/docs/api',
     tooltips:
       '\
-afterAll(fn, timeout)\n\
-afterEach(fn, timeout)\n\
-beforeAll(fn, timeout)\n\
-beforeEach(fn, timeout)\n\
-describe(name, fn)\n\
-describe.each(table)(name, fn, timeout)\n\
-describe.only(name, fn)\n\
-describe.only.each(table)(name, fn)\n\
-describe.skip(name, fn)\n\
-describe.skip.each(table)(name, fn)\n\
-test(name, fn, timeout)\n\
-test.concurrent(name, fn, timeout)\n\
-test.concurrent.each(table)(name, fn, timeout)\n\
-test.concurrent.only.each(table)(name, fn)\n\
-test.concurrent.skip.each(table)(name, fn)\n\
-test.each(table)(name, fn, timeout)\n\
-test.failing(name, fn, timeout)\n\
-test.failing.each(name, fn, timeout)\n\
-test.only.failing(name, fn, timeout)\n\
-test.skip.failing(name, fn, timeout)\n\
-test.only(name, fn, timeout)\n\
-test.only.each(table)(name, fn)\n\
-test.skip(name, fn)\n\
-test.skip.each(table)(name, fn)\n\
-test.todo(name)',
+  afterAll(fn, timeout)\n\
+  afterEach(fn, timeout)\n\
+  beforeAll(fn, timeout)\n\
+  beforeEach(fn, timeout)\n\
+  describe(name, fn)\n\
+  describe.each(table)(name, fn, timeout)\n\
+  describe.only(name, fn)\n\
+  describe.only.each(table)(name, fn)\n\
+  describe.skip(name, fn)\n\
+  describe.skip.each(table)(name, fn)\n\
+  test(name, fn, timeout)\n\
+  test.concurrent(name, fn, timeout)\n\
+  test.concurrent.each(table)(name, fn, timeout)\n\
+  test.concurrent.only.each(table)(name, fn)\n\
+  test.concurrent.skip.each(table)(name, fn)\n\
+  test.each(table)(name, fn, timeout)\n\
+  test.failing(name, fn, timeout)\n\
+  test.failing.each(name, fn, timeout)\n\
+  test.only.failing(name, fn, timeout)\n\
+  test.skip.failing(name, fn, timeout)\n\
+  test.only(name, fn, timeout)\n\
+  test.only.each(table)(name, fn)\n\
+  test.skip(name, fn)\n\
+  test.skip.each(table)(name, fn)\n\
+  test.todo(name)',
   },
 
   {
     title: 'jQuery',
+    section: 'Front-end',
     linkHref: 'https://jquery.com/',
     tooltips:
       '\
-jQuery Effects\n\
-jQuery Hide/Show\n\
-jQuery Fade\n\
-jQuery Slide\n\
-jQuery Animate\n\
-jQuery stop()\n\
-jQuery Callback\n\
-jQuery Chaining\n\
-jQuery HTML\n\
-jQuery Get\n\
-jQuery Set\n\
-jQuery Add\n\
-jQuery Remove\n\
-jQuery CSS Classes\n\
-jQuery css()\n\
-jQuery Dimensions\n\
-jQuery Traversing\n\
-jQuery Ancestors\n\
-jQuery Descendants\n\
-jQuery Siblings\n\
-jQuery Filtering\n\
-jQuery AJAX\n\
-jQuery Load\n\
-jQuery Get/Post\n\
-jQuery Misc\n\
-jQuery noConflict()\n\
-jQuery Filters',
+  jQuery Effects\n\
+  jQuery Hide/Show\n\
+  jQuery Fade\n\
+  jQuery Slide\n\
+  jQuery Animate\n\
+  jQuery stop()\n\
+  jQuery Callback\n\
+  jQuery Chaining\n\
+  jQuery HTML\n\
+  jQuery Get\n\
+  jQuery Set\n\
+  jQuery Add\n\
+  jQuery Remove\n\
+  jQuery CSS Classes\n\
+  jQuery css()\n\
+  jQuery Dimensions\n\
+  jQuery Traversing\n\
+  jQuery Ancestors\n\
+  jQuery Descendants\n\
+  jQuery Siblings\n\
+  jQuery Filtering\n\
+  jQuery AJAX\n\
+  jQuery Load\n\
+  jQuery Get/Post\n\
+  jQuery Misc\n\
+  jQuery noConflict()\n\
+  jQuery Filters',
   },
 
   {
     title: 'jQuery-UI',
+    section: 'Front-end',
     linkHref: 'https://jqueryui.com/',
     tooltips:
       '\
-INTERACTIONS\n\
-Draggable\n\
-Droppable\n\
-Resizable\n\
-Selectable\n\
-Sortable\n\
-WIDGETS\n\
-Accordion\n\
-Autocomplete\n\
-Button\n\
-Check box radio\n\
-Controlgroup\n\
-Datepicker\n\
-Dialog\n\
-Menu\n\
-Progressbar\n\
-Selectmenu\n\
-Slider\n\
-Spinner\n\
-Tabs\n\
-Tooltip\n\
-EFFECTS\n\
-Add Class\n\
-Color Animation\n\
-Easing\n\
-Effect\n\
-Hide\n\
-Remove Class\n\
-Show\n\
-Switch Class\n\
-Toggle\n\
-Toggle Class\n\
-UTILITIES\n\
-Position\n\
-Widget Factory',
+  INTERACTIONS\n\
+  Draggable\n\
+  Droppable\n\
+  Resizable\n\
+  Selectable\n\
+  Sortable\n\
+  WIDGETS\n\
+  Accordion\n\
+  Autocomplete\n\
+  Button\n\
+  Check box radio\n\
+  Controlgroup\n\
+  Datepicker\n\
+  Dialog\n\
+  Menu\n\
+  Progressbar\n\
+  Selectmenu\n\
+  Slider\n\
+  Spinner\n\
+  Tabs\n\
+  Tooltip\n\
+  EFFECTS\n\
+  Add Class\n\
+  Color Animation\n\
+  Easing\n\
+  Effect\n\
+  Hide\n\
+  Remove Class\n\
+  Show\n\
+  Switch Class\n\
+  Toggle\n\
+  Toggle Class\n\
+  UTILITIES\n\
+  Position\n\
+  Widget Factory',
   },
 
   {
     title: 'JS Frameworks',
+    section: 'Front-end',
     linkHref: '',
     tooltips:
       '\
-AMP\n\
-AngularJS\n\
-Bootstrap\n\
-jQuery\n\
-jQuery-UI\n\
-Less\n\
-Lodash\n\
-Material Design\n\
-Moment\n\
-Normalizr\n\
-ReactJS\n\
-React native\n\
-React-router\n\
-Redux\n\
-Semantic-ui-react',
+  AMP\n\
+  AngularJS\n\
+  Bootstrap\n\
+  jQuery\n\
+  jQuery-UI\n\
+  Less\n\
+  Lodash\n\
+  Material Design\n\
+  Moment\n\
+  Normalizr\n\
+  ReactJS\n\
+  React native\n\
+  React-router\n\
+  Redux\n\
+  Semantic-ui-react',
   },
 
   {
     title: 'JSON',
+    section: 'Front-end',
     linkHref: 'https://json-schema.org/',
     tooltips:
       '\
-JSON Objects\n\
-JSON Arrays\n\
-JSON Parse\n\
-JSON Stringify\n\
-JSON PHP\n\
-JSON HTML\n\
-JSON JSONP',
+  JSON Objects\n\
+  JSON Arrays\n\
+  JSON Parse\n\
+  JSON Stringify\n\
+  JSON PHP\n\
+  JSON HTML\n\
+  JSON JSONP',
   },
 
   {
     title: 'JSONP',
+    section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/JSONP',
     tooltips:
       '\
-JSONP works by constructing a “script” element (either in HTML markup or\n\
-inserted into the DOM via JavaScript),\n\
-which requests to a remote data service location. The response is a javascript\n\
-loaded on to your browser with name of the pre-defined function along with parameter\n\
-being passed that is tht JSON data being requested. When the script executes,\n\
-the function is called along with JSON data, allowing the requesting page to receive and process the data.',
+  JSONP works by constructing a “script” element (either in HTML markup or\n\
+  inserted into the DOM via JavaScript),\n\
+  which requests to a remote data service location. The response is a javascript\n\
+  loaded on to your browser with name of the pre-defined function along with parameter\n\
+  being passed that is tht JSON data being requested. When the script executes,\n\
+  the function is called along with JSON data, allowing the requesting page to receive and process the data.',
   },
 
   {
     title: 'JWT',
+    section: 'Front-end',
     linkHref: 'https://jwt.io/',
     tooltips:
       '\
-JSON Web Tokens are an open, industry standard RFC 7519 method for\n\
-representing claims securely between two parties.\n\
-',
+  JSON Web Tokens are an open, industry standard RFC 7519 method for\n\
+  representing claims securely between two parties.\n\
+  ',
   },
 
   {
     title: 'Less',
+    section: 'Front-end',
     linkHref: 'https://lesscss.org/functions/',
     tooltips:
       '\
-As an extension to CSS, Less \n\
-is not only backwards compatible with CSS,\n\
-but the extra features it adds use existing CSS syntax.\n\
-This makes learning Less a breeze, and if in doubt,\n\
-lets you fall back to vanilla CSS.',
+  As an extension to CSS, Less \n\
+  is not only backwards compatible with CSS,\n\
+  but the extra features it adds use existing CSS syntax.\n\
+  This makes learning Less a breeze, and if in doubt,\n\
+  lets you fall back to vanilla CSS.',
   },
 
   {
     title: 'Lodash',
+    section: 'Front-end',
     linkHref: 'https://lodash.com/docs/',
     tooltips:
       '\
-Array\n\
-Collection\n\
-Date\n\
-Function\n\
-Lang\n\
-Util',
+  Array\n\
+  Collection\n\
+  Date\n\
+  Function\n\
+  Lang\n\
+  Util',
   },
   {
     title: 'Material Design',
+    section: 'Front-end',
     linkHref: 'https://material.io/',
     tooltips:
       '\
-Tools: COLOR TOOL\n\
-\n\
-Material Design is a unified system \n\
-that combines theory, resources, and tools\n\
-for crafting digital experiences.',
+  Tools: COLOR TOOL\n\
+  \n\
+  Material Design is a unified system \n\
+  that combines theory, resources, and tools\n\
+  for crafting digital experiences.',
   },
 
   {
     title: 'Microformats/Schema.org',
+    section: 'Front-end',
     linkHref: 'https://schema.org/',
     tooltips:
       '\
-Schema.org is a joint effort, in the spirit of sitemaps.org, \n\
-to improve the web by creating a structured data markup schema \n\
-supported by major search engines. \n\
-On-page markup helps search engines understand \n\
-the information on web pages and provide richer search results. \n\
-A shared markup vocabulary makes easier for webmasters \n\
-to decide on a markup schema and get the maximum benefit for their efforts. \n\
-Search engines want to make it easier for people to find relevant information on the web. \n\
-Markup can also enable new tools and applications that make use of the structure.',
+  Schema.org is a joint effort, in the spirit of sitemaps.org, \n\
+  to improve the web by creating a structured data markup schema \n\
+  supported by major search engines. \n\
+  On-page markup helps search engines understand \n\
+  the information on web pages and provide richer search results. \n\
+  A shared markup vocabulary makes easier for webmasters \n\
+  to decide on a markup schema and get the maximum benefit for their efforts. \n\
+  Search engines want to make it easier for people to find relevant information on the web. \n\
+  Markup can also enable new tools and applications that make use of the structure.',
   },
 
   {
     title: 'Mocha',
+    section: 'Front-end',
     linkHref: 'https://mochajs.org/',
     tooltips:
       '\
-Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, \n\
-making asynchronous testing simple and fun. Mocha tests run serially, \n\
-allowing for flexible and accurate reporting, \n\
-while mapping uncaught exceptions to the correct test cases.\n\n\
-FEATURES\n\
-browser support\n\
-simple async support, including promises\n\
-test coverage reporting\n\
-string diff support\n\
-javascript API for running tests\n\
-proper exit status for CI support etc\n\
-auto-detects and disables coloring for non-ttys\n\
-maps uncaught exceptions to the correct test case\n\
-async test timeout support\n\
-test retry support\n\
-test-specific timeouts\n\
-growl notification support\n\
-reports test durations\n\
-highlights slow tests\n\
-file watcher support\n\
-global variable leak detection\n\
-optionally run tests that match a regexp\n\
-auto-exit to prevent “hanging” with an active loop\n\
-easily meta-generate suites & test-cases\n\
-mocha.opts file support\n\
-clickable suite titles to filter test execution\n\
-node debugger support\n\
-detects multiple calls to done()\n\
-use any assertion library you want\n\
-extensible reporting, bundled with 9+ reporters\n\
-extensible test DSLs or “interfaces”\n\
-before, after, before each, after each hooks\n\
-arbitrary transpiler support (coffee-script etc)\n\
-TextMate bundle',
+  Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, \n\
+  making asynchronous testing simple and fun. Mocha tests run serially, \n\
+  allowing for flexible and accurate reporting, \n\
+  while mapping uncaught exceptions to the correct test cases.\n\n\
+  FEATURES\n\
+  browser support\n\
+  simple async support, including promises\n\
+  test coverage reporting\n\
+  string diff support\n\
+  javascript API for running tests\n\
+  proper exit status for CI support etc\n\
+  auto-detects and disables coloring for non-ttys\n\
+  maps uncaught exceptions to the correct test case\n\
+  async test timeout support\n\
+  test retry support\n\
+  test-specific timeouts\n\
+  growl notification support\n\
+  reports test durations\n\
+  highlights slow tests\n\
+  file watcher support\n\
+  global variable leak detection\n\
+  optionally run tests that match a regexp\n\
+  auto-exit to prevent “hanging” with an active loop\n\
+  easily meta-generate suites & test-cases\n\
+  mocha.opts file support\n\
+  clickable suite titles to filter test execution\n\
+  node debugger support\n\
+  detects multiple calls to done()\n\
+  use any assertion library you want\n\
+  extensible reporting, bundled with 9+ reporters\n\
+  extensible test DSLs or “interfaces”\n\
+  before, after, before each, after each hooks\n\
+  arbitrary transpiler support (coffee-script etc)\n\
+  TextMate bundle',
   },
 
   {
     title: 'MVC',
+    section: 'Front-end',
     linkHref:
       'https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller',
     tooltips:
       "\
-Components\n\
-MODEL expresses the application's behavior in terms of the problem domain, independent of the user interface.\
-It directly manages the data, logic and rules of the application.\n\
-VIEW can be any output representation of information, such as a chart or a diagram.\
-Multiple views of the same information are possible, such as a bar chart for management and a tabular view for accountants.\n\
-CONTROLLER accepts input and converts it to commands for the model or view.\n\
-\n\
-Interactions\n\
-MODEL stores data that is retrieved according to commands from the controller and displayed in the view.\n\
-VIEW generates new output to the user based on changes in the model.\n\
-CONTROLLER can send commands to the model to update the model's state (e.g., editing a document). \
-It can also send commands to its associated view to change the view's presentation of the model \
-(e.g., scrolling through a document, movement of document).",
+  Components\n\
+  MODEL expresses the application's behavior in terms of the problem domain, independent of the user interface.\
+  It directly manages the data, logic and rules of the application.\n\
+  VIEW can be any output representation of information, such as a chart or a diagram.\
+  Multiple views of the same information are possible, such as a bar chart for management and a tabular view for accountants.\n\
+  CONTROLLER accepts input and converts it to commands for the model or view.\n\
+  \n\
+  Interactions\n\
+  MODEL stores data that is retrieved according to commands from the controller and displayed in the view.\n\
+  VIEW generates new output to the user based on changes in the model.\n\
+  CONTROLLER can send commands to the model to update the model's state (e.g., editing a document). \
+  It can also send commands to its associated view to change the view's presentation of the model \
+  (e.g., scrolling through a document, movement of document).",
   },
 
   {
     title: 'OAuth',
+    section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/OAuth',
     tooltips:
       '\
-OAuth (Open Authorization[1][2]) is an open standard for access delegation,\n\
-commonly used as a way for Internet users to grant websites or applications access\n\
-to their information on other websites but without giving them the passwords.\n\
-This mechanism is used by companies such as Google, Facebook, VKontakte, Amazon, Microsoft and\n\
-Twitter to permit the users to share information about their accounts with third-party\n\
-applications or websites.\n\
-',
+  OAuth (Open Authorization[1][2]) is an open standard for access delegation,\n\
+  commonly used as a way for Internet users to grant websites or applications access\n\
+  to their information on other websites but without giving them the passwords.\n\
+  This mechanism is used by companies such as Google, Facebook, VKontakte, Amazon, Microsoft and\n\
+  Twitter to permit the users to share information about their accounts with third-party\n\
+  applications or websites.\n\
+  ',
   },
 
   {
     title: 'ReactJS',
+    section: 'Front-end',
     linkHref: 'https://facebook.github.io/react/',
     tooltips:
       '\
-REACT\n\
-Rendering Elements\n\
-Components and Props\n\
-State and Lifecycle\n\
-Handling Events\n\
-Conditional Rendering\n\
-Lists and Keys\n\
-Forms\n\
-Lifting State Up\n\
-Composition vs Inheritance',
+  REACT\n\
+  Rendering Elements\n\
+  Components and Props\n\
+  State and Lifecycle\n\
+  Handling Events\n\
+  Conditional Rendering\n\
+  Lists and Keys\n\
+  Forms\n\
+  Lifting State Up\n\
+  Composition vs Inheritance',
   },
 
   {
     title: 'React Native',
+    section: 'Front-end',
     linkHref: 'https://reactnative.dev/',
     tooltips:
       '\
-ActivityIndicator\n\
-Button\n\
-FlatList\n\
-Image\n\
-ImageBackground\n\
-KeyboardAvoidingView\n\
-Modal\n\
-RefreshControl\n\
-SafeAreaView\n\
-ScrollView\n\
-SectionList\n\
-StatusBar\n\
-Switch\n\
-Text\n\
-TextInput\n\
-TouchableHighlight\n\
-TouchableOpacity\n\
-TouchableWithoutFeedback\n\
-View\n\
-VirtualizedList\n\
-Android Components\n\
-DrawerLayoutAndroid\n\
-TouchableNativeFeedback\n\
-iOS Components\n\
-InputAccessoryView\n\n\
-\
-AccessibilityInfo\n\
-Alert\n\
-Animated\n\
-Appearance\n\
-AppRegistry\n\
-AppState\n\
-DevSettings\n\
-Dimensions\n\
-Easing\n\
-InteractionManager\n\
-Keyboard\n\
-LayoutAnimation\n\
-Linking\n\
-PanResponder\n\
-PixelRatio\n\
-Share\n\
-StyleSheet\n\
-Systrace\n\
-Transforms\n\
-Vibration\n\
-Hooks\n\
-useColorScheme\n\
-useWindowDimensions\n\
-Android APIs\n\
-BackHandler\n\
-PermissionsAndroid\n\
-ToastAndroid\n\
-iOS APIs\n\
-ActionSheetIOS\n\
-Settings',
+  ActivityIndicator\n\
+  Button\n\
+  FlatList\n\
+  Image\n\
+  ImageBackground\n\
+  KeyboardAvoidingView\n\
+  Modal\n\
+  RefreshControl\n\
+  SafeAreaView\n\
+  ScrollView\n\
+  SectionList\n\
+  StatusBar\n\
+  Switch\n\
+  Text\n\
+  TextInput\n\
+  TouchableHighlight\n\
+  TouchableOpacity\n\
+  TouchableWithoutFeedback\n\
+  View\n\
+  VirtualizedList\n\
+  Android Components\n\
+  DrawerLayoutAndroid\n\
+  TouchableNativeFeedback\n\
+  iOS Components\n\
+  InputAccessoryView\n\n\
+  \
+  AccessibilityInfo\n\
+  Alert\n\
+  Animated\n\
+  Appearance\n\
+  AppRegistry\n\
+  AppState\n\
+  DevSettings\n\
+  Dimensions\n\
+  Easing\n\
+  InteractionManager\n\
+  Keyboard\n\
+  LayoutAnimation\n\
+  Linking\n\
+  PanResponder\n\
+  PixelRatio\n\
+  Share\n\
+  StyleSheet\n\
+  Systrace\n\
+  Transforms\n\
+  Vibration\n\
+  Hooks\n\
+  useColorScheme\n\
+  useWindowDimensions\n\
+  Android APIs\n\
+  BackHandler\n\
+  PermissionsAndroid\n\
+  ToastAndroid\n\
+  iOS APIs\n\
+  ActionSheetIOS\n\
+  Settings',
   },
 
   {
     title: 'React-router',
+    section: 'Front-end',
     linkHref: 'https://reacttraining.com/react-router/',
     tooltips:
       '\
-REACT-ROUTER API\n\
-<BrowserRouter>\n\
-<HashRouter>\n\
-<Link>\n\
-<NavLink>\n\
-<Prompt>\n\
-<MemoryRouter>\n\
-<Redirect>\n\
-<Route>\n\
-<Router>\n\
-<StaticRouter>\n\
-<Switch>\n\
-history\n\
-location\n\
-match\n\
-matchPath\n\
-withRouter',
+  REACT-ROUTER API\n\
+  <BrowserRouter>\n\
+  <HashRouter>\n\
+  <Link>\n\
+  <NavLink>\n\
+  <Prompt>\n\
+  <MemoryRouter>\n\
+  <Redirect>\n\
+  <Route>\n\
+  <Router>\n\
+  <StaticRouter>\n\
+  <Switch>\n\
+  history\n\
+  location\n\
+  match\n\
+  matchPath\n\
+  withRouter',
   },
   {
     title: 'Redux',
+    section: 'Front-end',
     linkHref: 'https://redux.js.org',
     tooltips:
       '\
-Actions\n\
-Reducers\n\
-Store\n\
-Data Flow\n\
-Async Actions\n\
-Async Flow\n\
-Middleware',
+  Actions\n\
+  Reducers\n\
+  Store\n\
+  Data Flow\n\
+  Async Actions\n\
+  Async Flow\n\
+  Middleware',
   },
 
   {
     title: 'Redux-saga',
+    section: 'Front-end',
     linkHref: 'https://redux-saga.js.org/',
     tooltips:
       '\
-Middleware API\n\
-createSagaMiddleware(options)\n\
-middleware.run(saga, ...args)\n\
-Effect creators\n\
-take(pattern)\n\
-takeMaybe(pattern)\n\
-take(channel)\n\
-takeMaybe(channel)\n\
-takeEvery(pattern, saga, ...args)\n\
-takeEvery(channel, saga, ...args)\n\
-takeLatest(pattern, saga, ..args)\n\
-takeLatest(channel, saga, ..args)\n\
-takeLeading(pattern, saga, ..args)\n\
-takeLeading(channel, saga, ..args)\n\
-put(action)\n\
-putResolve(action)\n\
-put(channel, action)\n\
-call(fn, ...args)\n\
-call([context, fn], ...args)\n\
-call([context, fnName], ...args)\n\
-call({context, fn}, ...args)\n\
-apply(context, fn, args)\n\
-cps(fn, ...args)\n\
-cps([context, fn], ...args)\n\
-cps({context, fn}, ...args)\n\
-fork(fn, ...args)\n\
-fork([context, fn], ...args)\n\
-fork({context, fn}, ...args)\n\
-spawn(fn, ...args)\n\
-spawn([context, fn], ...args)\n\
-join(task)\n\
-join([...tasks])\n\
-cancel(task)\n\
-cancel([...tasks])\n\
-cancel()\n\
-select(selector, ...args)\n\
-actionChannel(pattern, [buffer])\n\
-flush(channel)\n\
-cancelled()\n\
-setContext(props)\n\
-getContext(prop)\n\
-delay(ms, [val])\n\
-throttle(ms, pattern, saga, ..args)\n\
-throttle(ms, channel, saga, ..args)\n\
-debounce(ms, pattern, saga, ..args)\n\
-debounce(ms, channel, saga, ..args)\n\
-retry(maxTries, delay, fn, ...args)\n\
-Effect combinators\n\
-race(effects)\n\
-race([...effects])\n\
-all([...effects]) (aka parallel effects)\n\
-all(effects)',
+  Middleware API\n\
+  createSagaMiddleware(options)\n\
+  middleware.run(saga, ...args)\n\
+  Effect creators\n\
+  take(pattern)\n\
+  takeMaybe(pattern)\n\
+  take(channel)\n\
+  takeMaybe(channel)\n\
+  takeEvery(pattern, saga, ...args)\n\
+  takeEvery(channel, saga, ...args)\n\
+  takeLatest(pattern, saga, ..args)\n\
+  takeLatest(channel, saga, ..args)\n\
+  takeLeading(pattern, saga, ..args)\n\
+  takeLeading(channel, saga, ..args)\n\
+  put(action)\n\
+  putResolve(action)\n\
+  put(channel, action)\n\
+  call(fn, ...args)\n\
+  call([context, fn], ...args)\n\
+  call([context, fnName], ...args)\n\
+  call({context, fn}, ...args)\n\
+  apply(context, fn, args)\n\
+  cps(fn, ...args)\n\
+  cps([context, fn], ...args)\n\
+  cps({context, fn}, ...args)\n\
+  fork(fn, ...args)\n\
+  fork([context, fn], ...args)\n\
+  fork({context, fn}, ...args)\n\
+  spawn(fn, ...args)\n\
+  spawn([context, fn], ...args)\n\
+  join(task)\n\
+  join([...tasks])\n\
+  cancel(task)\n\
+  cancel([...tasks])\n\
+  cancel()\n\
+  select(selector, ...args)\n\
+  actionChannel(pattern, [buffer])\n\
+  flush(channel)\n\
+  cancelled()\n\
+  setContext(props)\n\
+  getContext(prop)\n\
+  delay(ms, [val])\n\
+  throttle(ms, pattern, saga, ..args)\n\
+  throttle(ms, channel, saga, ..args)\n\
+  debounce(ms, pattern, saga, ..args)\n\
+  debounce(ms, channel, saga, ..args)\n\
+  retry(maxTries, delay, fn, ...args)\n\
+  Effect combinators\n\
+  race(effects)\n\
+  race([...effects])\n\
+  all([...effects]) (aka parallel effects)\n\
+  all(effects)',
   },
 
   {
     title: 'Regex',
+    section: 'Front-end',
     linkHref: 'https://perldoc.perl.org/perlre.html',
     tooltips:
       '\
-Modifiers\n\
-Regular Expressions\n\
-Quoting metacharacters\n\
-Extended Patterns\n\
-Backtracking\n\
-Special Backtracking Control Verbs\n\
-\\1 and $1\n\
-Repeated Patterns Matching a Zero-length Substring',
+  Modifiers\n\
+  Regular Expressions\n\
+  Quoting metacharacters\n\
+  Extended Patterns\n\
+  Backtracking\n\
+  Special Backtracking Control Verbs\n\
+  \\1 and $1\n\
+  Repeated Patterns Matching a Zero-length Substring',
   },
 
   {
     title: 'Responsive Design',
+    section: 'Front-end',
     linkHref: 'https://bootstrapdocs.com/',
     tooltips:
       '\
-Responsive Web Design makes your web page \n\
-look good on all devices (desktops, tablets, and phones).\n\
-\n\
-Responsive Web Design is about using HTML and CSS to\n\
-resize, hide, shrink, enlarge, or move the content \n\
-to make it look good on any screen',
+  Responsive Web Design makes your web page \n\
+  look good on all devices (desktops, tablets, and phones).\n\
+  \n\
+  Responsive Web Design is about using HTML and CSS to\n\
+  resize, hide, shrink, enlarge, or move the content \n\
+  to make it look good on any screen',
   },
 
   {
     title: 'Semantic-UI-React',
+    section: 'Front-end',
     linkHref: 'https://react.semantic-ui.com/introduction',
     tooltips:
       '\
-Semantic UI React is the official React integration for Semantic UI:\n\
-Elements\n\
-Collections\n\
-Views\n\
-Modules\n\
-Behaviors\n\
-Addons\n\
-',
+  Semantic UI React is the official React integration for Semantic UI:\n\
+  Elements\n\
+  Collections\n\
+  Views\n\
+  Modules\n\
+  Behaviors\n\
+  Addons\n\
+  ',
   },
 
   {
     title: 'Seo',
+    section: 'Front-end',
     linkHref: 'https://support.google.com/webmasters/answer/35769?hl=en',
     tooltips:
       '\
-Submitting to Search Engines\n\
-Search Appearance\n\
-Structured Data\n\
-Rich Cards\n\
-Data Highlighter\n\
-HTML Improvements\n\
-Accelerated Mobile Pages\n\
-Search Traffic\n\
-Search Analytics\n\
-Links to Your Site\n\
-Internal Links\n\
-Manual Actions\n\
-International Targeting\n\
-Mobile Usability\n\
-Search Index\n\
-Index Status\n\
-Blocked Resources\n\
-Remove URLs\n\
-Crawl\n\
-Crawl Errors\n\
-Crawl Stats\n\
-Fetch as Google\n\
-robots.txt Tester\n\
-Sitemaps\n\
-URL Parameters\n\
-Security Issues\n\
-Web Tools',
+  Submitting to Search Engines\n\
+  Search Appearance\n\
+  Structured Data\n\
+  Rich Cards\n\
+  Data Highlighter\n\
+  HTML Improvements\n\
+  Accelerated Mobile Pages\n\
+  Search Traffic\n\
+  Search Analytics\n\
+  Links to Your Site\n\
+  Internal Links\n\
+  Manual Actions\n\
+  International Targeting\n\
+  Mobile Usability\n\
+  Search Index\n\
+  Index Status\n\
+  Blocked Resources\n\
+  Remove URLs\n\
+  Crawl\n\
+  Crawl Errors\n\
+  Crawl Stats\n\
+  Fetch as Google\n\
+  robots.txt Tester\n\
+  Sitemaps\n\
+  URL Parameters\n\
+  Security Issues\n\
+  Web Tools',
   },
   {
     title: 'Session',
+    section: 'Front-end',
     linkHref: 'https://php.net/manual/en/features.sessions.php',
     tooltips:
       '\
-Session support consists of a way \n\
-to preserve certain data across subsequent accesses.\n\
-This enables you to build more customized applications \n\
-and increase the appeal of your web site.',
+  Session support consists of a way \n\
+  to preserve certain data across subsequent accesses.\n\
+  This enables you to build more customized applications \n\
+  and increase the appeal of your web site.',
   },
   {
     title: 'SPA',
+    section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/Single-page_application',
     tooltips:
       '\
-A single-page application (SPA) is a web application or web site that\n\
-interacts with the user by dynamically rewriting the current page \n\
-rather than loading entire new pages from a server.\n\
-Interaction with the single page application often involves \n\
-dynamic communication with the web server behind the scenes.',
+  A single-page application (SPA) is a web application or web site that\n\
+  interacts with the user by dynamically rewriting the current page \n\
+  rather than loading entire new pages from a server.\n\
+  Interaction with the single page application often involves \n\
+  dynamic communication with the web server behind the scenes.',
   },
 
   {
     title: 'Typescript',
+    section: 'Front-end',
     linkHref: 'https://www.typescriptlang.org/docs/home.html',
     tooltips:
       '\
-Basic Types\n\
-Variable Declarations\n\
-Interfaces\n\
-Classes\n\
-Functions\n\
-Generics\n\
-Enums\n\
-Type Inference\n\
-Type Compatibility\n\
-Advanced Types\n\
-Symbols\n\
-Iterators and Generators\n\
-Modules\n\
-Namespaces\n\
-Namespaces and Modules\n\
-Module Resolution\n\
-Declaration Merging\n\
-JSX\n\
-Decorators\n\
-Mixins\n\
-Triple-Slash Directives\n\
-Type Checking JavaScript Files',
+  Basic Types\n\
+  Variable Declarations\n\
+  Interfaces\n\
+  Classes\n\
+  Functions\n\
+  Generics\n\
+  Enums\n\
+  Type Inference\n\
+  Type Compatibility\n\
+  Advanced Types\n\
+  Symbols\n\
+  Iterators and Generators\n\
+  Modules\n\
+  Namespaces\n\
+  Namespaces and Modules\n\
+  Module Resolution\n\
+  Declaration Merging\n\
+  JSX\n\
+  Decorators\n\
+  Mixins\n\
+  Triple-Slash Directives\n\
+  Type Checking JavaScript Files',
   },
 
   {
     title: 'Webpack',
+    section: 'Front-end',
     linkHref: 'https://webpack.js.org/',
     tooltips:
       '\
-Entry Points\n\
-Output\n\
-Loaders\n\
-Plugins\n\
-Configuration\n\
-Modules\n\
-Module Resolution\n\
-Dependency Graph\n\
-Targets',
+  Entry Points\n\
+  Output\n\
+  Loaders\n\
+  Plugins\n\
+  Configuration\n\
+  Modules\n\
+  Module Resolution\n\
+  Dependency Graph\n\
+  Targets',
   },
-]
 
-//Backend compentencies
-competencyTags['serverSide'] = [
   {
     title: 'Apollo Graphql',
+    section: 'Back-end',
     linkHref: 'https://www.apollographql.com/docs/',
     tooltips:
       '\
-Apollo Server\n\
-Apollo Client\n\
-iOS and Android clients\n\
-Apollo CLI\n\
-Cloud services\n\
-Client registry\n\
-Operation registry\n\
-Trace warehouse',
+  Apollo Server\n\
+  Apollo Client\n\
+  iOS and Android clients\n\
+  Apollo CLI\n\
+  Cloud services\n\
+  Client registry\n\
+  Operation registry\n\
+  Trace warehouse',
   },
 
   {
     title: 'ExpressJS',
+    section: 'Back-end',
     linkHref: 'https://expressjs.com/en/4x/api.html',
     tooltips:
       '\
-Express()\n\
-Methods\n\
-express.json()\n\
-express.static()\n\
-express.Router()\n\
-express.urlencoded()\n\
-Application\n\
-Properties\n\
-app.locals\n\
-app.mountpath\n\
-Events\n\
-mount\n\
-Methods\n\
-app.all()\n\
-app.delete()\n\
-app.disable()\n\
-app.disabled()\n\
-app.enable()\n\
-app.enabled()\n\
-app.engine()\n\
-app.get()\n\
-app.get()\n\
-app.listen()\n\
-app.METHOD()\n\
-app.param()\n\
-app.path()\n\
-app.post()\n\
-app.put()\n\
-app.render()\n\
-app.route()\n\
-app.set()\n\
-app.use()\n\
-Request\n\
-Properties\n\
-req.app\n\
-req.baseUrl\n\
-req.body\n\
-req.cookies\n\
-req.fresh\n\
-req.hostname\n\
-req.ip\n\
-req.ips\n\
-req.method\n\
-req.originalUrl\n\
-req.params\n\
-req.path\n\
-req.protocol\n\
-req.query\n\
-req.route\n\
-req.secure\n\
-req.signedCookies\n\
-req.stale\n\
-req.subdomains\n\
-req.xhr\n\
-Methods\n\
-req.accepts()\n\
-req.acceptsCharsets()\n\
-req.acceptsEncodings()\n\
-req.acceptsLanguages()\n\
-req.get()\n\
-req.is()\n\
-req.param()\n\
-req.range()\n\
-Response\n\
-Properties\n\
-res.app\n\
-res.headersSent\n\
-res.locals\n\
-Methods\n\
-res.append()\n\
-res.attachment()\n\
-res.cookie()\n\
-res.clearCookie()\n\
-res.download()\n\
-res.end()\n\
-res.format()\n\
-res.get()\n\
-res.json()\n\
-res.jsonp()\n\
-res.links()\n\
-res.location()\n\
-res.redirect()\n\
-res.render()\n\
-res.send()\n\
-res.sendFile()\n\
-res.sendStatus()\n\
-res.set()\n\
-res.status()\n\
-res.type()\n\
-res.vary()\n\
-Router\n\
-Methods\n\
-router.all()\n\
-router.METHOD()\n\
-router.param()\n\
-router.route()\n\
-router.use()\n\
-',
+  Express()\n\
+  Methods\n\
+  express.json()\n\
+  express.static()\n\
+  express.Router()\n\
+  express.urlencoded()\n\
+  Application\n\
+  Properties\n\
+  app.locals\n\
+  app.mountpath\n\
+  Events\n\
+  mount\n\
+  Methods\n\
+  app.all()\n\
+  app.delete()\n\
+  app.disable()\n\
+  app.disabled()\n\
+  app.enable()\n\
+  app.enabled()\n\
+  app.engine()\n\
+  app.get()\n\
+  app.get()\n\
+  app.listen()\n\
+  app.METHOD()\n\
+  app.param()\n\
+  app.path()\n\
+  app.post()\n\
+  app.put()\n\
+  app.render()\n\
+  app.route()\n\
+  app.set()\n\
+  app.use()\n\
+  Request\n\
+  Properties\n\
+  req.app\n\
+  req.baseUrl\n\
+  req.body\n\
+  req.cookies\n\
+  req.fresh\n\
+  req.hostname\n\
+  req.ip\n\
+  req.ips\n\
+  req.method\n\
+  req.originalUrl\n\
+  req.params\n\
+  req.path\n\
+  req.protocol\n\
+  req.query\n\
+  req.route\n\
+  req.secure\n\
+  req.signedCookies\n\
+  req.stale\n\
+  req.subdomains\n\
+  req.xhr\n\
+  Methods\n\
+  req.accepts()\n\
+  req.acceptsCharsets()\n\
+  req.acceptsEncodings()\n\
+  req.acceptsLanguages()\n\
+  req.get()\n\
+  req.is()\n\
+  req.param()\n\
+  req.range()\n\
+  Response\n\
+  Properties\n\
+  res.app\n\
+  res.headersSent\n\
+  res.locals\n\
+  Methods\n\
+  res.append()\n\
+  res.attachment()\n\
+  res.cookie()\n\
+  res.clearCookie()\n\
+  res.download()\n\
+  res.end()\n\
+  res.format()\n\
+  res.get()\n\
+  res.json()\n\
+  res.jsonp()\n\
+  res.links()\n\
+  res.location()\n\
+  res.redirect()\n\
+  res.render()\n\
+  res.send()\n\
+  res.sendFile()\n\
+  res.sendStatus()\n\
+  res.set()\n\
+  res.status()\n\
+  res.type()\n\
+  res.vary()\n\
+  Router\n\
+  Methods\n\
+  router.all()\n\
+  router.METHOD()\n\
+  router.param()\n\
+  router.route()\n\
+  router.use()\n\
+  ',
   },
 
   {
     title: 'Json',
+    section: 'Back-end',
     linkHref: 'https://json-schema.org/',
     tooltips:
       '\
-JSON Objects\n\
-JSON Arrays\n\
-JSON Parse\n\
-JSON Stringify\n\
-JSON PHP\n\
-JSON HTML\n\
-JSON JSONP',
+  JSON Objects\n\
+  JSON Arrays\n\
+  JSON Parse\n\
+  JSON Stringify\n\
+  JSON PHP\n\
+  JSON HTML\n\
+  JSON JSONP',
   },
 
   {
     title: 'LAMP',
+    section: 'Back-end',
     linkHref: 'https://en.wikipedia.org/wiki/LAMP_(software_bundle)',
     tooltips:
       '\
-Linux operating system (Ubuntu),\n\
-Apache HTTP Server,\n\
-MySQL relational database,\n\
-PHP programming language',
+  Linux operating system (Ubuntu),\n\
+  Apache HTTP Server,\n\
+  MySQL relational database,\n\
+  PHP programming language',
   },
 
   {
     title: 'Matplotlib',
+    section: 'Back-end',
     linkHref: 'https://matplotlib.org/contents.html',
     tooltips:
       '\
-Pyplot\n\
-Plotting\n\
-Markers\n\
-Line\n\
-Subplots\n\
-Scatter\n\
-Bars\n\
-Histograms\n\
-Pie Charts',
+  Pyplot\n\
+  Plotting\n\
+  Markers\n\
+  Line\n\
+  Subplots\n\
+  Scatter\n\
+  Bars\n\
+  Histograms\n\
+  Pie Charts',
   },
 
   {
     title: 'MERN',
+    section: 'Back-end',
     linkHref:
       'https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274',
     tooltips:
       '\
-MongoDB\n\
-ExpressJS\n\
-ReactJS\n\
-NodeJS',
+  MongoDB\n\
+  ExpressJS\n\
+  ReactJS\n\
+  NodeJS',
   },
 
   {
     title: 'MongoDB',
+    section: 'Back-end',
     linkHref: 'https://www.mysql.com/',
     tooltips:
       '\
-MongoDB CRUD Operations\n\
-Create Operations\n\
-Read Operations\n\
-Update Operations\n\
-Delete Operations\n\
-Bulk Write',
+  MongoDB CRUD Operations\n\
+  Create Operations\n\
+  Read Operations\n\
+  Update Operations\n\
+  Delete Operations\n\
+  Bulk Write',
   },
 
   {
     title: 'MySQL',
+    section: 'Back-end',
     linkHref: 'https://www.mysql.com/',
     tooltips:
       '\
-MySQL Database\n\
-MySQL Connect\n\
-MySQL Create DB\n\
-MySQL Create Table\n\
-MySQL Insert Data\n\
-MySQL Get Last ID\n\
-MySQL Insert Multiple\n\
-MySQL Prepared\n\
-MySQL Select Data\n\
-MySQL Delete Data\n\
-MySQL Update Data\n\
-MySQL Limit Data',
+  MySQL Database\n\
+  MySQL Connect\n\
+  MySQL Create DB\n\
+  MySQL Create Table\n\
+  MySQL Insert Data\n\
+  MySQL Get Last ID\n\
+  MySQL Insert Multiple\n\
+  MySQL Prepared\n\
+  MySQL Select Data\n\
+  MySQL Delete Data\n\
+  MySQL Update Data\n\
+  MySQL Limit Data',
   },
 
   {
     title: 'NestJS',
+    section: 'Back-end',
     linkHref: 'https://docs.nestjs.com/',
     tooltips:
       '\
-Custom providers\n\
-Asynchronous providers\n\
-Dynamic modules\n\
-Injection scopes\n\
-Circular dependency\n\
-Module reference\n\
-Execution context\n\
-Lifecycle events\n\
-Platform agnosticism\n\
-Testing\n\
+  Custom providers\n\
+  Asynchronous providers\n\
+  Dynamic modules\n\
+  Injection scopes\n\
+  Circular dependency\n\
+  Module reference\n\
+  Execution context\n\
+  Lifecycle events\n\
+  Platform agnosticism\n\
+  Testing\n\
         ',
   },
 
   {
     title: 'Node.js',
+    section: 'Back-end',
     linkHref: 'https://nodejs.org/en/',
     tooltips:
       '\
-thread workers\n\
-child processes',
+  thread workers\n\
+  child processes',
   },
 
   {
     title: 'Php',
+    section: 'Back-end',
     linkHref: 'https://php.net/manual/en/langref.php',
     tooltips:
       '\
-PHP General\n\
-PHP Syntax\n\
-PHP Variables\n\
-PHP Echo / Print\n\
-PHP Data Types\n\
-PHP Strings\n\
-PHP Constants\n\
-PHP Operators\n\
-PHP If...Else...Elseif\n\
-PHP Switch\n\
-PHP While Loops\n\
-PHP For Loops\n\
-PHP Functions\n\
-PHP Arrays\n\
-PHP Sorting Arrays\n\
-PHP Superglobals\n\
-PHP Forms\n\
-PHP Form Handling\n\
-PHP Form Validation\n\
-PHP Form Required\n\
-PHP Form URL/E-mail\n\
-PHP Form Complete\n\
-PHP Advanced\n\
-PHP Arrays Multi\n\
-PHP Date and Time\n\
-PHP Include\n\
-PHP File Handling\n\
-PHP File Open/Read\n\
-PHP File Create/Write\n\
-PHP File Upload\n\
-PHP Cookies\n\
-PHP Sessions\n\
-PHP Filters\n\
-PHP Filters Advanced\n\
-PHP Error Handling\n\
-PHP Exception\n\
-PHP - XML\n\
-PHP XML Parsers\n\
-PHP SimpleXML Parser\n\
-PHP SimpleXML - Get\n\
-PHP XML Expat\n\
-PHP XML DOM',
+  PHP General\n\
+  PHP Syntax\n\
+  PHP Variables\n\
+  PHP Echo / Print\n\
+  PHP Data Types\n\
+  PHP Strings\n\
+  PHP Constants\n\
+  PHP Operators\n\
+  PHP If...Else...Elseif\n\
+  PHP Switch\n\
+  PHP While Loops\n\
+  PHP For Loops\n\
+  PHP Functions\n\
+  PHP Arrays\n\
+  PHP Sorting Arrays\n\
+  PHP Superglobals\n\
+  PHP Forms\n\
+  PHP Form Handling\n\
+  PHP Form Validation\n\
+  PHP Form Required\n\
+  PHP Form URL/E-mail\n\
+  PHP Form Complete\n\
+  PHP Advanced\n\
+  PHP Arrays Multi\n\
+  PHP Date and Time\n\
+  PHP Include\n\
+  PHP File Handling\n\
+  PHP File Open/Read\n\
+  PHP File Create/Write\n\
+  PHP File Upload\n\
+  PHP Cookies\n\
+  PHP Sessions\n\
+  PHP Filters\n\
+  PHP Filters Advanced\n\
+  PHP Error Handling\n\
+  PHP Exception\n\
+  PHP - XML\n\
+  PHP XML Parsers\n\
+  PHP SimpleXML Parser\n\
+  PHP SimpleXML - Get\n\
+  PHP XML Expat\n\
+  PHP XML DOM',
   },
 
   {
     title: 'Regex',
+    section: 'Back-end',
     linkHref:
       'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp',
     tooltips:
       '\
-pattern: The text of the regular expression.\n\
-flags: If specified, flags can have any combination of the following values:\n\
-g - global match; find all matches rather than stopping after the first match\n\
-i - ignore case\n\
-m - multiline; treat beginning and end characters (^ and $) as working over multiple lines\n\
-u - unicode; treat pattern as a sequence of unicode code points\n\
-y - sticky; matches only from the index indicated by the lastIndex property of this regular expression in the target string\n\n\
-Syntax structure:\n\
-Character Classes\n\
-Character Sets\n\
-Boundaries\n\
-Alternation\n\
-Grouping and back references\n\
-Quantifiers\n\
-Assertions',
+  pattern: The text of the regular expression.\n\
+  flags: If specified, flags can have any combination of the following values:\n\
+  g - global match; find all matches rather than stopping after the first match\n\
+  i - ignore case\n\
+  m - multiline; treat beginning and end characters (^ and $) as working over multiple lines\n\
+  u - unicode; treat pattern as a sequence of unicode code points\n\
+  y - sticky; matches only from the index indicated by the lastIndex property of this regular expression in the target string\n\n\
+  Syntax structure:\n\
+  Character Classes\n\
+  Character Sets\n\
+  Boundaries\n\
+  Alternation\n\
+  Grouping and back references\n\
+  Quantifiers\n\
+  Assertions',
   },
   {
     title: 'Routing',
+    section: 'Back-end',
     linkHref: '',
     tooltips:
       'Routing provides site users with the following:\n\
-Displaying different content depending on the URL\n\
-Constructing links to routes and go to routes programmatically\n\
-Bookmarking - Users can bookmark URLs in their web browser to save content they want to come back to later.\n\
-Sharing - Users can share content with others by sending a link to a certain page.\n\
-Navigation - URLs are used to drive the web browser’s back/forward functions.',
+  Displaying different content depending on the URL\n\
+  Constructing links to routes and go to routes programmatically\n\
+  Bookmarking - Users can bookmark URLs in their web browser to save content they want to come back to later.\n\
+  Sharing - Users can share content with others by sending a link to a certain page.\n\
+  Navigation - URLs are used to drive the web browser’s back/forward functions.',
   },
 
   {
     title: 'Seo',
+    section: 'Back-end',
     linkHref:
       'https://www.searchenginejournal.com/200-parameters-in-google-algorithm/15457/',
     tooltips:
       '\
-Domain factors\n\
-Server-side factors\n\
-Architecture factors\n\
-Content factors\n\
-Internal Cross Linking factors\n\
-Website factors\n\
-Page-specific factors\n\
-Keywords usage factors\n\
-Outbound links factors\n\
-Backlink profile factors\n\
-Visitor Profile and Behavior\n\
-Penalties, Filters and Manipulation\n\
-More Factors',
+  Domain factors\n\
+  Server-side factors\n\
+  Architecture factors\n\
+  Content factors\n\
+  Internal Cross Linking factors\n\
+  Website factors\n\
+  Page-specific factors\n\
+  Keywords usage factors\n\
+  Outbound links factors\n\
+  Backlink profile factors\n\
+  Visitor Profile and Behavior\n\
+  Penalties, Filters and Manipulation\n\
+  More Factors',
   },
 
   {
     title: 'Session',
+    section: 'Back-end',
     linkHref: 'https://php.net/manual/en/features.sessions.php',
     tooltips:
       '\
-Session stores user information to be used across multiple pages (e.g. username, favorite color, etc).\n\
-By default, session variables last until the user closes the browser. Mehods:\n\
-Start a PHP Session\n\
-Get PHP Session Variable Values\n\
-Modify a PHP Session Variable\n\
-Destroy a PHP Session',
+  Session stores user information to be used across multiple pages (e.g. username, favorite color, etc).\n\
+  By default, session variables last until the user closes the browser. Mehods:\n\
+  Start a PHP Session\n\
+  Get PHP Session Variable Values\n\
+  Modify a PHP Session Variable\n\
+  Destroy a PHP Session',
   },
 
   {
     title: 'Sql',
+    section: 'Back-end',
     linkHref:
       'https://docs.oracle.com/cd/B28359_01/server.111/b28286/intro002.htm#SQLRF50928',
     tooltips:
       '\
-SQL General\n\
-SQL Syntax\n\
-SQL Select\n\
-SQL Select Distinct\n\
-SQL Where\n\
-SQL And, Or, Not\n\
-SQL Order By\n\
-SQL Insert Into\n\
-SQL Null Values\n\
-SQL Update\n\
-SQL Delete\n\
-SQL Select Top\n\
-SQL Min and Max\n\
-SQL Count, Avg, Sum\n\
-SQL Like\n\
-SQL Wildcards\n\
-SQL In\n\
-SQL Between\n\
-SQL Aliases\n\
-SQL Joins\n\
-SQL Inner Join\n\
-SQL Left Join\n\
-SQL Right Join\n\
-SQL Full Join\n\
-SQL Self Join\n\
-SQL Union\n\
-SQL Group By\n\
-SQL Having\n\
-SQL Exists\n\
-SQL Any, All\n\
-SQL Select Into\n\
-SQL Insert Into Select\n\
-SQL Null Functions\n\
-SQL Comments\n\
-SQL Database\n\
-SQL Create DB\n\
-SQL Drop DB\n\
-SQL Create Table\n\
-SQL Drop Table\n\
-SQL Alter Table\n\
-SQL Constraints\n\
-SQL Not Null\n\
-SQL Unique\n\
-SQL Primary Key\n\
-SQL Foreign Key\n\
-SQL Check\n\
-SQL Default\n\
-SQL Index\n\
-SQL Auto Increment\n\
-SQL Dates\n\
-SQL Views\n\
-SQL Injection\n\
-SQL Hosting\n\
-SQL References\n\
-MySQL Functions\n\
-SQL Server Functions\n\
-MS Access Functions\n\
-Oracle Functions\n\
-SQL Operators\n\
-SQL Data Types',
+  SQL General\n\
+  SQL Syntax\n\
+  SQL Select\n\
+  SQL Select Distinct\n\
+  SQL Where\n\
+  SQL And, Or, Not\n\
+  SQL Order By\n\
+  SQL Insert Into\n\
+  SQL Null Values\n\
+  SQL Update\n\
+  SQL Delete\n\
+  SQL Select Top\n\
+  SQL Min and Max\n\
+  SQL Count, Avg, Sum\n\
+  SQL Like\n\
+  SQL Wildcards\n\
+  SQL In\n\
+  SQL Between\n\
+  SQL Aliases\n\
+  SQL Joins\n\
+  SQL Inner Join\n\
+  SQL Left Join\n\
+  SQL Right Join\n\
+  SQL Full Join\n\
+  SQL Self Join\n\
+  SQL Union\n\
+  SQL Group By\n\
+  SQL Having\n\
+  SQL Exists\n\
+  SQL Any, All\n\
+  SQL Select Into\n\
+  SQL Insert Into Select\n\
+  SQL Null Functions\n\
+  SQL Comments\n\
+  SQL Database\n\
+  SQL Create DB\n\
+  SQL Drop DB\n\
+  SQL Create Table\n\
+  SQL Drop Table\n\
+  SQL Alter Table\n\
+  SQL Constraints\n\
+  SQL Not Null\n\
+  SQL Unique\n\
+  SQL Primary Key\n\
+  SQL Foreign Key\n\
+  SQL Check\n\
+  SQL Default\n\
+  SQL Index\n\
+  SQL Auto Increment\n\
+  SQL Dates\n\
+  SQL Views\n\
+  SQL Injection\n\
+  SQL Hosting\n\
+  SQL References\n\
+  MySQL Functions\n\
+  SQL Server Functions\n\
+  MS Access Functions\n\
+  Oracle Functions\n\
+  SQL Operators\n\
+  SQL Data Types',
   },
 
   {
     title: 'Swagger-OpenAPI',
+    section: 'Back-end',
     linkHref: 'https://swagger.io/docs/specification/about/',
     tooltips:
       '\
-API Server and Base Path\n\
-Media Types\n\
-Paths and Operations\n\
-Describing Parameters\n\
-Parameter Serialization\n\
-Describing Request Body\n\
-File Upload\n\
-Multipart Requests\n\
-Describing Responses\n\
-Data Models (Schemas)\n\
-Data Types\n\
-Enums\n\
-Dictionaries and Maps\n\
-oneOf, anyOf, allOf, not\n\
-Inheritance and Polymorphism\n\
-Representing XML\n\
-JSON Schema Keywords\n\
-Adding Examples\n\
-Authentication\n\
-Basic Authentication\n\
-API Keys\n\
-Bearer Authentication\n\
-OAuth 2.0\n\
-OpenID Connect Discovery\n\
-Cookie Authentication\n\
-Links\n\
-Callbacks\n\
-Components\n\
-Using $ref\n\
-API General Info\n\
-Grouping Operations With Tags\n\
-OpenAPI Extensions',
+  API Server and Base Path\n\
+  Media Types\n\
+  Paths and Operations\n\
+  Describing Parameters\n\
+  Parameter Serialization\n\
+  Describing Request Body\n\
+  File Upload\n\
+  Multipart Requests\n\
+  Describing Responses\n\
+  Data Models (Schemas)\n\
+  Data Types\n\
+  Enums\n\
+  Dictionaries and Maps\n\
+  oneOf, anyOf, allOf, not\n\
+  Inheritance and Polymorphism\n\
+  Representing XML\n\
+  JSON Schema Keywords\n\
+  Adding Examples\n\
+  Authentication\n\
+  Basic Authentication\n\
+  API Keys\n\
+  Bearer Authentication\n\
+  OAuth 2.0\n\
+  OpenID Connect Discovery\n\
+  Cookie Authentication\n\
+  Links\n\
+  Callbacks\n\
+  Components\n\
+  Using $ref\n\
+  API General Info\n\
+  Grouping Operations With Tags\n\
+  OpenAPI Extensions',
   },
 
   {
     title: 'Telegram-bot',
+    section: 'Back-end',
     linkHref: 'https://telegram-bot-sdk.readme.io/docs/commands-system',
     tooltips:
       '\
-Fetures and usage cases\n\
-Get customized notifications and news. \n\
-Integrate with other services. \n\
-Accept payments from Telegram users. \n\
-Create custom tools. \n\
-Build single- and multiplayer games. \n\
-Build social services. \n\
-Do virtually anything else.',
+  Fetures and usage cases\n\
+  Get customized notifications and news. \n\
+  Integrate with other services. \n\
+  Accept payments from Telegram users. \n\
+  Create custom tools. \n\
+  Build single- and multiplayer games. \n\
+  Build social services. \n\
+  Do virtually anything else.',
   },
 
   {
     title: 'Ubuntu',
+    section: 'Back-end',
     linkHref: 'https://www.ubuntu.com/',
     tooltips:
       '\
-Install with GParted\n\
-Change default loading system on systemd\n\
-Set up Aptitude, Synaptic package manager, Wine\n\
-Install MySQL, apache2, PHP, phpmyadmin, Python\n\
-Enable SSH via OpenSSH\n\
-Host multiple Websites on Apache2\n\
-Enable mod_rewrite on Apache2\n\
-Specify A Custom php.ini For A Web Site\n\
-Install Git\n\
-Change privileges for folders\n\
-Install NodeJS\n\
-Install Virtual Box, pm2, Docker\n\
-',
+  Install with GParted\n\
+  Change default loading system on systemd\n\
+  Set up Aptitude, Synaptic package manager, Wine\n\
+  Install MySQL, apache2, PHP, phpmyadmin, Python\n\
+  Enable SSH via OpenSSH\n\
+  Host multiple Websites on Apache2\n\
+  Enable mod_rewrite on Apache2\n\
+  Specify A Custom php.ini For A Web Site\n\
+  Install Git\n\
+  Change privileges for folders\n\
+  Install NodeJS\n\
+  Install Virtual Box, pm2, Docker\n\
+  ',
   },
 
   {
     title: 'Xml',
+    section: 'Back-end',
     linkHref: 'https://www.w3.org/TR/REC-xml/',
     tooltips:
       '\
-XML General\n\
-XML Tree\n\
-XML Syntax\n\
-XML Elements\n\
-XML Attributes\n\
-XML Namespaces\n\
-XML Display\n\
-XML HttpRequest\n\
-XML Parser\n\
-XML DOM\n\
-XML XPath\n\
-XML XSLT\n\
-XML XQuery\n\
-XML XLink\n\
-XML Validator\n\
-XML DTD\n\
-XML Schema\n\
-XML Server\n\
-XML AJAX\n\
-AJAX XMLHttp\n\
-AJAX Request\n\
-AJAX Response\n\
-AJAX XML File\n\
-AJAX PHP\n\
-AJAX ASP\n\
-AJAX Database\n\
-AJAX Applications\n\
-XML DOM\n\
-DOM Nodes\n\
-DOM Accessing\n\
-DOM Node Info\n\
-DOM Node List\n\
-DOM Traversing\n\
-DOM Navigating\n\
-DOM Get Values\n\
-DOM Change Nodes\n\
-DOM Remove Nodes\n\
-DOM Replace Nodes\n\
-DOM Create Nodes\n\
-DOM Add Nodes\n\
-DOM Clone Nodes',
+  XML General\n\
+  XML Tree\n\
+  XML Syntax\n\
+  XML Elements\n\
+  XML Attributes\n\
+  XML Namespaces\n\
+  XML Display\n\
+  XML HttpRequest\n\
+  XML Parser\n\
+  XML DOM\n\
+  XML XPath\n\
+  XML XSLT\n\
+  XML XQuery\n\
+  XML XLink\n\
+  XML Validator\n\
+  XML DTD\n\
+  XML Schema\n\
+  XML Server\n\
+  XML AJAX\n\
+  AJAX XMLHttp\n\
+  AJAX Request\n\
+  AJAX Response\n\
+  AJAX XML File\n\
+  AJAX PHP\n\
+  AJAX ASP\n\
+  AJAX Database\n\
+  AJAX Applications\n\
+  XML DOM\n\
+  DOM Nodes\n\
+  DOM Accessing\n\
+  DOM Node Info\n\
+  DOM Node List\n\
+  DOM Traversing\n\
+  DOM Navigating\n\
+  DOM Get Values\n\
+  DOM Change Nodes\n\
+  DOM Remove Nodes\n\
+  DOM Replace Nodes\n\
+  DOM Create Nodes\n\
+  DOM Add Nodes\n\
+  DOM Clone Nodes',
   },
-]
 
-competencyTags['machineLearning'] = [
   {
     title: 'AI & Machine Learning',
+    section: 'AI/ ML',
     linkHref: 'https://keras.io/',
     tooltips:
       '\
-★ To define task in the ML terms \n\
-★ To build hypothesis (data > outcome) \n\
-★ To state statistical parameters of accepted results (metrics, confidence interval) \n\
-★ To pick up data, sources, units \n\
-★ To chose type and techniques and algorithm \n\
+  ★ To define task in the ML terms \n\
+  ★ To build hypothesis (data > outcome) \n\
+  ★ To state statistical parameters of accepted results (metrics, confidence interval) \n\
+  ★ To pick up data, sources, units \n\
+  ★ To chose type and techniques and algorithm \n\
   Data mining types: ✔ clustering/ pattern recognition, ✔ classification, ✔ regression/ forecasting \n\
   Data mining techniques: ● Supervised Learning ● Unsupervised Learning ● Reinforcement Learning \n\
   Data mining types:: On-line learning (Real-time learning), Off-line learning, mini sampling \n\
-★ To prepare data (input, output) \n\
+  ★ To prepare data (input, output) \n\
   Dimensionality reducing \n\
   Data preprocessing (data cleaning, optimizing): dublicates, dummy values, abnormal value, data integrity \n\
-★ To normalize data \n\
-★ To sample data sets \n\
+  ★ To normalize data \n\
+  ★ To sample data sets \n\
   Training Dataset. The sample of data used to fit the model \n\
   Validation Dataset. The sample of data used to evaluate of a model fit while tuning model hyperparameters or online fitting \n\
   Test Dataset. The sample of data used to provide an unbiased evaluation of a final model fit \n\
-★ To architect layers: input, output, multi-layer, hidden layer \n\
-★ To set up hyperparameters. For neuro networs: optimises, loss, metrics, quantity of epoches, is shuffling, number votes, model fit acceptance, learning rate, train speed, coefficient of train speed, gradient method, activation function Compressive function: Sigmoid, Hyperbolic tangent \n\
-★ To process results \n\
+  ★ To architect layers: input, output, multi-layer, hidden layer \n\
+  ★ To set up hyperparameters. For neuro networs: optimises, loss, metrics, quantity of epoches, is shuffling, number votes, model fit acceptance, learning rate, train speed, coefficient of train speed, gradient method, activation function Compressive function: Sigmoid, Hyperbolic tangent \n\
+  ★ To process results \n\
   plotting, graphics building \n\
   build tables with models results and metaparameters \n\
   statistic analysis: confidence interval, statistical significance \n\
-\n\
-Mean Median Mode\n\
-Standard Deviation\n\
-Percentile\n\
-Data Distribution\n\
-Normal Data Distribution\n\
-Scatter Plot\n\
-Linear Regression\n\
-Polynomial Regression\n\
-Multiple Regression\n\
-Scale\n\
-Train/Test\n\
-Decision Tree\n\
-',
+  \n\
+  Mean Median Mode\n\
+  Standard Deviation\n\
+  Percentile\n\
+  Data Distribution\n\
+  Normal Data Distribution\n\
+  Scatter Plot\n\
+  Linear Regression\n\
+  Polynomial Regression\n\
+  Multiple Regression\n\
+  Scale\n\
+  Train/Test\n\
+  Decision Tree\n\
+  ',
   },
 
   {
     title: 'Algoritms for ML & AI',
+    section: 'AI/ ML',
     linkHref:
       'https://www.analyticsvidhya.com/blog/2017/09/common-machine-learning-algorithms/',
     tooltips:
       '\
-\n\
-Types of Machine Learning Algorithms\n\
+  \n\
+  Types of Machine Learning Algorithms\n\
   ✔ Clustering (unsupervised) is a categorisation of objects into one or more classes without predifined labels\n\
   ✔ Classification (supervised) is to partition n observations into k predifined classes \n\
   ✔ Regression (supervised) is a processes for estimating the relationships between a dependent variable and one or more independent variables \n\
   \n\
-Techniques of Machine Learning Algorithms \n\
+  Techniques of Machine Learning Algorithms \n\
   ● Supervised Learning - Y(X1, X2, ...Xn). There are a target / outcome variable (or dependent variable) and a given set of predictors (independent variables)\n\
   ● Unsupervised Learning - There is no any target or outcome variable to predict / estimate. It is used for clustering population in different groups \n\
   ● Reinforcement Learning - The machine is exposed to an environment where it trains itself continually using trial and error.\n\
-\n\
-★ Linear Regression - (regression) to establish relationship between independent and dependent variables targeting to a linear equation Y= a + b *X \n\
-★ Simplex algorithm (or simplex method) - to optimize decisiion based on constraints, a popular algorithm for linear programming \n\
-★ Polynomial Regression - (regression) to establish relationship between independent and dependent variables targeting to a polinomal equation Y = a + b * X + c * X ^ 2 + ...d * X ^ n \n\
-★ Multiple Regression - (regression) to predict a value based on two or more variables \n\
-★ Logistic Regression - (classification) to predict the probability of occurrence of an event by fitting data to a logit function \n\
-★ Decision Tree - (classification) to split the population into two or more homogeneous sets to make as distinct groups as possible \n\
-★ SVM - (classification) to plot each data item as a point in n-dimensional space and find line (space) of the our classifier \n\
-★ Naive Bayes - (classification) to consider all of these properties to independently contribute to the probability of the output \n\
-★ kNN/ k- Nearest Neighbors - (classification/ regression) to store all available cases and classifies new cases by a majority vote of its k neighbors \n\
-★ K-Means - (classification) to classify a given data set through a certain number of clusters (assume k clusters) that are homogeneous and heterogeneous to peer groups. \n\
-★ Random Forest - (classification) to interpret observations as votes that "forest" chooses the classification (over all the trees in the forest) \n\
-★ Dimensionality Reduction Algorithms - to escape high unwanted dimensions and chose meaning dimentions by dimension reduction \n\
-★ Gradient Boosting algorithms \n\
+  \n\
+  ★ Linear Regression - (regression) to establish relationship between independent and dependent variables targeting to a linear equation Y= a + b *X \n\
+  ★ Simplex algorithm (or simplex method) - to optimize decisiion based on constraints, a popular algorithm for linear programming \n\
+  ★ Polynomial Regression - (regression) to establish relationship between independent and dependent variables targeting to a polinomal equation Y = a + b * X + c * X ^ 2 + ...d * X ^ n \n\
+  ★ Multiple Regression - (regression) to predict a value based on two or more variables \n\
+  ★ Logistic Regression - (classification) to predict the probability of occurrence of an event by fitting data to a logit function \n\
+  ★ Decision Tree - (classification) to split the population into two or more homogeneous sets to make as distinct groups as possible \n\
+  ★ SVM - (classification) to plot each data item as a point in n-dimensional space and find line (space) of the our classifier \n\
+  ★ Naive Bayes - (classification) to consider all of these properties to independently contribute to the probability of the output \n\
+  ★ kNN/ k- Nearest Neighbors - (classification/ regression) to store all available cases and classifies new cases by a majority vote of its k neighbors \n\
+  ★ K-Means - (classification) to classify a given data set through a certain number of clusters (assume k clusters) that are homogeneous and heterogeneous to peer groups. \n\
+  ★ Random Forest - (classification) to interpret observations as votes that "forest" chooses the classification (over all the trees in the forest) \n\
+  ★ Dimensionality Reduction Algorithms - to escape high unwanted dimensions and chose meaning dimentions by dimension reduction \n\
+  ★ Gradient Boosting algorithms \n\
     * GBM - to ensemble of learning algorithms which combines the prediction of several base estimators (weak or average) \n\
     * XGBoost - to offer support of various objective functions, including regression, classification and ranking \n\
     * LightGBM - to use tree based learning algorithms. It is designed to be distributed \n\
@@ -1939,571 +2005,579 @@ Techniques of Machine Learning Algorithms \n\
 
   {
     title: 'Fann',
+    section: 'AI/ ML',
     linkHref: 'https://leenissen.dk/fann/wp/',
     tooltips:
       '\
-FANN Artificial Neural Network Library Features:\n\
-Multilayer Artificial Neural Network Library in C\n\
-Backpropagation training (RPROP, Quickprop, Batch, Incremental)\n\
-Evolving topology training which dynamically builds and trains the ANN (Cascade2)\n\
-Easy to use (create, train and run an ANN with just three function calls)\n\
-Fast (up to 150 times faster execution than other libraries)\n\
-Versatile (possible to adjust many parameters and features on-the-fly)\n\
-Well documented (An easy to read introduction article\n\
-Cross-platform \n\
-Several different activation functions implemented (including stepwise linear functions for that extra bit of speed)',
+  FANN Artificial Neural Network Library Features:\n\
+  Multilayer Artificial Neural Network Library in C\n\
+  Backpropagation training (RPROP, Quickprop, Batch, Incremental)\n\
+  Evolving topology training which dynamically builds and trains the ANN (Cascade2)\n\
+  Easy to use (create, train and run an ANN with just three function calls)\n\
+  Fast (up to 150 times faster execution than other libraries)\n\
+  Versatile (possible to adjust many parameters and features on-the-fly)\n\
+  Well documented (An easy to read introduction article\n\
+  Cross-platform \n\
+  Several different activation functions implemented (including stepwise linear functions for that extra bit of speed)',
   },
 
   {
     title: 'Keras',
+    section: 'AI/ ML',
     linkHref: 'https://keras.io/api/',
     tooltips:
       '\
-Models API\n\
-Layers API\n\
-Callbacks API\n\
-Data preprocessing\n\
-Optimizers\n\
-Metrics\n\
-Losses\n\
-Built-in small datasets\n\
-Keras Applications\n\
-Utilities\n\
-\n\
-Models API\n\
-The Model class\n\
-The Sequential class\n\
-Model training APIs\n\
-Model saving & serialization APIs\n\
-Layers API\n\
-The base Layer class\n\
-Layer activations\n\
-Layer weight initializers\n\
-Layer weight regularizers\n\
-Layer weight constraints\n\
-Core layers\n\
-Convolution layers\n\
-Pooling layers\n\
-Recurrent layers\n\
-Preprocessing layers\n\
-Normalization layers\n\
-Regularization layers\n\
-Attention layers\n\
-Reshaping layers\n\
-Merging layers\n\
-Locally-connected layers\n\
-Activation layers\n\
-Callbacks API\n\
-Base Callback class\n\
-ModelCheckpoint\n\
-TensorBoard\n\
-EarlyStopping\n\
-LearningRateScheduler\n\
-ReduceLROnPlateau\n\
-RemoteMonitor\n\
-LambdaCallback\n\
-TerminateOnNaN\n\
-CSVLogger\n\
-ProgbarLogger\n\
-Data preprocessing\n\
-Image data preprocessing\n\
-Timeseries data preprocessing\n\
-Text data preprocessing\n\
-Optimizers\n\
-SGD\n\
-RMSprop\n\
-Adam\n\
-Adadelta\n\
-Adagrad\n\
-Adamax\n\
-Nadam\n\
-Ftrl\n\
-Metrics\n\
-Accuracy metrics\n\
-Probabilistic metrics\n\
-Regression metrics\n\
-Classification metrics based on True/False positives & negatives\n\
-Image segmentation metrics\n\
-Hinge metrics for "maximum-margin" classification\n\
-Losses\n\
-Probabilistic losses\n\
-Regression losses\n\
-Hinge losses for "maximum-margin" classification\n\
-Built-in small datasets\n\
-MNIST digits classification dataset\n\
-CIFAR10 small images classification dataset\n\
-CIFAR100 small images classification dataset\n\
-IMDB movie review sentiment classification dataset\n\
-Reuters newswire classification dataset\n\
-Fashion MNIST dataset, an alternative to MNIST\n\
-Boston Housing price regression dataset\n\
-Keras Applications\n\
-Xception\n\
-EfficientNet B0 to B7\n\
-VGG16 and VGG19\n\
-ResNet and ResNetV2\n\
-MobileNet and MobileNetV2\n\
-DenseNet\n\
-NasNetLarge and NasNetMobile\n\
-InceptionV3\n\
-InceptionResNetV2\n\
-Utilities\n\
-Model plotting utilities\n\
-Serialization utilities\n\
-Python & NumPy utilities\n\
-Backend utilities',
+  Models API\n\
+  Layers API\n\
+  Callbacks API\n\
+  Data preprocessing\n\
+  Optimizers\n\
+  Metrics\n\
+  Losses\n\
+  Built-in small datasets\n\
+  Keras Applications\n\
+  Utilities\n\
+  \n\
+  Models API\n\
+  The Model class\n\
+  The Sequential class\n\
+  Model training APIs\n\
+  Model saving & serialization APIs\n\
+  Layers API\n\
+  The base Layer class\n\
+  Layer activations\n\
+  Layer weight initializers\n\
+  Layer weight regularizers\n\
+  Layer weight constraints\n\
+  Core layers\n\
+  Convolution layers\n\
+  Pooling layers\n\
+  Recurrent layers\n\
+  Preprocessing layers\n\
+  Normalization layers\n\
+  Regularization layers\n\
+  Attention layers\n\
+  Reshaping layers\n\
+  Merging layers\n\
+  Locally-connected layers\n\
+  Activation layers\n\
+  Callbacks API\n\
+  Base Callback class\n\
+  ModelCheckpoint\n\
+  TensorBoard\n\
+  EarlyStopping\n\
+  LearningRateScheduler\n\
+  ReduceLROnPlateau\n\
+  RemoteMonitor\n\
+  LambdaCallback\n\
+  TerminateOnNaN\n\
+  CSVLogger\n\
+  ProgbarLogger\n\
+  Data preprocessing\n\
+  Image data preprocessing\n\
+  Timeseries data preprocessing\n\
+  Text data preprocessing\n\
+  Optimizers\n\
+  SGD\n\
+  RMSprop\n\
+  Adam\n\
+  Adadelta\n\
+  Adagrad\n\
+  Adamax\n\
+  Nadam\n\
+  Ftrl\n\
+  Metrics\n\
+  Accuracy metrics\n\
+  Probabilistic metrics\n\
+  Regression metrics\n\
+  Classification metrics based on True/False positives & negatives\n\
+  Image segmentation metrics\n\
+  Hinge metrics for "maximum-margin" classification\n\
+  Losses\n\
+  Probabilistic losses\n\
+  Regression losses\n\
+  Hinge losses for "maximum-margin" classification\n\
+  Built-in small datasets\n\
+  MNIST digits classification dataset\n\
+  CIFAR10 small images classification dataset\n\
+  CIFAR100 small images classification dataset\n\
+  IMDB movie review sentiment classification dataset\n\
+  Reuters newswire classification dataset\n\
+  Fashion MNIST dataset, an alternative to MNIST\n\
+  Boston Housing price regression dataset\n\
+  Keras Applications\n\
+  Xception\n\
+  EfficientNet B0 to B7\n\
+  VGG16 and VGG19\n\
+  ResNet and ResNetV2\n\
+  MobileNet and MobileNetV2\n\
+  DenseNet\n\
+  NasNetLarge and NasNetMobile\n\
+  InceptionV3\n\
+  InceptionResNetV2\n\
+  Utilities\n\
+  Model plotting utilities\n\
+  Serialization utilities\n\
+  Python & NumPy utilities\n\
+  Backend utilities',
   },
 
   {
     title: 'NumPy',
+    section: 'AI/ ML',
     linkHref: 'https://numpy.org/',
     tooltips:
       '\
-Creating Arrays\n\
-Array Indexing\n\
-Array Slicing\n\
-Data Types\n\
-Copy vs View\n\
-Array Shape\n\
-Array Reshape\n\
-Array Iterating\n\
-Array Join\n\
-Array Split\n\
-Array Search\n\
-Array Sort\n\
-Array Filter\n\
-Random\n\
-ufunc',
+  Creating Arrays\n\
+  Array Indexing\n\
+  Array Slicing\n\
+  Data Types\n\
+  Copy vs View\n\
+  Array Shape\n\
+  Array Reshape\n\
+  Array Iterating\n\
+  Array Join\n\
+  Array Split\n\
+  Array Search\n\
+  Array Sort\n\
+  Array Filter\n\
+  Random\n\
+  ufunc',
   },
 
   {
     title: 'Pandas',
+    section: 'AI/ ML',
     linkHref: 'https://pandas.pydata.org/docs/',
     tooltips:
       '\
-Series\n\
-DataFrames\n\
-Read CSV\n\
-Read JSON\n\
-Analyzing Data\n\
-Cleaning Data\n\
-Correlations\n\
-Plotting',
+  Series\n\
+  DataFrames\n\
+  Read CSV\n\
+  Read JSON\n\
+  Analyzing Data\n\
+  Cleaning Data\n\
+  Correlations\n\
+  Plotting',
   },
 
   {
     title: 'Python',
+    section: 'AI/ ML',
     linkHref: 'https://docs.python.org/3/',
     tooltips:
       '\
-Py General\n\
-Comments\n\
-Variables\n\
-Data Types\n\
-Numbers\n\
-Casting\n\
-Strings\n\
-Booleans\n\
-Operators\n\
-Lists\n\
-Tuples\n\
-Sets\n\
-Dictionaries\n\
-If...Else\n\
-While Loops\n\
-For Loops\n\
-Functions\n\
-Lambda\n\
-Arrays\n\
-Classes/Objects\n\
-Inheritance\n\
-Iterators\n\
-Scope\n\
-Modules\n\
-Dates\n\
-Math\n\
-JSON\n\
-RegEx\n\
-PIP\n\
-Try...Except\n\
-User Input\n\
-String Formatting\n\
-Py File Handling\n\
-File Handling\n\
-Read Files\n\
-Write/Create Files\n\
-Delete Files',
+  Py General\n\
+  Comments\n\
+  Variables\n\
+  Data Types\n\
+  Numbers\n\
+  Casting\n\
+  Strings\n\
+  Booleans\n\
+  Operators\n\
+  Lists\n\
+  Tuples\n\
+  Sets\n\
+  Dictionaries\n\
+  If...Else\n\
+  While Loops\n\
+  For Loops\n\
+  Functions\n\
+  Lambda\n\
+  Arrays\n\
+  Classes/Objects\n\
+  Inheritance\n\
+  Iterators\n\
+  Scope\n\
+  Modules\n\
+  Dates\n\
+  Math\n\
+  JSON\n\
+  RegEx\n\
+  PIP\n\
+  Try...Except\n\
+  User Input\n\
+  String Formatting\n\
+  Py File Handling\n\
+  File Handling\n\
+  Read Files\n\
+  Write/Create Files\n\
+  Delete Files',
   },
 
   {
     title: 'SciPy',
+    section: 'AI/ ML',
     linkHref: 'https://www.scipy.org/docs.html',
     tooltips:
       '\
-Constants\n\
-Optimizers\n\
-Sparse Data\n\
-Graphs\n\
-Spatial Data\n\
-Matlab Arrays\n\
-Interpolation\n\
-Significance Tests',
+  Constants\n\
+  Optimizers\n\
+  Sparse Data\n\
+  Graphs\n\
+  Spatial Data\n\
+  Matlab Arrays\n\
+  Interpolation\n\
+  Significance Tests',
   },
 
   {
     title: 'Scikit-Learn',
+    section: 'AI/ ML',
     linkHref: 'https://scikit-learn.org/stable/modules/classes.html',
     tooltips:
       '\
-Base classes and utility functions\n\
-Probability Calibration\n\
-Clustering\n\
-Composite Estimators\n\
-Covariance Estimators\n\
-Cross decomposition\n\
-Datasets\n\
-Matrix Decomposition\n\
-Discriminant Analysis\n\
-Dummy estimators\n\
-Ensemble Methods\n\
-Exceptions and warnings\n\
-Experimental\n\
-Feature Extraction\n\
-Feature Selection\n\
-Gaussian Processes\n\
-Impute\n\
-Inspection\n\
-Isotonic regression\n\
-Kernel Approximation\n\
-Kernel Ridge Regression\n\
-Linear Models\n\
-Manifold Learning\n\
-Metrics\n\
-Gaussian Mixture Models\n\
-Model Selection\n\
-Multiclass classification\n\
-Multioutput regression and classification\n\
-Naive Bayes\n\
-Nearest Neighbors\n\
-Neural network models\n\
-Pipeline\n\
-Preprocessing and Normalization\n\
-Random projection\n\
-Semi-Supervised Learning\n\
-Support Vector Machines\n\
-Decision Trees\n\
-Utilities',
+  Base classes and utility functions\n\
+  Probability Calibration\n\
+  Clustering\n\
+  Composite Estimators\n\
+  Covariance Estimators\n\
+  Cross decomposition\n\
+  Datasets\n\
+  Matrix Decomposition\n\
+  Discriminant Analysis\n\
+  Dummy estimators\n\
+  Ensemble Methods\n\
+  Exceptions and warnings\n\
+  Experimental\n\
+  Feature Extraction\n\
+  Feature Selection\n\
+  Gaussian Processes\n\
+  Impute\n\
+  Inspection\n\
+  Isotonic regression\n\
+  Kernel Approximation\n\
+  Kernel Ridge Regression\n\
+  Linear Models\n\
+  Manifold Learning\n\
+  Metrics\n\
+  Gaussian Mixture Models\n\
+  Model Selection\n\
+  Multiclass classification\n\
+  Multioutput regression and classification\n\
+  Naive Bayes\n\
+  Nearest Neighbors\n\
+  Neural network models\n\
+  Pipeline\n\
+  Preprocessing and Normalization\n\
+  Random projection\n\
+  Semi-Supervised Learning\n\
+  Support Vector Machines\n\
+  Decision Trees\n\
+  Utilities',
   },
 
   {
     title: 'TensorFlow',
+    section: 'AI/ ML',
     linkHref: 'https://www.tensorflow.org/api_docs/python/tf',
     tooltips:
       '\
-Modules\n\
-Classes\n\
-Functions\n\
-Other Members\n\
-\n\
-Modules\n\
-audio module: Public API for tf.audio namespace \n\
-autodiff module: Public API for tf.autodiff namespace \n\
-autograph module: Conversion of plain Python into TensorFlow graph code \n\
-bitwise module: Operations for manipulating the binary representations of integers \n\
-compat module: Compatibility functions \n\
-config module: Public API for tf.config namespace \n\
-data module: tf.data.Dataset API for input pipelines \n\
-debugging module: Public API for tf.debugging namespace \n\
-distribute module: Library for running a computation across multiple devices \n\
-dtypes module: Public API for tf.dtypes namespace \n\
-errors module: Exception types for TensorFlow errors \n\
-estimator module: Estimator: High level tools for working with models \n\
-experimental module: Public API for tf.experimental namespace \n\
-feature_column module: Public API for tf.feature_column namespace \n\
-graph_util module: Helpers to manipulate a tensor graph in python \n\
-image module: Image ops \n\
-initializers module: Keras initializer serialization / deserialization \n\
-io module: Public API for tf.io namespace \n\
-keras module: Implementation of the Keras API meant to be a high-level API for TensorFlow \n\
-linalg module: Operations for linear algebra \n\
-lite module: Public API for tf.lite namespace \n\
-lookup module: Public API for tf.lookup namespace \n\
-losses module: Built-in loss functions \n\
-math module: Math Operations \n\
-metrics module: Built-in metrics \n\
-mixed_precision module: Public API for tf.mixed_precision namespace \n\
-mlir module: Public API for tf.mlir namespace \n\
-nest module: Public API for tf.nest namespace \n\
-nn module: Wrappers for primitive Neural Net (NN) Operations \n\
-optimizers module: Built-in optimizer classes \n\
-profiler module: Public API for tf.profiler namespace \n\
-quantization module: Public API for tf.quantization namespace \n\
-queue module: Public API for tf.queue namespace \n\
-ragged module: Ragged Tensors \n\
-random module: Public API for tf.random namespace \n\
-raw_ops module: Public API for tf.raw_ops namespace \n\
-saved_model module: Public API for tf.saved_model namespace \n\
-sets module: Tensorflow set operations \n\
-signal module: Signal processing operations \n\
-sparse module: Sparse Tensor Representation \n\
-strings module: Operations for working with string Tensors \n\
-summary module: Operations for writing summary data, for use in analysis and visualization \n\
-sysconfig module: System configuration library \n\
-test module: Testing \n\
-tpu module: Ops related to Tensor Processing Units \n\
-train module: Support for training models \n\
-types module: Public TensorFlow type definitions \n\
-version module: Public API for tf.version namespace \n\
-xla module: Public API for tf.xla namespace \n\
-\n\
-Classes\n\
-class AggregationMethod: A class listing aggregation methods used to combine gradients \n\
-class CriticalSection: Critical section \n\
-class DType: Represents the type of the elements in a Tensor \n\
-class DeviceSpec: Represents a (possibly partial) specification for a TensorFlow device \n\
-class GradientTape: Record operations for automatic differentiation \n\
-class Graph: A TensorFlow computation, represented as a dataflow graph \n\
-class IndexedSlices: A sparse representation of a set of tensor slices at given indices \n\
-class IndexedSlicesSpec: Type specification for a tf.IndexedSlices \n\
-class Module: Base neural network module class \n\
-class Operation: Represents a graph node that performs computation on tensors \n\
-class OptionalSpec: Type specification for tf.experimental.Optional \n\
-class RaggedTensor: Represents a ragged tensor \n\
-class RaggedTensorSpec: Type specification for a tf.RaggedTensor \n\
-class RegisterGradient: A decorator for registering the gradient function for an op type \n\
-class SparseTensor: Represents a sparse tensor \n\
-class SparseTensorSpec: Type specification for a tf.sparse.SparseTensor \n\
-class Tensor: A tensor is a multidimensional array of elements\n\
-class TensorArray: Class wrapping dynamic-sized, per-time-step, write-once Tensor arrays \n\
-class TensorArraySpec: Type specification for a tf.TensorArray \n\
-class TensorShape: Represents the shape of a Tensor \n\
-class TensorSpec: Describes a tf.Tensor \n\
-class TypeSpec: Specifies a TensorFlow value type \n\
-class UnconnectedGradients: Controls how gradient computation behaves when y does not depend on x \n\
-class Variable: See the variable guide \n\
-class VariableAggregation: Indicates how a distributed variable will be aggregated \n\
-class VariableSynchronization: Indicates when a distributed variable will be synced \n\
-class constant_initializer: Initializer that generates tensors with constant values \n\
-class name_scope: A context manager for use when defining a Python op \n\
-class ones_initializer: Initializer that generates tensors initialized to 1 \n\
-class random_normal_initializer: Initializer that generates tensors with a normal distribution \n\
-class random_uniform_initializer: Initializer that generates tensors with a uniform distribution \n\
-class zeros_initializer: Initializer that generates tensors initialized to 0 \n\
-\n\
-Functions\n\
-Assert(...): Asserts that the given condition is true \n\
-abs(...): Computes the absolute value of a tensor \n\
-acos(...): Computes acos of x element-wise \n\
-acosh(...): Computes inverse hyperbolic cosine of x element-wise \n\
-add(...): Returns x + y element-wise \n\
-add_n(...): Adds all input tensors element-wise \n\
-argmax(...): Returns the index with the largest value across axes of a tensor \n\
-argmin(...): Returns the index with the smallest value across axes of a tensor \n\
-argsort(...): Returns the indices of a tensor that give its sorted order along an axis \n\
-as_dtype(...): Converts the given type_value to a DType \n\
-as_string(...): Converts each entry in the given tensor to strings \n\
-asin(...): Computes the trignometric inverse sine of x element-wise \n\
-asinh(...): Computes inverse hyperbolic sine of x element-wise \n\
-assert_equal(...): Assert the condition x == y holds element-wise \n\
-assert_greater(...): Assert the condition x > y holds element-wise \n\
-assert_less(...): Assert the condition x < y holds element-wise \n\
-assert_rank(...): Assert that x has rank equal to rank \n\
-atan(...): Computes the trignometric inverse tangent of x element-wise \n\
-atan2(...): Computes arctangent of y/x element-wise, respecting signs of the arguments \n\
-atanh(...): Computes inverse hyperbolic tangent of x element-wise \n\
-batch_to_space(...): BatchToSpace for N-D tensors of type T \n\
-bitcast(...): Bitcasts a tensor from one type to another without copying data \n\
-boolean_mask(...): Apply boolean mask to tensor \n\
-broadcast_dynamic_shape(...): Computes the shape of a broadcast given symbolic shapes \n\
-broadcast_static_shape(...): Computes the shape of a broadcast given known shapes \n\
-broadcast_to(...): Broadcast an array for a compatible shape \n\
-case(...): Create a case operation \n\
-cast(...): Casts a tensor to a new type \n\
-clip_by_global_norm(...): Clips values of multiple tensors by the ratio of the sum of their norms \n\
-clip_by_norm(...): Clips tensor values to a maximum L2-norm \n\
-clip_by_value(...): Clips tensor values to a specified min and max \n\
-complex(...): Converts two real numbers to a complex number \n\
-concat(...): Concatenates tensors along one dimension \n\
-cond(...): Return true_fn() if the predicate pred is true else false_fn() \n\
-constant(...): Creates a constant tensor from a tensor-like object \n\
-control_dependencies(...): Wrapper for Graph.control_dependencies() using the default graph \n\
-convert_to_tensor(...): Converts the given value to a Tensor \n\
-cos(...): Computes cos of x element-wise \n\
-cosh(...): Computes hyperbolic cosine of x element-wise \n\
-cumsum(...): Compute the cumulative sum of the tensor x along axis \n\
-custom_gradient(...): Decorator to define a function with a custom gradient \n\
-device(...): Specifies the device for ops created/executed in this context \n\
-divide(...): Computes Python style division of x by y \n\
-dynamic_partition(...): Partitions data into num_partitions tensors using indices from partitions \n\
-dynamic_stitch(...): Interleave the values from the data tensors into a single tensor \n\
-edit_distance(...): Computes the Levenshtein distance between sequences \n\
-eig(...): Computes the eigen decomposition of a batch of matrices \n\
-eigvals(...): Computes the eigenvalues of one or more matrices \n\
-einsum(...): Tensor contraction over specified indices and outer product \n\
-ensure_shape(...): Updates the shape of a tensor and checks at runtime that the shape holds \n\
-equal(...): Returns the truth value of (x == y) element-wise \n\
-executing_eagerly(...): Checks whether the current thread has eager execution enabled \n\
-exp(...): Computes exponential of x element-wise.  \n\
-expand_dims(...): Returns a tensor with a length 1 axis inserted at index axis \n\
-extract_volume_patches(...): Extract patches from input and put them in the "depth" output dimension. 3D extension of extract_image_patches \n\
-eye(...): Construct an identity matrix, or a batch of matrices \n\
-fill(...): Creates a tensor filled with a scalar value \n\
-fingerprint(...): Generates fingerprint values \n\
-floor(...): Returns element-wise largest integer not greater than x \n\
-foldl(...): foldl on the list of tensors unpacked from elems on dimension 0. (deprecated argument values)\n\
-foldr(...): foldr on the list of tensors unpacked from elems on dimension 0. (deprecated argument values)\n\
-function(...): Compiles a function into a callable TensorFlow graph \n\
-gather(...): Gather slices from params axis axis according to indices \n\
-gather_nd(...): Gather slices from params into a Tensor with shape specified by indices \n\
-get_logger(...): Return TF logger instance \n\
-get_static_value(...): Returns the constant value of the given tensor, if efficiently calculable \n\
-grad_pass_through(...): Creates a grad-pass-through op with the forward behavior provided in f \n\
-gradients(...): Constructs symbolic derivatives of sum of ys w.r.t. x in xs \n\
-greater(...): Returns the truth value of (x > y) element-wise \n\
-greater_equal(...): Returns the truth value of (x >= y) element-wise \n\
-group(...): Create an op that groups multiple operations \n\
-guarantee_const(...): Gives a guarantee to the TF runtime that the input tensor is a constant \n\
-hessians(...): Constructs the Hessian of sum of ys with respect to x in xs \n\
-histogram_fixed_width(...): Return histogram of values \n\
-histogram_fixed_width_bins(...): Bins the given values for use in a histogram \n\
-identity(...): Return a Tensor with the same shape and contents as input \n\
-identity_n(...): Returns a list of tensors with the same shapes and contents as the input\n\
-import_graph_def(...): Imports the graph from graph_def into the current default Graph. (deprecated arguments)\n\
-init_scope(...): A context manager that lifts ops out of control-flow scopes and function-building graphs \n\
-inside_function(...): Indicates whether the caller code is executing inside a tf.function \n\
-is_tensor(...): Checks whether x is a TF-native type that can be passed to many TF ops \n\
-less(...): Returns the truth value of (x < y) element-wise \n\
-less_equal(...): Returns the truth value of (x <= y) element-wise \n\
-linspace(...): Generates evenly-spaced values in an interval along a given axis \n\
-load_library(...): Loads a TensorFlow plugin \n\
-load_op_library(...): Loads a TensorFlow plugin, containing custom ops and kernels \n\
-logical_and(...): Logical AND function \n\
-logical_not(...): Returns the truth value of NOT x element-wise \n\
-logical_or(...): Returns the truth value of x OR y element-wise \n\
-make_ndarray(...): Create a numpy ndarray from a tensor \n\
-make_tensor_proto(...): Create a TensorProto \n\
-map_fn(...): Transforms elems by applying fn to each element unstacked on axis 0. (deprecated arguments)\n\
-matmul(...): Multiplies matrix a by matrix b, producing a * b \n\
-matrix_square_root(...): Computes the matrix square root of one or more square matrices:\n\
-maximum(...): Returns the max of x and y (i.e. x > y ? x : y) element-wise \n\
-meshgrid(...): Broadcasts parameters for evaluation on an N-D grid \n\
-minimum(...): Returns the min of x and y (i.e. x < y ? x : y) element-wise \n\
-multiply(...): Returns an element-wise x * y \n\
-negative(...): Computes numerical negative value element-wise \n\
-no_gradient(...): Specifies that ops of type op_type is not differentiable \n\
-no_op(...): Does nothing. Only useful as a placeholder for control edges \n\
-nondifferentiable_batch_function(...): Batches the computation done by the decorated function \n\
-norm(...): Computes the norm of vectors, matrices, and tensors \n\
-not_equal(...): Returns the truth value of (x != y) element-wise \n\
-numpy_function(...): Wraps a python function and uses it as a TensorFlow op \n\
-one_hot(...): Returns a one-hot tensor \n\
-ones(...): Creates a tensor with all elements set to one (1) \n\
-ones_like(...): Creates a tensor of all ones that has the same shape as the input \n\
-pad(...): Pads a tensor \n\
-parallel_stack(...): Stacks a list of rank-R tensors into one rank-(R+1) tensor in parallel \n\
-pow(...): Computes the power of one value to another \n\
-print(...): Print the specified inputs \n\
-py_function(...): Wraps a python function into a TensorFlow op that executes it eagerly \n\
-quantize_and_dequantize_v4(...): Returns the gradient of QuantizeAndDequantizeV4 \n\
-range(...): Creates a sequence of numbers \n\
-rank(...): Returns the rank of a tensor \n\
-realdiv(...): Returns x / y element-wise for real types \n\
-recompute_grad(...): An eager-compatible version of recompute_grad \n\
-reduce_all(...): Computes the "logical and" of elements across dimensions of a tensor \n\
-reduce_any(...): Computes the "logical or" of elements across dimensions of a tensor \n\
-reduce_logsumexp(...): Computes log(sum(exp(elements across dimensions of a tensor))) \n\
-reduce_max(...): Computes the maximum of elements across dimensions of a tensor \n\
-reduce_mean(...): Computes the mean of elements across dimensions of a tensor \n\
-reduce_min(...): Computes the minimum of elements across dimensions of a tensor \n\
-reduce_prod(...): Computes the product of elements across dimensions of a tensor \n\
-reduce_sum(...): Computes the sum of elements across dimensions of a tensor \n\
-register_tensor_conversion_function(...): Registers a function for converting objects of base_type to Tensor \n\
-repeat(...): Repeat elements of input \n\
-required_space_to_batch_paddings(...): Calculate padding required to make block_shape divide input_shape \n\
-reshape(...): Reshapes a tensor \n\
-reverse(...): Reverses specific dimensions of a tensor \n\
-reverse_sequence(...): Reverses variable length slices \n\
-roll(...): Rolls the elements of a tensor along an axis \n\
-round(...): Rounds the values of a tensor to the nearest integer, element-wise \n\
-saturate_cast(...): Performs a safe saturating cast of value to dtype \n\
-scalar_mul(...): Multiplies a scalar times a Tensor or IndexedSlices object \n\
-scan(...): scan on the list of tensors unpacked from elems on dimension 0. (deprecated argument values)\n\
-scatter_nd(...): Scatter updates into a new tensor according to indices \n\
-searchsorted(...): Searches input tensor for values on the innermost dimension \n\
-sequence_mask(...): Returns a mask tensor representing the first N positions of each cell \n\
-shape(...): Returns a tensor containing the shape of the input tensor \n\
-shape_n(...): Returns shape of tensors \n\
-sigmoid(...): Computes sigmoid of x element-wise \n\
-sign(...): Returns an element-wise indication of the sign of a number \n\
-sin(...): Computes sine of x element-wise \n\
-sinh(...): Computes hyperbolic sine of x element-wise \n\
-size(...): Returns the size of a tensor \n\
-slice(...): Extracts a slice from a tensor \n\
-sort(...): Sorts a tensor \n\
-space_to_batch(...): SpaceToBatch for N-D tensors of type T \n\
-space_to_batch_nd(...): SpaceToBatch for N-D tensors of type T \n\
-split(...): Splits a tensor value into a list of sub tensors \n\
-sqrt(...): Computes element-wise square root of the input tensor \n\
-square(...): Computes square of x element-wise \n\
-squeeze(...): Removes dimensions of size 1 from the shape of a tensor \n\
-stack(...): Stacks a list of rank-R tensors into one rank-(R+1) tensor \n\
-stop_gradient(...): Stops gradient computation \n\
-strided_slice(...): Extracts a strided slice of a tensor (generalized Python array indexing) \n\
-subtract(...): Returns x - y element-wise \n\
-switch_case(...): Create a switch/case operation, i.e. an integer-indexed conditional \n\
-tan(...): Computes tan of x element-wise \n\
-tanh(...): Computes hyperbolic tangent of x element-wise \n\
-tensor_scatter_nd_add(...): Adds sparse updates to an existing tensor according to indices \n\
-tensor_scatter_nd_max(...)\n\
-tensor_scatter_nd_min(...)\n\
-tensor_scatter_nd_sub(...): Subtracts sparse updates from an existing tensor according to indices \n\
-tensor_scatter_nd_update(...): "Scatter updates into an existing tensor according to indices \n\
-tensordot(...): Tensor contraction of a and b along specified axes and outer product \n\
-tile(...): Constructs a tensor by tiling a given tensor \n\
-timestamp(...): Provides the time since epoch in seconds \n\
-transpose(...): Transposes a, where a is a Tensor \n\
-truediv(...): Divides x / y elementwise (using Python 3 division operator semantics) \n\
-truncatediv(...): Returns x / y element-wise for integer types \n\
-truncatemod(...): Returns element-wise remainder of division. This emulates C semantics in that\n\
-tuple(...): Group tensors together \n\
-type_spec_from_value(...): Returns a tf.TypeSpec that represents the given value \n\
-unique(...): Finds unique elements in a 1-D tensor \n\
-unique_with_counts(...): Finds unique elements in a 1-D tensor \n\
-unravel_index(...): Converts an array of flat indices into a tuple of coordinate arrays \n\
-unstack(...): Unpacks the given dimension of a rank-R tensor into rank-(R-1) tensors \n\
-variable_creator_scope(...): Scope which defines a variable creation function to be used by variable() \n\
-vectorized_map(...): Parallel map on the list of tensors unpacked from elems on dimension 0 \n\
-where(...): Return the elements where condition is True (multiplexing x and y) \n\
-while_loop(...): Repeat body while the condition cond is true. (deprecated argument values)\n\
-zeros(...): Creates a tensor with all elements set to zero \n\
-zeros_like(...): Creates a tensor with all elements set to zero \n\
-Other Members\n \n\
-version 2.4.0 \n\
-bfloat16 tf.dtypes.DType \n\
-bool tf.dtypes.DType \n\
-complex128 tf.dtypes.DType \n\
-complex64 tf.dtypes.DType \n\
-double tf.dtypes.DType \n\
-float16 tf.dtypes.DType \n\
-float32 tf.dtypes.DType \n\
-float64 tf.dtypes.DType \n\
-half tf.dtypes.DType \n\
-int16 tf.dtypes.DType \n\
-int32 tf.dtypes.DType \n\
-int64 tf.dtypes.DType \n\
-int8 tf.dtypes.DType \n\
-newaxis None \n\
-qint16 tf.dtypes.DType \n\
-qint32 tf.dtypes.DType \n\
-qint8 tf.dtypes.DType \n\
-quint16 tf.dtypes.DType \n\
-quint8 tf.dtypes.DType \n\
-resource tf.dtypes.DType \n\
-string tf.dtypes.DType \n\
-uint16 tf.dtypes.DType \n\
-uint32 tf.dtypes.DType \n\
-uint64 tf.dtypes.DType \n\
-uint8 tf.dtypes.DType \n\
-variant tf.dtypes.DType',
+  Modules\n\
+  Classes\n\
+  Functions\n\
+  Other Members\n\
+  \n\
+  Modules\n\
+  audio module: Public API for tf.audio namespace \n\
+  autodiff module: Public API for tf.autodiff namespace \n\
+  autograph module: Conversion of plain Python into TensorFlow graph code \n\
+  bitwise module: Operations for manipulating the binary representations of integers \n\
+  compat module: Compatibility functions \n\
+  config module: Public API for tf.config namespace \n\
+  data module: tf.data.Dataset API for input pipelines \n\
+  debugging module: Public API for tf.debugging namespace \n\
+  distribute module: Library for running a computation across multiple devices \n\
+  dtypes module: Public API for tf.dtypes namespace \n\
+  errors module: Exception types for TensorFlow errors \n\
+  estimator module: Estimator: High level tools for working with models \n\
+  experimental module: Public API for tf.experimental namespace \n\
+  feature_column module: Public API for tf.feature_column namespace \n\
+  graph_util module: Helpers to manipulate a tensor graph in python \n\
+  image module: Image ops \n\
+  initializers module: Keras initializer serialization / deserialization \n\
+  io module: Public API for tf.io namespace \n\
+  keras module: Implementation of the Keras API meant to be a high-level API for TensorFlow \n\
+  linalg module: Operations for linear algebra \n\
+  lite module: Public API for tf.lite namespace \n\
+  lookup module: Public API for tf.lookup namespace \n\
+  losses module: Built-in loss functions \n\
+  math module: Math Operations \n\
+  metrics module: Built-in metrics \n\
+  mixed_precision module: Public API for tf.mixed_precision namespace \n\
+  mlir module: Public API for tf.mlir namespace \n\
+  nest module: Public API for tf.nest namespace \n\
+  nn module: Wrappers for primitive Neural Net (NN) Operations \n\
+  optimizers module: Built-in optimizer classes \n\
+  profiler module: Public API for tf.profiler namespace \n\
+  quantization module: Public API for tf.quantization namespace \n\
+  queue module: Public API for tf.queue namespace \n\
+  ragged module: Ragged Tensors \n\
+  random module: Public API for tf.random namespace \n\
+  raw_ops module: Public API for tf.raw_ops namespace \n\
+  saved_model module: Public API for tf.saved_model namespace \n\
+  sets module: Tensorflow set operations \n\
+  signal module: Signal processing operations \n\
+  sparse module: Sparse Tensor Representation \n\
+  strings module: Operations for working with string Tensors \n\
+  summary module: Operations for writing summary data, for use in analysis and visualization \n\
+  sysconfig module: System configuration library \n\
+  test module: Testing \n\
+  tpu module: Ops related to Tensor Processing Units \n\
+  train module: Support for training models \n\
+  types module: Public TensorFlow type definitions \n\
+  version module: Public API for tf.version namespace \n\
+  xla module: Public API for tf.xla namespace \n\
+  \n\
+  Classes\n\
+  class AggregationMethod: A class listing aggregation methods used to combine gradients \n\
+  class CriticalSection: Critical section \n\
+  class DType: Represents the type of the elements in a Tensor \n\
+  class DeviceSpec: Represents a (possibly partial) specification for a TensorFlow device \n\
+  class GradientTape: Record operations for automatic differentiation \n\
+  class Graph: A TensorFlow computation, represented as a dataflow graph \n\
+  class IndexedSlices: A sparse representation of a set of tensor slices at given indices \n\
+  class IndexedSlicesSpec: Type specification for a tf.IndexedSlices \n\
+  class Module: Base neural network module class \n\
+  class Operation: Represents a graph node that performs computation on tensors \n\
+  class OptionalSpec: Type specification for tf.experimental.Optional \n\
+  class RaggedTensor: Represents a ragged tensor \n\
+  class RaggedTensorSpec: Type specification for a tf.RaggedTensor \n\
+  class RegisterGradient: A decorator for registering the gradient function for an op type \n\
+  class SparseTensor: Represents a sparse tensor \n\
+  class SparseTensorSpec: Type specification for a tf.sparse.SparseTensor \n\
+  class Tensor: A tensor is a multidimensional array of elements\n\
+  class TensorArray: Class wrapping dynamic-sized, per-time-step, write-once Tensor arrays \n\
+  class TensorArraySpec: Type specification for a tf.TensorArray \n\
+  class TensorShape: Represents the shape of a Tensor \n\
+  class TensorSpec: Describes a tf.Tensor \n\
+  class TypeSpec: Specifies a TensorFlow value type \n\
+  class UnconnectedGradients: Controls how gradient computation behaves when y does not depend on x \n\
+  class Variable: See the variable guide \n\
+  class VariableAggregation: Indicates how a distributed variable will be aggregated \n\
+  class VariableSynchronization: Indicates when a distributed variable will be synced \n\
+  class constant_initializer: Initializer that generates tensors with constant values \n\
+  class name_scope: A context manager for use when defining a Python op \n\
+  class ones_initializer: Initializer that generates tensors initialized to 1 \n\
+  class random_normal_initializer: Initializer that generates tensors with a normal distribution \n\
+  class random_uniform_initializer: Initializer that generates tensors with a uniform distribution \n\
+  class zeros_initializer: Initializer that generates tensors initialized to 0 \n\
+  \n\
+  Functions\n\
+  Assert(...): Asserts that the given condition is true \n\
+  abs(...): Computes the absolute value of a tensor \n\
+  acos(...): Computes acos of x element-wise \n\
+  acosh(...): Computes inverse hyperbolic cosine of x element-wise \n\
+  add(...): Returns x + y element-wise \n\
+  add_n(...): Adds all input tensors element-wise \n\
+  argmax(...): Returns the index with the largest value across axes of a tensor \n\
+  argmin(...): Returns the index with the smallest value across axes of a tensor \n\
+  argsort(...): Returns the indices of a tensor that give its sorted order along an axis \n\
+  as_dtype(...): Converts the given type_value to a DType \n\
+  as_string(...): Converts each entry in the given tensor to strings \n\
+  asin(...): Computes the trignometric inverse sine of x element-wise \n\
+  asinh(...): Computes inverse hyperbolic sine of x element-wise \n\
+  assert_equal(...): Assert the condition x == y holds element-wise \n\
+  assert_greater(...): Assert the condition x > y holds element-wise \n\
+  assert_less(...): Assert the condition x < y holds element-wise \n\
+  assert_rank(...): Assert that x has rank equal to rank \n\
+  atan(...): Computes the trignometric inverse tangent of x element-wise \n\
+  atan2(...): Computes arctangent of y/x element-wise, respecting signs of the arguments \n\
+  atanh(...): Computes inverse hyperbolic tangent of x element-wise \n\
+  batch_to_space(...): BatchToSpace for N-D tensors of type T \n\
+  bitcast(...): Bitcasts a tensor from one type to another without copying data \n\
+  boolean_mask(...): Apply boolean mask to tensor \n\
+  broadcast_dynamic_shape(...): Computes the shape of a broadcast given symbolic shapes \n\
+  broadcast_static_shape(...): Computes the shape of a broadcast given known shapes \n\
+  broadcast_to(...): Broadcast an array for a compatible shape \n\
+  case(...): Create a case operation \n\
+  cast(...): Casts a tensor to a new type \n\
+  clip_by_global_norm(...): Clips values of multiple tensors by the ratio of the sum of their norms \n\
+  clip_by_norm(...): Clips tensor values to a maximum L2-norm \n\
+  clip_by_value(...): Clips tensor values to a specified min and max \n\
+  complex(...): Converts two real numbers to a complex number \n\
+  concat(...): Concatenates tensors along one dimension \n\
+  cond(...): Return true_fn() if the predicate pred is true else false_fn() \n\
+  constant(...): Creates a constant tensor from a tensor-like object \n\
+  control_dependencies(...): Wrapper for Graph.control_dependencies() using the default graph \n\
+  convert_to_tensor(...): Converts the given value to a Tensor \n\
+  cos(...): Computes cos of x element-wise \n\
+  cosh(...): Computes hyperbolic cosine of x element-wise \n\
+  cumsum(...): Compute the cumulative sum of the tensor x along axis \n\
+  custom_gradient(...): Decorator to define a function with a custom gradient \n\
+  device(...): Specifies the device for ops created/executed in this context \n\
+  divide(...): Computes Python style division of x by y \n\
+  dynamic_partition(...): Partitions data into num_partitions tensors using indices from partitions \n\
+  dynamic_stitch(...): Interleave the values from the data tensors into a single tensor \n\
+  edit_distance(...): Computes the Levenshtein distance between sequences \n\
+  eig(...): Computes the eigen decomposition of a batch of matrices \n\
+  eigvals(...): Computes the eigenvalues of one or more matrices \n\
+  einsum(...): Tensor contraction over specified indices and outer product \n\
+  ensure_shape(...): Updates the shape of a tensor and checks at runtime that the shape holds \n\
+  equal(...): Returns the truth value of (x == y) element-wise \n\
+  executing_eagerly(...): Checks whether the current thread has eager execution enabled \n\
+  exp(...): Computes exponential of x element-wise.  \n\
+  expand_dims(...): Returns a tensor with a length 1 axis inserted at index axis \n\
+  extract_volume_patches(...): Extract patches from input and put them in the "depth" output dimension. 3D extension of extract_image_patches \n\
+  eye(...): Construct an identity matrix, or a batch of matrices \n\
+  fill(...): Creates a tensor filled with a scalar value \n\
+  fingerprint(...): Generates fingerprint values \n\
+  floor(...): Returns element-wise largest integer not greater than x \n\
+  foldl(...): foldl on the list of tensors unpacked from elems on dimension 0. (deprecated argument values)\n\
+  foldr(...): foldr on the list of tensors unpacked from elems on dimension 0. (deprecated argument values)\n\
+  function(...): Compiles a function into a callable TensorFlow graph \n\
+  gather(...): Gather slices from params axis axis according to indices \n\
+  gather_nd(...): Gather slices from params into a Tensor with shape specified by indices \n\
+  get_logger(...): Return TF logger instance \n\
+  get_static_value(...): Returns the constant value of the given tensor, if efficiently calculable \n\
+  grad_pass_through(...): Creates a grad-pass-through op with the forward behavior provided in f \n\
+  gradients(...): Constructs symbolic derivatives of sum of ys w.r.t. x in xs \n\
+  greater(...): Returns the truth value of (x > y) element-wise \n\
+  greater_equal(...): Returns the truth value of (x >= y) element-wise \n\
+  group(...): Create an op that groups multiple operations \n\
+  guarantee_const(...): Gives a guarantee to the TF runtime that the input tensor is a constant \n\
+  hessians(...): Constructs the Hessian of sum of ys with respect to x in xs \n\
+  histogram_fixed_width(...): Return histogram of values \n\
+  histogram_fixed_width_bins(...): Bins the given values for use in a histogram \n\
+  identity(...): Return a Tensor with the same shape and contents as input \n\
+  identity_n(...): Returns a list of tensors with the same shapes and contents as the input\n\
+  import_graph_def(...): Imports the graph from graph_def into the current default Graph. (deprecated arguments)\n\
+  init_scope(...): A context manager that lifts ops out of control-flow scopes and function-building graphs \n\
+  inside_function(...): Indicates whether the caller code is executing inside a tf.function \n\
+  is_tensor(...): Checks whether x is a TF-native type that can be passed to many TF ops \n\
+  less(...): Returns the truth value of (x < y) element-wise \n\
+  less_equal(...): Returns the truth value of (x <= y) element-wise \n\
+  linspace(...): Generates evenly-spaced values in an interval along a given axis \n\
+  load_library(...): Loads a TensorFlow plugin \n\
+  load_op_library(...): Loads a TensorFlow plugin, containing custom ops and kernels \n\
+  logical_and(...): Logical AND function \n\
+  logical_not(...): Returns the truth value of NOT x element-wise \n\
+  logical_or(...): Returns the truth value of x OR y element-wise \n\
+  make_ndarray(...): Create a numpy ndarray from a tensor \n\
+  make_tensor_proto(...): Create a TensorProto \n\
+  map_fn(...): Transforms elems by applying fn to each element unstacked on axis 0. (deprecated arguments)\n\
+  matmul(...): Multiplies matrix a by matrix b, producing a * b \n\
+  matrix_square_root(...): Computes the matrix square root of one or more square matrices:\n\
+  maximum(...): Returns the max of x and y (i.e. x > y ? x : y) element-wise \n\
+  meshgrid(...): Broadcasts parameters for evaluation on an N-D grid \n\
+  minimum(...): Returns the min of x and y (i.e. x < y ? x : y) element-wise \n\
+  multiply(...): Returns an element-wise x * y \n\
+  negative(...): Computes numerical negative value element-wise \n\
+  no_gradient(...): Specifies that ops of type op_type is not differentiable \n\
+  no_op(...): Does nothing. Only useful as a placeholder for control edges \n\
+  nondifferentiable_batch_function(...): Batches the computation done by the decorated function \n\
+  norm(...): Computes the norm of vectors, matrices, and tensors \n\
+  not_equal(...): Returns the truth value of (x != y) element-wise \n\
+  numpy_function(...): Wraps a python function and uses it as a TensorFlow op \n\
+  one_hot(...): Returns a one-hot tensor \n\
+  ones(...): Creates a tensor with all elements set to one (1) \n\
+  ones_like(...): Creates a tensor of all ones that has the same shape as the input \n\
+  pad(...): Pads a tensor \n\
+  parallel_stack(...): Stacks a list of rank-R tensors into one rank-(R+1) tensor in parallel \n\
+  pow(...): Computes the power of one value to another \n\
+  print(...): Print the specified inputs \n\
+  py_function(...): Wraps a python function into a TensorFlow op that executes it eagerly \n\
+  quantize_and_dequantize_v4(...): Returns the gradient of QuantizeAndDequantizeV4 \n\
+  range(...): Creates a sequence of numbers \n\
+  rank(...): Returns the rank of a tensor \n\
+  realdiv(...): Returns x / y element-wise for real types \n\
+  recompute_grad(...): An eager-compatible version of recompute_grad \n\
+  reduce_all(...): Computes the "logical and" of elements across dimensions of a tensor \n\
+  reduce_any(...): Computes the "logical or" of elements across dimensions of a tensor \n\
+  reduce_logsumexp(...): Computes log(sum(exp(elements across dimensions of a tensor))) \n\
+  reduce_max(...): Computes the maximum of elements across dimensions of a tensor \n\
+  reduce_mean(...): Computes the mean of elements across dimensions of a tensor \n\
+  reduce_min(...): Computes the minimum of elements across dimensions of a tensor \n\
+  reduce_prod(...): Computes the product of elements across dimensions of a tensor \n\
+  reduce_sum(...): Computes the sum of elements across dimensions of a tensor \n\
+  register_tensor_conversion_function(...): Registers a function for converting objects of base_type to Tensor \n\
+  repeat(...): Repeat elements of input \n\
+  required_space_to_batch_paddings(...): Calculate padding required to make block_shape divide input_shape \n\
+  reshape(...): Reshapes a tensor \n\
+  reverse(...): Reverses specific dimensions of a tensor \n\
+  reverse_sequence(...): Reverses variable length slices \n\
+  roll(...): Rolls the elements of a tensor along an axis \n\
+  round(...): Rounds the values of a tensor to the nearest integer, element-wise \n\
+  saturate_cast(...): Performs a safe saturating cast of value to dtype \n\
+  scalar_mul(...): Multiplies a scalar times a Tensor or IndexedSlices object \n\
+  scan(...): scan on the list of tensors unpacked from elems on dimension 0. (deprecated argument values)\n\
+  scatter_nd(...): Scatter updates into a new tensor according to indices \n\
+  searchsorted(...): Searches input tensor for values on the innermost dimension \n\
+  sequence_mask(...): Returns a mask tensor representing the first N positions of each cell \n\
+  shape(...): Returns a tensor containing the shape of the input tensor \n\
+  shape_n(...): Returns shape of tensors \n\
+  sigmoid(...): Computes sigmoid of x element-wise \n\
+  sign(...): Returns an element-wise indication of the sign of a number \n\
+  sin(...): Computes sine of x element-wise \n\
+  sinh(...): Computes hyperbolic sine of x element-wise \n\
+  size(...): Returns the size of a tensor \n\
+  slice(...): Extracts a slice from a tensor \n\
+  sort(...): Sorts a tensor \n\
+  space_to_batch(...): SpaceToBatch for N-D tensors of type T \n\
+  space_to_batch_nd(...): SpaceToBatch for N-D tensors of type T \n\
+  split(...): Splits a tensor value into a list of sub tensors \n\
+  sqrt(...): Computes element-wise square root of the input tensor \n\
+  square(...): Computes square of x element-wise \n\
+  squeeze(...): Removes dimensions of size 1 from the shape of a tensor \n\
+  stack(...): Stacks a list of rank-R tensors into one rank-(R+1) tensor \n\
+  stop_gradient(...): Stops gradient computation \n\
+  strided_slice(...): Extracts a strided slice of a tensor (generalized Python array indexing) \n\
+  subtract(...): Returns x - y element-wise \n\
+  switch_case(...): Create a switch/case operation, i.e. an integer-indexed conditional \n\
+  tan(...): Computes tan of x element-wise \n\
+  tanh(...): Computes hyperbolic tangent of x element-wise \n\
+  tensor_scatter_nd_add(...): Adds sparse updates to an existing tensor according to indices \n\
+  tensor_scatter_nd_max(...)\n\
+  tensor_scatter_nd_min(...)\n\
+  tensor_scatter_nd_sub(...): Subtracts sparse updates from an existing tensor according to indices \n\
+  tensor_scatter_nd_update(...): "Scatter updates into an existing tensor according to indices \n\
+  tensordot(...): Tensor contraction of a and b along specified axes and outer product \n\
+  tile(...): Constructs a tensor by tiling a given tensor \n\
+  timestamp(...): Provides the time since epoch in seconds \n\
+  transpose(...): Transposes a, where a is a Tensor \n\
+  truediv(...): Divides x / y elementwise (using Python 3 division operator semantics) \n\
+  truncatediv(...): Returns x / y element-wise for integer types \n\
+  truncatemod(...): Returns element-wise remainder of division. This emulates C semantics in that\n\
+  tuple(...): Group tensors together \n\
+  type_spec_from_value(...): Returns a tf.TypeSpec that represents the given value \n\
+  unique(...): Finds unique elements in a 1-D tensor \n\
+  unique_with_counts(...): Finds unique elements in a 1-D tensor \n\
+  unravel_index(...): Converts an array of flat indices into a tuple of coordinate arrays \n\
+  unstack(...): Unpacks the given dimension of a rank-R tensor into rank-(R-1) tensors \n\
+  variable_creator_scope(...): Scope which defines a variable creation function to be used by variable() \n\
+  vectorized_map(...): Parallel map on the list of tensors unpacked from elems on dimension 0 \n\
+  where(...): Return the elements where condition is True (multiplexing x and y) \n\
+  while_loop(...): Repeat body while the condition cond is true. (deprecated argument values)\n\
+  zeros(...): Creates a tensor with all elements set to zero \n\
+  zeros_like(...): Creates a tensor with all elements set to zero \n\
+  Other Members\n \n\
+  version 2.4.0 \n\
+  bfloat16 tf.dtypes.DType \n\
+  bool tf.dtypes.DType \n\
+  complex128 tf.dtypes.DType \n\
+  complex64 tf.dtypes.DType \n\
+  double tf.dtypes.DType \n\
+  float16 tf.dtypes.DType \n\
+  float32 tf.dtypes.DType \n\
+  float64 tf.dtypes.DType \n\
+  half tf.dtypes.DType \n\
+  int16 tf.dtypes.DType \n\
+  int32 tf.dtypes.DType \n\
+  int64 tf.dtypes.DType \n\
+  int8 tf.dtypes.DType \n\
+  newaxis None \n\
+  qint16 tf.dtypes.DType \n\
+  qint32 tf.dtypes.DType \n\
+  qint8 tf.dtypes.DType \n\
+  quint16 tf.dtypes.DType \n\
+  quint8 tf.dtypes.DType \n\
+  resource tf.dtypes.DType \n\
+  string tf.dtypes.DType \n\
+  uint16 tf.dtypes.DType \n\
+  uint32 tf.dtypes.DType \n\
+  uint64 tf.dtypes.DType \n\
+  uint8 tf.dtypes.DType \n\
+  variant tf.dtypes.DType',
   },
 ]
