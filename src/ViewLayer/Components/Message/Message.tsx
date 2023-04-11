@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import dayjs from 'dayjs'
 
@@ -14,7 +14,7 @@ import { LOCALE, TIME_FORMAT } from '../../../Constants/locale.const'
  */
 const MessageComponent: MessageType = props => {
   const {
-    id,
+    idMessage,
     text,
     createdAt,
     position = 'right',

@@ -1,4 +1,3 @@
-import { useState, useMemo } from 'react'
 import '@expo/match-media'
 import { useMediaQuery } from 'react-responsive'
 import { Dimensions } from 'react-native'

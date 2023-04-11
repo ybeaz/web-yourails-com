@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 import { Text as TextReactNative } from 'react-native'
 
 import { TextType } from './TextType'

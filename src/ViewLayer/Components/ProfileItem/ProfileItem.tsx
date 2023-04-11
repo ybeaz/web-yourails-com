@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import { View, ImageResizeMode } from 'react-native'
 
 import { useLinkClickRes } from '../../Hooks/useLinkClickRes'

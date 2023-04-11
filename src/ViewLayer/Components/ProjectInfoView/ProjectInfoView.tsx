@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import { View } from 'react-native'
 
 import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'

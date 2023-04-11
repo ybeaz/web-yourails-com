@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 
 import { Text } from '../../Components/Text/Text'
