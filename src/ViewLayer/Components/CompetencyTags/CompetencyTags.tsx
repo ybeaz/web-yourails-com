@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
-import { useSelector } from 'react-redux'
 
-import { RootStoreType } from '../../../@types/RootStoreType'
+import { withStoreState } from '../../Hooks/withStoreState'
 import {
   CompetencyTagType,
   CompetencyTagsObjType,
@@ -22,9 +21,9 @@ import { competencyTags } from '../../../ContentMock/competencyTagsMock'
  * @import import { CompetencyTags } from '../Components/CompetencyTags/CompetencyTags'
  */
 const CompetencyTagsComponent: CompetencyTagsType = props => {
-  const { styleProps = { CompetencyTags: {} } } = props
+  const { styleProps = { CompetencyTags: {} }, store } = props
 
-  const store = useSelector((store2: RootStoreType) => store2)
+  // const store = useSelector((store2: RootStoreType) => store2)
   const {
     globalVars: { idUserHost },
   } = store
@@ -116,4 +115,6 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   )
 }
 
-export const CompetencyTags = React.memo(CompetencyTagsComponent)
+export const CompetencyTags = React.memo(
+  withStoreState(CompetencyTagsComponent)
+)

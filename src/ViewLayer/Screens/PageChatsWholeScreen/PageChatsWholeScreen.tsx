@@ -1,10 +1,11 @@
 import React, { useRef, useEffect, useCallback } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView, View } from 'react-native'
-import { useSelector } from 'react-redux'
+
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
+import { withStoreState } from '../../Hooks/withStoreState'
 import { ProfileType } from '../../../@types/ProfileType'
 import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary/AnimatedYrl/AnimatedYrl'
@@ -14,7 +15,6 @@ import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/Co
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { styles } from './PageChatsWholeScreenStyle'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
-import { RootStoreType } from '../../../@types/RootStoreType'
 import { styleGlobal } from '../../Styles/styleGlobal'
 import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
@@ -35,11 +35,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
     mediaParams = mediaParamsDefault,
     themeDafault = '',
+    store,
   } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
 
-  const store = useSelector((store2: RootStoreType) => store2)
   const renderCounter = useRef(0)
   renderCounter.current = renderCounter.current + 1
 
@@ -189,5 +189,5 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 }
 
 export const PageChatsWholeScreen = React.memo(
-  withDeviceType(PageChatsWholeScreenComponent)
+  withStoreState(withDeviceType(PageChatsWholeScreenComponent))
 )

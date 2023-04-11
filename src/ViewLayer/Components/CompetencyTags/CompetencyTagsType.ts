@@ -1,5 +1,8 @@
+import { RootStoreType } from '../../../@types/RootStoreType'
+
 export interface CompetencyTagsPropsType {
   styleProps?: any
+  store: RootStoreType
 }
 
 /**

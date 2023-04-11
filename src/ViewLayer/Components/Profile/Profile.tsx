@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
-import { useSelector } from 'react-redux'
 
-import { RootStoreType } from '../../../@types/RootStoreType'
+import { withStoreState } from '../../Hooks/withStoreState'
 import {
   withDeviceType,
   mediaParamsDefault,
@@ -129,7 +128,7 @@ const getProfileItemsObjList = (
       iconLibrary: undefined,
       iconName: undefined,
       contentType: 'imageSrc',
-      contentSrc: 'https://r1.profileto.com/img/romanChesQrCodeQuietZone00.png',
+      contentSrc: 'https://r1.userto.com/img/romanChesQrCodeQuietZone00.png',
       content: '',
       label: 'QR code with contacts',
       isActive: true,
@@ -141,18 +140,28 @@ const getProfileItemsObjList = (
  * @import import { Profile } from '../Components/Profile/Profile'
  */
 const ProfileComponent: ProfileComponentType = props => {
-  const { styleProps = { Profile: {} }, mediaParams = mediaParamsDefault } =
-    props
+  const {
+    styleProps = { Profile: {} },
+    mediaParams = mediaParamsDefault,
+    store,
+  } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
 
-  const store = useSelector((store2: RootStoreType) => store2)
+  // const store = useSelector((store2: RootStoreType) => store2)
   const {
     globalVars: { idUserHost },
   } = store
 
   const profile: ProfileType =
     profiles.find(profile => profile.idUser === idUserHost) || profiles[0]
+
+  console.info('Profile [158]', {
+    idUserHost,
+    profile,
+    profileFound: profiles.find(profile => profile.idUser === idUserHost),
+    name,
+  })
 
   const profileItems = getProfileItemsObjList(
     profile,
@@ -177,4 +186,6 @@ const ProfileComponent: ProfileComponentType = props => {
   )
 }
 
-export const Profile = React.memo(withDeviceType(ProfileComponent))
+export const Profile = React.memo(
+  withStoreState(withDeviceType(ProfileComponent))
+)

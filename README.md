@@ -14,7 +14,10 @@ react-native-gifted-chat[https://github.com/FaridSafi/react-native-gifted-chat/t
 - screens
 - parent modal window frames
 
-2. All business logic is in handles, not in the reducers or actions. Actions are only a contraction and manifest the name. Reducers do only what directly matches their names.
+2. We supply Containers (see item 1) store not throug useSelector, but with withStoreState HOC
+   We provide components with device type informaton with withDeviceType HOC
+
+3. All business logic is in handles, not in the reducers or actions. Actions are only a contraction and manifest the name. Reducers do only what directly matches their names.
 
 ## How to section, architecture / development notes
 

@@ -1,8 +1,7 @@
 import React, { useCallback, ReactElement } from 'react'
 import { ImageResizeMode, View, Linking, Alert } from 'react-native'
-import { useSelector } from 'react-redux'
 
-import { RootStoreType } from '../../../@types/RootStoreType'
+import { withStoreState } from '../../Hooks/withStoreState'
 import { ProjectType } from '../../../@types/ProjectType'
 import { ProjectInfoView } from '../ProjectInfoView/ProjectInfoView'
 import { Header } from '../Header/Header'
@@ -20,12 +19,15 @@ import { projects } from '../../../ContentMock/projectsMock'
  * @import import { Portfolio } from '../Components/Portfolio/Portfolio'
  */
 const PortfolioComponent: PortfolioType = props => {
-  const { styleProps = { Portfolio: {} }, mediaParams = mediaParamsDefault } =
-    props
+  const {
+    styleProps = { Portfolio: {} },
+    mediaParams = mediaParamsDefault,
+    store,
+  } = props
   const { deviceType, screenCase, width } = mediaParams
   const style = styles[deviceType]
 
-  const store = useSelector((store2: RootStoreType) => store2)
+  // const store = useSelector((store2: RootStoreType) => store2)
   const {
     globalVars: { idUserHost },
   } = store
@@ -130,4 +132,6 @@ const PortfolioComponent: PortfolioType = props => {
   )
 }
 
-export const Portfolio = React.memo(withDeviceType(PortfolioComponent))
+export const Portfolio = React.memo(
+  withStoreState(withDeviceType(PortfolioComponent))
+)

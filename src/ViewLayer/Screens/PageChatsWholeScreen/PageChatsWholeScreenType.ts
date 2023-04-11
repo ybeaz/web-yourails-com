@@ -1,4 +1,5 @@
 import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
+import { RootStoreType } from '../../../@types/RootStoreType'
 
 export interface PageChatsWholeScreenPropsType {
   styleProps?: any
@@ -9,6 +10,7 @@ export interface PageChatsWholeScreenPropsType {
     }
   }
   themeDafault?: string
+  store: RootStoreType
 }
 
 export interface PageChatsWholeScreenType
