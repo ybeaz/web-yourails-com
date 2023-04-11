@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, ReactElement } from 'react'
 import { View } from 'react-native'
 
+import { ContentType, LinkType } from '../../../@types/LinkType'
 import { withStoreState } from '../../Hooks/withStoreState'
 import {
   withDeviceType,
@@ -14,11 +15,13 @@ import { ProfileComponentType } from './ProfileComponentType'
 import { ProfileType } from '../../../@types/ProfileType'
 import { getMessengesString } from '../../../Shared/getMessengesString'
 
+import { links } from '../../../ContentMock/linksMock'
 import { profiles } from '../../../ContentMock/profilesMock'
 
 // TODO Refactor wile moving to multiprofile and multiprofiler service
 const getProfileItemsObjList = (
   profileIn: ProfileType,
+  links: LinkType[],
   style: any,
   deviceType: DeviceType
 ): ProfileItemPropsType[] => {
@@ -83,56 +86,12 @@ const getProfileItemsObjList = (
     },
     {
       iconLibrary: 'Ionicons',
-      iconName: 'ios-calendar-outline',
-      contentType: 'linkHref',
-      contentSrc: 'https://calendly.com/romanch',
-      content: 'Feel free to setup a phone call',
-      label: 'Link',
-      isActive: true,
-    },
-    {
-      iconLibrary: 'Ionicons',
       iconName: 'mail-outline',
       content: emails.join(', '),
       label: 'Email',
       isActive: true,
     },
-    {
-      iconLibrary: 'Ionicons',
-      iconName: 'ios-logo-linkedin',
-      contentType: 'linkHref',
-      contentSrc: 'https://www.linkedin.com/in/romanches',
-      content: 'Profile in Linkedin.com',
-      label: 'Link',
-      isActive: true,
-    },
-    {
-      iconLibrary: 'Ionicons',
-      iconName: 'ios-logo-stackoverflow',
-      contentType: 'linkHref',
-      contentSrc: 'https://stackoverflow.com/profiles/4791116/roman',
-      content: 'Profile in Stackoverflow',
-      label: 'Link',
-      isActive: true,
-    },
-    {
-      iconLibrary: 'Ionicons',
-      iconName: 'ios-logo-github',
-      contentType: 'linkHref',
-      contentSrc: 'https://github.com/ybeaz',
-      content: 'Profile in Github',
-      label: 'Link',
-      isActive: true,
-    },
-    {
-      iconLibrary: undefined,
-      iconName: undefined,
-      contentType: 'imageSrc',
-      contentSrc: 'https://r1.userto.com/img/romanChesQrCodeQuietZone00.png',
-      content: '',
-      label: 'QR code with contacts',
-      isActive: true,
-    },
+    ...links,
   ]
 }
 
@@ -156,15 +115,9 @@ const ProfileComponent: ProfileComponentType = props => {
   const profile: ProfileType =
     profiles.find(profile => profile.idUser === idUserHost) || profiles[0]
 
-  console.info('Profile [158]', {
-    idUserHost,
-    profile,
-    profileFound: profiles.find(profile => profile.idUser === idUserHost),
-    name,
-  })
-
   const profileItems = getProfileItemsObjList(
     profile,
+    links,
     style,
     deviceType
   ).filter(profileItemObj => profileItemObj.isActive === true)

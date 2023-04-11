@@ -30,7 +30,7 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
     phones: ['415-340-9293'],
     emails: ['smiddist@gmail.com'],
     messengers: [],
-    locations: ['Remote', 'San Francisco, CA'],
+    locations: ['San Francisco, CA'],
     serviceSpecs: ['Electrician', 'Appliance technician'],
     summary:
       'Motivated and detail-oriented electrician with experience in installing and maintaining electrical systems in residential settings. Skilled in using hand and power tools to complete tasks accurately and efficiently.',

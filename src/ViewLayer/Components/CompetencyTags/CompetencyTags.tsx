@@ -24,7 +24,6 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   } = store
 
   const tagSubheadings = getSectionsFromTagsCompetencies(competencyTags)
-  console.info('CompetencyTags [30]', { tagSubheadings, competencyTags })
 
   const getTagList = (competencies: CompetencyTagType[]): ReactElement[] => {
     return competencies.map((competency, index: number) => {
