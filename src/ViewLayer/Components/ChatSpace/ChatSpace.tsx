@@ -43,8 +43,9 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const { childName, isShow: isShowModalFrame, childProps } = modalFrame
 
   const profile =
-    profiles.find((profileIn: ProfileType) => profileIn.id !== idUserHost) ||
-    profiles[0]
+    profiles.find(
+      (profileIn: ProfileType) => profileIn.idUser !== idUserHost
+    ) || profiles[0]
   const Child = MODAL_CONTENTS[childName]
 
   const messagesPrep = getPreproccedMessages(messages, idUserHost)
@@ -115,7 +116,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           library: 'Ionicons',
           name: 'arrow-back-outline',
           size: '1.5rem',
-          color: 'green',
+          color: themes['themeA'].colors07.color,
           testID: 'ModalFrameYrl-buttonBack-iconBack',
         },
       },
@@ -137,7 +138,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           library: 'Ionicons',
           name: 'close',
           size: '1.5rem',
-          color: 'green',
+          color: themes['themeA'].colors07.color,
           testID: 'ModalFrameYrl-buttonClose-iconClose',
         },
       },

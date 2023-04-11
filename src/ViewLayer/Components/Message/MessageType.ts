@@ -1,5 +1,5 @@
 export interface MessagePropsType {
-  id: string | number
+  idMessage: string | number
   idUser: string | number
   text: string
   createdAt: Date | number | string
