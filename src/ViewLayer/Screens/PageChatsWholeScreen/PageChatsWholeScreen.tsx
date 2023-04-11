@@ -90,17 +90,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
     topBarMainColumnProps: {
       styleProps: {
-        TopBarMainColumn: {
-          // borderStyle: 'solid',
-          // borderTopWidth: '1px',
-          // borderRightWidth: '1px',
-          // borderBottomWidth: 1,
-          // borderLeftWidth: 1,
-          // borderTopColor: themes['themeA'].colors01.borderColor,
-          // borderRightColor: 'red', // themes['themeA'].colors01.borderColor,
-          // borderBottomColor: themes['themeA'].colors01.borderColor,
-          // borderLeftColor: themes['themeA'].colors01.borderColor,
-        },
+        TopBarMainColumn: {},
       },
       profile,
     },
@@ -141,7 +131,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           style={[
             style.sidebarRight,
             themes['themeA'].colors01,
-            { borderColor: themes['themeA'].colors01.borderColor },
             styleAddSidebarRight,
           ]}
           testID='sidebarRight'
@@ -155,16 +144,31 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
       {isMainColumn && (
         <AnimatedYrl {...propsOut.mainColumnOuterAnimatedYrlProps}>
-          <View style={[style.mainColumn]} testID='mainColumn'>
+          <View
+            style={[
+              style.mainColumn,
+              {
+                borderStyle: 'solid',
+                // borderTopWidth: 1,
+                // borderRightWidth: 1,
+                borderBottomWidth: 1,
+                borderLeftWidth: 1,
+              },
+              themes['themeA'].colors01,
+            ]}
+            testID='mainColumn'
+          >
             <View
               style={[
                 style.topBarMainColumn,
                 {
-                  borderTopColor: themes['themeA'].colors01.borderColor,
-                  borderRightColor: themes['themeA'].colors01.borderColor,
-                  borderBottomColor: themes['themeA'].colors01.borderColor,
-                  borderLeftColor: themes['themeA'].colors01.borderColor,
+                  // borderStyle: 'solid',
+                  // borderTopWidth: 1,
+                  // borderRightWidth: 1,
+                  // borderBottomWidth: 1,
+                  // borderLeftWidth: 1,
                 },
+                themes['themeA'].colors01,
               ]}
               testID='topBarMainColumn'
             >
