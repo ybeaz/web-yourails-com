@@ -1,5 +1,13 @@
 import React, { useContext, FunctionComponent } from 'react'
 
+export interface WithUseContextYrl2Type {
+  (Component: FunctionComponent<any>): FunctionComponent
+}
+
+export interface WithUseContextYrlType {
+  (contextCreated: any): WithUseContextYrl2Type
+}
+
 /**
  * @description Function decorator for React Functional Component
  *    to provide a component with context data from the parent component
@@ -10,9 +18,8 @@ import React, { useContext, FunctionComponent } from 'react'
  *    directly instructing the component to perform a specific action or behavior.
  * @import import { withUseContextYrl } from './YrlNativeViewLibrary/Hooks/withUseContextYrl'
  */
-export const withUseContextYrl =
-  (contextCreated: any) =>
-  (Component: FunctionComponent<any>): FunctionComponent => {
+export const withUseContextYrl: WithUseContextYrlType =
+  contextCreated => Component => {
     return function WrappedComponent(props: any) {
       const contextData: any = useContext(contextCreated)
       const propsNext = { ...props, ...contextData }

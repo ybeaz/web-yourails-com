@@ -1,9 +1,9 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
-import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
-import { InputTextYrl } from '../../../YrlNativeViewLibrary/InputTextYrl/InputTextYrl'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary'
+import { IconYrl } from '../../../YrlNativeViewLibrary'
+import { InputTextYrl } from '../../../YrlNativeViewLibrary'
 import { themes } from '../../Styles/themes'
 import { style } from './TopBarChatCardsStyle'
 import { TopBarChatCardsType } from './TopBarChatCardsType'

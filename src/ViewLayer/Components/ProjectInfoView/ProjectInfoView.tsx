@@ -4,7 +4,7 @@ import { View } from 'react-native'
 import {
   withDeviceTypeYrl,
   mediaParamsDefault,
-} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
+} from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
 import { ProjectInfoViewType } from './ProjectInfoViewTypes'
 import { styles } from './ProjectInfoViewStyles'

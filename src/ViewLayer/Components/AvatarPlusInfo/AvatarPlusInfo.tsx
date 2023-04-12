@@ -1,11 +1,10 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { Text } from '../../Components/Text/Text'
 import { AvatarPlusInfoType } from './AvatarPlusInfoType'
 import { style } from './AvatarPlusInfoStyle'
-import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
+import { ImageYrl } from '../../../YrlNativeViewLibrary'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 
 /**
  * @import import { AvatarPlusInfo } from '../Components/AvatarPlusInfo/AvatarPlusInfo'

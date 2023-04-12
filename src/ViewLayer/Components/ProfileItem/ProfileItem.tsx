@@ -1,13 +1,13 @@
 import React, { ReactElement } from 'react'
 import { View, ImageResizeMode } from 'react-native'
 
-import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary/Hooks/useLinkClickResYrl'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
-import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
+import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary'
+import { IconYrl } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
 import { ProfileItemType } from './ProfileItemType'
 import { style } from './ProfileItemStyle'
-import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
+import { ImageYrl } from '../../../YrlNativeViewLibrary'
 import { themes } from '../../Styles/themes'
 
 // const styleInvisible =

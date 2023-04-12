@@ -6,8 +6,8 @@ import {
   withDeviceTypeYrl,
   mediaParamsDefault,
   DeviceType,
-} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
+} from '../../../YrlNativeViewLibrary'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { NameStatus } from '../NameStatus/NameStatus'
 import { Text } from '../../Components/Text/Text'

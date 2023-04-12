@@ -1,16 +1,14 @@
 import { FunctionComponent } from 'react'
 import {
   useMediaQueryResYrl,
-  UseMediaQueryResYrlType,
-  DeviceType as DeviceTypeIn,
+  UseMediaQueryResYrlOutType,
+  DeviceType,
 } from './useMediaQueryResYrl'
 
-export enum DeviceType {
-  xsDevice = DeviceTypeIn['xsDevice'],
-  smDevice = DeviceTypeIn['smDevice'],
-  mdDevice = DeviceTypeIn['mdDevice'],
-  lgDevice = DeviceTypeIn['lgDevice'],
-  xlDevice = DeviceTypeIn['xlDevice'],
+export type WithDeviceTypeYrlPropsType = FunctionComponent<any>
+
+export interface WithDeviceTypeYrlType {
+  (Component: WithDeviceTypeYrlPropsType): FunctionComponent
 }
 
 /**
@@ -29,18 +27,16 @@ export enum DeviceType {
   Wide screens xl 1621 - 16000'
  */
 
-export const mediaParamsDefault: UseMediaQueryResYrlType = {
-  deviceType: DeviceTypeIn.lgDevice,
+export const mediaParamsDefault: UseMediaQueryResYrlOutType = {
+  deviceType: DeviceType['lgDevice'],
   screenCase: 'lgXl',
   width: 1024,
   height: 800,
 }
 
-export function withDeviceTypeYrl(
-  Component: FunctionComponent<any>
-): FunctionComponent {
+export const withDeviceTypeYrl: WithDeviceTypeYrlType = function (Component) {
   return function WrappedComponent(props: any) {
-    const mediaParams: UseMediaQueryResYrlType = useMediaQueryResYrl()
+    const mediaParams: UseMediaQueryResYrlOutType = useMediaQueryResYrl()
     return <Component {...props} mediaParams={mediaParams} />
   }
 }

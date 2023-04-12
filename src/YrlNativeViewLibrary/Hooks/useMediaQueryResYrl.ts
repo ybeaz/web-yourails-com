@@ -11,11 +11,15 @@ export enum DeviceType {
 }
 export type ScreenCaseType = 'xsSmMd' | 'lgXl'
 
-export type UseMediaQueryResYrlType = {
+export type UseMediaQueryResYrlOutType = {
   deviceType: DeviceType
   screenCase: ScreenCaseType | 'lgXl'
   width: number | 1024
   height: number | 800
+}
+
+export interface UseMediaQueryResYrlType {
+  (): UseMediaQueryResYrlOutType
 }
 
 /**
@@ -28,7 +32,7 @@ export type UseMediaQueryResYrlType = {
   Desktop/laptop lg 1025 - 1620
   Wide screens xl 1621 - 16000'
  */
-export const useMediaQueryResYrl = (): UseMediaQueryResYrlType => {
+export const useMediaQueryResYrl: UseMediaQueryResYrlType = () => {
   const { width, height } = Dimensions.get('window')
 
   const isXsDevice = useMediaQuery({

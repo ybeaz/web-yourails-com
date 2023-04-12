@@ -5,13 +5,13 @@ import { SafeAreaView, View } from 'react-native'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
-import { withStoreStateYrl } from '../../../YrlNativeViewLibrary/Hooks/withStoreStateYrl'
+import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
 import {
   withDeviceTypeYrl,
   mediaParamsDefault,
-} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
-import { AnimatedYrl } from '../../../YrlNativeViewLibrary/AnimatedYrl/AnimatedYrl'
+} from '../../../YrlNativeViewLibrary'
+import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'

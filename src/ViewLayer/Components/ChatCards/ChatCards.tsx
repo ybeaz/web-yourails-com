@@ -4,8 +4,7 @@ import { View } from 'react-native'
 import {
   withDeviceTypeYrl,
   mediaParamsDefault,
-} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
-import { Text } from '../../Components/Text/Text'
+} from '../../../YrlNativeViewLibrary'
 import { ChatCardsType } from './ChatCardsTypes'
 import { styles } from './ChatCardsStyles'
 

@@ -2,17 +2,11 @@ import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native'
 import { useSelector } from 'react-redux'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
-import {
-  ButtonYrl,
-  InputTextYrl,
-  ImageYrl,
-} from '../../../YrlNativeViewLibrary/index'
 
 import {
   withDeviceTypeYrl,
   mediaParamsDefault,
-} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
-import { Text } from '../../Components/Text/Text'
+} from '../../../YrlNativeViewLibrary'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { URL_APP_BASE } from '../../../Constants/servers.const'
 import { HeaderFrame } from '../../Frames/HeaderFrame'

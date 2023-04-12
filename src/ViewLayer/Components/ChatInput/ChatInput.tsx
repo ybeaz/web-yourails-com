@@ -1,8 +1,8 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { InputTextYrl } from '../../../YrlNativeViewLibrary/InputTextYrl/InputTextYrl'
-import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
+import { InputTextYrl } from '../../../YrlNativeViewLibrary'
+import { IconYrl } from '../../../YrlNativeViewLibrary'
 import { ChatInputType } from './ChatInputType'
 import { style } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'

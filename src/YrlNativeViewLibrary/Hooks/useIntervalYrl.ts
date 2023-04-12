@@ -2,6 +2,10 @@ import { useRef, useState, useEffect } from 'react'
 
 type CallableType = (...args: any[]) => any
 
+export interface UseIntervalYrlType {
+  (callback: CallableType, delay: number, isSlideShow: boolean): void
+}
+
 /**
  * @description Reeact hook to provide periodic function call
  * @link https://overreacted.io/making-setinterval-declarative-with-react-hooks/
@@ -9,10 +13,10 @@ type CallableType = (...args: any[]) => any
  * @import import { useInterval } from './YrlNativeViewLibrary/Hooks/useIntervalYrl'
  *
  */
-export const useIntervalYrl = (
-  callback: CallableType,
-  delay: number,
-  isSlideShow: boolean
+export const useIntervalYrl: UseIntervalYrlType = (
+  callback,
+  delay,
+  isSlideShow
 ) => {
   const savedCallback = useRef(callback)
   const [intervalId, setIntervalId] = useState(0)

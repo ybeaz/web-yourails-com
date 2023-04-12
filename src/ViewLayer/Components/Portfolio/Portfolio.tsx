@@ -2,18 +2,18 @@ import React, { useCallback, ReactElement } from 'react'
 import { ImageResizeMode, View, Linking, Alert } from 'react-native'
 
 import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
-import { withStoreStateYrl } from '../../../YrlNativeViewLibrary/Hooks/withStoreStateYrl'
+import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { ProjectType } from '../../../@types/ProjectType'
 import { ProjectInfoView } from '../ProjectInfoView/ProjectInfoView'
 import { Header } from '../Header/Header'
 import {
   withDeviceTypeYrl,
   mediaParamsDefault,
-} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
-import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary/Hooks/useLinkClickResYrl'
+} from '../../../YrlNativeViewLibrary'
+import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
 import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
-import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary'
+import { ImageYrl } from '../../../YrlNativeViewLibrary'
 import { styles } from './PortfolioStyles'
 import { PortfolioType } from './PortfolioTypes'
 

@@ -9,8 +9,8 @@ import {
   lightColors,
 } from '@rneui/themed'
 
-import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary/Hooks/useLinkClickResYrl'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
+import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
 import { TagPropertyType } from './TagPropertyType'
 import { style } from './TagPropertyStyle'

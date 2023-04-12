@@ -1,11 +1,15 @@
 import { useCallback } from 'react'
 import { Linking, Alert } from 'react-native'
 
+export interface UseLinkClickResYrlType {
+  (url?: string): void
+}
+
 /**
  * @description React Native hook to open external links
  * @import import { useLinkClickResYrl } from './YrlNativeViewLibrary/Hooks/useLinkClickResYrl'
  */
-export const useLinkClickResYrl = (url?: string) => {
+export const useLinkClickResYrl: UseLinkClickResYrlType = url => {
   if (!url) return undefined
 
   return useCallback(async () => {

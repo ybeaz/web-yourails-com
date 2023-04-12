@@ -3,12 +3,12 @@ import { View } from 'react-native'
 
 import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
 import { ContentType, LinkType } from '../../../@types/LinkType'
-import { withStoreStateYrl } from '../../../YrlNativeViewLibrary/Hooks/withStoreStateYrl'
+import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import {
   withDeviceTypeYrl,
   mediaParamsDefault,
   DeviceType,
-} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
+} from '../../../YrlNativeViewLibrary'
 import { ProfileItem } from '../ProfileItem/ProfileItem'
 import { ProfileItemPropsType } from '../ProfileItem/ProfileItemType'
 import { styles } from './ProfileStyle'
