@@ -1,5 +1,5 @@
 export type ProjectType = {
-  idUser: string
+  idUser: string | number
   title: string
   isActive: boolean
   pathname?: string

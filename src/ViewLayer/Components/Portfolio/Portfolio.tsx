@@ -1,6 +1,7 @@
 import React, { useCallback, ReactElement } from 'react'
 import { ImageResizeMode, View, Linking, Alert } from 'react-native'
 
+import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary/Hooks/withStoreStateYrl'
 import { ProjectType } from '../../../@types/ProjectType'
 import { ProjectInfoView } from '../ProjectInfoView/ProjectInfoView'
@@ -30,10 +31,16 @@ const PortfolioComponent: PortfolioType = props => {
   const { deviceType, screenCase, width } = mediaParams
   const style = styles[deviceType]
 
-  // const store = useSelector((store2: RootStoreType) => store2)
   const {
     globalVars: { idUserHost },
   } = store
+
+  const projectsUserHost = getFilteredObjsArrayByIdUser(
+    projects,
+    idUserHost
+  ) as ProjectType[]
+
+  projects.filter((project: any) => project.idUser === idUserHost)
 
   const { imageWidth, imageHeight } = getImageSizesFor1of2Columns(
     screenCase,
@@ -130,7 +137,7 @@ const PortfolioComponent: PortfolioType = props => {
   return (
     <View style={[style.Portfolio, styleProps.Portfolio]} testID='Portfolio'>
       <Header {...propsOut.headerProps} />
-      {getProjects(projects)}
+      {getProjects(projectsUserHost)}
     </View>
   )
 }

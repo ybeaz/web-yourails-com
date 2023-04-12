@@ -1,10 +1,9 @@
 import { ProjectType } from '../@types/ProjectType'
 
-/*
+/* Titles
 Troubleshooting and Repairing Faulty Microwave Ovens
 Installation and Repair of Electric Stoves and Ovens
 Troubleshooting and Repairing Dishwashers
-
 Repair and Maintenance of Gas Stoves and Ovens
 Troubleshooting and Repairing Washing Machines and Dryers
 Installation and Repair of Electric and Gas Ranges
