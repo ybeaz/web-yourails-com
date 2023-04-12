@@ -1,8 +1,8 @@
-import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
+import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
 
 export interface ProjectInfoViewPropsType {
   styleProps?: any
-  mediaParams?: UseMediaQueryResType
+  mediaParams?: UseMediaQueryResYrlOutType
   title: string
   subtitle: string
   description: string

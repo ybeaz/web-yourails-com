@@ -1,3 +1,5 @@
+import { History } from 'history'
+
 import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
 import { RootStoreType } from '../../../@types/RootStoreType'
 
@@ -7,10 +9,12 @@ export interface PageChatsWholeScreenPropsType {
   routeProps?: {
     location: {
       pathname: string
+      hash: string
     }
   }
   themeDafault?: string
   store: RootStoreType
+  history: History
 }
 
 export interface PageChatsWholeScreenType

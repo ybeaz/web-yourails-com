@@ -1,9 +1,9 @@
-import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
+import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
 
 export interface ChatCardPropsType {
   styleProps?: any
-  mediaParams?: UseMediaQueryResType
+  mediaParams?: UseMediaQueryResYrlOutType
   profile: ProfileType
 }
 

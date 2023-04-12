@@ -1,10 +1,12 @@
 import React, { createContext, useRef, useEffect, useCallback } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView, View } from 'react-native'
+import { withRouter } from 'react-router-dom'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
+import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
 import {
@@ -34,13 +36,30 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     routeProps = {
       location: {
         pathname: '',
+        hash: '',
       },
     },
     mediaParams = mediaParamsDefault,
     themeDafault = '',
     store,
+    history,
   } = props
   const { deviceType } = mediaParams
+
+  const {
+    location: { pathname, hash },
+  } = routeProps
+
+  const userHash = useRef(hash)
+
+  console.info('PageChatsWholeScreen [45]', {
+    hashHashCurrent: userHash.current,
+    history,
+    pathname,
+    hash,
+    routeProps,
+  })
+
   const style = styles[deviceType]
 
   const renderCounter = useRef(0)
@@ -57,12 +76,19 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   )
 
   useEffect(() => {
+    window.location.hash = userHash.current
+  }, [])
+
+  useEffect(() => {
     handleEvents.SET_SIDEBAR_MAIN_LAYOUT({}, { deviceType })
   }, [deviceType])
 
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
 
   const propsOut: Record<string, any> = {
+    chatCardsProps: {
+      profiles,
+    },
     chatCardProps: {
       profile,
     },
@@ -140,6 +166,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         >
           <AnimatedYrl {...propsOut.sidebarRightInnerInAnimatedYrlProps}>
             <TopBarChatCards />
+            <ChatCards {...propsOut.chatCardsProps} />
             <ChatCard {...propsOut.chatCardProps} />
           </AnimatedYrl>
         </View>
@@ -196,5 +223,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 }
 
 export const PageChatsWholeScreen = React.memo(
-  withStoreStateYrl(withDeviceTypeYrl(PageChatsWholeScreenComponent))
+  withRouter(
+    withStoreStateYrl(withDeviceTypeYrl(PageChatsWholeScreenComponent))
+  )
 )

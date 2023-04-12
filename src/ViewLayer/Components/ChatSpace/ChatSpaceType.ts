@@ -1,10 +1,10 @@
-import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
+import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
 
 export interface ChatSpacePropsType {
   styleProps?: any
-  mediaParams?: UseMediaQueryResType
+  mediaParams?: UseMediaQueryResYrlOutType
   idUserHost: string
   profiles: ProfileType[]
   messages: Omit<MessageType, 'position' | 'isTail'>[]

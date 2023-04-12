@@ -1,9 +1,9 @@
-import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
+import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
 
 export interface TopBarMainColumnPropsType {
   profile: ProfileType
-  mediaParams?: UseMediaQueryResType
+  mediaParams?: UseMediaQueryResYrlOutType
 }
 
 /**

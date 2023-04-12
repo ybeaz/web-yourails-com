@@ -1,9 +1,9 @@
-import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
+import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
 import { RootStoreType } from '../../../@types/RootStoreType'
 
 export interface ProfilePropsType {
   styleProps?: any
-  mediaParams?: UseMediaQueryResType
+  mediaParams?: UseMediaQueryResYrlOutType
   store: RootStoreType
 }
 
