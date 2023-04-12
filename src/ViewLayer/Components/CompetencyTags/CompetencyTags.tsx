@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import { View } from 'react-native'
 
+import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary/Hooks/withStoreStateYrl'
 import { CompetencyTagType } from '../../../@types/CompetencyTagType'
 import { getSectionsFromTagsCompetencies } from '../../../Shared/getSectionsFromTagsCompetencies'
@@ -23,7 +24,10 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
     globalVars: { idUserHost },
   } = store
 
-  const tagSubheadings = getSectionsFromTagsCompetencies(competencyTags)
+  const competencyTagsUserHost = getFilteredObjsArrayByIdUser(
+    competencyTags,
+    idUserHost
+  ) as CompetencyTagType[]
 
   const getTagList = (competencies: CompetencyTagType[]): ReactElement[] => {
     return competencies.map((competency, index: number) => {
@@ -80,7 +84,7 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
       testID='CompetencyTags'
     >
       <Header {...propsOut.headerProps} />
-      {getCompetencyTagsJsx(competencyTags)}
+      {getCompetencyTagsJsx(competencyTagsUserHost)}
     </View>
   )
 }

@@ -40,8 +40,6 @@ const PortfolioComponent: PortfolioType = props => {
     idUserHost
   ) as ProjectType[]
 
-  projects.filter((project: any) => project.idUser === idUserHost)
-
   const { imageWidth, imageHeight } = getImageSizesFor1of2Columns(
     screenCase,
     width

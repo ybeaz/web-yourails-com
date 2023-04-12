@@ -1,6 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
 
+import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
 import { ContentType, LinkType } from '../../../@types/LinkType'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary/Hooks/withStoreStateYrl'
 import {
@@ -112,12 +113,20 @@ const ProfileComponent: ProfileComponentType = props => {
     globalVars: { idUserHost },
   } = store
 
-  const profile: ProfileType =
-    profiles.find(profile => profile.idUser === idUserHost) || profiles[0]
+  const profilesTagsUserHost = getFilteredObjsArrayByIdUser(
+    profiles,
+    idUserHost
+  ) as ProfileType[]
+  const profileTagsUserHost = profilesTagsUserHost[0]
+
+  const linksUserHost = getFilteredObjsArrayByIdUser(
+    links,
+    idUserHost
+  ) as LinkType[]
 
   const profileItems = getProfileItemsObjList(
-    profile,
-    links,
+    profileTagsUserHost,
+    linksUserHost,
     style,
     deviceType
   ).filter(profileItemObj => profileItemObj.isActive === true)
