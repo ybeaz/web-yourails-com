@@ -10,12 +10,12 @@ import { rootStoreDefault } from '../../DataLayer/rootStoreDefault'
  *    concise, reusable, and declarative code
  *    In a declarative approach, you would typically define what a component should do based on its props and state.
  *    In contrast, an imperative approach involves directly instructing the component to perform a specific action or behavior.
- * @import import { withStoreState } from '../../Hooks/withStoreState'
+ * @import import { withStoreStateYrl } from './YrlNativeViewLibrary/Hooks/withStoreStateYrl'
  */
 
 export const mediaParamsDefault: any = {}
 
-export function withStoreState(
+export function withStoreStateYrl(
   Component: FunctionComponent<any>
 ): FunctionComponent {
   return function WrappedComponent(props: any) {

@@ -1,7 +1,10 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
+import {
+  withDeviceTypeYrl,
+  mediaParamsDefault,
+} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
 import { Text } from '../../Components/Text/Text'
 import { HeaderType } from './HeaderTypes'
 import { styles } from './HeaderStyles'
@@ -35,4 +38,4 @@ const HeaderComponent: HeaderType = props => {
   )
 }
 
-export const Header = React.memo(withDeviceType(HeaderComponent))
+export const Header = React.memo(withDeviceTypeYrl(HeaderComponent))

@@ -14,7 +14,8 @@ type useAnimatedYrlProps = {
 }
 
 /**
- * @import import { useAnimatedYrl } from 'src/ViewLayer/Hooks/useAnimatedYrl.ts'
+ * @description React hook to provide animation, delay of appearance of an element
+ * @import import { useAnimatedYrl } from './YrlNativeViewLibrary/Hooks/useAnimatedYrl.ts'
  */
 
 export const useAnimatedYrl = ({

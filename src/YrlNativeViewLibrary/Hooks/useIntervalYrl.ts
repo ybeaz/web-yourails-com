@@ -6,8 +6,10 @@ type CallableType = (...args: any[]) => any
  * @description Reeact hook to provide periodic function call
  * @link https://overreacted.io/making-setinterval-declarative-with-react-hooks/
  * @link https://stackoverflow.com/questions/36299174/setinterval-in-a-react-app
+ * @import import { useInterval } from './YrlNativeViewLibrary/Hooks/useIntervalYrl'
+ *
  */
-export const useInterval = (
+export const useIntervalYrl = (
   callback: CallableType,
   delay: number,
   isSlideShow: boolean

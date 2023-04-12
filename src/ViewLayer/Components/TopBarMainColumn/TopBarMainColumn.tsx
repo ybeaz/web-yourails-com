@@ -3,10 +3,10 @@ import { View } from 'react-native'
 import { nanoid } from 'nanoid'
 
 import {
-  withDeviceType,
+  withDeviceTypeYrl,
   mediaParamsDefault,
   DeviceType,
-} from '../../Hooks/withDeviceType'
+} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { NameStatus } from '../NameStatus/NameStatus'
@@ -118,5 +118,5 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
 }
 
 export const TopBarMainColumn = React.memo(
-  withDeviceType(TopBarMainColumnComponent)
+  withDeviceTypeYrl(TopBarMainColumnComponent)
 )

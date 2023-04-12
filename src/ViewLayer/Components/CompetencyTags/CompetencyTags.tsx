@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { View } from 'react-native'
 
-import { withStoreState } from '../../Hooks/withStoreState'
+import { withStoreStateYrl } from '../../../YrlNativeViewLibrary/Hooks/withStoreStateYrl'
 import { CompetencyTagType } from '../../../@types/CompetencyTagType'
 import { getSectionsFromTagsCompetencies } from '../../../Shared/getSectionsFromTagsCompetencies'
 import { Header } from '../Header/Header'
@@ -86,5 +86,5 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
 }
 
 export const CompetencyTags = React.memo(
-  withStoreState(CompetencyTagsComponent)
+  withStoreStateYrl(CompetencyTagsComponent)
 )

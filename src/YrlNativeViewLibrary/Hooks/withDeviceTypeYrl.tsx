@@ -1,9 +1,9 @@
 import { FunctionComponent } from 'react'
 import {
-  useMediaQueryRes,
-  UseMediaQueryResType,
+  useMediaQueryResYrl,
+  UseMediaQueryResYrlType,
   DeviceType as DeviceTypeIn,
-} from './useMediaQueryRes'
+} from './useMediaQueryResYrl'
 
 export enum DeviceType {
   xsDevice = DeviceTypeIn['xsDevice'],
@@ -18,8 +18,8 @@ export enum DeviceType {
  *    to add mediaParams property that contains data about the profile's device
  *    from useMediaQueryRes hook:
  *    const { deviceType, screenCase, width, height } = mediaParams
- * @import import { withDeviceType } from '../../Hooks/withDeviceType'
- * @import import { UseMediaQueryResType  } from '../../Hooks/useMediaQueryRes'
+ * @import import { withDeviceTypeYrl } from './YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
+ * @import import { UseMediaQueryResYrlType  } from './YrlNativeViewLibrary/Hooks/useMediaQueryResYrl'
  * @use export const Portfolio = React.memo(withDeviceType(PortfolioComponent))
  * @media accepted sizes:
   xs 320-480px
@@ -29,18 +29,18 @@ export enum DeviceType {
   Wide screens xl 1621 - 16000'
  */
 
-export const mediaParamsDefault: UseMediaQueryResType = {
+export const mediaParamsDefault: UseMediaQueryResYrlType = {
   deviceType: DeviceTypeIn.lgDevice,
   screenCase: 'lgXl',
   width: 1024,
   height: 800,
 }
 
-export function withDeviceType(
+export function withDeviceTypeYrl(
   Component: FunctionComponent<any>
 ): FunctionComponent {
   return function WrappedComponent(props: any) {
-    const mediaParams: UseMediaQueryResType = useMediaQueryRes()
+    const mediaParams: UseMediaQueryResYrlType = useMediaQueryResYrl()
     return <Component {...props} mediaParams={mediaParams} />
   }
 }

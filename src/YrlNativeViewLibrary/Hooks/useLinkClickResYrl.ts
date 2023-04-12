@@ -3,8 +3,9 @@ import { Linking, Alert } from 'react-native'
 
 /**
  * @description React Native hook to open external links
+ * @import import { useLinkClickResYrl } from './YrlNativeViewLibrary/Hooks/useLinkClickResYrl'
  */
-export const useLinkClickRes = (url?: string) => {
+export const useLinkClickResYrl = (url?: string) => {
   if (!url) return undefined
 
   return useCallback(async () => {

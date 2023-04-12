@@ -1,7 +1,10 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
+import {
+  withDeviceTypeYrl,
+  mediaParamsDefault,
+} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
 import { Text } from '../../Components/Text/Text'
 import { TemplateType } from './TemplateTypes'
 import { styles } from './TemplateStyles'
@@ -24,4 +27,4 @@ const TemplateComponent: TemplateType = props => {
   )
 }
 
-export const Template = React.memo(withDeviceType(TemplateComponent))
+export const Template = React.memo(withDeviceTypeYrl(TemplateComponent))

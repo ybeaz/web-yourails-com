@@ -1,7 +1,7 @@
 import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { DeviceType } from '../../ViewLayer/Hooks/withDeviceType'
+import { DeviceType } from '../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
 
 const { dispatch, getState } = store
 

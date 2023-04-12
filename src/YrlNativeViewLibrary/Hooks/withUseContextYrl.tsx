@@ -8,9 +8,9 @@ import React, { useContext, FunctionComponent } from 'react'
  *    based on its props and state.
  *    In contrast, an imperative approach useContext() approach involves
  *    directly instructing the component to perform a specific action or behavior.
- * @import import { withUseContext } from '../../Hooks/withUseContext'
+ * @import import { withUseContextYrl } from './YrlNativeViewLibrary/Hooks/withUseContextYrl'
  */
-export const withUseContext =
+export const withUseContextYrl =
   (contextCreated: any) =>
   (Component: FunctionComponent<any>): FunctionComponent => {
     return function WrappedComponent(props: any) {
@@ -32,7 +32,7 @@ export const DataContext = createContext({
   messages2: [{}],
 })
 
-export const MessageWithData = withUseContext(DataContext)(Message)
+export const MessageWithData = withUseContextYrl(DataContext)(Message)
 
  * In the top parent component (not nececarily imediate parent component)
 

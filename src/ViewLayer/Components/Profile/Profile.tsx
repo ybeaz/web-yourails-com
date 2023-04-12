@@ -2,12 +2,12 @@ import React from 'react'
 import { View } from 'react-native'
 
 import { ContentType, LinkType } from '../../../@types/LinkType'
-import { withStoreState } from '../../Hooks/withStoreState'
+import { withStoreStateYrl } from '../../../YrlNativeViewLibrary/Hooks/withStoreStateYrl'
 import {
-  withDeviceType,
+  withDeviceTypeYrl,
   mediaParamsDefault,
   DeviceType,
-} from '../../Hooks/withDeviceType'
+} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
 import { ProfileItem } from '../ProfileItem/ProfileItem'
 import { ProfileItemPropsType } from '../ProfileItem/ProfileItemType'
 import { styles } from './ProfileStyle'
@@ -140,5 +140,5 @@ const ProfileComponent: ProfileComponentType = props => {
 }
 
 export const Profile = React.memo(
-  withStoreState(withDeviceType(ProfileComponent))
+  withStoreStateYrl(withDeviceTypeYrl(ProfileComponent))
 )

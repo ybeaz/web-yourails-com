@@ -11,7 +11,10 @@ import {
 import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
-import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
+import {
+  withDeviceTypeYrl,
+  mediaParamsDefault,
+} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
 import { Text } from '../../Components/Text/Text'
 import { LOCALE, DATE_FORMAT } from '../../../Constants/locale.const'
 import { ChatSpaceType } from './ChatSpaceType'
@@ -192,4 +195,4 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   )
 }
 
-export const ChatSpace = React.memo(withDeviceType(ChatSpaceComponent))
+export const ChatSpace = React.memo(withDeviceTypeYrl(ChatSpaceComponent))

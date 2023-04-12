@@ -1,7 +1,10 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
+import {
+  withDeviceTypeYrl,
+  mediaParamsDefault,
+} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
 import { ChatCardType } from './ChatCardType'
 import { style } from './ChatCardStyle'
 import { themes } from '../../Styles/themes'
@@ -52,4 +55,4 @@ const ChatCardComponent: ChatCardType = props => {
   )
 }
 
-export const ChatCard = React.memo(withDeviceType(ChatCardComponent))
+export const ChatCard = React.memo(withDeviceTypeYrl(ChatCardComponent))

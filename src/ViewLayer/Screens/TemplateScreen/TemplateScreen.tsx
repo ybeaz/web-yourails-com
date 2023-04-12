@@ -8,7 +8,10 @@ import {
   ImageYrl,
 } from '../../../YrlNativeViewLibrary/index'
 
-import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
+import {
+  withDeviceTypeYrl,
+  mediaParamsDefault,
+} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
 import { Text } from '../../Components/Text/Text'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { URL_APP_BASE } from '../../../Constants/servers.const'
@@ -106,5 +109,5 @@ const TemplateScreenComponent: TemplateScreenType = props => {
 }
 
 export const TemplateScreen = React.memo(
-  withDeviceType(TemplateScreenComponent)
+  withDeviceTypeYrl(TemplateScreenComponent)
 )

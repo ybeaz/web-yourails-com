@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { View, ImageResizeMode } from 'react-native'
 
-import { useLinkClickRes } from '../../Hooks/useLinkClickRes'
+import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary/Hooks/useLinkClickResYrl'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
 import { Text } from '../../Components/Text/Text'
@@ -79,7 +79,7 @@ const ProfileItemComponent: ProfileItemType = props => {
         titleText: content,
         testID: 'tooltip_buttonYrl',
         disabled: false,
-        onPress: useLinkClickRes(contentSrc),
+        onPress: useLinkClickResYrl(contentSrc),
         iconProps: undefined,
       },
     }

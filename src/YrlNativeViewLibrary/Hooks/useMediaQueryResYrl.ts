@@ -11,7 +11,7 @@ export enum DeviceType {
 }
 export type ScreenCaseType = 'xsSmMd' | 'lgXl'
 
-export type UseMediaQueryResType = {
+export type UseMediaQueryResYrlType = {
   deviceType: DeviceType
   screenCase: ScreenCaseType | 'lgXl'
   width: number | 1024
@@ -20,7 +20,7 @@ export type UseMediaQueryResType = {
 
 /**
  * @description React Native hook to determine device type and related parameters to provide adaptive web design
- * @import import { useMediaQueryRes } from './Hooks/useMediaQueryRes
+ * @import import { useMediaQueryResYrl } from './YrlNativeViewLibrary/Hooks/useMediaQueryResYrl'
  * @media accepted sizes:
   xs 320-480px
   mobile sm 481-768
@@ -28,7 +28,7 @@ export type UseMediaQueryResType = {
   Desktop/laptop lg 1025 - 1620
   Wide screens xl 1621 - 16000'
  */
-export const useMediaQueryRes = (): UseMediaQueryResType => {
+export const useMediaQueryResYrl = (): UseMediaQueryResYrlType => {
   const { width, height } = Dimensions.get('window')
 
   const isXsDevice = useMediaQuery({

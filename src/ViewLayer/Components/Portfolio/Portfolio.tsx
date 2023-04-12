@@ -1,12 +1,15 @@
 import React, { useCallback, ReactElement } from 'react'
 import { ImageResizeMode, View, Linking, Alert } from 'react-native'
 
-import { withStoreState } from '../../Hooks/withStoreState'
+import { withStoreStateYrl } from '../../../YrlNativeViewLibrary/Hooks/withStoreStateYrl'
 import { ProjectType } from '../../../@types/ProjectType'
 import { ProjectInfoView } from '../ProjectInfoView/ProjectInfoView'
 import { Header } from '../Header/Header'
-import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
-import { useLinkClickRes } from '../../Hooks/useLinkClickRes'
+import {
+  withDeviceTypeYrl,
+  mediaParamsDefault,
+} from '../../../YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
+import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary/Hooks/useLinkClickResYrl'
 import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
@@ -64,7 +67,7 @@ const PortfolioComponent: PortfolioType = props => {
             titleText: '',
             testID: 'projectButtonYrl',
             disabled: false,
-            onPress: useLinkClickRes(linkHref),
+            onPress: useLinkClickResYrl(linkHref),
           },
           projectImageYrlProps: {
             styleProps: {
@@ -133,5 +136,5 @@ const PortfolioComponent: PortfolioType = props => {
 }
 
 export const Portfolio = React.memo(
-  withStoreState(withDeviceType(PortfolioComponent))
+  withStoreStateYrl(withDeviceTypeYrl(PortfolioComponent))
 )
