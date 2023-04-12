@@ -1,7 +1,7 @@
 import { PropsWithChildren } from 'react'
 import { ViewStyle } from 'react-native'
 
-export type AnimatedYrlProps = PropsWithChildren<{
+export type AnimatedYrlPropsType = PropsWithChildren<{
   styleProps?: any
   isActive?: boolean
   nameHtmlCssAttribute: string
@@ -13,4 +13,4 @@ export type AnimatedYrlProps = PropsWithChildren<{
   testID?: string
 }>
 
-export type AnimatedYrlType = React.FC<AnimatedYrlProps>
+export type AnimatedYrlType = React.FC<AnimatedYrlPropsType>

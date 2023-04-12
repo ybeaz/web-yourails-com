@@ -2,7 +2,7 @@ import React from 'react'
 import { SafeAreaView } from 'react-native'
 
 import { LoaderOverlayYrlStyle as style } from './LoaderOverlayYrlStyle'
-import { LoaderOverlayType } from './LoaderOverlayYrlType'
+import { LoaderOverlayYrlType } from './LoaderOverlayYrlType'
 
 /**
  * @import import { LoaderOverlayYrl } from './YrlNativeViewLibrary/LoaderOverlay/LoaderOverlay'
@@ -14,7 +14,7 @@ import { LoaderOverlayType } from './LoaderOverlayYrlType'
     testID: 'LoaderOverlayYrl',
   }
  */
-const LoaderOverlayYrl: LoaderOverlayType = props => {
+export const LoaderOverlayYrl: LoaderOverlayYrlType = props => {
   const {
     propsStyle = { LoaderOverlay: {}, spinner: {} },
     isLoaderOverlayVisible,
@@ -33,5 +33,3 @@ const LoaderOverlayYrl: LoaderOverlayType = props => {
     </SafeAreaView>
   )
 }
-
-export default LoaderOverlayYrl

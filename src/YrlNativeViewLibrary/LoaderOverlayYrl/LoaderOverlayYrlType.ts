@@ -7,7 +7,7 @@ export interface LoaderOverlayYrlPropsType {
   testID: string
 }
 
-export interface LoaderOverlayType
+export interface LoaderOverlayYrlType
   extends React.FunctionComponent<LoaderOverlayYrlPropsType> {
   (props: LoaderOverlayYrlPropsType): React.ReactElement
 }

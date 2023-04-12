@@ -1,9 +1,9 @@
-import { UseMediaQueryResType } from '../../Hooks/useMediaQueryRes'
+import { UseMediaQueryResYrlType } from '../../../YrlNativeViewLibrary/Hooks/useMediaQueryResYrl'
 import { RootStoreType } from '../../../@types/RootStoreType'
 
 export interface PageChatsWholeScreenPropsType {
   styleProps?: any
-  mediaParams?: UseMediaQueryResType
+  mediaParams?: UseMediaQueryResYrlType
   routeProps?: {
     location: {
       pathname: string

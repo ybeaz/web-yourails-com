@@ -43,7 +43,7 @@ export const componentsStateDefault: ComponentsStateType = {
   isMainColumn: true,
   modalFrame: {
     childName: 'CompetencyTags', // Portfolio, Profile CompetencyTags
-    isShow: true,
+    isShow: false,
     childProps: {},
   },
 }
