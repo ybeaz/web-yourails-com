@@ -4,7 +4,6 @@ import { styleGlobal } from '../../Styles/styleGlobal'
 export const stylesDefault = StyleSheet.create({
   ChatCards: {
     ...styleGlobal.typography,
-    flexDirection: 'column',
   },
 })
 

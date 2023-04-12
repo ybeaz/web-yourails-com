@@ -14,7 +14,6 @@ import {
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
-import { ChatCard } from '../../Components/ChatCard/ChatCard'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
@@ -52,13 +51,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const userHash = useRef(hash)
 
-  console.info('PageChatsWholeScreen [45]', {
-    hashHashCurrent: userHash.current,
-    history,
-    pathname,
-    hash,
-    routeProps,
-  })
+  // console.info('PageChatsWholeScreen [45]', {
+  //   hashHashCurrent: userHash.current,
+  //   history,
+  //   pathname,
+  //   hash,
+  //   routeProps,
+  // })
 
   const style = styles[deviceType]
 
@@ -88,9 +87,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const propsOut: Record<string, any> = {
     chatCardsProps: {
       profiles,
-    },
-    chatCardProps: {
-      profile,
+      idUserHost,
     },
     chatSpaceProps: {
       idUserHost,
@@ -167,7 +164,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           <AnimatedYrl {...propsOut.sidebarRightInnerInAnimatedYrlProps}>
             <TopBarChatCards />
             <ChatCards {...propsOut.chatCardsProps} />
-            <ChatCard {...propsOut.chatCardProps} />
           </AnimatedYrl>
         </View>
       )}
