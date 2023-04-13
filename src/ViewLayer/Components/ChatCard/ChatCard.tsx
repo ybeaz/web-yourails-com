@@ -24,7 +24,7 @@ const ChatCardComponent: ChatCardType = props => {
     handleEvents,
     isActive,
   } = props
-  const { idUser } = profile
+  const { idUser, profilename } = profile
   const { deviceType } = mediaParams
 
   const colorStyle = isActive ? themes['themeA'].colors07 : {}
@@ -35,7 +35,7 @@ const ChatCardComponent: ChatCardType = props => {
       profile,
       onPress: () => {
         handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
-        handleEvents.CLICK_ON_USER_CHAT_CARD({}, { idUser })
+        handleEvents.CLICK_ON_USER_CHAT_CARD({}, { idUser, profilename })
       },
     },
     nameStatusProps: {
