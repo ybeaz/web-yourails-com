@@ -22,16 +22,17 @@ const ChatCardComponent: ChatCardType = props => {
     styleProps = { ChatCard: {} },
     mediaParams = mediaParamsDefault,
     handleEvents,
+    isActive,
   } = props
   const { idUser } = profile
   const { deviceType } = mediaParams
 
+  const colorStyle = isActive ? themes['themeA'].colors07 : {}
+
   const propsOut: Record<string, any> = {
     avatarPlusInfoProps: {
+      styleProps: {},
       profile,
-      styleProps: {
-        viewStyle: themes['themeA'].colors07,
-      },
       onPress: () => {
         handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
         handleEvents.CLICK_ON_USER_CHAT_CARD({}, { idUser })
@@ -40,7 +41,7 @@ const ChatCardComponent: ChatCardType = props => {
     nameStatusProps: {
       styleProps: {
         NameStatus: {},
-        viewStyle: themes['themeA'].colors07,
+        viewStyle: colorStyle,
       },
       profile,
       status: 'last seen recently',
@@ -49,7 +50,7 @@ const ChatCardComponent: ChatCardType = props => {
 
   return (
     <View
-      style={[style.ChatCard, styleProps.ChatCard, themes['themeA'].colors07]}
+      style={[style.ChatCard, styleProps.ChatCard, colorStyle]}
       testID='ChatCard'
     >
       <AvatarPlusInfo {...propsOut.avatarPlusInfoProps}>

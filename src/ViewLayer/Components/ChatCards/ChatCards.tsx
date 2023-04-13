@@ -35,6 +35,7 @@ const ChatCardsComponent: ChatCardsType = props => {
         chatCardProps: {
           key: `chatCard-${index}`,
           profile,
+          isActive: idUserHost === profile.idUser,
         },
       }
       return <ChatCard {...propsOut.chatCardProps} />

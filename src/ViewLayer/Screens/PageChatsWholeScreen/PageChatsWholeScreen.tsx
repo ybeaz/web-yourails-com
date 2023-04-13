@@ -145,8 +145,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
   }
 
-  console.info('PageChatsWholeScreen [148]', { idUserHost })
-
   return (
     <SafeAreaView
       style={[

@@ -7,6 +7,7 @@ export interface ChatCardPropsType {
   mediaParams?: UseMediaQueryResYrlOutType
   profile: ProfileType
   handleEvents: HandleEventsType
+  isActive: boolean
 }
 
 /**

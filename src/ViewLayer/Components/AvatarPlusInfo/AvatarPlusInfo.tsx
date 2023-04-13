@@ -46,11 +46,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
 
   return (
     <View
-      style={[
-        style.AvatarPlusInfo,
-        styleProps.AvatarPlusInfo,
-        styleProps.viewStyle,
-      ]}
+      style={[style.AvatarPlusInfo, styleProps.AvatarPlusInfo]}
       testID='AvatarPlusInfo'
     >
       <ButtonYrl {...propsOut.ButtonYrl}>
