@@ -3,6 +3,7 @@
  */
 export type MessageType = {
   idMessage: string | number
+  idConversation: string | number
   idUser: string | number
   createdAt: number
   text: string

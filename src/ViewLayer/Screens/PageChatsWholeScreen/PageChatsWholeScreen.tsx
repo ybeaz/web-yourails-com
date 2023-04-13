@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
+import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
@@ -24,6 +25,7 @@ import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 
+import { conversations } from '../../../ContentMock/conversationsMock'
 import { messages } from '../../../ContentMock/messagesMock'
 import { profiles } from '../../../ContentMock/profilesMock'
 
@@ -70,9 +72,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   } = store
   const { modalFrame, isSidebarRight, isMainColumn } = componentsState
   const { isShow: isShowModalFrame } = modalFrame
+
   const profile = profiles.find(
     (profileIn: ProfileType) => profileIn.idProfile === idUserHost
   )
+
+  // TODO: this is only the first attempt for demo purposes
+  const conversationsUserHost = conversations.filter((conversation: any) => {
+    return conversation.idsUsers.includes(idUserHost)
+  })
+  const messagesUserHost = messages.filter((message: any) => {
+    return message.idConversation === conversationsUserHost[0].idConversation
+  })
 
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
@@ -100,7 +111,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     chatSpaceProps: {
       idUserHost,
       profiles,
-      messages,
+      messages: messagesUserHost,
       modalFrame: { ...modalFrame, childProps: {} },
     },
     contentMenuMainColumnProps: {
