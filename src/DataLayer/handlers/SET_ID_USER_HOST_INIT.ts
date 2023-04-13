@@ -13,7 +13,7 @@ export const SET_ID_USER_HOST_INIT: ActionEventType = (event, data) => {
 
   const profileNameUrl = window.location.hash.replace('#', '')
 
-  const idUserUrl = profiles.find(
+  const profileUrl = profiles.find(
     (profile: ProfileType) => profile.profileName === profileNameUrl
   )
 
@@ -22,11 +22,23 @@ export const SET_ID_USER_HOST_INIT: ActionEventType = (event, data) => {
     'window.location.hash': window.location.hash,
     profileNameUrl: window.location.hash.replace('#', ''),
     profiles,
+    profileUrl,
+    'window.location': window.location,
   })
 
-  // dispatch(
-  //   actionSync.SET_ID_USER_HOST({
-  //     idUser,
-  //   })
-  // )
+  if (!profileUrl) return
+
+  const idUserUrl = profileUrl.idUser
+
+  console.info('SET_ID_USER_HOST_INIT [10]', {
+    idUserUrl,
+  })
+
+  if (idUserHost === idUserUrl) return
+
+  dispatch(
+    actionSync.SET_ID_USER_HOST({
+      idUser: idUserUrl,
+    })
+  )
 }
