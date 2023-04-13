@@ -1,5 +1,6 @@
 import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
+import { ProfileType } from '../../@types/ProfileType'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 
 const { dispatch, getState } = store
@@ -9,6 +10,12 @@ export const SET_ID_USER_HOST_INIT: ActionEventType = (event, data) => {
     globalVars: { idUserHost },
     profiles,
   } = getState()
+
+  const profileNameUrl = window.location.hash.replace('#', '')
+
+  const idUserUrl = profiles.find(
+    (profile: ProfileType) => profile.profileName === profileNameUrl
+  )
 
   console.info('SET_ID_USER_HOST_INIT [10]', {
     idUserHost,
