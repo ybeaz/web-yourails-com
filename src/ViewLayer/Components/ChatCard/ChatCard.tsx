@@ -23,6 +23,7 @@ const ChatCardComponent: ChatCardType = props => {
     mediaParams = mediaParamsDefault,
     handleEvents,
   } = props
+  const { idUser } = profile
   const { deviceType } = mediaParams
 
   const propsOut: Record<string, any> = {
@@ -33,6 +34,7 @@ const ChatCardComponent: ChatCardType = props => {
       },
       onPress: () => {
         handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
+        handleEvents.CLICK_ON_USER_CHAT_CARD({}, { idUser })
       },
     },
     nameStatusProps: {

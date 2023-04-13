@@ -1,9 +1,6 @@
 import { FunctionComponent } from 'react'
 import { useSelector } from 'react-redux'
 
-import { RootStoreType } from '../../@types/RootStoreType'
-import { rootStoreDefault } from '../../DataLayer/rootStoreDefault'
-
 export type WithStoreStateYrlPropsType = FunctionComponent<any>
 
 export interface WithStoreStateYrlType {
@@ -23,9 +20,7 @@ export const mediaParamsDefault: any = {}
 
 export const withStoreStateYrl: WithStoreStateYrlType = function (Component) {
   return function WrappedComponent(props: any) {
-    const store = useSelector(
-      (store2: RootStoreType = rootStoreDefault) => store2
-    )
+    const store = useSelector((store2: any) => store2)
     return <Component {...props} store={store} />
   }
 }

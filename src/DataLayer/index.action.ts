@@ -4,6 +4,7 @@ import { ActionType } from '../@types/ActionType'
 
 /** @description  Synchroneours redux actions */
 const ACTIONS_SYNC: string[] = [
+  'SET_ID_USER_HOST',
   'TOGGLE_MAIN_COLUMN',
   'TOGGLE_SIDEBAR_RIGHT',
   'SET_MODAL_FRAME',
