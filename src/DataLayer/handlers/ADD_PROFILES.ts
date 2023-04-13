@@ -4,13 +4,10 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 
 const { dispatch, getState } = store
 
-export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
-  const { idUser, profilename } = data
+export const ADD_PROFILES: ActionEventType = (event, data) => {
   dispatch(
-    actionSync.SET_ID_USER_HOST({
-      idUser,
+    actionSync.ADD_PROFILES({
+      profiles: data.profiles,
     })
   )
-
-  window.location.hash = profilename
 }

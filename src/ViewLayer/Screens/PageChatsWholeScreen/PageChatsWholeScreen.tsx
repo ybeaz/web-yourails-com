@@ -76,12 +76,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
-
-    // window.location.hash = userHash.current
-    // handleEvents.CLICK_ON_USER_CHAT_CARD({}, { idUser, profilename })
-    console.info('PageChatsWholeScreen [80]', {
-      'window.location.hash': window.location.hash,
-    })
+    handleEvents.SET_ID_USER_HOST_INIT({}, {})
+    // console.info('PageChatsWholeScreen [80]', {
+    //   'window.location.hash': window.location.hash,
+    // })
   }, [])
 
   useEffect(() => {
@@ -151,7 +149,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
   }
 
-  console.info('PageChatsWholeScreen [148]', { idUserHost, store })
+  // console.info('PageChatsWholeScreen [148]', { idUserHost, store })
 
   return (
     <SafeAreaView
