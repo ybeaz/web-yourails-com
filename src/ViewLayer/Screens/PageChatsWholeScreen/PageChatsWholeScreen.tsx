@@ -227,7 +227,5 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 }
 
 export const PageChatsWholeScreen = React.memo(
-  withRouter(
-    withStoreStateYrl(withDeviceTypeYrl(PageChatsWholeScreenComponent))
-  )
+  withStoreStateYrl(withDeviceTypeYrl(PageChatsWholeScreenComponent))
 )

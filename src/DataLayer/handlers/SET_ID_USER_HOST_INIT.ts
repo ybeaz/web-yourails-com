@@ -17,6 +17,7 @@ export const SET_ID_USER_HOST_INIT: ActionEventType = (event, data) => {
     (profile: ProfileType) => profile.profileName === profileNameUrl
   )
 
+  // TODO, STOPPED HERE
   console.info('SET_ID_USER_HOST_INIT [10]', {
     idUserHost,
     'window.location.hash': window.location.hash,
