@@ -2,6 +2,7 @@ import { RootStoreType } from '../@types/RootStoreType'
 import { ActionType } from '../@types/ActionType'
 
 import { TEMPLATE } from './reducers/TEMPLATE'
+import { SET_ID_USER_HOST } from './reducers/SET_ID_USER_HOST'
 import { TOGGLE_MAIN_COLUMN } from './reducers/TOGGLE_MAIN_COLUMN'
 import { TOGGLE_SIDEBAR_RIGHT } from './reducers/TOGGLE_SIDEBAR_RIGHT'
 import { SET_MODAL_FRAME } from './reducers/SET_MODAL_FRAME'
@@ -21,6 +22,7 @@ export const indexReducer: IIndexReducer = (
 
   const output = {
     TEMPLATE,
+    SET_ID_USER_HOST,
     TOGGLE_MAIN_COLUMN,
     TOGGLE_SIDEBAR_RIGHT,
     SET_MODAL_FRAME,

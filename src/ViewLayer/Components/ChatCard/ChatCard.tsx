@@ -10,7 +10,8 @@ import { style } from './ChatCardStyle'
 import { themes } from '../../Styles/themes'
 import { NameStatus } from '../NameStatus/NameStatus'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
-import { handleEvents } from '../../../DataLayer/index.handleEvents'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { withPropsYrl } from '../../../YrlNativeViewLibrary'
 
 /**
  * @import import { ChatCard } from '../Components/ChatCard/ChatCard'
@@ -20,6 +21,7 @@ const ChatCardComponent: ChatCardType = props => {
     profile,
     styleProps = { ChatCard: {} },
     mediaParams = mediaParamsDefault,
+    handleEvents,
   } = props
   const { deviceType } = mediaParams
 
@@ -55,4 +57,8 @@ const ChatCardComponent: ChatCardType = props => {
   )
 }
 
-export const ChatCard = React.memo(withDeviceTypeYrl(ChatCardComponent))
+export const ChatCard = React.memo(
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withDeviceTypeYrl(ChatCardComponent)
+  )
+)

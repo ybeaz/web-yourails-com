@@ -82,6 +82,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     handleEvents.SET_SIDEBAR_MAIN_LAYOUT({}, { deviceType })
   }, [deviceType])
 
+  const onClickOnUser = ({}, data: any) => {
+    console.info('PageChatsWholeScreen [87]', { data })
+  }
+
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
 
   const propsOut: Record<string, any> = {
@@ -93,15 +97,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       idUserHost,
       profiles,
       messages,
-      modalFrame: { ...modalFrame, childProps: { a: 1 } },
-      handleEvents: useCallback(handleEvents, []),
+      modalFrame: { ...modalFrame, childProps: {} },
     },
     contentMenuMainColumnProps: {
       // styleProps: {
       //   borderColor: 'white',
       // },
       store,
-      handleEvents: useCallback(handleEvents, []),
     },
     sidebarRightOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },

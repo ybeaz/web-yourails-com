@@ -25,6 +25,8 @@ import { ModalFrameYrl } from '../../../YrlNativeViewLibrary'
 import { themes } from '../../Styles/themes'
 import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { withPropsYrl } from '../../../YrlNativeViewLibrary'
 
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
@@ -195,4 +197,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   )
 }
 
-export const ChatSpace = React.memo(withDeviceTypeYrl(ChatSpaceComponent))
+export const ChatSpace = React.memo(
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withDeviceTypeYrl(ChatSpaceComponent)
+  )
+)

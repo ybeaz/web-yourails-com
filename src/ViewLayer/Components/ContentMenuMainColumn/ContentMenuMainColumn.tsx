@@ -9,6 +9,8 @@ import {
   MenuContentItemsType,
 } from '../../../Constants/menuContentItems.const'
 import { themes } from '../../Styles/themes'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { withPropsYrl } from '../../../YrlNativeViewLibrary'
 
 /**
  * @import import { ContentMenuMainColumn } from '../Components/ContentMenuMainColumn/ContentMenuMainColumn'
@@ -102,4 +104,8 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
   )
 }
 
-export const ContentMenuMainColumn = React.memo(ContentMenuMainColumnComponent)
+export const ContentMenuMainColumn = React.memo(
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    ContentMenuMainColumnComponent
+  )
+)

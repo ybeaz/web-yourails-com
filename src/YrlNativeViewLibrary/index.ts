@@ -55,6 +55,7 @@ import {
   withUseContextYrl,
   WithUseContextYrlType,
 } from './Hooks/withUseContextYrl'
+import { withPropsYrl } from './Hooks/withPropsYrl'
 
 export type {
   UseAnimatedYrlPropsType,
@@ -77,6 +78,7 @@ export {
   useLinkClickResYrl,
   useMediaQueryResYrl,
   withDeviceTypeYrl,
+  withPropsYrl,
   withStoreStateYrl,
   withUseContextYrl,
 }
