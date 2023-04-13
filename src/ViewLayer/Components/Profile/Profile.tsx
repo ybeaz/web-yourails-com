@@ -27,7 +27,7 @@ const getProfileItemsObjList = (
   deviceType: DeviceType
 ): ProfileItemPropsType[] => {
   const {
-    profilename = '',
+    profileName = '',
     phones = [],
     emails = [],
     messengers = [],
@@ -60,7 +60,7 @@ const getProfileItemsObjList = (
     {
       iconLibrary: 'Ionicons',
       iconName: 'at',
-      content: profilename.toString(),
+      content: profileName.toString(),
       label: 'Username',
       isActive: true,
     },
