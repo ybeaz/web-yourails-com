@@ -12,6 +12,3 @@ export const MODAL_CONTENTS: Record<string, any> = {
   Profile,
   CompetencyTags,
 }
-
-export const IS_BOTTON_BACK: boolean = true
-export const IS_BOTTON_CLOSE: boolean = true

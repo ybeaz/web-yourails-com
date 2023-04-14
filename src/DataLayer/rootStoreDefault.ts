@@ -44,6 +44,8 @@ export const componentsStateDefault: ComponentsStateType = {
   modalFrame: {
     childName: 'CompetencyTags', // Portfolio, Profile CompetencyTags
     isShow: true,
+    isButtonBack: true,
+    isButtonClose: true,
     childProps: {},
   },
 }

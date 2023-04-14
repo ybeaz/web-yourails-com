@@ -4,7 +4,13 @@ export interface ComponentsStateType {
   isLoaderOverlayVisible: boolean
   isSidebarRight: boolean
   isMainColumn: boolean
-  modalFrame: { childName: string; isShow: boolean; childProps: any }
+  modalFrame: {
+    childName: string
+    isShow: boolean
+    isButtonBack: boolean
+    isButtonClose: boolean
+    childProps: any
+  }
 }
 
 export interface FormsType {}

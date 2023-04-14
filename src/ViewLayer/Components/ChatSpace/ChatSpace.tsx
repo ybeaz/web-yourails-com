@@ -4,10 +4,6 @@ import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 dayjs.extend(localizedFormat)
 
-import {
-  IS_BOTTON_BACK,
-  IS_BOTTON_CLOSE,
-} from '../../../Constants/modalContents.const'
 import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
@@ -45,7 +41,13 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const { deviceType } = mediaParams
   const style = styles[deviceType]
 
-  const { childName, isShow: isShowModalFrame, childProps } = modalFrame
+  const {
+    childName,
+    isShow: isShowModalFrame,
+    isButtonBack,
+    isButtonClose,
+    childProps,
+  } = modalFrame
 
   const profile =
     profiles.find(
@@ -148,8 +150,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         },
       },
       imageBackgroundSource: undefined, // require('../../../Assets/canopy-of-leaves-2.jpg'),
-      isButtonBack: IS_BOTTON_BACK,
-      isButtonClose: IS_BOTTON_CLOSE,
+      isButtonBack,
+      isButtonClose,
     },
   }
 
