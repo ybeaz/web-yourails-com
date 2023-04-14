@@ -53,13 +53,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const userHash = useRef(hash)
 
-  // console.info('PageChatsWholeScreen [45]', {
-  //   hashHashCurrent: userHash.current,
-  //   history,
-  //   pathname,
-  //   hash,
-  //   routeProps,
-  // })
+  console.info('PageChatsWholeScreen [45]', {
+    hashHashCurrent: userHash.current,
+    history,
+    pathname,
+    hash,
+    routeProps,
+  })
 
   const style = styles[deviceType]
 
