@@ -61,6 +61,23 @@ Windows CMD',
 
   {
     idUser: '1',
+    title: 'BDD',
+    section: 'Best Practices and Methodologies',
+    linkHref: 'https://www.agilealliance.org/glossary/bdd',
+    tooltips:
+      "\
+Behavior-driven development (BDD):\n\
+1. BDD emphasizes collaboration between stakeholders to ensure a shared understanding of requirements.\n\
+2. User stories capture requirements in a business context and describe software behavior from a user's perspective.\n\
+3. Automated tests written in a natural language syntax like Gherkin verify software behavior against user stories.\n\
+4. Natural language syntax makes it easier for stakeholders to understand requirements and software behavior.\n\
+5. Continuous testing ensures software meets expected behavior and identifies issues early in the development process.\n\
+6. Feedback between testing and development teams helps identify issues and ensures software meets requirements.\n\
+  ",
+  },
+
+  {
+    idUser: '1',
     title: 'Design Patterns',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Software_design_pattern',
@@ -206,41 +223,13 @@ Encapsulation means that the internal representation of an object is generally \
 hidden from view outside of the object’s definition. \
 Typically, only the object’s own methods can directly inspect or manipulate its fields.\n\
 2. Abstraction\n\
-Data abstraction is nothing more than the implementation of an object that contains \
-the same essential properties and actions we can find in the original object we are representing.\n\
+An abstraction is a simplified representation of a complex system or entity that focuses on its essential characteristics and behaviors, while ignoring the details that are not relevant to its use.\n\
 3. Inheritance\n\
 Inheritance is a way to reuse code of existing objects, or to establish a subtype from an existing object.\n\
 4. Polymorphism\n\
 Polymorphism means one name, many forms. \
 Polymorphism manifests itself by having multiple methods all with the same name, but slightly different functionality.\
 ',
-  },
-
-  {
-    idUser: '1',
-    title: 'RESTful-API',
-    section: 'Best Practices and Methodologies',
-    linkHref: 'https://www.restapitutorial.com/lessons/whatisrest.html',
-    tooltips:
-      '\
-REpresentational\n\
-State\n\
-Transfer\n\
-\n\
-The six constraints for REST architectual style:\n\
-1. Uniform Interface\n\
-2. Stateless\n\
-3. Cacheable\n\
-4. Client-Server\n\
-5. Layered System\n\
-6. Code on Demand (optional)\n\
-\n\
-Parts:\n\
-Resources (URIs),\n\
-HTTP methods (GET, PUT, POST, DELETE),\n\
-HTTP headers,\n\
-Query parameters,\n\
-Status codes',
   },
 
   {
@@ -284,6 +273,22 @@ or application development life-cycle: \n\
 ● Testing\n\
 ● Deploymenth\n\
 ',
+  },
+
+  {
+    idUser: '1',
+    title: 'TDD',
+    section: 'Best Practices and Methodologies',
+    linkHref: 'https://www.agilealliance.org/glossary/tdd/',
+    tooltips:
+      '\
+Test-driven development (TDD):\n\
+1. Writing tests before code: In TDD, tests are written before the code. This helps to ensure that the code is focused on meeting the requirements of the tests.\n\
+2. Red-Green-Refactor cycle: TDD follows a continuous cycle of writing failing tests (red), writing code to make the tests pass (green), and then refactoring the code to improve its design and maintainability.\n\
+3. Small, incremental changes: TDD emphasizes making small, incremental changes to the codebase, which are easier to manage and less prone to introducing bugs.\n\
+4. Test automation: TDD requires automated tests to be written, which can be run continuously to ensure that the codebase remains stable and meets the expected behavior.\n\
+5. Code coverage: TDD emphasizes achieving high code coverage, meaning that as much of the codebase as possible is covered by automated tests.\n\
+6. Integration with development tools: TDD requires integration with development tools, such as continuous integration (CI) systems, to automate the process of running tests and providing feedback to developers.',
   },
 
   {
@@ -625,20 +630,6 @@ $ git push -u origin ...\n\
       '\
   ESLint statically analyzes your code to quickly find problems. \n\
   Many problems ESLint finds can be automatically fixed.',
-  },
-
-  {
-    idUser: '1',
-    title: 'Web Analytics',
-    section: 'Front-end',
-    linkHref: 'https://www.google.com/analytics/',
-    tooltips:
-      '\
-  Splunk \n\
-  New relic \n\
-  Google Analytics \n\
-  Yandex Analytics\
-  ',
   },
 
   {
@@ -1069,11 +1060,11 @@ $ git push -u origin ...\n\
     linkHref: 'https://en.wikipedia.org/wiki/OAuth',
     tooltips:
       '\
-  OAuth (Open Authorization[1][2]) is an open standard for access delegation,\n\
+  OAuth (Open Authorization) is an open standard for access delegation,\n\
   commonly used as a way for Internet users to grant websites or applications access\n\
   to their information on other websites but without giving them the passwords.\n\
-  This mechanism is used by companies such as Google, Facebook, VKontakte, Amazon, Microsoft and\n\
-  Twitter to permit the users to share information about their accounts with third-party\n\
+  This mechanism is used by companies such as Google, Facebook, Twitter, Amazon, Microsoft and\n\
+  to permit the users to share information about their accounts with third-party\n\
   applications or websites.\n\
   ',
   },
@@ -1084,17 +1075,44 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://facebook.github.io/react/',
     tooltips:
+      "\
+* React Component API: The React Component API is the core of the React library and provides a way to create reusable UI components. The API includes methods for defining a component's state, props, and lifecycle methods, as well as the render() method, which defines the component's HTML output.\n\
+* React DOM API: The React DOM API is used to manipulate the Document Object Model (DOM) of a web page. It provides a set of methods that can be used to create, update, and delete HTML elements, as well as to handle events and manage the state of the user interface.\n\
+* React Router API: The React Router API is a library that provides a way to manage routing and navigation in a React application. It includes methods for defining routes, navigating between pages, and passing data between components.\n\
+* React Redux API: The React Redux API is a library that provides a way to manage the state of a React application. It includes methods for defining and updating the application state, as well as for handling asynchronous data fetching and updating.\n\
+* React Hooks API: The React Hooks API is a way to add state and lifecycle methods to functional components. It provides a set of built-in hooks that can be used to manage state, perform side effects, and respond to user events.\n\
+\n\
+- React Functional Components\n\
+- React Class Components\n\
+- Rendering Elements\n\
+- Components and Props\n\
+- State and Lifecycle\n\
+- Handling Events\n\
+- Conditional Rendering\n\
+- Lists and Keys\n\
+- Forms\n\
+- Lifting State Up\n\
+- Composition vs Inheritance",
+  },
+
+  {
+    idUser: '1',
+    title: 'React Hooks',
+    section: 'Front-end',
+    linkHref: 'https://react.dev/reference/react',
+    tooltips:
       '\
-  REACT\n\
-  Rendering Elements\n\
-  Components and Props\n\
-  State and Lifecycle\n\
-  Handling Events\n\
-  Conditional Rendering\n\
-  Lists and Keys\n\
-  Forms\n\
-  Lifting State Up\n\
-  Composition vs Inheritance',
+- useState: allows a functional component to have stateful data.\n\
+- useEffect: allows a functional component to perform side effects like fetching data from APIs, manipulating the DOM, or - interacting with the browser.\n\
+- useContext: allows a functional component to consume data from a parent component without having to pass the data through every level of the component tree.\n\
+- useReducer: allows a functional component to have a more complex state that requires multiple actions.\n\
+useCallback: optimizes the performance of a functional component by memoizing a function so that it is not recreated on every render.\n\
+- useMemo: optimizes the performance of a functional component by memoizing a value so that it is not recalculated on every render.\n\
+- useRef: allows a functional component to access a mutable value that persists across renders.\n\
+- useLayoutEffect: similar to useEffect, but runs synchronously after all DOM mutations. Can be used for DOM measurements and other side effects that require synchronous access to the DOM.\n\
+- useImperativeHandle: allows a functional component to expose an imperative API to its parent component.\n\
+- useDebugValue: allows a custom label to be attached to a hook value for easier debugging in React DevTools.\n\
+      ',
   },
 
   {
@@ -1360,6 +1378,7 @@ $ git push -u origin ...\n\
   This enables you to build more customized applications \n\
   and increase the appeal of your web site.',
   },
+
   {
     idUser: '1',
     title: 'SPA',
@@ -1372,6 +1391,23 @@ $ git push -u origin ...\n\
   rather than loading entire new pages from a server.\n\
   Interaction with the single page application often involves \n\
   dynamic communication with the web server behind the scenes.',
+  },
+
+  {
+    idUser: '1',
+    title: 'SSO',
+    section: 'Front-end',
+    linkHref:
+      'https://www.techtarget.com/searchsecurity/definition/single-sign-on',
+    tooltips:
+      '\
+Single sign-on (SSO) is a session and user authentication service that permits a user to use one set of login credentials -- for example, a username and password -- to access multiple applications.\n\
+\n\
+SSO services use protocols:\n\
+* In a Kerberos-based setup, once user credentials are provided, a ticket-granting ticket (TGT) is issued. The TGT fetches service tickets for other applications the user wants to access, without asking the user to reenter credentials.\n\
+* SAML is an Extensible Markup Language standard that facilitates the exchange of user authentication and authorization data across secure domains. SAML-based SSO services involve communications among the user, an identity provider that maintains a user directory and a service provider.\n\
+* Smart card-based SSO asks an end user to use a card holding the sign-in credentials for the first login. Once the card is used, the user does not have to reenter usernames or passwords. SSO smart cards store either certificates or passwords.\n\
+',
   },
 
   {
@@ -1578,24 +1614,6 @@ $ git push -u origin ...\n\
 
   {
     idUser: '1',
-    title: 'Matplotlib',
-    section: 'Back-end',
-    linkHref: 'https://matplotlib.org/contents.html',
-    tooltips:
-      '\
-  Pyplot\n\
-  Plotting\n\
-  Markers\n\
-  Line\n\
-  Subplots\n\
-  Scatter\n\
-  Bars\n\
-  Histograms\n\
-  Pie Charts',
-  },
-
-  {
-    idUser: '1',
     title: 'MERN',
     section: 'Back-end',
     linkHref:
@@ -1671,8 +1689,24 @@ $ git push -u origin ...\n\
     linkHref: 'https://nodejs.org/en/',
     tooltips:
       '\
-  thread workers\n\
-  child processes',
+Architecture:\n\
+* Event-driven: Node.js is event-driven, which means that it uses an asynchronous, non-blocking I/O model that allows it to handle large numbers of concurrent connections without getting bogged down by slow I/O operations.\n\
+* Single-threaded: Node.js is single-threaded, which means that it runs on a single thread of execution. However, it uses an event loop that allows it to process multiple I/O operations concurrently, making it highly efficient.\n\
+* Cross-platform: Node.js is cross-platform, which means that it can run on a variety of operating systems, including Windows, macOS, and Linux.\n\
+* NPM: Node.js comes with a package manager called NPM (Node Package Manager), which allows developers to easily install and manage third-party packages and modules.\n\
+\n\
+Modules:\n\
+- Asynchronous programming: Node.js is built around an event-driven, non-blocking I/O model, which means that you need to be comfortable with writing asynchronous code using callbacks, promises, or async/await.\n\
+- Node Package Manager (npm): npm is a package manager for Node.js modules that makes it easy to install and manage dependencies.\n\
+- HTTP and HTTPS modules: Node.js includes built-in modules for handling HTTP and HTTPS requests and responses.\n\
+- File system module: The file system module provides methods for working with the file system on your computer, such as creating, reading, and writing files.\n\
+- Streams: Streams allow you to efficiently process large amounts of data in small chunks, rather than loading everything into memory at once.\n\
+- Event emitters: Node.js uses the EventEmitter class to handle events and event listeners.\n\
+- Error handling: Error handling is important in Node.js because of the asynchronous nature of the platform. You should be familiar with techniques for handling errors in callback functions and Promise chains.\n\
+- Child processes: Node.js allows you to spawn child processes to run external commands or scripts.\n\
+- Debugging tools: Node.js comes with built-in debugging tools like the Node Inspector, which you can use to debug your applications.\n\
+- CommonJS modules: Node.js uses the CommonJS module system to manage dependencies between modules in your application.\n\
+',
   },
 
   {
@@ -1750,6 +1784,35 @@ $ git push -u origin ...\n\
   Quantifiers\n\
   Assertions',
   },
+
+  {
+    idUser: '1',
+    title: 'RESTful-API',
+    section: 'Back-end',
+    linkHref: 'https://www.restapitutorial.com/lessons/whatisrest.html',
+    tooltips:
+      '\
+REpresentational\n\
+State\n\
+Transfer\n\
+is a constraints and architectural style and allows for interaction with RESTful web services.\n\
+\n\
+The six constraints for REST architectual style:\n\
+1. Uniform Interface\n\
+2. Stateless\n\
+3. Cacheable\n\
+4. Client-Server\n\
+5. Layered System\n\
+6. Code on Demand (optional)\n\
+\n\
+Parts:\n\
+Resources (URIs),\n\
+HTTP methods (GET, PUT, POST, DELETE),\n\
+HTTP headers,\n\
+Query parameters,\n\
+Status codes',
+  },
+
   {
     idUser: '1',
     title: 'Routing',
@@ -1949,6 +2012,20 @@ $ git push -u origin ...\n\
   Change privileges for folders\n\
   Install NodeJS\n\
   Install Virtual Box, pm2, Docker\n\
+  ',
+  },
+
+  {
+    idUser: '1',
+    title: 'Web Analytics',
+    section: 'Front-end',
+    linkHref: 'https://www.google.com/analytics/',
+    tooltips:
+      '\
+  Splunk \n\
+  New relic \n\
+  Google Analytics \n\
+  Yandex Analytics\
   ',
   },
 
@@ -2204,6 +2281,24 @@ $ git push -u origin ...\n\
   Serialization utilities\n\
   Python & NumPy utilities\n\
   Backend utilities',
+  },
+
+  {
+    idUser: '1',
+    title: 'Matplotlib',
+    section: 'AI/ ML',
+    linkHref: 'https://matplotlib.org/contents.html',
+    tooltips:
+      '\
+  Pyplot\n\
+  Plotting\n\
+  Markers\n\
+  Line\n\
+  Subplots\n\
+  Scatter\n\
+  Bars\n\
+  Histograms\n\
+  Pie Charts',
   },
 
   {

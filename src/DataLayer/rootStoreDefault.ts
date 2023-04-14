@@ -43,7 +43,7 @@ export const componentsStateDefault: ComponentsStateType = {
   isMainColumn: true,
   modalFrame: {
     childName: 'CompetencyTags', // Portfolio, Profile CompetencyTags
-    isShow: false,
+    isShow: true,
     childProps: {},
   },
 }
@@ -58,7 +58,7 @@ export const rootStoreDefault: RootStoreType = {
     isLoadedGlobalVars: false,
   },
   globalVars: {
-    idUserHost: '2',
+    idUserHost: '1',
     theme: 'light',
     language: 'en',
   },
