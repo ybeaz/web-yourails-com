@@ -12,34 +12,49 @@ export const SET_ID_USER_HOST_INIT: ActionEventType = (event, data) => {
     profiles,
   } = getState()
 
-  // const profileNameUrl = window.location.hash.replace('#', '')
   const query = getParsedUrlQuery(window.location.hash)
   const profileNameUrl = query.profileName
-  const show = query.s
+  const showType = query.st
 
   const profileUrl = profiles.find(
     (profile: ProfileType) => profile.profileName === profileNameUrl
   )
 
-  // TODO, STOPPED HERE
-  console.info('SET_ID_USER_HOST_INIT [10]', {
-    show,
-    query,
-    idUserHost,
-    'window.location.hash': window.location.hash,
-    profileNameUrl,
-    profiles,
-    profileUrl,
-    'window.location': window.location,
-  })
-
-  if (!profileUrl) return
-
   const idUserUrl = profileUrl.idUser
 
-  console.info('SET_ID_USER_HOST_INIT [10]', {
-    idUserUrl,
-  })
+  let modalFrameNext
+  window.location.hostname
+  if (window.location.hostname === 'r1.userto.com') {
+    modalFrameNext = {
+      childName: 'Portfolio', // Portfolio, Profile CompetencyTags
+      isShow: true,
+      isButtonBack: false,
+      isButtonClose: false,
+      childProps: {},
+    }
+    dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
+  } else if (showType === 'bc') {
+    modalFrameNext = {
+      childName: 'Portfolio',
+      isShow: true,
+      isButtonBack: false,
+      isButtonClose: false,
+      childProps: {},
+    }
+    dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
+  } else if (showType === 'ct') {
+    modalFrameNext = {
+      childName: 'Portfolio',
+      isShow: false,
+      isButtonBack: true,
+      isButtonClose: true,
+      childProps: {},
+    }
+    dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
+  } else {
+    console.info('SET_ID_USER_HOST_INIT [71]', { showType })
+    dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL({ isShowApp: false }))
+  }
 
   if (idUserHost === idUserUrl) return
 

@@ -29,5 +29,6 @@ export interface RootStoreType {
     idUserHost: string
     theme: string
     language: string
+    isShowApp: boolean
   }
 }

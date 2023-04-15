@@ -1,13 +1,10 @@
 import React, { createContext, useRef, useEffect, useCallback } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView, View } from 'react-native'
-import { withRouter } from 'react-router-dom'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
-import { getParsedUrlQuery } from '../../../Shared/getParsedUrlQuery'
-import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
@@ -52,25 +49,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     location: { pathname, hash },
   } = routeProps
 
-  // const userHash = useRef(hash)
-  // const queryParams = getParsedUrlQuery(hash)
-
-  // console.info('PageChatsWholeScreen [45]', {
-  //   // hashHashCurrent: userHash.current,
-  //   history,
-  //   pathname,
-  //   hash,
-  //   routeProps,
-  //   queryParams,
-  // })
-
   const style = styles[deviceType]
 
   const renderCounter = useRef(0)
   renderCounter.current = renderCounter.current + 1
 
   const {
-    globalVars: { language, idUserHost },
+    globalVars: { language, idUserHost, isShowApp },
     componentsState,
   } = store
   const { modalFrame, isSidebarRight, isMainColumn } = componentsState
@@ -91,9 +76,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
     handleEvents.SET_ID_USER_HOST_INIT({}, {})
-    // console.info('PageChatsWholeScreen [80]', {
-    //   'window.location.hash': window.location.hash,
-    // })
   }, [])
 
   useEffect(() => {
@@ -104,6 +86,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     console.info('PageChatsWholeScreen [87]', { data })
   }
 
+  const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
 
   const propsOut: Record<string, any> = {
@@ -118,9 +101,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       modalFrame: { ...modalFrame, childProps: {} },
     },
     contentMenuMainColumnProps: {
-      // styleProps: {
-      //   borderColor: 'white',
-      // },
       store,
     },
     sidebarRightOuterAnimatedYrlProps: {
@@ -163,14 +143,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
   }
 
-  // console.info('PageChatsWholeScreen [148]', { idUserHost, store })
-
   return (
     <SafeAreaView
       style={[
         style.PageChatsWholeScreen,
         themes['themeA'].colors01,
         { borderColor: 'white' },
+        styleAddPageChatsWholeScreen,
       ]}
       testID='PageChatsWholeScreen'
     >

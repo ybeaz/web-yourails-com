@@ -4,6 +4,7 @@ import { ActionType } from '../@types/ActionType'
 
 /** @description  Synchroneours redux actions */
 const ACTIONS_SYNC: string[] = [
+  'TOGGLE_IS_SHOW_GLOBAL',
   'ADD_PROFILES',
   'SET_ID_USER_HOST',
   'TOGGLE_MAIN_COLUMN',

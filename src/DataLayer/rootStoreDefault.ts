@@ -63,5 +63,6 @@ export const rootStoreDefault: RootStoreType = {
     idUserHost: '1',
     theme: 'light',
     language: 'en',
+    isShowApp: true,
   },
 }
