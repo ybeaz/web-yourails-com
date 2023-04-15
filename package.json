@@ -20,12 +20,14 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "@types/ncp": "^2.0.5",
     "@types/react-helmet": "^6.1.5",
     "@types/react-native": "^0.69.3",
     "@types/react-native-vector-icons": "^6.4.12",
     "@types/react-router-dom": "^5.3.3",
     "@types/recompose": "^0.30.10",
     "@types/styled-components": "^5.1.25",
+    "@types/uglify-js": "^3.17.1",
     "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
@@ -134,6 +136,7 @@
     "ts-jest": "^29.0.5",
     "ts-pnp": "1.2.0",
     "twemoji": "^13.0.1",
+    "uglify-js": "^3.17.4",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
@@ -157,7 +160,9 @@
     "expo:ios": "expo start --ios",
     "expo:web": "expo start --web",
     "expo:eject": "expo eject",
-    "server:mock": "ts-node graphql/server.ts"
+    "server:mock": "ts-node graphql/server.ts",
+    "minify": "ts-node tools/getPreparedFilesPublicWeb.ts",
+    "export:web": "npx expo export:web && yarn minify"
   },
   "eslintConfig": {
     "extends": "react-app"

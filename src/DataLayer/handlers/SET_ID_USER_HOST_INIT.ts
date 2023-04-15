@@ -14,7 +14,7 @@ export const SET_ID_USER_HOST_INIT: ActionEventType = (event, data) => {
 
   const query = getParsedUrlQuery(window.location.hash)
   const profileNameUrl = query.profileName
-  const showType = query.st
+  const showType = query.s
 
   const profileUrl = profiles.find(
     (profile: ProfileType) => profile.profileName === profileNameUrl

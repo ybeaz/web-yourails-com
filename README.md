@@ -101,5 +101,12 @@ Note: to config `codegen` edit ??? `codegen.yml`
 
 @link https://docs.expo.dev/distribution/publishing-websites/
 
-- To build: `npx expo export:web`
+- To build: `yarn export:web` It runs script from package.json file. Legacy command `npx expo export:web`
 - To serve locally: `npx serve web-build`
+
+### How to run app and show pages
+
+- to show it in business card mode
+  `http://localhost:19006/k#@smid?s=bc`
+- to show it in chat app mode
+  `http://localhost:19006/k#@smid?s=ct`

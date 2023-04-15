@@ -1,10 +1,8 @@
-import * as fs from 'fs';
+import fs from 'fs'
 
-import { deleteArr } from './config'
-
-const deleteFolder = (path: string): void => {
+const deleteFolder = path => {
   if (fs.existsSync(path) && fs.lstatSync(path).isDirectory()) {
-    fs.readdirSync(path).forEach(function (file: any) {
+    fs.readdirSync(path).forEach(function (file, index) {
       var curPath = path + '/' + file
 
       if (fs.lstatSync(curPath).isDirectory()) {
@@ -20,9 +18,3 @@ const deleteFolder = (path: string): void => {
     fs.rmdirSync(path)
   }
 }
-
-console.log('Cleaning working tree...')
-
-deleteArr.forEach(item => deleteFolder(item))
-
-console.log('Successfully cleaned working tree!')

@@ -1,15 +1,13 @@
-export const dir = './build'
+// export const dir = './dist'
 
-export const deleteArr = ['./build']
+// export const deleteArr = ['./dist']
 
-export const copyArr = [
-  { src: `public/index.html`, dest: 'build/index.html' },
-  { src: `public/manifest.json`, dest: 'build/manifest.json' },
-  { src: `public/favicon.ico`, dest: 'build/favicon.ico' },
-  { src: `public/logo192.png`, dest: 'build/logo192.png' },
-  { src: `public/robots.txt`, dest: 'build/robots.txt' },
-]
+// export const copyArr = [
+//   { src: `package.json`, dest: 'dist/package.json' },
+//   { src: `.env.production`, dest: 'dist/.env.production' },
+//   { src: `.env.development`, dest: 'dist/.env.development' },
+//   { src: `.env.docker`, dest: 'dist/.env.docker' },
+//   { src: `src/views`, dest: 'dist/views' },
+// ]
 
-export const permissionArr = ['.build/robots.txt']
-
-export const pathToZipFiles = './src/lambda'
+// export const permissionArr = ['./dist/main.js']
