@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
+import { getParsedUrlQuery } from '../../../Shared/getParsedUrlQuery'
 import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
@@ -51,15 +52,17 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     location: { pathname, hash },
   } = routeProps
 
-  const userHash = useRef(hash)
+  // const userHash = useRef(hash)
+  // const queryParams = getParsedUrlQuery(hash)
 
-  console.info('PageChatsWholeScreen [45]', {
-    hashHashCurrent: userHash.current,
-    history,
-    pathname,
-    hash,
-    routeProps,
-  })
+  // console.info('PageChatsWholeScreen [45]', {
+  //   // hashHashCurrent: userHash.current,
+  //   history,
+  //   pathname,
+  //   hash,
+  //   routeProps,
+  //   queryParams,
+  // })
 
   const style = styles[deviceType]
 
