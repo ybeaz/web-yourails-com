@@ -1,137 +1,135 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
-import { View, ImageResizeMode } from 'react-native'
+import React from 'react'
+import { View } from 'react-native'
 
+import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
+import { ContentType, LinkType } from '../../../@types/LinkType'
+import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
+import {
+  withDeviceTypeYrl,
+  mediaParamsDefault,
+  DeviceType,
+} from '../../../YrlNativeViewLibrary'
 import { ProfileItem } from '../ProfileItem/ProfileItem'
 import { ProfileItemPropsType } from '../ProfileItem/ProfileItemType'
-import { style } from './ProfileStyle'
-import { ProfileType } from './ProfileType'
-import { Text } from '../Text/Text'
-import { themes } from '../../Styles/themes'
-import { UserType, MessengerType } from '../../../@types/UserType'
+import { styles } from './ProfileStyle'
+import { ProfileComponentType } from './ProfileComponentType'
+import { ProfileType } from '../../../@types/ProfileType'
+import { getMessengesString } from '../../../Shared/getMessengesString'
 
-import { users } from '../../../Constants/usersMock'
+import { links } from '../../../ContentMock/linksMock'
+import { profiles } from '../../../ContentMock/profilesMock'
 
-// TODO Refactor wile moving to multiuser service
-const getMessengesString = (messengers: MessengerType[]) =>
-  messengers.map((messenger: MessengerType, index: number) => {
-    const { name: messengerName, username } = messenger
-    return (
-      <View
-        key={`messenger-${index}`}
-        style={[style.messengerView]}
-        testID='messengerView'
-      >
-        <Text style={[style.messengerNameText]} testID='messengerNameText'>
-          {messengerName + ' > '}
-        </Text>
-        <Text style={[style.usernameText]} testID='usernameText'>
-          {username}
-        </Text>
-      </View>
-    )
-  })
-
-// TODO Refactor wile moving to multiuser service
-const getProfileItemsObjList = (userIn: UserType): ProfileItemPropsType[] => {
+// TODO Refactor wile moving to multiprofile and multiprofiler service
+const getProfileItemsObjList = (
+  profileIn: ProfileType,
+  links: LinkType[],
+  style: any,
+  deviceType: DeviceType
+): ProfileItemPropsType[] => {
   const {
-    username = '',
+    profileName = '',
     phones = [],
     emails = [],
     messengers = [],
     locations = [],
     summary,
-  } = userIn
+    serviceSpecs = [],
+  } = profileIn
 
   return [
+    {
+      iconLibrary: 'Ionicons',
+      iconName: 'checkmark-outline',
+      contentType: 'string',
+      content: serviceSpecs.join(', '),
+      label: 'Service specs',
+      isActive:
+        deviceType === DeviceType['xsDevice'] ||
+        deviceType === DeviceType['smDevice']
+          ? true
+          : false,
+    },
     {
       iconLibrary: 'Ionicons',
       iconName: 'albums-outline',
       contentType: 'string',
       content: summary,
       label: 'Summary',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'at',
-      content: username.toString(),
+      content: profileName.toString(),
       label: 'Username',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'location-outline',
       content: locations.join(', '),
       label: 'Locations',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'chatbox-ellipses-outline',
-      content: getMessengesString(messengers),
+      content: getMessengesString(messengers, style),
       label: 'Messengers',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'call-outline',
       content: phones.join(', '),
       label: 'Phons',
-    },
-    {
-      iconLibrary: 'Ionicons',
-      iconName: 'ios-calendar-outline',
-      contentType: 'linkHref',
-      contentSrc: 'https://calendly.com/romanch',
-      content: 'Feel free to setup a phone call',
-      label: 'Link',
+      isActive: true,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'mail-outline',
       content: emails.join(', '),
       label: 'Email',
+      isActive: true,
     },
-    {
-      iconLibrary: 'Ionicons',
-      iconName: 'ios-logo-linkedin',
-      contentType: 'linkHref',
-      contentSrc: 'https://www.linkedin.com/in/romanches',
-      content: 'Profile in Linkedin.com',
-      label: 'Link',
-    },
-    {
-      iconLibrary: 'Ionicons',
-      iconName: 'ios-logo-stackoverflow',
-      contentType: 'linkHref',
-      contentSrc: 'https://stackoverflow.com/users/4791116/roman',
-      content: 'Profile in Stackoverflow',
-      label: 'Link',
-    },
-    {
-      iconLibrary: 'Ionicons',
-      iconName: 'ios-logo-github',
-      contentType: 'linkHref',
-      contentSrc: 'https://github.com/ybeaz',
-      content: 'Profile in Github',
-      label: 'Link',
-    },
-    {
-      iconLibrary: undefined,
-      iconName: undefined,
-      contentType: 'imageSrc',
-      contentSrc: 'https://r1.userto.com/img/romanChesQrCodeQuietZone00.png',
-      content: '',
-      label: 'QR code with contacts',
-    },
+    ...links,
   ]
 }
 
 /**
  * @import import { Profile } from '../Components/Profile/Profile'
  */
-const ProfileComponent: ProfileType = props => {
-  const { styleProps = { Profile: {} } } = props
+const ProfileComponent: ProfileComponentType = props => {
+  const {
+    styleProps = { Profile: {} },
+    mediaParams = mediaParamsDefault,
+    store,
+  } = props
+  const { deviceType } = mediaParams
+  const style = styles[deviceType]
 
-  const user: UserType = users[0]
+  // const store = useSelector((store2: RootStoreType) => store2)
+  const {
+    globalVars: { idUserHost },
+  } = store
 
-  const profileItems = getProfileItemsObjList(user)
+  const profilesTagsUserHost = getFilteredObjsArrayByIdUser(
+    profiles,
+    idUserHost
+  ) as ProfileType[]
+  const profileTagsUserHost = profilesTagsUserHost[0]
+
+  const linksUserHost = getFilteredObjsArrayByIdUser(
+    links,
+    idUserHost
+  ) as LinkType[]
+
+  const profileItems = getProfileItemsObjList(
+    profileTagsUserHost,
+    linksUserHost,
+    style,
+    deviceType
+  ).filter(profileItemObj => profileItemObj.isActive === true)
   const getProfileItems = (profileItemsIn: ProfileItemPropsType[]) =>
     profileItemsIn.map(
       (profileItemProps: ProfileItemPropsType, index: number) => (
@@ -139,7 +137,7 @@ const ProfileComponent: ProfileType = props => {
       )
     )
 
-  const propsOut = {}
+  const propsOut: Record<string, any> = {}
 
   return (
     <View style={[style.Profile, styleProps.Profile]} testID='Profile'>
@@ -150,4 +148,6 @@ const ProfileComponent: ProfileType = props => {
   )
 }
 
-export const Profile = React.memo(ProfileComponent)
+export const Profile = React.memo(
+  withStoreStateYrl(withDeviceTypeYrl(ProfileComponent))
+)

@@ -1,12 +1,13 @@
 import { ReactElement } from 'react'
-import { UserType } from '../../../@types/UserType'
+import { ProfileType } from '../../../@types/ProfileType'
 
 export interface AvatarPlusInfoPropsType {
   styleProps?: {
     AvatarPlusInfo?: any
     viewStyle?: any
   }
-  user: UserType
+  onPress: () => any
+  profile: ProfileType
   children: ReactElement
 }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { View } from 'react-native'
 

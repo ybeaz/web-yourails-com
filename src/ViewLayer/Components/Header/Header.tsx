@@ -1,7 +1,10 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 
-import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
+import {
+  withDeviceTypeYrl,
+  mediaParamsDefault,
+} from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
 import { HeaderType } from './HeaderTypes'
 import { styles } from './HeaderStyles'
@@ -25,7 +28,6 @@ const HeaderComponent: HeaderType = props => {
   const style = styles[deviceType]
 
   const propsOut: Record<string, any> = {}
-  console.info('Header [28]', { 'styleProps.Header': styleProps.Header })
 
   return (
     <View style={[style.Header, styleProps.Header]} testID='Header'>
@@ -36,4 +38,4 @@ const HeaderComponent: HeaderType = props => {
   )
 }
 
-export const Header = React.memo(withDeviceType(HeaderComponent))
+export const Header = React.memo(withDeviceTypeYrl(HeaderComponent))

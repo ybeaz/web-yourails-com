@@ -1,36 +1,52 @@
 import React, { useCallback, ReactElement } from 'react'
 import { ImageResizeMode, View, Linking, Alert } from 'react-native'
-import '@expo/match-media'
 
+import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
+import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
+import { ProjectType } from '../../../@types/ProjectType'
+import { ProjectInfoView } from '../ProjectInfoView/ProjectInfoView'
 import { Header } from '../Header/Header'
-import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
-import { useLinkClickRes } from '../../Hooks/useLinkClickRes'
+import {
+  withDeviceTypeYrl,
+  mediaParamsDefault,
+} from '../../../YrlNativeViewLibrary'
+import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
 import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
-import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary'
+import { ImageYrl } from '../../../YrlNativeViewLibrary'
 import { styles } from './PortfolioStyles'
 import { PortfolioType } from './PortfolioTypes'
-import { Text } from '../../Components/Text/Text'
 
-import { getProjectList, ProjectType } from '../../../r1Content/r1Projects'
+import { projects } from '../../../ContentMock/projectsMock'
 
 /**
  * @import import { Portfolio } from '../Components/Portfolio/Portfolio'
  */
 const PortfolioComponent: PortfolioType = props => {
-  const { styleProps = { Portfolio: {} }, mediaParams = mediaParamsDefault } =
-    props
-  const { deviceType, screenCase, width, height } = mediaParams
+  const {
+    styleProps = { Portfolio: {} },
+    mediaParams = mediaParamsDefault,
+    store,
+  } = props
+  const { deviceType, screenCase, width } = mediaParams
   const style = styles[deviceType]
+
+  const {
+    globalVars: { idUserHost },
+  } = store
+
+  const projectsUserHost = getFilteredObjsArrayByIdUser(
+    projects,
+    idUserHost
+  ) as ProjectType[]
 
   const { imageWidth, imageHeight } = getImageSizesFor1of2Columns(
     screenCase,
     width
   )
 
-  const projectsList: ProjectType[] = getProjectList()
-  const getProjects = (projectsList: ProjectType[]): ReactElement[] => {
-    return projectsList
+  const getProjects = (projects: ProjectType[]): ReactElement[] => {
+    return projects
       .filter((project: ProjectType) => project.isActive === true)
       .map((project: ProjectType, index: number) => {
         const {
@@ -47,7 +63,7 @@ const PortfolioComponent: PortfolioType = props => {
 
         const imageResizeMode: ImageResizeMode = 'cover' // 'cover' 'contain' 'center'
 
-        const propsOut = {
+        const propsOut: Record<string, any> = {
           projectButtonYrl: {
             styleProps: {
               ButtonYrl: { justifyContent: 'flex-start' },
@@ -56,12 +72,13 @@ const PortfolioComponent: PortfolioType = props => {
             titleText: '',
             testID: 'projectButtonYrl',
             disabled: false,
-            onPress: useLinkClickRes(linkHref),
+            onPress: useLinkClickResYrl(linkHref),
           },
           projectImageYrlProps: {
             styleProps: {
               ImageYrl: {},
               image: {
+                borderRadius: 3,
                 width: imageWidth,
                 height: imageHeight,
               },
@@ -71,85 +88,14 @@ const PortfolioComponent: PortfolioType = props => {
             uri: imgSrc,
             resizeMode: imageResizeMode,
           },
+          projectInfoViewProps: {
+            title,
+            subtitle,
+            description,
+            customer,
+            builtwith,
+          },
         }
-
-        const ProjectProfileView = () => (
-          <View style={[style.projectProfileView]} testID='projectProfileView'>
-            <View style={[style.titleView, style.rowStyle]} testID='titleView'>
-              <Text style={[style.titleText]} testID='titleText'>
-                {title}
-              </Text>
-            </View>
-            <View
-              style={[style.subtitleView, style.rowStyle]}
-              testID='subtitleView'
-            >
-              <Text
-                style={[style.subtitleTextName, style.column1Style]}
-                testID='subtitleTextName'
-              >
-                Subtitle:
-              </Text>
-              <Text
-                style={[style.subtitleText, style.column2Style]}
-                testID='subtitleTex'
-              >
-                {subtitle}
-              </Text>
-            </View>
-            <View
-              style={[style.descriptionView, style.rowStyle]}
-              testID='descriptionView'
-            >
-              <Text
-                style={[style.descriptionTextName, style.column1Style]}
-                testID='subtitleTextName'
-              >
-                Description:
-              </Text>
-              <Text
-                style={[style.descriptionText, style.column2Style]}
-                testID='descriptionText'
-              >
-                {description}
-              </Text>
-            </View>
-            <View
-              style={[style.customerView, style.rowStyle]}
-              testID='customerView'
-            >
-              <Text
-                style={[style.customerTextName, style.column1Style]}
-                testID='customerTextName'
-              >
-                Industry:
-              </Text>
-              <Text
-                style={[style.customerText, style.column2Style]}
-                testID='customerText'
-              >
-                {customer}
-              </Text>
-            </View>
-            <View
-              style={[style.builtwithView, style.rowStyle]}
-              testID='builtwithView'
-            >
-              <Text
-                style={[style.builtwithTextName, style.column1Style]}
-                testID='subtitleTextName'
-              >
-                Built with:
-              </Text>
-              <Text
-                style={[style.builtwithText, style.column2Style]}
-                testID='builtwithText'
-              >
-                {builtwith}
-              </Text>
-            </View>
-          </View>
-        )
 
         return (
           <View
@@ -157,7 +103,9 @@ const PortfolioComponent: PortfolioType = props => {
             style={[style.projectView]}
             testID='projectView'
           >
-            {screenCase === 'xsSmMd' && <ProjectProfileView />}
+            {screenCase === 'xsSmMd' && (
+              <ProjectInfoView {...propsOut.projectInfoViewProps} />
+            )}
             <View style={[style.buttonImageView]} testID='buttonImageView'>
               <ButtonYrl {...propsOut.projectButtonYrl}>
                 <View style={[style.imageView]} testID='imageView'>
@@ -165,7 +113,9 @@ const PortfolioComponent: PortfolioType = props => {
                 </View>
               </ButtonYrl>
             </View>
-            {screenCase === 'lgXl' && <ProjectProfileView />}
+            {screenCase === 'lgXl' && (
+              <ProjectInfoView {...propsOut.projectInfoViewProps} />
+            )}
           </View>
         )
       })
@@ -185,9 +135,11 @@ const PortfolioComponent: PortfolioType = props => {
   return (
     <View style={[style.Portfolio, styleProps.Portfolio]} testID='Portfolio'>
       <Header {...propsOut.headerProps} />
-      {getProjects(projectsList)}
+      {getProjects(projectsUserHost)}
     </View>
   )
 }
 
-export const Portfolio = React.memo(withDeviceType(PortfolioComponent))
+export const Portfolio = React.memo(
+  withStoreStateYrl(withDeviceTypeYrl(PortfolioComponent))
+)

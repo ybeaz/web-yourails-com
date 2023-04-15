@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 // import { experimental_useEffectEvent as useEffectEvent } from 'react';
 
-type useAnimatedYrlProps = {
+export type UseAnimatedYrlPropsType = {
   ref: any
   isActive: boolean
   nameHtmlCssAttribute: string
@@ -13,11 +13,16 @@ type useAnimatedYrlProps = {
   testID?: string
 }
 
+export interface UseAnimatedYrlType {
+  (props: UseAnimatedYrlPropsType): void
+}
+
 /**
- * @import import { useAnimatedYrl } from 'src/ViewLayer/Hooks/useAnimatedYrl.ts'
+ * @description React hook to provide animation, delay of appearance of an element
+ * @import import { useAnimatedYrl } from './YrlNativeViewLibrary/Hooks/useAnimatedYrl.ts'
  */
 
-export const useAnimatedYrl = ({
+export const useAnimatedYrl: UseAnimatedYrlType = ({
   ref,
   isActive,
   valueInit,
@@ -27,7 +32,7 @@ export const useAnimatedYrl = ({
   trigger,
   triggerShouldEqual,
   testID,
-}: useAnimatedYrlProps) => {
+}) => {
   const mode = valueInit < valueTarget ? 'In' : 'Out'
 
   useEffect(() => {

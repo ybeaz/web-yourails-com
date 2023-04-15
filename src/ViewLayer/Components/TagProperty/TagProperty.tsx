@@ -9,8 +9,8 @@ import {
   lightColors,
 } from '@rneui/themed'
 
-import { useLinkClickRes } from '../../Hooks/useLinkClickRes'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
+import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
 import { TagPropertyType } from './TagPropertyType'
 import { style } from './TagPropertyStyle'
@@ -30,7 +30,7 @@ const TagPropertyComponent: TagPropertyType = props => {
     testID = 'TagProperty',
   } = props
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     tooltip_buttonYrlLinking: {
       styleProps: {
         ButtonYrl: {},
@@ -43,7 +43,7 @@ const TagPropertyComponent: TagPropertyType = props => {
       titleText: `<${title} />`, //'<Documentation />',
       testID: 'tooltip_buttonYrl',
       disabled: false,
-      onPress: useLinkClickRes(linkHref),
+      onPress: useLinkClickResYrl(linkHref),
       iconProps: undefined,
     },
   }

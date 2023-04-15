@@ -1,8 +1,13 @@
-import { UserType } from '../../../@types/UserType'
+import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
+import { ProfileType } from '../../../@types/ProfileType'
+import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 
 export interface ChatCardPropsType {
   styleProps?: any
-  user: UserType
+  mediaParams?: UseMediaQueryResYrlOutType
+  profile: ProfileType
+  handleEvents: HandleEventsType
+  isActive: boolean
 }
 
 /**

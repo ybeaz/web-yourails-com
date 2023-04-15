@@ -31,6 +31,7 @@ export const RouterScreensConfig: React.FunctionComponent<any> = () => {
   const getRoutes: IGetRoutes = routesArg =>
     routesArg.map((route, index: number) => {
       const { path, exact, page, isHashRouter, themeDafault } = route
+
       const Page = PAGES[page]
       return (
         <Route
@@ -41,7 +42,7 @@ export const RouterScreensConfig: React.FunctionComponent<any> = () => {
             const pageProps = { rootPath, routeProps, themeDafault }
             if (isHashRouter == true) {
               return (
-                <HashRouter basename='@rome_sfba' hashType='noslash'>
+                <HashRouter basename='' hashType='noslash'>
                   <Page {...pageProps} />
                 </HashRouter>
               )
@@ -54,7 +55,7 @@ export const RouterScreensConfig: React.FunctionComponent<any> = () => {
     })
 
   const redirects = [
-    { from: `/`, to: `/k`, exact: true, strict: true },
+    { from: `/`, to: `/k#@rome`, exact: true, strict: true },
     { from: `/home2`, to: `home`, exact: true },
   ]
   interface IGetRedirects {

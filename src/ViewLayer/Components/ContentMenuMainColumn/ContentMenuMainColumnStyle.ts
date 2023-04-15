@@ -10,7 +10,5 @@ export const style = StyleSheet.create({
     flex: 1,
     paddingLeft: '0.5rem',
     paddingRight: '0.5rem',
-    borderLeftWidth: 1,
-    borderRightWidth: 1,
   },
 })

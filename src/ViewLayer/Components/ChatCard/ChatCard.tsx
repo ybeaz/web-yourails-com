@@ -1,38 +1,56 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 
+import {
+  withDeviceTypeYrl,
+  mediaParamsDefault,
+} from '../../../YrlNativeViewLibrary'
 import { ChatCardType } from './ChatCardType'
 import { style } from './ChatCardStyle'
 import { themes } from '../../Styles/themes'
 import { NameStatus } from '../NameStatus/NameStatus'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { withPropsYrl } from '../../../YrlNativeViewLibrary'
 
 /**
  * @import import { ChatCard } from '../Components/ChatCard/ChatCard'
  */
 const ChatCardComponent: ChatCardType = props => {
-  const { user, styleProps = { ChatCard: {} } } = props
+  const {
+    profile,
+    styleProps = { ChatCard: {} },
+    mediaParams = mediaParamsDefault,
+    handleEvents,
+    isActive,
+  } = props
+  const { idUser, profileName } = profile
+  const { deviceType } = mediaParams
 
-  const propsOut = {
+  const colorStyle = isActive ? themes['themeA'].colors07 : {}
+
+  const propsOut: Record<string, any> = {
     avatarPlusInfoProps: {
-      user,
-      styleProps: {
-        viewStyle: themes['themeA'].colors07,
+      styleProps: {},
+      profile,
+      onPress: () => {
+        handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
+        handleEvents.CLICK_ON_USER_CHAT_CARD({}, { idUser, profileName })
       },
     },
     nameStatusProps: {
       styleProps: {
         NameStatus: {},
-        viewStyle: themes['themeA'].colors07,
+        viewStyle: colorStyle,
       },
-      user,
+      profile,
       status: 'last seen recently',
     },
   }
 
   return (
     <View
-      style={[style.ChatCard, styleProps.ChatCard, themes['themeA'].colors07]}
+      style={[style.ChatCard, styleProps.ChatCard, colorStyle]}
       testID='ChatCard'
     >
       <AvatarPlusInfo {...propsOut.avatarPlusInfoProps}>
@@ -42,4 +60,8 @@ const ChatCardComponent: ChatCardType = props => {
   )
 }
 
-export const ChatCard = React.memo(ChatCardComponent)
+export const ChatCard = React.memo(
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withDeviceTypeYrl(ChatCardComponent)
+  )
+)

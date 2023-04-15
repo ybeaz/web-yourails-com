@@ -1,29 +1,34 @@
-import { UserType } from './UserType'
+import { ProfileType } from './ProfileType'
 
 export interface ComponentsStateType {
   isLoaderOverlayVisible: boolean
-  modalFrame: { childName: string; isShow: boolean; childProps: any }
+  isSidebarRight: boolean
+  isMainColumn: boolean
+  modalFrame: {
+    childName: string
+    isShow: boolean
+    isButtonBack: boolean
+    isButtonClose: boolean
+    childProps: any
+  }
 }
 
-export interface FormsType {
-  searchInput: string
-  userPrev: UserType
-  user: UserType
-  [key: string]: any
-}
+export interface FormsType {}
 
 /**
- * @import import { RootStoreType } from '../@types/RootStoreType'
+ * @import import { RootStoreType, ComponentsStateType, FormsType } from '../@types/RootStoreType'
  */
 export interface RootStoreType {
   componentsState: ComponentsStateType
-  users: UserType[]
+  profiles: ProfileType[]
   forms: FormsType | any
   isLoaded: {
     isLoadedGlobalVars: boolean
   }
   globalVars: {
+    idUserHost: string
     theme: string
     language: string
+    isShowApp: boolean
   }
 }

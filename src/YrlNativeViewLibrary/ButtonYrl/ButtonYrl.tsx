@@ -10,18 +10,19 @@ import { IconYrl } from '../IconYrl/IconYrl'
  * @propsOut 
   buttonYrl: {
     styleProps: { ButtonYrl: {}, title: {} },
-    titleText: '',
+    titleText: 'test button',
     testID: 'ButtonYrl',
     disabled: false,
-    onPress: () => {},
+    onPress: () => {
+      console.info('ButtonYrl []', 'click test')
+    },
     iconProps: {
-      // || false
-      library: '',
-      name: '',
-      styleProps: {IconYrl: {},},
-      size: 10,
+      library: 'Ionicons',
+      name: 'arrow-back-outline',
+      styleProps: { IconYrl: {} },
+      size: '1.5rem',
       color: 'red',
-      testID: '',
+      testID: 'ButtonYrl',
     },
   }
  * @link https://oblador.github.io/react-native-vector-icons/

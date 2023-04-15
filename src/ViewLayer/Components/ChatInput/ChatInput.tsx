@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 
-import { InputTextYrl } from '../../../YrlNativeViewLibrary/InputTextYrl/InputTextYrl'
-import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
+import { InputTextYrl } from '../../../YrlNativeViewLibrary'
+import { IconYrl } from '../../../YrlNativeViewLibrary'
 import { ChatInputType } from './ChatInputType'
 import { style } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
 
 const ChatInputComponent: ChatInputType = props => {
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     inputTextYrlProps: {
       onChangeText: (text: string) => {},
       styleProps: {

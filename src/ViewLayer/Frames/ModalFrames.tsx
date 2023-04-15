@@ -35,7 +35,7 @@ export const ModalFrames: React.FunctionComponent = (): ReactElement => {
 
       const addClass = !isShow ? '' : 'ModalFrames_display'
 
-      const propsOut = {
+      const propsOut: Record<string, any> = {
         buttonCloseProps: {
           // title?: string
           // styleProps?: { button: any; text: any } | undefined

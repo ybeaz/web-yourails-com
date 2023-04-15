@@ -6,9 +6,15 @@ import { ButtonYrlPropsType } from '../ButtonYrl/ButtonYrlType'
  * IModalFrameYrlProps Interface
  */
 export interface ModalFrameYrlPropsType {
-  styleProps?: { ModalFrameYrl: any; imageBackground: any; content: any }
+  styleProps?: {
+    ModalFrameYrl: any
+    imageBackground: any
+    content: any
+    buttonBackWrapper: any
+    buttonCloseWrapper: any
+  }
   linearGradientColors: string[]
-  children?: ReactElement | ReactElement[]
+  children?: ReactElement | ReactElement[] | null
   isShow: boolean
   isShowImageBackground: boolean
   testID?: string

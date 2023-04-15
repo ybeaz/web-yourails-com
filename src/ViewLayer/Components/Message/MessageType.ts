@@ -1,13 +1,10 @@
-import { UserType } from '../../../@types/UserType'
-
 export interface MessagePropsType {
-  id: string | number
+  idMessage: string | number
   idUser: string | number
-  user: UserType
   text: string
   createdAt: Date | number | string
-  position: string
-  isMessageTailed: boolean
+  position?: string
+  isTail?: boolean
   image?: string
   video?: string
   audio?: string

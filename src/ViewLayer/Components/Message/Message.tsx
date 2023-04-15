@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import dayjs from 'dayjs'
 
@@ -14,12 +14,11 @@ import { LOCALE, TIME_FORMAT } from '../../../Constants/locale.const'
  */
 const MessageComponent: MessageType = props => {
   const {
-    id,
+    idMessage,
     text,
     createdAt,
-    user,
-    position,
-    isMessageTailed,
+    position = 'right',
+    isTail = false,
     image,
     video,
     audio,
@@ -29,16 +28,16 @@ const MessageComponent: MessageType = props => {
     isPending,
   } = props
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     TriangleCorner: {
-      isShow: !!isMessageTailed,
-      styleProps: StyleSheet.create({ borderColor: themes['themeA'].colors06 }),
+      isShow: !!isTail,
+      styleProps: {
+        borderColor: themes['themeA'].colors06,
+      },
     },
   }
 
-  const roundAllCornersStyle = !isMessageTailed
-    ? styles.roundAllCorners.style
-    : {}
+  const roundAllCornersStyle = !isTail ? styles.roundAllCorners.style : {}
 
   const dateString = dayjs(createdAt).locale(LOCALE).format(TIME_FORMAT)
 

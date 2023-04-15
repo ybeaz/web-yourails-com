@@ -1,14 +1,16 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 
 import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'
 import { style } from './ContentMenuMainColumnStyle'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 import {
   MENU_CONTENT_ITEMS,
   MenuContentItemsType,
 } from '../../../Constants/menuContentItems.const'
 import { themes } from '../../Styles/themes'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { withPropsYrl } from '../../../YrlNativeViewLibrary'
 
 /**
  * @import import { ContentMenuMainColumn } from '../Components/ContentMenuMainColumn/ContentMenuMainColumn'
@@ -31,7 +33,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
       const { iconLibrary, iconName, iconTitleText, childName } =
         menuContentItem
 
-      const propsOut = {
+      const propsOut: Record<string, any> = {
         buttonProps: {
           styleProps: {
             ButtonYrl: {
@@ -54,7 +56,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
             library: iconLibrary,
             name: iconName,
             size: '1.5rem',
-            color: 'green',
+            color: themes['themeA'].colors01.color,
             testID: 'TopBarChatCardsComponent_ButtonYrl_ios-menu',
           },
         },
@@ -70,7 +72,16 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
           key={`menuContentItem-${index}`}
           style={[
             style.buttonWrapper,
-            themes['themeA'].colors01,
+            {
+              borderTopWidth: 0,
+              borderRightWidth: 1,
+              borderBottomWidth: 0,
+              borderLeftWidth: 0,
+              borderTopColor: themes['themeA'].colors01.borderColor,
+              borderRightColor: themes['themeA'].colors01.borderColor,
+              borderBottomColor: themes['themeA'].colors01.borderColor,
+              borderLeftColor: themes['themeA'].colors01.borderColor,
+            },
             styleForActiveMenuItem,
           ]}
           testID='buttonWrapper'
@@ -81,7 +92,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
     })
   }
 
-  const propsOut = {}
+  const propsOut: Record<string, any> = {}
 
   return (
     <View
@@ -93,4 +104,8 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
   )
 }
 
-export const ContentMenuMainColumn = React.memo(ContentMenuMainColumnComponent)
+export const ContentMenuMainColumn = React.memo(
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    ContentMenuMainColumnComponent
+  )
+)

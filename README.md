@@ -9,10 +9,15 @@ react-native-gifted-chat[https://github.com/FaridSafi/react-native-gifted-chat/t
 
 ## Decisions made
 
-1. We consider as a Container, the root for loading the store the following types
+1. We consider as a Container, the root for loading the store the following types. These components are "smart". We put in there store. All descendents are "dumb". Smart/ container components are:
 
 - screens
 - parent modal window frames
+
+2. We supply Containers (see item 1) store not throug useSelector, but with withStoreState HOC
+   We provide components with device type informaton with withDeviceType HOC
+
+3. All business logic is in handles, not in the reducers or actions. Actions are only a contraction and manifest the name. Reducers do only what directly matches their names.
 
 ## How to section, architecture / development notes
 
@@ -69,6 +74,7 @@ TODO: Need to write
     Probably `import App from '../../src/App';`
 
 5.  To run the app: `yarn expo:start`
+    To run the app specifically for web: `yarn expo:start --web`
     To check xCode version: `/usr/bin/xcodebuild -version`
 
 ### How to troubleshoot running the app
@@ -95,5 +101,12 @@ Note: to config `codegen` edit ??? `codegen.yml`
 
 @link https://docs.expo.dev/distribution/publishing-websites/
 
-- To build: `npx expo export:web`
+- To build: `yarn export:web` It runs script from package.json file. Legacy command `npx expo export:web`
 - To serve locally: `npx serve web-build`
+
+### How to run app and show pages
+
+- to show it in business card mode
+  `http://localhost:19006/k#@smid?s=bc`
+- to show it in chat app mode
+  `http://localhost:19006/k#@smid?s=ct`

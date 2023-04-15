@@ -1,5 +1,8 @@
 import { template } from '../template'
 
+/**
+ * @test yarn jest template.test
+ */
 describe('Test function template', () => {
   it('test', () => {
     const outputed = true

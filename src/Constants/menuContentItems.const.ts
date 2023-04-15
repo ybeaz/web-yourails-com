@@ -20,12 +20,12 @@ export const MENU_CONTENT_ITEMS: MenuContentItemsType[] = [
     iconLibrary: 'Ionicons',
     iconName: 'cog-outline',
     iconTitleText: 'Skills',
-    childName: 'TagsProperties',
+    childName: 'CompetencyTags',
   },
   {
     iconLibrary: 'Ionicons',
     iconName: 'person-outline',
-    iconTitleText: 'Contacts',
+    iconTitleText: 'Profile',
     childName: 'Profile',
   },
 ]

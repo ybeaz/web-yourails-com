@@ -7,8 +7,8 @@ export const style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: '1rem',
-    paddingTop: '0.6rem',
-    paddingBottom: '0.5rem',
+    paddingTop: '0.7rem',
+    paddingBottom: '0.7rem',
   },
   buttonHamburgerWrapper: {},
   inputTextYrlWrapper: {

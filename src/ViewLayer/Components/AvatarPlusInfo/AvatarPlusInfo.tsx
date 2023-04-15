@@ -1,17 +1,16 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 
-import { Text } from '../../Components/Text/Text'
 import { AvatarPlusInfoType } from './AvatarPlusInfoType'
 import { style } from './AvatarPlusInfoStyle'
-import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
+import { ImageYrl } from '../../../YrlNativeViewLibrary'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 
 /**
  * @import import { AvatarPlusInfo } from '../Components/AvatarPlusInfo/AvatarPlusInfo'
  * @propsOut
     avatarPlusInfoProps: {
-      user,
+      profile,
       styleProps: {
         viewStyle: themes['themeA'].colors07,
       },
@@ -20,12 +19,13 @@ import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
 const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
   const {
     styleProps = { AvatarPlusInfo: {}, viewStyle: {} },
-    user,
+    onPress = () => {},
+    profile,
     children,
   } = props
-  const { uriAvatar = '' } = user
+  const { uriAvatar = '' } = profile
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     imageYrlProps: {
       styleProps: {
         ImageYrl: style.ImageYrl,
@@ -39,18 +39,14 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
       styleProps: { ButtonYrl: {} },
       testID: 'ButtonYrl',
       disabled: false,
-      onPress: () => {},
+      onPress: onPress,
       iconProps: undefined,
     },
   }
 
   return (
     <View
-      style={[
-        style.AvatarPlusInfo,
-        styleProps.AvatarPlusInfo,
-        styleProps.viewStyle,
-      ]}
+      style={[style.AvatarPlusInfo, styleProps.AvatarPlusInfo]}
       testID='AvatarPlusInfo'
     >
       <ButtonYrl {...propsOut.ButtonYrl}>

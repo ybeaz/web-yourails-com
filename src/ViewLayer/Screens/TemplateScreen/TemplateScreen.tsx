@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { SafeAreaView } from 'react-native'
 import { useSelector } from 'react-redux'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
-import {
-  ButtonYrl,
-  InputTextYrl,
-  ImageYrl,
-} from '../../../YrlNativeViewLibrary/index'
 
-import { withDeviceType, mediaParamsDefault } from '../../Hooks/withDeviceType'
-import { Text } from '../../Components/Text/Text'
+import {
+  withDeviceTypeYrl,
+  mediaParamsDefault,
+} from '../../../YrlNativeViewLibrary'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { URL_APP_BASE } from '../../../Constants/servers.const'
 import { HeaderFrame } from '../../Frames/HeaderFrame'
@@ -106,5 +103,5 @@ const TemplateScreenComponent: TemplateScreenType = props => {
 }
 
 export const TemplateScreen = React.memo(
-  withDeviceType(TemplateScreenComponent)
+  withDeviceTypeYrl(TemplateScreenComponent)
 )

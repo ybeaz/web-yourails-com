@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import { View, ImageResizeMode } from 'react-native'
 
-import { useLinkClickRes } from '../../Hooks/useLinkClickRes'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
-import { IconYrl } from '../../../YrlNativeViewLibrary/IconYrl/IconYrl'
+import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary'
+import { IconYrl } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
 import { ProfileItemType } from './ProfileItemType'
 import { style } from './ProfileItemStyle'
-import { ImageYrl } from '../../../YrlNativeViewLibrary/ImageYrl/ImageYrl'
+import { ImageYrl } from '../../../YrlNativeViewLibrary'
 import { themes } from '../../Styles/themes'
 
 // const styleInvisible =
@@ -26,7 +26,7 @@ const ProfileItemComponent: ProfileItemType = props => {
     label,
   } = props
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     iconPhoneProps: {
       library: iconLibrary,
       name: iconName,
@@ -44,7 +44,7 @@ const ProfileItemComponent: ProfileItemType = props => {
   }): ReactElement => {
     if (!contentSrc) null
     const resizeMode: ImageResizeMode = 'cover'
-    const propsOut = {
+    const propsOut: Record<string, any> = {
       qrCodeImageProps: {
         styleProps: {
           ImageYrl: {},
@@ -67,7 +67,7 @@ const ProfileItemComponent: ProfileItemType = props => {
     content: any
   }): ReactElement => {
     if (!contentSrc) null
-    const propsOut = {
+    const propsOut: Record<string, any> = {
       qrCodeImageProps: {
         styleProps: {
           ButtonYrl: {},
@@ -79,7 +79,7 @@ const ProfileItemComponent: ProfileItemType = props => {
         titleText: content,
         testID: 'tooltip_buttonYrl',
         disabled: false,
-        onPress: useLinkClickRes(contentSrc),
+        onPress: useLinkClickResYrl(contentSrc),
         iconProps: undefined,
       },
     }

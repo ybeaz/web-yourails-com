@@ -8,14 +8,13 @@ import { ModalFrameYrlType } from './ModalFrameYrlType'
 import { ModalFrameYrlStyle as style } from './ModalFrameYrlStyle'
 import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
 
-console.info('ModalFrameYrl [11]', { 'Platform.OS': Platform.OS })
-
 const LinearGradientUniPlatform =
   Platform.OS === 'web' ? WebLinearGradient : View // LinearGradient
 
 /**
  * @import import { ModalFrameYrl } from './YrlNativeViewLibrary/ModalFrameYrl/ModalFrameYrl'
  * @import import { ModalFrameYrlPropsType } from './YrlNativeViewLibrary/ModalFrameYrl/ModalFrameYrlType'
+ * @links for LinearGradient: https://github.com/react-native-linear-gradient/react-native-linear-gradient
  * @propsOut
   modalFrameYrlProps: {
     styleProps: { ModalFrameYrl: {}, imageBackground: {}, content: {} },
@@ -60,7 +59,13 @@ const LinearGradientUniPlatform =
  */
 export const ModalFrameYrl: ModalFrameYrlType = props => {
   const {
-    styleProps = { ModalFrameYrl: {}, imageBackground: {}, content: {} },
+    styleProps = {
+      ModalFrameYrl: {},
+      imageBackground: {},
+      content: {},
+      buttonBackWrapper: {},
+      buttonCloseWrapper: {},
+    },
     linearGradientColors = ['rgba(0,0,0,0)', 'rgba(0,0,0,0.5)'],
     children = <>Your app is rendered ModalFrameYrl default child content</>,
     isShow = false,
@@ -100,7 +105,7 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
     isButtonClose = true,
   } = props
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     buttonBackProps: buttonBack,
     buttonCloseProps: buttonClose,
   }
@@ -108,12 +113,18 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
   const handlersAndContentJsx = (
     <>
       {isButtonBack && (
-        <View style={[style.buttonBackWrapper]} testID={'buttonBackWrapper'}>
+        <View
+          style={[style.buttonBackWrapper, styleProps.buttonBackWrapper]}
+          testID={'buttonBackWrapper'}
+        >
           <ButtonYrl {...propsOut.buttonBackProps} />
         </View>
       )}
       {isButtonClose && (
-        <View style={[style.buttonCloseWrapper]} testID={'buttonCloseWrapper'}>
+        <View
+          style={[style.buttonCloseWrapper, styleProps.buttonCloseWrapper]}
+          testID={'buttonCloseWrapper'}
+        >
           <ButtonYrl {...propsOut.buttonCloseProps} />
         </View>
       )}

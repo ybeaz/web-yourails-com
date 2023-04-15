@@ -24,7 +24,7 @@ const Error404Component: React.FunctionComponent<Error404Args> = (
     handleEvents({}, { typeEvent: 'SET_THEME', data: themeDafault })
   }, [])
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     mainFrameProps: {},
     headerFrameProps: {},
     templateBodyProps: {},

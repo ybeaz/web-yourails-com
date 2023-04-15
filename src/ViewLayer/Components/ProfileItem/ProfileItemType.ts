@@ -1,6 +1,6 @@
 import { ReactElement } from 'react'
 
-import { UserType } from '../../../@types/UserType'
+import { ProfileType } from '../../../@types/ProfileType'
 
 export interface ProfileItemPropsType {
   styleProps?: any
@@ -10,6 +10,7 @@ export interface ProfileItemPropsType {
   contentSrc?: string
   content?: string | ReactElement | ReactElement[]
   label: string
+  isActive: boolean
 }
 
 /**

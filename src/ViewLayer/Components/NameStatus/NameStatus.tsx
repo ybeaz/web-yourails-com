@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 
 import { Text } from '../../Components/Text/Text'
@@ -13,15 +13,19 @@ import { style } from './NameStatusStyle'
         NameStatus: {},
         viewStyle: themes['themeA'].colors07,
       },
-      user,
+      profile,
       status: 'last seen recently',
     },
  */
 const NameStatusComponent: NameStatusType = props => {
-  const { styleProps = { NameStatus: {}, viewStyle: {} }, user, status } = props
-  const { nameFirst, nameLast } = user
+  const {
+    styleProps = { NameStatus: {}, viewStyle: {} },
+    profile,
+    status,
+  } = props
+  const { nameFirst, nameLast } = profile
 
-  const propsOut = {}
+  const propsOut: Record<string, any> = {}
 
   return (
     <View style={[style.NameStatus, styleProps.NameStatus]} testID='NameStatus'>

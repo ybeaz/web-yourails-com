@@ -1,16 +1,19 @@
-import * as fs from 'fs'
+import fsSync, { promises as fs } from 'fs'
 
 import { getSplitedStrDirFile } from './getSplitedStrDirFile'
-import { permissionArr } from './config'
 
-const givePermission = (path: string) => {
+/**
+ * @description Funciton to give permission to read and write to the directory
+ * @import import { givePermission } from './givePermission'
+ */
+export const givePermission = async (path: string) => {
   const { dir } = getSplitedStrDirFile(path)
 
-  if (dir && !fs.existsSync(dir)) {
-    fs.mkdirSync(dir, { recursive: true })
+  if (dir && !fsSync.existsSync(dir)) {
+    await fs.mkdir(dir, { recursive: true })
   }
 
-  fs.chmodSync(path, 0o777)
-}
+  // fs.chmodSync(path, 0o777)
 
-permissionArr.forEach((item) => givePermission(item))
+  await fs.chmod(path, 0o766)
+}

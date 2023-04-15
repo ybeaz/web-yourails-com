@@ -1,21 +1,38 @@
-import React, { useState, useEffect, useRef, ReactElement } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 import { nanoid } from 'nanoid'
 
+import {
+  withDeviceTypeYrl,
+  mediaParamsDefault,
+  DeviceType,
+} from '../../../YrlNativeViewLibrary'
+import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { NameStatus } from '../NameStatus/NameStatus'
 import { Text } from '../../Components/Text/Text'
 import { themes } from '../../Styles/themes'
-import { style } from './TopBarMainColumnStyle'
+import { styles } from './TopBarMainColumnStyle'
 import { TopBarMainColumnType } from './TopBarMainColumnType'
-import { users } from '../../../Constants/usersMock'
+import { handleEvents } from '../../../DataLayer/index.handleEvents'
 
 /**
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
  */
 const TopBarMainColumnComponent: TopBarMainColumnType = props => {
-  const user = users[0]
-  const { uriAvatar = '', serviceSpecs = [] } = user
+  const { profile, mediaParams = mediaParamsDefault } = props
+  const { deviceType } = mediaParams
+  const style = styles[deviceType]
+  const { uriAvatar = '', serviceSpecs = [] } = profile
+
+  let isButtonBackToCard = true
+  if (
+    deviceType === DeviceType['mdDevice'] ||
+    deviceType === DeviceType['lgDevice'] ||
+    deviceType === DeviceType['xlDevice']
+  ) {
+    isButtonBackToCard = false
+  }
 
   const getStringSpecs = (serviceSpecsIn: string[]) => {
     return serviceSpecsIn.map((serviceSpec: string, index: number) => {
@@ -34,9 +51,26 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
     })
   }
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
+    buttonBackToCards: {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: '',
+      testID: 'ButtonYrl',
+      disabled: false,
+      onPress: () => {
+        handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
+      },
+      iconProps: {
+        library: 'Ionicons',
+        name: 'arrow-back-outline',
+        styleProps: { IconYrl: {} },
+        size: '1.5rem',
+        color: themes['themeA'].colors01.color,
+        testID: 'ButtonYrl',
+      },
+    },
     avatarPlusInfoProps: {
-      user,
+      profile,
       styleProps: {
         viewStyle: themes['themeA'].colors01,
       },
@@ -54,21 +88,35 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
         NameStatus: {},
         viewStyle: themes['themeA'].colors01,
       },
-      user,
+      profile,
       status: 'last seen recently',
     },
   }
 
   return (
     <View style={[style.TopBarMainColumn]} testID='TopBarMainColumn'>
+      {isButtonBackToCard && (
+        <View
+          style={[style.buttonBackToCardsWrapper]}
+          testID='buttonBackToCardsWrapper'
+        >
+          <ButtonYrl {...propsOut.buttonBackToCards} />
+        </View>
+      )}
       <AvatarPlusInfo {...propsOut.avatarPlusInfoProps}>
         <NameStatus {...propsOut.nameStatusProps} />
       </AvatarPlusInfo>
-      <View style={[style.serviceSpec]} testID='serviceSpec'>
-        {getStringSpecs(serviceSpecs)}
-      </View>
+      {(deviceType === DeviceType['mdDevice'] ||
+        deviceType === DeviceType['lgDevice'] ||
+        deviceType === DeviceType['xlDevice']) && (
+        <View style={[style.serviceSpec]} testID='serviceSpec'>
+          {getStringSpecs(serviceSpecs)}
+        </View>
+      )}
     </View>
   )
 }
 
-export const TopBarMainColumn = React.memo(TopBarMainColumnComponent)
+export const TopBarMainColumn = React.memo(
+  withDeviceTypeYrl(TopBarMainColumnComponent)
+)

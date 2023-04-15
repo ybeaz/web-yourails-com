@@ -1,60 +1,68 @@
-export const userStoreDefault: any = {
-  userAvatar: '',
-  userBirthYear: null,
-  userDateCreated: '',
-  userDateDeleted: '',
-  userDateUpdated: '',
-  userEmail: '',
-  userGender: '',
-  userIdProfile: '',
-  userIdAuth: '',
-  userIdExternal: '',
-  userInfoAbout: '',
-  userLanguages: [],
-  userLocaleCity: '',
-  userLocaleCountry: '',
-  userLoginSource: '',
-  userMedia: [],
-  userName: '',
-  userNameNick: '',
-  userNameFirst: '',
-  userNameLast: '',
-  userNameMiddle: '',
-  userPasswordAuth: '',
-  userPasswordAuth2: '',
-  userPhone: null,
-  userRoles: [],
-  userSkillsExpertise: [],
-  userStatus: '',
-  userWebLink: '',
-  userWebTokenAuth: '',
-  userTimeZone: '',
+import {
+  RootStoreType,
+  ComponentsStateType,
+  FormsType,
+} from '../@types/RootStoreType'
+
+export const profileStoreDefault: any = {
+  profileAvatar: '',
+  profileBirthYear: null,
+  profileDateCreated: '',
+  profileDateDeleted: '',
+  profileDateUpdated: '',
+  profileEmail: '',
+  profileGender: '',
+  profileIdProfile: '',
+  profileIdAuth: '',
+  profileIdExternal: '',
+  profileInfoAbout: '',
+  profileLanguages: [],
+  profileLocaleCity: '',
+  profileLocaleCountry: '',
+  profileLoginSource: '',
+  profileMedia: [],
+  profileName: '',
+  profileNameNick: '',
+  profileNameFirst: '',
+  profileNameLast: '',
+  profileNameMiddle: '',
+  profilePasswordAuth: '',
+  profilePasswordAuth2: '',
+  profilePhone: null,
+  profileRoles: [],
+  profileSkillsExpertise: [],
+  profileStatus: '',
+  profileWebLink: '',
+  profileWebTokenAuth: '',
+  profileTimeZone: '',
 }
 
-export const componentsStateDefault: any = {
+export const componentsStateDefault: ComponentsStateType = {
   isLoaderOverlayVisible: false,
+  isSidebarRight: false,
+  isMainColumn: true,
   modalFrame: {
-    childName: 'Portfolio', // Portfolio, Profile TagsProperties
+    childName: 'CompetencyTags', // Portfolio, Profile CompetencyTags
     isShow: true,
+    isButtonBack: true,
+    isButtonClose: true,
     childProps: {},
   },
 }
 
-export const formsDefault: any = {
-  searchInput: '',
-  userPrev: userStoreDefault,
-  user: userStoreDefault,
-}
+export const formsDefault: FormsType = {}
 
-export const rootStoreDefault: any = {
+export const rootStoreDefault: RootStoreType = {
   componentsState: componentsStateDefault,
-  users: [],
+  profiles: [],
   forms: formsDefault,
   isLoaded: {
     isLoadedGlobalVars: false,
   },
   globalVars: {
-    theme: 'Dark',
-    // language: localStorage ? localStorage?.getItem('language') || 'en' : 'en',
+    idUserHost: '1',
+    theme: 'light',
+    language: 'en',
+    isShowApp: true,
   },
 }
