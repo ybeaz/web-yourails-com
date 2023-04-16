@@ -20,7 +20,12 @@ import { handleEvents } from '../../../DataLayer/index.handleEvents'
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
  */
 const TopBarMainColumnComponent: TopBarMainColumnType = props => {
-  const { isButtonBack, profile, mediaParams = mediaParamsDefault } = props
+  const {
+    isImageAvatar,
+    isButtonBack,
+    profile,
+    mediaParams = mediaParamsDefault,
+  } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
   const { uriAvatar = '', serviceSpecs = [] } = profile
@@ -74,6 +79,13 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
       styleProps: {
         viewStyle: themes['themeA'].colors01,
       },
+      onPress: (event: any) =>
+        handleEvents.SET_MODAL_FRAME(event, {
+          childName: 'Profile',
+          isShow: true,
+          childProps: {},
+        }),
+      isImageAvatar,
     },
     imageYrlProps: {
       styleProps: {

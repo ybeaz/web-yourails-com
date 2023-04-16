@@ -1,8 +1,9 @@
 import React from 'react'
 import { View } from 'react-native'
 
+import { ImageYrl } from '../../../YrlNativeViewLibrary'
 import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
-import { ContentType, LinkType } from '../../../@types/LinkType'
+import { LinkType } from '../../../@types/LinkType'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import {
   withDeviceTypeYrl,
@@ -130,6 +131,7 @@ const ProfileComponent: ProfileComponentType = props => {
     style,
     deviceType
   ).filter(profileItemObj => profileItemObj.isActive === true)
+
   const getProfileItems = (profileItemsIn: ProfileItemPropsType[]) =>
     profileItemsIn.map(
       (profileItemProps: ProfileItemPropsType, index: number) => (
@@ -137,10 +139,23 @@ const ProfileComponent: ProfileComponentType = props => {
       )
     )
 
-  const propsOut: Record<string, any> = {}
+  const propsOut: Record<string, any> = {
+    imageYrlProps: {
+      styleProps: {
+        ImageYrl: style.ImageYrl,
+        image: style.image,
+      },
+      resizeMode: 'cover',
+      testID: 'profile_imageYrl',
+      uri: profileTagsUserHost.uriAvatar,
+    },
+  }
 
   return (
     <View style={[style.Profile, styleProps.Profile]} testID='Profile'>
+      <View style={[style.imageWrapper]} testID='imageWrapper'>
+        <ImageYrl {...propsOut.imageYrlProps} />
+      </View>
       <View style={[style.profileItemsWrapper]} testID='profileItemsWrapper'>
         {getProfileItems(profileItems)}
       </View>

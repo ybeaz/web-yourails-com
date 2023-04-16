@@ -60,6 +60,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   } = store
   const { modalFrame, isSidebarRight, isMainColumn } = componentsState
   const {
+    childName: childNameModal,
     isShow: isShowModalFrame,
     isButtonBack: isButtonBackModal,
     isButtonClose: isButtonCloseModal,
@@ -94,6 +95,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
   const isButtonBackTopBarMainColumn =
     isButtonBackModal && isButtonCloseModal ? true : false
+  const isImageAvatar =
+    childNameModal === 'Profile' && isShowModalFrame === true ? false : true
 
   const propsOut: Record<string, any> = {
     chatCardsProps: {
@@ -126,6 +129,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       },
       profile,
       isButtonBack: isButtonBackTopBarMainColumn,
+      isImageAvatar,
     },
     mainColumnOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 3, opacity: 1 } },
