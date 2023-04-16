@@ -4,6 +4,9 @@ import { styleGlobal } from '../../Styles/styleGlobal'
 export const stylesDefault = StyleSheet.create({
   PageChatsWholeScreen: {
     ...styleGlobal.typography,
+    position: 'absolute',
+    zIndex: 9999,
+    top: 0,
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
     marginBottom: 0,
@@ -30,6 +33,12 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'column',
     height: '100%',
   },
+  topBarsMainColumn: {
+    position: 'absolute',
+    zIndex: 9999,
+    top: 0,
+    width: '100%',
+  },
   topBarMainColumn: {
     borderStyle: 'solid',
     // borderTopWidth: 1,
@@ -42,7 +51,14 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'column',
     width: '100%',
     flex: 1,
-    justifyContent: 'flex-end',
+    // justifyContent: 'flex-end',
+  },
+  chatInput: {
+    position: 'absolute',
+    height: '4rem',
+    bottom: 0,
+    width: '100%',
+    // zIndex: 9999,
   },
 })
 

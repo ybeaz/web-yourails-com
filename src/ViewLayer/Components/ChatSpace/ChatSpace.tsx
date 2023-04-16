@@ -15,7 +15,6 @@ import { Text } from '../../Components/Text/Text'
 import { LOCALE, DATE_FORMAT } from '../../../Constants/locale.const'
 import { ChatSpaceType } from './ChatSpaceType'
 import { styles } from './ChatSpaceStyle'
-import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { Message } from '../../Components/Message/Message'
 import { ModalFrameYrl } from '../../../YrlNativeViewLibrary'
 import { themes } from '../../Styles/themes'
@@ -89,7 +88,9 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     },
     modalFrameYrlProps: {
       styleProps: {
-        ModalFrameYrl: {},
+        ModalFrameYrl: {
+          marginTop: '6rem',
+        },
         imageBackground: {
           backgroundColor: themes['themeA'].colors07.backgroundColor,
         },
@@ -180,9 +181,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         </View>
         <View style={style.messages} testID='messages'>
           {getMessagesJsx(messagesPrep)}
-        </View>
-        <View style={style.chatInput} testID='chatInput'>
-          <ChatInput />
         </View>
       </View>
     </View>

@@ -1,10 +1,11 @@
 import React, { createContext, useRef, useEffect, useCallback } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { SafeAreaView, View } from 'react-native'
+import { SafeAreaView, ScrollView, View } from 'react-native'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
+import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
@@ -196,33 +197,48 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             ]}
             testID='mainColumn'
           >
-            <View
-              style={[
-                style.topBarMainColumn,
-                {
-                  // borderStyle: 'solid',
-                  // borderTopWidth: 1,
-                  // borderRightWidth: 1,
-                  // borderBottomWidth: 1,
-                  // borderLeftWidth: 1,
-                },
-                themes['themeA'].colors01,
-              ]}
-              testID='topBarMainColumn'
-            >
-              <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
-            </View>
+            <View style={[style.topBarsMainColumn]} testID='topBarsMainColumn'>
+              <View
+                style={[
+                  style.topBarMainColumn,
+                  {
+                    // borderStyle: 'solid',
+                    // borderTopWidth: 1,
+                    // borderRightWidth: 1,
+                    // borderBottomWidth: 1,
+                    // borderLeftWidth: 1,
+                  },
+                  themes['themeA'].colors01,
+                ]}
+                testID='topBarMainColumn'
+              >
+                <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
+              </View>
 
-            <View
-              style={[style.contentMenuMainColumn, themes['themeA'].colors01]}
-              testID='contentMenuMainColumn'
-            >
-              <ContentMenuMainColumn {...propsOut.contentMenuMainColumnProps} />
+              <View
+                style={[style.contentMenuMainColumn, themes['themeA'].colors01]}
+                testID='contentMenuMainColumn'
+              >
+                <ContentMenuMainColumn
+                  {...propsOut.contentMenuMainColumnProps}
+                />
+              </View>
             </View>
-
-            <View style={[style.chatSpace]} testID='chatSpace'>
+            <ScrollView
+              style={[style.chatSpace]}
+              contentContainerStyle={{ justifyContent: 'center' }}
+              testID='chatSpace'
+            >
               <ChatSpace {...propsOut.chatSpaceProps} />
-            </View>
+            </ScrollView>
+            {isShowModalFrame === false && (
+              <View
+                style={[style.chatInput, themes['themeA'].colors03]}
+                testID='chatInput'
+              >
+                <ChatInput />
+              </View>
+            )}
           </View>
         </AnimatedYrl>
       )}

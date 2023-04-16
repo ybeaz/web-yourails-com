@@ -10,6 +10,8 @@ export const stylesDefault = StyleSheet.create({
     height: '100%',
     flex: 1,
     justifyContent: 'flex-end',
+    marginTop: '6rem',
+    marginBottom: '4rem',
   },
   viewPadding: {
     paddingBottom: '3rem',
@@ -25,7 +27,6 @@ export const stylesDefault = StyleSheet.create({
   messages: {
     padding: '0.5rem',
   },
-  chatInput: {},
 })
 
 const xmDevice = StyleSheet.create({
