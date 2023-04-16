@@ -20,12 +20,12 @@ import { handleEvents } from '../../../DataLayer/index.handleEvents'
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
  */
 const TopBarMainColumnComponent: TopBarMainColumnType = props => {
-  const { profile, mediaParams = mediaParamsDefault } = props
+  const { isButtonBack, profile, mediaParams = mediaParamsDefault } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
   const { uriAvatar = '', serviceSpecs = [] } = profile
 
-  let isButtonBackToCard = true
+  let isButtonBackToCard = isButtonBack
   if (
     deviceType === DeviceType['mdDevice'] ||
     deviceType === DeviceType['lgDevice'] ||

@@ -4,6 +4,7 @@ import { ProfileType } from '../../../@types/ProfileType'
 export interface TopBarMainColumnPropsType {
   profile: ProfileType
   mediaParams?: UseMediaQueryResYrlOutType
+  isButtonBack: boolean
 }
 
 /**

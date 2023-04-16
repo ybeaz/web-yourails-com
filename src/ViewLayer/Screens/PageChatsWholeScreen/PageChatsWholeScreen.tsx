@@ -59,7 +59,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     componentsState,
   } = store
   const { modalFrame, isSidebarRight, isMainColumn } = componentsState
-  const { isShow: isShowModalFrame } = modalFrame
+  const {
+    isShow: isShowModalFrame,
+    isButtonBack: isButtonBackModal,
+    isButtonClose: isButtonCloseModal,
+  } = modalFrame
 
   const profile = profiles.find(
     (profileIn: ProfileType) => profileIn.idProfile === idUserHost
@@ -88,6 +92,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
+  const isButtonBackTopBarMainColumn =
+    isButtonBackModal && isButtonCloseModal ? true : false
 
   const propsOut: Record<string, any> = {
     chatCardsProps: {
@@ -119,6 +125,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         TopBarMainColumn: {},
       },
       profile,
+      isButtonBack: isButtonBackTopBarMainColumn,
     },
     mainColumnOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 3, opacity: 1 } },
