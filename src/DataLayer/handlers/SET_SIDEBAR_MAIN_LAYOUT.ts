@@ -13,9 +13,9 @@ const { dispatch, getState } = store
 
 export const SET_SIDEBAR_MAIN_LAYOUT: ActionEventType = (
   event,
-  dataHandle: { deviceType: DeviceType }
+  dataHandle: { pathname: string; deviceType: DeviceType }
 ) => {
-  const { deviceType } = dataHandle
+  const { pathname, deviceType } = dataHandle
 
   const {
     componentsState: { isSidebarRight, isMainColumn },
@@ -23,7 +23,10 @@ export const SET_SIDEBAR_MAIN_LAYOUT: ActionEventType = (
 
   let isSidebarRightNext = false
   let isMainColumnNext = true
-  if (
+
+  if (pathname === '/') {
+    isSidebarRightNext = false
+  } else if (
     deviceType === DeviceType['mdDevice'] ||
     deviceType === DeviceType['lgDevice'] ||
     deviceType === DeviceType['xlDevice']
@@ -41,5 +44,5 @@ export const SET_SIDEBAR_MAIN_LAYOUT: ActionEventType = (
   }
 
   dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isSidebarRightNext))
-  dispatch(actionSync.TOGGLE_MAIN_COLUMN(isMainColumnNext))
+  dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
 }

@@ -55,7 +55,7 @@ export const RouterScreensConfig: React.FunctionComponent<any> = () => {
     })
 
   const redirects = [
-    { from: `/`, to: `/k#@rome`, exact: true, strict: true },
+    // { from: `/`, to: `/k#@rome`, exact: true, strict: true },
     { from: `/home2`, to: `home`, exact: true },
   ]
   interface IGetRedirects {

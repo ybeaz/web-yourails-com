@@ -59,13 +59,21 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     globalVars: { language, idUserHost, isShowApp },
     componentsState,
   } = store
-  const { modalFrame, isSidebarRight, isMainColumn } = componentsState
+  const { modalFrame, isSidebarRight, isMainColumn, isMainColumnBlank } =
+    componentsState
   const {
     childName: childNameModal,
     isShow: isShowModalFrame,
     isButtonBack: isButtonBackModal,
     isButtonClose: isButtonCloseModal,
   } = modalFrame
+
+  console.info('PageChatsWholeScreen [70]', {
+    idUserHost,
+    pathname,
+    hash,
+    'window.location': window.location,
+  })
 
   const profile = profiles.find(
     (profileIn: ProfileType) => profileIn.idProfile === idUserHost
@@ -76,16 +84,16 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     return conversation.idsUsers.includes(idUserHost)
   })
   const messagesUserHost = messages.filter((message: any) => {
-    return message.idConversation === conversationsUserHost[0].idConversation
+    return message.idConversation === conversationsUserHost[0]?.idConversation
   })
 
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
-    handleEvents.SET_ID_USER_HOST_INIT({}, {})
-  }, [])
+    handleEvents.SET_STORE_DATA_INIT({}, { pathname, hash, deviceType })
+  }, [deviceType])
 
   useEffect(() => {
-    handleEvents.SET_SIDEBAR_MAIN_LAYOUT({}, { deviceType })
+    // handleEvents.SET_SIDEBAR_MAIN_LAYOUT({}, { pathname, deviceType })
   }, [deviceType])
 
   const onClickOnUser = ({}, data: any) => {
@@ -197,47 +205,57 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             ]}
             testID='mainColumn'
           >
-            <View style={[style.topBarsMainColumn]} testID='topBarsMainColumn'>
-              <View
-                style={[
-                  style.topBarMainColumn,
-                  {
-                    // borderStyle: 'solid',
-                    // borderTopWidth: 1,
-                    // borderRightWidth: 1,
-                    // borderBottomWidth: 1,
-                    // borderLeftWidth: 1,
-                  },
-                  themes['themeA'].colors01,
-                ]}
-                testID='topBarMainColumn'
-              >
-                <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
-              </View>
+            {!isMainColumnBlank && (
+              <>
+                <View
+                  style={[style.topBarsMainColumn]}
+                  testID='topBarsMainColumn'
+                >
+                  <View
+                    style={[
+                      style.topBarMainColumn,
+                      {
+                        // borderStyle: 'solid',
+                        // borderTopWidth: 1,
+                        // borderRightWidth: 1,
+                        // borderBottomWidth: 1,
+                        // borderLeftWidth: 1,
+                      },
+                      themes['themeA'].colors01,
+                    ]}
+                    testID='topBarMainColumn'
+                  >
+                    <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
+                  </View>
 
-              <View
-                style={[style.contentMenuMainColumn, themes['themeA'].colors01]}
-                testID='contentMenuMainColumn'
-              >
-                <ContentMenuMainColumn
-                  {...propsOut.contentMenuMainColumnProps}
-                />
-              </View>
-            </View>
-            <ScrollView
-              style={[style.chatSpace]}
-              contentContainerStyle={{ justifyContent: 'center' }}
-              testID='chatSpace'
-            >
-              <ChatSpace {...propsOut.chatSpaceProps} />
-            </ScrollView>
-            {isShowModalFrame === false && (
-              <View
-                style={[style.chatInput, themes['themeA'].colors03]}
-                testID='chatInput'
-              >
-                <ChatInput />
-              </View>
+                  <View
+                    style={[
+                      style.contentMenuMainColumn,
+                      themes['themeA'].colors01,
+                    ]}
+                    testID='contentMenuMainColumn'
+                  >
+                    <ContentMenuMainColumn
+                      {...propsOut.contentMenuMainColumnProps}
+                    />
+                  </View>
+                </View>
+                <ScrollView
+                  style={[style.chatSpace]}
+                  contentContainerStyle={{ justifyContent: 'center' }}
+                  testID='chatSpace'
+                >
+                  <ChatSpace {...propsOut.chatSpaceProps} />
+                </ScrollView>
+                {isShowModalFrame === false && (
+                  <View
+                    style={[style.chatInput, themes['themeA'].colors03]}
+                    testID='chatInput'
+                  >
+                    <ChatInput />
+                  </View>
+                )}
+              </>
             )}
           </View>
         </AnimatedYrl>

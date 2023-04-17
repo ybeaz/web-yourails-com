@@ -4,6 +4,7 @@ export interface ComponentsStateType {
   isLoaderOverlayVisible: boolean
   isSidebarRight: boolean
   isMainColumn: boolean
+  isMainColumnBlank: boolean
   modalFrame: {
     childName: string
     isShow: boolean

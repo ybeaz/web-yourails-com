@@ -41,6 +41,7 @@ export const componentsStateDefault: ComponentsStateType = {
   isLoaderOverlayVisible: false,
   isSidebarRight: false,
   isMainColumn: true,
+  isMainColumnBlank: false,
   modalFrame: {
     childName: 'CompetencyTags', // Portfolio, Profile CompetencyTags
     isShow: true,
