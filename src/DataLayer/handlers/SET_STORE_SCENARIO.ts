@@ -5,6 +5,7 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { getParsedUrlQuery } from '../../Shared/getParsedUrlQuery'
 import { DeviceType } from '../../YrlNativeViewLibrary'
 import { getSetStoreScenario } from '../../Shared/getSetStoreScenario'
+import { getRedirectedPathnameHash } from '../../Shared/getRedirectedPathnameHash'
 
 const { dispatch, getState } = store
 
@@ -40,12 +41,15 @@ export const SET_STORE_SCENARIO: ActionEventType = (
 
   const {
     caseNo,
-    isShowAppNext,
-    idUserNext,
-    isSidebarRightNext,
-    isMainColumnNext,
-    isMainColumnBlankNext,
-    modalFrameNext,
+    caseDesc,
+    isShowApp: isShowAppNext,
+    idUser: idUserNext,
+    isSidebarRight: isSidebarRightNext,
+    isMainColumn: isMainColumnNext,
+    isMainColumnBlank: isMainColumnBlankNext,
+    modalFrame: modalFrameNext,
+    redirectPathname,
+    redirectHash,
   } = getSetStoreScenario({
     profiles,
     pathname,
@@ -57,12 +61,15 @@ export const SET_STORE_SCENARIO: ActionEventType = (
 
   console.info('SET_STORE_SCENARIO [215]', {
     caseNo,
+    caseDesc,
     isShowAppNext,
     idUserNext,
     isSidebarRightNext,
     isMainColumnNext,
     isMainColumnBlankNext,
     modalFrameNext,
+    redirectPathname,
+    redirectHash,
   })
 
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
@@ -71,8 +78,9 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
-  if (idUserHost === idUserNext) return
+  getRedirectedPathnameHash(redirectPathname, redirectHash)
 
+  if (idUserHost === idUserNext) return
   dispatch(
     actionSync.SET_ID_USER_HOST({
       idUser: idUserNext,

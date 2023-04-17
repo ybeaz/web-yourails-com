@@ -15,5 +15,7 @@ export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
 
   const query = getParsedUrlQuery(window.location.hash)
 
-  window.location.hash = `${profileName}?s=${query.s}`
+  if (profileName && query.s)
+    window.location.hash = `${profileName}?s=${query.s}`
+  else if (profileName) window.location.hash = `${profileName}`
 }

@@ -15,12 +15,15 @@ type GetSetStoreScenarioPropsType = {
 
 type GetSetStoreScenarioReturnType = {
   caseNo: number
-  isShowAppNext: boolean
-  idUserNext: idUser
-  isSidebarRightNext: boolean
-  isMainColumnNext: boolean
-  isMainColumnBlankNext: boolean
-  modalFrameNext: ModalFrameType
+  caseDesc: string
+  isShowApp: boolean
+  idUser: idUser
+  isSidebarRight: boolean
+  isMainColumn: boolean
+  isMainColumnBlank: boolean
+  modalFrame: ModalFrameType
+  redirectPathname: string | undefined
+  redirectHash: string | undefined
 }
 
 interface GetSetStoreScenarioType {
@@ -56,13 +59,9 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     deviceType,
   })
 
-  let caseNo: number
-  let isShowAppNext: boolean
-  let idUserNext: idUser
-  let isSidebarRightNext: boolean
-  let isMainColumnNext: boolean
-  let isMainColumnBlankNext: boolean
-  let modalFrameNext: ModalFrameType = {
+  let output: GetSetStoreScenarioReturnType
+
+  let modalFrameFalse: ModalFrameType = {
     childName: 'Portfolio',
     isShow: false,
     isButtonBack: false,
@@ -72,31 +71,42 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
 
   /* Case 1. Hostname === 'r1.userto.com' */
   if (window.location.hostname === 'r1.userto.com') {
-    caseNo = 1
-    isShowAppNext = true
-    idUserNext = '1'
-
-    isSidebarRightNext = false
-    isMainColumnNext = true
-    isMainColumnBlankNext = false
-
-    modalFrameNext = {
+    const modalFrame = {
       childName: 'Portfolio', // Portfolio, Profile CompetencyTags
       isShow: true,
       isButtonBack: false,
       isButtonClose: false,
       childProps: {},
     }
+
+    output = {
+      caseNo: 1,
+      caseDesc: 'Hostname === r1.userto.com',
+      isShowApp: true,
+      idUser: 1,
+      isSidebarRight: false,
+      isMainColumn: true,
+      isMainColumnBlank: false,
+      modalFrame,
+      redirectPathname: undefined,
+      redirectHash: undefined,
+    }
   } /* 
     Case 2. User direct link but without valid profileName and consequently unfound idUserUrl
   */ else if (pathname === '/' && !idUserUrl) {
-    caseNo = 2
-    isShowAppNext = false
-    idUserNext = ''
-
-    isSidebarRightNext = false
-    isMainColumnNext = true
-    isMainColumnBlankNext = true
+    output = {
+      caseNo: 2,
+      caseDesc:
+        'User direct link but without valid profileName and consequently unfound idUserUrl',
+      isShowApp: false,
+      idUser: undefined,
+      isSidebarRight: false,
+      isMainColumn: true,
+      isMainColumnBlank: true,
+      modalFrame: modalFrameFalse,
+      redirectPathname: `/k`,
+      redirectHash: '',
+    }
   } /*
     Case 3. User direct link without chat and Business Card only and without right column
   */ else if (
@@ -105,20 +115,26 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     idUserUrl &&
     showType === 'bc'
   ) {
-    caseNo = 3
-    isShowAppNext = true
-    idUserNext = idUserUrl
-
-    isSidebarRightNext = false
-    isMainColumnNext = true
-    isMainColumnBlankNext = false
-
-    modalFrameNext = {
+    const modalFrameNext = {
       childName: 'Portfolio',
       isShow: true,
       isButtonBack: false,
       isButtonClose: false,
       childProps: {},
+    }
+
+    output = {
+      caseNo: 3,
+      caseDesc:
+        'User direct link without chat and Business Card only and without right column',
+      isShowApp: true,
+      idUser: idUserUrl,
+      isSidebarRight: false,
+      isMainColumn: true,
+      isMainColumnBlank: false,
+      modalFrame: modalFrameNext,
+      redirectPathname: undefined,
+      redirectHash: undefined,
     }
   } /* 
     Case 4. User direct link with chat and without right column
@@ -128,13 +144,18 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     idUserUrl &&
     showType === undefined
   ) {
-    caseNo = 4
-    isShowAppNext = true
-    idUserNext = idUserUrl
-
-    isSidebarRightNext = false
-    isMainColumnNext = true
-    isMainColumnBlankNext = false
+    output = {
+      caseNo: 4,
+      caseDesc: 'User direct link with chat and without right column',
+      isShowApp: true,
+      idUser: idUserUrl,
+      isSidebarRight: false,
+      isMainColumn: true,
+      isMainColumnBlank: false,
+      modalFrame: modalFrameFalse,
+      redirectPathname: undefined,
+      redirectHash: undefined,
+    }
   } /* 
     Case 5. The Chat service Yourails.com without valid user with the right column
   */ else if (
@@ -144,13 +165,19 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       deviceType === DeviceType['lgDevice'] ||
       deviceType === DeviceType['xlDevice'])
   ) {
-    caseNo = 5
-    isShowAppNext = true
-    idUserNext = ''
-
-    isSidebarRightNext = true
-    isMainColumnNext = true
-    isMainColumnBlankNext = true
+    output = {
+      caseNo: 5,
+      caseDesc:
+        'The Chat service Yourails.com without valid user with the right column',
+      isShowApp: true,
+      idUser: '',
+      isSidebarRight: true,
+      isMainColumn: true,
+      isMainColumnBlank: true,
+      modalFrame: modalFrameFalse,
+      redirectPathname: undefined,
+      redirectHash: undefined,
+    }
   } else if (
     /*
     Case 6. The Chat service Yourails.com without selected user with the right column
@@ -162,13 +189,19 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       deviceType === DeviceType['lgDevice'] ||
       deviceType === DeviceType['xlDevice'])
   ) {
-    caseNo = 6
-    isShowAppNext = true
-    idUserNext = idUserUrl
-
-    isSidebarRightNext = true
-    isMainColumnNext = true
-    isMainColumnBlankNext = false
+    output = {
+      caseNo: 6,
+      caseDesc:
+        'The Chat service Yourails.com without selected user with the right column',
+      isShowApp: true,
+      idUser: idUserUrl,
+      isSidebarRight: true,
+      isMainColumn: true,
+      isMainColumnBlank: false,
+      modalFrame: modalFrameFalse,
+      redirectPathname: undefined,
+      redirectHash: undefined,
+    }
   } /* 
     Case 7. The Chat service Yourails.com without selected user without the right column
   */ else if (
@@ -178,13 +211,19 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     (deviceType === DeviceType['smDevice'] ||
       deviceType === DeviceType['xsDevice'])
   ) {
-    caseNo = 7
-    isShowAppNext = true
-    idUserNext = idUserUrl
-
-    isSidebarRightNext = true
-    isMainColumnNext = false
-    isMainColumnBlankNext = false
+    output = {
+      caseNo: 7,
+      caseDesc:
+        'The Chat service Yourails.com without selected user without the right column',
+      isShowApp: true,
+      idUser: idUserUrl,
+      isSidebarRight: true,
+      isMainColumn: false,
+      isMainColumnBlank: false,
+      modalFrame: modalFrameFalse,
+      redirectPathname: undefined,
+      redirectHash: undefined,
+    }
   } /*
     Case 8. 
    */ else if (
@@ -193,38 +232,48 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     idUserUrl &&
     deviceType === DeviceType['smDevice']
   ) {
-    caseNo = 8
-    isShowAppNext = true
-    idUserNext = idUserUrl
-
-    isSidebarRightNext = true
-    isMainColumnNext = false
-    isMainColumnBlankNext = false
+    output = {
+      caseNo: 8,
+      caseDesc: '???',
+      isShowApp: true,
+      idUser: idUserUrl,
+      isSidebarRight: true,
+      isMainColumn: false,
+      isMainColumnBlank: false,
+      modalFrame: modalFrameFalse,
+      redirectPathname: undefined,
+      redirectHash: undefined,
+    }
   } /*
     Case 9.
   */ else {
-    caseNo = 9
-    isShowAppNext = true
-    idUserNext = ''
+    // caseNo = 9
+    // isShowAppNext = true
+    // idUserNext = ''
 
-    if (isSidebarRight && isMainColumn) {
-      isSidebarRightNext = false
-      isMainColumnNext = true
-      isMainColumnBlankNext = false
-    } else {
-      isSidebarRightNext = isSidebarRight
-      isMainColumnNext = isMainColumn
-      isMainColumnBlankNext = false
+    // if (isSidebarRight && isMainColumn) {
+    //   isSidebarRightNext = false
+    //   isMainColumnNext = true
+    //   isMainColumnBlankNext = false
+    // } else {
+    //   isSidebarRightNext = isSidebarRight
+    //   isMainColumnNext = isMainColumn
+    //   isMainColumnBlankNext = false
+    // }
+
+    output = {
+      caseNo: 9,
+      caseDesc: '???',
+      isShowApp: true,
+      idUser: idUserUrl,
+      isSidebarRight: true,
+      isMainColumn: false,
+      isMainColumnBlank: false,
+      modalFrame: modalFrameFalse,
+      redirectPathname: undefined,
+      redirectHash: undefined,
     }
   }
 
-  return {
-    caseNo,
-    isShowAppNext,
-    idUserNext,
-    isSidebarRightNext,
-    isMainColumnNext,
-    isMainColumnBlankNext,
-    modalFrameNext,
-  }
+  return output
 }

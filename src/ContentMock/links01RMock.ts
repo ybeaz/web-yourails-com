@@ -26,7 +26,7 @@ export const links01R: LinkType[] = [
     iconLibrary: 'Ionicons',
     iconName: 'ios-logo-stackoverflow',
     contentType: ContentType['linkHref'],
-    contentSrc: 'https://stackoverflow.com/profiles/4791116/roman',
+    contentSrc: 'https://stackoverflow.com/users/4791116/roman',
     content: 'Profile in Stackoverflow',
     label: 'Link',
     isActive: true,
