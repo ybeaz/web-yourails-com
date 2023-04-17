@@ -59,14 +59,25 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     deviceType,
   })
 
-  let output: GetSetStoreScenarioReturnType
-
   let modalFrameFalse: ModalFrameType = {
     childName: 'Portfolio',
     isShow: false,
     isButtonBack: false,
     isButtonClose: false,
     childProps: {},
+  }
+
+  let output: GetSetStoreScenarioReturnType = {
+    caseNo: 1,
+    caseDesc: 'Hostname === r1.userto.com',
+    isShowApp: true,
+    idUser: 1,
+    isSidebarRight: false,
+    isMainColumn: true,
+    isMainColumnBlank: false,
+    modalFrame: modalFrameFalse,
+    redirectPathname: undefined,
+    redirectHash: undefined,
   }
 
   /* Case 1. Hostname === 'r1.userto.com' */
@@ -108,7 +119,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       redirectHash: '',
     }
   } /*
-    Case 3. User direct link without chat and Business Card only and without right column
+    Case 3. User direct link without chat and Business Card only and without left column
   */ else if (
     pathname === '/' &&
     profileName &&
@@ -126,7 +137,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     output = {
       caseNo: 3,
       caseDesc:
-        'User direct link without chat and Business Card only and without right column',
+        'User direct link without chat and Business Card only and without left column',
       isShowApp: true,
       idUser: idUserUrl,
       isSidebarRight: false,
@@ -137,7 +148,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       redirectHash: undefined,
     }
   } /* 
-    Case 4. User direct link with chat and without right column
+    Case 4. User direct link with chat and without left column
   */ else if (
     pathname === '/' &&
     profileName &&
@@ -146,7 +157,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
   ) {
     output = {
       caseNo: 4,
-      caseDesc: 'User direct link with chat and without right column',
+      caseDesc: 'User direct link with chat and without left column',
       isShowApp: true,
       idUser: idUserUrl,
       isSidebarRight: false,
@@ -157,20 +168,14 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       redirectHash: undefined,
     }
   } /* 
-    Case 5. The Chat service Yourails.com without valid user with the right column
-  */ else if (
-    pathname === '/k' &&
-    (!profileName || !idUserUrl) &&
-    (deviceType === DeviceType['mdDevice'] ||
-      deviceType === DeviceType['lgDevice'] ||
-      deviceType === DeviceType['xlDevice'])
-  ) {
+    Case 5. The Chat service Yourails.com without valid user with the left column
+  */ else if (pathname === '/k' && (!profileName || !idUserUrl)) {
     output = {
       caseNo: 5,
       caseDesc:
-        'The Chat service Yourails.com without valid user with the right column',
+        'The Chat service Yourails.com without valid user with the left column',
       isShowApp: true,
-      idUser: '',
+      idUser: undefined,
       isSidebarRight: true,
       isMainColumn: true,
       isMainColumnBlank: true,
@@ -178,21 +183,13 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       redirectPathname: undefined,
       redirectHash: undefined,
     }
-  } else if (
-    /*
-    Case 6. The Chat service Yourails.com without selected user with the right column
-  */
-    pathname === '/k' &&
-    profileName &&
-    idUserUrl &&
-    (deviceType === DeviceType['mdDevice'] ||
-      deviceType === DeviceType['lgDevice'] ||
-      deviceType === DeviceType['xlDevice'])
-  ) {
+  } /*
+    Case 6. The Chat service Yourails.com without selected user with the left column
+  */ else if (pathname === '/k' && profileName && idUserUrl) {
     output = {
       caseNo: 6,
       caseDesc:
-        'The Chat service Yourails.com without selected user with the right column',
+        'The Chat service Yourails.com without selected user with the left column',
       isShowApp: true,
       idUser: idUserUrl,
       isSidebarRight: true,
@@ -202,78 +199,40 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       redirectPathname: undefined,
       redirectHash: undefined,
     }
-  } /* 
-    Case 7. The Chat service Yourails.com without selected user without the right column
-  */ else if (
-    pathname === '/k' &&
-    profileName &&
-    idUserUrl &&
-    (deviceType === DeviceType['smDevice'] ||
-      deviceType === DeviceType['xsDevice'])
-  ) {
-    output = {
-      caseNo: 7,
-      caseDesc:
-        'The Chat service Yourails.com without selected user without the right column',
-      isShowApp: true,
-      idUser: idUserUrl,
-      isSidebarRight: true,
-      isMainColumn: false,
-      isMainColumnBlank: false,
-      modalFrame: modalFrameFalse,
-      redirectPathname: undefined,
-      redirectHash: undefined,
-    }
-  } /*
-    Case 8. 
-   */ else if (
-    pathname === '/k' &&
-    profileName &&
-    idUserUrl &&
-    deviceType === DeviceType['smDevice']
-  ) {
-    output = {
-      caseNo: 8,
-      caseDesc: '???',
-      isShowApp: true,
-      idUser: idUserUrl,
-      isSidebarRight: true,
-      isMainColumn: false,
-      isMainColumnBlank: false,
-      modalFrame: modalFrameFalse,
-      redirectPathname: undefined,
-      redirectHash: undefined,
-    }
-  } /*
-    Case 9.
-  */ else {
-    // caseNo = 9
-    // isShowAppNext = true
-    // idUserNext = ''
+  }
 
-    // if (isSidebarRight && isMainColumn) {
-    //   isSidebarRightNext = false
-    //   isMainColumnNext = true
-    //   isMainColumnBlankNext = false
-    // } else {
-    //   isSidebarRightNext = isSidebarRight
-    //   isMainColumnNext = isMainColumn
-    //   isMainColumnBlankNext = false
-    // }
-
-    output = {
-      caseNo: 9,
-      caseDesc: '???',
-      isShowApp: true,
-      idUser: idUserUrl,
-      isSidebarRight: true,
-      isMainColumn: false,
-      isMainColumnBlank: false,
-      modalFrame: modalFrameFalse,
-      redirectPathname: undefined,
-      redirectHash: undefined,
+  if (pathname === '/k') {
+    if (
+      deviceType === DeviceType['mdDevice'] ||
+      deviceType === DeviceType['lgDevice'] ||
+      deviceType === DeviceType['xlDevice']
+    ) {
+      output = { ...output, isSidebarRight: true, isMainColumn: true }
+    } else {
+      if (isSidebarRight && isMainColumn) {
+        output = { ...output, isSidebarRight: false, isMainColumn: true }
+      } else {
+        output = {
+          ...output,
+          isSidebarRight: isSidebarRight,
+          isMainColumn: isMainColumn,
+        }
+      }
     }
   }
+
+  // output = {
+  //   caseNo: 9,
+  //   caseDesc: '???',
+  //   isShowApp: true,
+  //   idUser: idUserUrl,
+  //   isSidebarRight: true,
+  //   isMainColumn: false,
+  //   isMainColumnBlank: false,
+  //   modalFrame: modalFrameFalse,
+  //   redirectPathname: undefined,
+  //   redirectHash: undefined,
+  // }
 
   return output
 }
