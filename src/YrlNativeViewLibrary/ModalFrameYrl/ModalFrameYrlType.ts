@@ -3,7 +3,8 @@ import { IconYrlPropsType } from '../IconYrl/IconYrlType'
 import { ButtonYrlPropsType } from '../ButtonYrl/ButtonYrlType'
 
 /**
- * IModalFrameYrlProps Interface
+ * ModalFrameYrlType Interface
+ * @import import { ModalFrameYrlPropsType } from './YrlNativeViewLibrary/ModalFrameYrlPropsType'
  */
 export interface ModalFrameYrlPropsType {
   styleProps?: {
