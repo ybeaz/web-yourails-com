@@ -10,7 +10,7 @@ export type ModalFrameType = {
 
 export interface ComponentsStateType {
   isLoaderOverlayVisible: boolean
-  isSidebarRight: boolean
+  isLeftColumn: boolean
   isMainColumn: boolean
   isMainColumnBlank: boolean
   modalFrame: ModalFrameType

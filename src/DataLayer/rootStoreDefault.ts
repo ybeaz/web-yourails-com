@@ -39,7 +39,7 @@ export const profileStoreDefault: any = {
 
 export const componentsStateDefault: ComponentsStateType = {
   isLoaderOverlayVisible: false,
-  isSidebarRight: false,
+  isLeftColumn: false,
   isMainColumn: true,
   isMainColumnBlank: false,
   modalFrame: {

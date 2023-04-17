@@ -59,7 +59,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     globalVars: { language, idUserHost, isShowApp },
     componentsState,
   } = store
-  const { modalFrame, isSidebarRight, isMainColumn, isMainColumnBlank } =
+  const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
     componentsState
   const {
     childName: childNameModal,
@@ -173,7 +173,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       ]}
       testID='PageChatsWholeScreen'
     >
-      {isSidebarRight && (
+      {isLeftColumn && (
         <View
           style={[
             style.sidebarRight,

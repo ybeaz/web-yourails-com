@@ -29,7 +29,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   const { pathname, hash, deviceType } = dataHandle
 
   const {
-    componentsState: { isSidebarRight, isMainColumn },
+    componentsState: { isLeftColumn, isMainColumn },
     globalVars: { idUserHost },
     profiles,
   } = getState()
@@ -44,7 +44,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     caseDesc,
     isShowApp: isShowAppNext,
     idUser: idUserNext,
-    isSidebarRight: isSidebarRightNext,
+    isLeftColumn: isLeftColumnNext,
     isMainColumn: isMainColumnNext,
     isMainColumnBlank: isMainColumnBlankNext,
     modalFrame: modalFrameNext,
@@ -55,7 +55,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     pathname,
     hash,
     deviceType,
-    isSidebarRight,
+    isLeftColumn,
     isMainColumn,
   })
 
@@ -64,7 +64,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     caseDesc,
     isShowAppNext,
     idUserNext,
-    isSidebarRightNext,
+    isLeftColumnNext,
     isMainColumnNext,
     isMainColumnBlankNext,
     modalFrameNext,
@@ -73,7 +73,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   })
 
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
-  dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isSidebarRightNext))
+  dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))

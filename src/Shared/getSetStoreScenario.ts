@@ -9,7 +9,7 @@ type GetSetStoreScenarioPropsType = {
   pathname: string
   hash: string
   deviceType: DeviceType
-  isSidebarRight: boolean
+  isLeftColumn: boolean
   isMainColumn: boolean
 }
 
@@ -18,7 +18,7 @@ type GetSetStoreScenarioReturnType = {
   caseDesc: string
   isShowApp: boolean
   idUser: idUser
-  isSidebarRight: boolean
+  isLeftColumn: boolean
   isMainColumn: boolean
   isMainColumnBlank: boolean
   modalFrame: ModalFrameType
@@ -40,7 +40,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
   pathname,
   hash,
   deviceType,
-  isSidebarRight,
+  isLeftColumn,
   isMainColumn,
 }) => {
   const query = getParsedUrlQuery(hash)
@@ -72,7 +72,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     caseDesc: 'Hostname === r1.userto.com',
     isShowApp: true,
     idUser: 1,
-    isSidebarRight: false,
+    isLeftColumn: false,
     isMainColumn: true,
     isMainColumnBlank: false,
     modalFrame: modalFrameFalse,
@@ -95,7 +95,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       caseDesc: 'Hostname === r1.userto.com',
       isShowApp: true,
       idUser: 1,
-      isSidebarRight: false,
+      isLeftColumn: false,
       isMainColumn: true,
       isMainColumnBlank: false,
       modalFrame,
@@ -111,7 +111,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
         'User direct link but without valid profileName and consequently unfound idUserUrl',
       isShowApp: false,
       idUser: undefined,
-      isSidebarRight: false,
+      isLeftColumn: false,
       isMainColumn: true,
       isMainColumnBlank: true,
       modalFrame: modalFrameFalse,
@@ -140,7 +140,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
         'User direct link without chat and Business Card only and without left column',
       isShowApp: true,
       idUser: idUserUrl,
-      isSidebarRight: false,
+      isLeftColumn: false,
       isMainColumn: true,
       isMainColumnBlank: false,
       modalFrame: modalFrameNext,
@@ -160,7 +160,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       caseDesc: 'User direct link with chat and without left column',
       isShowApp: true,
       idUser: idUserUrl,
-      isSidebarRight: false,
+      isLeftColumn: false,
       isMainColumn: true,
       isMainColumnBlank: false,
       modalFrame: modalFrameFalse,
@@ -176,7 +176,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
         'The Chat service Yourails.com without valid user with the left column',
       isShowApp: true,
       idUser: undefined,
-      isSidebarRight: true,
+      isLeftColumn: true,
       isMainColumn: true,
       isMainColumnBlank: true,
       modalFrame: modalFrameFalse,
@@ -192,7 +192,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
         'The Chat service Yourails.com without selected user with the left column',
       isShowApp: true,
       idUser: idUserUrl,
-      isSidebarRight: true,
+      isLeftColumn: true,
       isMainColumn: true,
       isMainColumnBlank: false,
       modalFrame: modalFrameFalse,
@@ -207,14 +207,14 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       deviceType === DeviceType['lgDevice'] ||
       deviceType === DeviceType['xlDevice']
     ) {
-      output = { ...output, isSidebarRight: true, isMainColumn: true }
+      output = { ...output, isLeftColumn: true, isMainColumn: true }
     } else {
-      if (isSidebarRight && isMainColumn) {
-        output = { ...output, isSidebarRight: false, isMainColumn: true }
+      if (isLeftColumn && isMainColumn) {
+        output = { ...output, isLeftColumn: false, isMainColumn: true }
       } else {
         output = {
           ...output,
-          isSidebarRight: isSidebarRight,
+          isLeftColumn: isLeftColumn,
           isMainColumn: isMainColumn,
         }
       }
@@ -226,7 +226,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
   //   caseDesc: '???',
   //   isShowApp: true,
   //   idUser: idUserUrl,
-  //   isSidebarRight: true,
+  //   isLeftColumn: true,
   //   isMainColumn: false,
   //   isMainColumnBlank: false,
   //   modalFrame: modalFrameFalse,

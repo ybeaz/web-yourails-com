@@ -18,31 +18,31 @@ export const SET_SIDEBAR_MAIN_LAYOUT: ActionEventType = (
   const { pathname, deviceType } = dataHandle
 
   const {
-    componentsState: { isSidebarRight, isMainColumn },
+    componentsState: { isLeftColumn, isMainColumn },
   } = getState()
 
-  let isSidebarRightNext = false
+  let isLeftColumnNext = false
   let isMainColumnNext = true
 
   if (pathname === '/') {
-    isSidebarRightNext = false
+    isLeftColumnNext = false
   } else if (
     deviceType === DeviceType['mdDevice'] ||
     deviceType === DeviceType['lgDevice'] ||
     deviceType === DeviceType['xlDevice']
   ) {
-    isSidebarRightNext = true
+    isLeftColumnNext = true
     isMainColumnNext = true
   } else {
-    if (isSidebarRight && isMainColumn) {
-      isSidebarRightNext = false
+    if (isLeftColumn && isMainColumn) {
+      isLeftColumnNext = false
       isMainColumnNext = true
     } else {
-      isSidebarRightNext = isSidebarRight
+      isLeftColumnNext = isLeftColumn
       isMainColumnNext = isMainColumn
     }
   }
 
-  dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isSidebarRightNext))
+  dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
 }
