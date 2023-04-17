@@ -89,8 +89,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
-    handleEvents.SET_STORE_DATA_INIT({}, { pathname, hash, deviceType })
-  }, [deviceType])
+    handleEvents.SET_STORE_SCENARIO({}, { pathname, hash, deviceType })
+  }, [deviceType, pathname, hash])
 
   useEffect(() => {
     // handleEvents.SET_SIDEBAR_MAIN_LAYOUT({}, { pathname, deviceType })

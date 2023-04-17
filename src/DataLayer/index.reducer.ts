@@ -5,6 +5,7 @@ import { TEMPLATE } from './reducers/TEMPLATE'
 import { TOGGLE_IS_SHOW_GLOBAL } from './reducers/TOGGLE_IS_SHOW_GLOBAL'
 import { ADD_PROFILES } from './reducers/ADD_PROFILES'
 import { SET_ID_USER_HOST } from './reducers/SET_ID_USER_HOST'
+import { TOGGLE_IS_MAIN_COLUMN_BLANK } from './reducers/TOGGLE_IS_MAIN_COLUMN_BLANK'
 import { TOGGLE_IS_MAIN_COLUMN } from './reducers/TOGGLE_IS_MAIN_COLUMN'
 import { TOGGLE_SIDEBAR_RIGHT } from './reducers/TOGGLE_SIDEBAR_RIGHT'
 import { SET_MODAL_FRAME } from './reducers/SET_MODAL_FRAME'
@@ -27,6 +28,7 @@ export const indexReducer: IIndexReducer = (
     TOGGLE_IS_SHOW_GLOBAL,
     ADD_PROFILES,
     SET_ID_USER_HOST,
+    TOGGLE_IS_MAIN_COLUMN_BLANK,
     TOGGLE_IS_MAIN_COLUMN,
     TOGGLE_SIDEBAR_RIGHT,
     SET_MODAL_FRAME,

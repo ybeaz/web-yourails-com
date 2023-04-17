@@ -16,7 +16,7 @@ const { dispatch, getState } = store
   xlDevice = DeviceTypeIn['xlDevice'],
  */
 
-export const SET_STORE_DATA_INIT: ActionEventType = (
+export const SET_STORE_SCENARIO: ActionEventType = (
   event,
   dataHandle: {
     pathname: string
@@ -40,7 +40,7 @@ export const SET_STORE_DATA_INIT: ActionEventType = (
   )
 
   const idUserUrl = profileUrl?.idUser
-  console.info('SET_STORE_DATA_INIT [19]', {
+  console.info('SET_STORE_SCENARIO [19]', {
     pathname,
     profileName,
     idUserUrl,
@@ -53,6 +53,7 @@ export const SET_STORE_DATA_INIT: ActionEventType = (
   let idUserNext
   let isSidebarRightNext
   let isMainColumnNext
+  let isMainColumnBlankNext
   let modalFrameNext
 
   /* Case 1. Hostname === 'r1.userto.com' */
@@ -80,6 +81,7 @@ export const SET_STORE_DATA_INIT: ActionEventType = (
 
     isSidebarRightNext = false
     isMainColumnNext = true
+    isMainColumnBlankNext = true
 
     modalFrameNext = {
       childName: 'Portfolio',
@@ -102,6 +104,7 @@ export const SET_STORE_DATA_INIT: ActionEventType = (
 
     isSidebarRightNext = false
     isMainColumnNext = true
+    isMainColumnBlankNext = false
 
     modalFrameNext = {
       childName: 'Portfolio',
@@ -124,6 +127,7 @@ export const SET_STORE_DATA_INIT: ActionEventType = (
 
     isSidebarRightNext = false
     isMainColumnNext = true
+    isMainColumnBlankNext = false
 
     modalFrameNext = {
       childName: 'Portfolio',
@@ -133,11 +137,10 @@ export const SET_STORE_DATA_INIT: ActionEventType = (
       childProps: {},
     }
   } /* 
-    Case 5. The Chat service Yourails.com without selected user with the right column
+    Case 5. The Chat service Yourails.com without valid user with the right column
   */ else if (
     pathname === '/k' &&
-    profileName &&
-    idUserUrl &&
+    (!profileName || !idUserUrl) &&
     (deviceType === DeviceType['mdDevice'] ||
       deviceType === DeviceType['lgDevice'] ||
       deviceType === DeviceType['xlDevice'])
@@ -148,6 +151,33 @@ export const SET_STORE_DATA_INIT: ActionEventType = (
 
     isSidebarRightNext = true
     isMainColumnNext = true
+    isMainColumnBlankNext = true
+
+    modalFrameNext = {
+      childName: 'Portfolio',
+      isShow: false,
+      isButtonBack: false,
+      isButtonClose: false,
+      childProps: {},
+    }
+  } else if (
+    /*
+    Case 6. The Chat service Yourails.com without selected user with the right column
+  */
+    pathname === '/k' &&
+    profileName &&
+    idUserUrl &&
+    (deviceType === DeviceType['mdDevice'] ||
+      deviceType === DeviceType['lgDevice'] ||
+      deviceType === DeviceType['xlDevice'])
+  ) {
+    caseNo = 6
+    isShowAppNext = true
+    idUserNext = idUserUrl
+
+    isSidebarRightNext = true
+    isMainColumnNext = true
+    isMainColumnBlankNext = false
 
     modalFrameNext = {
       childName: 'Portfolio',
@@ -157,7 +187,7 @@ export const SET_STORE_DATA_INIT: ActionEventType = (
       childProps: {},
     }
   } /* 
-    Case 6. The Chat service Yourails.com without selected user without the right column
+    Case 7. The Chat service Yourails.com without selected user without the right column
   */ else if (
     pathname === '/k' &&
     profileName &&
@@ -165,34 +195,13 @@ export const SET_STORE_DATA_INIT: ActionEventType = (
     (deviceType === DeviceType['smDevice'] ||
       deviceType === DeviceType['xsDevice'])
   ) {
-    caseNo = 6
-    isShowAppNext = true
-    idUserNext = idUserUrl
-
-    isSidebarRightNext = true
-    isMainColumnNext = false
-
-    modalFrameNext = {
-      childName: 'Portfolio',
-      isShow: false,
-      isButtonBack: false,
-      isButtonClose: false,
-      childProps: {},
-    }
-  } /*
-    Case 7. 
-   */ else if (
-    pathname === '/k' &&
-    profileName &&
-    idUserUrl &&
-    deviceType === DeviceType['smDevice']
-  ) {
     caseNo = 7
     isShowAppNext = true
     idUserNext = idUserUrl
 
     isSidebarRightNext = true
     isMainColumnNext = false
+    isMainColumnBlankNext = false
 
     modalFrameNext = {
       childName: 'Portfolio',
@@ -202,33 +211,60 @@ export const SET_STORE_DATA_INIT: ActionEventType = (
       childProps: {},
     }
   } /*
-    Case 8.
-  */ else {
+    Case 8. 
+   */ else if (
+    pathname === '/k' &&
+    profileName &&
+    idUserUrl &&
+    deviceType === DeviceType['smDevice']
+  ) {
     caseNo = 8
+    isShowAppNext = true
+    idUserNext = idUserUrl
+
+    isSidebarRightNext = true
+    isMainColumnNext = false
+    isMainColumnBlankNext = false
+
+    modalFrameNext = {
+      childName: 'Portfolio',
+      isShow: false,
+      isButtonBack: false,
+      isButtonClose: false,
+      childProps: {},
+    }
+  } /*
+    Case 9.
+  */ else {
+    caseNo = 9
     isShowAppNext = true
     idUserNext = idUserUrl
 
     if (isSidebarRight && isMainColumn) {
       isSidebarRightNext = false
       isMainColumnNext = true
+      isMainColumnBlankNext = false
     } else {
       isSidebarRightNext = isSidebarRight
       isMainColumnNext = isMainColumn
+      isMainColumnBlankNext = false
     }
   }
 
-  console.info('SET_STORE_DATA_INIT [215]', {
+  console.info('SET_STORE_SCENARIO [215]', {
     caseNo,
     isShowAppNext,
     idUserNext,
     isSidebarRightNext,
     isMainColumnNext,
+    isMainColumnBlankNext,
     modalFrameNext,
   })
 
-  dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL({ isShowApp: isShowAppNext }))
+  dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
   dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isSidebarRightNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
+  dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
   if (idUserHost === idUserNext) return
@@ -269,7 +305,7 @@ export const SET_STORE_DATA_INIT: ActionEventType = (
   //   }
   //   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
   // } else {
-  //   console.info('SET_STORE_DATA_INIT [71]', { showType })
-  //   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL({ isShowApp: false }))
+  //   console.info('SET_STORE_SCENARIO [71]', { showType })
+  //   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(false))
   // }
 }

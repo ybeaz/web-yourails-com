@@ -2,7 +2,7 @@ import { IHandleEventsInterface } from '../Interfaces/IHandleEventsInterface'
 import { ActionEventType } from '../@types/ActionEventType'
 
 import { TEMPLATE } from './handlers/TEMPLATE'
-import { SET_STORE_DATA_INIT } from './handlers/SET_STORE_DATA_INIT'
+import { SET_STORE_SCENARIO } from './handlers/SET_STORE_SCENARIO'
 import { ADD_PROFILES } from './handlers/ADD_PROFILES'
 import { CLICK_ON_USER_CHAT_CARD } from './handlers/CLICK_ON_USER_CHAT_CARD'
 import { CLICK_TOGGLE_SIDEBAR_MAIN } from './handlers/CLICK_TOGGLE_SIDEBAR_MAIN'
@@ -19,7 +19,7 @@ export type HandleEventsType = Record<string, (arg1: any, arg2: any) => any>
 
 export const handleEvents: HandleEventsType = {
   TEMPLATE,
-  SET_STORE_DATA_INIT,
+  SET_STORE_SCENARIO,
   ADD_PROFILES,
   CLICK_ON_USER_CHAT_CARD,
   SET_SIDEBAR_MAIN_LAYOUT,
