@@ -19,11 +19,11 @@ export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
     return
 
   const {
-    componentsState: { isSidebarRight, isMainColumn, modalFrame },
+    componentsState: { isLeftColumn, isMainColumn, modalFrame },
   } = getState()
   const { isShow } = modalFrame
 
-  let isSidebarRightNext = !isSidebarRight
+  let isLeftColumnNext = !isLeftColumn
   let isMainColumnNext = !isMainColumn
 
   const modalFrameNext = {
@@ -37,11 +37,11 @@ export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
     (deviceType === DeviceType['xsDevice'] ||
       deviceType === DeviceType['smDevice'])
   ) {
-    isSidebarRightNext = false
+    isLeftColumnNext = false
     isMainColumnNext = true
   }
 
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
-  dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isSidebarRightNext))
-  dispatch(actionSync.TOGGLE_MAIN_COLUMN(isMainColumnNext))
+  dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isLeftColumnNext))
+  dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
 }

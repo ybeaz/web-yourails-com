@@ -4,10 +4,11 @@ import { ActionType } from '../@types/ActionType'
 
 /** @description  Synchroneours redux actions */
 const ACTIONS_SYNC: string[] = [
+  'TOGGLE_IS_MAIN_COLUMN_BLANK',
   'TOGGLE_IS_SHOW_GLOBAL',
   'ADD_PROFILES',
   'SET_ID_USER_HOST',
-  'TOGGLE_MAIN_COLUMN',
+  'TOGGLE_IS_MAIN_COLUMN',
   'TOGGLE_SIDEBAR_RIGHT',
   'SET_MODAL_FRAME',
   'TOGGLE_LOADER_OVERLAY', // TODO

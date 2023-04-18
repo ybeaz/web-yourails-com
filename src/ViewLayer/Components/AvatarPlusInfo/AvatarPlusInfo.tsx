@@ -21,6 +21,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
     styleProps = { AvatarPlusInfo: {}, viewStyle: {} },
     onPress = () => {},
     profile,
+    isImageAvatar = true,
     children,
   } = props
   const { uriAvatar = '' } = profile
@@ -31,6 +32,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
         ImageYrl: style.ImageYrl,
         image: style.image,
       },
+      resizeMode: 'cover',
       testID: 'ChatCard_imageYrl',
       uri: uriAvatar,
     },
@@ -39,7 +41,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
       styleProps: { ButtonYrl: {} },
       testID: 'ButtonYrl',
       disabled: false,
-      onPress: onPress,
+      onPress,
       iconProps: undefined,
     },
   }
@@ -51,9 +53,11 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
     >
       <ButtonYrl {...propsOut.ButtonYrl}>
         <>
-          <View style={[style.avatar]} testID='avatar'>
-            <ImageYrl {...propsOut.imageYrlProps} />
-          </View>
+          {isImageAvatar && (
+            <View style={[style.avatar]} testID='avatar'>
+              <ImageYrl {...propsOut.imageYrlProps} />
+            </View>
+          )}
           {children}
         </>
       </ButtonYrl>

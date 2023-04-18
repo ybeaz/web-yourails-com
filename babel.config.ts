@@ -1,6 +1,6 @@
 /* eslint-disable import/no-commonjs */
 
-export default api => {
+export default (api: any) => {
   api.cache(true)
   return {
     presets: [
@@ -18,6 +18,7 @@ export default api => {
       ],
       '@babel/preset-react',
       '@babel/typescript',
+      '@babel/preset-typescript',
     ],
     plugins: [
       [
@@ -53,6 +54,7 @@ export default api => {
           extensions: ['.svg'],
         },
       ],
+      'react-native-reanimated/plugin',
     ],
     env: {
       production: {

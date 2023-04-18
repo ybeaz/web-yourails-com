@@ -6,6 +6,8 @@ import { StyleSheet } from 'react-native'
 export const styleGlobal = StyleSheet.create({
   typography: {
     fontFamily: 'lucida grande', // tahoma, verdana, arial, sans-serif'
+    fontSize: 14,
+    fontWeight: '400',
   },
   h1: {
     fontSize: 32,
@@ -30,6 +32,10 @@ export const styleGlobal = StyleSheet.create({
   h6: {
     fontSize: 12,
     fontWeight: 'bold',
+  },
+  norm: {
+    fontSize: 14,
+    fontWeight: '400',
   },
   hidden: {
     opacity: 0,

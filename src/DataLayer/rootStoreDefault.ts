@@ -39,11 +39,12 @@ export const profileStoreDefault: any = {
 
 export const componentsStateDefault: ComponentsStateType = {
   isLoaderOverlayVisible: false,
-  isSidebarRight: false,
+  isLeftColumn: false,
   isMainColumn: true,
+  isMainColumnBlank: false,
   modalFrame: {
-    childName: 'CompetencyTags', // Portfolio, Profile CompetencyTags
-    isShow: true,
+    childName: 'Portfolio', // Portfolio, Profile CompetencyTags
+    isShow: false,
     isButtonBack: true,
     isButtonClose: true,
     childProps: {},

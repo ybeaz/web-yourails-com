@@ -73,9 +73,10 @@ TODO: Need to write
 4.  To make sure the right path to App in here: `node_modules/expo/AppEntry.js`
     Probably `import App from '../../src/App';`
 
-5.  To run the app: `yarn expo:start`
-    To run the app specifically for web: `yarn expo:start --web`
-    To check xCode version: `/usr/bin/xcodebuild -version`
+5.  To run the app
+    `yarn expo:start`
+    `yarn expo:start --web` To run the app specifically for web
+    `/usr/bin/xcodebuild -version` To check xCode version
 
 ### How to troubleshoot running the app
 
@@ -104,9 +105,14 @@ Note: to config `codegen` edit ??? `codegen.yml`
 - To build: `yarn export:web` It runs script from package.json file. Legacy command `npx expo export:web`
 - To serve locally: `npx serve web-build`
 
-### How to run app and show pages
+### TODO: Have to update: How to run app and show pages
 
 - to show it in business card mode
   `http://localhost:19006/k#@smid?s=bc`
 - to show it in chat app mode
   `http://localhost:19006/k#@smid?s=ct`
+
+### How to run jest test with react-native
+
+- remove @react-native/polyfills
+  `yarn remove @react-native/polyfills`

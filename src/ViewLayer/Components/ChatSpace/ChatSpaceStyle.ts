@@ -2,14 +2,17 @@ import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
-  ChatSpace: {
+  ChatSpace: {},
+  ChatSpaceJsx: {
     ...styleGlobal.typography,
     flexDirection: 'column',
     padding: '0.5rem',
-    width: '100%',
+    // maxWidth: '100%',
     height: '100%',
     flex: 1,
     justifyContent: 'flex-end',
+    marginTop: '6rem',
+    marginBottom: '4rem',
   },
   viewPadding: {
     paddingBottom: '3rem',
@@ -25,7 +28,6 @@ export const stylesDefault = StyleSheet.create({
   messages: {
     padding: '0.5rem',
   },
-  chatInput: {},
 })
 
 const xmDevice = StyleSheet.create({

@@ -11,35 +11,41 @@ const { dispatch, getState } = store
 // lgDevice = DeviceTypeIn['lgDevice'],
 // xlDevice = DeviceTypeIn['xlDevice'],
 
+/**
+ * @status LEGACY, REMOVE AFTER 2023-06-01
+ */
 export const SET_SIDEBAR_MAIN_LAYOUT: ActionEventType = (
   event,
-  dataHandle: { deviceType: DeviceType }
+  dataHandle: { pathname: string; deviceType: DeviceType }
 ) => {
-  const { deviceType } = dataHandle
+  const { pathname, deviceType } = dataHandle
 
   const {
-    componentsState: { isSidebarRight, isMainColumn },
+    componentsState: { isLeftColumn, isMainColumn },
   } = getState()
 
-  let isSidebarRightNext = false
+  let isLeftColumnNext = false
   let isMainColumnNext = true
-  if (
+
+  if (pathname === '/') {
+    isLeftColumnNext = false
+  } else if (
     deviceType === DeviceType['mdDevice'] ||
     deviceType === DeviceType['lgDevice'] ||
     deviceType === DeviceType['xlDevice']
   ) {
-    isSidebarRightNext = true
+    isLeftColumnNext = true
     isMainColumnNext = true
   } else {
-    if (isSidebarRight && isMainColumn) {
-      isSidebarRightNext = false
+    if (isLeftColumn && isMainColumn) {
+      isLeftColumnNext = false
       isMainColumnNext = true
     } else {
-      isSidebarRightNext = isSidebarRight
+      isLeftColumnNext = isLeftColumn
       isMainColumnNext = isMainColumn
     }
   }
 
-  dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isSidebarRightNext))
-  dispatch(actionSync.TOGGLE_MAIN_COLUMN(isMainColumnNext))
+  dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isLeftColumnNext))
+  dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
 }

@@ -1,10 +1,11 @@
 import React, { createContext, useRef, useEffect, useCallback } from 'react'
 import { StatusBar } from 'expo-status-bar'
-import { SafeAreaView, View } from 'react-native'
+import { SafeAreaView, ScrollView, View } from 'react-native'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
+import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
@@ -43,7 +44,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     store,
     history,
   } = props
-  const { deviceType } = mediaParams
+  const { deviceType, height } = mediaParams
 
   const {
     location: { pathname, hash },
@@ -58,8 +59,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     globalVars: { language, idUserHost, isShowApp },
     componentsState,
   } = store
-  const { modalFrame, isSidebarRight, isMainColumn } = componentsState
-  const { isShow: isShowModalFrame } = modalFrame
+  const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
+    componentsState
+  const {
+    childName: childNameModal,
+    isShow: isShowModalFrame,
+    isButtonBack: isButtonBackModal,
+    isButtonClose: isButtonCloseModal,
+  } = modalFrame
+
+  console.info('PageChatsWholeScreen [70]', {
+    height,
+  })
 
   const profile = profiles.find(
     (profileIn: ProfileType) => profileIn.idProfile === idUserHost
@@ -70,17 +81,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     return conversation.idsUsers.includes(idUserHost)
   })
   const messagesUserHost = messages.filter((message: any) => {
-    return message.idConversation === conversationsUserHost[0].idConversation
+    return message.idConversation === conversationsUserHost[0]?.idConversation
   })
 
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
-    handleEvents.SET_ID_USER_HOST_INIT({}, {})
-  }, [])
-
-  useEffect(() => {
-    handleEvents.SET_SIDEBAR_MAIN_LAYOUT({}, { deviceType })
-  }, [deviceType])
+    handleEvents.SET_STORE_SCENARIO({}, { pathname, hash, deviceType })
+  }, [deviceType, pathname, hash])
 
   const onClickOnUser = ({}, data: any) => {
     console.info('PageChatsWholeScreen [87]', { data })
@@ -88,6 +95,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
+  const isButtonBackTopBarMainColumn =
+    isButtonBackModal && isButtonCloseModal ? true : false
+  const isImageAvatar =
+    childNameModal === 'Profile' && isShowModalFrame === true ? false : true
 
   const propsOut: Record<string, any> = {
     chatCardsProps: {
@@ -95,6 +106,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       idUserHost,
     },
     chatSpaceProps: {
+      styleProps: {
+        ChatSpace: {
+          minHeight: '-webkit-fill-available',
+        },
+      },
       idUserHost,
       profiles,
       messages: messagesUserHost,
@@ -119,6 +135,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         TopBarMainColumn: {},
       },
       profile,
+      isButtonBack: isButtonBackTopBarMainColumn,
+      isImageAvatar,
     },
     mainColumnOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 3, opacity: 1 } },
@@ -153,7 +171,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       ]}
       testID='PageChatsWholeScreen'
     >
-      {isSidebarRight && (
+      {isLeftColumn && (
         <View
           style={[
             style.sidebarRight,
@@ -185,33 +203,60 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             ]}
             testID='mainColumn'
           >
-            <View
-              style={[
-                style.topBarMainColumn,
-                {
-                  // borderStyle: 'solid',
-                  // borderTopWidth: 1,
-                  // borderRightWidth: 1,
-                  // borderBottomWidth: 1,
-                  // borderLeftWidth: 1,
-                },
-                themes['themeA'].colors01,
-              ]}
-              testID='topBarMainColumn'
-            >
-              <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
-            </View>
+            {!isMainColumnBlank && (
+              <>
+                <View
+                  style={[style.topBarsMainColumn]}
+                  testID='topBarsMainColumn'
+                >
+                  <View
+                    style={[
+                      style.topBarMainColumn,
+                      {
+                        // borderStyle: 'solid',
+                        // borderTopWidth: 1,
+                        // borderRightWidth: 1,
+                        // borderBottomWidth: 1,
+                        // borderLeftWidth: 1,
+                      },
+                      themes['themeA'].colors01,
+                    ]}
+                    testID='topBarMainColumn'
+                  >
+                    <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
+                  </View>
 
-            <View
-              style={[style.contentMenuMainColumn, themes['themeA'].colors01]}
-              testID='contentMenuMainColumn'
-            >
-              <ContentMenuMainColumn {...propsOut.contentMenuMainColumnProps} />
-            </View>
-
-            <View style={[style.chatSpace]} testID='chatSpace'>
-              <ChatSpace {...propsOut.chatSpaceProps} />
-            </View>
+                  <View
+                    style={[
+                      style.contentMenuMainColumn,
+                      themes['themeA'].colors01,
+                    ]}
+                    testID='contentMenuMainColumn'
+                  >
+                    <ContentMenuMainColumn
+                      {...propsOut.contentMenuMainColumnProps}
+                    />
+                  </View>
+                </View>
+                <ScrollView
+                  style={[style.chatSpace]}
+                  contentContainerStyle={{
+                    minHeight: '-webkit-fill-available',
+                  }}
+                  testID='chatSpace'
+                >
+                  <ChatSpace {...propsOut.chatSpaceProps} />
+                </ScrollView>
+                {isShowModalFrame === false && (
+                  <View
+                    style={[style.chatInput, themes['themeA'].colors03]}
+                    testID='chatInput'
+                  >
+                    <ChatInput />
+                  </View>
+                )}
+              </>
+            )}
           </View>
         </AnimatedYrl>
       )}

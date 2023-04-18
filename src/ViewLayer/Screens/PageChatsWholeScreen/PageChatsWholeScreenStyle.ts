@@ -4,6 +4,11 @@ import { styleGlobal } from '../../Styles/styleGlobal'
 export const stylesDefault = StyleSheet.create({
   PageChatsWholeScreen: {
     ...styleGlobal.typography,
+    position: 'absolute',
+    zIndex: 9999,
+    top: 0,
+    right: 0,
+    left: 0,
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
     marginBottom: 0,
@@ -12,7 +17,7 @@ export const stylesDefault = StyleSheet.create({
     justifyContent: 'center',
     minHeight: '100%',
     height: '100%',
-    width: '100%',
+    maxWidth: '100%',
   },
   sidebarRight: {
     flex: 1,
@@ -30,6 +35,12 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'column',
     height: '100%',
   },
+  topBarsMainColumn: {
+    position: 'absolute',
+    zIndex: 9999,
+    top: 0,
+    width: '100%',
+  },
   topBarMainColumn: {
     borderStyle: 'solid',
     // borderTopWidth: 1,
@@ -38,11 +49,22 @@ export const stylesDefault = StyleSheet.create({
     borderLeftWidth: 0,
   },
   contentMenuMainColumn: {},
+  scrollViewWrapper: {
+    // justifyContent: 'flex-end',
+    // height: '100%',
+    // backgroundColor: 'red',
+  },
   chatSpace: {
     flexDirection: 'column',
+    // justifyContent: 'flex-end',
     width: '100%',
     flex: 1,
-    justifyContent: 'flex-end',
+  },
+  chatInput: {
+    position: 'absolute',
+    height: '4rem',
+    bottom: 0,
+    width: '100%',
   },
 })
 

@@ -1,22 +1,25 @@
 import { ProfileType } from './ProfileType'
 
+export type ModalFrameType = {
+  childName: string
+  isShow: boolean
+  isButtonBack: boolean
+  isButtonClose: boolean
+  childProps: any
+}
+
 export interface ComponentsStateType {
   isLoaderOverlayVisible: boolean
-  isSidebarRight: boolean
+  isLeftColumn: boolean
   isMainColumn: boolean
-  modalFrame: {
-    childName: string
-    isShow: boolean
-    isButtonBack: boolean
-    isButtonClose: boolean
-    childProps: any
-  }
+  isMainColumnBlank: boolean
+  modalFrame: ModalFrameType
 }
 
 export interface FormsType {}
 
 /**
- * @import import { RootStoreType, ComponentsStateType, FormsType } from '../@types/RootStoreType'
+ * @import import { RootStoreType, ComponentsStateType, FormsType, ModalFrameType } from '../@types/RootStoreType'
  */
 export interface RootStoreType {
   componentsState: ComponentsStateType

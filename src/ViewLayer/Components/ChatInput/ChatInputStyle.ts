@@ -7,6 +7,7 @@ export const style = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'flex-end',
     alignItems: 'center',
+    paddingBottom: '1rem',
   },
   inputButton: {
     width: '80%',

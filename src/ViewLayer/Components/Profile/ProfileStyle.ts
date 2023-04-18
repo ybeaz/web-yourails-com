@@ -8,6 +8,10 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'column',
     padding: '3rem',
   },
+  imageWrapper: {
+    alignItems: 'center',
+    paddingBottom: '2rem',
+  },
   profileItemsWrapper: {},
   qrCodeImageWrapper: {},
   rowView: {
@@ -25,6 +29,11 @@ export const stylesDefault = StyleSheet.create({
   label: {
     fontSize: 13,
     paddingTop: '0.25rem',
+  },
+  image: {
+    width: 150,
+    height: 150,
+    borderRadius: 150 / 2,
   },
 
   messengerView: { flexDirection: 'row' },
