@@ -44,7 +44,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     store,
     history,
   } = props
-  const { deviceType } = mediaParams
+  const { deviceType, height } = mediaParams
 
   const {
     location: { pathname, hash },
@@ -69,10 +69,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   } = modalFrame
 
   console.info('PageChatsWholeScreen [70]', {
-    idUserHost,
-    pathname,
-    hash,
-    'window.location': window.location,
+    height,
   })
 
   const profile = profiles.find(
@@ -92,10 +89,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     handleEvents.SET_STORE_SCENARIO({}, { pathname, hash, deviceType })
   }, [deviceType, pathname, hash])
 
-  useEffect(() => {
-    // handleEvents.SET_SIDEBAR_MAIN_LAYOUT({}, { pathname, deviceType })
-  }, [deviceType])
-
   const onClickOnUser = ({}, data: any) => {
     console.info('PageChatsWholeScreen [87]', { data })
   }
@@ -113,6 +106,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       idUserHost,
     },
     chatSpaceProps: {
+      styleProps: {
+        ChatSpace: {
+          minHeight: '-webkit-fill-available',
+        },
+      },
       idUserHost,
       profiles,
       messages: messagesUserHost,
@@ -242,7 +240,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
                 </View>
                 <ScrollView
                   style={[style.chatSpace]}
-                  contentContainerStyle={{ justifyContent: 'center' }}
+                  contentContainerStyle={{
+                    minHeight: '-webkit-fill-available',
+                  }}
                   testID='chatSpace'
                 >
                   <ChatSpace {...propsOut.chatSpaceProps} />

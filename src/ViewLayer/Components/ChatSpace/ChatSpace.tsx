@@ -89,7 +89,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     modalFrameYrlProps: {
       styleProps: {
         ModalFrameYrl: {
-          marginTop: '6rem',
+          marginTop: '5rem',
         },
         imageBackground: {
           backgroundColor: themes['themeA'].colors07.backgroundColor,
@@ -170,8 +170,12 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const ChatSpaceJsx = () => (
     <View
-      style={[style.ChatSpace, themes['themeA'].colors03, styleAddSidebarRight]}
-      testID='ChatSpace'
+      style={[
+        style.ChatSpaceJsx,
+        themes['themeA'].colors03,
+        styleAddSidebarRight,
+      ]}
+      testID='ChatSpaceJsx'
     >
       <View style={[style.viewPadding]} testID='viewPadding'>
         <View style={style.date} testID='date'>
@@ -187,13 +191,13 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   )
 
   return (
-    <>
+    <View style={[style.ChatSpace, styleProps.ChatSpace]} testID='ChatSpace'>
       {!isShowModalFrame ? (
         <ChatSpaceJsx />
       ) : (
         <ModalFrameYrl {...propsOut.modalFrameYrlProps} />
       )}
-    </>
+    </View>
   )
 }
 

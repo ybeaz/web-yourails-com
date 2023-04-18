@@ -11,6 +11,9 @@ const { dispatch, getState } = store
 // lgDevice = DeviceTypeIn['lgDevice'],
 // xlDevice = DeviceTypeIn['xlDevice'],
 
+/**
+ * @status LEGACY, REMOVE AFTER 2023-06-01
+ */
 export const SET_SIDEBAR_MAIN_LAYOUT: ActionEventType = (
   event,
   dataHandle: { pathname: string; deviceType: DeviceType }

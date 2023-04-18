@@ -52,6 +52,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     redirectHash,
   } = getSetStoreScenario({
     profiles,
+    hostname: window.location.hostname,
     pathname,
     hash,
     deviceType,

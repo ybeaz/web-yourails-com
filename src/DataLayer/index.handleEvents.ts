@@ -6,7 +6,6 @@ import { SET_STORE_SCENARIO } from './handlers/SET_STORE_SCENARIO'
 import { ADD_PROFILES } from './handlers/ADD_PROFILES'
 import { CLICK_ON_USER_CHAT_CARD } from './handlers/CLICK_ON_USER_CHAT_CARD'
 import { CLICK_TOGGLE_SIDEBAR_MAIN } from './handlers/CLICK_TOGGLE_SIDEBAR_MAIN'
-import { SET_SIDEBAR_MAIN_LAYOUT } from './handlers/SET_SIDEBAR_MAIN_LAYOUT'
 import { DEV_STAGE } from './handlers/DEV_STAGE'
 import { SET_MODAL_FRAME } from './handlers/SET_MODAL_FRAME'
 import { STOP_PROPAGATION } from './handlers/STOP_PROPAGATION'
@@ -22,7 +21,6 @@ export const handleEvents: HandleEventsType = {
   SET_STORE_SCENARIO,
   ADD_PROFILES,
   CLICK_ON_USER_CHAT_CARD,
-  SET_SIDEBAR_MAIN_LAYOUT,
   CLICK_TOGGLE_SIDEBAR_MAIN,
   DEV_STAGE,
   SET_MODAL_FRAME,

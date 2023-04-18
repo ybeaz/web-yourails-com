@@ -4,7 +4,7 @@
       "path": "."
     },
     {
-      "path": "node_modules/stream-chat-react-native-core"
+      "path": "node_modules/@react-native"
     },
     {
       "path": "node_modules/react-native-gifted-chat"

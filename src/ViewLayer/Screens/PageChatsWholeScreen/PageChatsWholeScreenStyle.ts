@@ -49,8 +49,14 @@ export const stylesDefault = StyleSheet.create({
     borderLeftWidth: 0,
   },
   contentMenuMainColumn: {},
+  scrollViewWrapper: {
+    // justifyContent: 'flex-end',
+    // height: '100%',
+    // backgroundColor: 'red',
+  },
   chatSpace: {
     flexDirection: 'column',
+    // justifyContent: 'flex-end',
     width: '100%',
     flex: 1,
   },

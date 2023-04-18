@@ -6,6 +6,7 @@ import { getParsedUrlQuery } from './getParsedUrlQuery'
 
 type GetSetStoreScenarioPropsType = {
   profiles: ProfileType[]
+  hostname: string
   pathname: string
   hash: string
   deviceType: DeviceType
@@ -37,6 +38,7 @@ interface GetSetStoreScenarioType {
 
 export const getSetStoreScenario: GetSetStoreScenarioType = ({
   profiles,
+  hostname,
   pathname,
   hash,
   deviceType,
@@ -60,18 +62,18 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
   })
 
   let modalFrameFalse: ModalFrameType = {
-    childName: 'Portfolio',
+    childName: 'Portfolio', // Portfolio, Profile CompetencyTags
     isShow: false,
-    isButtonBack: false,
-    isButtonClose: false,
+    isButtonBack: true,
+    isButtonClose: true,
     childProps: {},
   }
 
   let output: GetSetStoreScenarioReturnType = {
-    caseNo: 1,
-    caseDesc: 'Hostname === r1.userto.com',
+    caseNo: 0,
+    caseDesc: '',
     isShowApp: true,
-    idUser: 1,
+    idUser: 0,
     isLeftColumn: false,
     isMainColumn: true,
     isMainColumnBlank: false,
@@ -80,10 +82,10 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     redirectHash: undefined,
   }
 
-  /* Case 1. Hostname === 'r1.userto.com' */
-  if (window.location.hostname === 'r1.userto.com') {
+  /* Case 1. Hostname === 'r1.userto.com'  */
+  if (hostname === 'r1.userto.com') {
     const modalFrame = {
-      childName: 'Portfolio', // Portfolio, Profile CompetencyTags
+      childName: 'Portfolio',
       isShow: true,
       isButtonBack: false,
       isButtonClose: false,
@@ -201,6 +203,9 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     }
   }
 
+  /**
+   * @comment Block to manage screen width/ devices specifities
+   */
   if (pathname === '/k') {
     if (
       deviceType === DeviceType['mdDevice'] ||
@@ -220,19 +225,6 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       }
     }
   }
-
-  // output = {
-  //   caseNo: 9,
-  //   caseDesc: '???',
-  //   isShowApp: true,
-  //   idUser: idUserUrl,
-  //   isLeftColumn: true,
-  //   isMainColumn: false,
-  //   isMainColumnBlank: false,
-  //   modalFrame: modalFrameFalse,
-  //   redirectPathname: undefined,
-  //   redirectHash: undefined,
-  // }
 
   return output
 }

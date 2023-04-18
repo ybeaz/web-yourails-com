@@ -2,7 +2,8 @@ import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
-  ChatSpace: {
+  ChatSpace: {},
+  ChatSpaceJsx: {
     ...styleGlobal.typography,
     flexDirection: 'column',
     padding: '0.5rem',
