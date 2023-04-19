@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react-native'
 
-import MockComponent from './mocks/MockComponent'
+import { MockReactNative } from '../__mocks__/MockReactNative'
 
 /**
  * @descriptioon TODO: to make the test work. The test does not work.
@@ -12,11 +12,11 @@ import MockComponent from './mocks/MockComponent'
  */
 describe('Test MockComponent', () => {
   it('test', () => {
-    const { getByTestId } = render(<MockComponent />)
+    const { getByTestId } = render(<MockReactNative />)
 
-    const myText = 'text' // getByTestId('my-text')
+    const myText = getByTestId('my-text')
 
-    const var1: string = 'abc'
+    const var1 = 'abc'
     console.info('App.test [42]', { var1, myText })
     expect(myText).toBeTruthy()
   })
