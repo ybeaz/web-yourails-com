@@ -1,5 +1,5 @@
 import { getSectionsFromTagsCompetencies } from '../getSectionsFromTagsCompetencies'
-import { competencyTags } from './dataMock/competencyTagsMock'
+import { competencyTags } from '../__mocks__/competencyTagsMock'
 /**
  * @test yarn jest getSectionsFromTagsCompetencies.test
  */

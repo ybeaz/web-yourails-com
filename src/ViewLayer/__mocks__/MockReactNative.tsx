@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 
-export default function MockComponent() {
+export const MockReactNative = () => {
   return (
     <View style={styles.container}>
       <Text testID='my-text'>Hello, World!</Text>

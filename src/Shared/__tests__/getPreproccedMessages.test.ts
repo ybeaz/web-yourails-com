@@ -1,5 +1,5 @@
 import { getPreproccedMessages } from '../getPreproccedMessages'
-import { messages, messagesPreprocceced } from './dataMock/messagesMock'
+import { messages, messagesPreprocceced } from '../__mocks__/messagesMock'
 
 /**
  * @test yarn jest getPreproccedMessages.test
