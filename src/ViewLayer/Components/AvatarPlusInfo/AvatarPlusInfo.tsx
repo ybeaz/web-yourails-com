@@ -18,7 +18,7 @@ import { ButtonYrl } from '../../../YrlNativeViewLibrary'
  */
 const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
   const {
-    styleProps = { AvatarPlusInfo: {}, viewStyle: {} },
+    styleProps = { AvatarPlusInfo: {}, viewStyle: {}, avatar: {} },
     onPress = () => {},
     profile,
     isImageAvatar = true,
@@ -54,7 +54,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
       <ButtonYrl {...propsOut.ButtonYrl}>
         <>
           {isImageAvatar && (
-            <View style={[style.avatar]} testID='avatar'>
+            <View style={[style.avatar, styleProps.avatar]} testID='avatar'>
               <ImageYrl {...propsOut.imageYrlProps} />
             </View>
           )}

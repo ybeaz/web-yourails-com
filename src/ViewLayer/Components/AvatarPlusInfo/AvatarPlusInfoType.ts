@@ -5,6 +5,7 @@ export interface AvatarPlusInfoPropsType {
   styleProps?: {
     AvatarPlusInfo?: any
     viewStyle?: any
+    avatar?: any
   }
   onPress: () => any
   profile: ProfileType

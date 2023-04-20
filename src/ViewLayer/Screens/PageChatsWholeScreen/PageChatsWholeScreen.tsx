@@ -68,10 +68,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     isButtonClose: isButtonCloseModal,
   } = modalFrame
 
-  console.info('PageChatsWholeScreen [70]', {
-    height,
-  })
-
   const profile = profiles.find(
     (profileIn: ProfileType) => profileIn.idProfile === idUserHost
   )
@@ -86,8 +82,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
+  }, [])
+
+  useEffect(() => {
     handleEvents.SET_STORE_SCENARIO({}, { pathname, hash, deviceType })
-  }, [deviceType, pathname, hash])
+  }, [deviceType, hash])
 
   const onClickOnUser = ({}, data: any) => {
     console.info('PageChatsWholeScreen [87]', { data })

@@ -78,6 +78,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
       profile,
       styleProps: {
         viewStyle: themes['themeA'].colors01,
+        avatar: { opacity: isImageAvatar ? 1 : 0 },
       },
       onPress: (event: any) =>
         handleEvents.SET_MODAL_FRAME(event, {
@@ -85,7 +86,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
           isShow: true,
           childProps: {},
         }),
-      isImageAvatar,
+      isImageAvatar: true,
     },
     imageYrlProps: {
       styleProps: {

@@ -1,4 +1,4 @@
-import { idUser } from '../@types/UserType'
+import { IdUserType } from '../@types/UserType'
 
 export type MessengerType = {
   name: string
@@ -10,7 +10,7 @@ export type MessengerType = {
  */
 export interface ProfileType {
   idProfile: string | number
-  idUser: idUser
+  idUser: IdUserType
   nameFirst?: string
   nameLast?: string
   uriAvatar?: string

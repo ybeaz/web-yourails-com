@@ -39,8 +39,8 @@ export const profileStoreDefault: any = {
 
 export const componentsStateDefault: ComponentsStateType = {
   isLoaderOverlayVisible: false,
-  isLeftColumn: false,
-  isMainColumn: true,
+  isLeftColumn: true,
+  isMainColumn: false,
   isMainColumnBlank: false,
   modalFrame: {
     childName: 'Portfolio', // Portfolio, Profile CompetencyTags

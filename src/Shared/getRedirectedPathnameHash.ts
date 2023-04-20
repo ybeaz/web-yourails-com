@@ -11,6 +11,8 @@ export const getRedirectedPathnameHash: GetRedirectedPathnameHashType = (
   redirectPathname,
   redirectHash
 ) => {
+  if (!redirectPathname && !redirectPathname) return
+
   if ((redirectPathname || redirectPathname === '') && redirectHash)
     window.location.assign(`${redirectPathname}#${redirectHash}`)
   else if (

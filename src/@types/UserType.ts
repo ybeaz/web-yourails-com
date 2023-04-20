@@ -1,4 +1,4 @@
 /**
- * @import import { idUser } from '../@types/UserType'
+ * @import import { IdUserType } from '../@types/UserType'
  */
-export type idUser = string | number | undefined
+export type IdUserType = string | number | undefined

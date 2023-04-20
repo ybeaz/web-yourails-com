@@ -1,5 +1,7 @@
+import { IdUserType } from '../@types/UserType'
+
 type ObjIdUserArrayType = {
-  idUser: string | number
+  idUser: IdUserType
   [key: string]: any
 }
 

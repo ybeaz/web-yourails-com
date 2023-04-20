@@ -36,7 +36,7 @@ describe('Test function getParsedUrlQuery', () => {
     testArray.forEach((test: TestArray) => {
       const { input, expected } = test
       const outputed = getParsedUrlQuery(input)
-      // console.info('getParsedUrlQuery.test [23]', { outputed })
+      console.info('getParsedUrlQuery.test [23]', { input, outputed })
       expect(outputed).toEqual(expected)
     })
   })

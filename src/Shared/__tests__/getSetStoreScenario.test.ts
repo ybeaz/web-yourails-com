@@ -1,4 +1,8 @@
-import { getSetStoreScenario, modalFrameFalse } from '../getSetStoreScenario'
+import {
+  getSetStoreScenario,
+  modalFrameFalse,
+  modalFrameTrue,
+} from '../getSetStoreScenario'
 import { profiles } from '../../ContentMock/profilesMock'
 // import { DeviceType } from '../../YrlNativeViewLibrary'
 
@@ -30,7 +34,7 @@ describe('Test function getSetStoreScenario', () => {
 
     const testArray = [
       {
-        isActive: false,
+        isActive: true,
         input: {
           profiles,
           hostname: 'r1.userto.com',
@@ -68,7 +72,7 @@ describe('Test function getSetStoreScenario', () => {
           caseNo: 2,
           caseDesc:
             'User direct link but without valid profileName and consequently unfound idUserUrl',
-          isShowApp: false,
+          isShowApp: true,
           idUser: undefined,
           isLeftColumn: false,
           isMainColumn: true,
@@ -76,6 +80,105 @@ describe('Test function getSetStoreScenario', () => {
           modalFrame: modalFrameFalse,
           redirectPathname: `/k`,
           redirectHash: '',
+        },
+      },
+      {
+        isActive: true,
+        input: {
+          profiles,
+          hostname: 'any',
+          pathname: '/',
+          hash: '#@rome?s=bc',
+          deviceType: DeviceType['lgDevice'],
+          isLeftColumn: true || false,
+          isMainColumn: true || false,
+        },
+        expected: {
+          caseNo: 3,
+          caseDesc:
+            'User direct link without chat and Business Card only and without left column',
+          isShowApp: true,
+          idUser: '1',
+          isLeftColumn: false,
+          isMainColumn: true,
+          isMainColumnBlank: false,
+          modalFrame: modalFrameTrue,
+          redirectPathname: undefined,
+          redirectHash: undefined,
+        },
+      },
+      {
+        isActive: true,
+        input: {
+          profiles,
+          hostname: 'any',
+          pathname: '/',
+          hash: '#@rome',
+          deviceType: DeviceType['lgDevice'],
+          isLeftColumn: true || false,
+          isMainColumn: true || false,
+        },
+        expected: {
+          caseNo: 4,
+          caseDesc: 'User direct link with chat and without left column',
+          isShowApp: true,
+          idUser: '1',
+          isLeftColumn: false,
+          isMainColumn: true,
+          isMainColumnBlank: false,
+          modalFrame: modalFrameFalse,
+          redirectPathname: undefined,
+          redirectHash: undefined,
+        },
+      },
+      {
+        isActive: true,
+        input: {
+          profiles,
+          hostname: 'any',
+          pathname: '/k',
+          hash: '#@unknown',
+          deviceType: DeviceType['lgDevice'],
+          isLeftColumn: true || false,
+          isMainColumn: true || false,
+        },
+        expected: {
+          caseNo: 5,
+          caseDesc:
+            'The Chat service Yourails.com without valid user without selected user with the left column',
+          isShowApp: true,
+          idUser: undefined,
+          isLeftColumn: true,
+          isMainColumn: true,
+          isMainColumnBlank: true,
+          modalFrame: modalFrameFalse,
+          redirectPathname: undefined,
+          redirectHash: undefined,
+        },
+      },
+      {
+        isActive: true,
+        input: {
+          profiles,
+          hostname: 'any',
+          pathname: '/k',
+          hash: '#@rome',
+          deviceType: DeviceType['lgDevice'],
+          isLeftColumn: true || false,
+          isMainColumn: true || false,
+        },
+        expected: {
+          caseNo: 6,
+          caseDesc:
+            'The Chat service Yourails.com with selected user with the left column',
+          isShowApp: true,
+          idUser: '1',
+          isLeftColumn: true,
+          isMainColumn: true,
+          isMainColumnBlank: false,
+          modalFrame: modalFrameFalse,
+          redirectPathname: undefined,
+          redirectHash: undefined,
         },
       },
     ]
@@ -86,11 +189,11 @@ describe('Test function getSetStoreScenario', () => {
 
       const outputed = getSetStoreScenario(input)
 
-      console.info('getSetStoreScenario.test [37]', {
-        input,
-        expected,
-        outputed,
-      })
+      // console.info('getSetStoreScenario.test [37]', {
+      //   input,
+      //   expected,
+      //   outputed,
+      // })
 
       expect(outputed).toEqual(expected)
     })
