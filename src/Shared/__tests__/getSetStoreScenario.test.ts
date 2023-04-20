@@ -1,6 +1,14 @@
-// import { getSetStoreScenario } from '../getSetStoreScenario'
+import { getSetStoreScenario } from '../getSetStoreScenario'
 import { profiles } from '../../ContentMock/profilesMock'
 // import { DeviceType } from '../../YrlNativeViewLibrary'
+
+export enum DeviceType {
+  xsDevice = 'xsDevice',
+  smDevice = 'smDevice',
+  mdDevice = 'mdDevice',
+  lgDevice = 'lgDevice',
+  xlDevice = 'xlDevice',
+}
 
 /**
  * @test yarn jest getSetStoreScenario.test
@@ -27,7 +35,7 @@ describe('Test function getSetStoreScenario', () => {
           hostname: 'r1.userto.com',
           pathname: 'any',
           hash: '#@john',
-          deviceType: '', // DeviceType['lgDevice'],
+          deviceType: DeviceType['lgDevice'],
           isLeftColumn: true,
           isMainColumn: true,
         },
@@ -49,12 +57,12 @@ describe('Test function getSetStoreScenario', () => {
     testArray.forEach(test => {
       const { input, expected } = test
 
-      // const outputed = getSetStoreScenario(input)
+      const outputed = getSetStoreScenario(input)
 
       console.info('getSetStoreScenario.test [37]', {
         input,
         expected,
-        // outputed,
+        outputed,
       })
 
       const outputed2 = true

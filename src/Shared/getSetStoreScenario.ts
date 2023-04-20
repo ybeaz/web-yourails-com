@@ -1,8 +1,16 @@
 import { ProfileType } from '../@types/ProfileType'
-import { DeviceType } from '../YrlNativeViewLibrary'
+// import { DeviceType } from '../YrlNativeViewLibrary'
 import { ModalFrameType } from '../@types/RootStoreType'
 import { idUser } from '../@types/UserType'
 import { getParsedUrlQuery } from './getParsedUrlQuery'
+
+export enum DeviceType {
+  xsDevice = 'xsDevice',
+  smDevice = 'smDevice',
+  mdDevice = 'mdDevice',
+  lgDevice = 'lgDevice',
+  xlDevice = 'xlDevice',
+}
 
 type GetSetStoreScenarioPropsType = {
   profiles: ProfileType[]
