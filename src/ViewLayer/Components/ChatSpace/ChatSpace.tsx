@@ -4,6 +4,7 @@ import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 dayjs.extend(localizedFormat)
 
+import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
@@ -154,6 +155,26 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       isButtonBack,
       isButtonClose,
     },
+    chatSpaceJsxAnimatedYrlProps: {
+      isActive: true,
+      valueInit: isShowModalFrame ? 1 : 0,
+      valueTarget: isShowModalFrame ? 0 : 1,
+      nameHtmlCssAttribute: 'opacity',
+      duration: 1000,
+      trigger: isShowModalFrame,
+      triggerShouldEqual: isShowModalFrame ? true : false,
+      testID: 'chatSpaceJsxAnimatedYrl',
+    },
+    modalFrameYrlAnimatedYrlProps: {
+      isActive: true,
+      valueInit: isShowModalFrame ? 0 : 1,
+      valueTarget: isShowModalFrame ? 1 : 0,
+      nameHtmlCssAttribute: 'opacity',
+      duration: 1000,
+      trigger: isShowModalFrame,
+      triggerShouldEqual: isShowModalFrame ? true : false,
+      testID: 'leftColumnIn_animatedYrl_Inner',
+    },
   }
 
   const createdAt = messages[0].createdAt
@@ -193,9 +214,13 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   return (
     <View style={[style.ChatSpace, styleProps.ChatSpace]} testID='ChatSpace'>
       {!isShowModalFrame ? (
-        <ChatSpaceJsx />
+        <AnimatedYrl {...propsOut.chatSpaceJsxAnimatedYrlProps}>
+          <ChatSpaceJsx />
+        </AnimatedYrl>
       ) : (
-        <ModalFrameYrl {...propsOut.modalFrameYrlProps} />
+        <AnimatedYrl {...propsOut.modalFrameYrlAnimatedYrlProps}>
+          <ModalFrameYrl {...propsOut.modalFrameYrlProps} />
+        </AnimatedYrl>
       )}
     </View>
   )

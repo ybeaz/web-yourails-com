@@ -93,7 +93,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   }
 
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
-  const styleAddLeftColumn = isShowModalFrame ? styleGlobal.hidden : {}
+  const styleAddLeftColumn = {} // isShowModalFrame ? styleGlobal.hidden : {}
   const isButtonBackTopBarMainColumn =
     isButtonBackModal && isButtonCloseModal ? true : false
   const isImageAvatar =
@@ -165,7 +165,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     leftColumnInnerInAnimatedYrlProps: {
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 1 : 0,
-      valueTarget: isShowModalFrame ? 0 : 1,
+      valueTarget: isShowModalFrame ? 1 : 0,
       nameHtmlCssAttribute: 'opacity',
       duration: 1000,
       trigger: isShowModalFrame,
@@ -195,10 +195,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           ]}
           testID='leftColumn'
         >
-          <AnimatedYrl {...propsOut.leftColumnInnerInAnimatedYrlProps}>
-            <TopBarChatCards />
-            <ChatCards {...propsOut.chatCardsProps} />
-          </AnimatedYrl>
+          {/* <AnimatedYrl {...propsOut.leftColumnInnerInAnimatedYrlProps}> */}
+          <TopBarChatCards />
+          <ChatCards {...propsOut.chatCardsProps} />
+          {/* </AnimatedYrl> */}
         </View>
       )}
 
