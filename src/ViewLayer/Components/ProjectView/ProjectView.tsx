@@ -31,8 +31,9 @@ const ProjectViewComponent: ProjectViewType = props => {
     imageWidth,
     imageHeight,
     index,
+    elementWidth,
   } = props
-  const { deviceType, screenCase, width, height } = mediaParams
+  const { deviceType, screenCase } = mediaParams
   const style = styles[deviceType]
 
   const imageResizeMode: ImageResizeMode = 'cover' // 'cover' 'contain' 'center'
@@ -57,7 +58,6 @@ const ProjectViewComponent: ProjectViewType = props => {
           height: imageHeight,
         },
       },
-      // onLayout: onImageLayout,
       testID: `projectImageYrl-${index}`,
       uri: imgSrc,
       resizeMode: imageResizeMode,
@@ -71,14 +71,16 @@ const ProjectViewComponent: ProjectViewType = props => {
     },
   }
 
-  console.info('ProjectView [75]', { screenCase })
+  const elementLayoutCase = elementWidth < 1024 ? 'xsSmMd' : 'lgXl'
+  const addProjectViewStyle =
+    elementWidth < 1024 ? { flexDirection: 'column' } : {}
 
   return (
     <View
-      style={[style.ProjectView, styleProps.ProjectView]}
+      style={[style.ProjectView, styleProps.ProjectView, addProjectViewStyle]}
       testID='ProjectView'
     >
-      {screenCase === 'xsSmMd' && (
+      {elementLayoutCase === 'xsSmMd' && (
         <ProjectInfoView {...propsOut.projectInfoViewProps} />
       )}
       <View style={[style.buttonImageView]} testID='buttonImageView'>
@@ -88,7 +90,7 @@ const ProjectViewComponent: ProjectViewType = props => {
           </View>
         </ButtonYrl>
       </View>
-      {screenCase === 'lgXl' && (
+      {elementLayoutCase === 'lgXl' && (
         <ProjectInfoView {...propsOut.projectInfoViewProps} />
       )}
     </View>

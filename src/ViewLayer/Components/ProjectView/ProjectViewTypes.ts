@@ -13,6 +13,7 @@ export interface ProjectViewPropsType {
   imageWidth: number
   imageHeight: number
   index: number
+  elementWidth: number
 }
 
 /**

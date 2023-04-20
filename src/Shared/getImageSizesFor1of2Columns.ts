@@ -1,4 +1,4 @@
-import { ScreenCaseType } from '../ViewLayer/Hooks/useMediaQueryRes'
+import { ScreenCaseType } from '../YrlNativeViewLibrary/Hooks/useMediaQueryResYrl'
 
 interface GetImageSizesFor1of2ColumnsType {
   (screenCaseIn: ScreenCaseType, widthIn: number): {

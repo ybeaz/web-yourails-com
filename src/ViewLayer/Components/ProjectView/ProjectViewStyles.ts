@@ -57,7 +57,7 @@ const xmDevice = StyleSheet.create({
   ...stylesDefault,
   ProjectView: {
     flexDirection: 'column',
-    paddingBottom: '2rem',
+    paddingBottom: '2.2rem',
   },
   projectProfileView: { flex: 1, paddingBottom: '1rem' },
 })
