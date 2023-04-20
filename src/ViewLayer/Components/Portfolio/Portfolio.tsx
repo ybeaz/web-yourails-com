@@ -1,6 +1,7 @@
 import React, { useCallback, ReactElement } from 'react'
 import { ImageResizeMode, View, Linking, Alert } from 'react-native'
 
+import { ProjectView } from '../ProjectView/ProjectView'
 import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { ProjectType } from '../../../@types/ProjectType'
@@ -10,10 +11,10 @@ import {
   withDeviceTypeYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
-import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
+// import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
 import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary'
-import { ImageYrl } from '../../../YrlNativeViewLibrary'
+// import { ButtonYrl } from '../../../YrlNativeViewLibrary'
+// import { ImageYrl } from '../../../YrlNativeViewLibrary'
 import { styles } from './PortfolioStyles'
 import { PortfolioType } from './PortfolioTypes'
 
@@ -61,63 +62,80 @@ const PortfolioComponent: PortfolioType = props => {
           linkHref,
         } = project
 
-        const imageResizeMode: ImageResizeMode = 'cover' // 'cover' 'contain' 'center'
+        // const imageResizeMode: ImageResizeMode = 'cover' // 'cover' 'contain' 'center'
 
         const propsOut: Record<string, any> = {
-          projectButtonYrl: {
-            styleProps: {
-              ButtonYrl: { justifyContent: 'flex-start' },
-              title: {},
-            },
-            titleText: '',
-            testID: 'projectButtonYrl',
-            disabled: false,
-            onPress: useLinkClickResYrl(linkHref),
-          },
-          projectImageYrlProps: {
-            styleProps: {
-              ImageYrl: {},
-              image: {
-                borderRadius: 3,
-                width: imageWidth,
-                height: imageHeight,
-              },
-            },
-            // onLayout: onImageLayout,
-            testID: `projectImageYrl-${index}`,
-            uri: imgSrc,
-            resizeMode: imageResizeMode,
-          },
-          projectInfoViewProps: {
+          projectViewProps: {
+            key: `ProjectView-${index}`,
             title,
+            isActive,
+            pathname,
             subtitle,
             description,
             customer,
             builtwith,
+            imgSrc,
+            linkHref,
+            index,
+            imageWidth,
+            imageHeight,
           },
+
+          // projectButtonYrl: {
+          //   styleProps: {
+          //     ButtonYrl: { justifyContent: 'flex-start' },
+          //     title: {},
+          //   },
+          //   titleText: '',
+          //   testID: 'projectButtonYrl',
+          //   disabled: false,
+          //   onPress: useLinkClickResYrl(linkHref),
+          // },
+          // projectImageYrlProps: {
+          //   styleProps: {
+          //     ImageYrl: {},
+          //     image: {
+          //       borderRadius: 3,
+          //       width: imageWidth,
+          //       height: imageHeight,
+          //     },
+          //   },
+          //   // onLayout: onImageLayout,
+          //   testID: `projectImageYrl-${index}`,
+          //   uri: imgSrc,
+          //   resizeMode: imageResizeMode,
+          // },
+          // projectInfoViewProps: {
+          //   title,
+          //   subtitle,
+          //   description,
+          //   customer,
+          //   builtwith,
+          // },
         }
 
-        return (
-          <View
-            key={`project-${index}`}
-            style={[style.projectView]}
-            testID='projectView'
-          >
-            {screenCase === 'xsSmMd' && (
-              <ProjectInfoView {...propsOut.projectInfoViewProps} />
-            )}
-            <View style={[style.buttonImageView]} testID='buttonImageView'>
-              <ButtonYrl {...propsOut.projectButtonYrl}>
-                <View style={[style.imageView]} testID='imageView'>
-                  <ImageYrl {...propsOut.projectImageYrlProps} />
-                </View>
-              </ButtonYrl>
-            </View>
-            {screenCase === 'lgXl' && (
-              <ProjectInfoView {...propsOut.projectInfoViewProps} />
-            )}
-          </View>
-        )
+        return <ProjectView {...propsOut.projectViewProps} />
+        // (
+        //   <View
+        //     key={`project-${index}`}
+        //     style={[style.projectView]}
+        //     testID='projectView'
+        //   >
+        //     {screenCase === 'xsSmMd' && (
+        //       <ProjectInfoView {...propsOut.projectInfoViewProps} />
+        //     )}
+        //     <View style={[style.buttonImageView]} testID='buttonImageView'>
+        //       <ButtonYrl {...propsOut.projectButtonYrl}>
+        //         <View style={[style.imageView]} testID='imageView'>
+        //           <ImageYrl {...propsOut.projectImageYrlProps} />
+        //         </View>
+        //       </ButtonYrl>
+        //     </View>
+        //     {screenCase === 'lgXl' && (
+        //       <ProjectInfoView {...propsOut.projectInfoViewProps} />
+        //     )}
+        //   </View>
+        // )
       })
   }
 

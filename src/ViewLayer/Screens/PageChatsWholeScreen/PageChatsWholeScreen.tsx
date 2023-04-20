@@ -174,8 +174,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
   }
 
-  console.info('PageChatsWholeScreen [177]', { isLeftColumn })
-
   return (
     <SafeAreaView
       style={[
