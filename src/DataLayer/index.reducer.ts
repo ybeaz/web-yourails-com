@@ -7,7 +7,7 @@ import { ADD_PROFILES } from './reducers/ADD_PROFILES'
 import { SET_ID_USER_HOST } from './reducers/SET_ID_USER_HOST'
 import { TOGGLE_IS_MAIN_COLUMN_BLANK } from './reducers/TOGGLE_IS_MAIN_COLUMN_BLANK'
 import { TOGGLE_IS_MAIN_COLUMN } from './reducers/TOGGLE_IS_MAIN_COLUMN'
-import { TOGGLE_LEFT_COLUMN } from './reducers/TOGGLE_LEFT_COLUMN'
+import { TOGGLE_IS_LEFT_COLUMN } from './reducers/TOGGLE_IS_LEFT_COLUMN'
 import { SET_MODAL_FRAME } from './reducers/SET_MODAL_FRAME'
 import { TOGGLE_LOADER_OVERLAY } from './reducers/TOGGLE_LOADER_OVERLAY'
 
@@ -30,7 +30,7 @@ export const indexReducer: IIndexReducer = (
     SET_ID_USER_HOST,
     TOGGLE_IS_MAIN_COLUMN_BLANK,
     TOGGLE_IS_MAIN_COLUMN,
-    TOGGLE_LEFT_COLUMN,
+    TOGGLE_IS_LEFT_COLUMN,
     SET_MODAL_FRAME,
     TOGGLE_LOADER_OVERLAY,
   }
