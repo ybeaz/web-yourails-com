@@ -19,7 +19,7 @@ export const stylesDefault = StyleSheet.create({
     height: '100%',
     maxWidth: '100%',
   },
-  sidebarRight: {
+  leftColumn: {
     flex: 1,
     height: '100%',
     flexDirection: 'column',

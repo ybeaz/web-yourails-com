@@ -27,7 +27,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   const { pathname, hash, deviceType } = dataHandle
 
   const {
-    componentsState: { isLeftColumn, isMainColumn },
+    // componentsState: { isLeftColumn, isMainColumn },
     globalVars: { idUserHost },
     profiles,
   } = getState()
@@ -49,8 +49,15 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     pathname,
     hash,
     deviceType,
-    isLeftColumn,
-    isMainColumn,
+    // isLeftColumn,
+    // isMainColumn,
+  })
+
+  console.info('SET_STORE_SCENARIO [50]', {
+    caseNo,
+    caseDesc,
+    isLeftColumnNext,
+    isMainColumnNext,
   })
 
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))

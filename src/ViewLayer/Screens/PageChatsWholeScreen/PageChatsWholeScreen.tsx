@@ -93,7 +93,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   }
 
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
-  const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
+  const styleAddLeftColumn = isShowModalFrame ? styleGlobal.hidden : {}
   const isButtonBackTopBarMainColumn =
     isButtonBackModal && isButtonCloseModal ? true : false
   const isImageAvatar =
@@ -130,7 +130,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       },
       store,
     },
-    sidebarRightOuterAnimatedYrlProps: {
+    leftColumnOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 1 : 0,
@@ -139,7 +139,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       duration: 1000,
       trigger: isShowModalFrame,
       triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'sidebarRight_Outer_AnimatedYrl',
+      testID: 'leftColumn_Outer_AnimatedYrl',
     },
     topBarMainColumnProps: {
       styleProps: {
@@ -162,7 +162,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       triggerShouldEqual: isShowModalFrame ? true : false,
       testID: 'mainColumn_Outer_AnimatedYrl',
     },
-    sidebarRightInnerInAnimatedYrlProps: {
+    leftColumnInnerInAnimatedYrlProps: {
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 1 : 0,
       valueTarget: isShowModalFrame ? 0 : 1,
@@ -170,9 +170,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       duration: 1000,
       trigger: isShowModalFrame,
       triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'sidebarRightIn_animatedYrl_Inner',
+      testID: 'leftColumnIn_animatedYrl_Inner',
     },
   }
+
+  console.info('PageChatsWholeScreen [177]', { isLeftColumn })
 
   return (
     <SafeAreaView
@@ -187,13 +189,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       {isLeftColumn && (
         <View
           style={[
-            style.sidebarRight,
+            style.leftColumn,
             themes['themeA'].colors01,
-            styleAddSidebarRight,
+            styleAddLeftColumn,
           ]}
-          testID='sidebarRight'
+          testID='leftColumn'
         >
-          <AnimatedYrl {...propsOut.sidebarRightInnerInAnimatedYrlProps}>
+          <AnimatedYrl {...propsOut.leftColumnInnerInAnimatedYrlProps}>
             <TopBarChatCards />
             <ChatCards {...propsOut.chatCardsProps} />
           </AnimatedYrl>

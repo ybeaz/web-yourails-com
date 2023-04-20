@@ -18,8 +18,8 @@ type GetSetStoreScenarioPropsType = {
   pathname: string
   hash: string
   deviceType: DeviceType
-  isLeftColumn: boolean
-  isMainColumn: boolean
+  // isLeftColumn: boolean
+  // isMainColumn: boolean
 }
 
 type GetSetStoreScenarioReturnType = {
@@ -66,8 +66,8 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
   pathname,
   hash,
   deviceType,
-  isLeftColumn,
-  isMainColumn,
+  // isLeftColumn,
+  // isMainColumn,
 }) => {
   const query = getParsedUrlQuery(hash)
   const { s: showType, profileName } = query
