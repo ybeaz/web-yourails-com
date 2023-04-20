@@ -116,6 +116,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       modalFrame: { ...modalFrame, childProps: {} },
     },
     contentMenuMainColumnProps: {
+      styleProps: {
+        buttonWrapper: {
+          borderTopWidth: 0,
+          borderRightWidth: 1,
+          borderBottomWidth: 0,
+          borderLeftWidth: 1,
+          borderTopColor: themes['themeA'].colors01.borderColor,
+          borderRightColor: themes['themeA'].colors01.borderColor,
+          borderBottomColor: themes['themeA'].colors01.borderColor,
+          borderLeftColor: themes['themeA'].colors01.borderColor,
+        },
+      },
       store,
     },
     sidebarRightOuterAnimatedYrlProps: {
@@ -138,7 +150,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       isImageAvatar,
     },
     mainColumnOuterAnimatedYrlProps: {
-      styleProps: { AnimatedYrl: { height: '100%', flex: 3, opacity: 1 } },
+      styleProps: {
+        AnimatedYrl: { height: '100%', flex: 3, opacity: 1 },
+      },
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 0 : 1,
       valueTarget: isShowModalFrame ? 1 : 1,
@@ -192,11 +206,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             style={[
               style.mainColumn,
               {
-                borderStyle: 'solid',
+                // borderStyle: 'solid',
                 // borderTopWidth: 1,
                 // borderRightWidth: 1,
-                borderBottomWidth: 1,
-                borderLeftWidth: 1,
+                // borderBottomWidth: 1,
+                // borderLeftWidth: 1,
               },
               themes['themeA'].colors01,
             ]}

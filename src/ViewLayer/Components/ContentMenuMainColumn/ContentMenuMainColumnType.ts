@@ -1,7 +1,10 @@
 import { RootStoreType } from '../../../@types/RootStoreType'
 
 export interface ContentMenuMainColumnPropsType {
-  styleProps?: any
+  styleProps?: {
+    ContentMenuMainColumn: any
+    buttonWrapper: any
+  }
   store: RootStoreType
   handleEvents: any
 }
