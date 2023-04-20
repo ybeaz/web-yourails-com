@@ -39,6 +39,14 @@ interface GetSetStoreScenarioType {
   (props: GetSetStoreScenarioPropsType): GetSetStoreScenarioReturnType
 }
 
+export const modalFrameFalse: ModalFrameType = {
+  childName: 'Portfolio', // Portfolio, Profile CompetencyTags
+  isShow: false,
+  isButtonBack: true,
+  isButtonClose: true,
+  childProps: {},
+}
+
 /**
  * @description Function to
  * @import import { getSetStoreScenario } from '../../../Shared/getSetStoreScenario'
@@ -68,14 +76,6 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     showType,
     deviceType,
   })
-
-  let modalFrameFalse: ModalFrameType = {
-    childName: 'Portfolio', // Portfolio, Profile CompetencyTags
-    isShow: false,
-    isButtonBack: true,
-    isButtonClose: true,
-    childProps: {},
-  }
 
   let output: GetSetStoreScenarioReturnType = {
     caseNo: 0,
@@ -119,7 +119,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       caseNo: 2,
       caseDesc:
         'User direct link but without valid profileName and consequently unfound idUserUrl',
-      isShowApp: false,
+      isShowApp: true,
       idUser: undefined,
       isLeftColumn: false,
       isMainColumn: true,

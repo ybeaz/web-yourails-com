@@ -1,4 +1,4 @@
-import { getSetStoreScenario } from '../getSetStoreScenario'
+import { getSetStoreScenario, modalFrameFalse } from '../getSetStoreScenario'
 import { profiles } from '../../ContentMock/profilesMock'
 // import { DeviceType } from '../../YrlNativeViewLibrary'
 
@@ -30,6 +30,7 @@ describe('Test function getSetStoreScenario', () => {
 
     const testArray = [
       {
+        isActive: false,
         input: {
           profiles,
           hostname: 'r1.userto.com',
@@ -44,7 +45,7 @@ describe('Test function getSetStoreScenario', () => {
           caseDesc: 'Hostname === r1.userto.com',
           isShowApp: true,
           idUser: 1,
-          isLeftColumn: true,
+          isLeftColumn: false,
           isMainColumn: true,
           isMainColumnBlank: false,
           modalFrame: modalFrameBcIdUser1,
@@ -52,10 +53,36 @@ describe('Test function getSetStoreScenario', () => {
           redirectHash: undefined,
         },
       },
+      {
+        isActive: true,
+        input: {
+          profiles,
+          hostname: 'any',
+          pathname: '/',
+          hash: '#@unknown',
+          deviceType: DeviceType['lgDevice'],
+          isLeftColumn: true || false,
+          isMainColumn: true || false,
+        },
+        expected: {
+          caseNo: 2,
+          caseDesc:
+            'User direct link but without valid profileName and consequently unfound idUserUrl',
+          isShowApp: false,
+          idUser: undefined,
+          isLeftColumn: false,
+          isMainColumn: true,
+          isMainColumnBlank: true,
+          modalFrame: modalFrameFalse,
+          redirectPathname: `/k`,
+          redirectHash: '',
+        },
+      },
     ]
 
     testArray.forEach(test => {
-      const { input, expected } = test
+      const { isActive, input, expected } = test
+      if (!isActive) return
 
       const outputed = getSetStoreScenario(input)
 
@@ -65,9 +92,7 @@ describe('Test function getSetStoreScenario', () => {
         outputed,
       })
 
-      const outputed2 = true
-      const expected2 = true
-      expect(outputed2).toEqual(expected2)
+      expect(outputed).toEqual(expected)
     })
   })
 })
