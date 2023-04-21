@@ -3,6 +3,11 @@ import { getCopiedFileDir } from './getCopiedFileDir'
 import { givePermission } from './givePermission'
 import { getIteratedAndMinifiedFiles } from './getIteratedAndMinifiedFiles'
 
+// const getFilesListInDir = require('./getFilesListInDir')
+// const getCopiedFileDir = require('./getCopiedFileDir')
+// const givePermission = require('./givePermission')
+// const getIteratedAndMinifiedFiles = require('./getIteratedAndMinifiedFiles')
+
 /**
  * @run_file yarn minify
  */

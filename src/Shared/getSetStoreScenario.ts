@@ -105,7 +105,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       caseNo: 1,
       caseDesc: 'Hostname === r1.userto.com',
       isShowApp: true,
-      idUser: 1,
+      idUser: '1',
       isLeftColumn: false,
       isMainColumn: true,
       isMainColumnBlank: false,

@@ -1,6 +1,7 @@
-import React, { createContext, useRef, useEffect, useCallback } from 'react'
+import React, { useRef, useEffect, useCallback } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView, ScrollView, View } from 'react-native'
+import { withDelayYrl } from '../../../YrlNativeViewLibrary/Hooks/withDelayYrl'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
@@ -278,5 +279,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 }
 
 export const PageChatsWholeScreen = React.memo(
-  withStoreStateYrl(withDeviceTypeYrl(PageChatsWholeScreenComponent))
+  withStoreStateYrl(
+    withDeviceTypeYrl(
+      withDelayYrl({ delay: 1000 })(PageChatsWholeScreenComponent)
+    )
+  )
 )

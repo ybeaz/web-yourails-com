@@ -1,8 +1,6 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 
-const directoryPath = '/path/to/your/directory'
-
 interface GetFilesListInDir {
   (directoryPath: string, extname: string): Promise<string[]>
 }

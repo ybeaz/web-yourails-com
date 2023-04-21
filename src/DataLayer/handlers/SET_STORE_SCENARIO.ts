@@ -44,11 +44,13 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     redirectHash,
   } = getSetStoreScenario({
     profiles,
-    hostname: window.location.hostname,
+    hostname: 'r1.userto.com', // window.location.hostname,
     pathname,
     hash,
     deviceType,
   })
+
+  console.info('SET_STORE_SCENARIO [53]', { isLeftColumnNext })
 
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
