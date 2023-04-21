@@ -41,13 +41,7 @@ export const stylesDefault = StyleSheet.create({
     top: 0,
     width: '100%',
   },
-  topBarMainColumn: {
-    borderStyle: 'solid',
-    // borderTopWidth: 1,
-    borderRightWidth: 1,
-    borderBottomWidth: 1,
-    borderLeftWidth: 1,
-  },
+  topBarMainColumn: {},
   contentMenuMainColumn: {},
   scrollViewWrapper: {
     // justifyContent: 'flex-end',

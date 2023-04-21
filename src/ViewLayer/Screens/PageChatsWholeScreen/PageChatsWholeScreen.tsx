@@ -1,7 +1,6 @@
-import React, { useRef, useEffect, useCallback } from 'react'
+import React, { useRef, useEffect, useMemo, useCallback } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView, ScrollView, View } from 'react-native'
-import { withDelayYrl } from '../../../YrlNativeViewLibrary/Hooks/withDelayYrl'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
@@ -87,7 +86,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   useEffect(() => {
     handleEvents.SET_STORE_SCENARIO({}, { pathname, hash, deviceType })
-  }, [deviceType, hash])
+  }, [hash])
+
+  useMemo(() => {
+    handleEvents.SET_STORE_SCENARIO({}, { pathname, hash, deviceType })
+  }, [deviceType])
 
   const onClickOnUser = ({}, data: any) => {
     console.info('PageChatsWholeScreen [87]', { data })
@@ -120,7 +123,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       styleProps: {
         buttonWrapper: {
           borderTopWidth: 0,
-          borderRightWidth: 1,
+          borderRightWidth: 0,
           borderBottomWidth: 0,
           borderLeftWidth: 1,
           borderTopColor: themes['themeA'].colors01.borderColor,
@@ -207,9 +210,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             style={[
               style.mainColumn,
               {
-                // borderStyle: 'solid',
+                borderStyle: 'solid',
                 // borderTopWidth: 1,
-                // borderRightWidth: 1,
+                borderRightWidth: 1,
                 // borderBottomWidth: 1,
                 // borderLeftWidth: 1,
               },
@@ -227,11 +230,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
                     style={[
                       style.topBarMainColumn,
                       {
-                        // borderStyle: 'solid',
+                        borderStyle: 'solid',
                         // borderTopWidth: 1,
                         // borderRightWidth: 1,
-                        // borderBottomWidth: 1,
-                        // borderLeftWidth: 1,
+                        borderBottomWidth: 1,
+                        borderLeftWidth: 1,
                       },
                       themes['themeA'].colors01,
                     ]}
@@ -279,9 +282,5 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 }
 
 export const PageChatsWholeScreen = React.memo(
-  withStoreStateYrl(
-    withDeviceTypeYrl(
-      withDelayYrl({ delay: 1000 })(PageChatsWholeScreenComponent)
-    )
-  )
+  withStoreStateYrl(withDeviceTypeYrl(PageChatsWholeScreenComponent))
 )

@@ -37,6 +37,20 @@ export const profileStoreDefault: any = {
   profileTimeZone: '',
 }
 
+export const componentsStateR1: ComponentsStateType = {
+  isLoaderOverlayVisible: false,
+  isLeftColumn: false,
+  isMainColumn: true,
+  isMainColumnBlank: false,
+  modalFrame: {
+    childName: 'Portfolio', // Portfolio, Profile CompetencyTags
+    isShow: true,
+    isButtonBack: true,
+    isButtonClose: true,
+    childProps: {},
+  },
+}
+
 export const componentsStateDefault: ComponentsStateType = {
   isLoaderOverlayVisible: false,
   isLeftColumn: true,
@@ -54,7 +68,10 @@ export const componentsStateDefault: ComponentsStateType = {
 export const formsDefault: FormsType = {}
 
 export const rootStoreDefault: RootStoreType = {
-  componentsState: componentsStateDefault,
+  componentsState:
+    window.location.hostname === 'r1.userto.com'
+      ? componentsStateR1
+      : componentsStateDefault,
   profiles: [],
   forms: formsDefault,
   isLoaded: {
