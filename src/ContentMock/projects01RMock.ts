@@ -41,6 +41,24 @@ export const projects01R: ProjectType[] = [
 
   {
     idUser: '1',
+    title: 'Web service. YouRails.com Skills Exchange Messenger',
+    isActive: true,
+    pathname: 'YouRails',
+    subtitle: 'Find, Connect, and Create Your Best Life with YouRails.com',
+    description: [
+      'YouRails.com facilitates users in finding people, solutions, and establishing connections through a chat-first/messenger platform. This platform provides users with the possibility to create and manage multiple profiles that reflect their current life goals and intentions. The process is simplified with an AI-based environment and services.',
+
+      'One of the key features of YouRails.com is the ability for users to create multiple profiles that manifest different "faces" of themselves. Users can activate and deactivate these profiles as needed, allowing them to present themselves differently in different contexts.',
+    ],
+
+    customer: 'Not limited',
+    builtwith: 'React-native, React, ES7, Typescript, Expo/Webpack, Jest',
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-sep-project.jpg',
+    linkHref: 'https://web1.yourails.com/k#@smid',
+  },
+
+  {
+    idUser: '1',
     title: 'Web game. Tic Tac Toe game with random logic',
     isActive: true,
     pathname: 'demo-tic-tak-toe-js.html',
