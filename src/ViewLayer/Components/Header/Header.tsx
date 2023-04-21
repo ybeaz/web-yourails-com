@@ -20,18 +20,21 @@ import { styles } from './HeaderStyles'
  */
 const HeaderComponent: HeaderType = props => {
   const {
-    styleProps = { Header: {} },
+    styleProps = { Header: {}, headerText: {} },
     mediaParams = mediaParamsDefault,
     headerText,
   } = props
-  const { deviceType, screenCase, width, height } = mediaParams
+  const { deviceType } = mediaParams
   const style = styles[deviceType]
 
   const propsOut: Record<string, any> = {}
 
   return (
     <View style={[style.Header, styleProps.Header]} testID='Header'>
-      <Text style={[style.headerText]} testID='headerText'>
+      <Text
+        style={[style.headerText, styleProps.headerText]}
+        testID='headerText'
+      >
         {headerText}
       </Text>
     </View>
