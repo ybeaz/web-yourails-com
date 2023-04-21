@@ -36,7 +36,7 @@ export const projects01R: ProjectType[] = [
     builtwith:
       'React, React-dom, ES7, Babel, Webpack, Jest, Enzyme, JSONP, Php, MySQL',
     imgSrc: 'https://r1.userto.com/img/yrl-23-demo-site-windows.jpg',
-    linkHref: 'https://sitewindows.com/site-windows-info.html', //'https://r1.userto.com/demo-site-windows.html',
+    linkHref: 'https://sitewindows.com/site-windows-info.html', //'https://r1-2022.userto.com/demo-site-windows.html',
   },
 
   {
@@ -71,7 +71,7 @@ export const projects01R: ProjectType[] = [
     customer: 'Gaming, leasure time',
     builtwith: 'ES7, ESLint, Babel, Webpack',
     imgSrc: 'https://r1.userto.com/img/yrl-23-demo-tic-tak-toe-js.jpg',
-    linkHref: 'https://r1.userto.com/demo-tic-tak-toe-js.html',
+    linkHref: 'https://r1-2022.userto.com/demo-tic-tak-toe-js.html',
   },
 
   {
@@ -104,7 +104,7 @@ export const projects01R: ProjectType[] = [
     customer: 'Business, hobby, leasure sites',
     builtwith:
       'React, react-router-dom, Typescript, ES7, ESLint, Babel, Webpack',
-    imgSrc: 'https://r1.userto.com/img/demo-auth-social-service.jpg',
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-auth-social-service.jpg',
     linkHref:
       'https://yourails.com/c/cj8dDTHGJBY/Eukaryopolis---The-City-of-Animal-Cells-Crash-Course-Biology-4',
   },
@@ -121,7 +121,7 @@ export const projects01R: ProjectType[] = [
     builtwith: 'Bootstrap, Bootstrap-select, javascript',
     imgSrc: 'https://r1.userto.com/img/yrl-23-demo-learnByHeartService.jpg',
     linkHref:
-      'https://r1.userto.com/learning-text-learn-phrases-learn-words.html',
+      'https://r1-2022.userto.com/learning-text-learn-phrases-learn-words.html',
   },
 
   {
@@ -135,21 +135,7 @@ export const projects01R: ProjectType[] = [
     customer: 'Not limited',
     builtwith: 'React, React-dom, ES7, Bootstrap, Webpack',
     imgSrc: 'https://r1.userto.com/img/yrl-23-demo-tel-book.jpg',
-    linkHref: 'https://r1.userto.com/demo-tel-book-reactjs.html',
-  },
-
-  {
-    idUser: '1',
-    title: 'Web widget. Earthquake Zen Garden ver. 3.12.3',
-    isActive: true,
-    pathname: 'demo-js-item-carousel.html/',
-    subtitle: 'Create interactive dashboards',
-    description: 'This is a react SPA demo of a dashboard structure',
-    customer: 'Any industry',
-    builtwith: 'React, react-router-dom, ES7, ESLint, Babel, Webpack',
-    imgSrc:
-      'https://r1.userto.com/img/yrl-23-demo-earthquake-zen-garden-screens.jpg',
-    linkHref: 'https://r1.userto.com/demo-earthquake-zen-garden-js.html',
+    linkHref: 'https://r1-2022.userto.com/demo-tel-book-reactjs.html',
   },
 
   {
@@ -163,37 +149,7 @@ export const projects01R: ProjectType[] = [
     customer: 'Any industry',
     builtwith: 'React, Typescript, ES7, ESLint, Webpack',
     imgSrc: 'https://r1.userto.com/img/yrl-23-demo-dynamic-tree-component.jpg',
-    linkHref: 'https://r1.userto.com/demo-dynamic-tree-component.html',
-  },
-
-  {
-    idUser: '1',
-    title: 'Web service. Prototype for service Ecom-Yunazon',
-    isActive: true,
-    pathname: 'demo-ecom-yunazon-espa-neptun-FL60.html/',
-    subtitle:
-      'To sell more and faster you need more and faster your product data',
-    description:
-      'Yunazon-ecom is providing a seamless global network to enable brands/ OEMs to automate distribution of information about their products to its various consumers in format and accuracy for it to matter.',
-    customer: 'Any industry',
-    builtwith:
-      'ExpressJS, GraphQL, React, react-router-dom, Typescript, ES7, ESLint, Babel, Webpack',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-ecom-yanazon.jpg',
-    linkHref: 'https://r1.userto.com/demo-ecom-yunazon-espa-neptun-FL60.html', // https://r1.userto.com/img/demo-ecom-yanazon.png
-  },
-
-  {
-    idUser: '1',
-    title: 'Web widget. Item card screen',
-    isActive: true,
-    pathname: 'demo-js-item-carousel.html/',
-    subtitle: 'Visualize json data in the web page',
-    description:
-      'This is a react SPA demo for e-commerce product(s) representation',
-    customer: 'E-commerce',
-    builtwith: 'React, react-router-dom, ES7, ESLint, Babel, Webpack',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-item-carousel.jpg',
-    linkHref: 'https://r1.userto.com/demo-js-item-carousel.html',
+    linkHref: 'https://r1-2022.userto.com/demo-dynamic-tree-component.html',
   },
 
   {
@@ -207,7 +163,7 @@ export const projects01R: ProjectType[] = [
       'The common part of many types of interactive communication is providing the user with some research tools, such as filtering, sorting, picking up information items. In many times this includes the ability to edit information in some fields and create temporary lists for future consideration. This is a set of ReactJs components for a personal cabinet. This example includes the table, sortable ascending and discending order by columns. Free ride filters and preset filters are implemented. Modal windows as a part of selection process are implemented.',
     customer: 'e-commerce',
     builtwith: 'React, React-dom, Semantic-UI-React ES7, Babel, Webpack, Mocha',
-    imgSrc: 'https://r1.userto.com/img/demo-table-match.png',
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-table-match.png',
     linkHref:
       'https://bb.userto.com/analytics-c7b094941e7e11c6bf93d57366738802',
   },
@@ -224,36 +180,35 @@ export const projects01R: ProjectType[] = [
     builtwith:
       'React, React-dom, React-redux, Redux, Enzyme, Enzyme-adapter-react, Jjest',
     imgSrc: 'https://r1.userto.com/img/yrl-23-demo-purchase-summary.jpg',
-    linkHref: 'https://r1.userto.com/demo-reactjs-purchase-summary.html',
+    linkHref: 'https://r1-2022.userto.com/demo-reactjs-purchase-summary.html',
   },
 
   {
     idUser: '1',
-    title: 'Content site. Arbir.ru - SEO, content management',
+    title: 'Web page. JS Algorithms and Questions',
     isActive: true,
-    pathname: 'arbir-ru-collection-thematic-articles',
-    subtitle: '4500 visitors per business day, regular leads flow.',
+    pathname: 'demo-js-algorithms-problems',
+    subtitle: 'Over-prepare, then go with the flow. Regina Brett',
     description:
-      'The project involves using 1C-Bitrix CMS, a great deal of content management, CEO, processing Word xml into html CEO friendly pages.',
-    customer: '',
-    builtwith: '1C-Bitrix CMS, bootstrap, PHP, MySQL-MariaDB',
-    imgSrc: 'https://r1.userto.com/img/arbirRuExample.png',
-    linkHref:
-      'https://arbir.ru/miscellany/U18S864E55782-Situation-awareness-new-paradigm-for-the-next-generation-infrastructures',
+      'Here are proven, effective techniques and questions for finding true masters of the language.',
+    customer: 'Education, job hiring consulting',
+    builtwith: 'ReactJS, Bootstrap, javascript',
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-js-algorithms-problems.png',
+    linkHref: 'https://r1-2022.userto.com/demo-js-algorithms-problems.html',
   },
 
   {
     idUser: '1',
-    title: 'Web service. View Domain Statistics',
+    title: 'Web widget. Demo Telegram bot',
     isActive: true,
-    pathname: 'domain-statistics-service',
-    subtitle: 'Know how the Internet sees the domain',
+    pathname: 'feedback-via-telegram',
+    subtitle: 'Get messages from your prospects instantly',
     description:
-      'The service provides a quick outlook for how Alex, Google, Yandex see the domain.',
-    customer: 'Internet analytics',
-    builtwith: 'REST Google API, Yandex API, angularjs 1.7, bootstrap',
-    imgSrc: 'https://r1.userto.com/img/domainStatService.png',
-    linkHref: 'https://my.userto.com/dashboard.php#!/domainStat?lang=en',
+      'The service allows to get feedback from visitors of your site instantly on the mobile devices of managers and track the actions. It sends messages from your site feedback forms to your Telegram account. Promt replys for your client requests build trust and loyalty, which is important for sales and for beginning stage of co-operation.',
+    customer: 'Sales, small and middle business sites',
+    builtwith: 'Telegram API, AJAX, PHP CURL POST Requests',
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-feedbackTelegram.png',
+    linkHref: 'http://r1-2022.userto.com/contacts',
   },
 
   {
@@ -267,92 +222,8 @@ export const projects01R: ProjectType[] = [
     customer: 'Dashboards and services creation',
     builtwith:
       'jQuery File Upload API (AngularJS case), Angular 1.7, jQuery, Bootstrap, AJAX, PHP, GET, POST requests',
-    imgSrc: 'https://r1.userto.com/img/fileUploadDemo.png',
-    linkHref: 'https://r1.userto.com/demo-file-upload.php',
-  },
-
-  {
-    idUser: '1',
-    title: 'Web page. JS Algorithms and Questions',
-    isActive: true,
-    pathname: 'demo-js-algorithms-problems',
-    subtitle: 'Over-prepare, then go with the flow. Regina Brett',
-    description:
-      'Here are proven, effective techniques and questions for finding true masters of the language.',
-    customer: 'Education, job hiring consulting',
-    builtwith: 'ReactJS, Bootstrap, javascript',
-    imgSrc: 'https://r1.userto.com/img/js-algorithms-problems.png',
-    linkHref: 'https://r1.userto.com/demo-js-algorithms-problems.html',
-  },
-
-  {
-    idUser: '1',
-    title: 'Web widget. Demo Telegram bot',
-    isActive: true,
-    pathname: 'feedback-via-telegram',
-    subtitle: 'Get messages from your prospects instantly',
-    description:
-      'The service allows to get feedback from visitors of your site instantly on the mobile devices of managers and track the actions. It sends messages from your site feedback forms to your Telegram account. Promt replys for your client requests build trust and loyalty, which is important for sales and for beginning stage of co-operation.',
-    customer: 'Sales, small and middle business sites',
-    builtwith: 'Telegram API, AJAX, PHP CURL POST Requests',
-    imgSrc: 'https://r1.userto.com/img/feedbackTelegramDemo.png',
-    linkHref: 'https://r1.userto.com/contacts#contacts',
-  },
-
-  {
-    idUser: '1',
-    title: 'Landing Page. Immigration Service Provider',
-    isActive: true,
-    pathname: 'landing-page-immigration-service-provider',
-    subtitle: '',
-    description: '',
-    customer: '',
-    builtwith:
-      'jQuery, Bootstrap, JS widgets, Used: Google AdWords, Google Analytics',
-    imgSrc: 'https://r1.userto.com/img/premierExpertPromo.png',
-    linkHref: 'https://pe.userto.com/info01.php',
-  },
-
-  {
-    idUser: '1',
-    title: 'Landing page. Not supported. Wiki Goods Startup',
-    isActive: true,
-    pathname: 'landing-page-wiki-goods-startup',
-    subtitle: 'Your site deserves eCommerce functionality!',
-    description:
-      'This is a landing page for the startup which provides ordinary sites with online shop functionality without reprogramming. We use original JS eCommerce library of functions, cloud content broadcasting and brand banner technology.',
-    customer: '',
-    builtwith: 'Bootstrap, jQuery',
-    imgSrc: 'https://r1.userto.com/img/wikiGoodsPromo.png',
-    linkHref: 'https://userto.com/promo-ecommerce.php',
-  },
-
-  {
-    idUser: '1',
-    title: 'Web widget. Not supported. Online Notes Keeper',
-    isActive: true,
-    pathname: 'lib-catalog-notes',
-    subtitle: 'Keep your thoughts for your tomorrow yourself',
-    description:
-      'This is a prototype of a component of the personal cabinets in the form of an online notes keeper It has usual functionality including adding, editing and saving notes. A user can easily find relevant information filtering out notes. The sort function helps to see notes the way that the user likes. A user can manage display settings by archiving notes, restoring them or even deleting forever. It automatically lays notes out in three tabs-folders: active, archived and all. A search functionality is available in each display setting. After editing the notes are stored and got back on the display after application reloading. ',
-    customer: 'Not limited',
-    builtwith:
-      'Redux, React-redux, React, React-dom, ES7, Babel, Bootstrap, Webpack, Mocha',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-noteLibDemo.jpg',
-    linkHref: 'https://r1.userto.com/demo-note-book.html',
-  },
-
-  {
-    idUser: '1',
-    title: 'Web widget. Not supported. Automatic image resizing on the fly',
-    isActive: true,
-    pathname: 'function-automatic-image-resizing',
-    subtitle: '',
-    description: '',
-    customer: '',
-    builtwith: 'Bootstrap, Bootstrap-select, jQuery, AJAX, ',
-    imgSrc: 'https://r1.userto.com/img/imgResizeDemo.png',
-    linkHref: 'https://r1.userto.com/demo-image-resize.php',
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-fileUpload.png',
+    linkHref: 'https://r1-2022.userto.com/demo-file-upload.php',
   },
 
   {
@@ -366,8 +237,8 @@ export const projects01R: ProjectType[] = [
       'It helps earning money from site traffic with numerous levels of flexibility without redesigning of the sites and getting into site engines. The project is based on the brand new Brand Banner technology for website design management, which is neutral to the site engine.',
     customer: '',
     builtwith: 'Angularjs 1.7, Bootstrap, jQuery, AJAX, PHP',
-    imgSrc: 'https://r1.userto.com/img/brendBannerPromo.png',
-    linkHref: 'https://r1.userto.com/img/brendBannerPromo.png',
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-brendBannerPromo.png',
+    linkHref: 'https://r1.userto.com/img/yrl-23-demo-brendBannerPromo.png',
   },
 
   {
@@ -381,8 +252,8 @@ export const projects01R: ProjectType[] = [
       'The project involved a development of the javascript micro-library and light server part for fast creating feedback forms. The script allows developers to include an unlimited number of feedback forms for one page, to use an unlimited number of fields on one form, to build various scenarious for users utilizing modal window techniques, to apply standards for field description, to validate fields and alert user before form submitting',
     customer: '',
     builtwith: 'Bootstrap, jQuery, AJAX, PHP, POST requests, Telegram API, OOP',
-    imgSrc: 'https://r1.userto.com/img/feedbackFormExample05.png', //'https://r1.userto.com/img/feedbackFormDemo.png',
-    linkHref: 'https://r1.userto.com/img/feedbackFormExample05.png', // https://r1.userto.com/lib-feedback-forms
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-feedbackFormExample05.png', //'https://r1.userto.com/img/feedbackFormDemo.png',
+    linkHref: 'https://r1.userto.com/img/yrl-23-demo-feedbackFormExample05.png', // https://r1.userto.com/lib-feedback-forms
   },
 
   {
@@ -396,8 +267,8 @@ export const projects01R: ProjectType[] = [
     customer: '',
     builtwith:
       'Angularjs 1.7, jQuery, AJAX, JSON PHP, POST requests, OOP, MySQL-MariaDB.',
-    imgSrc: 'https://r1.userto.com/img/authorRegistrPrjct.png',
-    linkHref: 'https://r1.userto.com/img/authorRegistrPrjct.png', // https://my.userto.com/dashboard.php#!/?lang=en
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-authorRegistr.png',
+    linkHref: 'https://r1.userto.com/img/yrl-23-demo-authorRegistr.png', // https://my.userto.com/dashboard.php#!/?lang=en
   },
 
   {
@@ -412,8 +283,8 @@ export const projects01R: ProjectType[] = [
     customer: 'Finance, Medicine, Computer science, etc.',
     builtwith:
       'php FANN library 2.2, PHP, AJAX, POST requests, Regexp, OOP, Bootstrap, Angularjs 1.7, jQuery, AJAX, JSON',
-    imgSrc: 'https://r1.userto.com/img/langDetectAnnDemo.png',
-    linkHref: 'https://r1.userto.com/img/langDetectAnnDemo.png', //'https://ann.userto.com/demo-language-detection.php'
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-langDetectAnn.png',
+    linkHref: 'https://r1.userto.com/img/yrl-23-demo-langDetectAnn.png', //'https://ann.userto.com/demo-language-detection.php'
   },
 
   {
@@ -427,8 +298,8 @@ export const projects01R: ProjectType[] = [
     customer: '',
     builtwith:
       'ReactJS, Bootstrap, jQuery, AJAX, PHP, POST requests, Telegram API, OOP',
-    imgSrc: 'https://r1.userto.com/img/trizLangDemo.png',
-    linkHref: 'https://r1.userto.com/img/trizLangDemo.png', // https://r1.userto.com/triz-lang-forms
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-trizLang.png',
+    linkHref: 'https://r1.userto.com/img/yrl-23-demo-trizLang.png', // https://r1.userto.com/triz-lang-forms
   },
 
   {
@@ -442,8 +313,8 @@ export const projects01R: ProjectType[] = [
     customer: '',
     builtwith:
       'CSS 3, Pure JS, Yandex share API, Regexp, DOM Scripting, JSON, PHP, Bing search api, AJAX GET POST requests, Regexp, OOP',
-    imgSrc: 'https://r1.userto.com/img/feedbackWidgetDemo.png',
-    linkHref: 'https://r1.userto.com/img/feedbackWidgetDemo.png', //'https://r1.userto.com/demo-feedback-widget.php'
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-feedbackWidget.png',
+    linkHref: 'https://r1.userto.com/img/yrl-23-demo-feedbackWidget.png', //'https://r1-2022.userto.com/demo-feedback-widget.php'
   },
 
   {
@@ -458,8 +329,8 @@ export const projects01R: ProjectType[] = [
     customer: '',
     builtwith:
       'CSS 3, Pure JS, Yandex share API, Regexp, DOM Scripting, JSON, PHP, Bing search api, AJAX GET POST requests, Regexp, OOP',
-    imgSrc: 'https://r1.userto.com/img/answerLotPrjct.png',
-    linkHref: 'https://r1.userto.com/img/answerLotPrjct.png', //'https://userto.com/question/T94408/Does-my-travel-insurance-policy-covers-me-in-case-of-an-accident'
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-answerLot.png',
+    linkHref: 'https://r1.userto.com/img/yrl-23-demo-answerLot.png', //'https://userto.com/question/T94408/Does-my-travel-insurance-policy-covers-me-in-case-of-an-accident'
   },
 
   {
@@ -472,8 +343,8 @@ export const projects01R: ProjectType[] = [
       'Shopping cart for quick check out providing configuration of shopping scenarios. The widget demonstrates the simple, but effective functionality of the shopping cart. It can be used as a first step for small online stores or as part of a more complex scenario.',
     customer: 'e-commerce',
     builtwith: 'jQuery, Bootstrap, AJAX, PHP, GET, POST requests',
-    imgSrc: 'https://r1.userto.com/img/demo-basket-cart.png',
-    linkHref: 'https://r1.userto.com/img/demo-basket-cart.png', // https://userto.com/product/10/kenmore-74233-5-0-cu-ft-freestanding-gas-range-w-convection-stainless-steel/en
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-basket-cart.png',
+    linkHref: 'https://r1.userto.com/img/yrl-23-demo-basket-cart.png', // https://userto.com/product/10/kenmore-74233-5-0-cu-ft-freestanding-gas-range-w-convection-stainless-steel/en
   },
 
   {
@@ -487,8 +358,138 @@ export const projects01R: ProjectType[] = [
     customer: 'e-commerce',
     builtwith:
       'React, React-dom, React-redux, React-router-dom, Redux ES7, Bootstrap, Webpack',
-    imgSrc: 'https://r1.userto.com/img/itemLibDemo.png',
-    linkHref: 'https://r1.userto.com/img/itemLibDemo.png', // https://r1.userto.com/lib-catalog-items
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-itemLibDemo.png',
+    linkHref: 'https://r1.userto.com/img/yrl-23-demo-itemLibDemo.png', // https://r1.userto.com/lib-catalog-items
+  },
+
+  {
+    idUser: '1',
+    title: 'Landing Page. Immigration Service Provider',
+    isActive: false,
+    pathname: 'landing-page-immigration-service-provider',
+    subtitle: '',
+    description: '',
+    customer: '',
+    builtwith:
+      'jQuery, Bootstrap, JS widgets, Used: Google AdWords, Google Analytics',
+    imgSrc: 'https://r1.userto.com/img/premierExpertPromo.png',
+    linkHref: 'https://pe.userto.com/info01.php',
+  },
+
+  {
+    idUser: '1',
+    title: 'Landing page. Not supported. Wiki Goods Startup',
+    isActive: false,
+    pathname: 'landing-page-wiki-goods-startup',
+    subtitle: 'Your site deserves eCommerce functionality!',
+    description:
+      'This is a landing page for the startup which provides ordinary sites with online shop functionality without reprogramming. We use original JS eCommerce library of functions, cloud content broadcasting and brand banner technology.',
+    customer: '',
+    builtwith: 'Bootstrap, jQuery',
+    imgSrc: 'https://r1.userto.com/img/wikiGoodsPromo.png',
+    linkHref: 'https://userto.com/promo-ecommerce.php',
+  },
+
+  {
+    idUser: '1',
+    title: 'Web widget. Not supported. Online Notes Keeper',
+    isActive: false,
+    pathname: 'lib-catalog-notes',
+    subtitle: 'Keep your thoughts for your tomorrow yourself',
+    description:
+      'This is a prototype of a component of the personal cabinets in the form of an online notes keeper It has usual functionality including adding, editing and saving notes. A user can easily find relevant information filtering out notes. The sort function helps to see notes the way that the user likes. A user can manage display settings by archiving notes, restoring them or even deleting forever. It automatically lays notes out in three tabs-folders: active, archived and all. A search functionality is available in each display setting. After editing the notes are stored and got back on the display after application reloading. ',
+    customer: 'Not limited',
+    builtwith:
+      'Redux, React-redux, React, React-dom, ES7, Babel, Bootstrap, Webpack, Mocha',
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-noteLibDemo.jpg',
+    linkHref: 'https://r1-2022.userto.com/demo-note-book.html',
+  },
+
+  {
+    idUser: '1',
+    title: 'Web widget. Not supported. Automatic image resizing on the fly',
+    isActive: false,
+    pathname: 'function-automatic-image-resizing',
+    subtitle: '',
+    description: '',
+    customer: '',
+    builtwith: 'Bootstrap, Bootstrap-select, jQuery, AJAX, ',
+    imgSrc: 'https://r1.userto.com/img/imgResizeDemo.png',
+    linkHref: 'https://r1-2022.userto.com/demo-image-resize.php',
+  },
+
+  {
+    idUser: '1',
+    title: 'Web service. Prototype for service Ecom-Yunazon',
+    isActive: false,
+    pathname: 'demo-ecom-yunazon-espa-neptun-FL60.html/',
+    subtitle:
+      'To sell more and faster you need more and faster your product data',
+    description:
+      'Yunazon-ecom is providing a seamless global network to enable brands/ OEMs to automate distribution of information about their products to its various consumers in format and accuracy for it to matter.',
+    customer: 'Any industry',
+    builtwith:
+      'ExpressJS, GraphQL, React, react-router-dom, Typescript, ES7, ESLint, Babel, Webpack',
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-ecom-yanazon.jpg',
+    linkHref:
+      'https://r1-2022.userto.com/demo-ecom-yunazon-espa-neptun-FL60.html',
+  },
+
+  {
+    idUser: '1',
+    title: 'Web widget. Item card screen',
+    isActive: false,
+    pathname: 'demo-js-item-carousel.html/',
+    subtitle: 'Visualize json data in the web page',
+    description:
+      'This is a react SPA demo for e-commerce product(s) representation',
+    customer: 'E-commerce',
+    builtwith: 'React, react-router-dom, ES7, ESLint, Babel, Webpack',
+    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-item-carousel.jpg',
+    linkHref: 'https://r1-2022.userto.com/demo-js-item-carousel.html',
+  },
+
+  {
+    idUser: '1',
+    title: 'Web widget. Earthquake Zen Garden ver. 3.12.3',
+    isActive: false,
+    pathname: 'demo-js-item-carousel.html/',
+    subtitle: 'Create interactive dashboards',
+    description: 'This is a react SPA demo of a dashboard structure',
+    customer: 'Any industry',
+    builtwith: 'React, react-router-dom, ES7, ESLint, Babel, Webpack',
+    imgSrc:
+      'https://r1.userto.com/img/yrl-23-demo-earthquake-zen-garden-screens.jpg',
+    linkHref: 'https://r1-2022.userto.com/demo-earthquake-zen-garden-js.html',
+  },
+
+  {
+    idUser: '1',
+    title: 'Content site. Arbir.ru - SEO, content management',
+    isActive: false,
+    pathname: 'arbir-ru-collection-thematic-articles',
+    subtitle: '4500 visitors per business day, regular leads flow.',
+    description:
+      'The project involves using 1C-Bitrix CMS, a great deal of content management, CEO, processing Word xml into html CEO friendly pages.',
+    customer: '',
+    builtwith: '1C-Bitrix CMS, bootstrap, PHP, MySQL-MariaDB',
+    imgSrc: 'https://r1.userto.com/img/arbirRuExample.png',
+    linkHref:
+      'https://arbir.ru/miscellany/U18S864E55782-Situation-awareness-new-paradigm-for-the-next-generation-infrastructures',
+  },
+
+  {
+    idUser: '1',
+    title: 'Web service. View Domain Statistics',
+    isActive: false,
+    pathname: 'domain-statistics-service',
+    subtitle: 'Know how the Internet sees the domain',
+    description:
+      'The service provides a quick outlook for how Alex, Google, Yandex see the domain.',
+    customer: 'Internet analytics',
+    builtwith: 'REST Google API, Yandex API, angularjs 1.7, bootstrap',
+    imgSrc: 'https://r1.userto.com/img/domainStatService.png',
+    linkHref: 'https://my.userto.com/dashboard.php#!/domainStat?lang=en',
   },
 
   {

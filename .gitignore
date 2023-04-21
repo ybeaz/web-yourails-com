@@ -66,3 +66,4 @@ workspace.code-workspace
 web-build/
 .jest/
 coverage/
+REMOVE_after-2023-05-01_img/
