@@ -1,8 +1,6 @@
 import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
-import { ProfileType } from '../../@types/ProfileType'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { getParsedUrlQuery } from '../../Shared/getParsedUrlQuery'
 import { DeviceType } from '../../YrlNativeViewLibrary'
 import { getSetStoreScenario } from '../../Shared/getSetStoreScenario'
 import { getRedirectedPathnameHash } from '../../Shared/getRedirectedPathnameHash'
@@ -29,15 +27,9 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   const { pathname, hash, deviceType } = dataHandle
 
   const {
-    componentsState: { isLeftColumn, isMainColumn },
     globalVars: { idUserHost },
     profiles,
   } = getState()
-
-  console.info('SET_STORE_SCENARIO [19]', {
-    pathname,
-    deviceType,
-  })
 
   const {
     caseNo,
@@ -56,25 +48,10 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     pathname,
     hash,
     deviceType,
-    isLeftColumn,
-    isMainColumn,
-  })
-
-  console.info('SET_STORE_SCENARIO [215]', {
-    caseNo,
-    caseDesc,
-    isShowAppNext,
-    idUserNext,
-    isLeftColumnNext,
-    isMainColumnNext,
-    isMainColumnBlankNext,
-    modalFrameNext,
-    redirectPathname,
-    redirectHash,
   })
 
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
-  dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isLeftColumnNext))
+  dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))

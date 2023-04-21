@@ -1,19 +1,17 @@
-import React, { useCallback, ReactElement } from 'react'
-import { ImageResizeMode, View, Linking, Alert } from 'react-native'
+import React, { ReactElement } from 'react'
+import { View } from 'react-native'
 
+import { withElementDimensionsYrl } from '../../../YrlNativeViewLibrary/Hooks/withElementDimensionsYrl'
+import { ProjectView } from '../ProjectView/ProjectView'
 import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { ProjectType } from '../../../@types/ProjectType'
-import { ProjectInfoView } from '../ProjectInfoView/ProjectInfoView'
 import { Header } from '../Header/Header'
 import {
   withDeviceTypeYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
-import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
 import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary'
-import { ImageYrl } from '../../../YrlNativeViewLibrary'
 import { styles } from './PortfolioStyles'
 import { PortfolioType } from './PortfolioTypes'
 
@@ -27,8 +25,9 @@ const PortfolioComponent: PortfolioType = props => {
     styleProps = { Portfolio: {} },
     mediaParams = mediaParamsDefault,
     store,
+    elementDimensions: { elementWidth },
   } = props
-  const { deviceType, screenCase, width } = mediaParams
+  const { deviceType } = mediaParams
   const style = styles[deviceType]
 
   const {
@@ -41,8 +40,8 @@ const PortfolioComponent: PortfolioType = props => {
   ) as ProjectType[]
 
   const { imageWidth, imageHeight } = getImageSizesFor1of2Columns(
-    screenCase,
-    width
+    elementWidth < 1024 ? 'xsSmMd' : 'lgXl',
+    elementWidth
   )
 
   const getProjects = (projects: ProjectType[]): ReactElement[] => {
@@ -61,63 +60,26 @@ const PortfolioComponent: PortfolioType = props => {
           linkHref,
         } = project
 
-        const imageResizeMode: ImageResizeMode = 'cover' // 'cover' 'contain' 'center'
-
         const propsOut: Record<string, any> = {
-          projectButtonYrl: {
-            styleProps: {
-              ButtonYrl: { justifyContent: 'flex-start' },
-              title: {},
-            },
-            titleText: '',
-            testID: 'projectButtonYrl',
-            disabled: false,
-            onPress: useLinkClickResYrl(linkHref),
-          },
-          projectImageYrlProps: {
-            styleProps: {
-              ImageYrl: {},
-              image: {
-                borderRadius: 3,
-                width: imageWidth,
-                height: imageHeight,
-              },
-            },
-            // onLayout: onImageLayout,
-            testID: `projectImageYrl-${index}`,
-            uri: imgSrc,
-            resizeMode: imageResizeMode,
-          },
-          projectInfoViewProps: {
+          projectViewProps: {
+            key: `ProjectView-${index}`,
             title,
+            isActive,
+            pathname,
             subtitle,
             description,
             customer,
             builtwith,
+            imgSrc,
+            linkHref,
+            index,
+            imageWidth,
+            imageHeight,
+            elementWidth,
           },
         }
 
-        return (
-          <View
-            key={`project-${index}`}
-            style={[style.projectView]}
-            testID='projectView'
-          >
-            {screenCase === 'xsSmMd' && (
-              <ProjectInfoView {...propsOut.projectInfoViewProps} />
-            )}
-            <View style={[style.buttonImageView]} testID='buttonImageView'>
-              <ButtonYrl {...propsOut.projectButtonYrl}>
-                <View style={[style.imageView]} testID='imageView'>
-                  <ImageYrl {...propsOut.projectImageYrlProps} />
-                </View>
-              </ButtonYrl>
-            </View>
-            {screenCase === 'lgXl' && (
-              <ProjectInfoView {...propsOut.projectInfoViewProps} />
-            )}
-          </View>
-        )
+        return <ProjectView {...propsOut.projectViewProps} />
       })
   }
 
@@ -141,5 +103,7 @@ const PortfolioComponent: PortfolioType = props => {
 }
 
 export const Portfolio = React.memo(
-  withStoreStateYrl(withDeviceTypeYrl(PortfolioComponent))
+  withStoreStateYrl(
+    withDeviceTypeYrl(withElementDimensionsYrl(PortfolioComponent))
+  )
 )

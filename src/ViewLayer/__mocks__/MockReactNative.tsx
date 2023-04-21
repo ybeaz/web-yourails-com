@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native'
 export const MockReactNative = () => {
   return (
     <View style={styles.container}>
-      <Text testID='my-text'>Hello, World!</Text>
+      <Text testID='myText'>Hello, World!</Text>
     </View>
   )
 }

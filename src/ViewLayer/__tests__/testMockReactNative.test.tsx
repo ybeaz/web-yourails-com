@@ -14,10 +14,8 @@ describe('Test MockComponent', () => {
   it('test', () => {
     const { getByTestId } = render(<MockReactNative />)
 
-    const myText = getByTestId('my-text')
-
-    const var1 = 'abc'
-    console.info('App.test [42]', { var1, myText })
-    expect(myText).toBeTruthy()
+    const element = getByTestId('myText')
+    expect(element).toBeTruthy()
+    expect(element.children.toString()).toBe('Hello, World!')
   })
 })

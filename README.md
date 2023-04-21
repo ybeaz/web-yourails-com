@@ -102,17 +102,9 @@ Note: to config `codegen` edit ??? `codegen.yml`
 
 @link https://docs.expo.dev/distribution/publishing-websites/
 
-- To build: `yarn export:web` It runs script from package.json file. Legacy command `npx expo export:web`
+- `yarn export:web` : to build. It runs script from package.json file. Legacy command `npx expo export:web`
 - To serve locally: `npx serve web-build`
 
-### TODO: Have to update: How to run app and show pages
+### Rules for Urls
 
-- to show it in business card mode
-  `http://localhost:19006/k#@smid?s=bc`
-- to show it in chat app mode
-  `http://localhost:19006/k#@smid?s=ct`
-
-### How to run jest test with react-native
-
-- remove @react-native/polyfills
-  `yarn remove @react-native/polyfills`
+See `src/Shared/getSetStoreScenario` and `src/Shared/__tests__/getSetStoreScenario.test.ts`

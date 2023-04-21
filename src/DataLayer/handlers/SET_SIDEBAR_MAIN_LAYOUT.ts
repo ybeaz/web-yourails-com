@@ -12,7 +12,7 @@ const { dispatch, getState } = store
 // xlDevice = DeviceTypeIn['xlDevice'],
 
 /**
- * @status LEGACY, REMOVE AFTER 2023-06-01
+ * @status REMOVE AFTER 2023-06-01, LEGACY
  */
 export const SET_SIDEBAR_MAIN_LAYOUT: ActionEventType = (
   event,
@@ -46,6 +46,6 @@ export const SET_SIDEBAR_MAIN_LAYOUT: ActionEventType = (
     }
   }
 
-  dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isLeftColumnNext))
+  dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
 }

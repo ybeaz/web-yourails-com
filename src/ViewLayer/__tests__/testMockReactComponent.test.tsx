@@ -1,22 +1,21 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
+import { render, fireEvent, screen } from '@testing-library/react'
 
 import MockReactComponent from '../__mocks__/MockReactComponent'
 
 /**
- * @descriptioon TODO: to make the test work. The test does not work.
- *               It needs to find a solution for jest.config.ts and in particular for the properties, that they can accept:
- *                  preset: 'react-native',
- *                  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
+ * @descriptioon Testing test
+ * @link https://www.npmjs.com/package/react-test-renderer?activeTab=readme
+ * @link https://www.npmjs.com/package/@testing-library/react
  * @test yarn jest testMockComponent.test
  */
 describe('Test MockComponent', () => {
   it('test', () => {
-    const component = renderer.create(<MockReactComponent />)
-    let tree = component.toJSON()
-    console.info('testMockReactComponent.test [19]', { tree })
-    const outputed2 = true
-    const expected2 = true
-    expect(outputed2).toEqual(expected2)
+    const element = renderer.create(<MockReactComponent />)
+    const testInstance = element.root
+    const outputed = testInstance.findByType('span').children[0].toString()
+    const expected = 'Hello, World!'
+    expect(outputed).toEqual(expected)
   })
 })

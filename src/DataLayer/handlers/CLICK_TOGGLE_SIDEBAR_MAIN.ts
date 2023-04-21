@@ -42,6 +42,6 @@ export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
   }
 
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
-  dispatch(actionSync.TOGGLE_SIDEBAR_RIGHT(isLeftColumnNext))
+  dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
 }

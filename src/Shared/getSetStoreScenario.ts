@@ -1,8 +1,16 @@
 import { ProfileType } from '../@types/ProfileType'
-import { DeviceType } from '../YrlNativeViewLibrary'
+// import { DeviceType } from '../YrlNativeViewLibrary'
 import { ModalFrameType } from '../@types/RootStoreType'
-import { idUser } from '../@types/UserType'
+import { IdUserType } from '../@types/UserType'
 import { getParsedUrlQuery } from './getParsedUrlQuery'
+
+export enum DeviceType {
+  xsDevice = 'xsDevice',
+  smDevice = 'smDevice',
+  mdDevice = 'mdDevice',
+  lgDevice = 'lgDevice',
+  xlDevice = 'xlDevice',
+}
 
 type GetSetStoreScenarioPropsType = {
   profiles: ProfileType[]
@@ -10,15 +18,15 @@ type GetSetStoreScenarioPropsType = {
   pathname: string
   hash: string
   deviceType: DeviceType
-  isLeftColumn: boolean
-  isMainColumn: boolean
+  // isLeftColumn: boolean
+  // isMainColumn: boolean
 }
 
 type GetSetStoreScenarioReturnType = {
   caseNo: number
   caseDesc: string
   isShowApp: boolean
-  idUser: idUser
+  idUser: IdUserType
   isLeftColumn: boolean
   isMainColumn: boolean
   isMainColumnBlank: boolean
@@ -29,6 +37,22 @@ type GetSetStoreScenarioReturnType = {
 
 interface GetSetStoreScenarioType {
   (props: GetSetStoreScenarioPropsType): GetSetStoreScenarioReturnType
+}
+
+export const modalFrameFalse: ModalFrameType = {
+  childName: 'Portfolio', // Portfolio, Profile CompetencyTags
+  isShow: false,
+  isButtonBack: true,
+  isButtonClose: true,
+  childProps: {},
+}
+
+export const modalFrameTrue = {
+  childName: 'Portfolio',
+  isShow: true,
+  isButtonBack: false,
+  isButtonClose: false,
+  childProps: {},
 }
 
 /**
@@ -42,8 +66,8 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
   pathname,
   hash,
   deviceType,
-  isLeftColumn,
-  isMainColumn,
+  // isLeftColumn,
+  // isMainColumn,
 }) => {
   const query = getParsedUrlQuery(hash)
   const { s: showType, profileName } = query
@@ -53,21 +77,6 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
   )
 
   const idUserUrl = profileUrl?.idUser
-  console.info('SET_STORE_SCENARIO [19]', {
-    pathname,
-    profileName,
-    idUserUrl,
-    showType,
-    deviceType,
-  })
-
-  let modalFrameFalse: ModalFrameType = {
-    childName: 'Portfolio', // Portfolio, Profile CompetencyTags
-    isShow: false,
-    isButtonBack: true,
-    isButtonClose: true,
-    childProps: {},
-  }
 
   let output: GetSetStoreScenarioReturnType = {
     caseNo: 0,
@@ -96,7 +105,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       caseNo: 1,
       caseDesc: 'Hostname === r1.userto.com',
       isShowApp: true,
-      idUser: 1,
+      idUser: '1',
       isLeftColumn: false,
       isMainColumn: true,
       isMainColumnBlank: false,
@@ -111,7 +120,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       caseNo: 2,
       caseDesc:
         'User direct link but without valid profileName and consequently unfound idUserUrl',
-      isShowApp: false,
+      isShowApp: true,
       idUser: undefined,
       isLeftColumn: false,
       isMainColumn: true,
@@ -128,14 +137,6 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     idUserUrl &&
     showType === 'bc'
   ) {
-    const modalFrameNext = {
-      childName: 'Portfolio',
-      isShow: true,
-      isButtonBack: false,
-      isButtonClose: false,
-      childProps: {},
-    }
-
     output = {
       caseNo: 3,
       caseDesc:
@@ -145,7 +146,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       isLeftColumn: false,
       isMainColumn: true,
       isMainColumnBlank: false,
-      modalFrame: modalFrameNext,
+      modalFrame: modalFrameTrue,
       redirectPathname: undefined,
       redirectHash: undefined,
     }
@@ -175,7 +176,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     output = {
       caseNo: 5,
       caseDesc:
-        'The Chat service Yourails.com without valid user with the left column',
+        'The Chat service Yourails.com without valid user without selected user with the left column',
       isShowApp: true,
       idUser: undefined,
       isLeftColumn: true,
@@ -186,12 +187,12 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       redirectHash: undefined,
     }
   } /*
-    Case 6. The Chat service Yourails.com without selected user with the left column
+    Case 6. The Chat service Yourails.com with selected user with the left column
   */ else if (pathname === '/k' && profileName && idUserUrl) {
     output = {
       caseNo: 6,
       caseDesc:
-        'The Chat service Yourails.com without selected user with the left column',
+        'The Chat service Yourails.com with selected user with the left column',
       isShowApp: true,
       idUser: idUserUrl,
       isLeftColumn: true,
@@ -214,13 +215,13 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     ) {
       output = { ...output, isLeftColumn: true, isMainColumn: true }
     } else {
-      if (isLeftColumn && isMainColumn) {
-        output = { ...output, isLeftColumn: false, isMainColumn: true }
+      if (!profileName || !idUserUrl) {
+        output = { ...output, isLeftColumn: true, isMainColumn: false }
       } else {
         output = {
           ...output,
-          isLeftColumn: isLeftColumn,
-          isMainColumn: isMainColumn,
+          isLeftColumn: false,
+          isMainColumn: true,
         }
       }
     }

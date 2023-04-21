@@ -1,4 +1,4 @@
-import { idUser } from '../../../@types/UserType'
+import { IdUserType } from '../../../@types/UserType'
 import { ProfileType } from '../../../@types/ProfileType'
 import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
 
@@ -6,7 +6,7 @@ export interface ChatCardsPropsType {
   styleProps?: any
   mediaParams?: UseMediaQueryResYrlOutType
   profiles: ProfileType[]
-  idUserHost: idUser
+  idUserHost: IdUserType
 }
 
 /**

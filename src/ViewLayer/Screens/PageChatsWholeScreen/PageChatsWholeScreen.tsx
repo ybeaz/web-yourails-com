@@ -1,4 +1,4 @@
-import React, { createContext, useRef, useEffect, useCallback } from 'react'
+import React, { useRef, useEffect, useMemo, useCallback } from 'react'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaView, ScrollView, View } from 'react-native'
 
@@ -68,10 +68,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     isButtonClose: isButtonCloseModal,
   } = modalFrame
 
-  console.info('PageChatsWholeScreen [70]', {
-    height,
-  })
-
   const profile = profiles.find(
     (profileIn: ProfileType) => profileIn.idProfile === idUserHost
   )
@@ -86,15 +82,22 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
+  }, [])
+
+  useEffect(() => {
     handleEvents.SET_STORE_SCENARIO({}, { pathname, hash, deviceType })
-  }, [deviceType, pathname, hash])
+  }, [hash])
+
+  useMemo(() => {
+    handleEvents.SET_STORE_SCENARIO({}, { pathname, hash, deviceType })
+  }, [deviceType])
 
   const onClickOnUser = ({}, data: any) => {
     console.info('PageChatsWholeScreen [87]', { data })
   }
 
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
-  const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
+  const styleAddLeftColumn = {} // isShowModalFrame ? styleGlobal.hidden : {}
   const isButtonBackTopBarMainColumn =
     isButtonBackModal && isButtonCloseModal ? true : false
   const isImageAvatar =
@@ -117,9 +120,21 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       modalFrame: { ...modalFrame, childProps: {} },
     },
     contentMenuMainColumnProps: {
+      styleProps: {
+        buttonWrapper: {
+          borderTopWidth: 0,
+          borderRightWidth: 0,
+          borderBottomWidth: 0,
+          borderLeftWidth: 1,
+          borderTopColor: themes['themeA'].colors01.borderColor,
+          borderRightColor: themes['themeA'].colors01.borderColor,
+          borderBottomColor: themes['themeA'].colors01.borderColor,
+          borderLeftColor: themes['themeA'].colors01.borderColor,
+        },
+      },
       store,
     },
-    sidebarRightOuterAnimatedYrlProps: {
+    leftColumnOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 1 : 0,
@@ -128,7 +143,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       duration: 1000,
       trigger: isShowModalFrame,
       triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'sidebarRight_Outer_AnimatedYrl',
+      testID: 'leftColumn_Outer_AnimatedYrl',
     },
     topBarMainColumnProps: {
       styleProps: {
@@ -139,7 +154,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       isImageAvatar,
     },
     mainColumnOuterAnimatedYrlProps: {
-      styleProps: { AnimatedYrl: { height: '100%', flex: 3, opacity: 1 } },
+      styleProps: {
+        AnimatedYrl: { height: '100%', flex: 3, opacity: 1 },
+      },
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 0 : 1,
       valueTarget: isShowModalFrame ? 1 : 1,
@@ -149,15 +166,15 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       triggerShouldEqual: isShowModalFrame ? true : false,
       testID: 'mainColumn_Outer_AnimatedYrl',
     },
-    sidebarRightInnerInAnimatedYrlProps: {
+    leftColumnInnerInAnimatedYrlProps: {
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 1 : 0,
-      valueTarget: isShowModalFrame ? 0 : 1,
+      valueTarget: isShowModalFrame ? 1 : 0,
       nameHtmlCssAttribute: 'opacity',
       duration: 1000,
       trigger: isShowModalFrame,
       triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'sidebarRightIn_animatedYrl_Inner',
+      testID: 'leftColumnIn_animatedYrl_Inner',
     },
   }
 
@@ -174,16 +191,16 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       {isLeftColumn && (
         <View
           style={[
-            style.sidebarRight,
+            style.leftColumn,
             themes['themeA'].colors01,
-            styleAddSidebarRight,
+            styleAddLeftColumn,
           ]}
-          testID='sidebarRight'
+          testID='leftColumn'
         >
-          <AnimatedYrl {...propsOut.sidebarRightInnerInAnimatedYrlProps}>
-            <TopBarChatCards />
-            <ChatCards {...propsOut.chatCardsProps} />
-          </AnimatedYrl>
+          {/* <AnimatedYrl {...propsOut.leftColumnInnerInAnimatedYrlProps}> */}
+          <TopBarChatCards />
+          <ChatCards {...propsOut.chatCardsProps} />
+          {/* </AnimatedYrl> */}
         </View>
       )}
 
@@ -195,9 +212,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
               {
                 borderStyle: 'solid',
                 // borderTopWidth: 1,
-                // borderRightWidth: 1,
-                borderBottomWidth: 1,
-                borderLeftWidth: 1,
+                borderRightWidth: 1,
+                // borderBottomWidth: 1,
+                // borderLeftWidth: 1,
               },
               themes['themeA'].colors01,
             ]}
@@ -213,11 +230,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
                     style={[
                       style.topBarMainColumn,
                       {
-                        // borderStyle: 'solid',
+                        borderStyle: 'solid',
                         // borderTopWidth: 1,
                         // borderRightWidth: 1,
-                        // borderBottomWidth: 1,
-                        // borderLeftWidth: 1,
+                        borderBottomWidth: 1,
+                        borderLeftWidth: 1,
                       },
                       themes['themeA'].colors01,
                     ]}

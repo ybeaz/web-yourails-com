@@ -25,6 +25,7 @@ export interface UseMediaQueryResYrlType {
 /**
  * @description React Native hook to determine device type and related parameters to provide adaptive web design
  * @import import { useMediaQueryResYrl } from './YrlNativeViewLibrary/Hooks/useMediaQueryResYrl'
+ * @link https://www.npmjs.com/package/react-responsive
  * @media accepted sizes:
   xs 320-480px
   mobile sm 481-768

@@ -19,7 +19,7 @@ export const stylesDefault = StyleSheet.create({
     height: '100%',
     maxWidth: '100%',
   },
-  sidebarRight: {
+  leftColumn: {
     flex: 1,
     height: '100%',
     flexDirection: 'column',
@@ -41,13 +41,7 @@ export const stylesDefault = StyleSheet.create({
     top: 0,
     width: '100%',
   },
-  topBarMainColumn: {
-    borderStyle: 'solid',
-    // borderTopWidth: 1,
-    borderRightWidth: 1,
-    borderBottomWidth: 1,
-    borderLeftWidth: 0,
-  },
+  topBarMainColumn: {},
   contentMenuMainColumn: {},
   scrollViewWrapper: {
     // justifyContent: 'flex-end',
