@@ -32,9 +32,16 @@ const ProjectInfoViewComponent: ProjectInfoViewType = props => {
 
     return (
       <View>
-        {contentIn.map((line: string, index: number) => (
-          <Text key={`descriptionLine-${index}`}>{line}</Text>
-        ))}
+        {contentIn.map((line: string, index: number) => {
+          let styleText = {}
+          if (index > 0) styleText = { paddingTop: '0.5rem' }
+
+          return (
+            <Text style={[styleText]} key={`descriptionLine-${index}`}>
+              {line}
+            </Text>
+          )
+        })}
       </View>
     )
   }

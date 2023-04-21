@@ -105,6 +105,10 @@ Note: to config `codegen` edit ??? `codegen.yml`
 - `yarn export:web` : to build. It runs script from package.json file. Legacy command `npx expo export:web`
 - To serve locally: `npx serve web-build`
 
-### Rules for Urls
+### How to navigae? Rules for Urls
 
 See `src/Shared/getSetStoreScenario` and `src/Shared/__tests__/getSetStoreScenario.test.ts`
+
+### How to prepare content? Notes
+
+- `16 x 9` resolution/dimensions for pictures for projects are

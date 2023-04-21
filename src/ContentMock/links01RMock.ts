@@ -46,7 +46,7 @@ export const links01R: LinkType[] = [
     iconLibrary: undefined,
     iconName: undefined,
     contentType: ContentType['imageSrc'],
-    contentSrc: 'https://r1.userto.com/img/romanChesQrCodeQuietZone00.png',
+    contentSrc: 'https://r1.userto.com/img/qrcode-romeQuietZone00.png',
     content: '',
     label: 'QR code with contacts',
     isActive: true,

@@ -1,3 +1,9 @@
+<?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -6,6 +12,8 @@
   <meta httpequiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport"
     content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1.00001,viewport-fit=cover" />
+  <title>Portfolio site</title>
+  <link rel="icon" type="image/png" href="https://r1.userto.com/img/Chat_Bubbles@2x_fb.png">
   <style>
     #root,
     body,
@@ -47,8 +55,8 @@
   <meta name="apple-touch-fullscreen" content="yes">
   <meta name="apple-mobile-web-app-title" content="javascript-react-chat-app">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Portfolio site</title>
-  <link rel="icon" type="image/png" href="https://r1.userto.com/img/chat-bubbles-2x-fb.png">
+  <!-- <script defer="defer" src="./static/js/bundle.min.js.gz"></script>
+  <script defer="defer" src="./static/js/main.bundle.min.js.gz"></script> -->
   <script defer="defer" src="https://r1.userto.com/static/js/bundle.min.js.gz"></script>
   <script defer="defer" src="https://r1.userto.com/static/js/main.bundle.min.js.gz"></script>
 </head>
