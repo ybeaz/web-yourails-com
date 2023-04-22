@@ -886,22 +886,6 @@ $ git push -u origin ...\n\
 
   {
     idUser: '1',
-    title: 'JSON',
-    section: 'Front-end',
-    linkHref: 'https://json-schema.org/',
-    tooltips:
-      '\
-  JSON Objects\n\
-  JSON Arrays\n\
-  JSON Parse\n\
-  JSON Stringify\n\
-  JSON PHP\n\
-  JSON HTML\n\
-  JSON JSONP',
-  },
-
-  {
-    idUser: '1',
     title: 'JSONP',
     section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/JSONP',
@@ -1461,7 +1445,7 @@ SSO services use protocols:\n\
 
   {
     idUser: '1',
-    title: 'Apollo Graphql',
+    title: 'Apollo',
     section: 'Back-end',
     linkHref: 'https://www.apollographql.com/docs/',
     tooltips:
@@ -1585,8 +1569,59 @@ SSO services use protocols:\n\
 
   {
     idUser: '1',
-    title: 'Json',
+    title: 'Graphql',
     section: 'Back-end',
+    linkHref: 'https://spec.graphql.org/draft/',
+    tooltips:
+      '\
+GraphQL is a query language and runtime for APIs with functional notation\n\
+\n\
+✶ Schema:\n   A GraphQL schema defines the types and fields that can be queried on an API. It serves as a contract between the server and the client, specifying what data can be requested and what form it will be returned in.\n\
+✶ Query:\n   A GraphQL query is a request for data made by a client to a server. It defines the data that the client wants to retrieve and how that data should be structured.\n\
+✶ Mutation:\n   A GraphQL mutation is a request that changes data on the server. It is similar to a query in structure, but is used to perform operations such as creating, updating or deleting data.\n\
+✶ Resolver:\n   A resolver is a function that determines how data is retrieved or modified in response to a GraphQL query or mutation. It specifies how to resolve the data associated with a particular field in the schema.\n\
+✶ Type:\n   A type in GraphQL represents a group of related data, such as a user, a post, or a comment. Types are defined in the schema, and each type can have one or more fields that correspond to specific properties of the data.\n\
+✶ Directive:\n   A directive in GraphQL is used to modify the behavior of a query or mutation. Directives can be used to conditionally include or exclude fields, apply transformations to the data, or perform other operations.\n\
+',
+  },
+
+  {
+    idUser: '1',
+    title: 'Internet Protocols',
+    section: 'Back-end',
+    linkHref:
+      'https://en.wikipedia.org/wiki/List_of_network_protocols_(OSI_model)📩',
+    tooltips:
+      '\
+ARP (Address Resolution Protocol): Maps a network address (such as an IP address) to a physical address (such as a MAC address).\n\
+DHCP (Dynamic Host Configuration Protocol): Dynamically assigns IP addresses to devices on a network.\n\
+DNS (Domain Name System): Translates domain names into IP addresses, allowing devices to access websites and other network resources.\n\
+FTP (File Transfer Protocol): Used for transferring files between a client and server over a network.\n\
+HTTP (Hypertext Transfer Protocol): Used for transferring web content (such as HTML pages) between a client and server over a network.\n\
+📩 HTTP long polling: A technique that uses regular HTTP requests to simulate real-time streaming of data from a server to a client.\n\
+HTTPS (Hypertext Transfer Protocol Secure): A secure version of HTTP that encrypts data sent between a client and server using SSL/TLS protocols.\n\
+ICMP (Internet Control Message Protocol): Used for reporting errors and status information about network connections.\n\
+IMAP (Internet Message Access Protocol): Used for accessing and retrieving email messages from a mail server.\n\
+IP (Internet Protocol): Provides the basic addressing and routing information for all data transmitted over the internet.\n\
+📩 MQTT (Message Queuing Telemetry Transport): A lightweight messaging protocol used for machine-to-machine communication, IoT devices, and mobile applications.\n\
+📩 MTProto (Mobile Transport Protocol): A proprietary messaging protocol used by Telegram for secure messaging and media transfer.\n\
+POP3 (Post Office Protocol version 3): Used for retrieving email messages from a mail server.\n\
+RTP (Real-time Transport Protocol): Used for streaming audio and video over the internet in real-time.\n\
+📩 Signal Protocol: An end-to-end encryption protocol used by Signal messaging app and other messaging apps that support it, providing secure messaging and voice/video calls.\n\
+SIP (Session Initiation Protocol): Used for establishing and managing multimedia communication sessions, such as voice and video calls, over IP networks.\n\
+SMTP (Simple Mail Transfer Protocol): Used for sending email messages between mail servers.\n\
+SNMP (Simple Network Management Protocol): Used for managing and monitoring network devices, such as routers and switches.\n\
+SSH (Secure Shell): Provides secure remote access to a server over an unsecured network.\n\
+TCP (Transmission Control Protocol): Provides reliable and ordered delivery of data between two endpoints over a network.\n\
+TLS/SSL (Transport Layer Security/Secure Sockets Layer): Encryption protocols used to secure data sent over the internet.\n\
+UDP (User Datagram Protocol): Provides a connectionless and unreliable transport service for sending datagrams over a network.\n\
+📩 XMPP (Extensible Messaging and Presence Protocol): An open-source protocol used for instant messaging and presence information, also used by some IoT devices and mobile applications.',
+  },
+
+  {
+    idUser: '1',
+    title: 'JSON',
+    section: 'Front-end',
     linkHref: 'https://json-schema.org/',
     tooltips:
       '\
