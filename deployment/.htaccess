@@ -12,4 +12,7 @@ RewriteRule ^ index.html [QSA,L]
         Header set Content-Encoding "gzip"
         Header set Content-Type "application/javascript"
     </FilesMatch>
+        <FilesMatch "\.(ttf)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
 </IfModule>

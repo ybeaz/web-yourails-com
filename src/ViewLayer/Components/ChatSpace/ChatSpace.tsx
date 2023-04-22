@@ -107,7 +107,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       isShow: isShowModalFrame,
       isShowImageBackground: true,
       testID: 'ChatSpace_modalFrameYrl',
-      buttonBack: {
+      buttonBackProps: {
         styleProps: { ButtonYrl: {}, title: {} },
         titleText: '',
         testID: 'ModalFrameYrl-buttonBack',
@@ -122,6 +122,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
             }
           ),
         iconProps: {
+          styleProps: { IconYrl: {} },
           library: 'Ionicons',
           name: 'arrow-back-outline',
           size: '1.5rem',
@@ -129,7 +130,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           testID: 'ModalFrameYrl-buttonBack-iconBack',
         },
       },
-      buttonClose: {
+      buttonCloseProps: {
         styleProps: { ButtonYrl: {}, title: {} },
         titleText: '',
         testID: 'ModalFrameYrl-buttonClose',
@@ -144,6 +145,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
             }
           ),
         iconProps: {
+          styleProps: { IconYrl: {} },
           library: 'Ionicons',
           name: 'close',
           size: '1.5rem',

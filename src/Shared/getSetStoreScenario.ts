@@ -1,5 +1,4 @@
 import { ProfileType } from '../@types/ProfileType'
-// import { DeviceType } from '../YrlNativeViewLibrary'
 import { ModalFrameType } from '../@types/RootStoreType'
 import { IdUserType } from '../@types/UserType'
 import { getParsedUrlQuery } from './getParsedUrlQuery'
@@ -18,8 +17,6 @@ type GetSetStoreScenarioPropsType = {
   pathname: string
   hash: string
   deviceType: DeviceType
-  // isLeftColumn: boolean
-  // isMainColumn: boolean
 }
 
 type GetSetStoreScenarioReturnType = {
@@ -40,7 +37,7 @@ interface GetSetStoreScenarioType {
 }
 
 export const modalFrameFalse: ModalFrameType = {
-  childName: 'Portfolio', // Portfolio, Profile CompetencyTags
+  childName: 'Portfolio' /** @options [Portfolio, Profile CompetencyTags] */,
   isShow: false,
   isButtonBack: true,
   isButtonClose: true,
@@ -66,8 +63,6 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
   pathname,
   hash,
   deviceType,
-  // isLeftColumn,
-  // isMainColumn,
 }) => {
   const query = getParsedUrlQuery(hash)
   const { s: showType, profileName } = query

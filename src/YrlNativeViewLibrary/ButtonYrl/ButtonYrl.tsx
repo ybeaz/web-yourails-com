@@ -52,7 +52,7 @@ export const ButtonYrl: ButtonYrlType = props => {
           styleProps={iconProps.styleProps}
           size={iconProps.size}
           color={iconProps.color}
-          testID={`${testID}_IconYrl`}
+          testID={iconProps.testID || `${testID}_IconYrl`}
         />
       )}
 
