@@ -98,12 +98,19 @@ Note: to config `codegen` edit ??? `codegen.yml`
 - **`timeFormat`** _(String)_ - Format to use for rendering times; default is `'LT'` (see [Day.js Format](https://day.js.org/docs/en/display/format))
 - **`dateFormat`** _(String)_ - Forma
 
-### How to build for web environment
+### How to build for web environment and deploy on Panel.NetAngels.ru
 
 @link https://docs.expo.dev/distribution/publishing-websites/
 
-- `yarn export:web` : to build. It runs script from package.json file. Legacy command `npx expo export:web`
-- To serve locally: `npx serve web-build`
+- Building
+  `yarn export:web`: To build. It runs script from package.json file. Legacy command `npx expo export:web`
+- Deployment on Panel.NetAngels.ru
+  With ForkLift copy folder static to SIM link folder `2023-04-22.yourails.com/`. It serves automatically to
+
+  - `r1.userto.com/static/`
+  - `web1.yourails.com/static/`
+
+- `npx serve web-build`: Does not work. To serve locally
 
 ### How to navigae? Rules for Urls
 
