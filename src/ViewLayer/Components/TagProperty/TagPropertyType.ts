@@ -6,7 +6,6 @@ export interface TagPropertyPropsType {
   tooltips: string
   iconLibrary?: string
   iconName?: string
-  iconSize?: string
   testID?: string
 }
 

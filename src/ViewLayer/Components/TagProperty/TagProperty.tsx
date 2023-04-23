@@ -3,8 +3,8 @@ import { ScrollView, View, Modal } from 'react-native'
 // import Modal from 'modal-react-native-web';
 
 import { Text as TextRrneui } from '@rneui/themed'
-
-import { IconYrl, IconYrlPropsType } from '../../../YrlNativeViewLibrary/'
+import { Text } from '../Text/Text'
+import { IconYrl } from '../../../YrlNativeViewLibrary/'
 import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
@@ -25,7 +25,6 @@ const TagPropertyComponent: TagPropertyType = props => {
     tooltips,
     iconLibrary,
     iconName,
-    iconSize,
     testID = 'TagProperty',
   } = props
 
@@ -96,7 +95,7 @@ const TagPropertyComponent: TagPropertyType = props => {
         withOverlay={true}
         withPointer={true}
       >
-        <View style={style.tagIconTextWrapper} testID='tagIconTextWrapper'>
+        <Text style={style.tagIconTextWrapper} testID='tagIconTextWrapper'>
           {iconLibrary && iconName && <IconYrl {...propsOut.iconProps} />}
           <TextRrneui
             style={[
@@ -106,7 +105,7 @@ const TagPropertyComponent: TagPropertyType = props => {
           >
             {title}
           </TextRrneui>
-        </View>
+        </Text>
       </ControlledTooltip>
     </View>
   )

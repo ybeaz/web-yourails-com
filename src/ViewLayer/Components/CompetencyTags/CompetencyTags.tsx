@@ -41,7 +41,6 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
         tooltips,
         iconLibrary,
         iconName,
-        iconSize,
         testID: 'CompetencyTags_item',
       }
       return <TagProperty {...tagPropertyProps} />
