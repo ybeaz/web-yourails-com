@@ -13,7 +13,7 @@ export interface WithStoreStateYrlType {
  *    concise, reusable, and declarative code
  *    In a declarative approach, you would typically define what a component should do based on its props and state.
  *    In contrast, an imperative approach involves directly instructing the component to perform a specific action or behavior.
- * @import import { withStoreStateYrl } from './YrlNativeViewLibrary/Hooks/withStoreStateYrl'
+ * @import import { withStoreStateYrl } from './YrlNativeViewLibrary'
  */
 
 export const mediaParamsDefault: any = {}

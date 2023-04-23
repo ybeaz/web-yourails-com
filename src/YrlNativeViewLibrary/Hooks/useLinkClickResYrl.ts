@@ -7,7 +7,7 @@ export interface UseLinkClickResYrlType {
 
 /**
  * @description React Native hook to open external links
- * @import import { useLinkClickResYrl } from './YrlNativeViewLibrary/Hooks/useLinkClickResYrl'
+ * @import import { useLinkClickResYrl } from './YrlNativeViewLibrary'
  */
 export const useLinkClickResYrl: UseLinkClickResYrlType = url => {
   if (!url) return undefined

@@ -4,8 +4,7 @@ import { InputTextYrlType } from './InputTextYrlType'
 import { InputTextYrlStyle as style } from './InputTextYrlStyle'
 
 /**
- * @import import { InputTextYrl } from './YrlNativeViewLibrary/InputTextYrl/InputTextYrl'
- * @import import { InputTextYrlPropsType } from './YrlNativeViewLibrary/InputTextYrl/InputTextYrlType'
+ * @import import { InputTextYrl, InputTextYrlPropsType } from './YrlNativeViewLibrary'
  * @propsOut 
   inputTextYrlProps: {
     styleProps: { InputTextYrl: {}, inputText: {} },

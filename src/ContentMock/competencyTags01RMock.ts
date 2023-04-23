@@ -649,6 +649,9 @@ $ git push -u origin ...\n\
     title: 'Html5',
     section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/html5/',
+    iconLibrary: 'Ionicons',
+    iconName: 'ios-logo-html5',
+    iconSize: '1.5rem',
     tooltips:
       '\
   HTML GRAPHICS\n\

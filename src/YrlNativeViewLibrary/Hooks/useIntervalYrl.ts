@@ -10,7 +10,7 @@ export interface UseIntervalYrlType {
  * @description Reeact hook to provide periodic function call
  * @link https://overreacted.io/making-setinterval-declarative-with-react-hooks/
  * @link https://stackoverflow.com/questions/36299174/setinterval-in-a-react-app
- * @import import { useInterval } from './YrlNativeViewLibrary/Hooks/useIntervalYrl'
+ * @import import { useInterval } from './YrlNativeViewLibrary'
  *
  */
 export const useIntervalYrl: UseIntervalYrlType = (

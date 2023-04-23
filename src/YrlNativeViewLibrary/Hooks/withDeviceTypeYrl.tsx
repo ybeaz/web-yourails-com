@@ -16,8 +16,7 @@ export interface WithDeviceTypeYrlType {
  *    to add mediaParams property that contains data about the profile's device
  *    from useMediaQueryRes hook:
  *    const { deviceType, screenCase, width, height } = mediaParams
- * @import import { withDeviceTypeYrl } from './YrlNativeViewLibrary/Hooks/withDeviceTypeYrl'
- * @import import { UseMediaQueryResYrlType  } from './YrlNativeViewLibrary/Hooks/useMediaQueryResYrl'
+ * @import import { withDeviceTypeYrl, UseMediaQueryResYrlType } from './YrlNativeViewLibrary'
  * @use export const Portfolio = React.memo(withDeviceType(PortfolioComponent))
  * @media accepted sizes:
   xs 320-480px

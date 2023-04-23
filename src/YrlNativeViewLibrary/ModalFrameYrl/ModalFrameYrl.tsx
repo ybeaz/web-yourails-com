@@ -11,8 +11,7 @@ const LinearGradientUniPlatform =
   Platform.OS === 'web' ? WebLinearGradient : View // LinearGradient
 
 /**
- * @import import { ModalFrameYrl } from './YrlNativeViewLibrary/ModalFrameYrl/ModalFrameYrl'
- * @import import { ModalFrameYrlPropsType } from './YrlNativeViewLibrary/ModalFrameYrl/ModalFrameYrlType'
+ * @import import { ModalFrameYrl, ModalFrameYrlPropsType } from './YrlNativeViewLibrary'
  * @links for LinearGradient: https://github.com/react-native-linear-gradient/react-native-linear-gradient
  * @propsOut
   modalFrameYrlProps: {

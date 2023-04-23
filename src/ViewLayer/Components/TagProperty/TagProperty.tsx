@@ -9,6 +9,7 @@ import {
   lightColors,
 } from '@rneui/themed'
 
+import { IconYrl, IconYrlPropsType } from '../../../YrlNativeViewLibrary/'
 import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
@@ -27,6 +28,9 @@ const TagPropertyComponent: TagPropertyType = props => {
     title,
     linkHref,
     tooltips,
+    iconLibrary,
+    iconName,
+    iconSize,
     testID = 'TagProperty',
   } = props
 
@@ -46,6 +50,7 @@ const TagPropertyComponent: TagPropertyType = props => {
       onPress: useLinkClickResYrl(linkHref),
       iconProps: undefined,
     },
+    iconsProps: {},
   }
 
   return (
@@ -76,11 +81,17 @@ const TagPropertyComponent: TagPropertyType = props => {
         withOverlay={true}
         withPointer={true}
       >
-        <TextRrneui
-          style={[style.titleText, { color: themes['themeA'].colors08.color }]}
-        >
-          {title}
-        </TextRrneui>
+        <>
+          <IconYrl {...propsOut.iconsProps} />
+          <TextRrneui
+            style={[
+              style.titleText,
+              { color: themes['themeA'].colors08.color },
+            ]}
+          >
+            {title}
+          </TextRrneui>
+        </>
       </ControlledTooltip>
     </View>
   )

@@ -8,7 +8,7 @@ export interface UseTemplateYrlType {
 
 /**
  * @description React hook to provide
- * @import import { useTemplateYrl } from './YrlNativeViewLibrary/Hooks/useTemplateYrl.ts'
+ * @import import { useTemplateYrl } from './YrlNativeViewLibrary'
  */
 
 export const useTemplateYrl: UseTemplateYrlType = ({}) => {}

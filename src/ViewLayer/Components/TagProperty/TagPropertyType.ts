@@ -4,6 +4,9 @@ export interface TagPropertyPropsType {
   title: string
   linkHref: string
   tooltips: string
+  iconLibrary?: string
+  iconName?: string
+  iconSize?: string
   testID?: string
 }
 

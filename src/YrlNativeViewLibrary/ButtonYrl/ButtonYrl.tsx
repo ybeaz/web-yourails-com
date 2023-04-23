@@ -5,8 +5,7 @@ import { ButtonYrlStyle as style } from './ButtonYrlStyle'
 import { IconYrl } from '../IconYrl/IconYrl'
 
 /**
- * @import import { ButtonYrl } from './YrlNativeViewLibrary/ButtonYrl/ButtonYrl'
- * @import import { ButtonYrlPropsType } from './YrlNativeViewLibrary/ButtonYrl/ButtonYrlType'
+ * @import import { ButtonYrl, ButtonYrlPropsType } from './YrlNativeViewLibrary'
  * @propsOut 
   buttonYrl: {
     styleProps: { ButtonYrl: {}, title: {} },
