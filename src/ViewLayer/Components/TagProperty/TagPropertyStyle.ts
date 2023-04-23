@@ -14,6 +14,9 @@ export const style = StyleSheet.create({
     // flexWrap: 'wrap',
     // whiteSpace: 'nowrap',
   },
+  tagIconTextWrapper: {
+    flexDirection: 'row',
+  },
   titleText: {
     fontSize: 20,
     width: 'min-content',

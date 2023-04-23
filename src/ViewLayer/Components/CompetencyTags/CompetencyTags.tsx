@@ -34,9 +34,6 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
       const { title, linkHref, tooltips, iconLibrary, iconName, iconSize } =
         competency
 
-      if (title === 'Html5')
-        console.info('CompetencyTags [38]', { ...competency })
-
       const tagPropertyProps = {
         key: `tagProperty-${index}`,
         title,

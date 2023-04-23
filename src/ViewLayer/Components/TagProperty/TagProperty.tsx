@@ -1,13 +1,8 @@
 import React, { useCallback } from 'react'
-import { Alert, Linking, ScrollView, View, Modal } from 'react-native'
+import { ScrollView, View, Modal } from 'react-native'
 // import Modal from 'modal-react-native-web';
 
-import {
-  Tooltip,
-  TooltipProps,
-  Text as TextRrneui,
-  lightColors,
-} from '@rneui/themed'
+import { Text as TextRrneui } from '@rneui/themed'
 
 import { IconYrl, IconYrlPropsType } from '../../../YrlNativeViewLibrary/'
 import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
@@ -48,9 +43,29 @@ const TagPropertyComponent: TagPropertyType = props => {
       testID: 'tooltip_buttonYrl',
       disabled: false,
       onPress: useLinkClickResYrl(linkHref),
-      iconProps: undefined,
+      iconProps: {
+        library: iconLibrary,
+        name: iconName,
+        styleProps: {
+          IconYrl: {
+            cursor: 'pointer',
+            paddingRight: '0.25rem',
+            paddingBottom: '0.25rem',
+          },
+        },
+        size: '1rem',
+        color: themes['themeA'].colors02.color,
+        testID: '<entity>_IconYrl_ios_send',
+      },
     },
-    iconsProps: {},
+    iconProps: {
+      library: iconLibrary,
+      name: iconName,
+      styleProps: { IconYrl: { cursor: 'pointer', paddingRight: '0.25rem' } },
+      size: '1.5rem',
+      color: themes['themeA'].colors02.color,
+      testID: '<entity>_IconYrl_ios_send',
+    },
   }
 
   return (
@@ -81,8 +96,8 @@ const TagPropertyComponent: TagPropertyType = props => {
         withOverlay={true}
         withPointer={true}
       >
-        <>
-          <IconYrl {...propsOut.iconsProps} />
+        <View style={style.tagIconTextWrapper} testID='tagIconTextWrapper'>
+          {iconLibrary && iconName && <IconYrl {...propsOut.iconProps} />}
           <TextRrneui
             style={[
               style.titleText,
@@ -91,7 +106,7 @@ const TagPropertyComponent: TagPropertyType = props => {
           >
             {title}
           </TextRrneui>
-        </>
+        </View>
       </ControlledTooltip>
     </View>
   )

@@ -44,7 +44,7 @@ export const ButtonYrl: ButtonYrlType = props => {
       onPress={onPress}
       disabled={disabled}
     >
-      {iconProps && (
+      {iconProps && iconProps.library && iconProps.name && (
         <IconYrl
           library={iconProps.library}
           name={iconProps.name}
