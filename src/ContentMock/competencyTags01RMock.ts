@@ -154,33 +154,6 @@ S   Sharing - there are user-friendly communication channels that encourage ongo
 
   {
     idUser: '1',
-    title: 'Docker',
-    section: 'Best Practices and Methodologies',
-    linkHref:
-      'https://docs.docker.com/develop/develop-images/dockerfile_best-practices/',
-    iconLibrary: 'Ionicons',
-    iconName: '',
-    tooltips:
-      '\
-The Dockerfile instructions: \n\
-\n\
-FROM - to define the origin of the package, better to use current Official Repositories, whenever possible. Example: FROM ubuntu: 18.04 \n\
-COPY - to define destination for installation. Examples: COPY . /app; COPY requirements.txt /tmp/ \n\
-ADD - to copy from URL and tar file directly into the container. Example: ADD http://example.com/big.tar.xz /usr/src/things/ \n\
-RUN - Examples: RUN apt - get update && apt - get install - y myPackage; RUN make / app; RUN echo "hello world" \n\
-CMD - to run the software contained by your image, along with any args. Example: CMD ["php", "-a"] \n\
-EXPOSE - to indicate the ports on which a container listens for connections \n\
-ENV - to update the PATH environment variable. Example, ENV PATH /usr/local/nginx/bin:$PATH \n\
-ENTRYPOINT - to set the image\'s main command. Example: ENTRYPOINT ["s3cmd"] \n\
-VOLUME - to expose any database storage area, configuration storage, or files/folders created by your docker container \n\
-USER - to change to a non-root user \n\
-WORKDIR - to define paths (preferably absolute) for your WORKDIR \n\
-ONBUILD - to execute command after the current Dockerfile build completes. It is an instruction the parent Dockerfile gives to the child Dockerfile.\n\
-',
-  },
-
-  {
-    idUser: '1',
     title: 'Issue-tracking systems',
     section: 'Best Practices and Methodologies',
     linkHref:
@@ -641,7 +614,7 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://github.com/lukehoban/es6features',
     iconLibrary: 'Ionicons',
-    iconName: '',
+    iconName: 'ios-logo-javascript',
     tooltips:
       '\
   ES7 includes the following new features:\n\
@@ -1184,7 +1157,7 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://react.dev/reference/react',
     iconLibrary: 'Ionicons',
-    iconName: '',
+    iconName: 'ios-logo-react',
     tooltips:
       '\
 - useState: allows a functional component to have stateful data.\n\
@@ -1206,7 +1179,7 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     section: 'Front-end',
     linkHref: 'https://reactnative.dev/',
     iconLibrary: 'Ionicons',
-    iconName: '',
+    iconName: 'ios-logo-react',
     tooltips:
       '\
   ActivityIndicator\n\
@@ -1273,7 +1246,7 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     section: 'Front-end',
     linkHref: 'https://reacttraining.com/react-router/',
     iconLibrary: 'Ionicons',
-    iconName: '',
+    iconName: 'ios-logo-react',
     tooltips:
       '\
   REACT-ROUTER API\n\
@@ -1572,6 +1545,22 @@ SSO services use protocols:\n\
 
   {
     idUser: '1',
+    title: 'Analytics/ Monitoring',
+    section: 'Back-end',
+    linkHref: 'https://www.google.com/analytics/',
+    iconLibrary: 'Ionicons',
+    iconName: 'analytics-outline',
+    tooltips:
+      '\
+  Splunk \n\
+  New relic \n\
+  Google Analytics \n\
+  Yandex Analytics\
+  ',
+  },
+
+  {
+    idUser: '1',
     title: 'Apollo',
     section: 'Back-end',
     linkHref: 'https://www.apollographql.com/docs/',
@@ -1587,6 +1576,33 @@ SSO services use protocols:\n\
   Client registry\n\
   Operation registry\n\
   Trace warehouse',
+  },
+
+  {
+    idUser: '1',
+    title: 'Docker',
+    section: 'Back-end',
+    linkHref:
+      'https://docs.docker.com/develop/develop-images/dockerfile_best-practices/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      '\
+The Dockerfile instructions: \n\
+\n\
+FROM - to define the origin of the package, better to use current Official Repositories, whenever possible. Example: FROM ubuntu: 18.04 \n\
+COPY - to define destination for installation. Examples: COPY . /app; COPY requirements.txt /tmp/ \n\
+ADD - to copy from URL and tar file directly into the container. Example: ADD http://example.com/big.tar.xz /usr/src/things/ \n\
+RUN - Examples: RUN apt - get update && apt - get install - y myPackage; RUN make / app; RUN echo "hello world" \n\
+CMD - to run the software contained by your image, along with any args. Example: CMD ["php", "-a"] \n\
+EXPOSE - to indicate the ports on which a container listens for connections \n\
+ENV - to update the PATH environment variable. Example, ENV PATH /usr/local/nginx/bin:$PATH \n\
+ENTRYPOINT - to set the image\'s main command. Example: ENTRYPOINT ["s3cmd"] \n\
+VOLUME - to expose any database storage area, configuration storage, or files/folders created by your docker container \n\
+USER - to change to a non-root user \n\
+WORKDIR - to define paths (preferably absolute) for your WORKDIR \n\
+ONBUILD - to execute command after the current Dockerfile build completes. It is an instruction the parent Dockerfile gives to the child Dockerfile.\n\
+',
   },
 
   {
@@ -1756,7 +1772,7 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
   {
     idUser: '1',
     title: 'JSON',
-    section: 'Front-end',
+    section: 'Back-end',
     linkHref: 'https://json-schema.org/',
     iconLibrary: 'Ionicons',
     iconName: '',
@@ -1780,10 +1796,10 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
     iconName: '',
     tooltips:
       '\
-  Linux operating system (Ubuntu),\n\
-  Apache HTTP Server,\n\
-  MySQL relational database,\n\
-  PHP programming language',
+⁍ Linux operating system (Ubuntu),\n\
+⁍ Apache HTTP Server,\n\
+⁍ MySQL relational database,\n\
+⁍ PHP programming language',
   },
 
   {
@@ -1796,10 +1812,53 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
     iconName: '',
     tooltips:
       '\
-  MongoDB\n\
-  ExpressJS\n\
-  ReactJS\n\
-  NodeJS',
+※ MongoDB\n\
+※ ExpressJS\n\
+※ ReactJS\n\
+※ NodeJS',
+  },
+
+  {
+    idUser: '1',
+    title: 'Microservices',
+    section: 'Back-end',
+    linkHref: 'https://www.mysql.com/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      '\
+❧ Containerization: The process of packaging software applications into containers, which are portable and can run consistently across different environments. Docker and Kubernetes are popular containerization technologies.\n\
+❧ API Gateway: A server that acts as an intermediary between clients and microservices, providing routing, authentication, and security features. Popular API gateway technologies include NGINX, Zuul, and Kong.\n\
+❧ Service Registry and Discovery: A tool that maintains a list of available microservices and their network locations, allowing services to find and communicate with each other. Eureka, Consul, and ZooKeeper are popular service registry and discovery tools.\n\
+❧ Messaging: Asynchronous messaging protocols that enable microservices to communicate with each other without requiring a direct connection. Popular messaging technologies include Kafka, RabbitMQ, and ActiveMQ.\n\
+❧ Circuit Breaker: A design pattern that prevents cascading failures in a distributed system by automatically stopping requests to a service that is not responding. Hystrix is a popular circuit breaker library.\n\
+❧ DevOps: A set of practices that combines software development and IT operations, aiming to shorten the systems development lifecycle and provide continuous delivery with high software quality. Popular DevOps tools include Jenkins, GitLab, and AWS CodePipeline.\n\
+',
+  },
+
+  {
+    idUser: '1',
+    title: 'Migration',
+    section: 'Back-end',
+    linkHref: 'https://www.mysql.com/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      '\
+A template for a migration plan from the monolithic PHP + Docker application to a microservice app:\n\
+\n\
+1. Create a separate temporary domain for testing purposes, for example, web2.domainName.com\n\
+2. Deploy the Docker container on AWS on web2.domainName.com, while preserving that the old container works\n\
+3. Setup and integrate Jenkins pipeline for the deployment process to AWS and ensure, that everything works with the development process\n\
+4. Refactor the monolithic application to be able to extract the components and convert them into microservices. Ensure that the microservices are independent\n\
+5. Implement data migration - migrate data from the monolithic application to the microservices. You can use Amazon Aurora or Amazon DynamoDB for data storage\n\
+6. Implement the microservices in the new stack: Angular, NodeJs, Docker, Jenkins, and AWS. Ensure that the microservices are containerized using Docker\n\
+7. Deploy microservices on AWS and test them on a temporary domain first. Use unit testing, integration testing, and end-to-end testing to validate the microservices. Use and test Jenkins for continuous integration and continuous deployment (CI/CD) to automate the deployment process\n\
+8. Switch from legacy data storage to the new one\n\
+9. Switch from respective parts of PHP code to the microservice. Use AWS API Gateway\n\
+10. Switch the temporary domain to the production domain of content delivery.  Use AWS API Gateway\n\
+11. Apply rollout strategy and green/ blue deployment technique for deploying the microservices to production. In particular this strategy can include deploying to a small subset of users at first to ensure everything works as expected before gradually increasing the number of users\n\
+12. Monitor the microservices with AWS CloudWatch or ELK Stack for monitoring and logging. Be ready to switch back to the previous version or to the monolithic app at any time',
   },
 
   {
@@ -1811,12 +1870,12 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
     iconName: '',
     tooltips:
       '\
-  MongoDB CRUD Operations\n\
-  Create Operations\n\
-  Read Operations\n\
-  Update Operations\n\
-  Delete Operations\n\
-  Bulk Write',
+‣ MongoDB CRUD Operations\n\
+‣ Create Operations\n\
+‣ Read Operations\n\
+‣ Update Operations\n\
+‣ Delete Operations\n\
+‣ Bulk Write',
   },
 
   {
@@ -1828,18 +1887,18 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
     iconName: '',
     tooltips:
       '\
-  MySQL Database\n\
-  MySQL Connect\n\
-  MySQL Create DB\n\
-  MySQL Create Table\n\
-  MySQL Insert Data\n\
-  MySQL Get Last ID\n\
-  MySQL Insert Multiple\n\
-  MySQL Prepared\n\
-  MySQL Select Data\n\
-  MySQL Delete Data\n\
-  MySQL Update Data\n\
-  MySQL Limit Data',
+• Database\n\
+• Connect\n\
+• Create DB\n\
+• Create Table\n\
+• Insert Data\n\
+• Get Last ID\n\
+• Insert Multiple\n\
+• Prepared\n\
+• Select Data\n\
+• Delete Data\n\
+• Update Data\n\
+• Limit Data',
   },
 
   {
@@ -2216,22 +2275,6 @@ Status codes',
   Change privileges for folders\n\
   Install NodeJS\n\
   Install Virtual Box, pm2, Docker\n\
-  ',
-  },
-
-  {
-    idUser: '1',
-    title: 'Web Analytics',
-    section: 'Front-end',
-    linkHref: 'https://www.google.com/analytics/',
-    iconLibrary: 'Ionicons',
-    iconName: '',
-    tooltips:
-      '\
-  Splunk \n\
-  New relic \n\
-  Google Analytics \n\
-  Yandex Analytics\
   ',
   },
 

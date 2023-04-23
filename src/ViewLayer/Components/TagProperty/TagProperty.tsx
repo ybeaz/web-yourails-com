@@ -95,17 +95,17 @@ const TagPropertyComponent: TagPropertyType = props => {
         withOverlay={true}
         withPointer={true}
       >
-        <Text style={style.tagIconTextWrapper} testID='tagIconTextWrapper'>
-          {iconLibrary && iconName && <IconYrl {...propsOut.iconProps} />}
-          <TextRrneui
+        <View style={style.tagIconTextWrapper} testID='tagIconTextWrapper'>
+          <Text
             style={[
               style.titleText,
               { color: themes['themeA'].colors08.color },
             ]}
           >
+            {iconLibrary && iconName && <IconYrl {...propsOut.iconProps} />}
             {title}
-          </TextRrneui>
-        </Text>
+          </Text>
+        </View>
       </ControlledTooltip>
     </View>
   )
