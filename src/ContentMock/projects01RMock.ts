@@ -17,7 +17,7 @@ export const projects01R: ProjectType[] = [
     builtwith:
       'React, react-router-dom, Typescript, ES7, ESLint, Babel, Webpack',
     imgSrc: 'https://r1.userto.com/img/yrl-23-demo-yourails-academy.jpg',
-    linkHref: 'https://yourails.com/academy',
+    linkHref: 'https://study.yourails.com/academy',
   },
 
   {
@@ -44,7 +44,8 @@ export const projects01R: ProjectType[] = [
     title: 'Web service. YouRails.com Skills Exchange Messenger',
     isActive: true,
     pathname: 'YouRails',
-    subtitle: 'Find, Connect, and Create Your Best Life with YouRails.com',
+    subtitle:
+      'Discover People, Connect, and Create Your Best Life with YouRails.com',
     description: [
       'YouRails.com facilitates users in finding people, solutions, and establishing connections through a chat-first/messenger platform. This platform provides users with the possibility to create and manage multiple profiles that reflect their current life goals and intentions. The process is simplified with an AI-based environment and services.',
 
@@ -90,7 +91,7 @@ export const projects01R: ProjectType[] = [
       'Antd Compoment lib, React, react-router-dom, Typescript, ES7, ESLint, Babel, Webpack',
     imgSrc: 'https://r1.userto.com/img/yrl-23-demo-sep.jpg',
     linkHref:
-      'https://yourails.com/sep?ssr=Photoshop&hiw=true&sfs=true&sfb=true&ln=en',
+      'https://study.yourails.com/sep?ssr=Photoshop&hiw=true&sfs=true&sfb=true&ln=en',
   },
 
   {
@@ -106,7 +107,7 @@ export const projects01R: ProjectType[] = [
       'React, react-router-dom, Typescript, ES7, ESLint, Babel, Webpack',
     imgSrc: 'https://r1.userto.com/img/yrl-23-demo-auth-social-service.jpg',
     linkHref:
-      'https://yourails.com/c/cj8dDTHGJBY/Eukaryopolis---The-City-of-Animal-Cells-Crash-Course-Biology-4',
+      'https://study.yourails.com/c/cj8dDTHGJBY/Eukaryopolis---The-City-of-Animal-Cells-Crash-Course-Biology-4',
   },
 
   {
