@@ -13,8 +13,7 @@ const ICON: Record<string, any> = {
 }
 
 /**
- * @import import { IconYrl } from './YrlNativeViewLibrary/IconYrl/IconYrl'
- * @import import { ButtonYrlPropsType } from './YrlNativeViewLibrary/IconYrl/IconYrlType'
+ * @import import { IconYrl, IconYrlPropsType } from './YrlNativeViewLibrary'
  * @propsOut 
   iconYrlProps: {
     // || undefined

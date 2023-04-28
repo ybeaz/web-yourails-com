@@ -16,7 +16,7 @@ export interface withElementDimensionsYrlType {
  * @description Function decorator for React Functional Component
  *    to add dimensions of the element
  *    const { elementWidth, elementHight } = elementDimensions
- * @import import { withElementDimensionsYrl, ElementDimensionsType } from './YrlNativeViewLibrary/Hooks/withElementDimensionsYrl'
+ * @import import { withElementDimensionsYrl, ElementDimensionsType } from './YrlNativeViewLibrary'
  * @use export const Portfolio = React.memo(withElementDimensionsYrle(PortfolioComponent))
  */
 

@@ -7,6 +7,8 @@ export const competencyTags01R: CompetencyTagType[] = [
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.agilealliance.org/agile101/12-principles-behind-the-agile-manifesto/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 1. Our highest priority is to satisfy the customer through early and continuous delivery of valuable software\n\
@@ -28,6 +30,8 @@ export const competencyTags01R: CompetencyTagType[] = [
     title: 'Automation Tools',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://webpack.js.org/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 Webpack dev server\n\
@@ -46,6 +50,8 @@ Browser devtools\n\
     title: 'CLI',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://docs.npmjs.com/cli/npm',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 Anaconda prompt\n\
@@ -64,6 +70,8 @@ Windows CMD',
     title: 'BDD',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://www.agilealliance.org/glossary/bdd',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       "\
 Behavior-driven development (BDD):\n\
@@ -81,6 +89,8 @@ Behavior-driven development (BDD):\n\
     title: 'Design Patterns',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Software_design_pattern',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 Design patterns are advanced object-oriented solutions to commonly occurring software problems.  Patterns are about reusable designs and interactions of objects.\n\
@@ -121,6 +131,8 @@ Design patterns are advanced object-oriented solutions to commonly occurring sof
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.digital-management-blog.de/wp-content/uploads/2017/06/devops.jpg',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 * Plan -> Code -> Build -> Test <-> Release -> Deploy -> Operate -> Monitor\n\n\
@@ -142,35 +154,12 @@ S   Sharing - there are user-friendly communication channels that encourage ongo
 
   {
     idUser: '1',
-    title: 'Docker',
-    section: 'Best Practices and Methodologies',
-    linkHref:
-      'https://docs.docker.com/develop/develop-images/dockerfile_best-practices/',
-    tooltips:
-      '\
-The Dockerfile instructions: \n\
-\n\
-FROM - to define the origin of the package, better to use current Official Repositories, whenever possible. Example: FROM ubuntu: 18.04 \n\
-COPY - to define destination for installation. Examples: COPY . /app; COPY requirements.txt /tmp/ \n\
-ADD - to copy from URL and tar file directly into the container. Example: ADD http://example.com/big.tar.xz /usr/src/things/ \n\
-RUN - Examples: RUN apt - get update && apt - get install - y myPackage; RUN make / app; RUN echo "hello world" \n\
-CMD - to run the software contained by your image, along with any args. Example: CMD ["php", "-a"] \n\
-EXPOSE - to indicate the ports on which a container listens for connections \n\
-ENV - to update the PATH environment variable. Example, ENV PATH /usr/local/nginx/bin:$PATH \n\
-ENTRYPOINT - to set the image\'s main command. Example: ENTRYPOINT ["s3cmd"] \n\
-VOLUME - to expose any database storage area, configuration storage, or files/folders created by your docker container \n\
-USER - to change to a non-root user \n\
-WORKDIR - to define paths (preferably absolute) for your WORKDIR \n\
-ONBUILD - to execute command after the current Dockerfile build completes. It is an instruction the parent Dockerfile gives to the child Dockerfile.\n\
-',
-  },
-
-  {
-    idUser: '1',
     title: 'Issue-tracking systems',
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://en.wikipedia.org/wiki/Comparison_of_issue-tracking_systems',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 JIRA\n\
@@ -185,6 +174,8 @@ Bugzilla\n\
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 1. Visualize work\n\
@@ -199,6 +190,8 @@ Bugzilla\n\
     title: 'Lints',
     section: 'Best Practices and Methodologies',
     linkHref: '',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 1. Prettier\n\
@@ -216,6 +209,8 @@ Bugzilla\n\
     title: 'OOP',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Object-oriented_programming',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       'The four principles of OOP\n\
 1. Encapsulation:\n\
@@ -238,6 +233,8 @@ Polymorphism manifests itself by having multiple methods all with the same name,
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 Roles: Product Owner, Scrum Master, and Team Members\n\
@@ -263,6 +260,8 @@ Roles: Product Owner, Scrum Master, and Team Members\n\
     title: 'SDLC',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Systems_development_life_cycle',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       'The systems development life cycle (SDLC), \n\
 or application development life-cycle: \n\
@@ -280,6 +279,8 @@ or application development life-cycle: \n\
     title: 'TDD',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://www.agilealliance.org/glossary/tdd/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 Test-driven development (TDD):\n\
@@ -296,6 +297,8 @@ Test-driven development (TDD):\n\
     title: 'SOLID',
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       "\
 * Single responsibility principle:\t\
@@ -317,6 +320,8 @@ one should depend upon abstractions, [not] concretions.",
     title: 'Testing/Debugging',
     section: 'Best Practices and Methodologies',
     linkHref: '',
+    iconLibrary: 'Ionicons',
+    iconName: 'bug-outline',
     tooltips:
       '\
 BDD Behavior Driven Development\n\
@@ -350,6 +355,8 @@ Lint\n\
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html',
+    iconLibrary: 'Ionicons',
+    iconName: 'git-branch-outline',
     tooltips:
       '\
 Bitbucket.org\n\
@@ -373,6 +380,8 @@ $ git push -u origin ...\n\
     title: 'Ajax',
     section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/XMLHttpRequest/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   The XMLHttpRequest specification is an API that \n\
@@ -385,6 +394,8 @@ $ git push -u origin ...\n\
     title: 'Amp',
     section: 'Front-end',
     linkHref: 'https://www.ampproject.org/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   The AMP Project is an open-source initiative aiming to make the web better for all. \n\
@@ -398,6 +409,8 @@ $ git push -u origin ...\n\
     title: 'Ant Design',
     section: 'Front-end',
     linkHref: 'https://ant.design/docs/react/introduce',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   A React UI library antd that contains a set of high quality components and demos for building rich,\n\
@@ -409,6 +422,8 @@ $ git push -u origin ...\n\
     title: 'Axios',
     section: 'Front-end',
     linkHref: 'https://github.com/axios/axios',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Request method aliases \n\
@@ -437,7 +452,9 @@ $ git push -u origin ...\n\
       {
         title: 'AngularJS',
         linkHref: 'https://angularjs.org/',
-        tooltips: '\
+        iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips: '\
   AngularJS lets you extend \n\
   HTML vocabulary for your application.',
       },
@@ -448,6 +465,8 @@ $ git push -u origin ...\n\
     title: 'Bootstrap',
     section: 'Front-end',
     linkHref: 'https://bootstrapdocs.com/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Bootstrap is the most popular HTML, CSS, and JavaScript framework \n\
@@ -493,6 +512,8 @@ $ git push -u origin ...\n\
     title: 'BEM methodology',
     section: 'Front-end',
     linkHref: 'https://en.bem.info/methodology/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   * to work in the common terms of blocks, elements and modifiers in all technologies (HTML~CSS~JS)\n\
@@ -509,6 +530,8 @@ $ git push -u origin ...\n\
     title: 'Browser Developer Tools',
     section: 'Front-end',
     linkHref: 'https://developers.google.com/web/tools/chrome-devtools/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Console debugging\n\
@@ -524,6 +547,8 @@ $ git push -u origin ...\n\
     title: 'Cookie',
     section: 'Front-end',
     linkHref: 'https://tools.ietf.org/html/rfc6265',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       "\
   An HTTP cookie is a small piece of data sent from a website \n\
@@ -542,6 +567,8 @@ $ git push -u origin ...\n\
     title: 'CSS Preprocessing',
     section: 'Front-end',
     linkHref: 'https://lesscss.org/functions/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Lesscss.org\n\
@@ -554,6 +581,8 @@ $ git push -u origin ...\n\
     title: 'Css3',
     section: 'Front-end',
     linkHref: 'https://www.w3.org/Style/CSS/specs.en.html',
+    iconLibrary: 'Ionicons',
+    iconName: 'ios-logo-css3',
     tooltips:
       '\
   Rounded Corners \n\
@@ -584,6 +613,8 @@ $ git push -u origin ...\n\
     title: 'ECMAScript6',
     section: 'Front-end',
     linkHref: 'https://github.com/lukehoban/es6features',
+    iconLibrary: 'Ionicons',
+    iconName: 'ios-logo-javascript',
     tooltips:
       '\
   ES7 includes the following new features:\n\
@@ -614,7 +645,9 @@ $ git push -u origin ...\n\
       {
         title: 'Enzyme',
         linkHref: 'https://airbnb.io/enzyme/',
-        tooltips:
+        iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
           "\
   Enzyme is a JavaScript Testing utility for React that makes it easier \n\
   to assert, manipulate, and traverse your React Components' output.",
@@ -626,6 +659,8 @@ $ git push -u origin ...\n\
     title: 'ESLint',
     section: 'Front-end',
     linkHref: 'https://eslint.org/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   ESLint statically analyzes your code to quickly find problems. \n\
@@ -637,6 +672,8 @@ $ git push -u origin ...\n\
     title: 'Icons lib',
     section: 'Front-end',
     linkHref: 'https://www.w3schools.com/icons/icons_reference.asp',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Font-awesome https://fontawesome.io/\n\
@@ -649,6 +686,9 @@ $ git push -u origin ...\n\
     title: 'Html5',
     section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/html5/',
+    iconLibrary: 'Ionicons',
+    iconName: 'ios-logo-html5',
+
     tooltips:
       '\
   HTML GRAPHICS\n\
@@ -673,6 +713,8 @@ $ git push -u origin ...\n\
     title: 'HTML DOM',
     section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/DOM-Level-1/introduction.html',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   The Document Object Model (DOM) \n\
@@ -698,6 +740,8 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref:
       'https://www.ecma-international.org/publications/standards/Stnindex.htm',
+    iconLibrary: 'Ionicons',
+    iconName: 'ios-logo-javascript',
     tooltips:
       '\
   JS Statements\n\
@@ -751,6 +795,8 @@ $ git push -u origin ...\n\
     title: 'Jest',
     section: 'Front-end',
     linkHref: 'https://jestjs.io/docs/api',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   afterAll(fn, timeout)\n\
@@ -785,6 +831,8 @@ $ git push -u origin ...\n\
     title: 'jQuery',
     section: 'Front-end',
     linkHref: 'https://jquery.com/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   jQuery Effects\n\
@@ -821,6 +869,8 @@ $ git push -u origin ...\n\
     title: 'jQuery-UI',
     section: 'Front-end',
     linkHref: 'https://jqueryui.com/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   INTERACTIONS\n\
@@ -865,6 +915,8 @@ $ git push -u origin ...\n\
     title: 'JS Frameworks',
     section: 'Front-end',
     linkHref: '',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   AMP\n\
@@ -886,25 +938,11 @@ $ git push -u origin ...\n\
 
   {
     idUser: '1',
-    title: 'JSON',
-    section: 'Front-end',
-    linkHref: 'https://json-schema.org/',
-    tooltips:
-      '\
-  JSON Objects\n\
-  JSON Arrays\n\
-  JSON Parse\n\
-  JSON Stringify\n\
-  JSON PHP\n\
-  JSON HTML\n\
-  JSON JSONP',
-  },
-
-  {
-    idUser: '1',
     title: 'JSONP',
     section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/JSONP',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   JSONP works by constructing a “script” element (either in HTML markup or\n\
@@ -920,6 +958,8 @@ $ git push -u origin ...\n\
     title: 'JWT',
     section: 'Front-end',
     linkHref: 'https://jwt.io/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   JSON Web Tokens are an open, industry standard RFC 7519 method for\n\
@@ -932,6 +972,8 @@ $ git push -u origin ...\n\
     title: 'Less',
     section: 'Front-end',
     linkHref: 'https://lesscss.org/functions/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   As an extension to CSS, Less \n\
@@ -946,6 +988,8 @@ $ git push -u origin ...\n\
     title: 'Lodash',
     section: 'Front-end',
     linkHref: 'https://lodash.com/docs/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Array\n\
@@ -960,6 +1004,8 @@ $ git push -u origin ...\n\
     title: 'Material Design',
     section: 'Front-end',
     linkHref: 'https://material.io/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Tools: COLOR TOOL\n\
@@ -974,6 +1020,8 @@ $ git push -u origin ...\n\
     title: 'Microformats/Schema.org',
     section: 'Front-end',
     linkHref: 'https://schema.org/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Schema.org is a joint effort, in the spirit of sitemaps.org, \n\
@@ -992,6 +1040,8 @@ $ git push -u origin ...\n\
     title: 'Mocha',
     section: 'Front-end',
     linkHref: 'https://mochajs.org/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Mocha is a feature-rich JavaScript test framework running on Node.js and in the browser, \n\
@@ -1036,6 +1086,8 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref:
       'https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       "\
   Components\n\
@@ -1058,6 +1110,8 @@ $ git push -u origin ...\n\
     title: 'OAuth',
     section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/OAuth',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   OAuth (Open Authorization) is an open standard for access delegation,\n\
@@ -1074,6 +1128,8 @@ $ git push -u origin ...\n\
     title: 'ReactJS',
     section: 'Front-end',
     linkHref: 'https://facebook.github.io/react/',
+    iconLibrary: 'Ionicons',
+    iconName: 'ios-logo-react',
     tooltips:
       "\
 * React Component API: The React Component API is the core of the React library and provides a way to create reusable UI components. The API includes methods for defining a component's state, props, and lifecycle methods, as well as the render() method, which defines the component's HTML output.\n\
@@ -1100,6 +1156,8 @@ $ git push -u origin ...\n\
     title: 'React Hooks',
     section: 'Front-end',
     linkHref: 'https://react.dev/reference/react',
+    iconLibrary: 'Ionicons',
+    iconName: 'ios-logo-react',
     tooltips:
       '\
 - useState: allows a functional component to have stateful data.\n\
@@ -1120,6 +1178,8 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     title: 'React Native',
     section: 'Front-end',
     linkHref: 'https://reactnative.dev/',
+    iconLibrary: 'Ionicons',
+    iconName: 'ios-logo-react',
     tooltips:
       '\
   ActivityIndicator\n\
@@ -1185,6 +1245,8 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     title: 'React-router',
     section: 'Front-end',
     linkHref: 'https://reacttraining.com/react-router/',
+    iconLibrary: 'Ionicons',
+    iconName: 'ios-logo-react',
     tooltips:
       '\
   REACT-ROUTER API\n\
@@ -1210,6 +1272,8 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     title: 'Redux',
     section: 'Front-end',
     linkHref: 'https://redux.js.org',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Actions\n\
@@ -1226,6 +1290,8 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     title: 'Redux-saga',
     section: 'Front-end',
     linkHref: 'https://redux-saga.js.org/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Middleware API\n\
@@ -1287,6 +1353,8 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     title: 'Regex',
     section: 'Front-end',
     linkHref: 'https://perldoc.perl.org/perlre.html',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Modifiers\n\
@@ -1304,6 +1372,8 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     title: 'Responsive Design',
     section: 'Front-end',
     linkHref: 'https://bootstrapdocs.com/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Responsive Web Design makes your web page \n\
@@ -1319,6 +1389,8 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     title: 'Semantic-UI-React',
     section: 'Front-end',
     linkHref: 'https://react.semantic-ui.com/introduction',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Semantic UI React is the official React integration for Semantic UI:\n\
@@ -1336,6 +1408,8 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     title: 'Seo',
     section: 'Front-end',
     linkHref: 'https://support.google.com/webmasters/answer/35769?hl=en',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Submitting to Search Engines\n\
@@ -1371,6 +1445,8 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     title: 'Session',
     section: 'Front-end',
     linkHref: 'https://php.net/manual/en/features.sessions.php',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Session support consists of a way \n\
@@ -1384,6 +1460,8 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     title: 'SPA',
     section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/Single-page_application',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   A single-page application (SPA) is a web application or web site that\n\
@@ -1399,6 +1477,8 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     section: 'Front-end',
     linkHref:
       'https://www.techtarget.com/searchsecurity/definition/single-sign-on',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 Single sign-on (SSO) is a session and user authentication service that permits a user to use one set of login credentials -- for example, a username and password -- to access multiple applications.\n\
@@ -1415,6 +1495,8 @@ SSO services use protocols:\n\
     title: 'Typescript',
     section: 'Front-end',
     linkHref: 'https://www.typescriptlang.org/docs/home.html',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Basic Types\n\
@@ -1446,6 +1528,8 @@ SSO services use protocols:\n\
     title: 'Webpack',
     section: 'Front-end',
     linkHref: 'https://webpack.js.org/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Entry Points\n\
@@ -1461,9 +1545,27 @@ SSO services use protocols:\n\
 
   {
     idUser: '1',
-    title: 'Apollo Graphql',
+    title: 'Analytics/ Monitoring',
+    section: 'Back-end',
+    linkHref: 'https://www.google.com/analytics/',
+    iconLibrary: 'Ionicons',
+    iconName: 'analytics-outline',
+    tooltips:
+      '\
+  Splunk \n\
+  New relic \n\
+  Google Analytics \n\
+  Yandex Analytics\
+  ',
+  },
+
+  {
+    idUser: '1',
+    title: 'Apollo',
     section: 'Back-end',
     linkHref: 'https://www.apollographql.com/docs/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Apollo Server\n\
@@ -1478,9 +1580,38 @@ SSO services use protocols:\n\
 
   {
     idUser: '1',
+    title: 'Docker',
+    section: 'Back-end',
+    linkHref:
+      'https://docs.docker.com/develop/develop-images/dockerfile_best-practices/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      '\
+The Dockerfile instructions: \n\
+\n\
+FROM - to define the origin of the package, better to use current Official Repositories, whenever possible. Example: FROM ubuntu: 18.04 \n\
+COPY - to define destination for installation. Examples: COPY . /app; COPY requirements.txt /tmp/ \n\
+ADD - to copy from URL and tar file directly into the container. Example: ADD http://example.com/big.tar.xz /usr/src/things/ \n\
+RUN - Examples: RUN apt - get update && apt - get install - y myPackage; RUN make / app; RUN echo "hello world" \n\
+CMD - to run the software contained by your image, along with any args. Example: CMD ["php", "-a"] \n\
+EXPOSE - to indicate the ports on which a container listens for connections \n\
+ENV - to update the PATH environment variable. Example, ENV PATH /usr/local/nginx/bin:$PATH \n\
+ENTRYPOINT - to set the image\'s main command. Example: ENTRYPOINT ["s3cmd"] \n\
+VOLUME - to expose any database storage area, configuration storage, or files/folders created by your docker container \n\
+USER - to change to a non-root user \n\
+WORKDIR - to define paths (preferably absolute) for your WORKDIR \n\
+ONBUILD - to execute command after the current Dockerfile build completes. It is an instruction the parent Dockerfile gives to the child Dockerfile.\n\
+',
+  },
+
+  {
+    idUser: '1',
     title: 'ExpressJS',
     section: 'Back-end',
     linkHref: 'https://expressjs.com/en/4x/api.html',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Express()\n\
@@ -1585,9 +1716,66 @@ SSO services use protocols:\n\
 
   {
     idUser: '1',
-    title: 'Json',
+    title: 'Graphql',
+    section: 'Back-end',
+    linkHref: 'https://spec.graphql.org/draft/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      '\
+GraphQL is a query language and runtime for APIs with functional notation\n\
+\n\
+✶ Schema:\n   A GraphQL schema defines the types and fields that can be queried on an API. It serves as a contract between the server and the client, specifying what data can be requested and what form it will be returned in.\n\
+✶ Query:\n   A GraphQL query is a request for data made by a client to a server. It defines the data that the client wants to retrieve and how that data should be structured.\n\
+✶ Mutation:\n   A GraphQL mutation is a request that changes data on the server. It is similar to a query in structure, but is used to perform operations such as creating, updating or deleting data.\n\
+✶ Resolver:\n   A resolver is a function that determines how data is retrieved or modified in response to a GraphQL query or mutation. It specifies how to resolve the data associated with a particular field in the schema.\n\
+✶ Type:\n   A type in GraphQL represents a group of related data, such as a user, a post, or a comment. Types are defined in the schema, and each type can have one or more fields that correspond to specific properties of the data.\n\
+✶ Directive:\n   A directive in GraphQL is used to modify the behavior of a query or mutation. Directives can be used to conditionally include or exclude fields, apply transformations to the data, or perform other operations.\n\
+',
+  },
+
+  {
+    idUser: '1',
+    title: 'Internet Protocols',
+    section: 'Back-end',
+    linkHref:
+      'https://en.wikipedia.org/wiki/List_of_network_protocols_(OSI_model)📩',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      '\
+ARP (Address Resolution Protocol): Maps a network address (such as an IP address) to a physical address (such as a MAC address).\n\
+DHCP (Dynamic Host Configuration Protocol): Dynamically assigns IP addresses to devices on a network.\n\
+DNS (Domain Name System): Translates domain names into IP addresses, allowing devices to access websites and other network resources.\n\
+FTP (File Transfer Protocol): Used for transferring files between a client and server over a network.\n\
+HTTP (Hypertext Transfer Protocol): Used for transferring web content (such as HTML pages) between a client and server over a network.\n\
+📩 HTTP long polling: A technique that uses regular HTTP requests to simulate real-time streaming of data from a server to a client.\n\
+HTTPS (Hypertext Transfer Protocol Secure): A secure version of HTTP that encrypts data sent between a client and server using SSL/TLS protocols.\n\
+ICMP (Internet Control Message Protocol): Used for reporting errors and status information about network connections.\n\
+IMAP (Internet Message Access Protocol): Used for accessing and retrieving email messages from a mail server.\n\
+IP (Internet Protocol): Provides the basic addressing and routing information for all data transmitted over the internet.\n\
+📩 MQTT (Message Queuing Telemetry Transport): A lightweight messaging protocol used for machine-to-machine communication, IoT devices, and mobile applications.\n\
+📩 MTProto (Mobile Transport Protocol): A proprietary messaging protocol used by Telegram for secure messaging and media transfer.\n\
+POP3 (Post Office Protocol version 3): Used for retrieving email messages from a mail server.\n\
+RTP (Real-time Transport Protocol): Used for streaming audio and video over the internet in real-time.\n\
+📩 Signal Protocol: An end-to-end encryption protocol used by Signal messaging app and other messaging apps that support it, providing secure messaging and voice/video calls.\n\
+SIP (Session Initiation Protocol): Used for establishing and managing multimedia communication sessions, such as voice and video calls, over IP networks.\n\
+SMTP (Simple Mail Transfer Protocol): Used for sending email messages between mail servers.\n\
+SNMP (Simple Network Management Protocol): Used for managing and monitoring network devices, such as routers and switches.\n\
+SSH (Secure Shell): Provides secure remote access to a server over an unsecured network.\n\
+TCP (Transmission Control Protocol): Provides reliable and ordered delivery of data between two endpoints over a network.\n\
+TLS/SSL (Transport Layer Security/Secure Sockets Layer): Encryption protocols used to secure data sent over the internet.\n\
+UDP (User Datagram Protocol): Provides a connectionless and unreliable transport service for sending datagrams over a network.\n\
+📩 XMPP (Extensible Messaging and Presence Protocol): An open-source protocol used for instant messaging and presence information, also used by some IoT devices and mobile applications.',
+  },
+
+  {
+    idUser: '1',
+    title: 'JSON',
     section: 'Back-end',
     linkHref: 'https://json-schema.org/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   JSON Objects\n\
@@ -1604,12 +1792,14 @@ SSO services use protocols:\n\
     title: 'LAMP',
     section: 'Back-end',
     linkHref: 'https://en.wikipedia.org/wiki/LAMP_(software_bundle)',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
-  Linux operating system (Ubuntu),\n\
-  Apache HTTP Server,\n\
-  MySQL relational database,\n\
-  PHP programming language',
+⁍ Linux operating system (Ubuntu),\n\
+⁍ Apache HTTP Server,\n\
+⁍ MySQL relational database,\n\
+⁍ PHP programming language',
   },
 
   {
@@ -1618,12 +1808,57 @@ SSO services use protocols:\n\
     section: 'Back-end',
     linkHref:
       'https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
-  MongoDB\n\
-  ExpressJS\n\
-  ReactJS\n\
-  NodeJS',
+※ MongoDB\n\
+※ ExpressJS\n\
+※ ReactJS\n\
+※ NodeJS',
+  },
+
+  {
+    idUser: '1',
+    title: 'Microservices',
+    section: 'Back-end',
+    linkHref: 'https://www.mysql.com/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      '\
+❧ Containerization: The process of packaging software applications into containers, which are portable and can run consistently across different environments. Docker and Kubernetes are popular containerization technologies.\n\
+❧ API Gateway: A server that acts as an intermediary between clients and microservices, providing routing, authentication, and security features. Popular API gateway technologies include NGINX, Zuul, and Kong.\n\
+❧ Service Registry and Discovery: A tool that maintains a list of available microservices and their network locations, allowing services to find and communicate with each other. Eureka, Consul, and ZooKeeper are popular service registry and discovery tools.\n\
+❧ Messaging: Asynchronous messaging protocols that enable microservices to communicate with each other without requiring a direct connection. Popular messaging technologies include Kafka, RabbitMQ, and ActiveMQ.\n\
+❧ Circuit Breaker: A design pattern that prevents cascading failures in a distributed system by automatically stopping requests to a service that is not responding. Hystrix is a popular circuit breaker library.\n\
+❧ DevOps: A set of practices that combines software development and IT operations, aiming to shorten the systems development lifecycle and provide continuous delivery with high software quality. Popular DevOps tools include Jenkins, GitLab, and AWS CodePipeline.\n\
+',
+  },
+
+  {
+    idUser: '1',
+    title: 'Migration',
+    section: 'Back-end',
+    linkHref: 'https://www.mysql.com/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      '\
+A template for a migration plan from the monolithic PHP + Docker application to a microservice app:\n\
+\n\
+1. Create a separate temporary domain for testing purposes, for example, web2.domainName.com\n\
+2. Deploy the Docker container on AWS on web2.domainName.com, while preserving that the old container works\n\
+3. Setup and integrate Jenkins pipeline for the deployment process to AWS and ensure, that everything works with the development process\n\
+4. Refactor the monolithic application to be able to extract the components and convert them into microservices. Ensure that the microservices are independent\n\
+5. Implement data migration - migrate data from the monolithic application to the microservices. You can use Amazon Aurora or Amazon DynamoDB for data storage\n\
+6. Implement the microservices in the new stack: Angular, NodeJs, Docker, Jenkins, and AWS. Ensure that the microservices are containerized using Docker\n\
+7. Deploy microservices on AWS and test them on a temporary domain first. Use unit testing, integration testing, and end-to-end testing to validate the microservices. Use and test Jenkins for continuous integration and continuous deployment (CI/CD) to automate the deployment process\n\
+8. Switch from legacy data storage to the new one\n\
+9. Switch from respective parts of PHP code to the microservice. Use AWS API Gateway\n\
+10. Switch the temporary domain to the production domain of content delivery.  Use AWS API Gateway\n\
+11. Apply rollout strategy and green/ blue deployment technique for deploying the microservices to production. In particular this strategy can include deploying to a small subset of users at first to ensure everything works as expected before gradually increasing the number of users\n\
+12. Monitor the microservices with AWS CloudWatch or ELK Stack for monitoring and logging. Be ready to switch back to the previous version or to the monolithic app at any time',
   },
 
   {
@@ -1631,14 +1866,16 @@ SSO services use protocols:\n\
     title: 'MongoDB',
     section: 'Back-end',
     linkHref: 'https://www.mysql.com/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
-  MongoDB CRUD Operations\n\
-  Create Operations\n\
-  Read Operations\n\
-  Update Operations\n\
-  Delete Operations\n\
-  Bulk Write',
+‣ MongoDB CRUD Operations\n\
+‣ Create Operations\n\
+‣ Read Operations\n\
+‣ Update Operations\n\
+‣ Delete Operations\n\
+‣ Bulk Write',
   },
 
   {
@@ -1646,20 +1883,22 @@ SSO services use protocols:\n\
     title: 'MySQL',
     section: 'Back-end',
     linkHref: 'https://www.mysql.com/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
-  MySQL Database\n\
-  MySQL Connect\n\
-  MySQL Create DB\n\
-  MySQL Create Table\n\
-  MySQL Insert Data\n\
-  MySQL Get Last ID\n\
-  MySQL Insert Multiple\n\
-  MySQL Prepared\n\
-  MySQL Select Data\n\
-  MySQL Delete Data\n\
-  MySQL Update Data\n\
-  MySQL Limit Data',
+• Database\n\
+• Connect\n\
+• Create DB\n\
+• Create Table\n\
+• Insert Data\n\
+• Get Last ID\n\
+• Insert Multiple\n\
+• Prepared\n\
+• Select Data\n\
+• Delete Data\n\
+• Update Data\n\
+• Limit Data',
   },
 
   {
@@ -1667,6 +1906,8 @@ SSO services use protocols:\n\
     title: 'NestJS',
     section: 'Back-end',
     linkHref: 'https://docs.nestjs.com/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Custom providers\n\
@@ -1687,6 +1928,8 @@ SSO services use protocols:\n\
     title: 'Node.js',
     section: 'Back-end',
     linkHref: 'https://nodejs.org/en/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 Architecture:\n\
@@ -1714,6 +1957,8 @@ Modules:\n\
     title: 'Php',
     section: 'Back-end',
     linkHref: 'https://php.net/manual/en/langref.php',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   PHP General\n\
@@ -1766,6 +2011,8 @@ Modules:\n\
     section: 'Back-end',
     linkHref:
       'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   pattern: The text of the regular expression.\n\
@@ -1790,6 +2037,8 @@ Modules:\n\
     title: 'RESTful-API',
     section: 'Back-end',
     linkHref: 'https://www.restapitutorial.com/lessons/whatisrest.html',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
 REpresentational\n\
@@ -1818,6 +2067,8 @@ Status codes',
     title: 'Routing',
     section: 'Back-end',
     linkHref: '',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       'Routing provides site users with the following:\n\
   Displaying different content depending on the URL\n\
@@ -1833,6 +2084,8 @@ Status codes',
     section: 'Back-end',
     linkHref:
       'https://www.searchenginejournal.com/200-parameters-in-google-algorithm/15457/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Domain factors\n\
@@ -1855,6 +2108,8 @@ Status codes',
     title: 'Session',
     section: 'Back-end',
     linkHref: 'https://php.net/manual/en/features.sessions.php',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Session stores user information to be used across multiple pages (e.g. username, favorite color, etc).\n\
@@ -1871,6 +2126,8 @@ Status codes',
     section: 'Back-end',
     linkHref:
       'https://docs.oracle.com/cd/B28359_01/server.111/b28286/intro002.htm#SQLRF50928',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   SQL General\n\
@@ -1940,6 +2197,8 @@ Status codes',
     title: 'Swagger-OpenAPI',
     section: 'Back-end',
     linkHref: 'https://swagger.io/docs/specification/about/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   API Server and Base Path\n\
@@ -1981,6 +2240,8 @@ Status codes',
     title: 'Telegram-bot',
     section: 'Back-end',
     linkHref: 'https://telegram-bot-sdk.readme.io/docs/commands-system',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Fetures and usage cases\n\
@@ -1998,6 +2259,8 @@ Status codes',
     title: 'Ubuntu',
     section: 'Back-end',
     linkHref: 'https://www.ubuntu.com/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Install with GParted\n\
@@ -2017,23 +2280,11 @@ Status codes',
 
   {
     idUser: '1',
-    title: 'Web Analytics',
-    section: 'Front-end',
-    linkHref: 'https://www.google.com/analytics/',
-    tooltips:
-      '\
-  Splunk \n\
-  New relic \n\
-  Google Analytics \n\
-  Yandex Analytics\
-  ',
-  },
-
-  {
-    idUser: '1',
     title: 'Xml',
     section: 'Back-end',
     linkHref: 'https://www.w3.org/TR/REC-xml/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   XML General\n\
@@ -2084,6 +2335,8 @@ Status codes',
     title: 'AI & Machine Learning',
     section: 'AI/ ML',
     linkHref: 'https://keras.io/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   ★ To define task in the ML terms \n\
@@ -2130,6 +2383,8 @@ Status codes',
     section: 'AI/ ML',
     linkHref:
       'https://www.analyticsvidhya.com/blog/2017/09/common-machine-learning-algorithms/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   \n\
@@ -2167,6 +2422,8 @@ Status codes',
     title: 'Fann',
     section: 'AI/ ML',
     linkHref: 'https://leenissen.dk/fann/wp/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   FANN Artificial Neural Network Library Features:\n\
@@ -2186,6 +2443,8 @@ Status codes',
     title: 'Keras',
     section: 'AI/ ML',
     linkHref: 'https://keras.io/api/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Models API\n\
@@ -2288,6 +2547,8 @@ Status codes',
     title: 'Matplotlib',
     section: 'AI/ ML',
     linkHref: 'https://matplotlib.org/contents.html',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Pyplot\n\
@@ -2306,6 +2567,8 @@ Status codes',
     title: 'NumPy',
     section: 'AI/ ML',
     linkHref: 'https://numpy.org/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Creating Arrays\n\
@@ -2330,6 +2593,8 @@ Status codes',
     title: 'Pandas',
     section: 'AI/ ML',
     linkHref: 'https://pandas.pydata.org/docs/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Series\n\
@@ -2347,6 +2612,8 @@ Status codes',
     title: 'Python',
     section: 'AI/ ML',
     linkHref: 'https://docs.python.org/3/',
+    iconLibrary: 'Ionicons',
+    iconName: 'logo-python',
     tooltips:
       '\
   Py General\n\
@@ -2393,6 +2660,8 @@ Status codes',
     title: 'SciPy',
     section: 'AI/ ML',
     linkHref: 'https://www.scipy.org/docs.html',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Constants\n\
@@ -2410,6 +2679,8 @@ Status codes',
     title: 'Scikit-Learn',
     section: 'AI/ ML',
     linkHref: 'https://scikit-learn.org/stable/modules/classes.html',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Base classes and utility functions\n\
@@ -2457,6 +2728,8 @@ Status codes',
     title: 'TensorFlow',
     section: 'AI/ ML',
     linkHref: 'https://www.tensorflow.org/api_docs/python/tf',
+    iconLibrary: 'Ionicons',
+    iconName: '',
     tooltips:
       '\
   Modules\n\

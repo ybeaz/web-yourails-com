@@ -1,14 +1,10 @@
 import React, { useCallback } from 'react'
-import { Alert, Linking, ScrollView, View, Modal } from 'react-native'
+import { ScrollView, View, Modal } from 'react-native'
 // import Modal from 'modal-react-native-web';
 
-import {
-  Tooltip,
-  TooltipProps,
-  Text as TextRrneui,
-  lightColors,
-} from '@rneui/themed'
-
+import { Text as TextRrneui } from '@rneui/themed'
+import { Text } from '../Text/Text'
+import { IconYrl } from '../../../YrlNativeViewLibrary/'
 import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
@@ -27,6 +23,8 @@ const TagPropertyComponent: TagPropertyType = props => {
     title,
     linkHref,
     tooltips,
+    iconLibrary,
+    iconName,
     testID = 'TagProperty',
   } = props
 
@@ -44,7 +42,28 @@ const TagPropertyComponent: TagPropertyType = props => {
       testID: 'tooltip_buttonYrl',
       disabled: false,
       onPress: useLinkClickResYrl(linkHref),
-      iconProps: undefined,
+      iconProps: {
+        library: iconLibrary,
+        name: iconName,
+        styleProps: {
+          IconYrl: {
+            cursor: 'pointer',
+            paddingRight: '0.25rem',
+            paddingBottom: '0.25rem',
+          },
+        },
+        size: '1rem',
+        color: themes['themeA'].colors02.color,
+        testID: '<entity>_IconYrl_ios_send',
+      },
+    },
+    iconProps: {
+      library: iconLibrary,
+      name: iconName,
+      styleProps: { IconYrl: { cursor: 'pointer', paddingRight: '0.25rem' } },
+      size: '1.5rem',
+      color: themes['themeA'].colors02.color,
+      testID: '<entity>_IconYrl_ios_send',
     },
   }
 
@@ -76,11 +95,17 @@ const TagPropertyComponent: TagPropertyType = props => {
         withOverlay={true}
         withPointer={true}
       >
-        <TextRrneui
-          style={[style.titleText, { color: themes['themeA'].colors08.color }]}
-        >
-          {title}
-        </TextRrneui>
+        <View style={style.tagIconTextWrapper} testID='tagIconTextWrapper'>
+          <Text
+            style={[
+              style.titleText,
+              { color: themes['themeA'].colors08.color },
+            ]}
+          >
+            {iconLibrary && iconName && <IconYrl {...propsOut.iconProps} />}
+            {title}
+          </Text>
+        </View>
       </ControlledTooltip>
     </View>
   )

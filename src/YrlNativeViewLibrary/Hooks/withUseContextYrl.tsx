@@ -16,7 +16,7 @@ export interface WithUseContextYrlType {
  *    based on its props and state.
  *    In contrast, an imperative approach useContext() approach involves
  *    directly instructing the component to perform a specific action or behavior.
- * @import import { withUseContextYrl } from './YrlNativeViewLibrary/Hooks/withUseContextYrl'
+ * @import import { withUseContextYrl } from './YrlNativeViewLibrary'
  */
 export const withUseContextYrl: WithUseContextYrlType =
   contextCreated => Component => {

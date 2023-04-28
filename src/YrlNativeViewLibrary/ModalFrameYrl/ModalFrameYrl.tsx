@@ -1,7 +1,6 @@
-import { useRef, useState, useEffect } from 'react'
+import React from 'react'
 import { View, SafeAreaView, ImageBackground } from 'react-native'
 import { Platform } from 'react-native'
-import LinearGradient from 'react-native-linear-gradient'
 // @ts-ignore
 import WebLinearGradient from 'react-native-web-linear-gradient'
 import { ModalFrameYrlType } from './ModalFrameYrlType'
@@ -12,8 +11,7 @@ const LinearGradientUniPlatform =
   Platform.OS === 'web' ? WebLinearGradient : View // LinearGradient
 
 /**
- * @import import { ModalFrameYrl } from './YrlNativeViewLibrary/ModalFrameYrl/ModalFrameYrl'
- * @import import { ModalFrameYrlPropsType } from './YrlNativeViewLibrary/ModalFrameYrl/ModalFrameYrlType'
+ * @import import { ModalFrameYrl, ModalFrameYrlPropsType } from './YrlNativeViewLibrary'
  * @links for LinearGradient: https://github.com/react-native-linear-gradient/react-native-linear-gradient
  * @propsOut
   modalFrameYrlProps: {
@@ -23,7 +21,7 @@ const LinearGradientUniPlatform =
     isShow: false,
     isShowImageBackground: false,
     testID: 'ModalFrameYrl',
-    buttonBack: {
+    buttonBackProps: {
       styleProps: { ButtonYrl: {}, title: {} },
       titleText: '',
       testID: 'ModalFrameYrl-buttonBack',
@@ -37,7 +35,7 @@ const LinearGradientUniPlatform =
         testID: 'ModalFrameYrl-buttonBack-iconBack',
       },
     },
-    buttonClose: {
+    buttonCloseProps: {
       styleProps: { ButtonYrl: {}, title: {} },
       titleText: '',
       testID: 'ModalFrameYrl-buttonClose',
@@ -71,13 +69,14 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
     isShow = false,
     isShowImageBackground = false,
     testID = 'ModalFrameYrl',
-    buttonBack = {
+    buttonBackProps = {
       styleProps: { ButtonYrl: {}, title: {} },
       titleText: '',
       testID: 'ModalFrameYrl-buttonBack',
       disabled: false,
       onPress: () => {},
       iconProps: {
+        styleProps: { IconYrl: {} },
         library: 'Ionicons',
         name: 'arrow-back-outline',
         size: '1.5rem',
@@ -85,13 +84,14 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
         testID: 'ModalFrameYrl-buttonBack-iconBack',
       },
     },
-    buttonClose = {
+    buttonCloseProps = {
       styleProps: { ButtonYrl: {}, title: {} },
       titleText: '',
       testID: 'ModalFrameYrl-buttonClose',
       disabled: false,
       onPress: () => {},
       iconProps: {
+        styleProps: { IconYrl: {} },
         onPress: () => {},
         library: 'Ionicons',
         name: 'close',
@@ -106,8 +106,8 @@ export const ModalFrameYrl: ModalFrameYrlType = props => {
   } = props
 
   const propsOut: Record<string, any> = {
-    buttonBackProps: buttonBack,
-    buttonCloseProps: buttonClose,
+    buttonBackProps,
+    buttonCloseProps,
   }
 
   const handlersAndContentJsx = (

@@ -19,8 +19,8 @@ export interface ModalFrameYrlPropsType {
   isShow: boolean
   isShowImageBackground: boolean
   testID?: string
-  buttonBack?: ButtonYrlPropsType
-  buttonClose?: ButtonYrlPropsType
+  buttonBackProps?: ButtonYrlPropsType
+  buttonCloseProps?: ButtonYrlPropsType
   imageBackgroundSource?: any
   isButtonBack?: boolean
   isButtonClose?: boolean

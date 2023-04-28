@@ -8,14 +8,17 @@ import { getRedirectedPathnameHash } from '../../Shared/getRedirectedPathnameHas
 const { dispatch, getState } = store
 
 /**
- * @description Handle to setup initial data based on the device type and URL
-  xsDevice = DeviceTypeIn['xsDevice'],
-  smDevice = DeviceTypeIn['smDevice'],
-  mdDevice = DeviceTypeIn['mdDevice'],
-  lgDevice = DeviceTypeIn['lgDevice'],
-  xlDevice = DeviceTypeIn['xlDevice'],
- */
+   * @description Handle to setup initial data based on the device type and URL
+    xsDevice = DeviceTypeIn['xsDevice'],
+    smDevice = DeviceTypeIn['smDevice'],
+    mdDevice = DeviceTypeIn['mdDevice'],
+    lgDevice = DeviceTypeIn['lgDevice'],
+    xlDevice = DeviceTypeIn['xlDevice'],
+   */
 
+/**
+ * @description This handle is called when the app loads initially
+ */
 export const SET_STORE_SCENARIO: ActionEventType = (
   event,
   dataHandle: {

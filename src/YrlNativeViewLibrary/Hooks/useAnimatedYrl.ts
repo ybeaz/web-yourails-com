@@ -19,7 +19,7 @@ export interface UseAnimatedYrlType {
 
 /**
  * @description React hook to provide animation, delay of appearance of an element
- * @import import { useAnimatedYrl } from './YrlNativeViewLibrary/Hooks/useAnimatedYrl.ts'
+ * @import import { useAnimatedYrl } from './YrlNativeViewLibrary'
  */
 
 export const useAnimatedYrl: UseAnimatedYrlType = ({

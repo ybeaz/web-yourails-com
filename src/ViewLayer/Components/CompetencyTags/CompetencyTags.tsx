@@ -31,12 +31,16 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
 
   const getTagList = (competencies: CompetencyTagType[]): ReactElement[] => {
     return competencies.map((competency, index: number) => {
-      const { title, linkHref, tooltips } = competency
+      const { title, linkHref, tooltips, iconLibrary, iconName, iconSize } =
+        competency
+
       const tagPropertyProps = {
         key: `tagProperty-${index}`,
         title,
         linkHref,
         tooltips,
+        iconLibrary,
+        iconName,
         testID: 'CompetencyTags_item',
       }
       return <TagProperty {...tagPropertyProps} />

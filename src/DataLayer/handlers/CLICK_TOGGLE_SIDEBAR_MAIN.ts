@@ -5,6 +5,10 @@ import { DeviceType } from '../../YrlNativeViewLibrary'
 
 const { dispatch, getState } = store
 
+/**
+ * @description This toggle is called with sm/ xs screen
+ *    if the user click on the user card on the left column and on the back upper back arrow
+ */
 export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
   event,
   dataHandle: { deviceType: DeviceType }
@@ -40,6 +44,8 @@ export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
     isLeftColumnNext = false
     isMainColumnNext = true
   }
+
+  console.info('CLICK_TOGGLE_SIDEBAR_MAIN [44]', { deviceType, modalFrameNext })
 
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))

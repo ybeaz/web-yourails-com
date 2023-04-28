@@ -16,5 +16,6 @@ export const SET_MODAL_FRAME: Function = (
     ...componentsState,
     modalFrame: { ...modalFrame, ...dataNext },
   }
+
   return { ...store, componentsState: componentsStateNext }
 }
