@@ -90,7 +90,7 @@ const PortfolioComponent: PortfolioType = props => {
         headerText: {},
       },
       mediaParams: { deviceType: '' },
-      headerText: 'Side projects & widgets',
+      headerText: 'Projects & Examples',
     },
   }
 

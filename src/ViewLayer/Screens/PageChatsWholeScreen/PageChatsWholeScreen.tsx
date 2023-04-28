@@ -27,6 +27,7 @@ import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainCo
 import { conversations } from '../../../ContentMock/conversationsMock'
 import { messages } from '../../../ContentMock/messagesMock'
 import { profiles } from '../../../ContentMock/profilesMock'
+import { contentSections } from '../../../ContentMock/contentSectionsMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
@@ -50,6 +51,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     location: { pathname, hash },
   } = routeProps
 
+  console.info('PageChatsWholeScreen [54]', { contentSections })
+
   const style = styles[deviceType]
 
   const renderCounter = useRef(0)
@@ -59,6 +62,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     globalVars: { language, idUserHost, isShowApp },
     componentsState,
   } = store
+
   const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
     componentsState
   const {
