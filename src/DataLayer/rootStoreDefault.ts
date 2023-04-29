@@ -73,6 +73,7 @@ export const rootStoreDefault: RootStoreType = {
       ? componentsStateR1
       : componentsStateDefault,
   profiles: [],
+  messages: [],
   forms: formsDefault,
   isLoaded: {
     isLoadedGlobalVars: false,
