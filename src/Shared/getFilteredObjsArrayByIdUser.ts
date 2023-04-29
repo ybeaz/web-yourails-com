@@ -6,7 +6,10 @@ type ObjIdUserArrayType = {
 }
 
 interface GetFilteredObjsArrayByIdUserType {
-  (objsArr: ObjIdUserArrayType[], idUser: string | number): ObjIdUserArrayType[]
+  (
+    objsArr: ObjIdUserArrayType[],
+    idUser: string | number | undefined
+  ): ObjIdUserArrayType[]
 }
 
 /**

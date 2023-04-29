@@ -1,21 +1,25 @@
+import { router } from '../../RouterScreensConfig'
 import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
-import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { getParsedUrlQuery } from '../../Shared/getParsedUrlQuery'
+import { actionSync } from '../../DataLayer/index.action'
 
-const { dispatch, getState } = store
+const { dispatch } = store
 
 export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
-  const { idUser, profileName } = data
+  const { idUser, profileName, urlParam1, urlParam2, query } = data
   dispatch(
     actionSync.SET_ID_USER_HOST({
       idUser,
     })
   )
 
-  const query = getParsedUrlQuery(window.location.hash)
+  let newPath = `/${urlParam1}/${profileName}` /** @comment if (urlParam1 && urlParam2) */
 
-  if (profileName && query.s)
-    window.location.hash = `${profileName}?s=${query.s}`
-  else if (profileName) window.location.hash = `${profileName}`
+  if (urlParam1 && !urlParam2 && query?.s) {
+    newPath = `/${profileName}?s=${query.s}`
+  } else if (urlParam1 && !urlParam2 && !query?.s) {
+    newPath = `/${profileName}`
+  }
+
+  router.navigate(newPath)
 }

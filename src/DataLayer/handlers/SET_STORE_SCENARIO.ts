@@ -1,6 +1,7 @@
+import { router } from '../../RouterScreensConfig'
 import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
-import { actionSync, actionAsync } from '../../DataLayer/index.action'
+import { actionSync } from '../../DataLayer/index.action'
 import { DeviceType } from '../../YrlNativeViewLibrary'
 import { getSetStoreScenario } from '../../Shared/getSetStoreScenario'
 import { getRedirectedPathnameHash } from '../../Shared/getRedirectedPathnameHash'
@@ -22,12 +23,13 @@ const { dispatch, getState } = store
 export const SET_STORE_SCENARIO: ActionEventType = (
   event,
   dataHandle: {
-    pathname: string
-    hash: string
+    urlParam1: string
+    urlParam2: string
+    query: { s: string }
     deviceType: DeviceType
   }
 ) => {
-  const { pathname, hash, deviceType } = dataHandle
+  const { urlParam1, urlParam2, query, deviceType } = dataHandle
 
   const {
     globalVars: { idUserHost },
@@ -44,13 +46,25 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     isMainColumnBlank: isMainColumnBlankNext,
     modalFrame: modalFrameNext,
     redirectPathname,
-    redirectHash,
   } = getSetStoreScenario({
     profiles,
     hostname: window.location.hostname,
-    pathname,
-    hash,
+    urlParam1,
+    urlParam2,
+    query,
     deviceType,
+  })
+
+  console.info('SET_STORE_SCENARIO []', {
+    caseNo,
+    caseDesc,
+    profiles,
+    hostname: window.location.hostname,
+    urlParam1,
+    urlParam2,
+    query,
+    deviceType,
+    'window.location': window.location,
   })
 
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
@@ -59,7 +73,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
-  getRedirectedPathnameHash(redirectPathname, redirectHash)
+  getRedirectedPathnameHash(router, redirectPathname)
 
   if (idUserHost === idUserNext) return
   dispatch(

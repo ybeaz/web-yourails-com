@@ -1,6 +1,6 @@
-import React, { useRef, useEffect, useMemo, useCallback } from 'react'
-import { StatusBar } from 'expo-status-bar'
+import React, { useRef, useEffect } from 'react'
 import { SafeAreaView, ScrollView, View } from 'react-native'
+import { useSearchParams, useParams } from 'react-router-native'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
@@ -34,29 +34,17 @@ import localizedFormat from 'dayjs/plugin/localizedFormat'
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
     styleProps = { PageChatsWholeScreen: {} },
-    routeProps = {
-      location: {
-        pathname: '',
-        hash: '',
-      },
-    },
     mediaParams = mediaParamsDefault,
-    themeDafault = '',
     store,
-    history,
   } = props
-  const { deviceType, height } = mediaParams
-
-  const {
-    location: { pathname, hash },
-  } = routeProps
-
-  console.info('PageChatsWholeScreen [54]', { contentSections })
+  const { deviceType } = mediaParams
 
   const style = styles[deviceType]
 
   const renderCounter = useRef(0)
   renderCounter.current = renderCounter.current + 1
+
+  console.info('PageChatsWholeScreen [47]', { contentSections })
 
   const {
     globalVars: { language, idUserHost, isShowApp },
@@ -65,6 +53,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
     componentsState
+
   const {
     childName: childNameModal,
     isShow: isShowModalFrame,
@@ -84,21 +73,23 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     return message.idConversation === conversationsUserHost[0]?.idConversation
   })
 
+  const { urlParam1, urlParam2 } = useParams()
+  const [searchParams] = useSearchParams()
+  const query = {
+    s: searchParams.get('s'),
+  }
+
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
   }, [])
 
   useEffect(() => {
-    handleEvents.SET_STORE_SCENARIO({}, { pathname, hash, deviceType })
-  }, [hash])
-
-  useMemo(() => {
-    handleEvents.SET_STORE_SCENARIO({}, { pathname, hash, deviceType })
-  }, [deviceType])
-
-  const onClickOnUser = ({}, data: any) => {
-    console.info('PageChatsWholeScreen [87]', { data })
-  }
+    // if (renderCounter.current > 1) return
+    handleEvents.SET_STORE_SCENARIO(
+      {},
+      { urlParam1, urlParam2, query, deviceType }
+    )
+  }, [urlParam1, urlParam2, deviceType])
 
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
   const styleAddLeftColumn = {} // isShowModalFrame ? styleGlobal.hidden : {}
@@ -111,6 +102,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     chatCardsProps: {
       profiles,
       idUserHost,
+      urlParam1,
+      urlParam2,
+      query,
     },
     chatSpaceProps: {
       styleProps: {
@@ -201,10 +195,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           ]}
           testID='leftColumn'
         >
-          {/* <AnimatedYrl {...propsOut.leftColumnInnerInAnimatedYrlProps}> */}
           <TopBarChatCards />
           <ChatCards {...propsOut.chatCardsProps} />
-          {/* </AnimatedYrl> */}
         </View>
       )}
 

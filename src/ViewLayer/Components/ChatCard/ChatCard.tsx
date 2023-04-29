@@ -23,6 +23,9 @@ const ChatCardComponent: ChatCardType = props => {
     mediaParams = mediaParamsDefault,
     handleEvents,
     isActive,
+    urlParam1,
+    urlParam2,
+    query,
   } = props
   const { idUser, profileName } = profile
   const { deviceType } = mediaParams
@@ -35,7 +38,10 @@ const ChatCardComponent: ChatCardType = props => {
       profile,
       onPress: () => {
         handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
-        handleEvents.CLICK_ON_USER_CHAT_CARD({}, { idUser, profileName })
+        handleEvents.CLICK_ON_USER_CHAT_CARD(
+          {},
+          { idUser, profileName, urlParam1, urlParam2, query }
+        )
       },
     },
     nameStatusProps: {

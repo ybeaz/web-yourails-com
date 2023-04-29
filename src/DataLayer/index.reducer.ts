@@ -13,11 +13,11 @@ import { TOGGLE_LOADER_OVERLAY } from './reducers/TOGGLE_LOADER_OVERLAY'
 
 import { rootStoreDefault } from './rootStoreDefault'
 
-export interface IIndexReducer {
+export interface IndexReducerType {
   (store: RootStoreType, action: ActionType): RootStoreType
 }
 
-export const indexReducer: IIndexReducer = (
+export const indexReducer: IndexReducerType = (
   store = rootStoreDefault,
   action = { type: 'DEFAULT' }
 ) => {

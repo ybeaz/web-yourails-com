@@ -53,9 +53,9 @@ export const componentsStateR1: ComponentsStateType = {
 
 export const componentsStateDefault: ComponentsStateType = {
   isLoaderOverlayVisible: false,
-  isLeftColumn: true,
+  isLeftColumn: false,
   isMainColumn: false,
-  isMainColumnBlank: false,
+  isMainColumnBlank: true,
   modalFrame: {
     childName: 'Portfolio', // Portfolio, Profile CompetencyTags
     isShow: false,
