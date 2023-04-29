@@ -14,6 +14,7 @@ import {
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
+import { getProfileChat } from '../../../Shared/getProfileChat'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
@@ -28,6 +29,7 @@ import { conversations } from '../../../ContentMock/conversationsMock'
 import { messages } from '../../../ContentMock/messagesMock'
 import { profiles } from '../../../ContentMock/profilesMock'
 import { contentSections } from '../../../ContentMock/contentSectionsMock'
+import { sectionsMappingUsers } from '../../../ContentMock/sectionsMappingMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
@@ -61,23 +63,28 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     isButtonClose: isButtonCloseModal,
   } = modalFrame
 
-  const profile = profiles.find(
-    (profileIn: ProfileType) => profileIn.idProfile === idUserHost
-  )
+  const { urlParam1, urlParam2 } = useParams()
+  const [searchParams] = useSearchParams()
+  const query = {
+    s: searchParams.get('s'),
+  }
 
-  // TODO: this is only the first attempt for demo purposes
+  const profile = getProfileChat({ urlParam1, urlParam2, profiles })
+
+  console.info('PageChatsWholeScreen [73]', {
+    urlParam1,
+    urlParam2,
+    idUserHost,
+    profile,
+  })
+
+  // TODO: To create another profile and show the conversation. This is only the first attempt for demo purposes
   const conversationsUserHost = conversations.filter((conversation: any) => {
     return conversation.idsUsers.includes(idUserHost)
   })
   const messagesUserHost = messages.filter((message: any) => {
     return message.idConversation === conversationsUserHost[0]?.idConversation
   })
-
-  const { urlParam1, urlParam2 } = useParams()
-  const [searchParams] = useSearchParams()
-  const query = {
-    s: searchParams.get('s'),
-  }
 
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
