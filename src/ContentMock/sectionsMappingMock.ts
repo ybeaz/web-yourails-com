@@ -1,13 +1,7 @@
-type SectionMapType = {
-  title: string
-  pathname: string
-  iconLibrary: string
-  iconName: string
-  iconTitleText: string
-  childName: string
-}
-
-type SectionsMappingType = Record<string, SectionMapType>
+import {
+  SectionsMappingType,
+  SectionsMappingProfilesType,
+} from '../@types/SectionsMappingType'
 
 export const sectionsMappingDefault: SectionsMappingType = {
   ProjectType: {
@@ -36,9 +30,9 @@ export const sectionsMappingDefault: SectionsMappingType = {
   },
 }
 
-export const sectionsMappingUsers: Record<string, SectionsMappingType> = {
-  '1': sectionsMappingDefault,
-  '2': {
+export const sectionsMappingProfiles: SectionsMappingProfilesType = {
+  '@rome': sectionsMappingDefault,
+  '@smid': {
     ...sectionsMappingDefault,
     ProjectType: {
       title: 'Work Examples',

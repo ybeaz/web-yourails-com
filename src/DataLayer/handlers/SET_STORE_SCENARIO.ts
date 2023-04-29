@@ -4,7 +4,7 @@ import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync } from '../../DataLayer/index.action'
 import { DeviceType } from '../../YrlNativeViewLibrary'
 import { getSetStoreScenario } from '../../Shared/getSetStoreScenario'
-import { getRedirectedPathnameHash } from '../../Shared/getRedirectedPathnameHash'
+import { getRedirectedPathname } from '../../Shared/getRedirectedPathname'
 
 const { dispatch, getState } = store
 
@@ -73,7 +73,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
-  getRedirectedPathnameHash(router, redirectPathname)
+  getRedirectedPathname(router, redirectPathname)
 
   if (idUserHost === idUserNext) return
   dispatch(

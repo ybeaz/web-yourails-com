@@ -4,10 +4,8 @@ import { View } from 'react-native'
 import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'
 import { style } from './ContentMenuMainColumnStyle'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary'
-import {
-  MENU_CONTENT_ITEMS,
-  MenuContentItemsType,
-} from '../../../Constants/menuContentItems.const'
+import { SectionMapType } from '../../../@types/SectionsMappingType'
+
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { withPropsYrl } from '../../../YrlNativeViewLibrary'
@@ -18,6 +16,7 @@ import { withPropsYrl } from '../../../YrlNativeViewLibrary'
 const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
   const {
     styleProps = { ContentMenuMainColumn: {}, buttonWrapper: {} },
+    sectionsMapping,
     store,
     handleEvents,
   } = props
@@ -28,10 +27,16 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
     },
   } = store
 
-  const getMenuContentItems = (menuContentItemsIn: MenuContentItemsType[]) => {
+  const getMenuContentItems = (menuContentItemsIn: SectionMapType[]) => {
     return menuContentItemsIn.map((menuContentItem: any, index: number) => {
-      const { iconLibrary, iconName, iconTitleText, childName } =
-        menuContentItem
+      const {
+        title,
+        pathname,
+        iconLibrary,
+        iconName,
+        iconTitleText,
+        childName,
+      } = menuContentItem
 
       const propsOut: Record<string, any> = {
         buttonProps: {
@@ -50,7 +55,8 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
             handleEvents.SET_MODAL_FRAME(event, {
               childName,
               isShow: true,
-              childProps: {},
+              pathname,
+              childProps: { title },
             }),
           iconProps: {
             library: iconLibrary,
@@ -83,6 +89,12 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
     })
   }
 
+  const sectionsMappingItems = Object.values(sectionsMapping)
+
+  console.info('ContentMenuMainColumn [88]', {
+    sectionsMappingItems,
+  })
+
   const propsOut: Record<string, any> = {}
 
   return (
@@ -90,7 +102,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
       style={[style.ContentMenuMainColumn, styleProps.ContentMenuMainColumn]}
       testID='ContentMenuMainColumn'
     >
-      {getMenuContentItems(MENU_CONTENT_ITEMS)}
+      {getMenuContentItems(sectionsMappingItems)}
     </View>
   )
 }

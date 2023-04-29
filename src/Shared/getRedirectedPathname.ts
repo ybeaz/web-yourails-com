@@ -1,4 +1,4 @@
-interface GetRedirectedPathnameHashType {
+interface GetRedirectedPathnameType {
   (router: any, redirectPathname: string | undefined): void
 }
 
@@ -7,7 +7,7 @@ interface GetRedirectedPathnameHashType {
  * @import import { getRedirectedPathnameHash } from '../../../Shared/getRedirectedPathnameHash'
  */
 
-export const getRedirectedPathnameHash: GetRedirectedPathnameHashType = (
+export const getRedirectedPathname: GetRedirectedPathnameType = (
   router,
   redirectPathname
 ) => {

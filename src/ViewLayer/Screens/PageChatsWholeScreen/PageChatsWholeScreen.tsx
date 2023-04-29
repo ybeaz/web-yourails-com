@@ -8,7 +8,6 @@ dayjs.extend(localizedFormat)
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
-import { ProfileType } from '../../../@types/ProfileType'
 import {
   withDeviceTypeYrl,
   mediaParamsDefault,
@@ -29,7 +28,7 @@ import { conversations } from '../../../ContentMock/conversationsMock'
 import { messages } from '../../../ContentMock/messagesMock'
 import { profiles } from '../../../ContentMock/profilesMock'
 import { contentSections } from '../../../ContentMock/contentSectionsMock'
-import { sectionsMappingUsers } from '../../../ContentMock/sectionsMappingMock'
+import { sectionsMappingProfiles } from '../../../ContentMock/sectionsMappingMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
@@ -70,8 +69,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   }
 
   const profile = getProfileChat({ urlParam1, urlParam2, profiles })
+  const profileNameChat = profile ? profile.profileName : undefined
+  const sectionsMapping = profileNameChat
+    ? sectionsMappingProfiles[profileNameChat]
+    : undefined
 
   console.info('PageChatsWholeScreen [73]', {
+    sectionsMapping,
     urlParam1,
     urlParam2,
     idUserHost,
@@ -137,6 +141,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           borderLeftColor: themes['themeA'].colors01.borderColor,
         },
       },
+      sectionsMapping,
       store,
     },
     leftColumnOuterAnimatedYrlProps: {
