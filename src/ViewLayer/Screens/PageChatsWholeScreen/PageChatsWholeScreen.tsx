@@ -14,6 +14,7 @@ import {
 } from '../../../YrlNativeViewLibrary'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
 import { getProfileChat } from '../../../Shared/getProfileChat'
+import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
@@ -28,7 +29,7 @@ import { conversations } from '../../../ContentMock/conversationsMock'
 import { messages } from '../../../ContentMock/messagesMock'
 import { profiles } from '../../../ContentMock/profilesMock'
 import { contentSections } from '../../../ContentMock/contentSectionsMock'
-import { sectionsMappingProfiles } from '../../../ContentMock/sectionsMappingMock'
+import { sectionsMapping } from '../../../ContentMock/sectionsMappingMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
@@ -62,7 +63,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     isButtonClose: isButtonCloseModal,
   } = modalFrame
 
-  const { urlParam1, urlParam2 } = useParams()
+  const { urlParam1, urlParam2, urlParam3 } = useParams()
   const [searchParams] = useSearchParams()
   const query = {
     s: searchParams.get('s'),
@@ -70,14 +71,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const profile = getProfileChat({ urlParam1, urlParam2, profiles })
   const profileNameChat = profile ? profile.profileName : undefined
-  const sectionsMapping = profileNameChat
-    ? sectionsMappingProfiles[profileNameChat]
-    : undefined
+
+  const sectionsMappingForProfile = getSectionsMappingForProfile(
+    sectionsMapping,
+    profileNameChat
+  )
 
   console.info('PageChatsWholeScreen [73]', {
     sectionsMapping,
+    sectionsMappingForProfile,
     urlParam1,
     urlParam2,
+    urlParam3,
     idUserHost,
     profile,
   })
@@ -98,7 +103,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     // if (renderCounter.current > 1) return
     handleEvents.SET_STORE_SCENARIO(
       {},
-      { urlParam1, urlParam2, query, deviceType }
+      { urlParam1, urlParam2, urlParam3, query, deviceType }
     )
   }, [urlParam1, urlParam2, deviceType])
 
@@ -141,7 +146,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           borderLeftColor: themes['themeA'].colors01.borderColor,
         },
       },
-      sectionsMapping,
+      sectionsMapping: sectionsMappingForProfile,
       store,
     },
     leftColumnOuterAnimatedYrlProps: {

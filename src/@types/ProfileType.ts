@@ -14,7 +14,7 @@ export interface ProfileType {
   nameFirst?: string
   nameLast?: string
   uriAvatar?: string
-  profileName?: string | number
+  profileName?: string
   phones?: (string | number | undefined)[]
   emails?: string[]
   messengers?: MessengerType[]
