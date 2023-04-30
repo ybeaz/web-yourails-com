@@ -21,8 +21,7 @@ export const getProfileChat: GetProfileNameChatType = ({
 }) => {
   let profileName: string | undefined = undefined
   if (urlParam2 && urlParam2[0] === '@') profileName = urlParam2
-  else if (!urlParam2 && urlParam1 && urlParam1[0] === '@')
-    profileName = urlParam1
+  else if (urlParam1 && urlParam1[0] === '@') profileName = urlParam1
 
   let output = undefined
   if (profileName)

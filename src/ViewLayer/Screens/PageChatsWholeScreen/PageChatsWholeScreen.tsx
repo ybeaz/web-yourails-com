@@ -5,6 +5,7 @@ import { useSearchParams, useParams } from 'react-router-native'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
+import { SectionMappingType } from '../../../@types/SectionMappingType'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
@@ -69,13 +70,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     s: searchParams.get('s'),
   }
 
-  const profile = getProfileChat({ urlParam1, urlParam2, profiles })
+  const profile = getProfileChat({ profiles, urlParam1, urlParam2 })
   const profileNameChat = profile ? profile.profileName : undefined
 
-  const sectionsMappingForProfile = getSectionsMappingForProfile(
-    sectionsMapping,
-    profileNameChat
-  )
+  const sectionsMappingForProfile: SectionMappingType[] =
+    getSectionsMappingForProfile(sectionsMapping, profileNameChat)
 
   console.info('PageChatsWholeScreen [73]', {
     sectionsMapping,
@@ -103,7 +102,14 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     // if (renderCounter.current > 1) return
     handleEvents.SET_STORE_SCENARIO(
       {},
-      { urlParam1, urlParam2, urlParam3, query, deviceType }
+      {
+        urlParam1,
+        urlParam2,
+        urlParam3,
+        query,
+        deviceType,
+        sectionsMappingForProfile,
+      }
     )
   }, [urlParam1, urlParam2, urlParam3, deviceType])
 

@@ -1,5 +1,6 @@
 import { router } from '../../RouterScreensConfig'
 import { store } from '../store'
+import { SectionMappingType } from '../../@types/SectionMappingType'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync } from '../../DataLayer/index.action'
 import { DeviceType } from '../../YrlNativeViewLibrary'
@@ -27,9 +28,17 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     urlParam3: string
     query: { s: string }
     deviceType: DeviceType
+    sectionsMappingForProfile: SectionMappingType[]
   }
 ) => {
-  const { urlParam1, urlParam2, urlParam3, query, deviceType } = dataHandle
+  const {
+    urlParam1,
+    urlParam2,
+    urlParam3,
+    query,
+    deviceType,
+    sectionsMappingForProfile,
+  } = dataHandle
 
   const {
     globalVars: { idUserHost },
@@ -54,6 +63,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     urlParam3,
     query,
     deviceType,
+    sectionsMappingForProfile,
   })
 
   console.info('SET_STORE_SCENARIO [59]', {
