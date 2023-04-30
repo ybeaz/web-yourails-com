@@ -17,20 +17,21 @@ const { dispatch } = store
   }
  */
 export const SET_MODAL_FRAME: ActionEventType = (event, data) => {
-  const { pathname } = data
+  const { pathname: tabName } = data
   // childProps: {title},
 
   dispatch(actionSync.SET_MODAL_FRAME(data))
 
-  const pathnameNext = getPathNameForReplace(pathname)
+  const [urlParam0, urlParam1, urlParam2, urlParam3] =
+    window.location.pathname.split('/')
 
-  console.info('SET_MODAL_FRAME [24]', {
-    pathnameNext,
-    pathname: window.location.pathname,
-    'window.location': window.location,
-  })
+  const getPathNameForReplaceProps = {
+    urlParam1,
+    urlParam2,
+    urlParam3,
+    tabName,
+  }
+  const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
 
   router.navigate(pathnameNext, { replace: true })
-
-  // Stopped here
 }

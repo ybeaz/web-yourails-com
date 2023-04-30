@@ -15,6 +15,7 @@ type GetSetStoreScenarioPropsType = {
   hostname: string
   urlParam1: string
   urlParam2: string
+  urlParam3: string
   query: { s: string }
   deviceType: DeviceType
 }
@@ -43,7 +44,7 @@ export const modalFrameFalse: ModalFrameType = {
   childProps: {},
 }
 
-export const modalFrameTrue = {
+export const modalFrameTrue: ModalFrameType = {
   childName: 'Portfolio',
   isShow: true,
   isButtonBack: false,
@@ -61,14 +62,59 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
   hostname,
   urlParam1,
   urlParam2,
+  urlParam3,
   query,
   deviceType,
 }) => {
   // const query = getParsedUrlQuery(hash)
   const { s: showType } = query
 
-  let profileName = urlParam2
-  if (!urlParam2) profileName = urlParam1
+  const getScenarioParamsFromUrlParams = (
+    urlParam1: string,
+    urlParam2: string,
+    urlParam3: string
+  ): {
+    isChatApp: boolean
+    profileName: string | undefined
+    modalFrameChildName: string
+    isShowModalFrame: boolean
+  } => {
+    let isChatApp = false
+    if (urlParam1 === 'k') isChatApp = true
+
+    let profileName = undefined
+    let modalFrameChildName = ''
+    let isShowModalFrame = false
+
+    if (urlParam1 && urlParam1[0] === '@') {
+      profileName = urlParam1
+      if (urlParam2) {
+        modalFrameChildName = 'Portfolio'
+        isShowModalFrame = true
+      }
+    } else if (urlParam2 && urlParam2[0] === '@') {
+      profileName = urlParam2
+      if (urlParam3) {
+        modalFrameChildName = 'Portfolio'
+        isShowModalFrame = true
+      }
+    }
+
+    console.info('getSetStoreScenario [103]', {
+      urlParam1,
+      urlParam2,
+      urlParam3,
+      isChatApp,
+      profileName,
+      modalFrameChildName,
+      isShowModalFrame,
+    })
+
+    return { isChatApp, profileName, modalFrameChildName, isShowModalFrame }
+  }
+
+  const { isChatApp, profileName, modalFrameChildName, isShowModalFrame } =
+    getScenarioParamsFromUrlParams(urlParam1, urlParam2, urlParam3)
 
   const profileUrl = profiles.find(
     (profile: ProfileType) => profile.profileName === profileName
@@ -76,12 +122,11 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
 
   const idUserUrl = profileUrl?.idUser
 
-  console.info('getSetStoreScenario [81]', {
-    profileName,
-    idUserUrl,
-    profileUrl,
-    showType,
-  })
+  const modalFrameOutput: ModalFrameType = {
+    ...modalFrameFalse,
+    childName: modalFrameChildName,
+    isShow: isShowModalFrame,
+  }
 
   let output: GetSetStoreScenarioReturnType = {
     caseNo: 0,
@@ -91,15 +136,15 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     isLeftColumn: false,
     isMainColumn: true,
     isMainColumnBlank: false,
-    modalFrame: modalFrameFalse,
+    modalFrame: modalFrameOutput,
     redirectPathname: undefined,
   }
 
   /* Case 1. Hostname === 'r1.userto.com'  */
   if (hostname === 'r1.userto.com') {
-    const modalFrame = {
-      childName: 'Portfolio',
-      isShow: true,
+    const modalFrame: ModalFrameType = {
+      childName: modalFrameChildName,
+      isShow: isShowModalFrame,
       isButtonBack: false,
       isButtonClose: false,
       childProps: {},
@@ -128,7 +173,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       isLeftColumn: false,
       isMainColumn: true,
       isMainColumnBlank: true,
-      modalFrame: modalFrameFalse,
+      modalFrame: modalFrameOutput,
       redirectPathname: `/k`,
     }
   } /*
@@ -143,7 +188,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       isLeftColumn: false,
       isMainColumn: true,
       isMainColumnBlank: false,
-      modalFrame: modalFrameTrue,
+      modalFrame: modalFrameOutput,
       redirectPathname: undefined,
     }
   } /* 
@@ -157,7 +202,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       isLeftColumn: false,
       isMainColumn: true,
       isMainColumnBlank: false,
-      modalFrame: modalFrameFalse,
+      modalFrame: modalFrameOutput,
       redirectPathname: undefined,
     }
   } /* 
@@ -172,7 +217,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       isLeftColumn: true,
       isMainColumn: true,
       isMainColumnBlank: true,
-      modalFrame: modalFrameFalse,
+      modalFrame: modalFrameOutput,
       redirectPathname: undefined,
     }
   } /*
@@ -187,7 +232,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       isLeftColumn: true,
       isMainColumn: true,
       isMainColumnBlank: false,
-      modalFrame: modalFrameFalse,
+      modalFrame: modalFrameOutput,
       redirectPathname: undefined,
     }
   }
@@ -214,6 +259,17 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       }
     }
   }
+
+  console.info('getSetStoreScenario [254]', {
+    isChatApp,
+    profileName,
+    modalFrameChildName,
+    isShowModalFrame,
+    idUserUrl,
+    profileUrl,
+    showType,
+    output,
+  })
 
   return output
 }

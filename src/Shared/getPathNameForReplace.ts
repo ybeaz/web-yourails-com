@@ -1,5 +1,13 @@
+type GetPathNameForReplacePropsType = {
+  urlParam1: string
+  urlParam2: string
+  query?: { s?: string }
+  profileName?: string
+  tabName?: string
+}
+
 interface GetPathNameForReplaceType {
-  (tabName: string): string
+  (props: GetPathNameForReplacePropsType): string
 }
 
 /**
@@ -7,20 +15,32 @@ interface GetPathNameForReplaceType {
  * @import import { getPathNameForReplace } from '../../../Shared/getPathNameForReplace'
  */
 
-export const getPathNameForReplace: GetPathNameForReplaceType = tabName => {
-  const [urlParam0, urlParam1, urlParam2, urlParam3] =
-    window.location.pathname.split('/')
-
+export const getPathNameForReplace: GetPathNameForReplaceType = ({
+  urlParam1,
+  urlParam2,
+  query,
+  profileName,
+  tabName,
+}) => {
   let pathnameNext = ''
-  let addOn = ''
-  if (tabName) addOn = `/${tabName}`
+  let addOnTab = ''
+  if (tabName) addOnTab = `/${tabName}`
 
-  if (urlParam2 && urlParam2[0] === '@')
-    pathnameNext = `/${urlParam1}/${urlParam2}${addOn}`
-  else if (!urlParam2 && urlParam1 && urlParam1[0] === '@')
-    pathnameNext = `/${urlParam1}${addOn}`
-  else if (!urlParam2 && urlParam1 && urlParam1[0] !== '@')
+  let addOnQuery = ''
+  if (query?.s) addOnQuery = `?s=${query.s}`
+
+  if (urlParam1 === 'k' && urlParam2 && urlParam2[0] === '@') {
+    pathnameNext = `/${urlParam1}/${urlParam2}`
+    if (profileName) pathnameNext = `/${urlParam1}/${profileName}`
+  } else if (urlParam1 && urlParam1[0] === '@' && !urlParam2) {
     pathnameNext = `/${urlParam1}`
+    if (profileName) pathnameNext = `/${profileName}`
+  } else if (urlParam1 && urlParam1[0] !== '@') {
+    pathnameNext = `/${urlParam1}`
+    if (profileName) pathnameNext = `/${urlParam1}/${profileName}`
+  }
+
+  pathnameNext = `${pathnameNext}${addOnTab}${addOnQuery}`
 
   return pathnameNext
 }

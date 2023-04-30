@@ -24,11 +24,12 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   dataHandle: {
     urlParam1: string
     urlParam2: string
+    urlParam3: string
     query: { s: string }
     deviceType: DeviceType
   }
 ) => {
-  const { urlParam1, urlParam2, query, deviceType } = dataHandle
+  const { urlParam1, urlParam2, urlParam3, query, deviceType } = dataHandle
 
   const {
     globalVars: { idUserHost },
@@ -50,17 +51,20 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     hostname: window.location.hostname,
     urlParam1,
     urlParam2,
+    urlParam3,
     query,
     deviceType,
   })
 
-  console.info('SET_STORE_SCENARIO []', {
+  console.info('SET_STORE_SCENARIO [59]', {
     caseNo,
     caseDesc,
+    redirectPathname,
     profiles,
     hostname: window.location.hostname,
     urlParam1,
     urlParam2,
+    urlParam3,
     query,
     deviceType,
     'window.location': window.location,
@@ -72,7 +76,8 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
-  if (redirectPathname) router.navigate(redirectPathname, { replace: true })
+  // STOPPED HERE
+  if (redirectPathname) router.navigate(redirectPathname, { replace: false })
 
   if (idUserHost === idUserNext) return
   dispatch(

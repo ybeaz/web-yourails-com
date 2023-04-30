@@ -105,7 +105,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       {},
       { urlParam1, urlParam2, urlParam3, query, deviceType }
     )
-  }, [urlParam1, urlParam2, deviceType])
+  }, [urlParam1, urlParam2, urlParam3, deviceType])
 
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
   const styleAddLeftColumn = {} // isShowModalFrame ? styleGlobal.hidden : {}
