@@ -50,6 +50,26 @@ Browser devtools\n\
 
   {
     idUser: '1',
+    title: 'BDD',
+    contentType: ContentType['CompetencyTagType'],
+    section: 'Best Practices and Methodologies',
+    linkHref: 'https://www.agilealliance.org/glossary/bdd',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      "\
+Behavior-driven development (BDD):\n\
+1. BDD emphasizes collaboration between stakeholders to ensure a shared understanding of requirements.\n\
+2. User stories capture requirements in a business context and describe software behavior from a user's perspective.\n\
+3. Automated tests written in a natural language syntax like Gherkin verify software behavior against user stories.\n\
+4. Natural language syntax makes it easier for stakeholders to understand requirements and software behavior.\n\
+5. Continuous testing ensures software meets expected behavior and identifies issues early in the development process.\n\
+6. Feedback between testing and development teams helps identify issues and ensures software meets requirements.\n\
+  ",
+  },
+
+  {
+    idUser: '1',
     title: 'CLI',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -71,22 +91,24 @@ Windows CMD',
 
   {
     idUser: '1',
-    title: 'BDD',
+    title: 'Data Structures',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
-    linkHref: 'https://www.agilealliance.org/glossary/bdd',
+    linkHref:
+      'https://www.techtarget.com/searchdatamanagement/definition/data-structure',
     iconLibrary: 'Ionicons',
     iconName: '',
     tooltips:
-      "\
-Behavior-driven development (BDD):\n\
-1. BDD emphasizes collaboration between stakeholders to ensure a shared understanding of requirements.\n\
-2. User stories capture requirements in a business context and describe software behavior from a user's perspective.\n\
-3. Automated tests written in a natural language syntax like Gherkin verify software behavior against user stories.\n\
-4. Natural language syntax makes it easier for stakeholders to understand requirements and software behavior.\n\
-5. Continuous testing ensures software meets expected behavior and identifies issues early in the development process.\n\
-6. Feedback between testing and development teams helps identify issues and ensures software meets requirements.\n\
-  ",
+      "Types of data structures:\n\n\
+* Arrays: An array is a collection of elements of the same type, arranged in a contiguous block of memory. Elements can be accessed by their index, making it easy to iterate over the array or access specific elements.\n\
+* Linked lists: A linked list is a collection of elements, each of which contains a pointer to the next element in the list. Linked lists can be used to implement stacks, queues, and other data structures.\n\
+* Stacks: A stack is a collection of elements that supports two main operations: push (add an element to the top of the stack) and pop (remove the top element from the stack).\n\
+* Queues: A queue is a collection of elements that supports two main operations: enqueue (add an element to the back of the queue) and dequeue (remove the front element from the queue).\n\
+* Trees: A tree is a hierarchical data structure that consists of nodes connected by edges. Each node can have zero or more child nodes, and there is a single root node that is the topmost node in the tree.\n\
+* Hash tables: A hash table is a data structure that allows for efficient lookup, insertion, and deletion of key-value pairs. Each key is hashed to an index in an array, and the corresponding value is stored at that index.\n\
+Heap: A heap is a tree-based structure in which each parent node's associated key value is greater than or equal to the key values of any of its children's key values.\n\
+Graph: A graph stores a collection of items in a nonlinear fashion. Graphs are made up of a finite set of nodes, also known as vertices, and lines that connect them, also known as edges. These are useful for representing real-world systems such as computer networks.\n\
+Trie: A trie, also known as a keyword tree, is a data structure that stores strings as data items that can be organized in a visual graph.",
   },
 
   {
@@ -284,6 +306,26 @@ or application development life-cycle: \n\
 ● Software development\n\
 ● Testing\n\
 ● Deploymenth\n\
+',
+  },
+
+  {
+    idUser: '1',
+    title: 'Search Algorithms',
+    contentType: ContentType['CompetencyTagType'],
+    section: 'Best Practices and Methodologies',
+    linkHref: 'https://en.wikipedia.org/wiki/Systems_development_life_cycle',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      '\n\
+- Linear search: This is a simple search algorithm that sequentially checks each element of a list until it finds the target value.It is easy to implement, but can be slow for large datasets.\n\
+- Binary search: This algorithm works by repeatedly dividing the search interval in half, eliminating half of the remaining elements at each step. It is much faster than linear search, but requires the data to be sorted first.\n\
+- Depth-first search: This is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It is often used to solve problems such as maze navigation and pathfinding.\n\
+- Breadth-first search: This is another graph traversal algorithm that explores all the neighboring vertices at the current depth before moving on to the next depth level. It is often used for shortest path problems.\n\
+- A* search: This is a heuristic search algorithm that combines breadth-first search with a heuristic function to guide the search towards the goal. It is commonly used in pathfinding and other optimization problems.\n\
+- Interpolation search: This algorithm works by estimating the position of the target value based on its value and the values of the endpoints of the search interval. It can be faster than binary search for certain types of datasets.\n\
+Hash search is a search algorithm that uses a hash function to map keys to array indices. Key-value pairs are stored in an array, and the hash function is used to calculate an index into the array for each key. When searching for a key, the hash function is first applied to the key to determine its index in the array. If the corresponding value at that index matches the target value, the search is successful. Collision resolution techniques may be used to resolve any potential collisions.\n\
 ',
   },
 
