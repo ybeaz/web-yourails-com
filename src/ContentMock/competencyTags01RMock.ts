@@ -97,7 +97,7 @@ Windows CMD',
     linkHref:
       'https://www.techtarget.com/searchdatamanagement/definition/data-structure',
     iconLibrary: 'Ionicons',
-    iconName: '',
+    iconName: 'grid-outline',
     tooltips:
       "Types of data structures:\n\n\
 * Arrays: An array is a collection of elements of the same type, arranged in a contiguous block of memory. Elements can be accessed by their index, making it easy to iterate over the array or access specific elements.\n\
@@ -316,7 +316,7 @@ or application development life-cycle: \n\
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Systems_development_life_cycle',
     iconLibrary: 'Ionicons',
-    iconName: '',
+    iconName: 'search',
     tooltips:
       '\n\
 - Linear search: This is a simple search algorithm that sequentially checks each element of a list until it finds the target value.It is easy to implement, but can be slow for large datasets.\n\

@@ -27,7 +27,7 @@ export const style = StyleSheet.create({
     height: 'auto',
   },
   tooltip_containerView: {
-    maxHeight: 200,
+    maxHeight: 350,
   },
   tooltip_scrollView: {
     marginHorizontal: 20,

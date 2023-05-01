@@ -16,7 +16,7 @@ export const stylesDefault = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
     minHeight: '100%',
-    height: '100%',
+    height: '120%',
     maxWidth: '100%',
   },
   leftColumn: {
