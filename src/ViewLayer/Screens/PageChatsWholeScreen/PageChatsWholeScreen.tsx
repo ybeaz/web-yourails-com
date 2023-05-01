@@ -91,6 +91,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   useEffect(() => {
     // if (renderCounter.current > 1) return
+    // if (!profiles.length) return
     handleEvents.SET_STORE_SCENARIO(
       {},
       {

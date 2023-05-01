@@ -172,34 +172,17 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       caseDesc: '',
     }
   } /* 
-    Case 5. The Chat service Yourails.com with /k, second param of the URL with @ sign and with valid user
-  */ else if (caseNoUrl === 5 && idUserUrl) {
+    Case 5. The Chat service Yourails.com with /k, second param of the URL with @ sign
+  */ else if (caseNoUrl === 5 || caseNoUrl === 5.5) {
     output = {
       ...output,
       caseDesc: '',
-    }
-  } /* 
-    Case 5.2 The Chat service Yourails.com with /k, second param of the URL with @ sign and with !valid user
-  */ else if (caseNoUrl === 5 && !idUserUrl) {
-    output = {
-      ...output,
-      caseNo: 5.2,
-      caseDesc: '',
-      redirectPathname: `/k`,
     }
   } /* 
     Case 6 The Chat service Yourails.com without /k, first param of the URL with @ sign and with valid user
-  */ else if (caseNoUrl === 6 && idUserUrl) {
+  */ else if (caseNoUrl === 6 || caseNoUrl === 6.5 || caseNoUrl === 6.7) {
     output = {
       ...output,
-      caseDesc: '',
-    }
-  } /* 
-    Case 6.2 The Chat service Yourails.com without /k, first param of the URL with @ sign and with valid user
-  */ else if (caseNoUrl === 6 && !idUserUrl) {
-    output = {
-      ...output,
-      caseNo: 6.2,
       caseDesc: '',
     }
   }

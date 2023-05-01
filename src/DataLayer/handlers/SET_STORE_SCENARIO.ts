@@ -45,8 +45,6 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     profiles,
   } = getState()
 
-  if (!profiles.length) return
-
   const {
     caseNo,
     caseDesc,
