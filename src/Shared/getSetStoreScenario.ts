@@ -172,25 +172,55 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       caseDesc: '',
     }
   } /* 
-    Case 5. The Chat service Yourails.com with /k, second param of the URL with @ sign
-  */ else if (caseNoUrl === 5 || caseNoUrl === 5.5) {
+    Case 5. The Chat service Yourails.com with /k, second param of the URL with @ sign and with valid user
+  */ else if ((caseNoUrl === 5 || caseNoUrl === 5.5) && idUserUrl) {
     output = {
       ...output,
       caseDesc: '',
     }
   } /* 
+    Case 5.2 The Chat service Yourails.com with /k, second param of the URL with @ sign and with !valid user
+  */ else if ((caseNoUrl === 5 || caseNoUrl === 5.5) && !idUserUrl) {
+    const redirectPathnameNext = profiles.length ? '/k' : undefined
+
+    output = {
+      ...output,
+      caseNo: 5.2,
+      caseDesc: '',
+      redirectPathname: redirectPathnameNext,
+      isMainColumn: false,
+    }
+  } /* 
     Case 6 The Chat service Yourails.com without /k, first param of the URL with @ sign and with valid user
-  */ else if (caseNoUrl === 6 || caseNoUrl === 6.5 || caseNoUrl === 6.7) {
+  */ else if (
+    (caseNoUrl === 6 || caseNoUrl === 6.5 || caseNoUrl === 6.7) &&
+    idUserUrl
+  ) {
     output = {
       ...output,
       caseDesc: '',
+    }
+  } /* 
+    Case 6.2 The Chat service Yourails.com without /k, first param of the URL with @ sign and with valid user
+  */ else if (
+    (caseNoUrl === 6 || caseNoUrl === 6.5 || caseNoUrl === 6.7) &&
+    !idUserUrl
+  ) {
+    const redirectPathnameNext = profiles.length ? '/k' : undefined
+
+    output = {
+      ...output,
+      caseNo: 6.2,
+      caseDesc: '',
+      redirectPathname: redirectPathnameNext,
+      isMainColumn: false,
     }
   }
 
   /**
    * @comment Block to manage screen width/ devices specifities
    */
-  if (urlParam1 === 'k') {
+  if (urlParam1 === 'k' && (caseNoUrl === 3 || idUserUrl)) {
     if (
       deviceType === DeviceType['mdDevice'] ||
       deviceType === DeviceType['lgDevice'] ||
