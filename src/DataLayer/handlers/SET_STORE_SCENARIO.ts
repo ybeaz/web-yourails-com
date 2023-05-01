@@ -45,6 +45,8 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     profiles,
   } = getState()
 
+  if (!profiles.length) return
+
   const {
     caseNo,
     caseDesc,
@@ -57,7 +59,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     redirectPathname,
   } = getSetStoreScenario({
     profiles,
-    hostname: 'r1.userto.com', // window.location.hostname,
+    hostname: window.location.hostname,
     urlParam1,
     urlParam2,
     urlParam3,
