@@ -227,11 +227,5 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     }
   }
 
-  console.info('getSetStoreScenario [254]', {
-    ...output,
-    showType,
-    output,
-  })
-
   return output
 }

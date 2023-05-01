@@ -1,4 +1,5 @@
 import { ProfileType } from '../@types/ProfileType'
+import { getProfileUrlFromParams } from './getProfileUrlFromParams'
 
 type GetProfileNameChatPropsType = {
   urlParam1: string | undefined
@@ -19,9 +20,10 @@ export const getProfileChat: GetProfileNameChatType = ({
   urlParam2,
   profiles,
 }) => {
-  let profileName: string | undefined = undefined
-  if (urlParam2 && urlParam2[0] === '@') profileName = urlParam2
-  else if (urlParam1 && urlParam1[0] === '@') profileName = urlParam1
+  const profileName: string | undefined = getProfileUrlFromParams(
+    urlParam1,
+    urlParam2
+  )
 
   let output = undefined
   if (profileName)

@@ -102,6 +102,7 @@ export const getScenarioParamsFromUrlParams: GetScenarioParamsFromUrlParamsType 
         showType === 'bc'
       ) {
         caseNo = 6.7
+        isShowModalFrame = true
         isButtonBack = false
         isButtonClose = false
       }

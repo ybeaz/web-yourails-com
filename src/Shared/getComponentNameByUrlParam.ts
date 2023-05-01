@@ -23,5 +23,5 @@ export const getComponentNameByUrlParam: GetComponentNameByUrlParamType = ({
       sectionsMapping.pathname === urlParam
   )
 
-  return founded && founded.childName ? founded.childName : ''
+  return founded && founded.childName ? founded.childName : 'Profile'
 }

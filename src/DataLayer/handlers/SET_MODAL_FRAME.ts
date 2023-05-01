@@ -18,17 +18,18 @@ const { dispatch } = store
  */
 export const SET_MODAL_FRAME: ActionEventType = (event, data) => {
   const { pathname: tabName } = data
-  // childProps: {title},
 
   dispatch(actionSync.SET_MODAL_FRAME(data))
 
   const [urlParam0, urlParam1, urlParam2, urlParam3] =
     window.location.pathname.split('/')
+  const search = window.location.search
 
   const getPathNameForReplaceProps = {
     urlParam1,
     urlParam2,
     urlParam3,
+    search,
     tabName,
   }
   const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)

@@ -57,7 +57,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     redirectPathname,
   } = getSetStoreScenario({
     profiles,
-    hostname: window.location.hostname,
+    hostname: 'r1.userto.com', // window.location.hostname,
     urlParam1,
     urlParam2,
     urlParam3,
@@ -66,28 +66,13 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     sectionsMappingForProfile,
   })
 
-  console.info('SET_STORE_SCENARIO [59]', {
-    caseNo,
-    caseDesc,
-    redirectPathname,
-    profiles,
-    hostname: window.location.hostname,
-    urlParam1,
-    urlParam2,
-    urlParam3,
-    query,
-    deviceType,
-    'window.location': window.location,
-  })
-
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
-  // STOPPED HERE
-  if (redirectPathname) router.navigate(redirectPathname, { replace: false })
+  if (redirectPathname) router.navigate(redirectPathname, { replace: true })
 
   if (idUserHost === idUserNext) return
   dispatch(

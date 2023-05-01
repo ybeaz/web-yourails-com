@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useMemo } from 'react'
 import { SafeAreaView, ScrollView, View } from 'react-native'
 import { useSearchParams, useParams } from 'react-router-native'
 
@@ -47,8 +47,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const renderCounter = useRef(0)
   renderCounter.current = renderCounter.current + 1
 
-  console.info('PageChatsWholeScreen [47]', { contentSections })
-
   const {
     globalVars: { language, idUserHost, isShowApp },
     componentsState,
@@ -70,21 +68,14 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     s: searchParams.get('s'),
   }
 
-  const profile = getProfileChat({ profiles, urlParam1, urlParam2 })
+  let profile = getProfileChat({ profiles, urlParam1, urlParam2 })
+  profile = profile
+    ? profile
+    : profiles.find(profile => profile.idProfile == idUserHost)
   const profileNameChat = profile ? profile.profileName : undefined
 
   const sectionsMappingForProfile: SectionMappingType[] =
     getSectionsMappingForProfile(sectionsMapping, profileNameChat)
-
-  console.info('PageChatsWholeScreen [73]', {
-    sectionsMapping,
-    sectionsMappingForProfile,
-    urlParam1,
-    urlParam2,
-    urlParam3,
-    idUserHost,
-    profile,
-  })
 
   // TODO: To create another profile and show the conversation. This is only the first attempt for demo purposes
   const conversationsUserHost = conversations.filter((conversation: any) => {
@@ -112,6 +103,20 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       }
     )
   }, [urlParam1, urlParam2, urlParam3, deviceType])
+
+  useMemo(() => {
+    handleEvents.SET_STORE_SCENARIO(
+      {},
+      {
+        urlParam1,
+        urlParam2,
+        urlParam3,
+        query,
+        deviceType,
+        sectionsMappingForProfile,
+      }
+    )
+  }, [])
 
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
   const styleAddLeftColumn = {} // isShowModalFrame ? styleGlobal.hidden : {}

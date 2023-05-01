@@ -20,6 +20,7 @@ export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
     profileName,
     query,
   }
+
   const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
 
   router.navigate(pathnameNext, { replace: true })
