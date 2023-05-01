@@ -29,7 +29,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       iconProps: {
         library: 'Ionicons',
         name: 'ios-menu-outline',
-        size: '2rem',
+        size: 32,
         color: themes['themeA'].colors01.borderColor,
         testID: 'TopBarChatCardsComponent_ButtonYrl_ios-menu',
       },
@@ -60,7 +60,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       library: 'Ionicons',
       name: 'ios-search-outline',
       styleProps: { IconYrl: { cursor: 'not-allowed' } },
-      size: '1.5rem',
+      size: 24,
       color: themes['themeA'].colors01.borderColor,
       testID: 'TopBarChatCardsComponent_IconYrl_search',
     },

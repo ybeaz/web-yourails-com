@@ -62,7 +62,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
             iconProps: {
               library: iconLibrary,
               name: iconName,
-              size: '1.5rem',
+              size: 24,
               color: themes['themeA'].colors01.color,
               testID: 'TopBarChatCardsComponent_ButtonYrl_ios-menu',
             },

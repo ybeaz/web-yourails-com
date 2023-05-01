@@ -30,7 +30,7 @@ const ChatInputComponent: ChatInputType = props => {
       library: 'Ionicons',
       name: 'ios-send',
       styleProps: { IconYrl: { cursor: 'pointer' } },
-      size: '1.5rem',
+      size: 24,
       color: themes['themeA'].colors02.color,
       testID: 'TopBarChatCardsComponent_IconYrl_search',
     },

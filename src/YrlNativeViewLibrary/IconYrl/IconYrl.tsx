@@ -3,9 +3,10 @@ import { IconYrlType } from './IconYrlType'
 import { IconYrlStyle as style } from './IconYrlStyle'
 
 import FontAwesome from '@expo/vector-icons/FontAwesome' // 'react-native-vector-icons/FontAwesome'
-import Ionicons from '@expo/vector-icons/Ionicons' // 'react-native-vector-icons/Ionicons'
-// const FontAwesome = require('react-native-vector-icons/FontAwesome')
-// const Ionicons = require('react-native-vector-icons/Ionicons')
+// import Ionicons from '@expo/vector-icons/Ionicons'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+// const FontAwesome = require('@expo/vector-icons/Ionicons').default
+// const Ionicons = require('@expo/vector-icons/Ionicons').default
 
 const ICON: Record<string, any> = {
   FontAwesome,

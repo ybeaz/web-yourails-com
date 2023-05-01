@@ -6,6 +6,7 @@ import {
   RouteObject as RouteObjectType,
 } from 'react-router-dom'
 
+import { withDelayYrl } from './YrlNativeViewLibrary'
 import { PageChatsWholeScreen } from './ViewLayer/Screens/PageChatsWholeScreen/PageChatsWholeScreen'
 
 function ErrorBoundary() {
@@ -42,6 +43,8 @@ export const router = createBrowserRouter(routeObject)
  * @description Component to provide routing in one place
  * @links https://v5.reactrouter.com/web/api/
  */
-export const RouterScreensConfig: React.FunctionComponent<any> = () => {
+export const RouterScreensConfig: React.FunctionComponent<any> = withDelayYrl({
+  delay: 100,
+})(() => {
   return <RouterProvider router={router} />
-}
+})

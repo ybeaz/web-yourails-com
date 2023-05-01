@@ -9,5 +9,5 @@ export type CompetencyTagType = {
   tooltips: string
   iconLibrary?: string
   iconName?: string
-  iconSize?: string
+  iconSize?: number
 }

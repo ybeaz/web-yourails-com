@@ -5,7 +5,7 @@ export interface IconYrlPropsType {
   library?: string
   name?: string
   color?: string
-  size?: number | string
+  size?: number
   styleProps?: any
   testID?: string
 }

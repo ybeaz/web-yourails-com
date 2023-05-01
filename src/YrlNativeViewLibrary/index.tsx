@@ -56,6 +56,7 @@ import {
   WithUseContextYrlType,
 } from './Hooks/withUseContextYrl'
 import { withPropsYrl } from './Hooks/withPropsYrl'
+import { withDelayYrl, WithDelayYrlType } from './Hooks/withDelayYrl'
 
 export type {
   UseAnimatedYrlPropsType,
@@ -68,6 +69,7 @@ export type {
   WithStoreStateYrlPropsType,
   WithStoreStateYrlType,
   WithUseContextYrlType,
+  WithDelayYrlType,
 }
 
 export {
@@ -77,6 +79,7 @@ export {
   useIntervalYrl,
   useLinkClickResYrl,
   useMediaQueryResYrl,
+  withDelayYrl,
   withDeviceTypeYrl,
   withPropsYrl,
   withStoreStateYrl,
