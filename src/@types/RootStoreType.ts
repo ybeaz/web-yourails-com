@@ -1,4 +1,5 @@
 import { ProfileType } from './ProfileType'
+import { MessageType } from './MessageType'
 
 export type ModalFrameType = {
   childName: string
@@ -24,6 +25,7 @@ export interface FormsType {}
 export interface RootStoreType {
   componentsState: ComponentsStateType
   profiles: ProfileType[]
+  messages: Omit<MessageType, 'position' | 'isTail'>[]
   forms: FormsType | any
   isLoaded: {
     isLoadedGlobalVars: boolean

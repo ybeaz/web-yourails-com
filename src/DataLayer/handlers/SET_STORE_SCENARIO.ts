@@ -1,9 +1,10 @@
+import { router } from '../../RouterScreensConfig'
 import { store } from '../store'
+import { SectionMappingType } from '../../@types/SectionMappingType'
 import { ActionEventType } from '../../@types/ActionEventType'
-import { actionSync, actionAsync } from '../../DataLayer/index.action'
+import { actionSync } from '../../DataLayer/index.action'
 import { DeviceType } from '../../YrlNativeViewLibrary'
 import { getSetStoreScenario } from '../../Shared/getSetStoreScenario'
-import { getRedirectedPathnameHash } from '../../Shared/getRedirectedPathnameHash'
 
 const { dispatch, getState } = store
 
@@ -22,12 +23,22 @@ const { dispatch, getState } = store
 export const SET_STORE_SCENARIO: ActionEventType = (
   event,
   dataHandle: {
-    pathname: string
-    hash: string
+    urlParam1: string
+    urlParam2: string
+    urlParam3: string
+    query: { s: string }
     deviceType: DeviceType
+    sectionsMappingForProfile: SectionMappingType[]
   }
 ) => {
-  const { pathname, hash, deviceType } = dataHandle
+  const {
+    urlParam1,
+    urlParam2,
+    urlParam3,
+    query,
+    deviceType,
+    sectionsMappingForProfile,
+  } = dataHandle
 
   const {
     globalVars: { idUserHost },
@@ -44,13 +55,15 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     isMainColumnBlank: isMainColumnBlankNext,
     modalFrame: modalFrameNext,
     redirectPathname,
-    redirectHash,
   } = getSetStoreScenario({
     profiles,
     hostname: window.location.hostname,
-    pathname,
-    hash,
+    urlParam1,
+    urlParam2,
+    urlParam3,
+    query,
     deviceType,
+    sectionsMappingForProfile,
   })
 
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
@@ -59,7 +72,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
-  getRedirectedPathnameHash(redirectPathname, redirectHash)
+  if (redirectPathname) router.navigate(redirectPathname, { replace: true })
 
   if (idUserHost === idUserNext) return
   dispatch(

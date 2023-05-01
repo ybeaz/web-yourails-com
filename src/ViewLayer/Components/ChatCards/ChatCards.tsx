@@ -20,6 +20,9 @@ const ChatCardsComponent: ChatCardsType = props => {
     mediaParams = mediaParamsDefault,
     idUserHost,
     profiles,
+    urlParam1,
+    urlParam2,
+    query,
   } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
@@ -36,6 +39,9 @@ const ChatCardsComponent: ChatCardsType = props => {
           key: `chatCard-${index}`,
           profile,
           isActive: idUserHost === profile.idUser,
+          urlParam1,
+          urlParam2,
+          query,
         },
       }
       return <ChatCard {...propsOut.chatCardProps} />

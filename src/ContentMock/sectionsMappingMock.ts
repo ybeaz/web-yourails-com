@@ -1,0 +1,66 @@
+import { SectionMappingType } from '../@types/SectionMappingType'
+
+import { ContentType } from '../@types/ContentType'
+
+export const sectionsMapping: SectionMappingType[] = [
+  {
+    profileName: '@rome',
+    contentType: ContentType['ProjectType'],
+    title: 'Projects And Work Examples',
+    pathname: 'projects',
+    iconLibrary: 'Ionicons',
+    iconName: 'briefcase-outline',
+    iconTitleText: 'Portfolio',
+    childName: 'Portfolio',
+  },
+  {
+    profileName: '@rome',
+    contentType: ContentType['CompetencyTagType'],
+    title: 'Competency Tags',
+    pathname: 'skills',
+    iconLibrary: 'Ionicons',
+    iconName: 'cog-outline',
+    iconTitleText: 'Skills',
+    childName: 'CompetencyTags',
+  },
+  {
+    profileName: '@rome',
+    contentType: ContentType['ProfileType'],
+    title: '',
+    pathname: 'profile',
+    iconLibrary: 'Ionicons',
+    iconName: 'person-outline',
+    iconTitleText: 'Profile',
+    childName: 'Profile',
+  },
+  {
+    profileName: '@smid',
+    contentType: ContentType['ProjectType'],
+    title: 'Work Examples',
+    pathname: 'work-examples',
+    iconLibrary: 'Ionicons',
+    iconName: 'briefcase-outline',
+    iconTitleText: 'Works',
+    childName: 'Portfolio',
+  },
+  {
+    profileName: '@smid',
+    contentType: ContentType['CompetencyTagType'],
+    title: 'Competency Tags',
+    pathname: 'skills',
+    iconLibrary: 'Ionicons',
+    iconName: 'cog-outline',
+    iconTitleText: 'Skills',
+    childName: 'CompetencyTags',
+  },
+  {
+    profileName: '@smid',
+    contentType: ContentType['ProfileType'],
+    title: '',
+    pathname: 'profile',
+    iconLibrary: 'Ionicons',
+    iconName: 'person-outline',
+    iconTitleText: 'Profile',
+    childName: 'Profile',
+  },
+]

@@ -1,4 +1,5 @@
 import { ProjectType } from '../@types/ProjectType'
+import { ContentType } from '../@types/ContentType'
 
 /* Titles
 Troubleshooting and Repairing Faulty Microwave Ovens
@@ -19,6 +20,7 @@ export const projects02D: ProjectType[] = [
   {
     idUser: '2',
     title: 'Troubleshooting and Repairing Faulty Microwave Ovens',
+    contentType: ContentType['ProjectType'],
     isActive: true,
     subtitle: 'Quickly diagnose and fix common problems with microwaves',
     description: [
@@ -35,6 +37,7 @@ export const projects02D: ProjectType[] = [
   {
     idUser: '2',
     title: 'Installation and Repair of Electric Stoves and Ovens',
+    contentType: ContentType['ProjectType'],
     isActive: true,
     subtitle: 'Get your electric stove or oven up and running in no time',
     description: [
@@ -49,6 +52,7 @@ export const projects02D: ProjectType[] = [
   {
     idUser: '2',
     title: 'Troubleshooting and Repairing Dishwashers',
+    contentType: ContentType['ProjectType'],
     isActive: true,
     subtitle: 'Fix common dishwasher problems and get your dishes clean again',
     description: [
@@ -63,6 +67,7 @@ export const projects02D: ProjectType[] = [
   {
     idUser: '2',
     title: 'Repair and Maintenance of Gas Stoves and Ovens',
+    contentType: ContentType['ProjectType'],
     isActive: true,
     subtitle: 'Ensuring Safe and Efficient Performance',
     description: [
@@ -81,6 +86,7 @@ export const projects02D: ProjectType[] = [
   {
     idUser: '2',
     title: 'Troubleshooting and Repairing Washing Machines and Dryers',
+    contentType: ContentType['ProjectType'],
     isActive: true,
     subtitle: 'Solving problems with your laundry appliances',
     description: [
@@ -96,6 +102,7 @@ export const projects02D: ProjectType[] = [
   {
     idUser: '2',
     title: 'Installation and Repair of Electric and Gas Ranges',
+    contentType: ContentType['ProjectType'],
     isActive: true,
     subtitle: 'Installing and fixing your kitchen range',
     description: [
@@ -111,6 +118,7 @@ export const projects02D: ProjectType[] = [
   {
     idUser: '2',
     title: 'Troubleshooting and Repairing Small Kitchen Appliances',
+    contentType: ContentType['ProjectType'],
     isActive: true,
     subtitle: 'Fixing your toaster, blender, and more',
     description: [
@@ -128,6 +136,7 @@ export const projects02D: ProjectType[] = [
   {
     idUser: '2',
     title: 'Installation and Repair of Garbage Disposals',
+    contentType: ContentType['ProjectType'],
     isActive: true,
     subtitle: 'Keeping Your Kitchen Clean and Tidy',
     description: [
@@ -144,6 +153,7 @@ export const projects02D: ProjectType[] = [
   {
     idUser: '2',
     title: 'Troubleshooting and Repairing HVAC Systems',
+    contentType: ContentType['ProjectType'],
     isActive: true,
     subtitle: 'Keeping You Comfortable Year-Round',
     description: [
@@ -160,6 +170,7 @@ export const projects02D: ProjectType[] = [
   {
     idUser: '2',
     title: 'Troubleshooting and Repairing Internet Equipment',
+    contentType: ContentType['ProjectType'],
     isActive: true,
     subtitle: 'Get Your Internet Back Up and Running',
     description: [
@@ -177,6 +188,7 @@ export const projects02D: ProjectType[] = [
   {
     idUser: '2',
     title: 'Installation and Maintenance of Computer Devices',
+    contentType: ContentType['ProjectType'],
     isActive: true,
     subtitle: 'Keep your devices up and running smoothly',
     description: [
@@ -192,6 +204,7 @@ export const projects02D: ProjectType[] = [
   {
     idUser: '2',
     title: 'Troubleshooting and Repairing Smart Home Systems',
+    contentType: ContentType['ProjectType'],
     isActive: true,
     subtitle: 'Get your smart home back up and running',
     description: [

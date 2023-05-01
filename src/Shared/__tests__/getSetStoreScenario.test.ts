@@ -15,6 +15,7 @@ export enum DeviceType {
 }
 
 /**
+ * @description TODO: to test it
  * @test yarn jest getSetStoreScenario.test
  */
 describe('Test function getSetStoreScenario', () => {
@@ -39,10 +40,11 @@ describe('Test function getSetStoreScenario', () => {
           profiles,
           hostname: 'r1.userto.com',
           pathname: 'any',
-          hash: '#@john',
+          // urlParam1,
+          // urlParam2,
+          // urlParam3,
+          // query,
           deviceType: DeviceType['lgDevice'],
-          isLeftColumn: true,
-          isMainColumn: true,
         },
         expected: {
           caseNo: 1,
@@ -57,6 +59,9 @@ describe('Test function getSetStoreScenario', () => {
           redirectHash: undefined,
         },
       },
+    ]
+
+    const testArray2 = [
       {
         isActive: true,
         input: {

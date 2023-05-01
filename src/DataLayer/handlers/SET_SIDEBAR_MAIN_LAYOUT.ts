@@ -5,11 +5,13 @@ import { DeviceType } from '../../YrlNativeViewLibrary'
 
 const { dispatch, getState } = store
 
-// xsDevice = DeviceTypeIn['xsDevice'],
-// smDevice = DeviceTypeIn['smDevice'],
-// mdDevice = DeviceTypeIn['mdDevice'],
-// lgDevice = DeviceTypeIn['lgDevice'],
-// xlDevice = DeviceTypeIn['xlDevice'],
+/*
+  xsDevice = DeviceTypeIn['xsDevice'],
+  smDevice = DeviceTypeIn['smDevice'],
+  mdDevice = DeviceTypeIn['mdDevice'],
+  lgDevice = DeviceTypeIn['lgDevice'],
+  xlDevice = DeviceTypeIn['xlDevice'],
+*/
 
 /**
  * @status REMOVE AFTER 2023-06-01, LEGACY

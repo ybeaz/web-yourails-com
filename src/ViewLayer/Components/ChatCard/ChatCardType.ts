@@ -8,6 +8,9 @@ export interface ChatCardPropsType {
   profile: ProfileType
   handleEvents: HandleEventsType
   isActive: boolean
+  urlParam1: string | undefined
+  urlParam2: string | undefined
+  query: any
 }
 
 /**

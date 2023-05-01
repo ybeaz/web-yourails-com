@@ -28,16 +28,16 @@ export const routes: RouteType[] = [
   //   page: 'TemplateScreen',
   //   themeDafault: 'Light',
   // },
-  {
-    path: `/stub`,
-    exact: true,
-    page: 'StubInProgress',
-    themeDafault: 'Light',
-  },
-  {
-    path: `/error`,
-    exact: true,
-    page: 'Error404',
-    themeDafault: 'Dark',
-  },
+  // {
+  //   path: `/stub`,
+  //   exact: true,
+  //   page: 'StubInProgress',
+  //   themeDafault: 'Light',
+  // },
+  // {
+  //   path: `/error`,
+  //   exact: true,
+  //   page: 'Error404',
+  //   themeDafault: 'Dark',
+  // },
 ]

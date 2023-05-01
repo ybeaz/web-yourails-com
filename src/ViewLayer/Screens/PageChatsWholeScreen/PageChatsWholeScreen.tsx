@@ -1,19 +1,21 @@
-import React, { useRef, useEffect, useMemo, useCallback } from 'react'
-import { StatusBar } from 'expo-status-bar'
+import React, { useRef, useEffect, useMemo } from 'react'
 import { SafeAreaView, ScrollView, View } from 'react-native'
+import { useSearchParams, useParams } from 'react-router-native'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
+import { SectionMappingType } from '../../../@types/SectionMappingType'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
-import { ProfileType } from '../../../@types/ProfileType'
 import {
   withDeviceTypeYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
+import { getProfileChat } from '../../../Shared/getProfileChat'
+import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
@@ -27,28 +29,18 @@ import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainCo
 import { conversations } from '../../../ContentMock/conversationsMock'
 import { messages } from '../../../ContentMock/messagesMock'
 import { profiles } from '../../../ContentMock/profilesMock'
+import { contentSections } from '../../../ContentMock/contentSectionsMock'
+import { sectionsMapping } from '../../../ContentMock/sectionsMappingMock'
 
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
     styleProps = { PageChatsWholeScreen: {} },
-    routeProps = {
-      location: {
-        pathname: '',
-        hash: '',
-      },
-    },
     mediaParams = mediaParamsDefault,
-    themeDafault = '',
     store,
-    history,
   } = props
-  const { deviceType, height } = mediaParams
-
-  const {
-    location: { pathname, hash },
-  } = routeProps
+  const { deviceType } = mediaParams
 
   const style = styles[deviceType]
 
@@ -59,8 +51,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     globalVars: { language, idUserHost, isShowApp },
     componentsState,
   } = store
+
   const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
     componentsState
+
   const {
     childName: childNameModal,
     isShow: isShowModalFrame,
@@ -68,11 +62,22 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     isButtonClose: isButtonCloseModal,
   } = modalFrame
 
-  const profile = profiles.find(
-    (profileIn: ProfileType) => profileIn.idProfile === idUserHost
-  )
+  const { urlParam1, urlParam2, urlParam3 } = useParams()
+  const [searchParams] = useSearchParams()
+  const query = {
+    s: searchParams.get('s'),
+  }
 
-  // TODO: this is only the first attempt for demo purposes
+  let profile = getProfileChat({ profiles, urlParam1, urlParam2 })
+  profile = profile
+    ? profile
+    : profiles.find(profile => profile.idProfile == idUserHost)
+  const profileNameChat = profile ? profile.profileName : undefined
+
+  const sectionsMappingForProfile: SectionMappingType[] =
+    getSectionsMappingForProfile(sectionsMapping, profileNameChat)
+
+  // TODO: To create another profile and show the conversation. This is only the first attempt for demo purposes
   const conversationsUserHost = conversations.filter((conversation: any) => {
     return conversation.idsUsers.includes(idUserHost)
   })
@@ -85,16 +90,34 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   }, [])
 
   useEffect(() => {
-    handleEvents.SET_STORE_SCENARIO({}, { pathname, hash, deviceType })
-  }, [hash])
+    // if (renderCounter.current > 1) return
+    // if (!profiles.length) return
+    handleEvents.SET_STORE_SCENARIO(
+      {},
+      {
+        urlParam1,
+        urlParam2,
+        urlParam3,
+        query,
+        deviceType,
+        sectionsMappingForProfile,
+      }
+    )
+  }, [urlParam1, urlParam2, urlParam3, deviceType])
 
   useMemo(() => {
-    handleEvents.SET_STORE_SCENARIO({}, { pathname, hash, deviceType })
-  }, [deviceType])
-
-  const onClickOnUser = ({}, data: any) => {
-    console.info('PageChatsWholeScreen [87]', { data })
-  }
+    handleEvents.SET_STORE_SCENARIO(
+      {},
+      {
+        urlParam1,
+        urlParam2,
+        urlParam3,
+        query,
+        deviceType,
+        sectionsMappingForProfile,
+      }
+    )
+  }, [])
 
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
   const styleAddLeftColumn = {} // isShowModalFrame ? styleGlobal.hidden : {}
@@ -107,6 +130,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     chatCardsProps: {
       profiles,
       idUserHost,
+      urlParam1,
+      urlParam2,
+      query,
     },
     chatSpaceProps: {
       styleProps: {
@@ -132,6 +158,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           borderLeftColor: themes['themeA'].colors01.borderColor,
         },
       },
+      sectionsMapping: sectionsMappingForProfile,
       store,
     },
     leftColumnOuterAnimatedYrlProps: {
@@ -197,10 +224,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           ]}
           testID='leftColumn'
         >
-          {/* <AnimatedYrl {...propsOut.leftColumnInnerInAnimatedYrlProps}> */}
           <TopBarChatCards />
           <ChatCards {...propsOut.chatCardsProps} />
-          {/* </AnimatedYrl> */}
         </View>
       )}
 
