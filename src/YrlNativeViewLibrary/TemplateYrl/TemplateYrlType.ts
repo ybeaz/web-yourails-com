@@ -1,5 +1,5 @@
 /**
- * ITemplateYrlProps Interface
+ * TemplateYrlType and TemplateYrlProps Interface
  */
 export interface TemplateYrlPropsType {
   styleProps?: { TemplateYrl: any }

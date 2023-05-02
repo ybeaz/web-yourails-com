@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View } from 'react-native'
 
 import { ButtonYrl } from '../../../YrlNativeViewLibrary'
@@ -80,6 +80,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       <View style={[style.inputTextYrlWrapper]} testID='inputTextYrlWrapper'>
         <InputTextYrl {...propsOut.inputTextYrlProps} />
         <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
+          {/* <RemoteSVG /> */}
           <IconYrl {...propsOut.searchIconYrlProps} />
         </View>
       </View>

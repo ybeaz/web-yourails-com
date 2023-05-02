@@ -3,37 +3,62 @@ import {
   useRouteError,
   RouterProvider,
   createBrowserRouter,
+  Navigate,
   RouteObject as RouteObjectType,
 } from 'react-router-dom'
 
 import { withDelayYrl } from './YrlNativeViewLibrary'
 import { PageChatsWholeScreen } from './ViewLayer/Screens/PageChatsWholeScreen/PageChatsWholeScreen'
 
-function ErrorBoundary() {
+const pathAfterStatic = window.location.pathname.split('/static/')[1]
+const pathTo = `/static/${pathAfterStatic}`
+
+function ErrorBoundary(props: any) {
+  const { path } = props
   let error = useRouteError()
   console.error(error)
   // Uncaught ReferenceError: path is not defined
-  return <div>Dang!</div>
+  return (
+    <div>
+      ErrorBoundary! <br />
+      pathname: {`${window.location.pathname}`} <br /> path: {`${path}`}
+      <br />
+      error: {`${error}`}
+    </div>
+  )
 }
 
 const routeObject: RouteObjectType[] = [
   {
+    path: '/:urlParam1?/:urlParam2?/static/media/*',
+    element: <Navigate to={pathTo} replace />,
+    // element: (
+    //   <div>
+    //     Caught it <br />
+    //     pathname: {`${window.location.pathname}`} <br /> path:
+    //     /:urlParam1?/:urlParam2?/static/media/*
+    //   </div>
+    // ),
+    children: [],
+    errorElement: <ErrorBoundary path='/:urlParam1?/static/media/*' />,
+  },
+  {
     path: '/',
     element: <PageChatsWholeScreen />,
     children: [],
-    errorElement: <ErrorBoundary />,
+    errorElement: <ErrorBoundary path='/' />,
   },
   {
     path: '/:urlParam1?/:urlParam2?/:urlParam3?',
     element: <PageChatsWholeScreen />,
     children: [],
-    errorElement: <ErrorBoundary />,
+    errorElement: <ErrorBoundary path='/:urlParam1?/:urlParam2?/:urlParam3?' />,
   },
   {
     path: '*',
     element: <div>No Match</div>,
     children: [],
-    errorElement: <ErrorBoundary />,
+    errorElement: <ErrorBoundary path='*' />,
   },
 ]
 

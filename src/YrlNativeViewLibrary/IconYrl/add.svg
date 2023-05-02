@@ -1,0 +1,12 @@
+  <Svg xmlns="http://www.w3.org/2000/svg" width={512} height={512} {...props}>
+    <Path
+      d="M256,112 L256,400 M400,256 L112,256"
+      style={{
+        fill: "none",
+        stroke: "#000",
+        strokeLinecap: "round",
+        strokeLinejoin: "round",
+        strokeWidth: 32,
+      }}
+    />
+  </Svg>

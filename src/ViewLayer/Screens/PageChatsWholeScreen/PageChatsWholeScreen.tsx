@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useMemo } from 'react'
 import { SafeAreaView, ScrollView, View } from 'react-native'
-import { useSearchParams, useParams } from 'react-router-native'
+import { useSearchParams, useParams } from 'react-router-dom'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)

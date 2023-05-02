@@ -7,7 +7,7 @@
       "path": "node_modules/@expo/vector-icons"
     },
     {
-      "path": "node_modules/react-native-gifted-chat"
+      "path": "node_modules/"
     },
     {
       "path": "node_modules/react-chat-elements"
@@ -46,7 +46,7 @@
       "**/.factorypath": true,
       "**/.project": true,
       "**/.settings": true,
-      "**/node_modules": true
+      "**/node_modules": false
     },
     "eslint.experimental.incrementalSync": true,
     "eslint.lintTask.enable": true,
