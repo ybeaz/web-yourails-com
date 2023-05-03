@@ -651,7 +651,7 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://www.w3.org/Style/CSS/specs.en.html',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-css3',
+    iconName: 'logo-css3',
     tooltips:
       '\
   Rounded Corners \n\
@@ -684,7 +684,7 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://github.com/lukehoban/es6features',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-javascript',
+    iconName: 'logo-javascript',
     tooltips:
       '\
   ES7 includes the following new features:\n\
@@ -760,7 +760,7 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/html5/',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-html5',
+    iconName: 'logo-html5',
 
     tooltips:
       '\
@@ -816,7 +816,7 @@ $ git push -u origin ...\n\
     linkHref:
       'https://www.ecma-international.org/publications/standards/Stnindex.htm',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-javascript',
+    iconName: 'logo-javascript',
     tooltips:
       '\
   JS Statements\n\
@@ -1218,7 +1218,7 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://facebook.github.io/react/',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-react',
+    iconName: 'logo-react',
     tooltips:
       "\
 * React Component API: The React Component API is the core of the React library and provides a way to create reusable UI components. The API includes methods for defining a component's state, props, and lifecycle methods, as well as the render() method, which defines the component's HTML output.\n\
@@ -1247,7 +1247,7 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://react.dev/reference/react',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-react',
+    iconName: 'logo-react',
     tooltips:
       '\
 - useState: allows a functional component to have stateful data.\n\
@@ -1270,7 +1270,7 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     section: 'Front-end',
     linkHref: 'https://reactnative.dev/',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-react',
+    iconName: 'logo-react',
     tooltips:
       '\
   ActivityIndicator\n\
@@ -1338,7 +1338,7 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     section: 'Front-end',
     linkHref: 'https://reacttraining.com/react-router/',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-react',
+    iconName: 'logo-react',
     tooltips:
       '\
   REACT-ROUTER API\n\

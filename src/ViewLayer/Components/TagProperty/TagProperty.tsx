@@ -101,6 +101,7 @@ const TagPropertyComponent: TagPropertyType = props => {
               style.titleText,
               { color: themes['themeA'].colors08.color },
             ]}
+            testID='tagIconText'
           >
             {iconLibrary && iconName && <IconYrl {...propsOut.iconProps} />}
             {title}

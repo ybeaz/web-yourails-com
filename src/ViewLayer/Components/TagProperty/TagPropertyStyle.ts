@@ -18,6 +18,8 @@ export const style = StyleSheet.create({
     flexDirection: 'row',
   },
   titleText: {
+    display: 'flex',
+    flex: 1,
     fontSize: 20,
     width: 'min-content',
     whiteSpace: 'nowrap',

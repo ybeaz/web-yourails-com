@@ -36,7 +36,8 @@
       "**/.git": true,
       "**/bin": true,
       "**/dist": true,
-      "**/public": true
+      "**/public": true,
+      "**/node_modules": true
     },
     "javascript.validate.enable": true,
     "editor.find.autoFindInSelection": "never",
@@ -46,7 +47,7 @@
       "**/.factorypath": true,
       "**/.project": true,
       "**/.settings": true,
-      "**/node_modules": false
+      "**/node_modules": true
     },
     "eslint.experimental.incrementalSync": true,
     "eslint.lintTask.enable": true,

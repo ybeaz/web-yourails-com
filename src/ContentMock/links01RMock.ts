@@ -4,7 +4,7 @@ export const links01R: LinkType[] = [
   {
     idUser: '1',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-calendar-outline',
+    iconName: 'calendar-outline',
     contentType: ContentType['linkHref'],
     contentSrc: 'https://calendly.com/romanch',
     content: 'Feel free to setup a phone call',
@@ -14,7 +14,7 @@ export const links01R: LinkType[] = [
   {
     idUser: '1',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-linkedin',
+    iconName: 'logo-linkedin',
     contentType: ContentType['linkHref'],
     contentSrc: 'https://www.linkedin.com/in/romanches',
     content: 'Profile in Linkedin.com',
@@ -24,7 +24,7 @@ export const links01R: LinkType[] = [
   {
     idUser: '1',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-stackoverflow',
+    iconName: 'logo-stackoverflow',
     contentType: ContentType['linkHref'],
     contentSrc: 'https://stackoverflow.com/users/4791116/roman',
     content: 'Profile in Stackoverflow',
@@ -34,7 +34,7 @@ export const links01R: LinkType[] = [
   {
     idUser: '1',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-github',
+    iconName: 'logo-github',
     contentType: ContentType['linkHref'],
     contentSrc: 'https://github.com/ybeaz',
     content: 'Profile in Github',

@@ -8,7 +8,7 @@ import IoniconsGlyphMap from '@expo/vector-icons/build/vendor/react-native-vecto
 const IoniconsFont = require('@expo/vector-icons/build/vendor/react-native-vector-icons/Fonts/Ionicons.ttf')
 
 /**
- * @usage <CustomIconYrl name='ios-heart' size={32} color='red' />
+ * @usage <CustomIconYrl name='heart' size={32} color='red' />
  * @import import { CustomIconYrlYrl, CustomIconYrlPropsType } from './YrlNativeViewLibrary'
  * @propsOut
   CustomIconYrlProps: {
