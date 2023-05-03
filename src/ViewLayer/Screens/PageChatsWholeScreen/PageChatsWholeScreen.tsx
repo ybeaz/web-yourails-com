@@ -9,10 +9,8 @@ import { SectionMappingType } from '../../../@types/SectionMappingType'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
-import {
-  withParamsMediaYrl,
-  mediaParamsDefault,
-} from '../../../YrlNativeViewLibrary/Hooks/withParamsMediaYrl'
+import { withParamsMediaYrl } from '../../../YrlNativeViewLibrary'
+import { mediaParamsDefault } from '../../../YrlNativeViewLibrary'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
 import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
@@ -67,10 +65,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const query = {
     s: urlParamsSearch.get('s'),
   }
-  const urlParamsDeviceType = useMemo(
-    () => `${urlParam1}, ${urlParam2}, ${urlParam3}, ${deviceType}`,
-    [urlParam1, urlParam2, urlParam3, deviceType]
-  )
 
   let profile = getProfileChat({ profiles, urlParam1, urlParam2 })
   profile = profile
@@ -93,23 +87,14 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     handleEvents.ADD_PROFILES({}, { profiles })
   }, [])
 
-  useEffect(() => {
-    // if (renderCounter.current > 1) return
-    // if (!profiles.length) return
-    handleEvents.SET_STORE_SCENARIO(
-      {},
-      {
-        urlParam1,
-        urlParam2,
-        urlParam3,
-        query,
-        deviceType,
-        sectionsMappingForProfile,
-      }
-    )
-  }, [urlParamsDeviceType]) // urlParamsDeviceType
+  const urlParamsMediaIdentifier = JSON.stringify({
+    urlParam1,
+    urlParam2,
+    urlParam3,
+    deviceType,
+  })
 
-  useMemo(() => {
+  useEffect(() => {
     handleEvents.SET_STORE_SCENARIO(
       {},
       {
@@ -121,7 +106,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         sectionsMappingForProfile,
       }
     )
-  }, [])
+  }, [urlParamsMediaIdentifier])
 
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
   const styleAddLeftColumn = {} // isShowModalFrame ? styleGlobal.hidden : {}
@@ -129,13 +114,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     isButtonBackModal && isButtonCloseModal ? true : false
   const isImageAvatar =
     childNameModal === 'Profile' && isShowModalFrame === true ? false : true
-
-  console.info('PageChatsWholeScreen [135]', {
-    urlParam1,
-    urlParam2,
-    urlParam3,
-    query,
-  })
 
   const propsOut: Record<string, any> = {
     chatCardsProps: {
