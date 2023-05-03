@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useMemo } from 'react'
+import React, { useRef, useEffect, useMemo, useCallback } from 'react'
 import { SafeAreaView, ScrollView, View } from 'react-native'
 import { useSearchParams, useParams } from 'react-router-dom'
 
@@ -10,9 +10,9 @@ import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
-} from '../../../YrlNativeViewLibrary'
+} from '../../../YrlNativeViewLibrary/Hooks/withParamsMediaYrl'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
 import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
@@ -38,6 +38,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
     styleProps = { PageChatsWholeScreen: {} },
     mediaParams = mediaParamsDefault,
+    urlParams: { urlParam1, urlParam2, urlParam3 },
+    urlParamsSearch,
     store,
   } = props
   const { deviceType } = mediaParams
@@ -62,11 +64,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     isButtonClose: isButtonCloseModal,
   } = modalFrame
 
-  const { urlParam1, urlParam2, urlParam3 } = useParams()
-  const [searchParams] = useSearchParams()
   const query = {
-    s: searchParams.get('s'),
+    s: urlParamsSearch.get('s'),
   }
+  const urlParamsDeviceType = useMemo(
+    () => `${urlParam1}, ${urlParam2}, ${urlParam3}, ${deviceType}`,
+    [urlParam1, urlParam2, urlParam3, deviceType]
+  )
 
   let profile = getProfileChat({ profiles, urlParam1, urlParam2 })
   profile = profile
@@ -103,7 +107,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         sectionsMappingForProfile,
       }
     )
-  }, [urlParam1, urlParam2, urlParam3, deviceType])
+  }, [urlParamsDeviceType]) // urlParamsDeviceType
 
   useMemo(() => {
     handleEvents.SET_STORE_SCENARIO(
@@ -125,6 +129,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     isButtonBackModal && isButtonCloseModal ? true : false
   const isImageAvatar =
     childNameModal === 'Profile' && isShowModalFrame === true ? false : true
+
+  console.info('PageChatsWholeScreen [135]', {
+    urlParam1,
+    urlParam2,
+    urlParam3,
+    query,
+  })
 
   const propsOut: Record<string, any> = {
     chatCardsProps: {
@@ -307,5 +318,5 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 }
 
 export const PageChatsWholeScreen = React.memo(
-  withStoreStateYrl(withDeviceTypeYrl(PageChatsWholeScreenComponent))
+  withStoreStateYrl(withParamsMediaYrl(PageChatsWholeScreenComponent))
 )

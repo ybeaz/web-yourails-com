@@ -9,7 +9,7 @@ import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
@@ -230,6 +230,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
 export const ChatSpace = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    withDeviceTypeYrl(ChatSpaceComponent)
+    withParamsMediaYrl(ChatSpaceComponent)
   )
 )

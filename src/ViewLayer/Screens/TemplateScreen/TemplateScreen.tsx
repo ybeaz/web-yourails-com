@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import { Helmet, HelmetProvider } from 'react-helmet-async'
 
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
@@ -103,5 +103,5 @@ const TemplateScreenComponent: TemplateScreenType = props => {
 }
 
 export const TemplateScreen = React.memo(
-  withDeviceTypeYrl(TemplateScreenComponent)
+  withParamsMediaYrl(TemplateScreenComponent)
 )

@@ -26,6 +26,7 @@ type GetSetStoreScenarioPropsType = {
 
 type GetSetStoreScenarioReturnType = {
   caseNo: number
+  caseConditions: string
   caseDesc: string
   isShowApp: boolean
   idUser: IdUserType
@@ -76,6 +77,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
 
   const {
     caseNo: caseNoUrl,
+    caseConditions: caseConditionsUrl,
     profileName: profileNameUrl,
     isLeftColumn: isLeftColumnUrl,
     isMainColumnBlank: isMainColumnBlankUrl,
@@ -105,6 +107,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
 
   let output: GetSetStoreScenarioReturnType = {
     caseNo: caseNoUrl,
+    caseConditions: '',
     caseDesc: '',
     isShowApp: true,
     idUser: idUserUrl,
@@ -132,6 +135,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
 
     output = {
       caseNo: 0,
+      caseConditions: "+ hostname === 'r1.userto.com'",
       caseDesc: 'Hostname === r1.userto.com',
       isShowApp: true,
       idUser: '1',
@@ -176,6 +180,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
   */ else if ((caseNoUrl === 5 || caseNoUrl === 5.5) && idUserUrl) {
     output = {
       ...output,
+      caseConditions: `(caseNoUrl === 5 || caseNoUrl === 5.5) && idUserUrl) << ${caseConditionsUrl}`,
       caseDesc: '',
     }
   } /* 
@@ -186,6 +191,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     output = {
       ...output,
       caseNo: 5.2,
+      caseConditions: `(caseNoUrl === 5 || caseNoUrl === 5.5) && !idUserUrl << ${caseConditionsUrl}`,
       caseDesc: '',
       redirectPathname: redirectPathnameNext,
       isMainColumn: false,
@@ -198,6 +204,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
   ) {
     output = {
       ...output,
+      caseConditions: `(caseNoUrl === 6 || caseNoUrl === 6.5 || caseNoUrl === 6.7) && idUserUrl << ${caseConditionsUrl}`,
       caseDesc: '',
     }
   } /* 
@@ -211,6 +218,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     output = {
       ...output,
       caseNo: 6.2,
+      caseConditions: `(caseNoUrl === 6 || caseNoUrl === 6.5 || caseNoUrl === 6.7) && !idUserUrl << ${caseConditionsUrl}`,
       caseDesc: '',
       redirectPathname: redirectPathnameNext,
       isMainColumn: false,

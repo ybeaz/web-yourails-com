@@ -1,19 +1,20 @@
 import React, { FunctionComponent } from 'react'
+import { useSearchParams, useParams } from 'react-router-dom'
 import {
   useMediaQueryResYrl,
   UseMediaQueryResYrlOutType,
   DeviceType,
 } from './useMediaQueryResYrl'
 
-export type withParamsMediaYrlPropsType = FunctionComponent<any>
+export type WithParamsMediaYrlPropsType = FunctionComponent<any>
 
-export interface withParamsMediaYrlType {
-  (Component: withParamsMediaYrlPropsType): FunctionComponent
+export interface WithParamsMediaYrlType {
+  (Component: WithParamsMediaYrlPropsType): FunctionComponent
 }
 
 /**
  * @description Function decorator for React Functional Component
- *    to add mediaParams property that contains data about the profile's device
+ *    to add urlParams and mediaParams property that contains data about the profile's device
  *    from useMediaQueryRes hook:
  *    const { deviceType, screenCase, width, height } = mediaParams
  * @import import { withParamsMediaYrl, UseMediaQueryResYrlType } from './YrlNativeViewLibrary'
@@ -33,9 +34,13 @@ export const mediaParamsDefault: UseMediaQueryResYrlOutType = {
   height: 800,
 }
 
-export const withParamsMediaYrl: withParamsMediaYrlType = function (Component) {
+export const withParamsMediaYrl: WithParamsMediaYrlType = function (Component) {
   return function WrappedComponent(props: any) {
+    const urlParams = useParams()
+    const [urlParamsSearch] = useSearchParams()
     const mediaParams: UseMediaQueryResYrlOutType = useMediaQueryResYrl()
-    return <Component {...props} mediaParams={mediaParams} />
+    const propsNext = { ...props, mediaParams, urlParams, urlParamsSearch }
+
+    return <Component {...propsNext} />
   }
 }

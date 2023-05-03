@@ -3,7 +3,7 @@ import { View } from 'react-native'
 
 import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
@@ -61,4 +61,4 @@ const ChatCardsComponent: ChatCardsType = props => {
   )
 }
 
-export const ChatCards = React.memo(withDeviceTypeYrl(ChatCardsComponent))
+export const ChatCards = React.memo(withParamsMediaYrl(ChatCardsComponent))

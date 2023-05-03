@@ -6,6 +6,8 @@ import { RootStoreType } from '../../../@types/RootStoreType'
 export interface PageChatsWholeScreenPropsType {
   styleProps?: any
   mediaParams?: UseMediaQueryResYrlOutType
+  urlParams: any
+  urlParamsSearch: any
   routeProps?: any
   // {
   //   location: {
