@@ -1333,7 +1333,7 @@ useCallback: optimizes the performance of a functional component by memoizing a 
 
   {
     idUser: '1',
-    title: 'React-router',
+    title: 'React-router 6',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://reacttraining.com/react-router/',
@@ -1341,23 +1341,85 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     iconName: 'logo-react',
     tooltips:
       '\
-  REACT-ROUTER API\n\
-  <BrowserRouter>\n\
-  <HashRouter>\n\
-  <Link>\n\
-  <NavLink>\n\
-  <Prompt>\n\
-  <MemoryRouter>\n\
-  <Redirect>\n\
-  <Route>\n\
-  <Router>\n\
-  <StaticRouter>\n\
-  <Switch>\n\
-  history\n\
-  location\n\
-  match\n\
+Routers\n\
+  Picking a Router 🆕\n\
+  createBrowserRouter 🆕\n\
+  createHashRouter 🆕\n\
+  createMemoryRouter 🆕\n\
+  createStaticHandler 🆕\n\
+  createStaticRouter 🆕\n\
+  RouterProvider 🆕\n\
+  StaticRouterProvider 🆕\n\
+Router Components\n\
+  BrowserRouter\n\
+  HashRouter\n\
+  MemoryRouter\n\
+  NativeRouter\n\
+  Router\n\
+  StaticRouter\n\
+Route\n\
+  Route 🆕\n\
+  action 🆕\n\
+  errorElement 🆕\n\
+  lazy 🆕\n\
+  loader 🆕\n\
+  shouldRevalidate 🆕\n\
+Components\n\
+  Await 🆕\n\
+  Form 🆕\n\
+  Link\n\
+  Link (RN)\n\
+  NavLink\n\
+  Navigate\n\
+  Outlet\n\
+  Route\n\
+  Routes\n\
+  ScrollRestoration 🆕\n\
+Hooks\n\
+  useActionData 🆕\n\
+  useAsyncError 🆕\n\
+  useAsyncValue 🆕\n\
+  useBeforeUnload 🆕\n\
+  useFetcher 🆕\n\
+  useFetchers 🆕\n\
+  useFormAction 🆕\n\
+  useHref\n\
+  useInRouterContext\n\
+  useLinkClickHandler\n\
+  useLinkPressHandler\n\
+  useLoaderData 🆕\n\
+  useLocation\n\
+  useMatch\n\
+  useMatches 🆕\n\
+  useNavigate\n\
+  useNavigation 🆕\n\
+  useNavigationType\n\
+  useOutlet\n\
+  useOutletContext\n\
+  useParams\n\
+  useResolvedPath\n\
+  useRevalidator 🆕\n\
+  useRouteError 🆕\n\
+  useRouteLoaderData 🆕\n\
+  useRoutes\n\
+  useSearchParams\n\
+  useSearchParams (RN)\n\
+  useSubmit 🆕\n\
+Fetch Utilities\n\
+  json 🆕\n\
+  redirect 🆕\n\
+Utilities\n\
+  createRoutesFromChildren\n\
+  createRoutesFromElements\n\
+  createSearchParams\n\
+  defer 🆕\n\
+  generatePath\n\
+  isRouteErrorResponse 🆕\n\
+  Location\n\
   matchPath\n\
-  withRouter',
+  matchRoutes\n\
+  renderMatches\n\
+  resolvePath',
   },
   {
     idUser: '1',

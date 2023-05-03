@@ -39,7 +39,7 @@ const themeA = StyleSheet.create({
   colors09: {
     // color black, backgroundColor whitesmoke
     color: '#3f51b5',
-    backgroundColor: '#e6ebee)',
+    backgroundColor: '#e6ebee',
   },
 })
 
