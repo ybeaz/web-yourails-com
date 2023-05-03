@@ -45,8 +45,6 @@ export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
     isMainColumnNext = true
   }
 
-  console.info('CLICK_TOGGLE_SIDEBAR_MAIN [44]', { deviceType, modalFrameNext })
-
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
