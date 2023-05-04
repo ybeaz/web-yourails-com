@@ -75,27 +75,6 @@ export const SET_STORE_SCENARIO: ActionEventType = (
 
   getRedirected(redirectPathname, { replace: true })
 
-  console.info('SET_STORE_SCENARIO [78]', {
-    urlParam1,
-    urlParam2,
-    urlParam3,
-    query,
-    deviceType,
-  })
-
-  console.info('SET_STORE_SCENARIO [80]', {
-    caseNo,
-    caseDesc,
-    caseConditions,
-    isShowApp: isShowAppNext,
-    idUser: idUserNext,
-    isLeftColumn: isLeftColumnNext,
-    isMainColumn: isMainColumnNext,
-    isMainColumnBlank: isMainColumnBlankNext,
-    modalFrame: modalFrameNext,
-    redirectPathname,
-  })
-
   if (idUserHost === idUserNext) return
   dispatch(
     actionSync.SET_ID_USER_HOST({

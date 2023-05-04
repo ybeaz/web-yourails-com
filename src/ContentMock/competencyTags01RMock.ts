@@ -1747,6 +1747,46 @@ SSO services use protocols:\n\
 
   {
     idUser: '1',
+    title: 'AWS serveless',
+    contentType: ContentType['CompetencyTagType'],
+    section: 'Back-end',
+    linkHref:
+      'https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      "\
+✔ API Gateway - A fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.\n\
+✔ CloudFront - A fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency.\n\
+✔ CloudWatch - A monitoring and observability service for resources and applications.\n\
+✔ CodePipeline - A fully managed continuous integration and continuous delivery service.\n\
+✔ DynamoDB - A fully-managed NoSQL database service that provides fast and predictable performance with seamless scalability.\n\
+✔ Identity and Access Management (IAM) - A web service that helps you securely control access to resources for your users.\n\
+✔ Lambda - A serverless compute service that lets you run code without provisioning or managing servers.\n\
+✔ Simple Storage Service (S3) - Object storage service that offers industry-leading scalability, data availability, security, and performance.\n\
+• Batch - A fully - managed batch processing service that enables developers, scientists, and engineers to easily and efficiently run batch computing workloads of any scale.\n\
+• CloudFormation - A service that helps you model and set up resources so you can spend less time managing those resources and more time focusing on your applications that run in the cloud.\n\
+• CloudSearch - A fully managed search service that provides easy-to-use search capabilities for websites and applications.\n\
+• Elastic Block Store (EBS) - A block-level storage service designed to be used with EC2 instances.\n\
+• Elastic Compute Cloud (EC2) - A web service that provides scalable compute capacity in the cloud.\n\
+• Elastic Container Service (ECS) - A highly scalable, high-performance container management service that supports Docker containers.\n\
+• Elastic Kubernetes Service (EKS) - A fully-managed Kubernetes service that makes it easy to run Kubernetes.\n\
+• Elastic Load Balancing (ELB) - Automatically distributes incoming application traffic across multiple targets, such as EC2 instances, containers, and IP addresses.\n\
+• Elastic MapReduce (EMR) - A web service that makes it easy to process large amounts of data using Hadoop, Spark, and other big data tools.\n\
+• Glue - A fully-managed extract, transform, and load (ETL) service that makes it easy to move data between data stores.\n\
+• IoT - A managed cloud platform that lets connected devices easily and securely interact with cloud applications and other devices.\n\
+• Kinesis - A platform for streaming data on the cloud, which can be used for real-time data processing and analysis.\n\
+• Redshift - A fully managed, petabyte-scale data warehouse service in the cloud.\n\
+• Relational Database Service (RDS) - A managed service that makes it easier to set up, operate, and scale a relational database in the cloud.\n\
+• Simple Email Service (SES) - A flexible, low-cost email service designed to help marketers and developers send marketing, notification, and transactional emails.\n\
+• Simple Notification Service (SNS) - A fully managed messaging service for both application-to-application (A2A) and application-to-person (A2P) communication.\n\
+• Simple Queue Service (SQS) - A fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications.\n\
+• Step Functions - A serverless workflow service that lets you coordinate distributed applications and microservices using visual workflows.\n\
+• Virtual Private Cloud (VPC) - A service that enables you to launch resources into a virtual network that you've defined",
+  },
+
+  {
+    idUser: '1',
     title: 'Docker',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2021,7 +2061,7 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
     iconName: '',
     tooltips:
       '\
-A template for a migration plan from the monolithic PHP + Docker application to a microservice app:\n\
+A template/ example for a migration plan from the monolithic PHP + Docker application to a microservice app:\n\
 \n\
 1. Create a separate temporary domain for testing purposes, for example, web2.domainName.com\n\
 2. Deploy the Docker container on AWS on web2.domainName.com, while preserving that the old container works\n\
