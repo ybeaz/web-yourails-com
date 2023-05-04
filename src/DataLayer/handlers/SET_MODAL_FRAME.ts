@@ -1,4 +1,4 @@
-import { getRedirectedWithNavige } from '../../Shared/getRedirectedWithNavige'
+import { getRedirected } from '../../Shared/getRedirected'
 import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync } from '../../DataLayer/index.action'
@@ -34,5 +34,5 @@ export const SET_MODAL_FRAME: ActionEventType = (event, data) => {
   }
   const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
 
-  getRedirectedWithNavige(pathnameNext, { replace: true })
+  getRedirected(pathnameNext, { replace: true })
 }

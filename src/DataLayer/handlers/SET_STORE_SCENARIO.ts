@@ -4,7 +4,7 @@ import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync } from '../../DataLayer/index.action'
 import { DeviceType } from '../../YrlNativeViewLibrary'
 import { getSetStoreScenario } from '../../Shared/getSetStoreScenario'
-import { getRedirectedWithNavige } from '../../Shared/getRedirectedWithNavige'
+import { getRedirected } from '../../Shared/getRedirected'
 
 const { dispatch, getState } = store
 
@@ -73,7 +73,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
-  getRedirectedWithNavige(redirectPathname, { replace: true })
+  getRedirected(redirectPathname, { replace: true })
 
   console.info('SET_STORE_SCENARIO [78]', {
     urlParam1,

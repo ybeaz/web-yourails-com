@@ -2,11 +2,15 @@ import React from 'react'
 import {
   useRouteError,
   RouterProvider,
+  BrowserRouter,
   createBrowserRouter,
   Navigate,
   RouteObject as RouteObjectType,
+  useRoutes,
+  unstable_HistoryRouter as HistoryRouter,
 } from 'react-router-dom'
 
+import { history } from './history'
 import { withDelayYrl } from './YrlNativeViewLibrary'
 import { PageChatsWholeScreen } from './ViewLayer/Screens/PageChatsWholeScreen/PageChatsWholeScreen'
 
@@ -28,7 +32,7 @@ function ErrorBoundary(props: any) {
   )
 }
 
-const routeObject: RouteObjectType[] = [
+const routes: RouteObjectType[] = [
   {
     path: '/:urlParam1?/:urlParam2?/static/media/*',
     element: <Navigate to={pathTo} replace />,
@@ -62,14 +66,23 @@ const routeObject: RouteObjectType[] = [
   },
 ]
 
-export const router = createBrowserRouter(routeObject)
+const RouterCreated = () => {
+  let routesCreated = useRoutes(routes)
+  return routesCreated
+}
 
 /**
  * @description Component to provide routing in one place
- * @links https://v5.reactrouter.com/web/api/
+ * @links https://reactrouter.com/en/main/hooks/use-routes
+ * @link
  */
 export const RouterScreensConfig: React.FunctionComponent<any> = withDelayYrl({
   delay: 100,
 })(() => {
-  return <RouterProvider router={router} />
+  return (
+    // @ts-ignore
+    <HistoryRouter history={history}>
+      <RouterCreated />
+    </HistoryRouter>
+  )
 })

@@ -2,7 +2,7 @@ import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync } from '../../DataLayer/index.action'
 import { getPathNameForReplace } from '../../Shared/getPathNameForReplace'
-import { getRedirectedWithNavige } from '../../Shared/getRedirectedWithNavige'
+import { getRedirected } from '../../Shared/getRedirected'
 
 const { dispatch } = store
 
@@ -23,5 +23,5 @@ export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
 
   const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
 
-  getRedirectedWithNavige(pathnameNext, { replace: true })
+  getRedirected(pathnameNext, { replace: true })
 }
