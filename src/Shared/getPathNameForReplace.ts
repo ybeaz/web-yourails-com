@@ -3,7 +3,7 @@ type GetPathNameForReplacePropsType = {
   urlParam2: string
   query?: { s: string }
   search?: string
-  profileName: string
+  profileName?: string
   tabName?: string
 }
 
