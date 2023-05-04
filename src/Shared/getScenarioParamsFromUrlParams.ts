@@ -47,7 +47,7 @@ export const getScenarioParamsFromUrlParams: GetScenarioParamsFromUrlParamsType 
       caseConditions = '!urlParam1 && !urlParam2 && !urlParam3'
       isLeftColumn = true
       isMainColumnBlank = true
-      redirectPathname = '/k'
+      redirectPathname = 'k'
     } else if (urlParam1 && urlParam1 !== 'k' && urlParam1[0] !== '@') {
       caseNo = 2
       caseConditions = "urlParam1 && urlParam1 !== 'k' && urlParam1[0] !== '@'"

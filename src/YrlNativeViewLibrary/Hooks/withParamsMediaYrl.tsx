@@ -34,6 +34,12 @@ export const mediaParamsDefault: UseMediaQueryResYrlOutType = {
   height: 800,
 }
 
+export const urlParamsDefault = {
+  urlParam1: undefined,
+  urlParam2: undefined,
+  urlParam3: undefined,
+}
+
 export const withParamsMediaYrl: WithParamsMediaYrlType = function (Component) {
   return function WrappedComponent(props: any) {
     const urlParams = useParams()
