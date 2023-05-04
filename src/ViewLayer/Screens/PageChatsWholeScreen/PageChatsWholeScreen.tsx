@@ -1,6 +1,5 @@
-import React, { useRef, useEffect, useMemo, useCallback } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { SafeAreaView, ScrollView, View } from 'react-native'
-import { useSearchParams, useParams } from 'react-router-dom'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
@@ -8,13 +7,13 @@ dayjs.extend(localizedFormat)
 import { SectionMappingType } from '../../../@types/SectionMappingType'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
-import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
-import { withParamsMediaYrl } from '../../../YrlNativeViewLibrary'
 import {
-  urlParamsDefault,
+  AnimatedYrl,
   mediaParamsDefault,
+  urlParamsDefault,
+  withParamsMediaYrl,
+  withStoreStateYrl,
 } from '../../../YrlNativeViewLibrary'
-import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
 import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
