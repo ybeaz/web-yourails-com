@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
@@ -41,4 +41,4 @@ const HeaderComponent: HeaderType = props => {
   )
 }
 
-export const Header = React.memo(withDeviceTypeYrl(HeaderComponent))
+export const Header = React.memo(withParamsMediaYrl(HeaderComponent))

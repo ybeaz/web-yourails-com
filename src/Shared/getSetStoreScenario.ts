@@ -26,6 +26,7 @@ type GetSetStoreScenarioPropsType = {
 
 type GetSetStoreScenarioReturnType = {
   caseNo: number
+  caseConditions: string
   caseDesc: string
   isShowApp: boolean
   idUser: IdUserType
@@ -76,6 +77,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
 
   const {
     caseNo: caseNoUrl,
+    caseConditions: caseConditionsUrl,
     profileName: profileNameUrl,
     isLeftColumn: isLeftColumnUrl,
     isMainColumnBlank: isMainColumnBlankUrl,
@@ -103,9 +105,12 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     isButtonClose: isButtonCloseUrl,
   }
 
+  let caseDesc = ''
+
   let output: GetSetStoreScenarioReturnType = {
     caseNo: caseNoUrl,
-    caseDesc: '',
+    caseConditions: caseConditionsUrl,
+    caseDesc,
     isShowApp: true,
     idUser: idUserUrl,
     isLeftColumn: isLeftColumnUrl,
@@ -115,8 +120,9 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     redirectPathname: redirectPathnameUrl,
   }
 
-  /* Case 0. Hostname === 'r1.userto.com'  */
   if (hostname === 'r1.userto.com') {
+    caseDesc = 'Hostname === r1.userto.com'
+
     const childNameUrlR1 = getComponentNameByUrlParam({
       sectionsMappingForProfile,
       urlParam: urlParam1,
@@ -132,7 +138,8 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
 
     output = {
       caseNo: 0,
-      caseDesc: 'Hostname === r1.userto.com',
+      caseConditions: "+ hostname === 'r1.userto.com'",
+      caseDesc,
       isShowApp: true,
       idUser: '1',
       isLeftColumn: false,
@@ -142,76 +149,81 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       redirectPathname: undefined,
     }
   } else if (caseNoUrl === 1) {
-    /* 
-    Case 1. User direct link but without valid profileName and consequently unfound idUserUrl
-  */
+    caseDesc =
+      'User direct link but without valid profileName and consequently unfound idUserUrl'
     output = {
       ...output,
-      caseDesc:
-        'User direct link but without valid profileName and consequently unfound idUserUrl',
+      caseDesc,
     }
-  } /* 
-    Case 2. The Chat service Yourails.com without /k and a user in the first param of the URL
-  */ else if (caseNoUrl === 2) {
+  } else if (caseNoUrl === 2) {
+    caseDesc =
+      'The Chat service Yourails.com without /k and a user in the first param of the URL'
     output = {
       ...output,
-      caseDesc: '',
+      caseDesc,
     }
-  } /* 
-    Case 3. The Chat service Yourails.com with /k and no second param of the URL
-  */ else if (caseNoUrl === 3) {
+  } else if (caseNoUrl === 3) {
+    caseDesc =
+      'The Chat service Yourails.com with /k and no second param of the URL'
     output = {
       ...output,
-      caseDesc: '',
+      caseDesc,
     }
-  } /* 
-    Case 4 The Chat service Yourails.com with /k, second param of the URL, but without @ as a first characted of the second param
-  */ else if (caseNoUrl === 4) {
+  } else if (caseNoUrl === 4) {
+    caseDesc =
+      'The Chat service Yourails.com with /k, second param of the URL, but without @ as a first characted of the second param'
     output = {
       ...output,
-      caseDesc: '',
+      caseDesc,
     }
-  } /* 
-    Case 5. The Chat service Yourails.com with /k, second param of the URL with @ sign and with valid user
-  */ else if ((caseNoUrl === 5 || caseNoUrl === 5.5) && idUserUrl) {
+  } else if ((caseNoUrl === 5 || caseNoUrl === 5.5) && idUserUrl) {
+    caseDesc =
+      'The Chat service Yourails.com with /k, second param of the URL with @ sign and with valid user'
     output = {
       ...output,
-      caseDesc: '',
+      caseConditions: `(caseNoUrl === 5 || caseNoUrl === 5.5) && idUserUrl) << ${caseConditionsUrl}`,
+      caseDesc,
     }
-  } /* 
-    Case 5.2 The Chat service Yourails.com with /k, second param of the URL with @ sign and with !valid user
-  */ else if ((caseNoUrl === 5 || caseNoUrl === 5.5) && !idUserUrl) {
+  } else if ((caseNoUrl === 5 || caseNoUrl === 5.5) && !idUserUrl) {
+    caseDesc =
+      'The Chat service Yourails.com with /k, second param of the URL with @ sign and with !valid user'
+
     const redirectPathnameNext = profiles.length ? '/k' : undefined
 
     output = {
       ...output,
       caseNo: 5.2,
-      caseDesc: '',
+      caseConditions: `(caseNoUrl === 5 || caseNoUrl === 5.5) && !idUserUrl << ${caseConditionsUrl}`,
+      caseDesc,
       redirectPathname: redirectPathnameNext,
       isMainColumn: false,
     }
-  } /* 
-    Case 6 The Chat service Yourails.com without /k, first param of the URL with @ sign and with valid user
-  */ else if (
+  } else if (
     (caseNoUrl === 6 || caseNoUrl === 6.5 || caseNoUrl === 6.7) &&
     idUserUrl
   ) {
+    caseDesc =
+      'The Chat service Yourails.com without /k, first param of the URL with @ sign and with valid user'
+
     output = {
       ...output,
-      caseDesc: '',
+      caseConditions: `(caseNoUrl === 6 || caseNoUrl === 6.5 || caseNoUrl === 6.7) && idUserUrl << ${caseConditionsUrl}`,
+      caseDesc,
     }
-  } /* 
-    Case 6.2 The Chat service Yourails.com without /k, first param of the URL with @ sign and with valid user
-  */ else if (
+  } else if (
     (caseNoUrl === 6 || caseNoUrl === 6.5 || caseNoUrl === 6.7) &&
     !idUserUrl
   ) {
+    caseDesc =
+      'The Chat service Yourails.com without /k, first param of the URL with @ sign and with valid user'
+
     const redirectPathnameNext = profiles.length ? '/k' : undefined
 
     output = {
       ...output,
       caseNo: 6.2,
-      caseDesc: '',
+      caseConditions: `(caseNoUrl === 6 || caseNoUrl === 6.5 || caseNoUrl === 6.7) && !idUserUrl << ${caseConditionsUrl}`,
+      caseDesc,
       redirectPathname: redirectPathnameNext,
       isMainColumn: false,
     }

@@ -4,10 +4,7 @@
       "path": "."
     },
     {
-      "path": "node_modules/@react-native"
-    },
-    {
-      "path": "node_modules/react-native-gifted-chat"
+      "path": "node_modules/@expo/vector-icons"
     },
     {
       "path": "node_modules/react-chat-elements"
@@ -36,7 +33,8 @@
       "**/.git": true,
       "**/bin": true,
       "**/dist": true,
-      "**/public": true
+      "**/public": true,
+      "**/node_modules": true
     },
     "javascript.validate.enable": true,
     "editor.find.autoFindInSelection": "never",

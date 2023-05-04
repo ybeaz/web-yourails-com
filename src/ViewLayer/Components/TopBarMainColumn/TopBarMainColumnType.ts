@@ -1,9 +1,9 @@
-import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
+import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
 
 export interface TopBarMainColumnPropsType {
   profile: ProfileType
-  mediaParams?: UseMediaQueryResYrlOutType
+  mediaParams?: MediaParamsDefaultType
   isButtonBack: boolean
   isImageAvatar: boolean
 }

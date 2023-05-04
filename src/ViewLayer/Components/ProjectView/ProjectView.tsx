@@ -2,7 +2,7 @@ import React from 'react'
 import { ImageResizeMode, View } from 'react-native'
 
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import {
@@ -97,4 +97,4 @@ const ProjectViewComponent: ProjectViewType = props => {
   )
 }
 
-export const ProjectView = React.memo(withDeviceTypeYrl(ProjectViewComponent))
+export const ProjectView = React.memo(withParamsMediaYrl(ProjectViewComponent))

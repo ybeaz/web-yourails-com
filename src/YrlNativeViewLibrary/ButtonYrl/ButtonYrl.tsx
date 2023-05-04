@@ -19,7 +19,7 @@ import { IconYrl } from '../IconYrl/IconYrl'
       library: 'Ionicons',
       name: 'arrow-back-outline',
       styleProps: { IconYrl: {} },
-      size: '1.5rem',
+      size: 24,
       color: 'red',
       testID: 'ButtonYrl',
     },

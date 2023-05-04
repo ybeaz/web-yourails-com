@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { ChatCardType } from './ChatCardType'
@@ -68,6 +68,6 @@ const ChatCardComponent: ChatCardType = props => {
 
 export const ChatCard = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    withDeviceTypeYrl(ChatCardComponent)
+    withParamsMediaYrl(ChatCardComponent)
   )
 )

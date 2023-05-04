@@ -31,7 +31,7 @@ const ProfileItemComponent: ProfileItemType = props => {
       library: iconLibrary,
       name: iconName,
       styleProps: { IconYrl: { cursor: 'pointer' } },
-      size: '1.5rem',
+      size: 24,
       color: themes['themeA'].colors01.color,
       testID: `${label.toLowerCase()}_IconYrl_ios_send`,
     },

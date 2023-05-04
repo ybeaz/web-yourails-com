@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import { nanoid } from 'nanoid'
 
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
   DeviceType,
 } from '../../../YrlNativeViewLibrary'
@@ -69,7 +69,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
         library: 'Ionicons',
         name: 'arrow-back-outline',
         styleProps: { IconYrl: {} },
-        size: '1.5rem',
+        size: 24,
         color: themes['themeA'].colors01.color,
         testID: 'ButtonYrl',
       },
@@ -131,5 +131,5 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
 }
 
 export const TopBarMainColumn = React.memo(
-  withDeviceTypeYrl(TopBarMainColumnComponent)
+  withParamsMediaYrl(TopBarMainColumnComponent)
 )

@@ -1,10 +1,10 @@
-import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
+import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 import { RootStoreType } from '../../../@types/RootStoreType'
 import { ElementDimensionsType } from '../../../YrlNativeViewLibrary/Hooks/withElementDimensionsYrl'
 
 export interface PortfolioPropsType {
   styleProps?: any
-  mediaParams?: UseMediaQueryResYrlOutType
+  mediaParams?: MediaParamsDefaultType
   store: RootStoreType
   elementDimensions: ElementDimensionsType
 }

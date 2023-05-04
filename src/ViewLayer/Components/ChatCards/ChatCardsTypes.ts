@@ -1,10 +1,10 @@
 import { IdUserType } from '../../../@types/UserType'
 import { ProfileType } from '../../../@types/ProfileType'
-import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
+import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 
 export interface ChatCardsPropsType {
   styleProps?: any
-  mediaParams?: UseMediaQueryResYrlOutType
+  mediaParams?: MediaParamsDefaultType
   profiles: ProfileType[]
   idUserHost: IdUserType
   urlParam1: string | undefined

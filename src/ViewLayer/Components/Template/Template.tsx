@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
@@ -27,4 +27,4 @@ const TemplateComponent: TemplateType = props => {
   )
 }
 
-export const Template = React.memo(withDeviceTypeYrl(TemplateComponent))
+export const Template = React.memo(withParamsMediaYrl(TemplateComponent))

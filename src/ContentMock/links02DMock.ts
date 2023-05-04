@@ -4,7 +4,7 @@ export const links02D: LinkType[] = [
   {
     idUser: '2',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-linkedin',
+    iconName: 'logo-linkedin',
     contentType: ContentType['linkHref'],
     contentSrc: 'https://www.linkedin.com/in/dmitry-che/',
     content: 'Profile in Linkedin.com',

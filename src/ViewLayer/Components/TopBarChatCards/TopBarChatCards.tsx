@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View } from 'react-native'
 
 import { ButtonYrl } from '../../../YrlNativeViewLibrary'
@@ -28,10 +28,10 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       onPress: () => {},
       iconProps: {
         library: 'Ionicons',
-        name: 'ios-menu-outline',
-        size: '2rem',
+        name: 'menu-outline',
+        size: 32,
         color: themes['themeA'].colors01.borderColor,
-        testID: 'TopBarChatCardsComponent_ButtonYrl_ios-menu',
+        testID: 'TopBarChatCardsComponent_ButtonYrl_menu-outline',
       },
     },
     inputTextYrlProps: {
@@ -58,9 +58,9 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     },
     searchIconYrlProps: {
       library: 'Ionicons',
-      name: 'ios-search-outline',
+      name: 'search-outline',
       styleProps: { IconYrl: { cursor: 'not-allowed' } },
-      size: '1.5rem',
+      size: 24,
       color: themes['themeA'].colors01.borderColor,
       testID: 'TopBarChatCardsComponent_IconYrl_search',
     },
@@ -80,6 +80,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       <View style={[style.inputTextYrlWrapper]} testID='inputTextYrlWrapper'>
         <InputTextYrl {...propsOut.inputTextYrlProps} />
         <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
+          {/* <RemoteSVG /> */}
           <IconYrl {...propsOut.searchIconYrlProps} />
         </View>
       </View>

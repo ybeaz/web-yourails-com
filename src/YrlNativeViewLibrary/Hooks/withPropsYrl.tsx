@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from 'react'
 import {
   useMediaQueryResYrl,
-  UseMediaQueryResYrlOutType,
+  MediaParamsDefaultType,
   DeviceType,
 } from './useMediaQueryResYrl'
 
-export type WithDeviceTypeYrlPropsType = FunctionComponent<any>
+export type withParamsMediaYrlPropsType = FunctionComponent<any>
 
-export interface WithDeviceTypeYrlType {
-  (Component: WithDeviceTypeYrlPropsType): FunctionComponent
+export interface withParamsMediaYrlType {
+  (Component: withParamsMediaYrlPropsType): FunctionComponent
 }
 
 /**

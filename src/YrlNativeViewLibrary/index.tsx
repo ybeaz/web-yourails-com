@@ -37,15 +37,18 @@ import {
 } from './Hooks/useLinkClickResYrl'
 import {
   useMediaQueryResYrl,
-  UseMediaQueryResYrlOutType,
+  MediaParamsDefaultType,
   UseMediaQueryResYrlType,
   DeviceType,
 } from './Hooks/useMediaQueryResYrl'
 import {
-  withDeviceTypeYrl,
-  WithDeviceTypeYrlType,
+  WithParamsMediaYrlPropsType,
+  WithParamsMediaYrlType,
+  UrlParamsDefaultType,
   mediaParamsDefault,
-} from './Hooks/withDeviceTypeYrl'
+  urlParamsDefault,
+  withParamsMediaYrl,
+} from './Hooks/withParamsMediaYrl'
 import {
   withStoreStateYrl,
   WithStoreStateYrlType,
@@ -56,28 +59,34 @@ import {
   WithUseContextYrlType,
 } from './Hooks/withUseContextYrl'
 import { withPropsYrl } from './Hooks/withPropsYrl'
+import { withDelayYrl, WithDelayYrlType } from './Hooks/withDelayYrl'
 
 export type {
+  WithParamsMediaYrlPropsType,
+  WithParamsMediaYrlType,
   UseAnimatedYrlPropsType,
   UseAnimatedYrlType,
   UseIntervalYrlType,
   UseLinkClickResYrlType,
-  UseMediaQueryResYrlOutType,
+  UrlParamsDefaultType,
+  MediaParamsDefaultType,
   UseMediaQueryResYrlType,
-  WithDeviceTypeYrlType,
   WithStoreStateYrlPropsType,
   WithStoreStateYrlType,
   WithUseContextYrlType,
+  WithDelayYrlType,
 }
 
 export {
   DeviceType,
   mediaParamsDefault,
+  urlParamsDefault,
   useAnimatedYrl,
   useIntervalYrl,
   useLinkClickResYrl,
   useMediaQueryResYrl,
-  withDeviceTypeYrl,
+  withDelayYrl,
+  withParamsMediaYrl,
   withPropsYrl,
   withStoreStateYrl,
   withUseContextYrl,
@@ -121,10 +130,10 @@ export {
 //   useLinkClickResYrl,
 //   UseLinkClickResYrlType,
 //   useMediaQueryResYrl,
-//   UseMediaQueryResYrlOutType,
+//   MediaParamsDefaultType,
 //   UseMediaQueryResYrlType,
-//   withDeviceTypeYrl,
-//   WithDeviceTypeYrlType,
+//   withParamsMediaYrl,
+//   withParamsMediaYrlType,
 //   withStoreStateYrl,
 //   WithStoreStateYrlPropsType,
 //   WithStoreStateYrlType,

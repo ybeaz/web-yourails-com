@@ -9,7 +9,7 @@ import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
@@ -125,7 +125,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           styleProps: { IconYrl: {} },
           library: 'Ionicons',
           name: 'arrow-back-outline',
-          size: '1.5rem',
+          size: 24,
           color: themes['themeA'].colors07.color,
           testID: 'ModalFrameYrl-buttonBack-iconBack',
         },
@@ -148,7 +148,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           styleProps: { IconYrl: {} },
           library: 'Ionicons',
           name: 'close',
-          size: '1.5rem',
+          size: 24,
           color: themes['themeA'].colors07.color,
           testID: 'ModalFrameYrl-buttonClose-iconClose',
         },
@@ -230,6 +230,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
 export const ChatSpace = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    withDeviceTypeYrl(ChatSpaceComponent)
+    withParamsMediaYrl(ChatSpaceComponent)
   )
 )

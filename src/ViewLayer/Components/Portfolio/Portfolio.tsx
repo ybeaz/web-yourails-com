@@ -8,7 +8,7 @@ import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { ProjectType } from '../../../@types/ProjectType'
 import { Header } from '../Header/Header'
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
@@ -104,6 +104,6 @@ const PortfolioComponent: PortfolioType = props => {
 
 export const Portfolio = React.memo(
   withStoreStateYrl(
-    withDeviceTypeYrl(withElementDimensionsYrl(PortfolioComponent))
+    withParamsMediaYrl(withElementDimensionsYrl(PortfolioComponent))
   )
 )

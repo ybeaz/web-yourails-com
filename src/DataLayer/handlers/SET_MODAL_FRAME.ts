@@ -1,5 +1,5 @@
+import { getRedirected } from '../../Shared/getRedirected'
 import { store } from '../store'
-import { router } from '../../RouterScreensConfig'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync } from '../../DataLayer/index.action'
 import { getPathNameForReplace } from '../../Shared/getPathNameForReplace'
@@ -34,5 +34,5 @@ export const SET_MODAL_FRAME: ActionEventType = (event, data) => {
   }
   const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
 
-  router.navigate(pathnameNext, { replace: true })
+  getRedirected(pathnameNext, { replace: true })
 }

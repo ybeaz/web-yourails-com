@@ -11,7 +11,7 @@ export enum DeviceType {
 }
 export type ScreenCaseType = 'xsSmMd' | 'lgXl'
 
-export type UseMediaQueryResYrlOutType = {
+export type MediaParamsDefaultType = {
   deviceType: DeviceType
   screenCase: ScreenCaseType | 'lgXl'
   width: number | 1024
@@ -19,7 +19,7 @@ export type UseMediaQueryResYrlOutType = {
 }
 
 export interface UseMediaQueryResYrlType {
-  (): UseMediaQueryResYrlOutType
+  (): MediaParamsDefaultType
 }
 
 /**

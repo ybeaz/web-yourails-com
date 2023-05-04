@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 // import { experimental_useEffectEvent as useEffectEvent } from 'react';
 
 export type UseAnimatedYrlPropsType = {
-  ref: any
+  ref: Record<string, any>
   isActive: boolean
   nameHtmlCssAttribute: string
   valueInit: number
@@ -40,7 +40,8 @@ export const useAnimatedYrl: UseAnimatedYrlType = ({
     let frameId: any = null
 
     const onProgress = (progress: number) => {
-      ref.current.style[nameHtmlCssAttribute] = progress // TODO Stopped here
+      if (ref.current && ref.current.style)
+        ref.current.style[nameHtmlCssAttribute] = progress
     }
 
     const onFrameIn = (now: any) => {

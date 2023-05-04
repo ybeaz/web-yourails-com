@@ -106,9 +106,9 @@ Windows CMD',
 * Queues: A queue is a collection of elements that supports two main operations: enqueue (add an element to the back of the queue) and dequeue (remove the front element from the queue).\n\
 * Trees: A tree is a hierarchical data structure that consists of nodes connected by edges. Each node can have zero or more child nodes, and there is a single root node that is the topmost node in the tree.\n\
 * Hash tables: A hash table is a data structure that allows for efficient lookup, insertion, and deletion of key-value pairs. Each key is hashed to an index in an array, and the corresponding value is stored at that index.\n\
-Heap: A heap is a tree-based structure in which each parent node's associated key value is greater than or equal to the key values of any of its children's key values.\n\
-Graph: A graph stores a collection of items in a nonlinear fashion. Graphs are made up of a finite set of nodes, also known as vertices, and lines that connect them, also known as edges. These are useful for representing real-world systems such as computer networks.\n\
-Trie: A trie, also known as a keyword tree, is a data structure that stores strings as data items that can be organized in a visual graph.",
+* Heap: A heap is a tree-based structure in which each parent node's associated key value is greater than or equal to the key values of any of its children's key values.\n\
+* Graph: A graph stores a collection of items in a nonlinear fashion. Graphs are made up of a finite set of nodes, also known as vertices, and lines that connect them, also known as edges. These are useful for representing real-world systems such as computer networks.\n\
+* Trie: A trie, also known as a keyword tree, is a data structure that stores strings as data items that can be organized in a visual graph.",
   },
 
   {
@@ -321,11 +321,11 @@ or application development life-cycle: \n\
       '\n\
 - Linear search: This is a simple search algorithm that sequentially checks each element of a list until it finds the target value.It is easy to implement, but can be slow for large datasets.\n\
 - Binary search: This algorithm works by repeatedly dividing the search interval in half, eliminating half of the remaining elements at each step. It is much faster than linear search, but requires the data to be sorted first.\n\
-- Depth-first search: This is a graph traversal algorithm that explores as far as possible along each branch before backtracking. It is often used to solve problems such as maze navigation and pathfinding.\n\
+- Hash search is a search algorithm that uses a hash function to map keys to array indices. Key-value pairs are stored in an array, and the hash function is used to calculate an index into the array for each key. When searching for a key, the hash function is first applied to the key to determine its index in the array. If the corresponding value at that index matches the target value, the search is successful. Collision resolution techniques may be used to resolve any potential collisions.\n\
+- Depth - first search: This is a graph traversal algorithm that explores as far as possible along each branch before backtracking.It is often used to solve problems such as maze navigation and pathfinding.\n\
 - Breadth-first search: This is another graph traversal algorithm that explores all the neighboring vertices at the current depth before moving on to the next depth level. It is often used for shortest path problems.\n\
 - A* search: This is a heuristic search algorithm that combines breadth-first search with a heuristic function to guide the search towards the goal. It is commonly used in pathfinding and other optimization problems.\n\
 - Interpolation search: This algorithm works by estimating the position of the target value based on its value and the values of the endpoints of the search interval. It can be faster than binary search for certain types of datasets.\n\
-Hash search is a search algorithm that uses a hash function to map keys to array indices. Key-value pairs are stored in an array, and the hash function is used to calculate an index into the array for each key. When searching for a key, the hash function is first applied to the key to determine its index in the array. If the corresponding value at that index matches the target value, the search is successful. Collision resolution techniques may be used to resolve any potential collisions.\n\
 ',
   },
 
@@ -651,7 +651,7 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://www.w3.org/Style/CSS/specs.en.html',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-css3',
+    iconName: 'logo-css3',
     tooltips:
       '\
   Rounded Corners \n\
@@ -684,7 +684,7 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://github.com/lukehoban/es6features',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-javascript',
+    iconName: 'logo-javascript',
     tooltips:
       '\
   ES7 includes the following new features:\n\
@@ -760,7 +760,7 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/html5/',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-html5',
+    iconName: 'logo-html5',
 
     tooltips:
       '\
@@ -816,7 +816,7 @@ $ git push -u origin ...\n\
     linkHref:
       'https://www.ecma-international.org/publications/standards/Stnindex.htm',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-javascript',
+    iconName: 'logo-javascript',
     tooltips:
       '\
   JS Statements\n\
@@ -1218,7 +1218,7 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://facebook.github.io/react/',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-react',
+    iconName: 'logo-react',
     tooltips:
       "\
 * React Component API: The React Component API is the core of the React library and provides a way to create reusable UI components. The API includes methods for defining a component's state, props, and lifecycle methods, as well as the render() method, which defines the component's HTML output.\n\
@@ -1247,7 +1247,7 @@ $ git push -u origin ...\n\
     section: 'Front-end',
     linkHref: 'https://react.dev/reference/react',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-react',
+    iconName: 'logo-react',
     tooltips:
       '\
 - useState: allows a functional component to have stateful data.\n\
@@ -1270,7 +1270,7 @@ useCallback: optimizes the performance of a functional component by memoizing a 
     section: 'Front-end',
     linkHref: 'https://reactnative.dev/',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-react',
+    iconName: 'logo-react',
     tooltips:
       '\
   ActivityIndicator\n\
@@ -1333,31 +1333,93 @@ useCallback: optimizes the performance of a functional component by memoizing a 
 
   {
     idUser: '1',
-    title: 'React-router',
+    title: 'React-router 6',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://reacttraining.com/react-router/',
     iconLibrary: 'Ionicons',
-    iconName: 'ios-logo-react',
+    iconName: 'logo-react',
     tooltips:
       '\
-  REACT-ROUTER API\n\
-  <BrowserRouter>\n\
-  <HashRouter>\n\
-  <Link>\n\
-  <NavLink>\n\
-  <Prompt>\n\
-  <MemoryRouter>\n\
-  <Redirect>\n\
-  <Route>\n\
-  <Router>\n\
-  <StaticRouter>\n\
-  <Switch>\n\
-  history\n\
-  location\n\
-  match\n\
+Routers\n\
+  Picking a Router 🆕\n\
+  createBrowserRouter 🆕\n\
+  createHashRouter 🆕\n\
+  createMemoryRouter 🆕\n\
+  createStaticHandler 🆕\n\
+  createStaticRouter 🆕\n\
+  RouterProvider 🆕\n\
+  StaticRouterProvider 🆕\n\
+Router Components\n\
+  BrowserRouter\n\
+  HashRouter\n\
+  MemoryRouter\n\
+  NativeRouter\n\
+  Router\n\
+  StaticRouter\n\
+Route\n\
+  Route 🆕\n\
+  action 🆕\n\
+  errorElement 🆕\n\
+  lazy 🆕\n\
+  loader 🆕\n\
+  shouldRevalidate 🆕\n\
+Components\n\
+  Await 🆕\n\
+  Form 🆕\n\
+  Link\n\
+  Link (RN)\n\
+  NavLink\n\
+  Navigate\n\
+  Outlet\n\
+  Route\n\
+  Routes\n\
+  ScrollRestoration 🆕\n\
+Hooks\n\
+  useActionData 🆕\n\
+  useAsyncError 🆕\n\
+  useAsyncValue 🆕\n\
+  useBeforeUnload 🆕\n\
+  useFetcher 🆕\n\
+  useFetchers 🆕\n\
+  useFormAction 🆕\n\
+  useHref\n\
+  useInRouterContext\n\
+  useLinkClickHandler\n\
+  useLinkPressHandler\n\
+  useLoaderData 🆕\n\
+  useLocation\n\
+  useMatch\n\
+  useMatches 🆕\n\
+  useNavigate\n\
+  useNavigation 🆕\n\
+  useNavigationType\n\
+  useOutlet\n\
+  useOutletContext\n\
+  useParams\n\
+  useResolvedPath\n\
+  useRevalidator 🆕\n\
+  useRouteError 🆕\n\
+  useRouteLoaderData 🆕\n\
+  useRoutes\n\
+  useSearchParams\n\
+  useSearchParams (RN)\n\
+  useSubmit 🆕\n\
+Fetch Utilities\n\
+  json 🆕\n\
+  redirect 🆕\n\
+Utilities\n\
+  createRoutesFromChildren\n\
+  createRoutesFromElements\n\
+  createSearchParams\n\
+  defer 🆕\n\
+  generatePath\n\
+  isRouteErrorResponse 🆕\n\
+  Location\n\
   matchPath\n\
-  withRouter',
+  matchRoutes\n\
+  renderMatches\n\
+  resolvePath',
   },
   {
     idUser: '1',
@@ -1685,6 +1747,46 @@ SSO services use protocols:\n\
 
   {
     idUser: '1',
+    title: 'AWS serveless',
+    contentType: ContentType['CompetencyTagType'],
+    section: 'Back-end',
+    linkHref:
+      'https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      "\
+✔ API Gateway - A fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.\n\
+✔ CloudFront - A fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency.\n\
+✔ CloudWatch - A monitoring and observability service for resources and applications.\n\
+✔ CodePipeline - A fully managed continuous integration and continuous delivery service.\n\
+✔ DynamoDB - A fully-managed NoSQL database service that provides fast and predictable performance with seamless scalability.\n\
+✔ Identity and Access Management (IAM) - A web service that helps you securely control access to resources for your users.\n\
+✔ Lambda - A serverless compute service that lets you run code without provisioning or managing servers.\n\
+✔ Simple Storage Service (S3) - Object storage service that offers industry-leading scalability, data availability, security, and performance.\n\
+• Batch - A fully - managed batch processing service that enables developers, scientists, and engineers to easily and efficiently run batch computing workloads of any scale.\n\
+• CloudFormation - A service that helps you model and set up resources so you can spend less time managing those resources and more time focusing on your applications that run in the cloud.\n\
+• CloudSearch - A fully managed search service that provides easy-to-use search capabilities for websites and applications.\n\
+• Elastic Block Store (EBS) - A block-level storage service designed to be used with EC2 instances.\n\
+• Elastic Compute Cloud (EC2) - A web service that provides scalable compute capacity in the cloud.\n\
+• Elastic Container Service (ECS) - A highly scalable, high-performance container management service that supports Docker containers.\n\
+• Elastic Kubernetes Service (EKS) - A fully-managed Kubernetes service that makes it easy to run Kubernetes.\n\
+• Elastic Load Balancing (ELB) - Automatically distributes incoming application traffic across multiple targets, such as EC2 instances, containers, and IP addresses.\n\
+• Elastic MapReduce (EMR) - A web service that makes it easy to process large amounts of data using Hadoop, Spark, and other big data tools.\n\
+• Glue - A fully-managed extract, transform, and load (ETL) service that makes it easy to move data between data stores.\n\
+• IoT - A managed cloud platform that lets connected devices easily and securely interact with cloud applications and other devices.\n\
+• Kinesis - A platform for streaming data on the cloud, which can be used for real-time data processing and analysis.\n\
+• Redshift - A fully managed, petabyte-scale data warehouse service in the cloud.\n\
+• Relational Database Service (RDS) - A managed service that makes it easier to set up, operate, and scale a relational database in the cloud.\n\
+• Simple Email Service (SES) - A flexible, low-cost email service designed to help marketers and developers send marketing, notification, and transactional emails.\n\
+• Simple Notification Service (SNS) - A fully managed messaging service for both application-to-application (A2A) and application-to-person (A2P) communication.\n\
+• Simple Queue Service (SQS) - A fully managed message queuing service that enables you to decouple and scale microservices, distributed systems, and serverless applications.\n\
+• Step Functions - A serverless workflow service that lets you coordinate distributed applications and microservices using visual workflows.\n\
+• Virtual Private Cloud (VPC) - A service that enables you to launch resources into a virtual network that you've defined",
+  },
+
+  {
+    idUser: '1',
     title: 'Docker',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -1959,7 +2061,7 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
     iconName: '',
     tooltips:
       '\
-A template for a migration plan from the monolithic PHP + Docker application to a microservice app:\n\
+A template/ example for a migration plan from the monolithic PHP + Docker application to a microservice app:\n\
 \n\
 1. Create a separate temporary domain for testing purposes, for example, web2.domainName.com\n\
 2. Deploy the Docker container on AWS on web2.domainName.com, while preserving that the old container works\n\

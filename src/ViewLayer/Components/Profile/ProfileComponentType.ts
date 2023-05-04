@@ -1,9 +1,9 @@
-import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
+import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 import { RootStoreType } from '../../../@types/RootStoreType'
 
 export interface ProfilePropsType {
   styleProps?: any
-  mediaParams?: UseMediaQueryResYrlOutType
+  mediaParams?: MediaParamsDefaultType
   store: RootStoreType
 }
 

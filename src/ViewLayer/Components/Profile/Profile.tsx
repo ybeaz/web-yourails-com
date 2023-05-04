@@ -6,7 +6,7 @@ import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArr
 import { LinkType } from '../../../@types/LinkType'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
   DeviceType,
 } from '../../../YrlNativeViewLibrary'
@@ -164,5 +164,5 @@ const ProfileComponent: ProfileComponentType = props => {
 }
 
 export const Profile = React.memo(
-  withStoreStateYrl(withDeviceTypeYrl(ProfileComponent))
+  withStoreStateYrl(withParamsMediaYrl(ProfileComponent))
 )

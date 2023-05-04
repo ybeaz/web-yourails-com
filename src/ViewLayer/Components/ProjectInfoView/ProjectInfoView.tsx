@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react'
 import { View } from 'react-native'
 
 import {
-  withDeviceTypeYrl,
+  withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
@@ -122,5 +122,5 @@ const ProjectInfoViewComponent: ProjectInfoViewType = props => {
 }
 
 export const ProjectInfoView = React.memo(
-  withDeviceTypeYrl(ProjectInfoViewComponent)
+  withParamsMediaYrl(ProjectInfoViewComponent)
 )

@@ -1,11 +1,16 @@
 // import { History } from 'history'
 
-import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
+import {
+  UrlParamsDefaultType,
+  MediaParamsDefaultType,
+} from '../../../YrlNativeViewLibrary'
 import { RootStoreType } from '../../../@types/RootStoreType'
 
 export interface PageChatsWholeScreenPropsType {
   styleProps?: any
-  mediaParams?: UseMediaQueryResYrlOutType
+  mediaParams?: MediaParamsDefaultType
+  urlParams?: UrlParamsDefaultType
+  urlParamsSearch: any
   routeProps?: any
   // {
   //   location: {

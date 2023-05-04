@@ -10,7 +10,7 @@ type withDelayPropsYrlType = {
   delay: number
 }
 
-export interface withDelayYrlType {
+export interface WithDelayYrlType {
   (props: withDelayPropsYrlType): withDelayInnerYrlType
 }
 
@@ -21,7 +21,7 @@ export interface withDelayYrlType {
  * @use export const Portfolio = React.memo(withDeviceType(PortfolioComponent))
  */
 
-export const withDelayYrl: withDelayYrlType = ({ delay }) =>
+export const withDelayYrl: WithDelayYrlType = ({ delay }) =>
   function (Component) {
     return function WrappedComponent(props: any) {
       const [isReady, setIsReady] = useState(false)

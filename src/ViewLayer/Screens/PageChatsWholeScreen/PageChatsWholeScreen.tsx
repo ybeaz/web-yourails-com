@@ -1,6 +1,5 @@
-import React, { useRef, useEffect, useMemo } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { SafeAreaView, ScrollView, View } from 'react-native'
-import { useSearchParams, useParams } from 'react-router-native'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
@@ -8,12 +7,13 @@ dayjs.extend(localizedFormat)
 import { SectionMappingType } from '../../../@types/SectionMappingType'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
-import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import {
-  withDeviceTypeYrl,
+  AnimatedYrl,
   mediaParamsDefault,
+  urlParamsDefault,
+  withParamsMediaYrl,
+  withStoreStateYrl,
 } from '../../../YrlNativeViewLibrary'
-import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
 import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
@@ -38,9 +38,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
     styleProps = { PageChatsWholeScreen: {} },
     mediaParams = mediaParamsDefault,
+    urlParams = urlParamsDefault,
+    urlParamsSearch,
     store,
   } = props
   const { deviceType } = mediaParams
+  const { urlParam1, urlParam2, urlParam3 } = urlParams
 
   const style = styles[deviceType]
 
@@ -62,10 +65,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     isButtonClose: isButtonCloseModal,
   } = modalFrame
 
-  const { urlParam1, urlParam2, urlParam3 } = useParams()
-  const [searchParams] = useSearchParams()
   const query = {
-    s: searchParams.get('s'),
+    s: urlParamsSearch.get('s'),
   }
 
   let profile = getProfileChat({ profiles, urlParam1, urlParam2 })
@@ -89,23 +90,14 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     handleEvents.ADD_PROFILES({}, { profiles })
   }, [])
 
-  useEffect(() => {
-    // if (renderCounter.current > 1) return
-    // if (!profiles.length) return
-    handleEvents.SET_STORE_SCENARIO(
-      {},
-      {
-        urlParam1,
-        urlParam2,
-        urlParam3,
-        query,
-        deviceType,
-        sectionsMappingForProfile,
-      }
-    )
-  }, [urlParam1, urlParam2, urlParam3, deviceType])
+  const urlParamsMediaIdentifier = JSON.stringify({
+    urlParam1,
+    urlParam2,
+    urlParam3,
+    deviceType,
+  })
 
-  useMemo(() => {
+  useEffect(() => {
     handleEvents.SET_STORE_SCENARIO(
       {},
       {
@@ -117,7 +109,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         sectionsMappingForProfile,
       }
     )
-  }, [])
+  }, [urlParamsMediaIdentifier])
 
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
   const styleAddLeftColumn = {} // isShowModalFrame ? styleGlobal.hidden : {}
@@ -307,5 +299,5 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 }
 
 export const PageChatsWholeScreen = React.memo(
-  withStoreStateYrl(withDeviceTypeYrl(PageChatsWholeScreenComponent))
+  withStoreStateYrl(withParamsMediaYrl(PageChatsWholeScreenComponent))
 )

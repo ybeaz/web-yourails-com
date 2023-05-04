@@ -8,6 +8,7 @@ type GetScenarioParamsFromUrlParamsPropsType = {
 interface GetScenarioParamsFromUrlParamsType {
   (props: GetScenarioParamsFromUrlParamsPropsType): {
     caseNo: number
+    caseConditions: string
     profileName?: string
     isMainColumnBlank: boolean
     isShowModalFrame: boolean
@@ -31,6 +32,7 @@ export const getScenarioParamsFromUrlParams: GetScenarioParamsFromUrlParamsType 
     const showType = query && query.s
 
     let caseNo = 0
+    let caseConditions = ''
     let isLeftColumn = false
     let isMainColumnBlank = false
     let redirectPathname = undefined
@@ -42,16 +44,19 @@ export const getScenarioParamsFromUrlParams: GetScenarioParamsFromUrlParamsType 
 
     if (!urlParam1 && !urlParam2 && !urlParam3) {
       caseNo = 1
+      caseConditions = '!urlParam1 && !urlParam2 && !urlParam3'
       isLeftColumn = true
       isMainColumnBlank = true
-      redirectPathname = '/k'
+      redirectPathname = 'k'
     } else if (urlParam1 && urlParam1 !== 'k' && urlParam1[0] !== '@') {
       caseNo = 2
+      caseConditions = "urlParam1 && urlParam1 !== 'k' && urlParam1[0] !== '@'"
       isLeftColumn = true
       isMainColumnBlank = true
       redirectPathname = '/k'
     } else if (urlParam1 && urlParam1 === 'k' && !urlParam2) {
       caseNo = 3
+      caseConditions = "urlParam1 && urlParam1 === 'k' && !urlParam2"
       isLeftColumn = true
       isMainColumnBlank = true
       redirectPathname = undefined
@@ -62,6 +67,8 @@ export const getScenarioParamsFromUrlParams: GetScenarioParamsFromUrlParamsType 
       urlParam2[0] !== '@'
     ) {
       caseNo = 4
+      caseConditions =
+        "urlParam1 && urlParam1 === 'k' && urlParam2 && urlParam2[0] !== '@'"
       isLeftColumn = true
       isMainColumnBlank = true
       redirectPathname = '/k'
@@ -72,6 +79,8 @@ export const getScenarioParamsFromUrlParams: GetScenarioParamsFromUrlParamsType 
       urlParam2[0] === '@'
     ) {
       caseNo = 5
+      caseConditions =
+        "urlParam1 && urlParam1 === 'k' && urlParam2 && urlParam2[0] === '@'"
       profileName = urlParam2
       isLeftColumn = true
       isMainColumnBlank = false
@@ -79,11 +88,13 @@ export const getScenarioParamsFromUrlParams: GetScenarioParamsFromUrlParamsType 
 
       if (urlParam3) {
         caseNo = 5.5
+        caseConditions = `${caseConditions} && urlParam3`
         isShowModalFrame = true
         modalFrameParamName = urlParam3
       }
     } else if (urlParam1 && urlParam1 !== 'k' && urlParam1[0] === '@') {
       caseNo = 6
+      caseConditions = "urlParam1 && urlParam1 !== 'k' && urlParam1[0] === '@'"
       profileName = urlParam1
       isLeftColumn = false
       isMainColumnBlank = false
@@ -91,17 +102,14 @@ export const getScenarioParamsFromUrlParams: GetScenarioParamsFromUrlParamsType 
 
       if (urlParam2) {
         caseNo = 6.5
+        caseConditions = `${caseConditions} && urlParam2`
         isShowModalFrame = true
         modalFrameParamName = urlParam2
       }
 
-      if (
-        urlParam1 &&
-        urlParam1 !== 'k' &&
-        urlParam1[0] === '@' &&
-        showType === 'bc'
-      ) {
+      if (showType === 'bc') {
         caseNo = 6.7
+        caseConditions = `${caseConditions} && showType === 'bc'`
         isShowModalFrame = true
         isButtonBack = false
         isButtonClose = false
@@ -110,6 +118,7 @@ export const getScenarioParamsFromUrlParams: GetScenarioParamsFromUrlParamsType 
 
     return {
       caseNo,
+      caseConditions,
       profileName,
       isLeftColumn,
       isMainColumnBlank,
