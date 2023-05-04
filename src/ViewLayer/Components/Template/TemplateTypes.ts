@@ -1,8 +1,8 @@
-import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
+import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 
 export interface TemplatePropsType {
   styleProps?: any
-  mediaParams?: UseMediaQueryResYrlOutType
+  mediaParams?: MediaParamsDefaultType
 }
 
 /**

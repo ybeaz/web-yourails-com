@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import {
   useMediaQueryResYrl,
-  UseMediaQueryResYrlOutType,
+  MediaParamsDefaultType,
   DeviceType,
 } from './useMediaQueryResYrl'
 

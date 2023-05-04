@@ -37,14 +37,16 @@ import {
 } from './Hooks/useLinkClickResYrl'
 import {
   useMediaQueryResYrl,
-  UseMediaQueryResYrlOutType,
+  MediaParamsDefaultType,
   UseMediaQueryResYrlType,
   DeviceType,
 } from './Hooks/useMediaQueryResYrl'
 import {
   WithParamsMediaYrlPropsType,
   WithParamsMediaYrlType,
+  UrlParamsDefaultType,
   mediaParamsDefault,
+  urlParamsDefault,
   withParamsMediaYrl,
 } from './Hooks/withParamsMediaYrl'
 import {
@@ -66,7 +68,8 @@ export type {
   UseAnimatedYrlType,
   UseIntervalYrlType,
   UseLinkClickResYrlType,
-  UseMediaQueryResYrlOutType,
+  UrlParamsDefaultType,
+  MediaParamsDefaultType,
   UseMediaQueryResYrlType,
   WithStoreStateYrlPropsType,
   WithStoreStateYrlType,
@@ -77,6 +80,7 @@ export type {
 export {
   DeviceType,
   mediaParamsDefault,
+  urlParamsDefault,
   useAnimatedYrl,
   useIntervalYrl,
   useLinkClickResYrl,
@@ -126,7 +130,7 @@ export {
 //   useLinkClickResYrl,
 //   UseLinkClickResYrlType,
 //   useMediaQueryResYrl,
-//   UseMediaQueryResYrlOutType,
+//   MediaParamsDefaultType,
 //   UseMediaQueryResYrlType,
 //   withParamsMediaYrl,
 //   withParamsMediaYrlType,

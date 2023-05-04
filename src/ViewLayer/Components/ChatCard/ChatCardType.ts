@@ -1,10 +1,10 @@
-import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
+import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 
 export interface ChatCardPropsType {
   styleProps?: any
-  mediaParams?: UseMediaQueryResYrlOutType
+  mediaParams?: MediaParamsDefaultType
   profile: ProfileType
   handleEvents: HandleEventsType
   isActive: boolean

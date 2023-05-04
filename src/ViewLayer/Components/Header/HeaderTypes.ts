@@ -1,8 +1,8 @@
-import { UseMediaQueryResYrlOutType } from '../../../YrlNativeViewLibrary'
+import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 
 export interface HeaderPropsType {
   styleProps?: { Header: any; headerText: any }
-  mediaParams?: UseMediaQueryResYrlOutType
+  mediaParams?: MediaParamsDefaultType
   headerText?: string
 }
 

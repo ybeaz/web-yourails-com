@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react'
 import { useSearchParams, useParams } from 'react-router-dom'
 import {
   useMediaQueryResYrl,
-  UseMediaQueryResYrlOutType,
+  MediaParamsDefaultType,
   DeviceType,
 } from './useMediaQueryResYrl'
 
@@ -10,6 +10,12 @@ export type WithParamsMediaYrlPropsType = FunctionComponent<any>
 
 export interface WithParamsMediaYrlType {
   (Component: WithParamsMediaYrlPropsType): FunctionComponent
+}
+
+export type UrlParamsDefaultType = {
+  urlParam1: string | undefined
+  urlParam2: string | undefined
+  urlParam3: string | undefined
 }
 
 /**
@@ -27,14 +33,14 @@ export interface WithParamsMediaYrlType {
   Wide screens xl 1621 - 16000'
  */
 
-export const mediaParamsDefault: UseMediaQueryResYrlOutType = {
+export const mediaParamsDefault: MediaParamsDefaultType = {
   deviceType: DeviceType['lgDevice'],
   screenCase: 'lgXl',
   width: 1024,
   height: 800,
 }
 
-export const urlParamsDefault = {
+export const urlParamsDefault: UrlParamsDefaultType = {
   urlParam1: undefined,
   urlParam2: undefined,
   urlParam3: undefined,
@@ -44,7 +50,7 @@ export const withParamsMediaYrl: WithParamsMediaYrlType = function (Component) {
   return function WrappedComponent(props: any) {
     const urlParams = useParams()
     const [urlParamsSearch] = useSearchParams()
-    const mediaParams: UseMediaQueryResYrlOutType = useMediaQueryResYrl()
+    const mediaParams: MediaParamsDefaultType = useMediaQueryResYrl()
     const propsNext = { ...props, mediaParams, urlParams, urlParamsSearch }
 
     return <Component {...propsNext} />

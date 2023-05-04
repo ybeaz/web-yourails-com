@@ -10,7 +10,10 @@ import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { withParamsMediaYrl } from '../../../YrlNativeViewLibrary'
-import { mediaParamsDefault } from '../../../YrlNativeViewLibrary'
+import {
+  urlParamsDefault,
+  mediaParamsDefault,
+} from '../../../YrlNativeViewLibrary'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
 import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
@@ -36,11 +39,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
     styleProps = { PageChatsWholeScreen: {} },
     mediaParams = mediaParamsDefault,
-    urlParams: { urlParam1, urlParam2, urlParam3 },
+    urlParams = urlParamsDefault,
     urlParamsSearch,
     store,
   } = props
   const { deviceType } = mediaParams
+  const { urlParam1, urlParam2, urlParam3 } = urlParams
 
   const style = styles[deviceType]
 
