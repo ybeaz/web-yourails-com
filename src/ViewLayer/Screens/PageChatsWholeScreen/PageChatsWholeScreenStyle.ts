@@ -16,8 +16,9 @@ export const stylesDefault = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
     minHeight: '100%',
-    height: '120%',
     maxWidth: '100%',
+    height: '100vh',
+    overflow: 'scroll',
   },
   leftColumn: {
     flex: 1,
@@ -29,20 +30,35 @@ export const stylesDefault = StyleSheet.create({
     borderBottomWidth: 1,
     borderLeftWidth: 1,
   },
-  mainColumn: {
-    flex: 3,
-    flexGrow: 3,
-    flexDirection: 'column',
-    height: '100%',
-  },
-  topBarsMainColumn: {
+  leftColumnTopBars: {
     position: 'absolute',
     zIndex: 9999,
     top: 0,
     width: '100%',
   },
-  topBarMainColumn: {},
-  contentMenuMainColumn: {},
+  leftColumnChatCardSpace: {
+    flexDirection: 'column',
+    width: '100%',
+    flex: 1,
+    marginTop: 64,
+    overflow: 'scroll',
+  },
+
+  mainColumn: {
+    flex: 3,
+    flexGrow: 3,
+    flexDirection: 'column',
+    width: '100%',
+    height: '100vh',
+  },
+  mainColumnTopBars: {
+    position: 'absolute',
+    zIndex: 9999,
+    top: 0,
+    width: '100%',
+  },
+  mainColumnTopBar: {},
+  mainColumnContentMenu: {},
   scrollViewWrapper: {
     // justifyContent: 'flex-end',
     // height: '100%',

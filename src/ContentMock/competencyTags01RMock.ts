@@ -1759,6 +1759,7 @@ SSO services use protocols:\n\
 ✔ API Gateway - A fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.\n\
 ✔ CloudFront - A fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency.\n\
 ✔ CloudWatch - A monitoring and observability service for resources and applications.\n\
+✔ Cognito - A fully managed service that provides user sign-up, sign-in, and access control to web and mobile apps.\n\
 ✔ CodePipeline - A fully managed continuous integration and continuous delivery service.\n\
 ✔ DynamoDB - A fully-managed NoSQL database service that provides fast and predictable performance with seamless scalability.\n\
 ✔ Identity and Access Management (IAM) - A web service that helps you securely control access to resources for your users.\n\
@@ -1776,7 +1777,8 @@ SSO services use protocols:\n\
 • Glue - A fully-managed extract, transform, and load (ETL) service that makes it easy to move data between data stores.\n\
 • IoT - A managed cloud platform that lets connected devices easily and securely interact with cloud applications and other devices.\n\
 • Kinesis - A platform for streaming data on the cloud, which can be used for real-time data processing and analysis.\n\
-• Redshift - A fully managed, petabyte-scale data warehouse service in the cloud.\n\
+• Neptune - A fully managed graph database service that enables you to build and run applications that work with highly connected datasets.\n\
+• Redshift - A fully managed, petabyte - scale data warehouse service in the cloud.\n\
 • Relational Database Service (RDS) - A managed service that makes it easier to set up, operate, and scale a relational database in the cloud.\n\
 • Simple Email Service (SES) - A flexible, low-cost email service designed to help marketers and developers send marketing, notification, and transactional emails.\n\
 • Simple Notification Service (SNS) - A fully managed messaging service for both application-to-application (A2A) and application-to-person (A2P) communication.\n\

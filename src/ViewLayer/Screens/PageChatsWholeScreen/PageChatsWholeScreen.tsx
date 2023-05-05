@@ -120,24 +120,17 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const propsOut: Record<string, any> = {
     chatCardsProps: {
-      profiles,
+      profiles: profiles,
+      //   .reduce((acc: any, elem: any) => {
+      //   const elemNext = Array(4).fill(elem)
+      //   return [...acc, ...elemNext]
+      // }, []),
       idUserHost,
       urlParam1,
       urlParam2,
       query,
     },
-    chatSpaceProps: {
-      styleProps: {
-        ChatSpace: {
-          minHeight: '-webkit-fill-available',
-        },
-      },
-      idUserHost,
-      profiles,
-      messages: messagesUserHost,
-      modalFrame: { ...modalFrame, childProps: {} },
-    },
-    contentMenuMainColumnProps: {
+    mainColumnContentMenuProps: {
       styleProps: {
         buttonWrapper: {
           borderTopWidth: 0,
@@ -152,6 +145,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       },
       sectionsMapping: sectionsMappingForProfile,
       store,
+    },
+    mainColumnChatSpaceProps: {
+      styleProps: {
+        ChatSpace: {
+          marginTop: '6rem',
+          marginBottom: '4rem',
+        },
+      },
+      idUserHost,
+      profiles,
+      messages: messagesUserHost,
+      modalFrame: { ...modalFrame, childProps: {} },
     },
     leftColumnOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },
@@ -197,6 +202,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
   }
 
+  const scrollViewRef = React.useRef<ScrollView>(null)
+
   return (
     <SafeAreaView
       style={[
@@ -216,8 +223,15 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           ]}
           testID='leftColumn'
         >
-          <TopBarChatCards />
-          <ChatCards {...propsOut.chatCardsProps} />
+          <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
+            <TopBarChatCards />
+          </View>
+          <View
+            style={[style.leftColumnChatCardSpace]}
+            testID='leftColumnChatCardSpace'
+          >
+            <ChatCards {...propsOut.chatCardsProps} />
+          </View>
         </View>
       )}
 
@@ -240,12 +254,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             {!isMainColumnBlank && (
               <>
                 <View
-                  style={[style.topBarsMainColumn]}
-                  testID='topBarsMainColumn'
+                  style={[style.mainColumnTopBars]}
+                  testID='mainColumnTopBars'
                 >
                   <View
                     style={[
-                      style.topBarMainColumn,
+                      style.mainColumnTopBar,
                       {
                         borderStyle: 'solid',
                         // borderTopWidth: 1,
@@ -255,31 +269,41 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
                       },
                       themes['themeA'].colors01,
                     ]}
-                    testID='topBarMainColumn'
+                    testID='mainColumnTopBar'
                   >
                     <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
                   </View>
 
                   <View
                     style={[
-                      style.contentMenuMainColumn,
+                      style.mainColumnContentMenu,
                       themes['themeA'].colors01,
                     ]}
-                    testID='contentMenuMainColumn'
+                    testID='mainColumnContentMenu'
                   >
                     <ContentMenuMainColumn
-                      {...propsOut.contentMenuMainColumnProps}
+                      {...propsOut.mainColumnContentMenuProps}
                     />
                   </View>
                 </View>
                 <ScrollView
-                  style={[style.chatSpace]}
-                  contentContainerStyle={{
-                    minHeight: '-webkit-fill-available',
+                  style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
+                  contentContainerStyle={{}}
+                  ref={scrollViewRef}
+                  nestedScrollEnabled={true}
+                  onContentSizeChange={(contentWidth, contentHeight) => {
+                    if (isShowModalFrame) {
+                      scrollViewRef.current?.scrollTo({ y: 0, animated: true })
+                      return
+                    }
+                    scrollViewRef.current?.scrollTo({
+                      y: contentHeight,
+                      animated: true,
+                    })
                   }}
-                  testID='chatSpace'
+                  testID='mainColumnChatSpace'
                 >
-                  <ChatSpace {...propsOut.chatSpaceProps} />
+                  <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
                 </ScrollView>
                 {isShowModalFrame === false && (
                   <View
