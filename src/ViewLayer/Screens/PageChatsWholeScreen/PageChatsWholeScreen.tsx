@@ -120,7 +120,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const propsOut: Record<string, any> = {
     chatCardsProps: {
-      profiles,
+      profiles: profiles,
+      //   .reduce((acc: any, elem: any) => {
+      //   const elemNext = Array(4).fill(elem)
+      //   return [...acc, ...elemNext]
+      // }, []),
       idUserHost,
       urlParam1,
       urlParam2,
@@ -216,8 +220,15 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           ]}
           testID='leftColumn'
         >
-          <TopBarChatCards />
-          <ChatCards {...propsOut.chatCardsProps} />
+          <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
+            <TopBarChatCards />
+          </View>
+          <View
+            style={[style.leftColumnChatCardSpace]}
+            testID='leftColumnChatCardSpace'
+          >
+            <ChatCards {...propsOut.chatCardsProps} />
+          </View>
         </View>
       )}
 
@@ -240,12 +251,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
             {!isMainColumnBlank && (
               <>
                 <View
-                  style={[style.topBarsMainColumn]}
-                  testID='topBarsMainColumn'
+                  style={[style.mainColumnTopBars]}
+                  testID='mainColumnTopBars'
                 >
                   <View
                     style={[
-                      style.topBarMainColumn,
+                      style.mainColumnTopBar,
                       {
                         borderStyle: 'solid',
                         // borderTopWidth: 1,
@@ -255,17 +266,17 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
                       },
                       themes['themeA'].colors01,
                     ]}
-                    testID='topBarMainColumn'
+                    testID='mainColumnTopBar'
                   >
                     <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
                   </View>
 
                   <View
                     style={[
-                      style.contentMenuMainColumn,
+                      style.mainColumnContentMenu,
                       themes['themeA'].colors01,
                     ]}
-                    testID='contentMenuMainColumn'
+                    testID='mainColumnContentMenu'
                   >
                     <ContentMenuMainColumn
                       {...propsOut.contentMenuMainColumnProps}
