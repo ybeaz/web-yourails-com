@@ -89,9 +89,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     },
     modalFrameYrlProps: {
       styleProps: {
-        ModalFrameYrl: {
-          marginTop: '6rem',
-        },
+        ModalFrameYrl: {},
         imageBackground: {
           backgroundColor: themes['themeA'].colors07.backgroundColor,
         },
