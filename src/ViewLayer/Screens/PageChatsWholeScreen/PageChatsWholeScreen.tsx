@@ -130,18 +130,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       urlParam2,
       query,
     },
-    chatSpaceProps: {
-      styleProps: {
-        ChatSpace: {
-          minHeight: '-webkit-fill-available',
-        },
-      },
-      idUserHost,
-      profiles,
-      messages: messagesUserHost,
-      modalFrame: { ...modalFrame, childProps: {} },
-    },
-    contentMenuMainColumnProps: {
+    mainColumnContentMenuProps: {
       styleProps: {
         buttonWrapper: {
           borderTopWidth: 0,
@@ -156,6 +145,17 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       },
       sectionsMapping: sectionsMappingForProfile,
       store,
+    },
+    mainColumnChatSpaceProps: {
+      styleProps: {
+        ChatSpace: {
+          minHeight: '-webkit-fill-available',
+        },
+      },
+      idUserHost,
+      profiles,
+      messages: messagesUserHost,
+      modalFrame: { ...modalFrame, childProps: {} },
     },
     leftColumnOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },
@@ -279,18 +279,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
                     testID='mainColumnContentMenu'
                   >
                     <ContentMenuMainColumn
-                      {...propsOut.contentMenuMainColumnProps}
+                      {...propsOut.mainColumnContentMenuProps}
                     />
                   </View>
                 </View>
                 <ScrollView
-                  style={[style.chatSpace]}
+                  style={[style.mainColumnChatSpace]}
                   contentContainerStyle={{
                     minHeight: '-webkit-fill-available',
                   }}
-                  testID='chatSpace'
+                  testID='mainColumnChatSpace'
                 >
-                  <ChatSpace {...propsOut.chatSpaceProps} />
+                  <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
                 </ScrollView>
                 {isShowModalFrame === false && (
                   <View
