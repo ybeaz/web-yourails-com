@@ -2,7 +2,9 @@ import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
-  ChatSpace: {},
+  ChatSpace: {
+    justifyContent: 'flex-end',
+  },
   ChatSpaceJsx: {
     ...styleGlobal.typography,
     flexDirection: 'column',
@@ -10,13 +12,10 @@ export const stylesDefault = StyleSheet.create({
     height: '100%',
     flex: 1,
     justifyContent: 'flex-end',
-    marginTop: '6rem',
     // marginBottom: '4rem',
     minHeight: '100%',
   },
-  viewPadding: {
-    paddingBottom: '3rem',
-  },
+  viewPadding: {},
   date: {
     alignItems: 'center',
     padding: '1rem',

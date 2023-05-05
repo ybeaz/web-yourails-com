@@ -149,7 +149,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     mainColumnChatSpaceProps: {
       styleProps: {
         ChatSpace: {
-          minHeight: '-webkit-fill-available',
+          marginTop: '6rem',
+          marginBottom: '4rem',
         },
       },
       idUserHost,
@@ -200,6 +201,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       testID: 'leftColumnIn_animatedYrl_Inner',
     },
   }
+
+  const scrollViewRef = React.useRef<ScrollView>(null)
 
   return (
     <SafeAreaView
@@ -284,9 +287,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
                   </View>
                 </View>
                 <ScrollView
-                  style={[style.mainColumnChatSpace]}
-                  contentContainerStyle={{
-                    minHeight: '-webkit-fill-available',
+                  style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
+                  contentContainerStyle={{}}
+                  ref={scrollViewRef}
+                  nestedScrollEnabled={true}
+                  onContentSizeChange={(contentWidth, contentHeight) => {
+                    scrollViewRef.current?.scrollTo({ y: contentHeight })
                   }}
                   testID='mainColumnChatSpace'
                 >
