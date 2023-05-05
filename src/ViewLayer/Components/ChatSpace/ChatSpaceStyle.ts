@@ -7,16 +7,15 @@ export const stylesDefault = StyleSheet.create({
     ...styleGlobal.typography,
     flexDirection: 'column',
     padding: '0.5rem',
-    // maxWidth: '100%',
     height: '100%',
     flex: 1,
     justifyContent: 'flex-end',
     marginTop: '6rem',
-    marginBottom: '4rem',
+    // marginBottom: '4rem',
+    minHeight: '100%',
   },
   viewPadding: {
     paddingBottom: '3rem',
-    // paddingRight: 10%
   },
   date: {
     alignItems: 'center',

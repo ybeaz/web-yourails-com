@@ -57,7 +57,7 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
     nameFirst: 'Alicia',
     nameLast: 'Wilson',
     uriAvatar:
-      'https://raw.githubusercontent.com/webkul/vivid/master/icons/controller.svg',
+      'https://cdn.finam.ru//upload/image/events/66518/160_sport_01_5a804fbe91.jpg',
     phones: ['650-000-0000'],
     emails: ['example2@site.com'],
     messengers: [],
