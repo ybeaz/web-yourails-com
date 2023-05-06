@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react'
 import { SafeAreaView, ScrollView, View } from 'react-native'
-import { Navigation } from 'react-native-navigation'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
@@ -16,6 +15,7 @@ import {
   getFilteredObjsArrayBy,
   OperatorType,
 } from '../../../Shared/getFilteredObjsArrayBy'
+import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
@@ -219,126 +219,153 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const scrollViewRef = React.useRef<ScrollView>(null)
 
-  return (
-    <SafeAreaView
-      style={[
-        style.LayoutScreen,
-        themes['themeA'].colors01,
-        { borderColor: 'white' },
-        styleAddPageChatsWholeScreen,
-      ]}
-      testID='LayoutScreenPageChats'
-    >
-      <View style={[style.layoutNavigationTop]} testID='layoutNavigationTop'>
-        <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
-          <TopBarChatCards {...propsOut.topBarChatCards} />
+  const LayoutNavigationTop = () => (
+    <>
+      <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
+        <TopBarChatCards {...propsOut.topBarChatCards} />
+      </View>
+
+      <View style={[style.mainColumnTopBars]} testID='mainColumnTopBars'>
+        <View
+          style={[
+            style.mainColumnTopBar,
+            {
+              borderStyle: 'solid',
+              // borderTopWidth: 1,
+              // borderRightWidth: 1,
+              borderBottomWidth: 1,
+              borderLeftWidth: 1,
+            },
+            themes['themeA'].colors01,
+          ]}
+          testID='mainColumnTopBar'
+        >
+          <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
         </View>
 
-        <View style={[style.mainColumnTopBars]} testID='mainColumnTopBars'>
+        <View
+          style={[style.mainColumnContentMenu, themes['themeA'].colors01]}
+          testID='mainColumnContentMenu'
+        >
+          <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
+        </View>
+      </View>
+    </>
+  )
+
+  const LayoutMainContent = () => (
+    <>
+      {isLeftColumn && (
+        <View
+          style={[
+            style.leftColumn,
+            themes['themeA'].colors01,
+            styleAddLeftColumn,
+          ]}
+          testID='leftColumn'
+        >
+          <View
+            style={[style.leftColumnChatCardSpace]}
+            testID='leftColumnChatCardSpace'
+          >
+            <ChatCards {...propsOut.chatCardsProps} />
+          </View>
+        </View>
+      )}
+
+      {isMainColumn && (
+        <AnimatedYrl {...propsOut.mainColumnOuterAnimatedYrlProps}>
           <View
             style={[
-              style.mainColumnTopBar,
+              style.mainColumn,
               {
                 borderStyle: 'solid',
                 // borderTopWidth: 1,
-                // borderRightWidth: 1,
-                borderBottomWidth: 1,
-                borderLeftWidth: 1,
+                borderRightWidth: 1,
+                // borderBottomWidth: 1,
+                // borderLeftWidth: 1,
               },
               themes['themeA'].colors01,
             ]}
-            testID='mainColumnTopBar'
+            testID='mainColumn'
           >
-            <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
-          </View>
-
-          <View
-            style={[style.mainColumnContentMenu, themes['themeA'].colors01]}
-            testID='mainColumnContentMenu'
-          >
-            <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
-          </View>
-        </View>
-      </View>
-
-      <View style={[style.layoutMainContent]} testID='layoutMainContent'>
-        {isLeftColumn && (
-          <View
-            style={[
-              style.leftColumn,
-              themes['themeA'].colors01,
-              styleAddLeftColumn,
-            ]}
-            testID='leftColumn'
-          >
-            <View
-              style={[style.leftColumnChatCardSpace]}
-              testID='leftColumnChatCardSpace'
-            >
-              <ChatCards {...propsOut.chatCardsProps} />
-            </View>
-          </View>
-        )}
-
-        {isMainColumn && (
-          <AnimatedYrl {...propsOut.mainColumnOuterAnimatedYrlProps}>
-            <View
-              style={[
-                style.mainColumn,
-                {
-                  borderStyle: 'solid',
-                  // borderTopWidth: 1,
-                  borderRightWidth: 1,
-                  // borderBottomWidth: 1,
-                  // borderLeftWidth: 1,
-                },
-                themes['themeA'].colors01,
-              ]}
-              testID='mainColumn'
-            >
-              {!isMainColumnBlank && (
-                <ScrollView
-                  style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
-                  contentContainerStyle={{}}
-                  ref={scrollViewRef}
-                  nestedScrollEnabled={true}
-                  onContentSizeChange={(contentWidth, contentHeight) => {
-                    if (isShowModalFrame) {
-                      scrollViewRef.current?.scrollTo({
-                        y: 0,
-                        animated: true,
-                      })
-                      return
-                    }
+            {!isMainColumnBlank && (
+              <ScrollView
+                style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
+                contentContainerStyle={{}}
+                ref={scrollViewRef}
+                nestedScrollEnabled={true}
+                onContentSizeChange={(contentWidth, contentHeight) => {
+                  if (isShowModalFrame) {
                     scrollViewRef.current?.scrollTo({
-                      y: contentHeight,
+                      y: 0,
                       animated: true,
                     })
-                  }}
-                  testID='mainColumnChatSpace'
-                >
-                  <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
-                </ScrollView>
-              )}
-            </View>
-          </AnimatedYrl>
-        )}
-      </View>
-      <View
-        style={[style.layoutNavigationBottom]}
-        testID='layoutNavigationBottom'
-      >
-        {isShowModalFrame === false && (
-          <View
-            style={[style.chatInput, themes['themeA'].colors03]}
-            testID='chatInput'
-          >
-            <ChatInput />
+                    return
+                  }
+                  scrollViewRef.current?.scrollTo({
+                    y: contentHeight,
+                    animated: true,
+                  })
+                }}
+                testID='mainColumnChatSpace'
+              >
+                <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
+              </ScrollView>
+            )}
           </View>
-        )}
-      </View>
-    </SafeAreaView>
+        </AnimatedYrl>
+      )}
+    </>
   )
+
+  const LayoutNavigationBottom = () => (
+    <>
+      {' '}
+      {isShowModalFrame === false && (
+        <View
+          style={[style.chatInput, themes['themeA'].colors03]}
+          testID='chatInput'
+        >
+          <ChatInput />
+        </View>
+      )}
+    </>
+  )
+
+  return (
+    <LayoutScreen>
+      <LayoutNavigationTop />
+      <LayoutMainContent />
+      <LayoutNavigationBottom />
+    </LayoutScreen>
+  )
+
+  // return (
+  //   <SafeAreaView
+  //     style={[
+  //       style.LayoutScreen,
+  //       themes['themeA'].colors01,
+  //       { borderColor: 'white' },
+  //       styleAddPageChatsWholeScreen,
+  //     ]}
+  //     testID='LayoutScreenPageChats'
+  //   >
+  //     <View style={[style.layoutNavigationTop]} testID='layoutNavigationTop'>
+  //       <LayoutNavigationTop />
+  //     </View>
+
+  //     <View style={[style.layoutMainContent]} testID='layoutMainContent'>
+  //       <LayoutMainContent />
+  //     </View>
+  //     <View
+  //       style={[style.layoutNavigationBottom]}
+  //       testID='layoutNavigationBottom'
+  //     >
+  //       <LayoutNavigationBottom />
+  //     </View>
+  //   </SafeAreaView>
+  // )
 }
 
 export const PageChatsWholeScreen = React.memo(

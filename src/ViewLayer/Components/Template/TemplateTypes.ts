@@ -5,6 +5,8 @@ export interface TemplatePropsType {
   mediaParams?: MediaParamsDefaultType
 }
 
+export type TemplatePropsOutType = Record<string, any>
+
 /**
  * @import import { TemplateType } from './TemplateType'
  */
