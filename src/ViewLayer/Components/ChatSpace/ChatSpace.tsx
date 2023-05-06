@@ -32,8 +32,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     styleProps = { ChatSpace: {} },
     mediaParams = mediaParamsDefault,
     idProfileHost,
-    idProfileActive,
-    profiles,
+    profileActive,
     messages,
     modalFrame,
     handleEvents,
@@ -50,10 +49,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     childProps,
   } = modalFrame
 
-  const profileActive =
-    profiles.find(
-      (profileIn: ProfileType) => profileIn.idProfile !== idProfileActive
-    ) || profiles[0]
   const Child = MODAL_CONTENTS[childName]
 
   const messagesPrep = getPreproccedMessages(messages, idProfileHost)

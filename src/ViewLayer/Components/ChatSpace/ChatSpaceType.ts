@@ -7,8 +7,7 @@ export interface ChatSpacePropsType {
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
   idProfileHost: IdUserType
-  idProfileActive: IdUserType
-  profiles: ProfileType[]
+  profileActive: ProfileType
   messages: Omit<MessageType, 'position' | 'isTail'>[]
   modalFrame: any
   handleEvents: any
