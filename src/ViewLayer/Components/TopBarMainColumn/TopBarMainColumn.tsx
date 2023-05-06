@@ -23,12 +23,12 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
   const {
     isImageAvatar,
     isButtonBack,
-    profile,
+    profileActive,
     mediaParams = mediaParamsDefault,
   } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
-  const { uriAvatar = '', serviceSpecs = [] } = profile
+  const { uriAvatar = '', serviceSpecs = [] } = profileActive
 
   let isButtonBackToCard = isButtonBack
   if (
@@ -75,7 +75,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
       },
     },
     avatarPlusInfoProps: {
-      profile,
+      profile: profileActive,
       styleProps: {
         viewStyle: themes['themeA'].colors01,
         avatar: { opacity: isImageAvatar ? 1 : 0 },
@@ -101,7 +101,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
         NameStatus: {},
         viewStyle: themes['themeA'].colors01,
       },
-      profile,
+      profile: profileActive,
       status: 'last seen recently',
     },
   }

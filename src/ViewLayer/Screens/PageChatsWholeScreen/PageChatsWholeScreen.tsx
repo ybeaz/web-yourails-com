@@ -78,25 +78,29 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const profileHost =
     profiles && profiles.find(profile => profile.idProfile == idProfileHost)
 
-  let profile = getProfileChat({ profiles, urlParam1, urlParam2 })
-  profile = profile
-    ? profile
-    : profiles.find(profile => profile.idProfile == idUserHost)
-  const profileNameChat = profile ? profile.profileName : undefined
+  let profileActive = getProfileChat({ profiles, urlParam1, urlParam2 })
+  profileActive = profileActive
+    ? profileActive
+    : profiles.find(profile => profile.idProfile == idProfileHost)
+  const profileNameChat = profileActive ? profileActive.profileName : undefined
 
   const sectionsMappingForProfile: SectionMappingType[] =
     getSectionsMappingForProfile(sectionsMapping, profileNameChat)
 
   // TODO: To create another profile and show the conversation. This is only the first attempt for demo purposes
-  const conversationsUserHost = conversations.filter((conversation: any) => {
-    return conversation.idsUsers.includes(idUserHost)
-  })
-  const messagesUserHost = messages.filter((message: any) => {
-    return message.idConversation === conversationsUserHost[0]?.idConversation
+  const conversationsWithProfileActive = conversations.filter(
+    (conversation: any) => {
+      return conversation.idsUsers.includes(idUserHost)
+    }
+  )
+  const messagesWithProfileActive = messages.filter((message: any) => {
+    return (
+      message.idConversation ===
+      conversationsWithProfileActive[0]?.idConversation
+    )
   })
 
   console.info('PageChatsWholeScreen [98]', {
-    idUserHost,
     idProfileHost,
     idProfileActive,
   })
@@ -143,7 +147,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       },
       idUserHost,
       profiles,
-      messages: messagesUserHost,
+      messages: messagesWithProfileActive,
       modalFrame: { ...modalFrame, childProps: {} },
     },
     leftColumnOuterAnimatedYrlProps: {
@@ -189,7 +193,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       styleProps: {
         TopBarMainColumn: {},
       },
-      profile,
+      profileActive,
       isButtonBack: isButtonBackTopBarMainColumn,
       isImageAvatar,
     },
