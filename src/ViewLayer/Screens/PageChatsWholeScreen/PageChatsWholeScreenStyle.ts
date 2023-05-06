@@ -15,10 +15,10 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'center',
-    minHeight: '100%',
-    maxWidth: '100%',
+    minHeight: '100vh',
+    maxHeight: '100vh',
     height: '100vh',
-    overflow: 'scroll',
+    maxWidth: '100%',
   },
   leftColumn: {
     flex: 1,

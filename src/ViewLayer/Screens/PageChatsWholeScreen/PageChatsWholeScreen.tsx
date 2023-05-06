@@ -4,9 +4,6 @@ import { SafeAreaView, ScrollView, View } from 'react-native'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
-import { SectionMappingType } from '../../../@types/SectionMappingType'
-import { ChatInput } from '../../Components/ChatInput/ChatInput'
-import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import {
   AnimatedYrl,
   mediaParamsDefault,
@@ -14,14 +11,21 @@ import {
   withParamsMediaYrl,
   withStoreStateYrl,
 } from '../../../YrlNativeViewLibrary'
-import { getProfileChat } from '../../../Shared/getProfileChat'
-import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
+import {
+  getFilteredObjsArrayBy,
+  OperatorType,
+} from '../../../Shared/getFilteredObjsArrayBy'
+import { ChatCards } from '../../Components/ChatCards/ChatCards'
+import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
+import { getProfileChat } from '../../../Shared/getProfileChat'
+import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
-import { styles } from './PageChatsWholeScreenStyle'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
+import { SectionMappingType } from '../../../@types/SectionMappingType'
 import { styleGlobal } from '../../Styles/styleGlobal'
+import { styles } from './PageChatsWholeScreenStyle'
 import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
@@ -51,7 +55,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   renderCounter.current = renderCounter.current + 1
 
   const {
-    globalVars: { language, idUserHost, isShowApp },
+    globalVars: { language, idProfileHost, idProfileActive, isShowApp },
     componentsState,
   } = store
 
@@ -69,21 +73,29 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     s: urlParamsSearch.get('s'),
   }
 
-  let profile = getProfileChat({ profiles, urlParam1, urlParam2 })
-  profile = profile
-    ? profile
-    : profiles.find(profile => profile.idProfile == idUserHost)
-  const profileNameChat = profile ? profile.profileName : undefined
+  const profileHost =
+    profiles && profiles.find(profile => profile.idProfile == idProfileHost)
+
+  let profileActive = getProfileChat({ profiles, urlParam1, urlParam2 })
+  profileActive = profileActive
+    ? profileActive
+    : profiles.find(profile => profile.idProfile == idProfileHost)
+  const profileNameChat = profileActive ? profileActive.profileName : undefined
 
   const sectionsMappingForProfile: SectionMappingType[] =
     getSectionsMappingForProfile(sectionsMapping, profileNameChat)
 
   // TODO: To create another profile and show the conversation. This is only the first attempt for demo purposes
-  const conversationsUserHost = conversations.filter((conversation: any) => {
-    return conversation.idsUsers.includes(idUserHost)
-  })
-  const messagesUserHost = messages.filter((message: any) => {
-    return message.idConversation === conversationsUserHost[0]?.idConversation
+  const conversationsWithProfileActive = conversations.filter(
+    (conversation: any) => {
+      return conversation.idsProfiles.includes(idProfileActive)
+    }
+  )
+  const messagesWithProfileActive = messages.filter((message: any) => {
+    return (
+      message.idConversation ===
+      conversationsWithProfileActive[0]?.idConversation
+    )
   })
 
   useEffect(() => {
@@ -111,6 +123,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     )
   }, [urlParamsMediaIdentifier])
 
+  const profilesChatCards = getFilteredObjsArrayBy(
+    profiles,
+    'idProfile',
+    idProfileHost,
+    OperatorType['!==']
+  )
+
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
   const styleAddLeftColumn = {} // isShowModalFrame ? styleGlobal.hidden : {}
   const isButtonBackTopBarMainColumn =
@@ -119,13 +138,31 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     childNameModal === 'Profile' && isShowModalFrame === true ? false : true
 
   const propsOut: Record<string, any> = {
+    leftColumnOuterAnimatedYrlProps: {
+      styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },
+      isActive: renderCounter.current !== 1,
+      valueInit: isShowModalFrame ? 1 : 0,
+      valueTarget: isShowModalFrame ? 0 : 1,
+      nameHtmlCssAttribute: 'opacity',
+      duration: 1000,
+      trigger: isShowModalFrame,
+      triggerShouldEqual: isShowModalFrame ? true : false,
+      testID: 'leftColumn_Outer_AnimatedYrl',
+    },
+    leftColumnInnerInAnimatedYrlProps: {
+      isActive: renderCounter.current !== 1,
+      valueInit: isShowModalFrame ? 1 : 0,
+      valueTarget: isShowModalFrame ? 1 : 0,
+      nameHtmlCssAttribute: 'opacity',
+      duration: 1000,
+      trigger: isShowModalFrame,
+      triggerShouldEqual: isShowModalFrame ? true : false,
+      testID: 'leftColumnIn_animatedYrl_Inner',
+    },
+    topBarChatCards: { profileHost, idProfileActive },
     chatCardsProps: {
-      profiles: profiles,
-      //   .reduce((acc: any, elem: any) => {
-      //   const elemNext = Array(4).fill(elem)
-      //   return [...acc, ...elemNext]
-      // }, []),
-      idUserHost,
+      profiles: profilesChatCards,
+      idProfileActive,
       urlParam1,
       urlParam2,
       query,
@@ -146,34 +183,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       sectionsMapping: sectionsMappingForProfile,
       store,
     },
-    mainColumnChatSpaceProps: {
-      styleProps: {
-        ChatSpace: {
-          marginTop: '6rem',
-          marginBottom: '4rem',
-        },
-      },
-      idUserHost,
-      profiles,
-      messages: messagesUserHost,
-      modalFrame: { ...modalFrame, childProps: {} },
-    },
-    leftColumnOuterAnimatedYrlProps: {
-      styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },
-      isActive: renderCounter.current !== 1,
-      valueInit: isShowModalFrame ? 1 : 0,
-      valueTarget: isShowModalFrame ? 0 : 1,
-      nameHtmlCssAttribute: 'opacity',
-      duration: 1000,
-      trigger: isShowModalFrame,
-      triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'leftColumn_Outer_AnimatedYrl',
-    },
     topBarMainColumnProps: {
       styleProps: {
         TopBarMainColumn: {},
       },
-      profile,
+      profileActive,
       isButtonBack: isButtonBackTopBarMainColumn,
       isImageAvatar,
     },
@@ -190,15 +204,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       triggerShouldEqual: isShowModalFrame ? true : false,
       testID: 'mainColumn_Outer_AnimatedYrl',
     },
-    leftColumnInnerInAnimatedYrlProps: {
-      isActive: renderCounter.current !== 1,
-      valueInit: isShowModalFrame ? 1 : 0,
-      valueTarget: isShowModalFrame ? 1 : 0,
-      nameHtmlCssAttribute: 'opacity',
-      duration: 1000,
-      trigger: isShowModalFrame,
-      triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'leftColumnIn_animatedYrl_Inner',
+    mainColumnChatSpaceProps: {
+      styleProps: {
+        ChatSpace: {
+          marginTop: '6rem',
+          marginBottom: '4rem',
+        },
+      },
+      idProfileHost,
+      idProfileActive,
+      profileActive,
+      messages: messagesWithProfileActive,
+      modalFrame: { ...modalFrame, childProps: {} },
     },
   }
 
@@ -224,7 +241,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           testID='leftColumn'
         >
           <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
-            <TopBarChatCards />
+            <TopBarChatCards {...propsOut.topBarChatCards} />
           </View>
           <View
             style={[style.leftColumnChatCardSpace]}

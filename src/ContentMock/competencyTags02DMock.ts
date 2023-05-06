@@ -3,7 +3,7 @@ import { ContentType } from '../@types/ContentType'
 
 export const competencyTags02D: CompetencyTagType[] = [
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Appliance Repair',
     contentType: ContentType['CompetencyTagType'],
     section: 'Technical Skills',
@@ -18,7 +18,7 @@ export const competencyTags02D: CompetencyTagType[] = [
     ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Electrical Troubleshooting',
     contentType: ContentType['CompetencyTagType'],
     section: 'Technical Skills',
@@ -33,7 +33,7 @@ export const competencyTags02D: CompetencyTagType[] = [
     ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Diagnostics and Testing',
     contentType: ContentType['CompetencyTagType'],
     section: 'Technical Skills',
@@ -48,7 +48,7 @@ export const competencyTags02D: CompetencyTagType[] = [
     ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Equipment Maintenance',
     contentType: ContentType['CompetencyTagType'],
     section: 'Technical Skills',
@@ -63,7 +63,7 @@ export const competencyTags02D: CompetencyTagType[] = [
     ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Safety Procedures',
     contentType: ContentType['CompetencyTagType'],
     section: 'Technical Skills',
@@ -78,7 +78,7 @@ export const competencyTags02D: CompetencyTagType[] = [
     ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Technical Documentation',
     contentType: ContentType['CompetencyTagType'],
     section: 'Technical Skills',
@@ -93,7 +93,7 @@ export const competencyTags02D: CompetencyTagType[] = [
     ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Time Management',
     contentType: ContentType['CompetencyTagType'],
     section: 'Soft Skills',
@@ -108,7 +108,7 @@ export const competencyTags02D: CompetencyTagType[] = [
     ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Customer Service',
     contentType: ContentType['CompetencyTagType'],
     section: 'Soft Skills',
@@ -123,7 +123,7 @@ export const competencyTags02D: CompetencyTagType[] = [
     ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Teamwork',
     contentType: ContentType['CompetencyTagType'],
     section: 'Soft Skills',
@@ -138,7 +138,7 @@ export const competencyTags02D: CompetencyTagType[] = [
       ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Inventory Management',
     contentType: ContentType['CompetencyTagType'],
     section: 'Logistics Skills',
@@ -153,7 +153,7 @@ export const competencyTags02D: CompetencyTagType[] = [
       ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Quality Control',
     contentType: ContentType['CompetencyTagType'],
     section: 'Logistics Skills',
@@ -168,7 +168,7 @@ export const competencyTags02D: CompetencyTagType[] = [
       ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Communication Skills',
     contentType: ContentType['CompetencyTagType'],
     section: 'Soft Skills',
@@ -183,7 +183,7 @@ export const competencyTags02D: CompetencyTagType[] = [
       ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Problem Solving',
     contentType: ContentType['CompetencyTagType'],
     section: 'Soft Skills',
@@ -198,7 +198,7 @@ export const competencyTags02D: CompetencyTagType[] = [
       ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Attention to Detail',
     contentType: ContentType['CompetencyTagType'],
     section: 'Soft Skills',
@@ -212,7 +212,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Project Management',
     contentType: ContentType['CompetencyTagType'],
     section: 'Management Skills',
@@ -227,7 +227,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Tool Maintenance',
     contentType: ContentType['CompetencyTagType'],
     section: 'Technical Skills',
@@ -241,7 +241,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   ',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Parts Ordering and Inventory',
     contentType: ContentType['CompetencyTagType'],
     section: 'Logistics Skills',

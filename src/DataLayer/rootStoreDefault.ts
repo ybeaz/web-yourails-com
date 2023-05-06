@@ -80,6 +80,8 @@ export const rootStoreDefault: RootStoreType = {
   },
   globalVars: {
     idUserHost: '1',
+    idProfileHost: '1',
+    idProfileActive: '1',
     theme: 'light',
     language: 'en',
     isShowApp: true,

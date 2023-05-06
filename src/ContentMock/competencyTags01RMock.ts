@@ -3,7 +3,7 @@ import { ContentType } from '../@types/ContentType'
 
 export const competencyTags01R: CompetencyTagType[] = [
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Agile',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -28,7 +28,7 @@ export const competencyTags01R: CompetencyTagType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Automation Tools',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -49,7 +49,7 @@ Browser devtools\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'BDD',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -69,7 +69,7 @@ Behavior-driven development (BDD):\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'CLI',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -90,7 +90,7 @@ Windows CMD',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Data Structures',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -112,7 +112,7 @@ Windows CMD',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Design Patterns',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -154,7 +154,7 @@ Design patterns are advanced object-oriented solutions to commonly occurring sof
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'DevOps',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -182,7 +182,7 @@ S   Sharing - there are user-friendly communication channels that encourage ongo
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Issue-tracking systems',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -199,7 +199,7 @@ Bugzilla\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Kanban',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -217,7 +217,7 @@ Bugzilla\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Lints',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -237,7 +237,7 @@ Bugzilla\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'OOP',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -261,7 +261,7 @@ Polymorphism manifests itself by having multiple methods all with the same name,
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Scrum',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -290,7 +290,7 @@ Roles: Product Owner, Scrum Master, and Team Members\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'SDLC',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -310,7 +310,7 @@ or application development life-cycle: \n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Search Algorithms',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -330,7 +330,7 @@ or application development life-cycle: \n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'TDD',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -349,7 +349,7 @@ Test-driven development (TDD):\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'SOLID',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -373,7 +373,7 @@ one should depend upon abstractions, [not] concretions.",
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Testing/Debugging',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -408,7 +408,7 @@ Lint\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Version Control/Git',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -435,7 +435,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Ajax',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -450,7 +450,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Amp',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -466,7 +466,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Ant Design',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -480,7 +480,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Axios',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -524,7 +524,7 @@ $ git push -u origin ...\n\
       */
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Bootstrap',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -572,7 +572,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'BEM methodology',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -591,7 +591,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Browser Developer Tools',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -609,7 +609,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Cookie',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -630,7 +630,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'CSS Preprocessing',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -645,7 +645,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Css3',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -678,7 +678,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'ECMAScript6',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -725,7 +725,7 @@ $ git push -u origin ...\n\
       */
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'ESLint',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -739,7 +739,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Icons lib',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -754,7 +754,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Html5',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -782,7 +782,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'HTML DOM',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -809,7 +809,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'JavaScript',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -866,7 +866,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Jest',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -903,7 +903,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'jQuery',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -942,7 +942,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'jQuery-UI',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -989,7 +989,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'JS Frameworks',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1016,7 +1016,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'JSONP',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1034,7 +1034,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'JWT',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1049,7 +1049,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Less',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1066,7 +1066,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Lodash',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1083,7 +1083,7 @@ $ git push -u origin ...\n\
   Util',
   },
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Material Design',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1100,7 +1100,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Microformats/Schema.org',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1121,7 +1121,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Mocha',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1167,7 +1167,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'MVC',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1193,7 +1193,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'OAuth',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1212,7 +1212,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'ReactJS',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1241,7 +1241,7 @@ $ git push -u origin ...\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'React Hooks',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1264,7 +1264,7 @@ useCallback: optimizes the performance of a functional component by memoizing a 
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'React Native',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1332,7 +1332,7 @@ useCallback: optimizes the performance of a functional component by memoizing a 
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'React-router 6',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1422,7 +1422,7 @@ Utilities\n\
   resolvePath',
   },
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Redux',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1441,7 +1441,7 @@ Utilities\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Redux-saga',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1505,7 +1505,7 @@ Utilities\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Regex',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1525,7 +1525,7 @@ Utilities\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Responsive Design',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1543,7 +1543,7 @@ Utilities\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Semantic-UI-React',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1563,7 +1563,7 @@ Utilities\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Seo',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1601,7 +1601,7 @@ Utilities\n\
   Web Tools',
   },
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Session',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1617,7 +1617,7 @@ Utilities\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'SPA',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1634,7 +1634,7 @@ Utilities\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'SSO',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1654,7 +1654,7 @@ SSO services use protocols:\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Typescript',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1688,7 +1688,7 @@ SSO services use protocols:\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Webpack',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1709,7 +1709,7 @@ SSO services use protocols:\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Analytics/ Monitoring',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -1726,7 +1726,7 @@ SSO services use protocols:\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Apollo',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -1746,7 +1746,7 @@ SSO services use protocols:\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'AWS serveless',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -1788,7 +1788,7 @@ SSO services use protocols:\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Docker',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -1816,7 +1816,7 @@ ONBUILD - to execute command after the current Dockerfile build completes. It is
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'ExpressJS',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -1926,7 +1926,7 @@ ONBUILD - to execute command after the current Dockerfile build completes. It is
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Graphql',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -1947,7 +1947,7 @@ GraphQL is a query language and runtime for APIs with functional notation\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Internet Protocols',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -1983,7 +1983,7 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'JSON',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2002,7 +2002,7 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'LAMP',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2018,7 +2018,7 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'MERN',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2035,7 +2035,7 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Microservices',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2054,7 +2054,7 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Migration',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2080,7 +2080,7 @@ A template/ example for a migration plan from the monolithic PHP + Docker applic
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'MongoDB',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2098,7 +2098,7 @@ A template/ example for a migration plan from the monolithic PHP + Docker applic
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'MySQL',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2122,7 +2122,7 @@ A template/ example for a migration plan from the monolithic PHP + Docker applic
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'NestJS',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2145,7 +2145,7 @@ A template/ example for a migration plan from the monolithic PHP + Docker applic
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Node.js',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2175,7 +2175,7 @@ Modules:\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Php',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2229,7 +2229,7 @@ Modules:\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Regex',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2257,7 +2257,7 @@ Modules:\n\
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'RESTful-API',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2288,7 +2288,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Routing',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2305,7 +2305,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Seo',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2331,7 +2331,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Session',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2349,7 +2349,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Sql',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2422,7 +2422,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Swagger-OpenAPI',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2466,7 +2466,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Telegram-bot',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2486,7 +2486,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Ubuntu',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2511,7 +2511,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Xml',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2564,7 +2564,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'AI & Machine Learning',
     contentType: ContentType['CompetencyTagType'],
     section: 'AI/ ML',
@@ -2612,7 +2612,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Algoritms for ML & AI',
     contentType: ContentType['CompetencyTagType'],
     section: 'AI/ ML',
@@ -2653,7 +2653,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Fann',
     contentType: ContentType['CompetencyTagType'],
     section: 'AI/ ML',
@@ -2675,7 +2675,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Keras',
     contentType: ContentType['CompetencyTagType'],
     section: 'AI/ ML',
@@ -2780,7 +2780,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Matplotlib',
     contentType: ContentType['CompetencyTagType'],
     section: 'AI/ ML',
@@ -2801,7 +2801,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'NumPy',
     contentType: ContentType['CompetencyTagType'],
     section: 'AI/ ML',
@@ -2828,7 +2828,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Pandas',
     contentType: ContentType['CompetencyTagType'],
     section: 'AI/ ML',
@@ -2848,7 +2848,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Python',
     contentType: ContentType['CompetencyTagType'],
     section: 'AI/ ML',
@@ -2897,7 +2897,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'SciPy',
     contentType: ContentType['CompetencyTagType'],
     section: 'AI/ ML',
@@ -2917,7 +2917,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Scikit-Learn',
     contentType: ContentType['CompetencyTagType'],
     section: 'AI/ ML',
@@ -2967,7 +2967,7 @@ Status codes',
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'TensorFlow',
     contentType: ContentType['CompetencyTagType'],
     section: 'AI/ ML',

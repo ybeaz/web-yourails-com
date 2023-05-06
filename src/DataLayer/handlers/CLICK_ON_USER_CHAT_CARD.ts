@@ -7,10 +7,11 @@ import { getRedirected } from '../../Shared/getRedirected'
 const { dispatch } = store
 
 export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
-  const { idUser, profileName, urlParam1, urlParam2, query } = data
+  const { idProfile, profileName, urlParam1, urlParam2, query } = data
+
   dispatch(
-    actionSync.SET_ID_USER_HOST({
-      idUser,
+    actionSync.SET_ID_PROFILE_ACTIVE({
+      idProfileActive: idProfile,
     })
   )
 

@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 
 import { ImageYrl } from '../../../YrlNativeViewLibrary'
-import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
+import { getFilteredObjsArrayBy } from '../../../Shared/getFilteredObjsArrayBy'
 import { LinkType } from '../../../@types/LinkType'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import {
@@ -111,18 +111,20 @@ const ProfileComponent: ProfileComponentType = props => {
 
   // const store = useSelector((store2: RootStoreType) => store2)
   const {
-    globalVars: { idUserHost },
+    globalVars: { idProfileActive },
   } = store
 
-  const profilesTagsUserHost = getFilteredObjsArrayByIdUser(
+  const profilesTagsUserHost = getFilteredObjsArrayBy(
     profiles,
-    idUserHost
+    'idProfile',
+    idProfileActive
   ) as ProfileType[]
   const profileTagsUserHost = profilesTagsUserHost[0]
 
-  const linksUserHost = getFilteredObjsArrayByIdUser(
+  const linksUserHost = getFilteredObjsArrayBy(
     links,
-    idUserHost
+    'idProfile',
+    idProfileActive
   ) as LinkType[]
 
   const profileItems = getProfileItemsObjList(

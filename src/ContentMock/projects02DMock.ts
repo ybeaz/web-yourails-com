@@ -18,7 +18,7 @@ Troubleshooting and Repairing Smart Home Systems
 
 export const projects02D: ProjectType[] = [
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Troubleshooting and Repairing Faulty Microwave Ovens',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -35,7 +35,7 @@ export const projects02D: ProjectType[] = [
       'https://cdn.thewirecutter.com/wp-content/media/2022/11/slide-in-gas-range-2048px-5676-3x2-1.jpg',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Installation and Repair of Electric Stoves and Ovens',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -50,7 +50,7 @@ export const projects02D: ProjectType[] = [
     linkHref: 'https://example.com/electric-stove-repair-project',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Troubleshooting and Repairing Dishwashers',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -65,7 +65,7 @@ export const projects02D: ProjectType[] = [
     linkHref: 'https://example.com/dishwasher-repair-project',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Repair and Maintenance of Gas Stoves and Ovens',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -84,7 +84,7 @@ export const projects02D: ProjectType[] = [
   },
 
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Troubleshooting and Repairing Washing Machines and Dryers',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -100,7 +100,7 @@ export const projects02D: ProjectType[] = [
     linkHref: 'https://www.example.com',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Installation and Repair of Electric and Gas Ranges',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -116,7 +116,7 @@ export const projects02D: ProjectType[] = [
     linkHref: 'https://www.example.com',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Troubleshooting and Repairing Small Kitchen Appliances',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -134,7 +134,7 @@ export const projects02D: ProjectType[] = [
   },
 
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Installation and Repair of Garbage Disposals',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -151,7 +151,7 @@ export const projects02D: ProjectType[] = [
     linkHref: 'https://example.com/garbage-disposal-installation-repair',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Troubleshooting and Repairing HVAC Systems',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -168,7 +168,7 @@ export const projects02D: ProjectType[] = [
     linkHref: 'https://example.com/hvac-troubleshooting-repair',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Troubleshooting and Repairing Internet Equipment',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -186,7 +186,7 @@ export const projects02D: ProjectType[] = [
   },
 
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Installation and Maintenance of Computer Devices',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -202,7 +202,7 @@ export const projects02D: ProjectType[] = [
     linkHref: 'https://example.com/computer-devices',
   },
   {
-    idUser: '2',
+    idProfile: '2',
     title: 'Troubleshooting and Repairing Smart Home Systems',
     contentType: ContentType['ProjectType'],
     isActive: true,

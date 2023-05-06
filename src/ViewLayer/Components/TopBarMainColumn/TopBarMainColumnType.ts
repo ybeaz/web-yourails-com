@@ -2,7 +2,7 @@ import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
 
 export interface TopBarMainColumnPropsType {
-  profile: ProfileType
+  profileActive: ProfileType
   mediaParams?: MediaParamsDefaultType
   isButtonBack: boolean
   isImageAvatar: boolean

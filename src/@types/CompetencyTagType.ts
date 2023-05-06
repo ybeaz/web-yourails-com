@@ -1,7 +1,7 @@
 import { ContentType } from './ContentType'
 
 export type CompetencyTagType = {
-  idUser: string
+  idProfile: string
   title: string
   contentType: ContentType.CompetencyTagType
   section?: string

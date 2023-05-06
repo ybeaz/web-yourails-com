@@ -31,8 +31,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const {
     styleProps = { ChatSpace: {} },
     mediaParams = mediaParamsDefault,
-    idUserHost,
-    profiles,
+    idProfileHost,
+    profileActive,
     messages,
     modalFrame,
     handleEvents,
@@ -49,13 +49,9 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     childProps,
   } = modalFrame
 
-  const profile =
-    profiles.find(
-      (profileIn: ProfileType) => profileIn.idUser !== idUserHost
-    ) || profiles[0]
   const Child = MODAL_CONTENTS[childName]
 
-  const messagesPrep = getPreproccedMessages(messages, idUserHost)
+  const messagesPrep = getPreproccedMessages(messages, idProfileHost)
 
   /**
    * @description Styles adjustments for different devices
@@ -81,11 +77,11 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const propsOut = {
     messageProps: {
       ...messages[0],
-      profile,
+      profile: profileActive,
       isTail: true,
     },
     ChatCardProps: {
-      profile,
+      profile: profileActive,
     },
     modalFrameYrlProps: {
       styleProps: {

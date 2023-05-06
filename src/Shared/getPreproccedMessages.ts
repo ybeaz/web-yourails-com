@@ -1,9 +1,10 @@
+import { IdUserType } from '../@types/UserType'
 import { MessageType } from '../@types/MessageType'
 
 interface getPreproccedMessagesType {
   (
     messages: Omit<MessageType, 'position' | 'isTail'>[],
-    idUserHost: string
+    idProfile: IdUserType
   ): MessageType[]
 }
 
@@ -14,21 +15,23 @@ interface getPreproccedMessagesType {
 
 export const getPreproccedMessages: getPreproccedMessagesType = (
   messages,
-  idUserHost
+  idProfileHost
 ) => {
   const messagesNext: MessageType[] = messages.map(
     (item: Omit<MessageType, 'position' | 'isTail'>, index: number) => {
       const messagesLen = messages.length
-      const { idUser } = item
-      const idUserPrev = index - 1 >= 0 ? messages[index - 1].idUser : undefined
+      const { idProfile } = item
+      const idUserPrev =
+        index - 1 >= 0 ? messages[index - 1].idProfile : undefined
       const idUserNext =
-        index + 1 < messagesLen ? messages[index + 1].idUser : undefined
+        index + 1 < messagesLen ? messages[index + 1].idProfile : undefined
 
-      const position = idUser === idUserHost ? 'right' : 'left'
+      const position = idProfile === idProfileHost ? 'right' : 'left'
 
       let isTail = false
-      if (idUser !== idUserNext) isTail = true
-      else if (idUserPrev && idUserNext && idUser === idUserNext) isTail = false
+      if (idProfile !== idUserNext) isTail = true
+      else if (idUserPrev && idUserNext && idProfile === idUserNext)
+        isTail = false
 
       const itemNext = { ...item, position, isTail }
 

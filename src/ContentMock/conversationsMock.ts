@@ -3,10 +3,10 @@
 export const conversations: any[] = [
   {
     idConversation: '1',
-    idsUsers: ['1', '4'],
+    idsProfiles: ['1', '4'],
   },
   {
     idConversation: '2',
-    idsUsers: ['2', '3'],
+    idsProfiles: ['2', '3'],
   },
 ]

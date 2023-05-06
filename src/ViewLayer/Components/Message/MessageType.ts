@@ -1,6 +1,8 @@
+import { IdUserType } from '../../../@types/UserType'
+
 export interface MessagePropsType {
   idMessage: string | number
-  idUser: string | number
+  idProfile: IdUserType
   text: string
   createdAt: Date | number | string
   position?: string
