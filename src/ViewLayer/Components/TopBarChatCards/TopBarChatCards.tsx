@@ -35,10 +35,13 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
 
   console.info('TopBarChatCards [36]', {
     idProfile,
+    idProfileActive,
     profileName,
+    uriAvatar,
     urlParam1,
     urlParam2,
     query,
+    'idProfileActive !== idProfile': idProfileActive !== idProfile,
   })
 
   const propsOut: TopBarChatCardsPropsOutType = {
@@ -127,7 +130,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         style={[style.buttonHamburgerWrapper]}
         testID='buttonHamburgerWrapper'
       >
-        {idProfileActive !== idProfile ? (
+        {(urlParam1 === 'k' && !urlParam2) || idProfileActive !== idProfile ? (
           <ButtonYrl {...propsOut.buttonProfileHostAvatarProps}>
             <ImageYrl {...propsOut.imageProfileHostAvatarProps} />
           </ButtonYrl>
