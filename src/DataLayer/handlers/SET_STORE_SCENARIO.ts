@@ -76,16 +76,12 @@ export const SET_STORE_SCENARIO: ActionEventType = (
 
   getRedirected(redirectPathname, { replace: true })
 
-  if (idUserHost === idUserNext) return
-  dispatch(
-    actionSync.SET_ID_USER_HOST({
-      idUserHost: idUserNext,
-    })
-  )
+  console.info('SET_STORE_SCENARIO [79]', { idProfileNext })
+
   if (idProfile === idProfileNext) return
   dispatch(
     actionSync.SET_ID_PROFILE_ACTIVE({
-      idProfile: idProfileNext,
+      idProfileActive: idProfileNext,
     })
   )
 }

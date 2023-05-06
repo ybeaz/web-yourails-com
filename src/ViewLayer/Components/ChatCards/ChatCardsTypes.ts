@@ -6,7 +6,7 @@ export interface ChatCardsPropsType {
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
   profiles: ProfileType[]
-  idUserHost: IdUserType
+  idProfileActive: IdUserType
   urlParam1: string | undefined
   urlParam2: string | undefined
   query: any

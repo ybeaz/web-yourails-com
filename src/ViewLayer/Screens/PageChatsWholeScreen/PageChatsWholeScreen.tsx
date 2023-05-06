@@ -164,7 +164,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       //   const elemNext = Array(4).fill(elem)
       //   return [...acc, ...elemNext]
       // }, []),
-      idUserHost,
+      idProfileActive,
       urlParam1,
       urlParam2,
       query,
