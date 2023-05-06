@@ -4,10 +4,10 @@ import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 
 export interface ChatCardPropsType {
   styleProps?: any
-  mediaParams?: MediaParamsDefaultType
   profile: ProfileType
-  handleEvents: HandleEventsType
   isActive: boolean
+  handleEvents: HandleEventsType
+  mediaParams?: MediaParamsDefaultType
   urlParam1: string | undefined
   urlParam2: string | undefined
   query: any

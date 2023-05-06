@@ -11,14 +11,14 @@ import {
   withParamsMediaYrl,
   withStoreStateYrl,
 } from '../../../YrlNativeViewLibrary'
-import { ChatCards } from '../../Components/ChatCards/ChatCards'
-import { ChatInput } from '../../Components/ChatInput/ChatInput'
-import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
-import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import {
   getFilteredObjsArrayBy,
   OperatorType,
 } from '../../../Shared/getFilteredObjsArrayBy'
+import { ChatCards } from '../../Components/ChatCards/ChatCards'
+import { ChatInput } from '../../Components/ChatInput/ChatInput'
+import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
+import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
@@ -96,11 +96,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       message.idConversation ===
       conversationsWithProfileActive[0]?.idConversation
     )
-  })
-
-  console.info('PageChatsWholeScreen [98]', {
-    idProfileHost,
-    idProfileActive,
   })
 
   useEffect(() => {

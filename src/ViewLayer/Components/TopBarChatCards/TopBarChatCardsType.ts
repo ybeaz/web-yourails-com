@@ -4,12 +4,20 @@ import {
   ImageYrlPropsType,
   IconYrlPropsType,
   InputTextYrlPropsType,
+  MediaParamsDefaultType,
+  UrlParamsDefaultType,
 } from '../../../YrlNativeViewLibrary'
+
+import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 
 export interface TopBarChatCardsPropsType {
   styleProps?: any
   profileHost: ProfileType
   idProfileActive: string
+  handleEvents: HandleEventsType
+  mediaParams?: MediaParamsDefaultType
+  urlParams: UrlParamsDefaultType
+  urlParamsSearch: any
 }
 
 export type TopBarChatCardsPropsOutType = {

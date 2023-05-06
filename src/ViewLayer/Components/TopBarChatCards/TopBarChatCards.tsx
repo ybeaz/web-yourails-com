@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { View } from 'react-native'
 
 import {
@@ -6,13 +6,18 @@ import {
   ImageYrl,
   IconYrl,
   InputTextYrl,
+  withParamsMediaYrl,
+  mediaParamsDefault,
+  urlParamsDefault,
+  withPropsYrl,
 } from '../../../YrlNativeViewLibrary'
-import { themes } from '../../Styles/themes'
-import { style } from './TopBarChatCardsStyle'
 import {
   TopBarChatCardsType,
   TopBarChatCardsPropsOutType,
 } from './TopBarChatCardsType'
+import { themes } from '../../Styles/themes'
+import { style } from './TopBarChatCardsStyle'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 
 /**
  * @import import { TopBarChatCards } from '../Components/TopBarChatCards/TopBarChatCards'
@@ -20,22 +25,38 @@ import {
 export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
   const {
     styleProps = { TopBarChatCards: {} },
-    profileHost: { idProfile, uriAvatar },
+    profileHost: { idProfile, profileName, uriAvatar },
     idProfileActive,
+    handleEvents,
+    mediaParams: { deviceType } = mediaParamsDefault,
+    urlParams: { urlParam1, urlParam2 } = urlParamsDefault,
+    urlParamsSearch: query,
   } = props
+
+  console.info('TopBarChatCards [36]', {
+    idProfile,
+    profileName,
+    urlParam1,
+    urlParam2,
+    query,
+  })
 
   const propsOut: TopBarChatCardsPropsOutType = {
     buttonProfileHostAvatarProps: {
       styleProps: {
-        ButtonYrl: {
-          cursor: 'not-allowed',
-        },
+        ButtonYrl: {},
         title: {},
       },
       titleText: '',
       testID: 'buttonProfileHostAvatarProps',
       disabled: false,
-      onPress: () => {},
+      onPress: () => {
+        handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
+        handleEvents.CLICK_ON_USER_CHAT_CARD(
+          {},
+          { idProfile, profileName, urlParam1, urlParam2, query }
+        )
+      },
     },
     imageProfileHostAvatarProps: {
       styleProps: {
@@ -126,4 +147,8 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
   )
 }
 
-export const TopBarChatCards = React.memo(TopBarChatCardsComponent)
+export const TopBarChatCards = React.memo(
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withParamsMediaYrl(TopBarChatCardsComponent)
+  )
+)

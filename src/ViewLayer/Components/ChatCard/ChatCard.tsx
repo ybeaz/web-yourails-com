@@ -4,6 +4,7 @@ import { View } from 'react-native'
 import {
   withParamsMediaYrl,
   mediaParamsDefault,
+  withPropsYrl,
 } from '../../../YrlNativeViewLibrary'
 import { ChatCardType } from './ChatCardType'
 import { style } from './ChatCardStyle'
@@ -11,7 +12,6 @@ import { themes } from '../../Styles/themes'
 import { NameStatus } from '../NameStatus/NameStatus'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { withPropsYrl } from '../../../YrlNativeViewLibrary'
 
 /**
  * @import import { ChatCard } from '../Components/ChatCard/ChatCard'
@@ -20,15 +20,14 @@ const ChatCardComponent: ChatCardType = props => {
   const {
     profile,
     styleProps = { ChatCard: {} },
-    mediaParams = mediaParamsDefault,
-    handleEvents,
     isActive,
+    handleEvents,
+    mediaParams: { deviceType } = mediaParamsDefault,
     urlParam1,
     urlParam2,
     query,
   } = props
   const { idProfile, profileName } = profile
-  const { deviceType } = mediaParams
 
   const colorStyle = isActive ? themes['themeA'].colors07 : {}
 
@@ -67,7 +66,5 @@ const ChatCardComponent: ChatCardType = props => {
 }
 
 export const ChatCard = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withParamsMediaYrl(ChatCardComponent)
-  )
+  withPropsYrl({ handleEvents: handleEventsProp })(ChatCardComponent)
 )
