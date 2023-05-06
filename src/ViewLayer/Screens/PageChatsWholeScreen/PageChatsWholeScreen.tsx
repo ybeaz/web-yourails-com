@@ -146,6 +146,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         },
       },
       idUserHost,
+      idProfileHost,
       profiles,
       messages: messagesWithProfileActive,
       modalFrame: { ...modalFrame, childProps: {} },

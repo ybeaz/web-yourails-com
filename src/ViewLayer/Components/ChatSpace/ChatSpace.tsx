@@ -32,6 +32,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     styleProps = { ChatSpace: {} },
     mediaParams = mediaParamsDefault,
     idUserHost,
+    idProfileHost,
     profiles,
     messages,
     modalFrame,
@@ -55,7 +56,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     ) || profiles[0]
   const Child = MODAL_CONTENTS[childName]
 
-  const messagesPrep = getPreproccedMessages(messages, idUserHost)
+  const messagesPrep = getPreproccedMessages(messages, idProfileHost)
 
   /**
    * @description Styles adjustments for different devices
