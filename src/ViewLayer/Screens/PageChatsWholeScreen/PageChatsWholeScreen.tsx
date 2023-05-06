@@ -51,7 +51,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   renderCounter.current = renderCounter.current + 1
 
   const {
-    globalVars: { language, idUserHost, isShowApp },
+    globalVars: {
+      language,
+      idUserHost,
+      idProfileHost,
+      idProfileActive,
+      isShowApp,
+    },
     componentsState,
   } = store
 
@@ -69,6 +75,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     s: urlParamsSearch.get('s'),
   }
 
+  const profileHost =
+    profiles && profiles.find(profile => profile.idProfile == idProfileHost)
+
   let profile = getProfileChat({ profiles, urlParam1, urlParam2 })
   profile = profile
     ? profile
@@ -84,6 +93,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   })
   const messagesUserHost = messages.filter((message: any) => {
     return message.idConversation === conversationsUserHost[0]?.idConversation
+  })
+
+  console.info('PageChatsWholeScreen [98]', {
+    idUserHost,
+    idProfileHost,
+    idProfileActive,
   })
 
   useEffect(() => {
@@ -119,6 +134,30 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     childNameModal === 'Profile' && isShowModalFrame === true ? false : true
 
   const propsOut: Record<string, any> = {
+    mainColumnChatSpaceProps: {
+      styleProps: {
+        ChatSpace: {
+          marginTop: '6rem',
+          marginBottom: '4rem',
+        },
+      },
+      idUserHost,
+      profiles,
+      messages: messagesUserHost,
+      modalFrame: { ...modalFrame, childProps: {} },
+    },
+    leftColumnOuterAnimatedYrlProps: {
+      styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },
+      isActive: renderCounter.current !== 1,
+      valueInit: isShowModalFrame ? 1 : 0,
+      valueTarget: isShowModalFrame ? 0 : 1,
+      nameHtmlCssAttribute: 'opacity',
+      duration: 1000,
+      trigger: isShowModalFrame,
+      triggerShouldEqual: isShowModalFrame ? true : false,
+      testID: 'leftColumn_Outer_AnimatedYrl',
+    },
+    topBarChatCards: { profileHost, idProfileActive },
     chatCardsProps: {
       profiles: profiles,
       //   .reduce((acc: any, elem: any) => {
@@ -145,29 +184,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       },
       sectionsMapping: sectionsMappingForProfile,
       store,
-    },
-    mainColumnChatSpaceProps: {
-      styleProps: {
-        ChatSpace: {
-          marginTop: '6rem',
-          marginBottom: '4rem',
-        },
-      },
-      idUserHost,
-      profiles,
-      messages: messagesUserHost,
-      modalFrame: { ...modalFrame, childProps: {} },
-    },
-    leftColumnOuterAnimatedYrlProps: {
-      styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },
-      isActive: renderCounter.current !== 1,
-      valueInit: isShowModalFrame ? 1 : 0,
-      valueTarget: isShowModalFrame ? 0 : 1,
-      nameHtmlCssAttribute: 'opacity',
-      duration: 1000,
-      trigger: isShowModalFrame,
-      triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'leftColumn_Outer_AnimatedYrl',
     },
     topBarMainColumnProps: {
       styleProps: {
@@ -224,7 +240,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           testID='leftColumn'
         >
           <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
-            <TopBarChatCards />
+            <TopBarChatCards {...propsOut.topBarChatCards} />
           </View>
           <View
             style={[style.leftColumnChatCardSpace]}

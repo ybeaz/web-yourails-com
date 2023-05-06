@@ -27,7 +27,7 @@ const ChatCardComponent: ChatCardType = props => {
     urlParam2,
     query,
   } = props
-  const { idUser, profileName } = profile
+  const { idUser, idProfile, profileName } = profile
   const { deviceType } = mediaParams
 
   const colorStyle = isActive ? themes['themeA'].colors07 : {}
@@ -40,7 +40,7 @@ const ChatCardComponent: ChatCardType = props => {
         handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
         handleEvents.CLICK_ON_USER_CHAT_CARD(
           {},
-          { idUser, profileName, urlParam1, urlParam2, query }
+          { idUser, idProfile, profileName, urlParam1, urlParam2, query }
         )
       },
     },

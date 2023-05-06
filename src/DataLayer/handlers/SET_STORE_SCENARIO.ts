@@ -41,7 +41,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   } = dataHandle
 
   const {
-    globalVars: { idUserHost },
+    globalVars: { idUserHost, idProfile },
     profiles,
   } = getState()
 
@@ -51,6 +51,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     caseConditions,
     isShowApp: isShowAppNext,
     idUser: idUserNext,
+    idProfile: idProfileNext,
     isLeftColumn: isLeftColumnNext,
     isMainColumn: isMainColumnNext,
     isMainColumnBlank: isMainColumnBlankNext,
@@ -78,7 +79,13 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   if (idUserHost === idUserNext) return
   dispatch(
     actionSync.SET_ID_USER_HOST({
-      idUser: idUserNext,
+      idUserHost: idUserNext,
+    })
+  )
+  if (idProfile === idProfileNext) return
+  dispatch(
+    actionSync.SET_ID_PROFILE_ACTIVE({
+      idProfile: idProfileNext,
     })
   )
 }

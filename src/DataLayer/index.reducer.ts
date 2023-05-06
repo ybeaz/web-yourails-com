@@ -2,6 +2,7 @@ import { RootStoreType } from '../@types/RootStoreType'
 import { ActionType } from '../@types/ActionType'
 
 import { TEMPLATE } from './reducers/TEMPLATE'
+import { SET_ID_PROFILE_ACTIVE } from './reducers/SET_ID_PROFILE_ACTIVE'
 import { TOGGLE_IS_SHOW_GLOBAL } from './reducers/TOGGLE_IS_SHOW_GLOBAL'
 import { ADD_PROFILES } from './reducers/ADD_PROFILES'
 import { SET_ID_USER_HOST } from './reducers/SET_ID_USER_HOST'
@@ -25,6 +26,7 @@ export const indexReducer: IndexReducerType = (
 
   const output = {
     TEMPLATE,
+    SET_ID_PROFILE_ACTIVE,
     TOGGLE_IS_SHOW_GLOBAL,
     ADD_PROFILES,
     SET_ID_USER_HOST,

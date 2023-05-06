@@ -1,20 +1,51 @@
 import React, { useState } from 'react'
 import { View } from 'react-native'
 
-import { ButtonYrl } from '../../../YrlNativeViewLibrary'
-import { IconYrl } from '../../../YrlNativeViewLibrary'
-import { InputTextYrl } from '../../../YrlNativeViewLibrary'
+import {
+  ButtonYrl,
+  ImageYrl,
+  IconYrl,
+  InputTextYrl,
+} from '../../../YrlNativeViewLibrary'
 import { themes } from '../../Styles/themes'
 import { style } from './TopBarChatCardsStyle'
-import { TopBarChatCardsType } from './TopBarChatCardsType'
+import {
+  TopBarChatCardsType,
+  TopBarChatCardsPropsOutType,
+} from './TopBarChatCardsType'
 
 /**
  * @import import { TopBarChatCards } from '../Components/TopBarChatCards/TopBarChatCards'
  */
 export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
-  const { styleProps = { TopBarChatCards: {} } } = props
+  const {
+    styleProps = { TopBarChatCards: {} },
+    profileHost: { idProfile, uriAvatar },
+    idProfileActive,
+  } = props
 
-  const propsOut: Record<string, any> = {
+  const propsOut: TopBarChatCardsPropsOutType = {
+    buttonProfileHostAvatarProps: {
+      styleProps: {
+        ButtonYrl: {
+          cursor: 'not-allowed',
+        },
+        title: {},
+      },
+      titleText: '',
+      testID: 'buttonProfileHostAvatarProps',
+      disabled: false,
+      onPress: () => {},
+    },
+    imageProfileHostAvatarProps: {
+      styleProps: {
+        ImageYrl: {},
+        image: { width: 45, height: 45, borderRadius: 50 },
+      },
+      testID: 'imageProfileHostAvatarProps',
+      uri: uriAvatar,
+      resizeMode: 'cover',
+    },
     buttonHamburgerProps: {
       styleProps: {
         ButtonYrl: {
@@ -26,13 +57,13 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       testID: 'ButtonYrl',
       disabled: false,
       onPress: () => {},
-      iconProps: {
-        library: 'Ionicons',
-        name: 'menu-outline',
-        size: 32,
-        color: themes['themeA'].colors01.borderColor,
-        testID: 'TopBarChatCardsComponent_ButtonYrl_menu-outline',
-      },
+    },
+    iconHamburgerProps: {
+      library: 'Ionicons',
+      name: 'menu-outline',
+      size: 32,
+      color: themes['themeA'].colors01.borderColor,
+      testID: 'TopBarChatCardsComponent_ButtonYrl_menu-outline',
     },
     inputTextYrlProps: {
       styleProps: {
@@ -75,12 +106,19 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         style={[style.buttonHamburgerWrapper]}
         testID='buttonHamburgerWrapper'
       >
-        <ButtonYrl {...propsOut.buttonHamburgerProps} />
+        {idProfileActive !== idProfile ? (
+          <ButtonYrl {...propsOut.buttonProfileHostAvatarProps}>
+            <ImageYrl {...propsOut.imageProfileHostAvatarProps} />
+          </ButtonYrl>
+        ) : (
+          <ButtonYrl {...propsOut.buttonHamburgerProps}>
+            <IconYrl {...propsOut.iconHamburgerProps} />
+          </ButtonYrl>
+        )}
       </View>
       <View style={[style.inputTextYrlWrapper]} testID='inputTextYrlWrapper'>
         <InputTextYrl {...propsOut.inputTextYrlProps} />
         <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
-          {/* <RemoteSVG /> */}
           <IconYrl {...propsOut.searchIconYrlProps} />
         </View>
       </View>

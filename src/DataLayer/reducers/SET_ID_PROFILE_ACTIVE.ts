@@ -1,9 +1,9 @@
 import { ReducerType } from '../../@types/ReducerType'
 
-export const SET_ID_USER_HOST: ReducerType = (store, data) => {
+export const SET_ID_PROFILE_ACTIVE: ReducerType = (store, data) => {
   const { globalVars } = store
-  const { idUserHost } = data
-  const globalVarsNext = { ...globalVars, idUserHost }
+  const { idProfileActive } = data
+  const globalVarsNext = { ...globalVars, idProfileActive }
   const storeNext = { ...store, globalVars: globalVarsNext }
   return storeNext
 }
