@@ -31,8 +31,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const {
     styleProps = { ChatSpace: {} },
     mediaParams = mediaParamsDefault,
-    idUserHost,
     idProfileHost,
+    idProfileActive,
     profiles,
     messages,
     modalFrame,
@@ -50,9 +50,9 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     childProps,
   } = modalFrame
 
-  const profile =
+  const profileActive =
     profiles.find(
-      (profileIn: ProfileType) => profileIn.idUser !== idUserHost
+      (profileIn: ProfileType) => profileIn.idProfile !== idProfileActive
     ) || profiles[0]
   const Child = MODAL_CONTENTS[childName]
 
@@ -82,11 +82,11 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const propsOut = {
     messageProps: {
       ...messages[0],
-      profile,
+      profile: profileActive,
       isTail: true,
     },
     ChatCardProps: {
-      profile,
+      profile: profileActive,
     },
     modalFrameYrlProps: {
       styleProps: {

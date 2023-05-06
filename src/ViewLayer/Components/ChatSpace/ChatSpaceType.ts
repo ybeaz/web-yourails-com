@@ -6,8 +6,8 @@ import { MessageType } from '../../../@types/MessageType'
 export interface ChatSpacePropsType {
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
-  idUserHost: IdUserType
   idProfileHost: IdUserType
+  idProfileActive: IdUserType
   profiles: ProfileType[]
   messages: Omit<MessageType, 'position' | 'isTail'>[]
   modalFrame: any

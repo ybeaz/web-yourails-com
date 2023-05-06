@@ -8,7 +8,8 @@ type ObjIdUserArrayType = {
 interface GetFilteredObjsArrayByIdUserType {
   (
     objsArr: ObjIdUserArrayType[],
-    idUser: string | number | undefined
+    propName: string,
+    value: string | number | undefined
   ): ObjIdUserArrayType[]
 }
 
@@ -16,9 +17,10 @@ interface GetFilteredObjsArrayByIdUserType {
  * @description Function to
  * @import import {getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
  */
-export const getFilteredObjsArrayByIdUser: GetFilteredObjsArrayByIdUserType = (
+export const getFilteredObjsArrayBy: GetFilteredObjsArrayByIdUserType = (
   objsArr,
-  idUser
+  propName,
+  value
 ): ObjIdUserArrayType[] => {
-  return objsArr.filter((obj: ObjIdUserArrayType) => obj.idUser === idUser)
+  return objsArr.filter((obj: ObjIdUserArrayType) => obj[propName] === value)
 }

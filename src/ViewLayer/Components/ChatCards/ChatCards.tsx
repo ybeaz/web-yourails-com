@@ -1,7 +1,6 @@
 import React, { ReactElement } from 'react'
 import { View } from 'react-native'
 
-import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
 import {
   withParamsMediaYrl,
   mediaParamsDefault,

@@ -3,7 +3,7 @@ import { View } from 'react-native'
 
 import { withElementDimensionsYrl } from '../../../YrlNativeViewLibrary/Hooks/withElementDimensionsYrl'
 import { ProjectView } from '../ProjectView/ProjectView'
-import { getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
+import { getFilteredObjsArrayBy } from '../../../Shared/getFilteredObjsArrayBy'
 import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { ProjectType } from '../../../@types/ProjectType'
 import { Header } from '../Header/Header'
@@ -34,8 +34,9 @@ const PortfolioComponent: PortfolioType = props => {
     globalVars: { idUserHost },
   } = store
 
-  const projectsUserHost = getFilteredObjsArrayByIdUser(
+  const projectsUserHost = getFilteredObjsArrayBy(
     projects,
+    'idUser',
     idUserHost
   ) as ProjectType[]
 

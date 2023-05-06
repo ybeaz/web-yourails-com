@@ -51,13 +51,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   renderCounter.current = renderCounter.current + 1
 
   const {
-    globalVars: {
-      language,
-      idUserHost,
-      idProfileHost,
-      idProfileActive,
-      isShowApp,
-    },
+    globalVars: { language, idProfileHost, idProfileActive, isShowApp },
     componentsState,
   } = store
 
@@ -138,19 +132,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     childNameModal === 'Profile' && isShowModalFrame === true ? false : true
 
   const propsOut: Record<string, any> = {
-    mainColumnChatSpaceProps: {
-      styleProps: {
-        ChatSpace: {
-          marginTop: '6rem',
-          marginBottom: '4rem',
-        },
-      },
-      idUserHost,
-      idProfileHost,
-      profiles,
-      messages: messagesWithProfileActive,
-      modalFrame: { ...modalFrame, childProps: {} },
-    },
     leftColumnOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },
       isActive: renderCounter.current !== 1,
@@ -161,6 +142,16 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       trigger: isShowModalFrame,
       triggerShouldEqual: isShowModalFrame ? true : false,
       testID: 'leftColumn_Outer_AnimatedYrl',
+    },
+    leftColumnInnerInAnimatedYrlProps: {
+      isActive: renderCounter.current !== 1,
+      valueInit: isShowModalFrame ? 1 : 0,
+      valueTarget: isShowModalFrame ? 1 : 0,
+      nameHtmlCssAttribute: 'opacity',
+      duration: 1000,
+      trigger: isShowModalFrame,
+      triggerShouldEqual: isShowModalFrame ? true : false,
+      testID: 'leftColumnIn_animatedYrl_Inner',
     },
     topBarChatCards: { profileHost, idProfileActive },
     chatCardsProps: {
@@ -211,15 +202,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       triggerShouldEqual: isShowModalFrame ? true : false,
       testID: 'mainColumn_Outer_AnimatedYrl',
     },
-    leftColumnInnerInAnimatedYrlProps: {
-      isActive: renderCounter.current !== 1,
-      valueInit: isShowModalFrame ? 1 : 0,
-      valueTarget: isShowModalFrame ? 1 : 0,
-      nameHtmlCssAttribute: 'opacity',
-      duration: 1000,
-      trigger: isShowModalFrame,
-      triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'leftColumnIn_animatedYrl_Inner',
+    mainColumnChatSpaceProps: {
+      styleProps: {
+        ChatSpace: {
+          marginTop: '6rem',
+          marginBottom: '4rem',
+        },
+      },
+      idProfileHost,
+      idProfileActive,
+      profiles,
+      messages: messagesWithProfileActive,
+      modalFrame: { ...modalFrame, childProps: {} },
     },
   }
 
