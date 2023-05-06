@@ -2,24 +2,32 @@ import { StatusBar, StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
-  PageChatsWholeScreen: {
+  LayoutScreen: {
     ...styleGlobal.typography,
-    position: 'absolute',
-    zIndex: 9999,
-    top: 0,
-    right: 0,
-    left: 0,
-    flex: 1,
     marginTop: StatusBar.currentHeight || 0,
     marginBottom: 0,
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    flexDirection: 'column',
     minHeight: '100vh',
     maxHeight: '100vh',
     height: '100vh',
     maxWidth: '100%',
   },
+  layoutNavigationTop: {
+    display: 'flex',
+    flexDirection: 'row',
+    top: 0,
+  },
+  layoutMainContent: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'row',
+  },
+  layoutNavigationBottom: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginTop: 'auto',
+  },
+
   leftColumn: {
     flex: 1,
     height: '100%',
@@ -31,8 +39,8 @@ export const stylesDefault = StyleSheet.create({
     borderLeftWidth: 1,
   },
   leftColumnTopBars: {
-    position: 'absolute',
-    zIndex: 9999,
+    // position: 'absolute',
+    // zIndex: 9999,
     top: 0,
     width: '100%',
   },
@@ -40,7 +48,6 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'column',
     width: '100%',
     flex: 1,
-    marginTop: 64,
     overflow: 'scroll',
   },
 
@@ -52,9 +59,9 @@ export const stylesDefault = StyleSheet.create({
     height: '100vh',
   },
   mainColumnTopBars: {
-    position: 'absolute',
-    zIndex: 9999,
-    top: 0,
+    // position: 'absolute',
+    // zIndex: 9999,
+    // top: 0,
     width: '100%',
   },
   mainColumnTopBar: {},
@@ -71,7 +78,7 @@ export const stylesDefault = StyleSheet.create({
     flex: 1,
   },
   chatInput: {
-    position: 'absolute',
+    // position: 'absolute',
     height: '4rem',
     bottom: 0,
     width: '100%',
@@ -93,7 +100,7 @@ const mdDevice = StyleSheet.create({
 const lgDevice = StyleSheet.create({
   ...stylesDefault,
   PageChatsWholeScreen: {
-    ...stylesDefault.PageChatsWholeScreen,
+    ...stylesDefault.LayoutScreen,
     marginRight: '7.5%',
     marginLeft: '7.5%',
   },
@@ -102,7 +109,7 @@ const lgDevice = StyleSheet.create({
 const xlDevice = StyleSheet.create({
   ...stylesDefault,
   PageChatsWholeScreen: {
-    ...stylesDefault.PageChatsWholeScreen,
+    ...stylesDefault.LayoutScreen,
     marginRight: '7.5%',
     marginLeft: '7.5%',
   },

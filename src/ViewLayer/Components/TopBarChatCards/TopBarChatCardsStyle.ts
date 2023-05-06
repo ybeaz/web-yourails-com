@@ -4,11 +4,11 @@ import { styleGlobal } from '../../Styles/styleGlobal'
 export const style = StyleSheet.create({
   TopBarChatCards: {
     ...styleGlobal.typography,
+    display: 'flex',
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: '1rem',
-    paddingTop: '0.7rem',
-    paddingBottom: '0.7rem',
   },
   buttonHamburgerWrapper: {},
   inputTextYrlWrapper: {

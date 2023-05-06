@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { SafeAreaView, ScrollView, View } from 'react-native'
+import { Navigation } from 'react-native-navigation'
 
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
@@ -206,10 +207,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
     mainColumnChatSpaceProps: {
       styleProps: {
-        ChatSpace: {
-          marginTop: '6rem',
-          marginBottom: '4rem',
-        },
+        ChatSpace: {},
       },
       idProfileHost,
       idProfileActive,
@@ -224,85 +222,81 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   return (
     <SafeAreaView
       style={[
-        style.PageChatsWholeScreen,
+        style.LayoutScreen,
         themes['themeA'].colors01,
         { borderColor: 'white' },
         styleAddPageChatsWholeScreen,
       ]}
-      testID='PageChatsWholeScreen'
+      testID='LayoutScreenPageChats'
     >
-      {isLeftColumn && (
-        <View
-          style={[
-            style.leftColumn,
-            themes['themeA'].colors01,
-            styleAddLeftColumn,
-          ]}
-          testID='leftColumn'
-        >
-          <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
-            <TopBarChatCards {...propsOut.topBarChatCards} />
-          </View>
-          <View
-            style={[style.leftColumnChatCardSpace]}
-            testID='leftColumnChatCardSpace'
-          >
-            <ChatCards {...propsOut.chatCardsProps} />
-          </View>
+      <View style={[style.layoutNavigationTop]} testID='layoutNavigationTop'>
+        <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
+          <TopBarChatCards {...propsOut.topBarChatCards} />
         </View>
-      )}
 
-      {isMainColumn && (
-        <AnimatedYrl {...propsOut.mainColumnOuterAnimatedYrlProps}>
+        <View style={[style.mainColumnTopBars]} testID='mainColumnTopBars'>
           <View
             style={[
-              style.mainColumn,
+              style.mainColumnTopBar,
               {
                 borderStyle: 'solid',
                 // borderTopWidth: 1,
-                borderRightWidth: 1,
-                // borderBottomWidth: 1,
-                // borderLeftWidth: 1,
+                // borderRightWidth: 1,
+                borderBottomWidth: 1,
+                borderLeftWidth: 1,
               },
               themes['themeA'].colors01,
             ]}
-            testID='mainColumn'
+            testID='mainColumnTopBar'
           >
-            {!isMainColumnBlank && (
-              <>
-                <View
-                  style={[style.mainColumnTopBars]}
-                  testID='mainColumnTopBars'
-                >
-                  <View
-                    style={[
-                      style.mainColumnTopBar,
-                      {
-                        borderStyle: 'solid',
-                        // borderTopWidth: 1,
-                        // borderRightWidth: 1,
-                        borderBottomWidth: 1,
-                        borderLeftWidth: 1,
-                      },
-                      themes['themeA'].colors01,
-                    ]}
-                    testID='mainColumnTopBar'
-                  >
-                    <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
-                  </View>
+            <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
+          </View>
 
-                  <View
-                    style={[
-                      style.mainColumnContentMenu,
-                      themes['themeA'].colors01,
-                    ]}
-                    testID='mainColumnContentMenu'
-                  >
-                    <ContentMenuMainColumn
-                      {...propsOut.mainColumnContentMenuProps}
-                    />
-                  </View>
-                </View>
+          <View
+            style={[style.mainColumnContentMenu, themes['themeA'].colors01]}
+            testID='mainColumnContentMenu'
+          >
+            <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
+          </View>
+        </View>
+      </View>
+
+      <View style={[style.layoutMainContent]} testID='layoutMainContent'>
+        {isLeftColumn && (
+          <View
+            style={[
+              style.leftColumn,
+              themes['themeA'].colors01,
+              styleAddLeftColumn,
+            ]}
+            testID='leftColumn'
+          >
+            <View
+              style={[style.leftColumnChatCardSpace]}
+              testID='leftColumnChatCardSpace'
+            >
+              <ChatCards {...propsOut.chatCardsProps} />
+            </View>
+          </View>
+        )}
+
+        {isMainColumn && (
+          <AnimatedYrl {...propsOut.mainColumnOuterAnimatedYrlProps}>
+            <View
+              style={[
+                style.mainColumn,
+                {
+                  borderStyle: 'solid',
+                  // borderTopWidth: 1,
+                  borderRightWidth: 1,
+                  // borderBottomWidth: 1,
+                  // borderLeftWidth: 1,
+                },
+                themes['themeA'].colors01,
+              ]}
+              testID='mainColumn'
+            >
+              {!isMainColumnBlank && (
                 <ScrollView
                   style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
                   contentContainerStyle={{}}
@@ -310,7 +304,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
                   nestedScrollEnabled={true}
                   onContentSizeChange={(contentWidth, contentHeight) => {
                     if (isShowModalFrame) {
-                      scrollViewRef.current?.scrollTo({ y: 0, animated: true })
+                      scrollViewRef.current?.scrollTo({
+                        y: 0,
+                        animated: true,
+                      })
                       return
                     }
                     scrollViewRef.current?.scrollTo({
@@ -322,19 +319,24 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
                 >
                   <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
                 </ScrollView>
-                {isShowModalFrame === false && (
-                  <View
-                    style={[style.chatInput, themes['themeA'].colors03]}
-                    testID='chatInput'
-                  >
-                    <ChatInput />
-                  </View>
-                )}
-              </>
-            )}
+              )}
+            </View>
+          </AnimatedYrl>
+        )}
+      </View>
+      <View
+        style={[style.layoutNavigationBottom]}
+        testID='layoutNavigationBottom'
+      >
+        {isShowModalFrame === false && (
+          <View
+            style={[style.chatInput, themes['themeA'].colors03]}
+            testID='chatInput'
+          >
+            <ChatInput />
           </View>
-        </AnimatedYrl>
-      )}
+        )}
+      </View>
     </SafeAreaView>
   )
 }
