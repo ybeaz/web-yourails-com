@@ -1,9 +1,6 @@
 import { IdUserType } from '../@types/UserType'
 
-type ObjIdUserArrayType = {
-  idUser: IdUserType
-  [key: string]: any
-}
+type ObjIdUserArrayType = Record<string, any>
 
 interface GetFilteredObjsArrayByIdUserType {
   (

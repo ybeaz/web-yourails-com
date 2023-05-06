@@ -21,13 +21,13 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
 
   // const store = useSelector((store2: RootStoreType) => store2)
   const {
-    globalVars: { idUserHost },
+    globalVars: { idProfileActive },
   } = store
 
   const competencyTagsUserHost = getFilteredObjsArrayBy(
     competencyTags,
-    'idUser',
-    idUserHost
+    'idProfile',
+    idProfileActive
   ) as CompetencyTagType[]
 
   const getTagList = (competencies: CompetencyTagType[]): ReactElement[] => {

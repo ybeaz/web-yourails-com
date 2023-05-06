@@ -111,20 +111,20 @@ const ProfileComponent: ProfileComponentType = props => {
 
   // const store = useSelector((store2: RootStoreType) => store2)
   const {
-    globalVars: { idUserHost },
+    globalVars: { idProfileActive },
   } = store
 
   const profilesTagsUserHost = getFilteredObjsArrayBy(
     profiles,
-    'idUser',
-    idUserHost
+    'idProfile',
+    idProfileActive
   ) as ProfileType[]
   const profileTagsUserHost = profilesTagsUserHost[0]
 
   const linksUserHost = getFilteredObjsArrayBy(
     links,
-    'idUser',
-    idUserHost
+    'idProfile',
+    idProfileActive
   ) as LinkType[]
 
   const profileItems = getProfileItemsObjList(

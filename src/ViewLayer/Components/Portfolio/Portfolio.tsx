@@ -31,13 +31,13 @@ const PortfolioComponent: PortfolioType = props => {
   const style = styles[deviceType]
 
   const {
-    globalVars: { idUserHost },
+    globalVars: { idProfileActive },
   } = store
 
   const projectsUserHost = getFilteredObjsArrayBy(
     projects,
-    'idUser',
-    idUserHost
+    'idProfile',
+    idProfileActive
   ) as ProjectType[]
 
   const { imageWidth, imageHeight } = getImageSizesFor1of2Columns(
