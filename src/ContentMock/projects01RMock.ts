@@ -3,7 +3,7 @@ import { ContentType } from '../@types/ContentType'
 
 export const projects01R: ProjectType[] = [
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web service. YouRails Academy',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -23,7 +23,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web service. SPA Windows in Browser Tabs',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -43,7 +43,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web service. YouRails.com Skills Exchange Messenger',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -63,7 +63,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web game. Tic Tac Toe game with random logic',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -81,7 +81,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web app. Prototype: Experience Exchange Messenger',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -101,7 +101,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web compoment. Authorization with Social Media',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -118,7 +118,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web app. SPA Active Learning Text',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -134,7 +134,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. SPA Online telephone directory',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -149,7 +149,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web component. A dynamic tree component',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -164,7 +164,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title:
       'Web widget. Tables with sorting and filtering features, popup row menu, inline editable',
     contentType: ContentType['ProjectType'],
@@ -181,7 +181,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. Purchase summary',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -197,7 +197,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web page. JS Algorithms and Questions',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -212,7 +212,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. Demo Telegram bot',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -227,7 +227,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. Upload images',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -243,7 +243,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title:
       'Web landing page. Not supported. AAA Advertising Aggregator for Applications, Brand Banner Project',
     contentType: ContentType['ProjectType'],
@@ -259,7 +259,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title:
       'Web widget. Not supported. JS Feedback Forms Builder with Telegram messaging feature',
     contentType: ContentType['ProjectType'],
@@ -275,7 +275,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. Not supported. Demo registration and authorization',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -291,7 +291,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title:
       'Web service. Not supported. Language detection with artificial neuro network (ANN)',
     contentType: ContentType['ProjectType'],
@@ -308,7 +308,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. Not supported. TRIZ Language Problem Description',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -324,7 +324,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web service. Not supported. JS Feedback widget for sites',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -340,7 +340,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title:
       'Web service. Not supported. Question-answers site for legal questions',
     contentType: ContentType['ProjectType'],
@@ -357,7 +357,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. Not supported. Demo online shoping cart',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -372,7 +372,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. Not supported. Catalog for goods, films, books, etc.',
     contentType: ContentType['ProjectType'],
     isActive: true,
@@ -388,7 +388,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Landing Page. Immigration Service Provider',
     contentType: ContentType['ProjectType'],
     isActive: false,
@@ -403,7 +403,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Landing page. Not supported. Wiki Goods Startup',
     contentType: ContentType['ProjectType'],
     isActive: false,
@@ -418,7 +418,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. Not supported. Online Notes Keeper',
     contentType: ContentType['ProjectType'],
     isActive: false,
@@ -434,7 +434,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. Not supported. Automatic image resizing on the fly',
     contentType: ContentType['ProjectType'],
     isActive: false,
@@ -448,7 +448,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web service. Prototype for service Ecom-Yunazon',
     contentType: ContentType['ProjectType'],
     isActive: false,
@@ -466,7 +466,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. Item card screen',
     contentType: ContentType['ProjectType'],
     isActive: false,
@@ -481,7 +481,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. Earthquake Zen Garden ver. 3.12.3',
     contentType: ContentType['ProjectType'],
     isActive: false,
@@ -496,7 +496,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Content site. Arbir.ru - SEO, content management',
     contentType: ContentType['ProjectType'],
     isActive: false,
@@ -512,7 +512,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web service. View Domain Statistics',
     contentType: ContentType['ProjectType'],
     isActive: false,
@@ -527,7 +527,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Mobile app. Smartphone app for transactions between friends',
     contentType: ContentType['ProjectType'],
     isActive: false,
@@ -542,7 +542,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title:
       'Landing page. Not supported. MMS Marketplace Management System, API avoiding API™',
     contentType: ContentType['ProjectType'],
@@ -559,7 +559,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    idUser: '1',
+    idProfile: '1',
     title: 'Web widget. Not supported. Feedback Widget Project',
     contentType: ContentType['ProjectType'],
     isActive: false,

@@ -1,4 +1,7 @@
-import { IdUserType } from '../@types/UserType'
+export enum OperatorType {
+  '===' = '===',
+  '!==' = '!==',
+}
 
 type ObjIdUserArrayType = Record<string, any>
 
@@ -6,18 +9,25 @@ interface GetFilteredObjsArrayByIdUserType {
   (
     objsArr: ObjIdUserArrayType[],
     propName: string,
-    value: string | number | undefined
+    value: string | number | undefined,
+    operator?: OperatorType
   ): ObjIdUserArrayType[]
 }
 
 /**
  * @description Function to
- * @import import {getFilteredObjsArrayByIdUser } from '../../../Shared/getFilteredObjsArrayByIdUser'
+ * @import import {getFilteredObjsArrayByIdUser, OperatorType } from '../../../Shared/getFilteredObjsArrayByIdUser'
  */
 export const getFilteredObjsArrayBy: GetFilteredObjsArrayByIdUserType = (
   objsArr,
   propName,
-  value
+  value,
+  operator = OperatorType['===']
 ): ObjIdUserArrayType[] => {
-  return objsArr.filter((obj: ObjIdUserArrayType) => obj[propName] === value)
+  if (operator === OperatorType['===']) {
+    return objsArr.filter((obj: ObjIdUserArrayType) => obj[propName] === value)
+  } else if (operator === OperatorType['!==']) {
+    return objsArr.filter((obj: ObjIdUserArrayType) => obj[propName] !== value)
+  }
+  return objsArr
 }

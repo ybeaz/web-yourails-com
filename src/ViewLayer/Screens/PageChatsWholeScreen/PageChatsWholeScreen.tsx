@@ -4,9 +4,6 @@ import { SafeAreaView, ScrollView, View } from 'react-native'
 import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
-import { SectionMappingType } from '../../../@types/SectionMappingType'
-import { ChatInput } from '../../Components/ChatInput/ChatInput'
-import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import {
   AnimatedYrl,
   mediaParamsDefault,
@@ -14,14 +11,21 @@ import {
   withParamsMediaYrl,
   withStoreStateYrl,
 } from '../../../YrlNativeViewLibrary'
-import { getProfileChat } from '../../../Shared/getProfileChat'
-import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
+import { ChatCards } from '../../Components/ChatCards/ChatCards'
+import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
+import {
+  getFilteredObjsArrayBy,
+  OperatorType,
+} from '../../../Shared/getFilteredObjsArrayBy'
+import { getProfileChat } from '../../../Shared/getProfileChat'
+import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
-import { styles } from './PageChatsWholeScreenStyle'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
+import { SectionMappingType } from '../../../@types/SectionMappingType'
 import { styleGlobal } from '../../Styles/styleGlobal'
+import { styles } from './PageChatsWholeScreenStyle'
 import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
@@ -124,6 +128,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     )
   }, [urlParamsMediaIdentifier])
 
+  const profilesChatCards = getFilteredObjsArrayBy(
+    profiles,
+    'idProfile',
+    idProfileHost,
+    OperatorType['!==']
+  )
+
   const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
   const styleAddLeftColumn = {} // isShowModalFrame ? styleGlobal.hidden : {}
   const isButtonBackTopBarMainColumn =
@@ -155,11 +166,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
     topBarChatCards: { profileHost, idProfileActive },
     chatCardsProps: {
-      profiles: profiles,
-      //   .reduce((acc: any, elem: any) => {
-      //   const elemNext = Array(4).fill(elem)
-      //   return [...acc, ...elemNext]
-      // }, []),
+      profiles: profilesChatCards,
       idProfileActive,
       urlParam1,
       urlParam2,
