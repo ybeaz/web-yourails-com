@@ -90,7 +90,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   // TODO: To create another profile and show the conversation. This is only the first attempt for demo purposes
   const conversationsWithProfileActive = conversations.filter(
     (conversation: any) => {
-      return conversation.idsUsers.includes(idUserHost)
+      return conversation.idsProfiles.includes(idProfileActive)
     }
   )
   const messagesWithProfileActive = messages.filter((message: any) => {
