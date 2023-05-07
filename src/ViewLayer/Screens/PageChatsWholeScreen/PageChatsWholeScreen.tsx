@@ -150,9 +150,19 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     testID: 'mainColumn_Outer_AnimatedYrl',
   }
 
+  const layoutOfRowProps = {
+    isLeftColumn,
+    isMainColumn,
+    styleProps: {
+      LayoutOfRow: style.LayoutOfRow,
+    },
+    mainColumnOuterAnimatedYrlProps,
+  }
+
   const propsOut: Record<string, any> = {
     layoutScreenProps: {
       styleProps: {
+        LayoutScreen: {},
         layoutNavigationTop: {
           height: sectionsMappingForProfile.length ? '6rem' : '4rem',
         },
@@ -163,13 +173,74 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         layoutNavigationBottom: { height: '4rem' },
       },
     },
-    layoutOfRowProps: {
-      isLeftColumn,
-      isMainColumn,
+    layoutOfRowNavigationTopProps: {
+      ...layoutOfRowProps,
       styleProps: {
-        LayoutOfRow: style.LayoutOfRow,
+        LayoutOfRow: {
+          ...layoutOfRowProps.styleProps.LayoutOfRow,
+          borderStyle: 'solid',
+          // borderTopWidth: 1,
+          // borderRightWidth: 1,
+          // borderBottomWidth: 1,
+          borderLeftWidth: 1,
+          borderColor: themes['themeA'].colors01.borderColor,
+        },
+        leftColumn: {},
+        mainColumn: {
+          borderStyle: 'solid',
+          // borderTopWidth: 1,
+          borderRightWidth: 1,
+          // borderBottomWidth: 1,
+          // borderLeftWidth: 1,
+          borderColor: themes['themeA'].colors01.borderColor,
+        },
       },
-      mainColumnOuterAnimatedYrlProps,
+    },
+    layoutOfRowMainContentProps: {
+      ...layoutOfRowProps,
+      styleProps: {
+        LayoutOfRow: {
+          ...layoutOfRowProps.styleProps.LayoutOfRow,
+          borderStyle: 'solid',
+          // borderTopWidth: 1,
+          // borderRightWidth: 1,
+          // borderBottomWidth: 1,
+          borderLeftWidth: 1,
+          borderColor: themes['themeA'].colors01.borderColor,
+        },
+        leftColumn: {},
+        mainColumn: {
+          borderStyle: 'solid',
+          borderTopWidth: 1,
+          borderRightWidth: 1,
+          // borderBottomWidth: 1,
+          borderLeftWidth: 1,
+          borderColor: themes['themeA'].colors01.borderColor,
+        },
+      },
+    },
+    layoutOfRowNavigationBottomProps: {
+      ...layoutOfRowProps,
+      styleProps: {
+        LayoutOfRow: {
+          ...layoutOfRowProps.styleProps.LayoutOfRow,
+          borderStyle: 'solid',
+          // borderTopWidth: 1,
+          // borderRightWidth: 1,
+          // borderBottomWidth: 1,
+          borderLeftWidth: 1,
+          borderColor: themes['themeA'].colors01.borderColor,
+        },
+        leftColumn: {},
+        mainColumn: {
+          borderStyle: 'solid',
+          // borderTopWidth: 1,
+          // borderRightWidth: 1,
+          // borderBottomWidth: 1,
+          borderLeftWidth: 1,
+          borderColor: themes['themeA'].colors01.borderColor,
+        },
+      },
     },
     leftColumnOuterAnimatedYrlProps: {
       styleProps: { AnimatedYrl: { flex: 1, opacity: 1 } },
@@ -328,17 +399,17 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   return (
     <LayoutScreen {...propsOut.layoutScreenProps}>
       {/** @description <NavigationTop /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowProps}>
+      <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
         <TopBarChatCardsElement />
         <MainColumnTopBars />
       </LayoutOfRow>
       {/** @description <MainContent /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowProps}>
+      <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
         <ChatCardsElement />
         <ChatSpaceElement />
       </LayoutOfRow>
       {/** @description <NavigationBottom /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowProps}>
+      <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
         {null}
         <ChatInputElement />
       </LayoutOfRow>
