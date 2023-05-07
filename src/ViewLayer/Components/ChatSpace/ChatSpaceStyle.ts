@@ -9,11 +9,11 @@ export const stylesDefault = StyleSheet.create({
     ...styleGlobal.typography,
     flexDirection: 'column',
     padding: '0.5rem',
-    height: '100%',
+    // height: '100%',
     flex: 1,
     justifyContent: 'flex-end',
     // marginBottom: '4rem',
-    minHeight: '100%',
+    // minHeight: '100%',
   },
   viewPadding: {},
   date: {

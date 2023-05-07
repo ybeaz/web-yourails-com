@@ -140,7 +140,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const mainColumnOuterAnimatedYrlProps = {
     styleProps: {
-      AnimatedYrl: { height: '100%', flex: 3, opacity: 1 },
+      AnimatedYrl: { flex: 3, opacity: 1 }, // height: '100%',
     },
     isActive: renderCounter.current !== 1,
     valueInit: isShowModalFrame ? 0 : 1,
@@ -160,7 +160,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       mainColumnOuterAnimatedYrlProps,
     },
     leftColumnOuterAnimatedYrlProps: {
-      styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },
+      styleProps: { AnimatedYrl: { flex: 1, opacity: 1 } }, // height: '100%'
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 1 : 0,
       valueTarget: isShowModalFrame ? 0 : 1,
