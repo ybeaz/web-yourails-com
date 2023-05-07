@@ -140,7 +140,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     styleProps: {
       AnimatedYrl: { flex: 3, opacity: 1 },
     },
-    isActive: renderCounter.current !== 1,
+    isActive: true,
     valueInit: isShowModalFrame ? 0 : 1,
     valueTarget: isShowModalFrame ? 1 : 1,
     nameHtmlCssAttribute: 'opacity',
@@ -178,6 +178,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       styleProps: {
         LayoutOfRow: {
           ...layoutOfRowProps.styleProps.LayoutOfRow,
+        },
+        leftColumn: {
           borderStyle: 'solid',
           // borderTopWidth: 1,
           // borderRightWidth: 1,
@@ -185,7 +187,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
         },
-        leftColumn: {},
         mainColumn: {
           borderStyle: 'solid',
           // borderTopWidth: 1,
@@ -201,6 +202,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       styleProps: {
         LayoutOfRow: {
           ...layoutOfRowProps.styleProps.LayoutOfRow,
+        },
+        leftColumn: {
           borderStyle: 'solid',
           // borderTopWidth: 1,
           // borderRightWidth: 1,
@@ -208,10 +211,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
         },
-        leftColumn: {},
         mainColumn: {
           borderStyle: 'solid',
-          borderTopWidth: 1,
+          borderTopWidth: sectionsMappingForProfile.length ? 1 : 0,
           borderRightWidth: 1,
           // borderBottomWidth: 1,
           borderLeftWidth: 1,
@@ -224,6 +226,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       styleProps: {
         LayoutOfRow: {
           ...layoutOfRowProps.styleProps.LayoutOfRow,
+        },
+        leftColumn: {
           borderStyle: 'solid',
           // borderTopWidth: 1,
           // borderRightWidth: 1,
@@ -231,7 +235,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
         },
-        leftColumn: {},
         mainColumn: {
           borderStyle: 'solid',
           // borderTopWidth: 1,
