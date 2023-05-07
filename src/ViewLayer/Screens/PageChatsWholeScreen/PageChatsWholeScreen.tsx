@@ -153,9 +153,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const propsOut: Record<string, any> = {
     layoutScreenProps: {
       styleProps: {
-        layoutNavigationTop: { height: '6rem' },
+        layoutNavigationTop: {
+          height: sectionsMappingForProfile.length ? '6rem' : '4rem',
+        },
         layoutMainContent: {
-          top: '6rem',
+          top: sectionsMappingForProfile.length ? '6rem' : '4rem',
           bottom: isShowModalFrame ? 0 : '4rem',
         },
         layoutNavigationBottom: { height: '4rem' },
@@ -261,12 +263,14 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
       </View>
 
-      <View
-        style={[style.mainColumnContentMenu, themes['themeA'].colors01]}
-        testID='mainColumnContentMenu'
-      >
-        <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
-      </View>
+      {sectionsMappingForProfile.length ? (
+        <View
+          style={[style.mainColumnContentMenu, themes['themeA'].colors01]}
+          testID='mainColumnContentMenu'
+        >
+          <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
+        </View>
+      ) : null}
     </>
   )
 

@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useEffect, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import { View } from 'react-native'
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
@@ -48,12 +48,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     isButtonClose,
     childProps,
   } = modalFrame
-
-  const counter = useRef(0)
-
-  useEffect(() => {
-    counter.current = counter.current + 1
-  }, [isShowModalFrame])
 
   const Child = MODAL_CONTENTS[childName]
 
