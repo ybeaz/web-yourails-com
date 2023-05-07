@@ -1,80 +1,65 @@
-import { StatusBar, StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { StyleSheet } from 'react-native'
 
 export const stylesDefault = StyleSheet.create({
-  PageChatsWholeScreen: {
-    ...styleGlobal.typography,
-    position: 'absolute',
-    zIndex: 9999,
-    top: 0,
-    right: 0,
-    left: 0,
+  navigationTop: {
+    display: 'flex',
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
-    marginBottom: 0,
     flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    minHeight: '100vh',
-    maxHeight: '100vh',
-    height: '100vh',
-    maxWidth: '100%',
   },
   leftColumn: {
+    display: 'flex',
     flex: 1,
-    height: '100%',
     flexDirection: 'column',
     borderStyle: 'solid',
     // borderTopWidth: 1,
     // borderRightWidth: 1,
-    borderBottomWidth: 1,
-    borderLeftWidth: 1,
+    // borderBottomWidth: 1,
+    // borderLeftWidth: 1,
   },
   leftColumnTopBars: {
-    position: 'absolute',
-    zIndex: 9999,
-    top: 0,
-    width: '100%',
+    paddingTop: '0.35rem',
   },
   leftColumnChatCardSpace: {
     flexDirection: 'column',
-    width: '100%',
     flex: 1,
-    marginTop: 64,
     overflow: 'scroll',
   },
 
+  LayoutOfRow: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'row',
+  },
+
+  mainContent: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'row',
+  },
   mainColumn: {
     flex: 3,
     flexGrow: 3,
     flexDirection: 'column',
-    width: '100%',
-    height: '100vh',
   },
-  mainColumnTopBars: {
-    position: 'absolute',
-    zIndex: 9999,
-    top: 0,
-    width: '100%',
-  },
+  mainColumnTopBars: {},
   mainColumnTopBar: {},
   mainColumnContentMenu: {},
-  scrollViewWrapper: {
-    // justifyContent: 'flex-end',
-    // height: '100%',
-    // backgroundColor: 'red',
-  },
+  scrollViewWrapper: {},
   chatSpace: {
     flexDirection: 'column',
-    // justifyContent: 'flex-end',
     width: '100%',
     flex: 1,
   },
   chatInput: {
-    position: 'absolute',
     height: '4rem',
     bottom: 0,
     width: '100%',
+  },
+
+  navigationBottom: {
+    display: 'flex',
+    flex: 1,
+    flexDirection: 'row',
   },
 })
 
@@ -92,8 +77,8 @@ const mdDevice = StyleSheet.create({
 
 const lgDevice = StyleSheet.create({
   ...stylesDefault,
-  PageChatsWholeScreen: {
-    ...stylesDefault.PageChatsWholeScreen,
+  LayoutOfRow: {
+    ...stylesDefault.LayoutOfRow,
     marginRight: '7.5%',
     marginLeft: '7.5%',
   },
@@ -101,8 +86,8 @@ const lgDevice = StyleSheet.create({
 
 const xlDevice = StyleSheet.create({
   ...stylesDefault,
-  PageChatsWholeScreen: {
-    ...stylesDefault.PageChatsWholeScreen,
+  LayoutOfRow: {
+    ...stylesDefault.LayoutOfRow,
     marginRight: '7.5%',
     marginLeft: '7.5%',
   },

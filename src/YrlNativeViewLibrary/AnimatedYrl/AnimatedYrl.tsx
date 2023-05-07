@@ -47,7 +47,11 @@ export const AnimatedYrl: AnimatedYrlType = props => {
 
   return (
     <View
-      style={[style.AnimatedYrl, styleProps.AnimatedYrl]}
+      style={[
+        style.AnimatedYrl,
+        styleProps.AnimatedYrl,
+        { [nameHtmlCssAttribute]: valueInit },
+      ]}
       testID={testID}
       ref={fadeInViewRef}
     >

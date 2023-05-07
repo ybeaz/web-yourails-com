@@ -1,4 +1,4 @@
-import React, { useContext, ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import { View } from 'react-native'
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
@@ -97,7 +97,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         buttonCloseWrapper: { top: buttonTop, right: buttonRight },
       },
       linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.25)'],
-      children: childName ? <Child {...childProps} /> : null,
       isShow: isShowModalFrame,
       isShowImageBackground: true,
       testID: 'ChatSpace_modalFrameYrl',
@@ -162,6 +161,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       testID: 'chatSpaceJsxAnimatedYrl',
     },
     modalFrameYrlAnimatedYrlProps: {
+      styleProps: { AnimatedYrl: {} },
       isActive: true,
       valueInit: isShowModalFrame ? 0 : 1,
       valueTarget: isShowModalFrame ? 1 : 0,
@@ -213,11 +213,13 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         <AnimatedYrl {...propsOut.chatSpaceJsxAnimatedYrlProps}>
           <ChatSpaceJsx />
         </AnimatedYrl>
-      ) : (
-        <AnimatedYrl {...propsOut.modalFrameYrlAnimatedYrlProps}>
-          <ModalFrameYrl {...propsOut.modalFrameYrlProps} />
-        </AnimatedYrl>
-      )}
+      ) : null}
+
+      <AnimatedYrl {...propsOut.modalFrameYrlAnimatedYrlProps}>
+        <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
+          <Child {...childProps} />
+        </ModalFrameYrl>
+      </AnimatedYrl>
     </View>
   )
 }

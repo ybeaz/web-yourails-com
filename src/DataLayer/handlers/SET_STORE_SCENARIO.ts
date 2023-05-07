@@ -59,7 +59,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     redirectPathname,
   } = getSetStoreScenario({
     profiles,
-    hostname: window.location.hostname,
+    hostname: window.location.hostname, // 'r1.userto.com'
     urlParam1,
     urlParam2,
     urlParam3,

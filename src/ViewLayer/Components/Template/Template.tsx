@@ -6,7 +6,7 @@ import {
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
-import { TemplateType } from './TemplateTypes'
+import { TemplateType, TemplatePropsOutType } from './TemplateTypes'
 import { styles } from './TemplateStyles'
 
 /**
@@ -18,7 +18,7 @@ const TemplateComponent: TemplateType = props => {
   const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
 
-  const propsOut: Record<string, any> = {}
+  const propsOut: TemplatePropsOutType = {}
 
   return (
     <View style={[style.Template, styleProps.Template]} testID='Template'>

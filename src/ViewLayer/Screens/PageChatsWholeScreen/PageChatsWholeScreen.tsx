@@ -5,7 +5,6 @@ import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
 import {
-  AnimatedYrl,
   mediaParamsDefault,
   urlParamsDefault,
   withParamsMediaYrl,
@@ -15,6 +14,8 @@ import {
   getFilteredObjsArrayBy,
   OperatorType,
 } from '../../../Shared/getFilteredObjsArrayBy'
+import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
+import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
@@ -130,16 +131,122 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     OperatorType['!==']
   )
 
-  const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
-  const styleAddLeftColumn = {} // isShowModalFrame ? styleGlobal.hidden : {}
   const isButtonBackTopBarMainColumn =
     isButtonBackModal && isButtonCloseModal ? true : false
   const isImageAvatar =
     childNameModal === 'Profile' && isShowModalFrame === true ? false : true
 
+  const mainColumnOuterAnimatedYrlProps = {
+    styleProps: {
+      AnimatedYrl: { flex: 3, opacity: 1 },
+    },
+    isActive: true,
+    valueInit: isShowModalFrame ? 0 : 1,
+    valueTarget: isShowModalFrame ? 1 : 1,
+    nameHtmlCssAttribute: 'opacity',
+    duration: 1000,
+    trigger: isShowModalFrame,
+    triggerShouldEqual: isShowModalFrame ? true : false,
+    testID: 'mainColumn_Outer_AnimatedYrl',
+  }
+
+  const layoutOfRowProps = {
+    isLeftColumn,
+    isMainColumn,
+    styleProps: {
+      LayoutOfRow: style.LayoutOfRow,
+    },
+    mainColumnOuterAnimatedYrlProps,
+  }
+
   const propsOut: Record<string, any> = {
+    layoutScreenProps: {
+      styleProps: {
+        LayoutScreen: {},
+        layoutNavigationTop: {
+          height: sectionsMappingForProfile.length ? '6rem' : '4rem',
+        },
+        layoutMainContent: {
+          top: sectionsMappingForProfile.length ? '6rem' : '4rem',
+          bottom: isShowModalFrame ? 0 : '4rem',
+        },
+        layoutNavigationBottom: { height: '4rem' },
+      },
+    },
+    layoutOfRowNavigationTopProps: {
+      ...layoutOfRowProps,
+      styleProps: {
+        LayoutOfRow: {
+          ...layoutOfRowProps.styleProps.LayoutOfRow,
+        },
+        leftColumn: {
+          borderStyle: 'solid',
+          // borderTopWidth: 1,
+          // borderRightWidth: 1,
+          // borderBottomWidth: 1,
+          borderLeftWidth: 1,
+          borderColor: themes['themeA'].colors01.borderColor,
+        },
+        mainColumn: {
+          borderStyle: 'solid',
+          // borderTopWidth: 1,
+          borderRightWidth: 1,
+          // borderBottomWidth: 1,
+          // borderLeftWidth: 1,
+          borderColor: themes['themeA'].colors01.borderColor,
+        },
+      },
+    },
+    layoutOfRowMainContentProps: {
+      ...layoutOfRowProps,
+      styleProps: {
+        LayoutOfRow: {
+          ...layoutOfRowProps.styleProps.LayoutOfRow,
+        },
+        leftColumn: {
+          borderStyle: 'solid',
+          // borderTopWidth: 1,
+          // borderRightWidth: 1,
+          // borderBottomWidth: 1,
+          borderLeftWidth: 1,
+          borderColor: themes['themeA'].colors01.borderColor,
+        },
+        mainColumn: {
+          borderStyle: 'solid',
+          borderTopWidth: sectionsMappingForProfile.length ? 1 : 0,
+          borderRightWidth: 1,
+          // borderBottomWidth: 1,
+          borderLeftWidth: 1,
+          borderColor: themes['themeA'].colors01.borderColor,
+        },
+      },
+    },
+    layoutOfRowNavigationBottomProps: {
+      ...layoutOfRowProps,
+      styleProps: {
+        LayoutOfRow: {
+          ...layoutOfRowProps.styleProps.LayoutOfRow,
+        },
+        leftColumn: {
+          borderStyle: 'solid',
+          // borderTopWidth: 1,
+          // borderRightWidth: 1,
+          // borderBottomWidth: 1,
+          borderLeftWidth: 1,
+          borderColor: themes['themeA'].colors01.borderColor,
+        },
+        mainColumn: {
+          borderStyle: 'solid',
+          // borderTopWidth: 1,
+          // borderRightWidth: 1,
+          // borderBottomWidth: 1,
+          borderLeftWidth: 1,
+          borderColor: themes['themeA'].colors01.borderColor,
+        },
+      },
+    },
     leftColumnOuterAnimatedYrlProps: {
-      styleProps: { AnimatedYrl: { height: '100%', flex: 1, opacity: 1 } },
+      styleProps: { AnimatedYrl: { flex: 1, opacity: 1 } },
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 1 : 0,
       valueTarget: isShowModalFrame ? 0 : 1,
@@ -191,25 +298,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       isButtonBack: isButtonBackTopBarMainColumn,
       isImageAvatar,
     },
-    mainColumnOuterAnimatedYrlProps: {
-      styleProps: {
-        AnimatedYrl: { height: '100%', flex: 3, opacity: 1 },
-      },
-      isActive: renderCounter.current !== 1,
-      valueInit: isShowModalFrame ? 0 : 1,
-      valueTarget: isShowModalFrame ? 1 : 1,
-      nameHtmlCssAttribute: 'opacity',
-      duration: 1000,
-      trigger: isShowModalFrame,
-      triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'mainColumn_Outer_AnimatedYrl',
-    },
     mainColumnChatSpaceProps: {
       styleProps: {
-        ChatSpace: {
-          marginTop: '6rem',
-          marginBottom: '4rem',
-        },
+        ChatSpace: {},
       },
       idProfileHost,
       idProfileActive,
@@ -221,121 +312,111 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const scrollViewRef = React.useRef<ScrollView>(null)
 
-  return (
-    <SafeAreaView
-      style={[
-        style.PageChatsWholeScreen,
-        themes['themeA'].colors01,
-        { borderColor: 'white' },
-        styleAddPageChatsWholeScreen,
-      ]}
-      testID='PageChatsWholeScreen'
-    >
-      {isLeftColumn && (
+  const TopBarChatCardsElement = () => (
+    <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
+      <TopBarChatCards {...propsOut.topBarChatCards} />
+    </View>
+  )
+
+  const MainColumnTopBars = () => (
+    <>
+      <View
+        style={[
+          style.mainColumnTopBar,
+          {
+            borderStyle: 'solid',
+            // borderTopWidth: 1,
+            // borderRightWidth: 1,
+            borderBottomWidth: 1,
+            borderLeftWidth: 1,
+          },
+          themes['themeA'].colors01,
+        ]}
+        testID='mainColumnTopBar'
+      >
+        <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
+      </View>
+
+      {sectionsMappingForProfile.length ? (
         <View
-          style={[
-            style.leftColumn,
-            themes['themeA'].colors01,
-            styleAddLeftColumn,
-          ]}
-          testID='leftColumn'
+          style={[style.mainColumnContentMenu, themes['themeA'].colors01]}
+          testID='mainColumnContentMenu'
         >
-          <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
-            <TopBarChatCards {...propsOut.topBarChatCards} />
-          </View>
-          <View
-            style={[style.leftColumnChatCardSpace]}
-            testID='leftColumnChatCardSpace'
-          >
-            <ChatCards {...propsOut.chatCardsProps} />
-          </View>
+          <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
+        </View>
+      ) : null}
+    </>
+  )
+
+  const ChatCardsElement = () => (
+    <View
+      style={[style.leftColumnChatCardSpace]}
+      testID='leftColumnChatCardSpace'
+    >
+      <ChatCards {...propsOut.chatCardsProps} />
+    </View>
+  )
+
+  const ChatSpaceElement = () => (
+    <>
+      {!isMainColumnBlank && (
+        <ScrollView
+          style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
+          contentContainerStyle={{}}
+          ref={scrollViewRef}
+          nestedScrollEnabled={true}
+          onContentSizeChange={(contentWidth, contentHeight) => {
+            if (isShowModalFrame) {
+              scrollViewRef.current?.scrollTo({
+                y: 0,
+                animated: true,
+              })
+              return
+            }
+            scrollViewRef.current?.scrollTo({
+              y: contentHeight,
+              animated: true,
+            })
+          }}
+          testID='mainColumnChatSpace'
+        >
+          <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
+        </ScrollView>
+      )}
+    </>
+  )
+
+  const ChatInputElement = () => (
+    <>
+      {isShowModalFrame === false && (
+        <View
+          style={[style.chatInput, themes['themeA'].colors03]}
+          testID='chatInput'
+        >
+          <ChatInput />
         </View>
       )}
+    </>
+  )
 
-      {isMainColumn && (
-        <AnimatedYrl {...propsOut.mainColumnOuterAnimatedYrlProps}>
-          <View
-            style={[
-              style.mainColumn,
-              {
-                borderStyle: 'solid',
-                // borderTopWidth: 1,
-                borderRightWidth: 1,
-                // borderBottomWidth: 1,
-                // borderLeftWidth: 1,
-              },
-              themes['themeA'].colors01,
-            ]}
-            testID='mainColumn'
-          >
-            {!isMainColumnBlank && (
-              <>
-                <View
-                  style={[style.mainColumnTopBars]}
-                  testID='mainColumnTopBars'
-                >
-                  <View
-                    style={[
-                      style.mainColumnTopBar,
-                      {
-                        borderStyle: 'solid',
-                        // borderTopWidth: 1,
-                        // borderRightWidth: 1,
-                        borderBottomWidth: 1,
-                        borderLeftWidth: 1,
-                      },
-                      themes['themeA'].colors01,
-                    ]}
-                    testID='mainColumnTopBar'
-                  >
-                    <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
-                  </View>
-
-                  <View
-                    style={[
-                      style.mainColumnContentMenu,
-                      themes['themeA'].colors01,
-                    ]}
-                    testID='mainColumnContentMenu'
-                  >
-                    <ContentMenuMainColumn
-                      {...propsOut.mainColumnContentMenuProps}
-                    />
-                  </View>
-                </View>
-                <ScrollView
-                  style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
-                  contentContainerStyle={{}}
-                  ref={scrollViewRef}
-                  nestedScrollEnabled={true}
-                  onContentSizeChange={(contentWidth, contentHeight) => {
-                    if (isShowModalFrame) {
-                      scrollViewRef.current?.scrollTo({ y: 0, animated: true })
-                      return
-                    }
-                    scrollViewRef.current?.scrollTo({
-                      y: contentHeight,
-                      animated: true,
-                    })
-                  }}
-                  testID='mainColumnChatSpace'
-                >
-                  <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
-                </ScrollView>
-                {isShowModalFrame === false && (
-                  <View
-                    style={[style.chatInput, themes['themeA'].colors03]}
-                    testID='chatInput'
-                  >
-                    <ChatInput />
-                  </View>
-                )}
-              </>
-            )}
-          </View>
-        </AnimatedYrl>
-      )}
-    </SafeAreaView>
+  return (
+    <LayoutScreen {...propsOut.layoutScreenProps}>
+      {/** @description <NavigationTop /> */}
+      <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
+        <TopBarChatCardsElement />
+        <MainColumnTopBars />
+      </LayoutOfRow>
+      {/** @description <MainContent /> */}
+      <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
+        <ChatCardsElement />
+        <ChatSpaceElement />
+      </LayoutOfRow>
+      {/** @description <NavigationBottom /> */}
+      <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
+        {null}
+        <ChatInputElement />
+      </LayoutOfRow>
+    </LayoutScreen>
   )
 }
 

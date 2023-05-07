@@ -45,8 +45,9 @@ const getProfileItemsObjList = (
       content: serviceSpecs.join(', '),
       label: 'Service specs',
       isActive:
-        deviceType === DeviceType['xsDevice'] ||
-        deviceType === DeviceType['smDevice']
+        serviceSpecs.length &&
+        (deviceType === DeviceType['xsDevice'] ||
+          deviceType === DeviceType['smDevice'])
           ? true
           : false,
     },
@@ -56,42 +57,42 @@ const getProfileItemsObjList = (
       contentType: 'string',
       content: summary,
       label: 'Summary',
-      isActive: true,
+      isActive: summary ? true : false,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'at',
       content: profileName.toString(),
       label: 'Username',
-      isActive: true,
+      isActive: profileName ? true : false,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'location-outline',
       content: locations.join(', '),
       label: 'Locations',
-      isActive: true,
+      isActive: locations.length ? true : false,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'chatbox-ellipses-outline',
       content: getMessengesString(messengers, style),
       label: 'Messengers',
-      isActive: true,
+      isActive: messengers.length ? true : false,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'call-outline',
       content: phones.join(', '),
       label: 'Phons',
-      isActive: true,
+      isActive: phones.length ? true : false,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'mail-outline',
       content: emails.join(', '),
       label: 'Email',
-      isActive: true,
+      isActive: emails.length ? true : false,
     },
     ...links,
   ]

@@ -5,6 +5,8 @@ export const style = StyleSheet.create({
   ContentMenuMainColumn: {
     ...styleGlobal.typography,
     flexDirection: 'row',
+    height: '2rem',
+    alignItems: 'center',
   },
   buttonWrapper: {
     flex: 1,
