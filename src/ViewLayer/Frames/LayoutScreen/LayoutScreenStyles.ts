@@ -10,21 +10,24 @@ export const stylesDefault = StyleSheet.create({
     minHeight: '100vh',
     maxHeight: '100vh',
     height: '100vh',
-    maxWidth: '100%',
+    width: '100vw',
   },
   layoutNavigationTop: {
     display: 'flex',
     flexDirection: 'row',
     top: 0,
+    width: '100vw',
   },
   layoutMainContent: {
     display: 'flex',
     flex: 1,
     flexDirection: 'row',
+    width: '100vw',
   },
   layoutNavigationBottom: {
     display: 'flex',
     flexDirection: 'row',
+    width: '100vw',
     marginTop: 'auto',
   },
 })
