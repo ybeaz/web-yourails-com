@@ -13,11 +13,12 @@ updated 2023-04-29 partially
 
 - Provide route path to each modal view panel
 - Refactor app close to the real conversation scenario: create two other users
+- Move userHost-active Profile to the upper bar in the left column
 
-* Move userHost-active Profile to the upper bar in the left column
 * Create sliding up panel from the bottom of the left column while pushing/ clicking on the userHost-active Profile. And while clicking on the each userHost profile it becomes active for the user
-* Each tab-modal window makes its own request of its own content with the help of the useEffect-axios mechanism
-* Main screen makes a request and populates tabs according to the available tabs. And load a conversation with a respondent or if there is no, the blank chat space. First move is to implement this without request but based on the import
+
+- Each tab-modal window makes its own request of its own content with the help of the useEffect-axios mechanism
+- Main screen makes a request and populates tabs according to the available tabs. And load a conversation with a respondent or if there is no, the blank chat space. First move is to implement this without request but based on the import
 
 ## Decisions made
 
