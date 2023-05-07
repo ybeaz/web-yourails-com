@@ -9,11 +9,7 @@ const stylesDefault: any = {
     padding: '3rem',
   },
   buttonImageView: { paddingTop: '0.5rem' },
-  imageView: {
-    // height: '100%',
-    // width: '100%',
-    // height: '16.8rem',
-  },
+  imageView: {},
   rowStyle: {
     flexDirection: 'column',
     padding: '0.5rem',
@@ -24,9 +20,7 @@ const stylesDefault: any = {
   column2Style: {
     flex: 5,
   },
-  titleView: {
-    // padding: '1rem',
-  },
+  titleView: {},
   titleText: {
     ...styleGlobal.h3,
   },

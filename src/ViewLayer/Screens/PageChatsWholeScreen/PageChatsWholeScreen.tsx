@@ -5,7 +5,6 @@ import dayjs from 'dayjs'
 dayjs.extend(localizedFormat)
 
 import {
-  AnimatedYrl,
   mediaParamsDefault,
   urlParamsDefault,
   withParamsMediaYrl,
@@ -132,7 +131,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     OperatorType['!==']
   )
 
-  const styleAddPageChatsWholeScreen = isShowApp ? {} : styleGlobal.hidden
   const isButtonBackTopBarMainColumn =
     isButtonBackModal && isButtonCloseModal ? true : false
   const isImageAvatar =
@@ -140,7 +138,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const mainColumnOuterAnimatedYrlProps = {
     styleProps: {
-      AnimatedYrl: { flex: 3, opacity: 1 }, // height: '100%',
+      AnimatedYrl: { flex: 3, opacity: 1 },
     },
     isActive: renderCounter.current !== 1,
     valueInit: isShowModalFrame ? 0 : 1,
@@ -153,14 +151,26 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   }
 
   const propsOut: Record<string, any> = {
+    layoutScreenProps: {
+      styleProps: {
+        layoutNavigationTop: { height: '6rem' },
+        layoutMainContent: {
+          top: '6rem',
+          bottom: isShowModalFrame ? 0 : '4rem',
+        },
+        layoutNavigationBottom: { height: '4rem' },
+      },
+    },
     layoutOfRowProps: {
       isLeftColumn,
       isMainColumn,
-      styleProps: { LayoutOfRow: style.LayoutOfRow },
+      styleProps: {
+        LayoutOfRow: style.LayoutOfRow,
+      },
       mainColumnOuterAnimatedYrlProps,
     },
     leftColumnOuterAnimatedYrlProps: {
-      styleProps: { AnimatedYrl: { flex: 1, opacity: 1 } }, // height: '100%'
+      styleProps: { AnimatedYrl: { flex: 1, opacity: 1 } },
       isActive: renderCounter.current !== 1,
       valueInit: isShowModalFrame ? 1 : 0,
       valueTarget: isShowModalFrame ? 0 : 1,
@@ -312,7 +322,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   )
 
   return (
-    <LayoutScreen>
+    <LayoutScreen {...propsOut.layoutScreenProps}>
       {/** @description <NavigationTop /> */}
       <LayoutOfRow {...propsOut.layoutOfRowProps}>
         <TopBarChatCardsElement />

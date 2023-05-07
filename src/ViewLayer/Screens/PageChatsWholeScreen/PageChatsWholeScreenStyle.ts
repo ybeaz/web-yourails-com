@@ -9,7 +9,6 @@ export const stylesDefault = StyleSheet.create({
   leftColumn: {
     display: 'flex',
     flex: 1,
-    // height: '100%',
     flexDirection: 'column',
     borderStyle: 'solid',
     // borderTopWidth: 1,
@@ -18,10 +17,7 @@ export const stylesDefault = StyleSheet.create({
     // borderLeftWidth: 1,
   },
   leftColumnTopBars: {
-    // position: 'absolute',
-    // zIndex: 9999,
     paddingTop: '0.35rem',
-    // width: '100%',
   },
   leftColumnChatCardSpace: {
     flexDirection: 'column',
@@ -86,21 +82,6 @@ const lgDevice = StyleSheet.create({
     marginRight: '7.5%',
     marginLeft: '7.5%',
   },
-  // navigationTop: {
-  //   ...stylesDefault.navigationTop,
-  //   marginRight: '7.5%',
-  //   marginLeft: '7.5%',
-  // },
-  // mainContent: {
-  //   ...stylesDefault.navigationTop,
-  //   marginRight: '7.5%',
-  //   marginLeft: '7.5%',
-  // },
-  // navigationBottom: {
-  //   ...stylesDefault.navigationTop,
-  //   marginRight: '7.5%',
-  //   marginLeft: '7.5%',
-  // },
 })
 
 const xlDevice = StyleSheet.create({
@@ -110,22 +91,6 @@ const xlDevice = StyleSheet.create({
     marginRight: '7.5%',
     marginLeft: '7.5%',
   },
-
-  // navigationTop: {
-  //   ...stylesDefault.navigationTop,
-  //   marginRight: '7.5%',
-  //   marginLeft: '7.5%',
-  // },
-  // mainContent: {
-  //   ...stylesDefault.navigationTop,
-  //   marginRight: '7.5%',
-  //   marginLeft: '7.5%',
-  // },
-  // navigationBottom: {
-  //   ...stylesDefault.navigationTop,
-  //   marginRight: '7.5%',
-  //   marginLeft: '7.5%',
-  // },
 })
 
 /**

@@ -31,14 +31,14 @@ const LayoutOfRowComponent: LayoutOfRowType = props => {
       )}
 
       {isMainColumn && (
-        <AnimatedYrl {...mainColumnOuterAnimatedYrlProps}>
-          <View
-            style={[style.mainColumn, styleProps.mainColumn]}
-            testID='mainColumn'
-          >
-            {children[1]}
-          </View>
-        </AnimatedYrl>
+        // <AnimatedYrl {...mainColumnOuterAnimatedYrlProps}>
+        <View
+          style={[style.mainColumn, styleProps.mainColumn]}
+          testID='mainColumn'
+        >
+          {children[1]}
+        </View>
+        // </AnimatedYrl>
       )}
     </View>
   )

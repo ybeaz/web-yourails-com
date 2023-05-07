@@ -15,7 +15,6 @@ export const stylesDefault = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    height: '6rem',
     zIndex: 9999,
 
     display: 'flex',
@@ -25,10 +24,8 @@ export const stylesDefault = StyleSheet.create({
   layoutMainContent: {
     display: 'flex',
     position: 'absolute',
-    top: '6rem',
     left: 0,
     right: 0,
-    bottom: '4rem',
 
     flex: 1,
     flexDirection: 'row',
@@ -40,7 +37,6 @@ export const stylesDefault = StyleSheet.create({
     bottom: 0,
     left: 0,
     right: 0,
-    height: '4rem',
     zIndex: 9999,
 
     display: 'flex',

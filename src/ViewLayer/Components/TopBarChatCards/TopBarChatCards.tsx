@@ -33,17 +33,6 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     urlParamsSearch: query,
   } = props
 
-  console.info('TopBarChatCards [36]', {
-    idProfile,
-    idProfileActive,
-    profileName,
-    uriAvatar,
-    urlParam1,
-    urlParam2,
-    query,
-    'idProfileActive !== idProfile': idProfileActive !== idProfile,
-  })
-
   const propsOut: TopBarChatCardsPropsOutType = {
     buttonProfileHostAvatarProps: {
       styleProps: {
