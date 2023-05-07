@@ -2,7 +2,7 @@ import { ContentType, LinkType } from '../@types/LinkType'
 
 export const links02D: LinkType[] = [
   {
-    idUser: '2',
+    idProfile: '2',
     iconLibrary: 'Ionicons',
     iconName: 'logo-linkedin',
     contentType: ContentType['linkHref'],
@@ -12,7 +12,7 @@ export const links02D: LinkType[] = [
     isActive: true,
   },
   {
-    idUser: '2',
+    idProfile: '2',
     iconLibrary: undefined,
     iconName: undefined,
     contentType: ContentType['imageSrc'],

@@ -23,7 +23,7 @@ import { profiles } from '../../../ContentMock/profilesMock'
 // TODO Refactor wile moving to multiprofile and multiprofiler service
 const getProfileItemsObjList = (
   profileIn: ProfileType,
-  links: LinkType[],
+  linksIn: LinkType[],
   style: any,
   deviceType: DeviceType
 ): ProfileItemPropsType[] => {
@@ -94,7 +94,7 @@ const getProfileItemsObjList = (
       label: 'Email',
       isActive: emails.length ? true : false,
     },
-    ...links,
+    ...linksIn,
   ]
 }
 

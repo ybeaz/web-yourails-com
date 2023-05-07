@@ -4,7 +4,7 @@ export enum ContentType {
 }
 
 export type LinkType = {
-  idUser: number | string
+  idProfile: number | string
   iconLibrary: string | undefined
   iconName: string | undefined
   contentType: ContentType
