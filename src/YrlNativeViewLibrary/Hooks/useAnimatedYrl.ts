@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from 'react'
 
 export type UseAnimatedYrlPropsType = {
   ref: Record<string, any>
-  isActive: boolean
   nameHtmlCssAttribute: string
   valueInit: number
   valueTarget: number
@@ -24,7 +23,6 @@ export interface UseAnimatedYrlType {
 
 export const useAnimatedYrl: UseAnimatedYrlType = ({
   ref,
-  isActive,
   valueInit,
   valueTarget,
   nameHtmlCssAttribute,
@@ -64,7 +62,7 @@ export const useAnimatedYrl: UseAnimatedYrlType = ({
     }
 
     const start = () => {
-      if (!isActive || trigger !== triggerShouldEqual) return
+      if (trigger !== triggerShouldEqual) return
       onProgress(valueInit)
       startTime = performance.now()
 

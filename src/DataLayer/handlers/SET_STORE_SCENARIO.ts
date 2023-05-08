@@ -68,31 +68,6 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     sectionsMappingForProfile,
   })
 
-  console.info('SET_STORE_SCENARIO [71]', {
-    profiles,
-    hostname: window.location.hostname,
-    urlParam1,
-    urlParam2,
-    urlParam3,
-    query,
-    deviceType,
-    sectionsMappingForProfile,
-  })
-
-  console.info('SET_STORE_SCENARIO [81]', {
-    caseNo,
-    caseDesc,
-    caseConditions,
-    isShowApp: isShowAppNext,
-    idUser: idUserNext,
-    idProfile: idProfileNext,
-    isLeftColumn: isLeftColumnNext,
-    isMainColumn: isMainColumnNext,
-    isMainColumnBlank: isMainColumnBlankNext,
-    modalFrame: modalFrameNext,
-    redirectPathname,
-  })
-
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))

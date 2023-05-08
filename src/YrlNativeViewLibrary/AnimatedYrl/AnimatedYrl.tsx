@@ -43,14 +43,14 @@ export const AnimatedYrl: AnimatedYrlType = props => {
     triggerShouldEqual,
     testID,
   }
-  useAnimatedYrl(animatedYrlProps)
+  isActive && useAnimatedYrl(animatedYrlProps)
 
   return (
     <View
       style={[
         style.AnimatedYrl,
         styleProps.AnimatedYrl,
-        { [nameHtmlCssAttribute]: valueInit },
+        { [nameHtmlCssAttribute]: isActive ? valueInit : valueTarget },
       ]}
       testID={testID}
       ref={fadeInViewRef}

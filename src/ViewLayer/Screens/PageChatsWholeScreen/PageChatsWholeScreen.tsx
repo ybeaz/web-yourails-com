@@ -170,18 +170,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     mainColumnOuterAnimatedYrlProps,
   }
 
-  console.info('PageChatsWholeScreen [161]', {
-    idProfileHost,
-    idProfileActive,
-    modalFrame,
-    isLeftColumn,
-    isMainColumn,
-    isMainColumnBlank,
-    profileHost,
-    profileActive,
-    messagesWithProfileActive,
-  })
-
   const propsOut: Record<string, any> = {
     layoutScreenProps: {
       styleProps: {
@@ -268,27 +256,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           borderColor: themes['themeA'].colors01.borderColor,
         },
       },
-    },
-    leftColumnOuterAnimatedYrlProps: {
-      styleProps: { AnimatedYrl: { flex: 1, opacity: 1 } },
-      isActive: renderCounter.current !== 1,
-      valueInit: isShowModalFrame ? 1 : 0,
-      valueTarget: isShowModalFrame ? 0 : 1,
-      nameHtmlCssAttribute: 'opacity',
-      duration: 1000,
-      trigger: isShowModalFrame,
-      triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'leftColumn_Outer_AnimatedYrl',
-    },
-    leftColumnInnerInAnimatedYrlProps: {
-      isActive: renderCounter.current !== 1,
-      valueInit: isShowModalFrame ? 1 : 0,
-      valueTarget: isShowModalFrame ? 1 : 0,
-      nameHtmlCssAttribute: 'opacity',
-      duration: 1000,
-      trigger: isShowModalFrame,
-      triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'PageChatsWholeScreen_leftColumnIn_animatedYrl_Inner',
     },
     topBarChatCards: { profileHost, idProfileActive },
     chatCardsProps: {
