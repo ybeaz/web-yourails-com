@@ -182,7 +182,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         leftColumn: {
           borderStyle: 'solid',
           // borderTopWidth: 1,
-          // borderRightWidth: 1,
+          borderRightWidth: isMainColumnBlank ? 1 : 0,
           // borderBottomWidth: 1,
           borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
@@ -213,7 +213,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         },
         mainColumn: {
           borderStyle: 'solid',
-          borderTopWidth: sectionsMappingForProfile.length ? 1 : 0,
+          borderTopWidth:
+            !isMainColumnBlank && sectionsMappingForProfile.length ? 1 : 0,
           borderRightWidth: 1,
           // borderBottomWidth: 1,
           borderLeftWidth: 1,
@@ -359,30 +360,28 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const ChatSpaceElement = () => (
     <>
-      {!isMainColumnBlank && (
-        <ScrollView
-          style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
-          contentContainerStyle={{}}
-          ref={scrollViewRef}
-          nestedScrollEnabled={true}
-          onContentSizeChange={(contentWidth, contentHeight) => {
-            if (isShowModalFrame) {
-              scrollViewRef.current?.scrollTo({
-                y: 0,
-                animated: true,
-              })
-              return
-            }
+      <ScrollView
+        style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
+        contentContainerStyle={{}}
+        ref={scrollViewRef}
+        nestedScrollEnabled={true}
+        onContentSizeChange={(contentWidth, contentHeight) => {
+          if (isShowModalFrame) {
             scrollViewRef.current?.scrollTo({
-              y: contentHeight,
+              y: 0,
               animated: true,
             })
-          }}
-          testID='mainColumnChatSpace'
-        >
-          <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
-        </ScrollView>
-      )}
+            return
+          }
+          scrollViewRef.current?.scrollTo({
+            y: contentHeight,
+            animated: true,
+          })
+        }}
+        testID='mainColumnChatSpace'
+      >
+        <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
+      </ScrollView>
     </>
   )
 
@@ -404,17 +403,17 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       {/** @description <NavigationTop /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
         <TopBarChatCardsElement />
-        <MainColumnTopBars />
+        {!isMainColumnBlank && <MainColumnTopBars />}
       </LayoutOfRow>
       {/** @description <MainContent /> */}
       <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
         <ChatCardsElement />
-        <ChatSpaceElement />
+        {!isMainColumnBlank && <ChatSpaceElement />}
       </LayoutOfRow>
       {/** @description <NavigationBottom /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
         {null}
-        <ChatInputElement />
+        {!isMainColumnBlank && <ChatInputElement />}
       </LayoutOfRow>
     </LayoutScreen>
   )
