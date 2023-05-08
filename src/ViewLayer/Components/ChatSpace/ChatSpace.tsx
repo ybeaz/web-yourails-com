@@ -49,7 +49,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     childProps,
   } = modalFrame
 
-  const Child = MODAL_CONTENTS[childName]
+  const Child = childName ? MODAL_CONTENTS[childName] : null
 
   const messagesPrep = getPreproccedMessages(messages, idProfileHost)
 
@@ -169,7 +169,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       duration: 1000,
       trigger: isShowModalFrame,
       triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'leftColumnIn_animatedYrl_Inner',
+      testID: 'ChatSpace_leftColumnIn_animatedYrl_Inner',
     },
   }
 
@@ -215,11 +215,13 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         </AnimatedYrl>
       ) : null}
 
-      <AnimatedYrl {...propsOut.modalFrameYrlAnimatedYrlProps}>
-        <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
-          <Child {...childProps} />
-        </ModalFrameYrl>
-      </AnimatedYrl>
+      {childName && (
+        <AnimatedYrl {...propsOut.modalFrameYrlAnimatedYrlProps}>
+          <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
+            <Child {...childProps} />
+          </ModalFrameYrl>
+        </AnimatedYrl>
+      )}
     </View>
   )
 }

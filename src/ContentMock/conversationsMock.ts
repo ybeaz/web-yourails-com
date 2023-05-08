@@ -1,6 +1,6 @@
-// import { ConversationType } from '../@types/ConversationType'
+import { ConversationType } from '../@types/ConversationType'
 
-export const conversations: any[] = [
+export const conversations: ConversationType[] = [
   {
     idConversation: '1',
     idsProfiles: ['1', '4'],

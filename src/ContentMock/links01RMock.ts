@@ -2,7 +2,7 @@ import { ContentType, LinkType } from '../@types/LinkType'
 
 export const links01R: LinkType[] = [
   {
-    idUser: '1',
+    idProfile: '1',
     iconLibrary: 'Ionicons',
     iconName: 'calendar-outline',
     contentType: ContentType['linkHref'],
@@ -12,7 +12,7 @@ export const links01R: LinkType[] = [
     isActive: true,
   },
   {
-    idUser: '1',
+    idProfile: '1',
     iconLibrary: 'Ionicons',
     iconName: 'logo-linkedin',
     contentType: ContentType['linkHref'],
@@ -22,7 +22,7 @@ export const links01R: LinkType[] = [
     isActive: true,
   },
   {
-    idUser: '1',
+    idProfile: '1',
     iconLibrary: 'Ionicons',
     iconName: 'logo-stackoverflow',
     contentType: ContentType['linkHref'],
@@ -32,7 +32,7 @@ export const links01R: LinkType[] = [
     isActive: true,
   },
   {
-    idUser: '1',
+    idProfile: '1',
     iconLibrary: 'Ionicons',
     iconName: 'logo-github',
     contentType: ContentType['linkHref'],
@@ -42,7 +42,7 @@ export const links01R: LinkType[] = [
     isActive: true,
   },
   {
-    idUser: '1',
+    idProfile: '1',
     iconLibrary: undefined,
     iconName: undefined,
     contentType: ContentType['imageSrc'],

@@ -1,5 +1,6 @@
 import { ProfileType } from './ProfileType'
 import { MessageType } from './MessageType'
+import { IdUserType } from './UserType'
 
 export type ModalFrameType = {
   childName: string
@@ -31,9 +32,9 @@ export interface RootStoreType {
     isLoadedGlobalVars: boolean
   }
   globalVars: {
-    idProfileHost: string
-    idUserHost: string
-    idProfileActive: string /** @description idUser that on the Main column are treated as active */
+    idProfileHost: IdUserType
+    idUserHost: IdUserType
+    idProfileActive: IdUserType /** @description idUser that on the Main column are treated as active */
     theme: string
     language: string
     isShowApp: boolean
