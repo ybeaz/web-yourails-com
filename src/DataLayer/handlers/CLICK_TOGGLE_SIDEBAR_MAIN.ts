@@ -50,11 +50,12 @@ export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
-  dispatch(
-    actionSync.SET_ID_PROFILE_ACTIVE({
-      idProfileActive: undefined,
-    })
-  )
+  if (!isShow)
+    dispatch(
+      actionSync.SET_ID_PROFILE_ACTIVE({
+        idProfileActive: undefined,
+      })
+    )
 
   const [urlParam0, urlParam1, urlParam2, urlParam3] =
     window.location.pathname.split('/')
