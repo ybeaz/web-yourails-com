@@ -14,6 +14,14 @@ import {
   getFilteredObjsArrayBy,
   OperatorType,
 } from '../../../Shared/getFilteredObjsArrayBy'
+
+import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
+import { SectionMappingType } from '../../../@types/SectionMappingType'
+import { ConversationType } from '../../../@types/ConversationType'
+import { MessageType } from '../../../@types/MessageType'
+import { ProfileType } from '../../../@types/ProfileType'
+import { ContentSectionType } from '../../../@types/ContentSectionType'
+
 import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
 import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
@@ -23,8 +31,6 @@ import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/Co
 import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
-import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
-import { SectionMappingType } from '../../../@types/SectionMappingType'
 import { styles } from './PageChatsWholeScreenStyle'
 import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
@@ -73,30 +79,36 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     s: urlParamsSearch.get('s'),
   }
 
-  const profileHost =
-    profiles && profiles.find(profile => profile.idProfile == idProfileHost)
+  const profileHost: ProfileType | undefined =
+    profiles &&
+    profiles.find(profile => profile.idProfile == (idProfileHost || '1'))
 
-  let profileActive = getProfileChat({ profiles, urlParam1, urlParam2 })
+  let profileActive: ProfileType | undefined = getProfileChat({
+    profiles,
+    urlParam1,
+    urlParam2,
+  })
   profileActive = profileActive
     ? profileActive
-    : profiles.find(profile => profile.idProfile == idProfileHost)
+    : profiles.find(profile => profile.idProfile == (idProfileHost || '1'))
   const profileNameChat = profileActive ? profileActive.profileName : undefined
 
   const sectionsMappingForProfile: SectionMappingType[] =
     getSectionsMappingForProfile(sectionsMapping, profileNameChat)
 
   // TODO: To create another profile and show the conversation. This is only the first attempt for demo purposes
-  const conversationsWithProfileActive = conversations.filter(
-    (conversation: any) => {
-      return conversation.idsProfiles.includes(idProfileActive)
+  const conversationsWithProfileActive: ConversationType[] =
+    conversations.filter((conversation: any) => {
+      return conversation.idsProfiles.includes(idProfileActive || '')
+    })
+  const messagesWithProfileActive: MessageType[] = messages.filter(
+    (message: any) => {
+      return (
+        message.idConversation ===
+        conversationsWithProfileActive[0]?.idConversation
+      )
     }
   )
-  const messagesWithProfileActive = messages.filter((message: any) => {
-    return (
-      message.idConversation ===
-      conversationsWithProfileActive[0]?.idConversation
-    )
-  })
 
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
@@ -157,6 +169,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
     mainColumnOuterAnimatedYrlProps,
   }
+
+  console.info('PageChatsWholeScreen [161]', {
+    idProfileHost,
+    idProfileActive,
+    modalFrame,
+    isLeftColumn,
+    isMainColumn,
+    isMainColumnBlank,
+    profileHost,
+    profileActive,
+    messagesWithProfileActive,
+  })
 
   const propsOut: Record<string, any> = {
     layoutScreenProps: {
@@ -264,7 +288,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       duration: 1000,
       trigger: isShowModalFrame,
       triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'leftColumnIn_animatedYrl_Inner',
+      testID: 'PageChatsWholeScreen_leftColumnIn_animatedYrl_Inner',
     },
     topBarChatCards: { profileHost, idProfileActive },
     chatCardsProps: {
@@ -359,28 +383,32 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const ChatSpaceElement = () => (
     <>
-      <ScrollView
-        style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
-        contentContainerStyle={{}}
-        ref={scrollViewRef}
-        nestedScrollEnabled={true}
-        onContentSizeChange={(contentWidth, contentHeight) => {
-          if (isShowModalFrame) {
-            scrollViewRef.current?.scrollTo({
-              y: 0,
-              animated: true,
-            })
-            return
-          }
-          scrollViewRef.current?.scrollTo({
-            y: contentHeight,
-            animated: true,
-          })
-        }}
-        testID='mainColumnChatSpace'
-      >
-        <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
-      </ScrollView>
+      {messagesWithProfileActive.length ? (
+        <>
+          <ScrollView
+            style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
+            contentContainerStyle={{}}
+            ref={scrollViewRef}
+            nestedScrollEnabled={true}
+            onContentSizeChange={(contentWidth, contentHeight) => {
+              if (isShowModalFrame) {
+                scrollViewRef.current?.scrollTo({
+                  y: 0,
+                  animated: true,
+                })
+                return
+              }
+              scrollViewRef.current?.scrollTo({
+                y: contentHeight,
+                animated: true,
+              })
+            }}
+            testID='mainColumnChatSpace'
+          >
+            <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
+          </ScrollView>
+        </>
+      ) : null}
     </>
   )
 

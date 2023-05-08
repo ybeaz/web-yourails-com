@@ -162,14 +162,14 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     },
     modalFrameYrlAnimatedYrlProps: {
       styleProps: { AnimatedYrl: {} },
-      isActive: true,
+      isActive: false,
       valueInit: isShowModalFrame ? 0 : 1,
       valueTarget: isShowModalFrame ? 1 : 0,
       nameHtmlCssAttribute: 'opacity',
       duration: 1000,
       trigger: isShowModalFrame,
       triggerShouldEqual: isShowModalFrame ? true : false,
-      testID: 'leftColumnIn_animatedYrl_Inner',
+      testID: 'ChatSpace_leftColumnIn_animatedYrl_Inner',
     },
   }
 

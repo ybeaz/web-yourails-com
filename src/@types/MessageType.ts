@@ -9,6 +9,6 @@ export type MessageType = {
   idProfile: IdUserType
   createdAt: number
   text: string
-  position: string
-  isTail: boolean
+  position?: string
+  isTail?: boolean
 }
