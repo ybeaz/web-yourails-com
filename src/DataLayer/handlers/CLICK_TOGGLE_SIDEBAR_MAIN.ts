@@ -2,6 +2,8 @@ import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { DeviceType } from '../../YrlNativeViewLibrary'
+import { getPathNameForReplace } from '../../Shared/getPathNameForReplace'
+import { getRedirected } from '../../Shared/getRedirected'
 
 const { dispatch, getState } = store
 
@@ -48,4 +50,24 @@ export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
+  dispatch(
+    actionSync.SET_ID_PROFILE_ACTIVE({
+      idProfileActive: undefined,
+    })
+  )
+
+  const [urlParam0, urlParam1, urlParam2, urlParam3] =
+    window.location.pathname.split('/')
+  const search = window.location.search
+
+  const getPathNameForReplaceProps = {
+    urlParam1,
+    urlParam2,
+    urlParam3,
+    search,
+    tabName: '',
+  }
+  const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
+
+  getRedirected(pathnameNext, { replace: true })
 }

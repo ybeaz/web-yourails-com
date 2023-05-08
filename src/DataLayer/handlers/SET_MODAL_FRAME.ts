@@ -1,8 +1,8 @@
-import { getRedirected } from '../../Shared/getRedirected'
 import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync } from '../../DataLayer/index.action'
 import { getPathNameForReplace } from '../../Shared/getPathNameForReplace'
+import { getRedirected } from '../../Shared/getRedirected'
 
 const { dispatch } = store
 

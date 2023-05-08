@@ -25,7 +25,6 @@ import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMapping
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
-import { styleGlobal } from '../../Styles/styleGlobal'
 import { styles } from './PageChatsWholeScreenStyle'
 import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
@@ -190,7 +189,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         mainColumn: {
           borderStyle: 'solid',
           // borderTopWidth: 1,
-          borderRightWidth: 1,
+          borderRightWidth: isMainColumnBlank ? 0 : 1,
           // borderBottomWidth: 1,
           // borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
@@ -215,7 +214,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           borderStyle: 'solid',
           borderTopWidth:
             !isMainColumnBlank && sectionsMappingForProfile.length ? 1 : 0,
-          borderRightWidth: 1,
+          borderRightWidth: isMainColumnBlank ? 0 : 1,
           // borderBottomWidth: 1,
           borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
