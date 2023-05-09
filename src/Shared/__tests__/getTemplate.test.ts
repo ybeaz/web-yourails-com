@@ -8,18 +8,19 @@ describe('Test function getTemplate', () => {
     const tests = [
       {
         isActive: true,
+        input: {},
+        expected: {},
       },
     ]
 
     tests.forEach((test: any) => {
-      const { isActive } = test
+      const { isActive, input, expected } = test
       if (isActive) {
         const outputed = getTemplate()
 
-        console.info('getTemplat []', { outputed })
-        const outputed2 = true
-        const expected2 = true
-        expect(outputed2).toEqual(expected2)
+        console.info('getTemplat [21]', { outputed })
+
+        // expect(outputed).toEqual(expected)
       }
     })
   })

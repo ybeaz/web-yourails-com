@@ -1,4 +1,4 @@
-import { ConversationType } from '../@types/ConversationType'
+import { ConversationType } from '../../@types/ConversationType'
 
 export const conversations: ConversationType[] = [
   {

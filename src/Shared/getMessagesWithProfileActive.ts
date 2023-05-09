@@ -13,9 +13,12 @@ interface GetMessagesWithProfileActiveType {
   (props: GetMessagesWithProfileActivePropsType): MessageType[]
 }
 
+const getSortedStringifyArray = (arr: any[]): string =>
+  JSON.stringify(arr.sort((a, b) => a.localeCompare(b)))
+
 /**
  * @description Function to
- * @import import { getMessagesWithProfileActive } from '../../../Shared/getMessagesWithProfileActive'
+ * @import import { getMessagesWithProfileActive, GetMessagesWithProfileActivePropsType } from '../../../Shared/getMessagesWithProfileActive'
  */
 
 export const getMessagesWithProfileActive: GetMessagesWithProfileActiveType = ({
@@ -24,5 +27,30 @@ export const getMessagesWithProfileActive: GetMessagesWithProfileActiveType = ({
   idProfileHost,
   idProfileActive,
 }) => {
-  return messages
+  if (!idProfileHost || !idProfileActive) return []
+
+  const conversationsWithProfileActive: ConversationType[] =
+    conversations.filter((conversation: ConversationType) => {
+      const idsProfilesConversationSortedString = getSortedStringifyArray(
+        conversation.idsProfiles
+      )
+      const idsProfilesInputSortedString = getSortedStringifyArray([
+        idProfileHost,
+        idProfileActive,
+      ])
+
+      return (
+        idsProfilesConversationSortedString === idsProfilesInputSortedString
+      )
+    })
+
+  const messagesWithProfileActive: MessageType[] = messages.filter(
+    (message: any) => {
+      return (
+        message.idConversation ===
+        conversationsWithProfileActive[0]?.idConversation
+      )
+    }
+  )
+  return messagesWithProfileActive
 }

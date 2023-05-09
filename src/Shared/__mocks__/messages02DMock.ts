@@ -1,11 +1,11 @@
-import { MessageType } from '../@types/MessageType'
+import { MessageType } from '../../@types/MessageType'
 
 export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
   {
     createdAt: 1673904347000,
     idMessage: '0',
     idConversation: '2',
-    idProfile: '1',
+    idProfile: '3',
     text: 'Hi! Need an electrician for some lighting fixtures.',
   },
   {
@@ -19,7 +19,7 @@ export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
     createdAt: 1673905580000,
     idMessage: '3',
     idConversation: '2',
-    idProfile: '1',
+    idProfile: '3',
     text: 'Recessed lights in living & kitchen, new chandelier in dining. Got any recommendations?',
   },
   {
@@ -33,7 +33,7 @@ export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
     createdAt: 1673906807000,
     idMessage: '5',
     idConversation: '2',
-    idProfile: '1',
+    idProfile: '3',
     text: 'Around $1500, including everything.',
   },
   {
@@ -47,7 +47,7 @@ export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
     createdAt: 1673908047000,
     idMessage: '7',
     idConversation: '2',
-    idProfile: '1',
+    idProfile: '3',
     text: 'How is about this Saturday around the noon?',
   },
   {

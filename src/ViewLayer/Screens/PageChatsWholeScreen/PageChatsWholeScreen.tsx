@@ -23,6 +23,10 @@ import { MessageType } from '../../../@types/MessageType'
 import { ProfileType } from '../../../@types/ProfileType'
 import { ContentSectionType } from '../../../@types/ContentSectionType'
 
+import {
+  getMessagesWithProfileActive,
+  GetMessagesWithProfileActivePropsType,
+} from '../../../Shared/getMessagesWithProfileActive'
 import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
 import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
@@ -97,24 +101,26 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const sectionsMappingForProfile: SectionMappingType[] =
     getSectionsMappingForProfile(sectionsMapping, profileNameChat)
 
-  // TODO: To create another profile and show the conversation. This is only the first attempt for demo purposes
-  const conversationsWithProfileActive: ConversationType[] =
-    conversations.filter((conversation: any) => {
-      return conversation.idsProfiles.includes(idProfileActive)
-    })
-  const messagesWithProfileActive: MessageType[] = messages.filter(
-    (message: any) => {
-      return (
-        message.idConversation ===
-        conversationsWithProfileActive[0]?.idConversation
-      )
+  // // TODO: To create another profile and show the conversation. This is only the first attempt for demo purposes
+  // const conversationsWithProfileActive: ConversationType[] =
+  //   conversations.filter((conversation: any) => {
+  //     return conversation.idsProfiles.includes(idProfileActive)
+  //   })
+
+  const getMessagesWithProfileActiveProps: GetMessagesWithProfileActivePropsType =
+    {
+      conversations,
+      messages,
+      idProfileHost,
+      idProfileActive,
     }
+  const messagesWithProfileActive: MessageType[] = getMessagesWithProfileActive(
+    getMessagesWithProfileActiveProps
   )
 
   console.info('PageChatsWholeScreen [113]', {
     idProfileHost,
     idProfileActive,
-    conversationsWithProfileActive,
     messagesWithProfileActive,
   })
 
