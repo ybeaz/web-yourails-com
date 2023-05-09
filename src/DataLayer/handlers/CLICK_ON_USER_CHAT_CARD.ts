@@ -15,6 +15,8 @@ export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
     })
   )
 
+  console.info('CLICK_ON_USER_CHAT_CARD [18]', { idProfile })
+
   const getPathNameForReplaceProps = {
     urlParam1,
     urlParam2,

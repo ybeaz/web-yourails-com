@@ -17,6 +17,7 @@ import {
 
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
+import { IdUserType } from '../../../@types/UserType'
 import { ConversationType } from '../../../@types/ConversationType'
 import { MessageType } from '../../../@types/MessageType'
 import { ProfileType } from '../../../@types/ProfileType'
@@ -99,7 +100,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   // TODO: To create another profile and show the conversation. This is only the first attempt for demo purposes
   const conversationsWithProfileActive: ConversationType[] =
     conversations.filter((conversation: any) => {
-      return conversation.idsProfiles.includes(idProfileActive || '')
+      return conversation.idsProfiles.includes(idProfileActive)
     })
   const messagesWithProfileActive: MessageType[] = messages.filter(
     (message: any) => {
@@ -109,6 +110,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       )
     }
   )
+
+  console.info('PageChatsWholeScreen [113]', {
+    idProfileHost,
+    idProfileActive,
+    conversationsWithProfileActive,
+    messagesWithProfileActive,
+  })
 
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
