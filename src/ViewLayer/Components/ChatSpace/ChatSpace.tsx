@@ -1,11 +1,8 @@
 import React, { ReactElement } from 'react'
 import { View } from 'react-native'
-import dayjs from 'dayjs'
-import localizedFormat from 'dayjs/plugin/localizedFormat'
-dayjs.extend(localizedFormat)
 
+import { getDateLocale } from '../../../Shared/getDateLocale'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
-import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import {
@@ -13,7 +10,6 @@ import {
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
-import { LOCALE, DATE_FORMAT } from '../../../Constants/locale.const'
 import { ChatSpaceType } from './ChatSpaceType'
 import { styles } from './ChatSpaceStyle'
 import { Message } from '../../Components/Message/Message'
@@ -173,8 +169,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     },
   }
 
-  const createdAt = messages[0].createdAt
-  const dateString = dayjs(createdAt).locale(LOCALE).format(DATE_FORMAT)
+  let dateString = getDateLocale(messages)
 
   const getMessagesJsx = (messagesIn: MessageType[]): ReactElement[] => {
     return messagesIn.map((message: MessageType, index: number) => {
@@ -209,7 +204,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   return (
     <View style={[style.ChatSpace, styleProps.ChatSpace]} testID='ChatSpace'>
-      {!isShowModalFrame ? (
+      {messages.length && !isShowModalFrame ? (
         <AnimatedYrl {...propsOut.chatSpaceJsxAnimatedYrlProps}>
           <ChatSpaceJsx />
         </AnimatedYrl>

@@ -101,12 +101,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const sectionsMappingForProfile: SectionMappingType[] =
     getSectionsMappingForProfile(sectionsMapping, profileNameChat)
 
-  // // TODO: To create another profile and show the conversation. This is only the first attempt for demo purposes
-  // const conversationsWithProfileActive: ConversationType[] =
-  //   conversations.filter((conversation: any) => {
-  //     return conversation.idsProfiles.includes(idProfileActive)
-  //   })
-
   const getMessagesWithProfileActiveProps: GetMessagesWithProfileActivePropsType =
     {
       conversations,
@@ -117,12 +111,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const messagesWithProfileActive: MessageType[] = getMessagesWithProfileActive(
     getMessagesWithProfileActiveProps
   )
-
-  console.info('PageChatsWholeScreen [113]', {
-    idProfileHost,
-    idProfileActive,
-    messagesWithProfileActive,
-  })
 
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
@@ -364,32 +352,28 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const ChatSpaceElement = () => (
     <>
-      {messagesWithProfileActive.length ? (
-        <>
-          <ScrollView
-            style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
-            contentContainerStyle={{}}
-            ref={scrollViewRef}
-            nestedScrollEnabled={true}
-            onContentSizeChange={(contentWidth, contentHeight) => {
-              if (isShowModalFrame) {
-                scrollViewRef.current?.scrollTo({
-                  y: 0,
-                  animated: true,
-                })
-                return
-              }
-              scrollViewRef.current?.scrollTo({
-                y: contentHeight,
-                animated: true,
-              })
-            }}
-            testID='mainColumnChatSpace'
-          >
-            <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
-          </ScrollView>
-        </>
-      ) : null}
+      <ScrollView
+        style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
+        contentContainerStyle={{}}
+        ref={scrollViewRef}
+        nestedScrollEnabled={true}
+        onContentSizeChange={(contentWidth, contentHeight) => {
+          if (isShowModalFrame) {
+            scrollViewRef.current?.scrollTo({
+              y: 0,
+              animated: true,
+            })
+            return
+          }
+          scrollViewRef.current?.scrollTo({
+            y: contentHeight,
+            animated: true,
+          })
+        }}
+        testID='mainColumnChatSpace'
+      >
+        <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
+      </ScrollView>
     </>
   )
 
