@@ -17,7 +17,7 @@ export const stylesDefault = StyleSheet.create({
     // borderLeftWidth: 1,
   },
   leftColumnTopBars: {
-    paddingTop: '0.35rem',
+    paddingTop: '0.75rem',
   },
   leftColumnChatCardSpace: {
     flexDirection: 'column',
