@@ -11,8 +11,7 @@ interface GetSortedHashedStringifyArrayType {
 
 /**
  * @description Function to return sorted and optionally hashed array
- * @link https://stackoverflow.com/a/43232849/4791116
- * @link https://nodejs.org/api/crypto.html
+ * @link https://www.npmjs.com/package/crypto-js
  * @import import { getSortedHashedStringifyArray, HashFunctionType } from '../../../Shared/getSortedHashedStringifyArray'
  */
 
