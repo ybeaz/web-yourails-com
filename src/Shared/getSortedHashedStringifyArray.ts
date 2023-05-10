@@ -1,8 +1,8 @@
-import crypto from 'crypto'
+import cryptoJS from 'crypto-js'
 
 export enum HashFunctionType {
-  'sha1' = 'sha1',
-  'sha256' = 'sha256',
+  'SHA1' = 'SHA1',
+  'SHA256' = 'SHA256',
 }
 
 interface GetSortedHashedStringifyArrayType {
@@ -21,11 +21,7 @@ export const getSortedHashedStringifyArray: GetSortedHashedStringifyArrayType =
     const { hashFunction } = options
     let output = JSON.stringify(arr.sort((a, b) => a.localeCompare(b)))
 
-    if (hashFunction)
-      output = crypto
-        .createHash(hashFunction)
-        .update(output, 'utf8')
-        .digest('hex')
+    if (hashFunction) output = cryptoJS[hashFunction](output).toString()
 
     return output
   }

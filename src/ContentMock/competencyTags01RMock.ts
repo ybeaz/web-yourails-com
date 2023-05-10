@@ -1662,29 +1662,66 @@ SSO services use protocols:\n\
     iconLibrary: 'Ionicons',
     iconName: '',
     tooltips:
-      '\
-  Basic Types\n\
-  Variable Declarations\n\
-  Interfaces\n\
-  Classes\n\
-  Functions\n\
-  Generics\n\
-  Enums\n\
-  Type Inference\n\
-  Type Compatibility\n\
-  Advanced Types\n\
-  Symbols\n\
-  Iterators and Generators\n\
-  Modules\n\
-  Namespaces\n\
-  Namespaces and Modules\n\
-  Module Resolution\n\
-  Declaration Merging\n\
-  JSX\n\
-  Decorators\n\
-  Mixins\n\
-  Triple-Slash Directives\n\
-  Type Checking JavaScript Files',
+      "\
+★ Basic Types\n\
+  Boolean: Represents a boolean value (true or false).\n\
+  Number: Represents a numeric value.\n\
+  String: Represents a sequence of characters.\n\
+  Array: Represents an ordered collection of values of the same type.\n\
+  Tuple: Represents an array-like structure with a fixed number of elements of different types.\n\
+  Enum: Represents a set of named constant values.\n\
+  Any: Represents a value of any type, disabling type checking.\n\
+  Void: Represents the absence of any type, often used as the return type of functions that don't return a value.\n\
+  Null and Undefined: Represents the absence of a value.\n\
+  Object: Represents a non-primitive type.\n\
+  Union: Represents a value that can be one of several types.\n\
+  Intersection: Represents a type that has properties and methods from multiple other types.\n\
+★ Optional Chaining - feature that allows you to safely access properties or call methods on an object even if some intermediate properties are null or undefined.\n\
+★ Mapped Types - feature that provide a way to iterate over the properties of an object type and define new types based on the properties' characteristics\n\
+★ Utility types facilitate common type transformations\n\
+  Awaited<Type>\n\
+  Partial<Type>\n\
+  Required<Type>\n\
+  Readonly<Type>\n\
+  Record<Keys, Type>\n\
+  Pick<Type, Keys>\n\
+  Omit<Type, Keys>\n\
+  Exclude<UnionType, ExcludedMembers>\n\
+  Extract<Type, Union>\n\
+  NonNullable<Type>\n\
+  Parameters<Type>\n\
+  ConstructorParameters<Type>\n\
+  ReturnType<Type>\n\
+  InstanceType<Type>\n\
+  ThisParameterType<Type>\n\
+  OmitThisParameter<Type>\n\
+  ThisType<Type>\n\
+  Intrinsic String Manipulation Types\n\
+  Uppercase<StringType>\n\
+  Lowercase<StringType>\n\
+  Capitalize<StringType>\n\
+  Uncapitalize<StringType>\n\
+Variable Declarations\n\
+Interfaces\n\
+Classes\n\
+Functions\n\
+Generics\n\
+Enums\n\
+Type Inference\n\
+Type Compatibility\n\
+Advanced Types\n\
+Symbols\n\
+Iterators and Generators\n\
+Modules\n\
+Namespaces\n\
+Namespaces and Modules\n\
+Module Resolution\n\
+Declaration Merging\n\
+JSX\n\
+Decorators\n\
+Mixins\n\
+Triple-Slash Directives\n\
+Type Checking JavaScript Files",
   },
 
   {
