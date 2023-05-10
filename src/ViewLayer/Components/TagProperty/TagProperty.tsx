@@ -2,6 +2,7 @@ import React, { useCallback } from 'react'
 import { ScrollView, View, Modal } from 'react-native'
 // import Modal from 'modal-react-native-web';
 
+import Draggable from 'react-native-draggable'
 import { Text as TextRrneui } from '@rneui/themed'
 import { Text } from '../Text/Text'
 import { IconYrl } from '../../../YrlNativeViewLibrary/'
@@ -67,30 +68,32 @@ const TagPropertyComponent: TagPropertyType = props => {
     },
   }
 
+  const Popover = () => (
+    <View
+      style={[style.tooltip_containerView]}
+      testID={'tooltip_containerView'}
+    >
+      <ScrollView
+        style={[style.tooltip_scrollView]}
+        testID={'tooltip_scrollView'}
+      >
+        <ButtonYrl {...propsOut.tooltip_buttonYrlLinking} />
+        <TextRrneui
+          style={[style.tooltip_textRrneui]}
+          testID={'tooltip_textRrneui'}
+        >
+          {tooltips}
+        </TextRrneui>
+      </ScrollView>
+    </View>
+  )
+
   return (
     <View style={[style.TagProperty, styleProps.TagProperty]} testID={testID}>
       <ControlledTooltip
         ModalComponent={Modal}
         backgroundColor={themes['themeA'].colors09.backgroundColor}
-        popover={
-          <View
-            style={[style.tooltip_containerView]}
-            testID={'tooltip_containerView'}
-          >
-            <ScrollView
-              style={[style.tooltip_scrollView]}
-              testID={'tooltip_scrollView'}
-            >
-              <ButtonYrl {...propsOut.tooltip_buttonYrlLinking} />
-              <TextRrneui
-                style={[style.tooltip_textRrneui]}
-                testID={'tooltip_textRrneui'}
-              >
-                {tooltips}
-              </TextRrneui>
-            </ScrollView>
-          </View>
-        }
+        popover={<Popover />}
         containerStyle={[style.tooltip_container]}
         withOverlay={true}
         withPointer={true}

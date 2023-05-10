@@ -59,7 +59,7 @@ export const projects01R: ProjectType[] = [
     customer: 'Not limited',
     builtwith: 'React-native, React, ES7, Typescript, Expo/Webpack, Jest',
     imgSrc: 'https://r1.userto.com/img/yrl-23-demo-sep-project.jpg',
-    linkHref: 'https://web1.yourails.com/k#@smid',
+    linkHref: 'https://web1.yourails.com/k/@smid',
   },
 
   {

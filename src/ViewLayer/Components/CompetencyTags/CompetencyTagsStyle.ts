@@ -7,6 +7,7 @@ export const style = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     padding: '3rem',
+    paddingBottom: '15rem',
   },
   headerView: {},
   headerText: {
