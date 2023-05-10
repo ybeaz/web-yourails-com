@@ -58,6 +58,7 @@
     "bfj": "^7.0.2",
     "camelcase": "^6.1.0",
     "classnames": "^2.3.2",
+    "crypto": "^1.0.1",
     "dateformat": "^4.0.0",
     "dayjs": "^1.11.7",
     "dotenv": "8.2.0",
