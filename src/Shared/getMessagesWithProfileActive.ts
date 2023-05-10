@@ -2,6 +2,11 @@ import { IdUserType } from '../@types/UserType'
 import { ConversationType } from '../@types/ConversationType'
 import { MessageType } from '../@types/MessageType'
 
+import {
+  getSortedHashedStringifyArray,
+  HashFunctionType,
+} from './getSortedHashedStringifyArray'
+
 export type GetMessagesWithProfileActivePropsType = {
   conversations: ConversationType[]
   messages: MessageType[]
@@ -12,9 +17,6 @@ export type GetMessagesWithProfileActivePropsType = {
 interface GetMessagesWithProfileActiveType {
   (props: GetMessagesWithProfileActivePropsType): MessageType[]
 }
-
-const getSortedStringifyArray = (arr: any[]): string =>
-  JSON.stringify(arr.sort((a, b) => a.localeCompare(b)))
 
 /**
  * @description Function to
@@ -31,10 +33,10 @@ export const getMessagesWithProfileActive: GetMessagesWithProfileActiveType = ({
 
   const conversationsWithProfileActive: ConversationType[] =
     conversations.filter((conversation: ConversationType) => {
-      const idsProfilesConversationSortedString = getSortedStringifyArray(
+      const idsProfilesConversationSortedString = getSortedHashedStringifyArray(
         conversation.idsProfiles
       )
-      const idsProfilesInputSortedString = getSortedStringifyArray([
+      const idsProfilesInputSortedString = getSortedHashedStringifyArray([
         idProfileHost,
         idProfileActive,
       ])

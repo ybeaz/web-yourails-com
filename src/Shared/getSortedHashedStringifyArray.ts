@@ -6,7 +6,7 @@ export enum HashFunctionType {
 }
 
 interface GetSortedHashedStringifyArrayType {
-  (arr: any[], options: { hashFunction?: HashFunctionType }): string
+  (arr: any[], options?: { hashFunction?: HashFunctionType }): string
 }
 
 /**
