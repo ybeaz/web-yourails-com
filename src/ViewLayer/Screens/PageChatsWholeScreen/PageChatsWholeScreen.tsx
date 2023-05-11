@@ -70,7 +70,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
     globalVars: { language, idProfileHost, idProfileActive, isShowApp },
     componentsState,
-    forms: { inputChat },
+    forms: { inputChat, inputSearch },
   } = store
 
   const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
@@ -262,7 +262,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         },
       },
     },
-    topBarChatCards: { profileHost, idProfileActive },
+    topBarChatCards: {
+      profileHost,
+      idProfileActive,
+      inputSearch,
+    },
     chatCardsProps: {
       profiles: profilesChatCards,
       idProfileActive,

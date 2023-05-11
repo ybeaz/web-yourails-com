@@ -31,6 +31,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     mediaParams: { deviceType } = mediaParamsDefault,
     urlParams: { urlParam1, urlParam2 } = urlParamsDefault,
     urlParamsSearch: query,
+    inputSearch,
   } = props
 
   const propsOut: TopBarChatCardsPropsOutType = {
@@ -86,7 +87,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
           borderRadius: '5rem',
         },
         inputText: {
-          cursor: 'not-allowed',
+          // cursor: 'not-allowed',
           border: 0,
           outline: 0,
           paddingLeft: '1rem',
@@ -94,11 +95,12 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       },
       multiline: false,
       numberOfLines: 1,
-      onChangeText: () => {},
+      onChangeText: (text: string) =>
+        handleEvents.ON_CHANGE_INPUT_SEARCH({}, { text }),
       placeholder: 'Search',
       placeholderTextColor: themes['themeA'].colors01.borderColor,
       testID: 'TopBarChatCards_InputTextYrl',
-      value: '',
+      value: inputSearch,
     },
     searchIconYrlProps: {
       library: 'Ionicons',

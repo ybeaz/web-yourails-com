@@ -9,10 +9,6 @@ import { themes } from '../../Styles/themes'
 
 const ChatInputComponent: ChatInputType = props => {
   const { onChangeInput, idProfileActive, inputChat } = props
-  console.info('ChatInput [12]', {
-    inputChat,
-    value: inputChat[idProfileActive],
-  })
 
   const propsOut: Record<string, any> = {
     inputTextYrlProps: {

@@ -18,6 +18,7 @@ export interface TopBarChatCardsPropsType {
   mediaParams?: MediaParamsDefaultType
   urlParams: UrlParamsDefaultType
   urlParamsSearch: any
+  inputSearch: string
 }
 
 export type TopBarChatCardsPropsOutType = {

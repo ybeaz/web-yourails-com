@@ -1,13 +1,8 @@
 import { ReducerType } from '../../@types/ReducerType'
 
 export const SET_INPUT_SEARCH: ReducerType = (store, data) => {
-  const { idProfileActive, text } = data
-
+  const { text } = data
   const { forms } = store
-  const { inputChat } = forms
-
-  const inputChatNext = { ...inputChat, [idProfileActive]: text }
-  const formsNext = { ...forms, inputChat: inputChatNext }
-
+  const formsNext = { ...forms, inputSearch: text }
   return { ...store, forms: formsNext }
 }
