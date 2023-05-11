@@ -1,9 +1,8 @@
 import React, { useRef, useEffect } from 'react'
-import { SafeAreaView, ScrollView, View } from 'react-native'
+import { useSelector } from 'react-redux'
+import { ScrollView, View } from 'react-native'
 
-import dayjs from 'dayjs'
-dayjs.extend(localizedFormat)
-
+import { RootStoreType } from '../../../@types/RootStoreType'
 import {
   mediaParamsDefault,
   urlParamsDefault,
@@ -48,8 +47,6 @@ import { profiles } from '../../../ContentMock/profilesMock'
 import { contentSections } from '../../../ContentMock/contentSectionsMock'
 import { sectionsMapping } from '../../../ContentMock/sectionsMappingMock'
 
-import localizedFormat from 'dayjs/plugin/localizedFormat'
-
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
     styleProps = { PageChatsWholeScreen: {} },
@@ -57,12 +54,14 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     urlParams = urlParamsDefault,
     urlParamsSearch,
     handleEvents,
-    store,
+    // store,
   } = props
   const { deviceType } = mediaParams
   const { urlParam1, urlParam2, urlParam3 } = urlParams
 
   const style = styles[deviceType]
+
+  const store = useSelector((store: RootStoreType) => store)
 
   const renderCounter = useRef(0)
   renderCounter.current = renderCounter.current + 1
@@ -117,7 +116,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles })
-  }, [])
+    console.info('PageChatsWholeScreen [120]')
+  }, [profiles])
 
   const urlParamsMediaIdentifier = JSON.stringify({
     urlParam1,
@@ -138,6 +138,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         sectionsMappingForProfile,
       }
     )
+    console.info('PageChatsWholeScreen [142]')
   }, [urlParamsMediaIdentifier])
 
   const profilesChatCards = getFilteredObjsArrayBy(
