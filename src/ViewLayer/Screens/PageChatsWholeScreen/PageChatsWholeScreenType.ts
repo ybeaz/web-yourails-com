@@ -12,12 +12,6 @@ export interface PageChatsWholeScreenPropsType {
   urlParams?: UrlParamsDefaultType
   urlParamsSearch: any
   routeProps?: any
-  // {
-  //   location: {
-  //     pathname: string
-  //     hash: string
-  //   }
-  // }
   themeDafault?: string
   handleEvents: HandleEventsType
   store: RootStoreType

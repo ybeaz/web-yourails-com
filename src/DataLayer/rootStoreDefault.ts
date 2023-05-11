@@ -67,7 +67,7 @@ export const componentsStateDefault: ComponentsStateType = {
 
 export const formsDefault: FormsType = {
   inputChat: {},
-  inputSearch: {},
+  inputSearch: '',
 }
 
 export const rootStoreDefault: RootStoreType = {

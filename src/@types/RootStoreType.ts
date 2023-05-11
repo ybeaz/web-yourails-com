@@ -18,7 +18,10 @@ export interface ComponentsStateType {
   modalFrame: ModalFrameType
 }
 
-export interface FormsType {}
+export interface FormsType {
+  inputChat: Record<string, string>
+  inputSearch: string
+}
 
 /**
  * @import import { RootStoreType, ComponentsStateType, FormsType, ModalFrameType } from '../@types/RootStoreType'

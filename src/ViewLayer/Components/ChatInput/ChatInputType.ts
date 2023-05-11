@@ -4,6 +4,7 @@ export interface ChatInputPropsType {
     data: { idProfileActive: string; text: string }
   ) => void
   idProfileActive: string
+  inputChat: Record<string, string>
 }
 
 /**

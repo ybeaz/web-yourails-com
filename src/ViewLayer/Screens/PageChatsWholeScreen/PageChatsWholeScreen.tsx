@@ -70,6 +70,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
     globalVars: { language, idProfileHost, idProfileActive, isShowApp },
     componentsState,
+    forms: { inputChat },
   } = store
 
   const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
@@ -305,7 +306,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
     chatInput: {
       idProfileActive,
-      onChangeInput: handleEvents.ON_CHANGE_INPUT,
+      onChangeInput: handleEvents.ON_CHANGE_INPUT_CHAT,
+      inputChat,
     },
   }
 
@@ -395,6 +397,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       )}
     </>
   )
+
+  console.info('PageChatsWholeScreen [399]', { store })
 
   return (
     <LayoutScreen {...propsOut.layoutScreenProps}>

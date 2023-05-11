@@ -8,7 +8,11 @@ import { style } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
 
 const ChatInputComponent: ChatInputType = props => {
-  const { onChangeInput, idProfileActive } = props
+  const { onChangeInput, idProfileActive, inputChat } = props
+  console.info('ChatInput [12]', {
+    inputChat,
+    value: inputChat[idProfileActive],
+  })
 
   const propsOut: Record<string, any> = {
     inputTextYrlProps: {
@@ -28,6 +32,7 @@ const ChatInputComponent: ChatInputType = props => {
       numberOfLines: 4,
       placeholder: 'Message',
       placeholderTextColor: '#a2acb4',
+      value: inputChat[idProfileActive],
     },
     sendIconYrlProps: {
       library: 'Ionicons',

@@ -1,5 +1,5 @@
 import { TEMPLATE } from './handlers/TEMPLATE'
-import { ON_CHANGE_INPUT } from './handlers/ON_CHANGE_INPUT'
+import { ON_CHANGE_INPUT_CHAT } from './handlers/ON_CHANGE_INPUT_CHAT'
 import { SET_STORE_SCENARIO } from './handlers/SET_STORE_SCENARIO'
 import { ADD_PROFILES } from './handlers/ADD_PROFILES'
 import { CLICK_ON_USER_CHAT_CARD } from './handlers/CLICK_ON_USER_CHAT_CARD'
@@ -16,7 +16,7 @@ export type HandleEventsType = Record<string, (arg1: any, arg2: any) => any>
 
 export const handleEvents: HandleEventsType = {
   TEMPLATE,
-  ON_CHANGE_INPUT,
+  ON_CHANGE_INPUT_CHAT,
   SET_STORE_SCENARIO,
   ADD_PROFILES,
   CLICK_ON_USER_CHAT_CARD,
