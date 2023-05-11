@@ -1,8 +1,7 @@
+import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
+
 export interface ChatInputPropsType {
-  onChangeInput: (
-    event: any,
-    data: { idProfileActive: string; text: string }
-  ) => void
+  handleEvents: HandleEventsType
   idProfileActive: string
   inputChat: Record<string, string>
 }
