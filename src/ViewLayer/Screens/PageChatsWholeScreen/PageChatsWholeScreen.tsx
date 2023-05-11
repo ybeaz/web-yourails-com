@@ -311,7 +311,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
     chatInput: {
       idProfileActive,
-      onChangeInput: handleEvents.ON_CHANGE_INPUT_CHAT,
       inputChat,
     },
   }
