@@ -1,4 +1,10 @@
-export interface ChatInputPropsType {}
+export interface ChatInputPropsType {
+  onChangeInput: (
+    event: any,
+    data: { idProfileActive: string; text: string }
+  ) => void
+  idProfileActive: string
+}
 
 /**
  * @import import { ChatInputType } from './ChatInputType'

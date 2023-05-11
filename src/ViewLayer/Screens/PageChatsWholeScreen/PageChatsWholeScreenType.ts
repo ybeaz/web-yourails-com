@@ -1,4 +1,4 @@
-// import { History } from 'history'
+import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 
 import {
   UrlParamsDefaultType,
@@ -19,6 +19,7 @@ export interface PageChatsWholeScreenPropsType {
   //   }
   // }
   themeDafault?: string
+  handleEvents: HandleEventsType
   store: RootStoreType
   history?: History
 }

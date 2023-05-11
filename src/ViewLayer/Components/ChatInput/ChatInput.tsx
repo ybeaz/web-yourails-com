@@ -8,9 +8,12 @@ import { style } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
 
 const ChatInputComponent: ChatInputType = props => {
+  const { onChangeInput, idProfileActive } = props
+
   const propsOut: Record<string, any> = {
     inputTextYrlProps: {
-      onChangeText: (text: string) => {},
+      onChangeText: (text: string) =>
+        onChangeInput({}, { idProfileActive, text }),
       styleProps: {
         InputTextYrl: style.InputTextYrl,
         inputText: {

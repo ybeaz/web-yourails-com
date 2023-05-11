@@ -8,6 +8,7 @@ import {
   mediaParamsDefault,
   urlParamsDefault,
   withParamsMediaYrl,
+  withPropsYrl,
   withStoreStateYrl,
 } from '../../../YrlNativeViewLibrary'
 import {
@@ -35,7 +36,7 @@ import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
-import { handleEvents } from '../../../DataLayer/index.handleEvents'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { styles } from './PageChatsWholeScreenStyle'
 import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
@@ -55,6 +56,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     mediaParams = mediaParamsDefault,
     urlParams = urlParamsDefault,
     urlParamsSearch,
+    handleEvents,
     store,
   } = props
   const { deviceType } = mediaParams
@@ -301,6 +303,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       messages: messagesWithProfileActive,
       modalFrame: { ...modalFrame, childProps: {} },
     },
+    chatInput: {
+      idProfileActive,
+      onChangeInput: handleEvents.ON_CHANGE_INPUT,
+    },
   }
 
   const scrollViewRef = React.useRef<ScrollView>(null)
@@ -384,7 +390,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           style={[style.chatInput, themes['themeA'].colors03]}
           testID='chatInput'
         >
-          <ChatInput />
+          <ChatInput {...propsOut.chatInput} />
         </View>
       )}
     </>
@@ -412,5 +418,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 }
 
 export const PageChatsWholeScreen = React.memo(
-  withStoreStateYrl(withParamsMediaYrl(PageChatsWholeScreenComponent))
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withStoreStateYrl(withParamsMediaYrl(PageChatsWholeScreenComponent))
+  )
 )

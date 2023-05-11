@@ -65,7 +65,10 @@ export const componentsStateDefault: ComponentsStateType = {
   },
 }
 
-export const formsDefault: FormsType = {}
+export const formsDefault: FormsType = {
+  inputChat: {},
+  inputSearch: {},
+}
 
 export const rootStoreDefault: RootStoreType = {
   componentsState:
