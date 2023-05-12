@@ -13,7 +13,6 @@ const LayoutOfRowComponent: LayoutOfRowType = props => {
     styleProps = { LayoutOfRow: {}, leftColumn: {}, mainColumn: {} },
     isLeftColumn,
     isMainColumn,
-    mainColumnOuterAnimatedYrlProps,
     children,
   } = props
   return (
@@ -26,7 +25,7 @@ const LayoutOfRowComponent: LayoutOfRowType = props => {
           style={[style.leftColumn, styleProps.leftColumn]}
           testID='leftColumn'
         >
-          {children[0]}
+          {children.length === undefined ? children : children[0]}
         </View>
       ) : null}
 
