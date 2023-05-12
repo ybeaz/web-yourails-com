@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { View } from 'react-native'
+import { ScrollView, View } from 'react-native'
 
 import { getDateLocale } from '../../../Shared/getDateLocale'
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
@@ -202,22 +202,45 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     </View>
   )
 
-  return (
-    <View style={[style.ChatSpace, styleProps.ChatSpace]} testID='ChatSpace'>
-      {messages.length && !isShowModalFrame ? (
-        <AnimatedYrl {...propsOut.chatSpaceJsxAnimatedYrlProps}>
-          <ChatSpaceJsx />
-        </AnimatedYrl>
-      ) : null}
+  const scrollViewRef = React.useRef<ScrollView>(null)
 
-      {childName && (
-        <AnimatedYrl {...propsOut.modalFrameYrlAnimatedYrlProps}>
-          <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
-            <Child {...childProps} />
-          </ModalFrameYrl>
-        </AnimatedYrl>
-      )}
-    </View>
+  return (
+    <ScrollView
+      style={[themes['themeA'].colors03]}
+      contentContainerStyle={{}}
+      ref={scrollViewRef}
+      nestedScrollEnabled={true}
+      onContentSizeChange={(contentWidth, contentHeight) => {
+        if (isShowModalFrame) {
+          scrollViewRef.current?.scrollTo({
+            y: 0,
+            animated: true,
+          })
+          return
+        }
+        scrollViewRef.current?.scrollTo({
+          y: contentHeight,
+          animated: true,
+        })
+      }}
+      testID='ScrollViewChatSpace'
+    >
+      <View style={[style.ChatSpace, styleProps.ChatSpace]} testID='ChatSpace'>
+        {messages.length && !isShowModalFrame ? (
+          <AnimatedYrl {...propsOut.chatSpaceJsxAnimatedYrlProps}>
+            <ChatSpaceJsx />
+          </AnimatedYrl>
+        ) : null}
+
+        {childName && (
+          <AnimatedYrl {...propsOut.modalFrameYrlAnimatedYrlProps}>
+            <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
+              <Child {...childProps} />
+            </ModalFrameYrl>
+          </AnimatedYrl>
+        )}
+      </View>
+    </ScrollView>
   )
 }
 

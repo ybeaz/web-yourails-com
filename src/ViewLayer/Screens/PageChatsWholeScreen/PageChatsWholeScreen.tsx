@@ -339,32 +339,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </View>
   )
 
-  const ChatSpaceElement = (
-    <>
-      <ScrollView
-        style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
-        contentContainerStyle={{}}
-        ref={scrollViewRef}
-        nestedScrollEnabled={true}
-        onContentSizeChange={(contentWidth, contentHeight) => {
-          if (isShowModalFrame) {
-            scrollViewRef.current?.scrollTo({
-              y: 0,
-              animated: false,
-            })
-            return
-          }
-          scrollViewRef.current?.scrollTo({
-            y: contentHeight,
-            animated: false,
-          })
-        }}
-        testID='mainColumnChatSpace'
-      >
-        <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
-      </ScrollView>
-    </>
-  )
+  const ChatSpaceElement = <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
 
   const ChatInputElement = (
     <>
