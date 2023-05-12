@@ -2,10 +2,9 @@ import { ReactElement } from 'react'
 
 export interface LayoutOfRowPropsType {
   styleProps?: { LayoutOfRow: any; leftColumn: any; mainColumn: any }
-  isLeftColumn: boolean
-  isMainColumn: boolean
-  mainColumnOuterAnimatedYrlProps: any
-  children: ReactElement[]
+  isLeftColumn?: boolean
+  isMainColumn?: boolean
+  children?: ReactElement[]
 }
 
 export type LayoutOfRowPropsOutType = Record<string, any>

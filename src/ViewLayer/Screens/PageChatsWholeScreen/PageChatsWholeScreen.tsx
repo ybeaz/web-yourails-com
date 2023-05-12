@@ -150,27 +150,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const isImageAvatar =
     childNameModal === 'Profile' && isShowModalFrame === true ? false : true
 
-  const mainColumnOuterAnimatedYrlProps = {
-    styleProps: {
-      AnimatedYrl: { flex: 3, opacity: 1 },
-    },
-    isActive: false,
-    valueInit: isShowModalFrame ? 0 : 1,
-    valueTarget: isShowModalFrame ? 1 : 1,
-    nameHtmlCssAttribute: 'opacity',
-    duration: 1000,
-    trigger: isShowModalFrame,
-    triggerShouldEqual: isShowModalFrame ? true : false,
-    testID: 'mainColumn_Outer_AnimatedYrl',
-  }
-
   const layoutOfRowProps = {
     isLeftColumn,
     isMainColumn,
     styleProps: {
       LayoutOfRow: style.LayoutOfRow,
     },
-    mainColumnOuterAnimatedYrlProps,
   }
 
   const propsOut: Record<string, any> = {
@@ -309,13 +294,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const scrollViewRef = React.useRef<ScrollView>(null)
 
-  const TopBarChatCardsElement = () => (
+  const TopBarChatCardsElement = (
     <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
       <TopBarChatCards />
     </View>
   )
 
-  const MainColumnTopBars = () => (
+  const MainColumnTopBars = (
     <>
       <View
         style={[
@@ -345,7 +330,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </>
   )
 
-  const ChatCardsElement = () => (
+  const ChatCardsElement = (
     <View
       style={[style.leftColumnChatCardSpace]}
       testID='leftColumnChatCardSpace'
@@ -354,7 +339,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </View>
   )
 
-  const ChatSpaceElement = () => (
+  const ChatSpaceElement = (
     <>
       <ScrollView
         style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
@@ -381,7 +366,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </>
   )
 
-  const ChatInputElement = () => (
+  const ChatInputElement = (
     <>
       {isShowModalFrame === false && (
         <View
@@ -400,18 +385,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     <LayoutScreen {...propsOut.layoutScreenProps}>
       {/** @description <NavigationTop /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
-        <TopBarChatCardsElement />
-        {!isMainColumnBlank && <MainColumnTopBars />}
+        {TopBarChatCardsElement}
+        {!isMainColumnBlank && MainColumnTopBars}
       </LayoutOfRow>
       {/** @description <MainContent /> */}
       <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
-        <ChatCardsElement />
-        {!isMainColumnBlank && <ChatSpaceElement />}
+        {ChatCardsElement}
+        {!isMainColumnBlank && ChatSpaceElement}
       </LayoutOfRow>
       {/** @description <NavigationBottom /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
         {null}
-        {!isMainColumnBlank && <ChatInputElement />}
+        {!isMainColumnBlank && ChatInputElement}
       </LayoutOfRow>
     </LayoutScreen>
   )

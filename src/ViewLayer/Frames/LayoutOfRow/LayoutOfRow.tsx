@@ -11,25 +11,25 @@ import { style } from './LayoutOfRowStyles'
 const LayoutOfRowComponent: LayoutOfRowType = props => {
   const {
     styleProps = { LayoutOfRow: {}, leftColumn: {}, mainColumn: {} },
-    isLeftColumn,
-    isMainColumn,
-    children,
+    isLeftColumn = true,
+    isMainColumn = true,
+    children = null,
   } = props
   return (
     <View
       style={[style.LayoutOfRow, styleProps.LayoutOfRow]}
       testID='LayoutOfRow'
     >
-      {isLeftColumn ? (
+      {isLeftColumn && children ? (
         <View
           style={[style.leftColumn, styleProps.leftColumn]}
           testID='leftColumn'
         >
-          {children.length === undefined ? children : children[0]}
+          {children && children.length === undefined ? children : children[0]}
         </View>
       ) : null}
 
-      {isMainColumn ? (
+      {isMainColumn && children && children[1] ? (
         <View
           style={[style.mainColumn, styleProps.mainColumn]}
           testID='mainColumn'
