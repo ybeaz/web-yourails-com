@@ -373,13 +373,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           if (isShowModalFrame) {
             scrollViewRef.current?.scrollTo({
               y: 0,
-              animated: true,
+              animated: false,
             })
             return
           }
           scrollViewRef.current?.scrollTo({
             y: contentHeight,
-            animated: true,
+            animated: false,
           })
         }}
         testID='mainColumnChatSpace'

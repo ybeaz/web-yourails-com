@@ -21,25 +21,23 @@ const LayoutOfRowComponent: LayoutOfRowType = props => {
       style={[style.LayoutOfRow, styleProps.LayoutOfRow]}
       testID='LayoutOfRow'
     >
-      {isLeftColumn && (
+      {isLeftColumn ? (
         <View
           style={[style.leftColumn, styleProps.leftColumn]}
           testID='leftColumn'
         >
           {children[0]}
         </View>
-      )}
+      ) : null}
 
-      {isMainColumn && (
-        <AnimatedYrl {...mainColumnOuterAnimatedYrlProps}>
-          <View
-            style={[style.mainColumn, styleProps.mainColumn]}
-            testID='mainColumn'
-          >
-            {children[1]}
-          </View>
-        </AnimatedYrl>
-      )}
+      {isMainColumn ? (
+        <View
+          style={[style.mainColumn, styleProps.mainColumn]}
+          testID='mainColumn'
+        >
+          {children[1]}
+        </View>
+      ) : null}
     </View>
   )
 }
