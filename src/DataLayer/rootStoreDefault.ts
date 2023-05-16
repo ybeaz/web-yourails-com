@@ -77,6 +77,9 @@ export const rootStoreDefault: RootStoreType = {
       : componentsStateDefault,
   profiles: [],
   messages: [],
+  sectionsMapping: [],
+  competencyTags: [],
+  projects: [],
   forms: formsDefault,
   isLoaded: {
     isLoadedGlobalVars: false,

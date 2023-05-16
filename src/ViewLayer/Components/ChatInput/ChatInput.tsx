@@ -1,7 +1,11 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { InputTextYrl, withPropsYrl } from '../../../YrlNativeViewLibrary'
+import {
+  withStoreStateYrl,
+  InputTextYrl,
+  withPropsYrl,
+} from '../../../YrlNativeViewLibrary'
 import { IconYrl } from '../../../YrlNativeViewLibrary'
 import { ChatInputType } from './ChatInputType'
 import { style } from './ChatInputStyle'
@@ -54,5 +58,7 @@ const ChatInputComponent: ChatInputType = props => {
 }
 
 export const ChatInput = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(ChatInputComponent)
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withStoreStateYrl(ChatInputComponent)
+  )
 )

@@ -2,6 +2,7 @@ import { IdUserType } from '../../../@types/UserType'
 import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
+import { RootStoreType } from '../../../@types/RootStoreType'
 
 export interface ChatSpacePropsType {
   styleProps?: any
@@ -10,6 +11,7 @@ export interface ChatSpacePropsType {
   profileActive: ProfileType
   messages: Omit<MessageType, 'position' | 'isTail'>[]
   modalFrame: any
+  store: RootStoreType
   handleEvents: any
 }
 

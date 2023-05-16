@@ -1,12 +1,12 @@
 import { RootStoreType } from '../../../@types/RootStoreType'
-import { SectionsMappingType } from '../../../@types/SectionsMappingType'
+import { SectionMappingType } from '../../../@types/SectionMappingType'
 
 export interface ContentMenuMainColumnPropsType {
   styleProps?: {
     ContentMenuMainColumn: any
     buttonWrapper: any
   }
-  sectionsMapping: SectionsMappingType
+  sectionsMapping: SectionMappingType[]
   store: RootStoreType
   handleEvents: any
 }

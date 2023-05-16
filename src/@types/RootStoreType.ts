@@ -1,6 +1,9 @@
 import { ProfileType } from './ProfileType'
 import { MessageType } from './MessageType'
 import { IdUserType } from './UserType'
+import { SectionMappingType } from './SectionMappingType'
+import { CompetencyTagType } from './CompetencyTagType'
+import { ProjectType } from './ProjectType'
 
 export type ModalFrameType = {
   childName: string
@@ -29,6 +32,9 @@ export interface FormsType {
 export interface RootStoreType {
   componentsState: ComponentsStateType
   profiles: ProfileType[]
+  sectionsMapping: SectionMappingType[]
+  competencyTags: CompetencyTagType[]
+  projects: ProjectType[]
   messages: Omit<MessageType, 'position' | 'isTail'>[]
   forms: FormsType | any
   isLoaded: {

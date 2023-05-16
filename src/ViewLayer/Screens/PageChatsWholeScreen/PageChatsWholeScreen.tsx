@@ -19,7 +19,6 @@ import { IdUserType } from '../../../@types/UserType'
 import { ConversationType } from '../../../@types/ConversationType'
 import { MessageType } from '../../../@types/MessageType'
 import { ProfileType } from '../../../@types/ProfileType'
-import { ContentSectionType } from '../../../@types/ContentSectionType'
 
 import {
   getMessagesWithProfileActive,
@@ -42,7 +41,6 @@ import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainCo
 import { conversations } from '../../../ContentMock/conversationsMock'
 import { messages } from '../../../ContentMock/messagesMock'
 import { profiles as profilesIn } from '../../../ContentMock/profilesMock'
-import { contentSections } from '../../../ContentMock/contentSectionsMock'
 import { sectionsMapping } from '../../../ContentMock/sectionsMappingMock'
 
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
@@ -252,7 +250,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         },
       },
       sectionsMapping: sectionsMappingForProfile,
-      store,
     },
     mainColumnChatSpaceProps: {
       styleProps: {

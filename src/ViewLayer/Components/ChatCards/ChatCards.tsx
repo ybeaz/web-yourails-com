@@ -1,7 +1,10 @@
 import React, { ReactElement } from 'react'
 import { View } from 'react-native'
 
-import { mediaParamsDefault } from '../../../YrlNativeViewLibrary'
+import {
+  mediaParamsDefault,
+  withStoreStateYrl,
+} from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
 import { ChatCardsType } from './ChatCardsTypes'
 import { styles } from './ChatCardsStyles'
@@ -48,4 +51,4 @@ const ChatCardsComponent: ChatCardsType = props => {
   )
 }
 
-export const ChatCards = React.memo(ChatCardsComponent)
+export const ChatCards = React.memo(withStoreStateYrl(ChatCardsComponent))

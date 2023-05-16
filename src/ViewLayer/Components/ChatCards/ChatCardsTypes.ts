@@ -1,6 +1,7 @@
 import { IdUserType } from '../../../@types/UserType'
 import { ProfileType } from '../../../@types/ProfileType'
 import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import { RootStoreType } from '../../../@types/RootStoreType'
 
 export interface ChatCardsPropsType {
   styleProps?: any
@@ -10,6 +11,7 @@ export interface ChatCardsPropsType {
   urlParam1: string | undefined
   urlParam2: string | undefined
   query: any
+  store: RootStoreType
 }
 
 /**

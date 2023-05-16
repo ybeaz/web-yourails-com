@@ -6,6 +6,7 @@ import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
 import { MessageType } from '../../../@types/MessageType'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import {
+  withStoreStateYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
@@ -246,6 +247,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
 export const ChatSpace = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    withParamsMediaYrl(ChatSpaceComponent)
+    withStoreStateYrl(withParamsMediaYrl(ChatSpaceComponent))
   )
 )
