@@ -1,4 +1,7 @@
 import { TEMPLATE } from './handlers/TEMPLATE'
+import { ADD_PROJECTS } from './handlers/ADD_PROJECTS'
+import { ADD_COMPETENCY_TAGS } from './handlers/ADD_COMPETENCY_TAGS'
+import { ADD_SECTIONS_MAPPING } from './handlers/ADD_SECTIONS_MAPPING'
 import { ON_CHANGE_INPUT_SEARCH } from './handlers/ON_CHANGE_INPUT_SEARCH'
 import { ON_CHANGE_INPUT_CHAT } from './handlers/ON_CHANGE_INPUT_CHAT'
 import { SET_STORE_SCENARIO } from './handlers/SET_STORE_SCENARIO'
@@ -17,6 +20,9 @@ export type HandleEventsType = Record<string, (arg1: any, arg2: any) => any>
 
 export const handleEvents: HandleEventsType = {
   TEMPLATE,
+  ADD_PROJECTS,
+  ADD_COMPETENCY_TAGS,
+  ADD_SECTIONS_MAPPING,
   ON_CHANGE_INPUT_SEARCH,
   ON_CHANGE_INPUT_CHAT,
   SET_STORE_SCENARIO,

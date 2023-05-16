@@ -15,8 +15,6 @@ import {
 
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
-import { IdUserType } from '../../../@types/UserType'
-import { ConversationType } from '../../../@types/ConversationType'
 import { MessageType } from '../../../@types/MessageType'
 import { ProfileType } from '../../../@types/ProfileType'
 
@@ -41,7 +39,7 @@ import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainCo
 import { conversations } from '../../../ContentMock/conversationsMock'
 import { messages } from '../../../ContentMock/messagesMock'
 import { profiles as profilesIn } from '../../../ContentMock/profilesMock'
-import { sectionsMapping } from '../../../ContentMock/sectionsMappingMock'
+import { sectionsMapping as sectionsMappingIn } from '../../../ContentMock/sectionsMappingMock'
 
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
@@ -65,6 +63,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     componentsState,
     forms: { inputChat },
     profiles,
+    sectionsMapping,
   } = store
 
   const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
@@ -100,10 +99,19 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     getMessagesWithProfileActiveProps
   )
 
+  const initDataIdentifier = JSON.stringify({
+    profilesIn,
+    sectionsMappingIn,
+  })
+
   useEffect(() => {
     handleEvents.ADD_PROFILES({}, { profiles: profilesIn })
+    handleEvents.ADD_SECTIONS_MAPPING(
+      {},
+      { sectionsMapping: sectionsMappingIn }
+    )
     console.info('PageChatsWholeScreen [120]')
-  }, [profiles])
+  }, [initDataIdentifier])
 
   const urlParamsMediaIdentifier = JSON.stringify({
     urlParam1,

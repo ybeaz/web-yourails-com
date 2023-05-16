@@ -1,8 +1,9 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect } from 'react'
 import { View } from 'react-native'
 
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { getFilteredObjsArrayBy } from '../../../Shared/getFilteredObjsArrayBy'
-import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
+import { withPropsYrl, withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { CompetencyTagType } from '../../../@types/CompetencyTagType'
 import { getSectionsFromTagsCompetencies } from '../../../Shared/getSectionsFromTagsCompetencies'
 import { Header } from '../Header/Header'
@@ -11,18 +12,23 @@ import { TagProperty } from '../TagProperty/TagProperty'
 import { CompetencyTagsType } from './CompetencyTagsType'
 import { style } from './CompetencyTagsStyle'
 
-import { competencyTags } from '../../../ContentMock/competencyTagsMock'
+import { competencyTags as competencyTagsIn } from '../../../ContentMock/competencyTagsMock'
 
 /**
  * @import import { CompetencyTags } from '../Components/CompetencyTags/CompetencyTags'
  */
 const CompetencyTagsComponent: CompetencyTagsType = props => {
-  const { styleProps = { CompetencyTags: {} }, store } = props
+  const { styleProps = { CompetencyTags: {} }, store, handleEvents } = props
 
   // const store = useSelector((store2: RootStoreType) => store2)
   const {
     globalVars: { idProfileActive },
+    competencyTags,
   } = store
+
+  useEffect(() => {
+    handleEvents.ADD_COMPETENCY_TAGS({}, { competencyTags: competencyTagsIn })
+  }, [competencyTagsIn])
 
   const competencyTagsUserHost = getFilteredObjsArrayBy(
     competencyTags,
@@ -95,5 +101,7 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
 }
 
 export const CompetencyTags = React.memo(
-  withStoreStateYrl(CompetencyTagsComponent)
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withStoreStateYrl(CompetencyTagsComponent)
+  )
 )

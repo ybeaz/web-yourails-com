@@ -4,6 +4,9 @@ import { ActionType } from '../@types/ActionType'
 
 /** @description  Synchroneours redux actions */
 const ACTIONS_SYNC: string[] = [
+  'ADD_PROJECTS',
+  'ADD_COMPETENCY_TAGS',
+  'ADD_SECTIONS_MAPPING',
   'SET_INPUT_SEARCH',
   'SET_INPUT_CHAT',
   'SET_ID_PROFILE_ACTIVE',

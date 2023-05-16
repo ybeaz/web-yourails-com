@@ -2,6 +2,9 @@ import { RootStoreType } from '../@types/RootStoreType'
 import { ActionType } from '../@types/ActionType'
 
 import { TEMPLATE } from './reducers/TEMPLATE'
+import { ADD_PROJECTS } from './reducers/ADD_PROJECTS'
+import { ADD_COMPETENCY_TAGS } from './reducers/ADD_COMPETENCY_TAGS'
+import { ADD_SECTIONS_MAPPING } from './reducers/ADD_SECTIONS_MAPPING'
 import { SET_INPUT_SEARCH } from './reducers/SET_INPUT_SEARCH'
 import { SET_INPUT_CHAT } from './reducers/SET_INPUT_CHAT'
 import { SET_ID_PROFILE_ACTIVE } from './reducers/SET_ID_PROFILE_ACTIVE'
@@ -28,6 +31,9 @@ export const indexReducer: IndexReducerType = (
 
   const output = {
     TEMPLATE,
+    ADD_PROJECTS,
+    ADD_COMPETENCY_TAGS,
+    ADD_SECTIONS_MAPPING,
     SET_INPUT_SEARCH,
     SET_INPUT_CHAT,
     SET_ID_PROFILE_ACTIVE,

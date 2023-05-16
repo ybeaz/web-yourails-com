@@ -1,8 +1,10 @@
 import { RootStoreType } from '../../../@types/RootStoreType'
+import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 
 export interface CompetencyTagsPropsType {
   styleProps?: any
   store: RootStoreType
+  handleEvents: HandleEventsType
 }
 
 /**
