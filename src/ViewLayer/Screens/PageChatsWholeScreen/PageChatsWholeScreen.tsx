@@ -75,16 +75,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     s: urlParamsSearch.get('s'),
   }
 
-  let profileActive: ProfileType | undefined = getProfileChat({
+  const profileActive: ProfileType = getProfileChat({
     profiles,
     urlParam1,
     urlParam2,
   })
-  profileActive = profileActive
-    ? profileActive
-    : profiles.find(profile => profile.idProfile == (idProfileHost || '1'))
   const profileNameChat = profileActive ? profileActive.profileName : undefined
-
   const sectionsMappingForProfile: SectionMappingType[] =
     getSectionsMappingForProfile(sectionsMapping, profileNameChat)
 
@@ -257,7 +253,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           borderLeftColor: themes['themeA'].colors01.borderColor,
         },
       },
-      sectionsMapping: sectionsMappingForProfile,
     },
     mainColumnChatSpaceProps: {
       styleProps: {
