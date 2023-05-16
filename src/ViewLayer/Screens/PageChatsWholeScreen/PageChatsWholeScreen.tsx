@@ -257,10 +257,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       messages: messagesWithProfileActive,
       modalFrame: { ...modalFrame, childProps: {} },
     },
-    chatInput: {
-      idProfileActive,
-      inputChat,
-    },
   }
 
   const TopBarChatCardsElement = (
@@ -317,7 +313,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           style={[style.chatInput, themes['themeA'].colors03]}
           testID='chatInput'
         >
-          <ChatInput {...propsOut.chatInput} />
+          <ChatInput />
         </View>
       )}
     </>

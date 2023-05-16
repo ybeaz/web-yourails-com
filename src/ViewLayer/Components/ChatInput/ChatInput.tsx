@@ -13,7 +13,12 @@ import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 
 const ChatInputComponent: ChatInputType = props => {
-  const { handleEvents, idProfileActive, inputChat } = props
+  const { handleEvents, store } = props
+
+  const {
+    globalVars: { idProfileActive },
+    forms: { inputChat },
+  } = store
 
   const propsOut: Record<string, any> = {
     inputTextYrlProps: {
@@ -33,7 +38,7 @@ const ChatInputComponent: ChatInputType = props => {
       numberOfLines: 4,
       placeholder: 'Message',
       placeholderTextColor: '#a2acb4',
-      value: inputChat[idProfileActive],
+      value: idProfileActive ? inputChat[idProfileActive] : '',
     },
     sendIconYrlProps: {
       library: 'Ionicons',
