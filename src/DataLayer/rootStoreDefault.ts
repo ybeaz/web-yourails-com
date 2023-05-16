@@ -76,10 +76,11 @@ export const rootStoreDefault: RootStoreType = {
       ? componentsStateR1
       : componentsStateDefault,
   profiles: [],
-  messages: [],
   sectionsMapping: [],
   competencyTags: [],
   projects: [],
+  conversations: [],
+  messages: [],
   forms: formsDefault,
   isLoaded: {
     isLoadedGlobalVars: false,

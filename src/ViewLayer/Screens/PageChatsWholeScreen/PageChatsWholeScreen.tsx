@@ -8,10 +8,6 @@ import {
   withPropsYrl,
   withStoreStateYrl,
 } from '../../../YrlNativeViewLibrary'
-import {
-  getFilteredObjsArrayBy,
-  OperatorType,
-} from '../../../Shared/getFilteredObjsArrayBy'
 
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
@@ -61,7 +57,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
     globalVars: { idProfileHost, idProfileActive },
     componentsState,
-    forms: { inputChat },
     profiles,
     sectionsMapping,
   } = store
@@ -128,15 +123,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         sectionsMappingForProfile,
       }
     )
-    console.info('PageChatsWholeScreen [142]')
   }, [urlParamsMediaIdentifier])
-
-  const profilesChatCards = getFilteredObjsArrayBy(
-    profiles,
-    'idProfile',
-    idProfileHost,
-    OperatorType['!==']
-  )
 
   const layoutOfRowProps = {
     isLeftColumn,
