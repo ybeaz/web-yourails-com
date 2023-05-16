@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react'
-import { ScrollView, View } from 'react-native'
+import { View } from 'react-native'
 
 import {
   mediaParamsDefault,
@@ -63,21 +63,16 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   renderCounter.current = renderCounter.current + 1
 
   const {
-    globalVars: { language, idProfileHost, idProfileActive, isShowApp },
+    globalVars: { idProfileHost, idProfileActive },
     componentsState,
-    forms: { inputChat, inputSearch },
+    forms: { inputChat },
     profiles,
   } = store
 
   const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
     componentsState
 
-  const {
-    childName: childNameModal,
-    isShow: isShowModalFrame,
-    isButtonBack: isButtonBackModal,
-    isButtonClose: isButtonCloseModal,
-  } = modalFrame
+  const { isShow: isShowModalFrame } = modalFrame
 
   const query = {
     s: urlParamsSearch.get('s'),
@@ -140,11 +135,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     idProfileHost,
     OperatorType['!==']
   )
-
-  const isButtonBackTopBarMainColumn =
-    isButtonBackModal && isButtonCloseModal ? true : false
-  const isImageAvatar =
-    childNameModal === 'Profile' && isShowModalFrame === true ? false : true
 
   const layoutOfRowProps = {
     isLeftColumn,
