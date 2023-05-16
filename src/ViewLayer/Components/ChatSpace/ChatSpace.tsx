@@ -1,25 +1,30 @@
 import React, { ReactElement } from 'react'
 import { ScrollView, View } from 'react-native'
 
-import { getDateLocale } from '../../../Shared/getDateLocale'
-import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
-import { MessageType } from '../../../@types/MessageType'
-import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
+import { ProfileType } from '../../../@types/ProfileType'
+
 import {
+  AnimatedYrl,
+  withPropsYrl,
+  ModalFrameYrl,
+  urlParamsDefault,
   withStoreStateYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
+
+import { getProfileChat } from '../../../Shared/getProfileChat'
+import { getDateLocale } from '../../../Shared/getDateLocale'
+import { MessageType } from '../../../@types/MessageType'
+import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import { Text } from '../../Components/Text/Text'
 import { ChatSpaceType } from './ChatSpaceType'
 import { styles } from './ChatSpaceStyle'
 import { Message } from '../../Components/Message/Message'
-import { ModalFrameYrl } from '../../../YrlNativeViewLibrary'
 import { themes } from '../../Styles/themes'
 import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { withPropsYrl } from '../../../YrlNativeViewLibrary'
 
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
@@ -28,15 +33,23 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const {
     styleProps = { ChatSpace: {} },
     mediaParams = mediaParamsDefault,
-    idProfileHost,
-    profileActive,
-    messages,
-    modalFrame,
+    urlParams = urlParamsDefault,
+    store,
     handleEvents,
+    messages,
   } = props
 
   const { deviceType } = mediaParams
+  const { urlParam1, urlParam2 } = urlParams
   const style = styles[deviceType]
+
+  const {
+    globalVars: { idProfileHost },
+    componentsState,
+    profiles,
+  } = store
+
+  const { modalFrame } = componentsState
 
   const {
     childName,
@@ -45,6 +58,12 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     isButtonClose,
     childProps,
   } = modalFrame
+
+  const profileActive: ProfileType = getProfileChat({
+    profiles,
+    urlParam1,
+    urlParam2,
+  })
 
   const Child = childName ? MODAL_CONTENTS[childName] : null
 

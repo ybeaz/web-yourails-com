@@ -238,10 +238,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       styleProps: {
         ChatSpace: {},
       },
+      messages: messagesWithProfileActive,
       idProfileHost,
       idProfileActive,
       profileActive,
-      messages: messagesWithProfileActive,
       modalFrame: { ...modalFrame, childProps: {} },
     },
   }
