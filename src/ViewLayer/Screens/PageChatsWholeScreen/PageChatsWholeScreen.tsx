@@ -83,10 +83,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     s: urlParamsSearch.get('s'),
   }
 
-  const profileHost: ProfileType | undefined =
-    profiles &&
-    profiles.find(profile => profile.idProfile == (idProfileHost || '1'))
-
   let profileActive: ProfileType | undefined = getProfileChat({
     profiles,
     urlParam1,
@@ -268,14 +264,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       sectionsMapping: sectionsMappingForProfile,
       store,
     },
-    topBarMainColumnProps: {
-      styleProps: {
-        TopBarMainColumn: {},
-      },
-      profileActive,
-      isButtonBack: isButtonBackTopBarMainColumn,
-      isImageAvatar,
-    },
     mainColumnChatSpaceProps: {
       styleProps: {
         ChatSpace: {},
@@ -291,8 +279,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       inputChat,
     },
   }
-
-  const scrollViewRef = React.useRef<ScrollView>(null)
 
   const TopBarChatCardsElement = (
     <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
@@ -316,7 +302,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         ]}
         testID='mainColumnTopBar'
       >
-        <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
+        <TopBarMainColumn />
       </View>
 
       {sectionsMappingForProfile.length ? (
