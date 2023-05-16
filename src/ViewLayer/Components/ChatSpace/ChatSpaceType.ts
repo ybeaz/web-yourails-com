@@ -1,15 +1,22 @@
 import { IdUserType } from '../../../@types/UserType'
-import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
+import { RootStoreType } from '../../../@types/RootStoreType'
+
+import {
+  UrlParamsDefaultType,
+  MediaParamsDefaultType,
+} from '../../../YrlNativeViewLibrary'
 
 export interface ChatSpacePropsType {
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
+  urlParams?: UrlParamsDefaultType
   idProfileHost: IdUserType
   profileActive: ProfileType
   messages: Omit<MessageType, 'position' | 'isTail'>[]
   modalFrame: any
+  store: RootStoreType
   handleEvents: any
 }
 

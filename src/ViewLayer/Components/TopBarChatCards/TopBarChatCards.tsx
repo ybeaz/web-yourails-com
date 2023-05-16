@@ -1,20 +1,23 @@
 import React from 'react'
 import { View } from 'react-native'
 
+import { ProfileType } from '../../../@types/ProfileType'
+import {
+  TopBarChatCardsType,
+  TopBarChatCardsPropsOutType,
+} from './TopBarChatCardsType'
+
 import {
   ButtonYrl,
   ImageYrl,
   IconYrl,
   InputTextYrl,
+  withStoreStateYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
   urlParamsDefault,
   withPropsYrl,
 } from '../../../YrlNativeViewLibrary'
-import {
-  TopBarChatCardsType,
-  TopBarChatCardsPropsOutType,
-} from './TopBarChatCardsType'
 import { themes } from '../../Styles/themes'
 import { style } from './TopBarChatCardsStyle'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
@@ -25,13 +28,25 @@ import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handl
 export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
   const {
     styleProps = { TopBarChatCards: {} },
-    profileHost: { idProfile, profileName, uriAvatar },
-    idProfileActive,
     handleEvents,
     mediaParams: { deviceType } = mediaParamsDefault,
     urlParams: { urlParam1, urlParam2 } = urlParamsDefault,
     urlParamsSearch: query,
+    store,
   } = props
+
+  const {
+    globalVars: { idProfileHost, idProfileActive },
+    forms: { inputSearch },
+    profiles,
+  } = store
+
+  const profileHost: ProfileType | undefined =
+    profiles &&
+    profiles.find(profile => profile.idProfile == (idProfileHost || '1'))
+  const { idProfile, profileName, uriAvatar } = profileHost
+    ? profileHost
+    : { idProfile: '0', profileName: '@', uriAvatar: '' }
 
   const propsOut: TopBarChatCardsPropsOutType = {
     buttonProfileHostAvatarProps: {
@@ -86,7 +101,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
           borderRadius: '5rem',
         },
         inputText: {
-          cursor: 'not-allowed',
+          // cursor: 'not-allowed',
           border: 0,
           outline: 0,
           paddingLeft: '1rem',
@@ -94,11 +109,12 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       },
       multiline: false,
       numberOfLines: 1,
-      onChangeText: () => {},
+      onChangeText: (text: string) =>
+        handleEvents.ON_CHANGE_INPUT_SEARCH({}, { text }),
       placeholder: 'Search',
       placeholderTextColor: themes['themeA'].colors01.borderColor,
       testID: 'TopBarChatCards_InputTextYrl',
-      value: '',
+      value: inputSearch,
     },
     searchIconYrlProps: {
       library: 'Ionicons',
@@ -141,6 +157,6 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
 
 export const TopBarChatCards = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    withParamsMediaYrl(TopBarChatCardsComponent)
+    withStoreStateYrl(withParamsMediaYrl(TopBarChatCardsComponent))
   )
 )

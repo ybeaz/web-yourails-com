@@ -1662,29 +1662,66 @@ SSO services use protocols:\n\
     iconLibrary: 'Ionicons',
     iconName: '',
     tooltips:
-      '\
-  Basic Types\n\
-  Variable Declarations\n\
-  Interfaces\n\
-  Classes\n\
-  Functions\n\
-  Generics\n\
-  Enums\n\
-  Type Inference\n\
-  Type Compatibility\n\
-  Advanced Types\n\
-  Symbols\n\
-  Iterators and Generators\n\
-  Modules\n\
-  Namespaces\n\
-  Namespaces and Modules\n\
-  Module Resolution\n\
-  Declaration Merging\n\
-  JSX\n\
-  Decorators\n\
-  Mixins\n\
-  Triple-Slash Directives\n\
-  Type Checking JavaScript Files',
+      "\
+★ Basic Types\n\
+    • Boolean: a boolean value (true or false).\n\
+    • Number: a numeric value.\n\
+    • String: a sequence of characters.\n\
+    • Array: an ordered collection of values of the same type.\n\
+    • Tuple: an array-like structure with a fixed number of elements of different types.\n\
+    • Enum: a set of named constant values.\n\
+    • Any: a value of any type, disabling type checking.\n\
+    • Void: the absence of any type, often used as the return type of functions that don't return a value.\n\
+    • Null and Undefined: the absence of a value.\n\
+    • Object: a non-primitive type.\n\
+    • Union: a value that can be one of several types.\n\
+    • Intersection: a type that has properties and methods from multiple other types.\n\
+★ Optional Chaining - feature that allows you to safely access properties or call methods on an object even if some intermediate properties are null or undefined.\n\
+★ Mapped Types - feature that provide a way to iterate over the properties of an object type and define new types based on the properties' characteristics\n\
+★ Utility types facilitate common type transformations\n\
+    • Awaited<Type>\n\
+    • Partial<Type>\n\
+    • Required<Type>\n\
+    • Readonly<Type>\n\
+    • Record<Keys, Type>\n\
+    • Pick<Type, Keys>\n\
+    • Omit<Type, Keys>\n\
+    • Exclude<UnionType, ExcludedMembers>\n\
+    • Extract<Type, Union>\n\
+    • NonNullable<Type>\n\
+    • Parameters<Type>\n\
+    • ConstructorParameters<Type>\n\
+    • ReturnType<Type>\n\
+    • InstanceType<Type>\n\
+    • ThisParameterType<Type>\n\
+    • OmitThisParameter<Type>\n\
+    • ThisType<Type>\n\
+    • Intrinsic String Manipulation Types\n\
+    • Uppercase<StringType>\n\
+    • Lowercase<StringType>\n\
+    • Capitalize<StringType>\n\
+    • Uncapitalize<StringType>\n\
+Variable Declarations\n\
+Interfaces\n\
+Classes\n\
+Functions\n\
+Generics > provide a way to parameterize types, allowing you to define placeholders for specific types that are determined when the component or function is used.\n\
+Enums\n\
+Type Inference\n\
+Type Compatibility\n\
+Advanced Types\n\
+Symbols\n\
+Iterators and Generators\n\
+Modules\n\
+Namespaces\n\
+Namespaces and Modules\n\
+Module Resolution\n\
+Declaration Merging\n\
+JSX\n\
+Decorators\n\
+Mixins\n\
+Triple-Slash Directives\n\
+Type Checking JavaScript Files",
   },
 
   {
@@ -2423,6 +2460,30 @@ Status codes',
 
   {
     idProfile: '1',
+    title: 'Socket.io',
+    contentType: ContentType['CompetencyTagType'],
+    section: 'Back-end',
+    linkHref: 'https://socket.io/docs/v4/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      "\
+• io.of(namespace): Creates a separate namespace for Socket.IO connections.\n\
+• io.on(eventName, callback): Listens for a specific event on the server side.\n\
+• io.sockets.emit(eventName, data): Emits an event to all connected clients.\n\
+• io.to(roomName).emit(eventName, data): Sends an event to all clients in a specific room.\n\
+• io.use(middleware): Registers a middleware function to be executed for every incoming connection.\n\
+• socket.broadcast.emit(eventName, data): Emits an event to all clients except the current one.\n\
+• socket.disconnect(): Disconnects the client from the server.\n\
+• socket.emit(eventName, data): Emits an event from the server to a specific client or clients.\n\
+• socket.id: Returns the unique identifier for the client's socket connection.\n\
+• socket.join(roomName): Makes a client join a specific room.\n\
+• socket.leave(roomName): Makes a client leave a specific room.\n\
+• socket.on(eventName, callback): Listens for a specific event on the client side.",
+  },
+
+  {
+    idProfile: '1',
     title: 'Swagger-OpenAPI',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2857,43 +2918,49 @@ Status codes',
     iconName: 'logo-python',
     tooltips:
       '\
-  Py General\n\
-  Comments\n\
-  Variables\n\
-  Data Types\n\
-  Numbers\n\
-  Casting\n\
-  Strings\n\
-  Booleans\n\
-  Operators\n\
-  Lists\n\
-  Tuples\n\
-  Sets\n\
-  Dictionaries\n\
-  If...Else\n\
-  While Loops\n\
-  For Loops\n\
-  Functions\n\
-  Lambda\n\
-  Arrays\n\
-  Classes/Objects\n\
-  Inheritance\n\
-  Iterators\n\
-  Scope\n\
-  Modules\n\
-  Dates\n\
-  Math\n\
-  JSON\n\
-  RegEx\n\
-  PIP\n\
-  Try...Except\n\
-  User Input\n\
-  String Formatting\n\
-  Py File Handling\n\
-  File Handling\n\
-  Read Files\n\
-  Write/Create Files\n\
-  Delete Files',
+Py General\n\
+★ Global Interpreter Lock (GIL): The Global Interpreter Lock (GIL) is a mechanism used in CPython (the default implementation of Python) to synchronize access to Python objects, preventing multiple native threads from executing Python bytecodes at once. It is a form of thread-level locking.\n\
+★ Passing Arguments: In Python, arguments are passed by value, which means that a copy of the object reference is passed to the function. This copy is then used to access the object inside the function. If the object is mutable, you can modify its state, but you cannot reassign the object reference itself.\n\
+★ Data Types\n\
+  - Immutable:\n\
+      Strings (str)\n\
+      Numbers (int, float, complex)\n\
+      Tuples (tuple)\n\
+      Frozen Sets (frozenset)\n\
+      Bytes (bytes)\n\
+      Namedtuples (from the collections module)\n\
+  - Mutable:\n\
+    Lists: Lists are ordered collections of items that can be modified.\n\
+    Dictionaries: Dictionaries are key-value pairs, and their content can be modified.\n\
+    Sets: Sets are unordered collections of unique elements.\n\
+    Byte arrays: Byte arrays are mutable sequences of integers in the range 0-255.\n\
+    User-defined objects: If you create your own custom classes\n\
+Comments\n\
+Variables\n\
+Casting\n\
+Operators\n\
+If...Else\n\
+While Loops\n\
+For Loops\n\
+Functions\n\
+Lambda\n\
+Inheritance\n\
+Iterators\n\
+Scope\n\
+Modules\n\
+Dates\n\
+Math\n\
+JSON\n\
+RegEx\n\
+PIP\n\
+Try...Except\n\
+User Input\n\
+String Formatting\n\
+Py File Handling\n\
+File Handling\n\
+Read Files\n\
+Write/Create Files\n\
+Delete Files',
   },
 
   {

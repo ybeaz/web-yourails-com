@@ -9,4 +9,8 @@ export const conversations: ConversationType[] = [
     idConversation: '2',
     idsProfiles: ['2', '3'],
   },
+  {
+    idConversation: '3',
+    idsProfiles: ['1', '2'],
+  },
 ]

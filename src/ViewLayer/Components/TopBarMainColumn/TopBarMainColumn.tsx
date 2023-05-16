@@ -2,12 +2,18 @@ import React from 'react'
 import { View } from 'react-native'
 import { nanoid } from 'nanoid'
 
+import { ProfileType } from '../../../@types/ProfileType'
+
 import {
+  urlParamsDefault,
+  withStoreStateYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
   DeviceType,
+  ButtonYrl,
 } from '../../../YrlNativeViewLibrary'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary'
+
+import { getProfileChat } from '../../../Shared/getProfileChat'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { NameStatus } from '../NameStatus/NameStatus'
 import { Text } from '../../Components/Text/Text'
@@ -21,16 +27,35 @@ import { handleEvents } from '../../../DataLayer/index.handleEvents'
  */
 const TopBarMainColumnComponent: TopBarMainColumnType = props => {
   const {
-    isImageAvatar,
-    isButtonBack,
-    profileActive,
+    urlParams = urlParamsDefault,
     mediaParams = mediaParamsDefault,
+    store,
   } = props
   const { deviceType } = mediaParams
-  const style = styles[deviceType]
-  const { uriAvatar = '', serviceSpecs = [] } = profileActive
+  const { urlParam1, urlParam2 } = urlParams
 
-  let isButtonBackToCard = isButtonBack
+  const { profiles, componentsState } = store
+  const { modalFrame } = componentsState
+
+  const {
+    isShow: isShowModalFrame,
+    childName: childNameModal,
+    isButtonBack: isButtonBackModal,
+    isButtonClose: isButtonCloseModal,
+  } = modalFrame
+
+  const style = styles[deviceType]
+
+  const profileActive: ProfileType = getProfileChat({
+    profiles,
+    urlParam1,
+    urlParam2,
+  })
+  const { uriAvatar, serviceSpecs } = profileActive
+
+  const isButtonBackTopBarMainColumn =
+    isButtonBackModal && isButtonCloseModal ? true : false
+  let isButtonBackToCard = isButtonBackTopBarMainColumn
   if (
     deviceType === DeviceType['mdDevice'] ||
     deviceType === DeviceType['lgDevice'] ||
@@ -39,7 +64,10 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
     isButtonBackToCard = false
   }
 
-  const getStringSpecs = (serviceSpecsIn: string[]) => {
+  const isImageAvatar =
+    childNameModal === 'Profile' && isShowModalFrame === true ? false : true
+
+  const getStringSpecs = (serviceSpecsIn: string[] = []) => {
     return serviceSpecsIn.map((serviceSpec: string, index: number) => {
       const key = nanoid()
       return (
@@ -131,5 +159,5 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
 }
 
 export const TopBarMainColumn = React.memo(
-  withParamsMediaYrl(TopBarMainColumnComponent)
+  withStoreStateYrl(withParamsMediaYrl(TopBarMainColumnComponent))
 )

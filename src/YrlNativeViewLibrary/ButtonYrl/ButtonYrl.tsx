@@ -5,6 +5,7 @@ import { ButtonYrlStyle as style } from './ButtonYrlStyle'
 import { IconYrl } from '../IconYrl/IconYrl'
 
 /**
+ * @description Component to display Button
  * @import import { ButtonYrl, ButtonYrlPropsType } from './YrlNativeViewLibrary'
  * @propsOut 
   buttonYrl: {

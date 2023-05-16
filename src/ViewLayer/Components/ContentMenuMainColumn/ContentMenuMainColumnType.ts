@@ -1,12 +1,15 @@
 import { RootStoreType } from '../../../@types/RootStoreType'
-import { SectionsMappingType } from '../../../@types/SectionsMappingType'
+import { SectionMappingType } from '../../../@types/SectionMappingType'
+
+import { UrlParamsDefaultType } from '../../../YrlNativeViewLibrary'
 
 export interface ContentMenuMainColumnPropsType {
   styleProps?: {
     ContentMenuMainColumn: any
     buttonWrapper: any
   }
-  sectionsMapping: SectionsMappingType
+  urlParams?: UrlParamsDefaultType
+  sectionsMapping: SectionMappingType[]
   store: RootStoreType
   handleEvents: any
 }

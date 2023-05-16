@@ -1,16 +1,29 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { InputTextYrl } from '../../../YrlNativeViewLibrary'
+import {
+  withStoreStateYrl,
+  InputTextYrl,
+  withPropsYrl,
+} from '../../../YrlNativeViewLibrary'
 import { IconYrl } from '../../../YrlNativeViewLibrary'
 import { ChatInputType } from './ChatInputType'
 import { style } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 
 const ChatInputComponent: ChatInputType = props => {
+  const { handleEvents, store } = props
+
+  const {
+    globalVars: { idProfileActive },
+    forms: { inputChat },
+  } = store
+
   const propsOut: Record<string, any> = {
     inputTextYrlProps: {
-      onChangeText: (text: string) => {},
+      onChangeText: (text: string) =>
+        handleEvents.ON_CHANGE_INPUT_CHAT({}, { idProfileActive, text }),
       styleProps: {
         InputTextYrl: style.InputTextYrl,
         inputText: {
@@ -25,6 +38,7 @@ const ChatInputComponent: ChatInputType = props => {
       numberOfLines: 4,
       placeholder: 'Message',
       placeholderTextColor: '#a2acb4',
+      value: idProfileActive ? inputChat[idProfileActive] : '',
     },
     sendIconYrlProps: {
       library: 'Ionicons',
@@ -48,4 +62,8 @@ const ChatInputComponent: ChatInputType = props => {
   )
 }
 
-export const ChatInput = React.memo(ChatInputComponent)
+export const ChatInput = React.memo(
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withStoreStateYrl(ChatInputComponent)
+  )
+)

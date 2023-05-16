@@ -1,4 +1,7 @@
 import { ProfileType } from '../../../@types/ProfileType'
+import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
+import { RootStoreType } from '../../../@types/RootStoreType'
+
 import {
   ButtonYrlPropsType,
   ImageYrlPropsType,
@@ -8,16 +11,14 @@ import {
   UrlParamsDefaultType,
 } from '../../../YrlNativeViewLibrary'
 
-import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
-
 export interface TopBarChatCardsPropsType {
   styleProps?: any
-  profileHost: ProfileType
-  idProfileActive: string
   handleEvents: HandleEventsType
   mediaParams?: MediaParamsDefaultType
   urlParams: UrlParamsDefaultType
   urlParamsSearch: any
+  inputSearch: string
+  store: RootStoreType
 }
 
 export type TopBarChatCardsPropsOutType = {

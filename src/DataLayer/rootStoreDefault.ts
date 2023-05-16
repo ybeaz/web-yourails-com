@@ -65,7 +65,10 @@ export const componentsStateDefault: ComponentsStateType = {
   },
 }
 
-export const formsDefault: FormsType = {}
+export const formsDefault: FormsType = {
+  inputChat: {},
+  inputSearch: '',
+}
 
 export const rootStoreDefault: RootStoreType = {
   componentsState:
@@ -73,6 +76,10 @@ export const rootStoreDefault: RootStoreType = {
       ? componentsStateR1
       : componentsStateDefault,
   profiles: [],
+  sectionsMapping: [],
+  competencyTags: [],
+  projects: [],
+  conversations: [],
   messages: [],
   forms: formsDefault,
   isLoaded: {

@@ -1,6 +1,21 @@
 import { ProfileType } from '../@types/ProfileType'
 import { getProfileUrlFromParams } from './getProfileUrlFromParams'
 
+const profileDefault: ProfileType = {
+  idProfile: '0',
+  idUser: '0',
+  profileName: '@',
+  nameFirst: '',
+  nameLast: '',
+  uriAvatar: '',
+  phones: [],
+  emails: [],
+  messengers: [],
+  locations: [],
+  serviceSpecs: [],
+  summary: '',
+}
+
 type GetProfileNameChatPropsType = {
   urlParam1: string | undefined
   urlParam2: string | undefined
@@ -8,7 +23,7 @@ type GetProfileNameChatPropsType = {
 }
 
 interface GetProfileNameChatType {
-  (props: GetProfileNameChatPropsType): ProfileType | undefined
+  (props: GetProfileNameChatPropsType): ProfileType
 }
 /**
  * @description Function to find a profile based on url params
@@ -31,5 +46,7 @@ export const getProfileChat: GetProfileNameChatType = ({
       (profileIn: ProfileType) => profileIn.profileName === profileName
     )
 
-  return output
+  const output2: ProfileType = output ? output : profileDefault
+
+  return output2
 }

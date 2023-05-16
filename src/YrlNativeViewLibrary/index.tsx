@@ -61,6 +61,12 @@ import {
 import { withPropsYrl } from './Hooks/withPropsYrl'
 import { withDelayYrl, WithDelayYrlType } from './Hooks/withDelayYrl'
 
+import {
+  withElementDimensionsYrl,
+  withElementDimensionsYrlPropsType,
+  withElementDimensionsYrlType,
+} from './Hooks/withElementDimensionsYrl'
+
 export type {
   WithParamsMediaYrlPropsType,
   WithParamsMediaYrlType,
@@ -75,6 +81,8 @@ export type {
   WithStoreStateYrlType,
   WithUseContextYrlType,
   WithDelayYrlType,
+  withElementDimensionsYrlPropsType,
+  withElementDimensionsYrlType,
 }
 
 export {
@@ -90,6 +98,7 @@ export {
   withPropsYrl,
   withStoreStateYrl,
   withUseContextYrl,
+  withElementDimensionsYrl,
 }
 
 export type {

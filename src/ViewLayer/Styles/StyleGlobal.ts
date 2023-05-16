@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native'
  */
 export const styleGlobal = StyleSheet.create({
   typography: {
-    fontFamily: 'lucida grande', // tahoma, verdana, arial, sans-serif'
+    fontFamily: 'Roboto, Helvetica, Verdana, Arial, sans-serif', // San Francisco Font, Roboto, Arial, Poppins, Verdana, tahoma, verdana, arial, sans-serif' lucida grande
     fontSize: 14,
     fontWeight: '400',
   },

@@ -1,11 +1,13 @@
-import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
-import { ProfileType } from '../../../@types/ProfileType'
+import {
+  MediaParamsDefaultType,
+  UrlParamsDefaultType,
+} from '../../../YrlNativeViewLibrary'
+import { RootStoreType } from '../../../@types/RootStoreType'
 
 export interface TopBarMainColumnPropsType {
-  profileActive: ProfileType
   mediaParams?: MediaParamsDefaultType
-  isButtonBack: boolean
-  isImageAvatar: boolean
+  urlParams?: UrlParamsDefaultType
+  store: RootStoreType
 }
 
 /**

@@ -29,7 +29,7 @@ const LayoutScreenComponent: LayoutScreenType = props => {
         style={[style.layoutNavigationTop, styleProps.layoutNavigationTop]}
         testID='layoutNavigationTop'
       >
-        {children[0]}
+        {children.length === undefined ? children : children[0]}
       </View>
 
       <View

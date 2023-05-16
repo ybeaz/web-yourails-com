@@ -2,6 +2,13 @@ import { RootStoreType } from '../@types/RootStoreType'
 import { ActionType } from '../@types/ActionType'
 
 import { TEMPLATE } from './reducers/TEMPLATE'
+import { ADD_MESSAGES } from './reducers/ADD_MESSAGES'
+import { ADD_CONVERSATIONS } from './reducers/ADD_CONVERSATIONS'
+import { ADD_PROJECTS } from './reducers/ADD_PROJECTS'
+import { ADD_COMPETENCY_TAGS } from './reducers/ADD_COMPETENCY_TAGS'
+import { ADD_SECTIONS_MAPPING } from './reducers/ADD_SECTIONS_MAPPING'
+import { SET_INPUT_SEARCH } from './reducers/SET_INPUT_SEARCH'
+import { SET_INPUT_CHAT } from './reducers/SET_INPUT_CHAT'
 import { SET_ID_PROFILE_ACTIVE } from './reducers/SET_ID_PROFILE_ACTIVE'
 import { TOGGLE_IS_SHOW_GLOBAL } from './reducers/TOGGLE_IS_SHOW_GLOBAL'
 import { ADD_PROFILES } from './reducers/ADD_PROFILES'
@@ -26,6 +33,13 @@ export const indexReducer: IndexReducerType = (
 
   const output = {
     TEMPLATE,
+    ADD_MESSAGES,
+    ADD_CONVERSATIONS,
+    ADD_PROJECTS,
+    ADD_COMPETENCY_TAGS,
+    ADD_SECTIONS_MAPPING,
+    SET_INPUT_SEARCH,
+    SET_INPUT_CHAT,
     SET_ID_PROFILE_ACTIVE,
     TOGGLE_IS_SHOW_GLOBAL,
     ADD_PROFILES,

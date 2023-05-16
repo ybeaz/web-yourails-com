@@ -1,14 +1,24 @@
 import React from 'react'
 import { View } from 'react-native'
 
+import { ProfileType } from '../../../@types/ProfileType'
 import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'
+
 import { style } from './ContentMenuMainColumnStyle'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
 
+import {
+  ButtonYrl,
+  withStoreStateYrl,
+  withPropsYrl,
+  withParamsMediaYrl,
+  urlParamsDefault,
+} from '../../../YrlNativeViewLibrary'
+
+import { getProfileChat } from '../../../Shared/getProfileChat'
+import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { withPropsYrl } from '../../../YrlNativeViewLibrary'
 
 /**
  * @import import { ContentMenuMainColumn } from '../Components/ContentMenuMainColumn/ContentMenuMainColumn'
@@ -16,16 +26,31 @@ import { withPropsYrl } from '../../../YrlNativeViewLibrary'
 const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
   const {
     styleProps = { ContentMenuMainColumn: {}, buttonWrapper: {} },
-    sectionsMapping,
+    urlParams = urlParamsDefault,
     store,
     handleEvents,
   } = props
 
+  const { urlParam1, urlParam2 } = urlParams
+
   const {
+    profiles,
+    sectionsMapping,
     componentsState: {
       modalFrame: { childName: childNameModalStore, isShow: isShowModalStore },
     },
   } = store
+
+  const profileActive: ProfileType = getProfileChat({
+    profiles,
+    urlParam1,
+    urlParam2,
+  })
+
+  const profileNameChat = profileActive ? profileActive.profileName : undefined
+
+  const sectionsMappingForProfile: SectionMappingType[] =
+    getSectionsMappingForProfile(sectionsMapping, profileNameChat)
 
   const getMenuContentItems = (menuContentItemsIn: SectionMappingType[]) => {
     return menuContentItemsIn.map(
@@ -98,13 +123,13 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
       style={[style.ContentMenuMainColumn, styleProps.ContentMenuMainColumn]}
       testID='ContentMenuMainColumn'
     >
-      {getMenuContentItems(sectionsMapping)}
+      {getMenuContentItems(sectionsMappingForProfile)}
     </View>
   )
 }
 
 export const ContentMenuMainColumn = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    ContentMenuMainColumnComponent
+    withStoreStateYrl(withParamsMediaYrl(ContentMenuMainColumnComponent))
   )
 )

@@ -1,26 +1,17 @@
 import React, { useRef, useEffect } from 'react'
-import { SafeAreaView, ScrollView, View } from 'react-native'
-
-import dayjs from 'dayjs'
-dayjs.extend(localizedFormat)
+import { View } from 'react-native'
 
 import {
   mediaParamsDefault,
   urlParamsDefault,
   withParamsMediaYrl,
+  withPropsYrl,
   withStoreStateYrl,
 } from '../../../YrlNativeViewLibrary'
-import {
-  getFilteredObjsArrayBy,
-  OperatorType,
-} from '../../../Shared/getFilteredObjsArrayBy'
 
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
-import { ConversationType } from '../../../@types/ConversationType'
-import { MessageType } from '../../../@types/MessageType'
 import { ProfileType } from '../../../@types/ProfileType'
-import { ContentSectionType } from '../../../@types/ContentSectionType'
 
 import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
 import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'
@@ -30,19 +21,14 @@ import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
-import { handleEvents } from '../../../DataLayer/index.handleEvents'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { styles } from './PageChatsWholeScreenStyle'
 import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 
-import { conversations } from '../../../ContentMock/conversationsMock'
-import { messages } from '../../../ContentMock/messagesMock'
-import { profiles } from '../../../ContentMock/profilesMock'
-import { contentSections } from '../../../ContentMock/contentSectionsMock'
-import { sectionsMapping } from '../../../ContentMock/sectionsMappingMock'
-
-import localizedFormat from 'dayjs/plugin/localizedFormat'
+import { profiles as profilesIn } from '../../../ContentMock/profilesMock'
+import { sectionsMapping as sectionsMappingIn } from '../../../ContentMock/sectionsMappingMock'
 
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
@@ -50,6 +36,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     mediaParams = mediaParamsDefault,
     urlParams = urlParamsDefault,
     urlParamsSearch,
+    handleEvents,
     store,
   } = props
   const { deviceType } = mediaParams
@@ -60,59 +47,38 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const renderCounter = useRef(0)
   renderCounter.current = renderCounter.current + 1
 
-  const {
-    globalVars: { language, idProfileHost, idProfileActive, isShowApp },
-    componentsState,
-  } = store
+  const { componentsState, profiles, sectionsMapping } = store
 
   const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
     componentsState
 
-  const {
-    childName: childNameModal,
-    isShow: isShowModalFrame,
-    isButtonBack: isButtonBackModal,
-    isButtonClose: isButtonCloseModal,
-  } = modalFrame
+  const { isShow: isShowModalFrame } = modalFrame
 
   const query = {
     s: urlParamsSearch.get('s'),
   }
 
-  const profileHost: ProfileType | undefined =
-    profiles &&
-    profiles.find(profile => profile.idProfile == (idProfileHost || '1'))
-
-  let profileActive: ProfileType | undefined = getProfileChat({
+  const profileActive: ProfileType = getProfileChat({
     profiles,
     urlParam1,
     urlParam2,
   })
-  profileActive = profileActive
-    ? profileActive
-    : profiles.find(profile => profile.idProfile == (idProfileHost || '1'))
   const profileNameChat = profileActive ? profileActive.profileName : undefined
-
   const sectionsMappingForProfile: SectionMappingType[] =
     getSectionsMappingForProfile(sectionsMapping, profileNameChat)
 
-  // TODO: To create another profile and show the conversation. This is only the first attempt for demo purposes
-  const conversationsWithProfileActive: ConversationType[] =
-    conversations.filter((conversation: any) => {
-      return conversation.idsProfiles.includes(idProfileActive || '')
-    })
-  const messagesWithProfileActive: MessageType[] = messages.filter(
-    (message: any) => {
-      return (
-        message.idConversation ===
-        conversationsWithProfileActive[0]?.idConversation
-      )
-    }
-  )
+  const initDataIdentifier = JSON.stringify({
+    profilesIn,
+    sectionsMappingIn,
+  })
 
   useEffect(() => {
-    handleEvents.ADD_PROFILES({}, { profiles })
-  }, [])
+    handleEvents.ADD_PROFILES({}, { profiles: profilesIn })
+    handleEvents.ADD_SECTIONS_MAPPING(
+      {},
+      { sectionsMapping: sectionsMappingIn }
+    )
+  }, [initDataIdentifier])
 
   const urlParamsMediaIdentifier = JSON.stringify({
     urlParam1,
@@ -135,39 +101,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     )
   }, [urlParamsMediaIdentifier])
 
-  const profilesChatCards = getFilteredObjsArrayBy(
-    profiles,
-    'idProfile',
-    idProfileHost,
-    OperatorType['!==']
-  )
-
-  const isButtonBackTopBarMainColumn =
-    isButtonBackModal && isButtonCloseModal ? true : false
-  const isImageAvatar =
-    childNameModal === 'Profile' && isShowModalFrame === true ? false : true
-
-  const mainColumnOuterAnimatedYrlProps = {
-    styleProps: {
-      AnimatedYrl: { flex: 3, opacity: 1 },
-    },
-    isActive: true,
-    valueInit: isShowModalFrame ? 0 : 1,
-    valueTarget: isShowModalFrame ? 1 : 1,
-    nameHtmlCssAttribute: 'opacity',
-    duration: 1000,
-    trigger: isShowModalFrame,
-    triggerShouldEqual: isShowModalFrame ? true : false,
-    testID: 'mainColumn_Outer_AnimatedYrl',
-  }
-
   const layoutOfRowProps = {
     isLeftColumn,
     isMainColumn,
     styleProps: {
       LayoutOfRow: style.LayoutOfRow,
     },
-    mainColumnOuterAnimatedYrlProps,
   }
 
   const propsOut: Record<string, any> = {
@@ -257,14 +196,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         },
       },
     },
-    topBarChatCards: { profileHost, idProfileActive },
-    chatCardsProps: {
-      profiles: profilesChatCards,
-      idProfileActive,
-      urlParam1,
-      urlParam2,
-      query,
-    },
     mainColumnContentMenuProps: {
       styleProps: {
         buttonWrapper: {
@@ -278,38 +209,16 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           borderLeftColor: themes['themeA'].colors01.borderColor,
         },
       },
-      sectionsMapping: sectionsMappingForProfile,
-      store,
-    },
-    topBarMainColumnProps: {
-      styleProps: {
-        TopBarMainColumn: {},
-      },
-      profileActive,
-      isButtonBack: isButtonBackTopBarMainColumn,
-      isImageAvatar,
-    },
-    mainColumnChatSpaceProps: {
-      styleProps: {
-        ChatSpace: {},
-      },
-      idProfileHost,
-      idProfileActive,
-      profileActive,
-      messages: messagesWithProfileActive,
-      modalFrame: { ...modalFrame, childProps: {} },
     },
   }
 
-  const scrollViewRef = React.useRef<ScrollView>(null)
-
-  const TopBarChatCardsElement = () => (
+  const TopBarChatCardsElement = (
     <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
-      <TopBarChatCards {...propsOut.topBarChatCards} />
+      <TopBarChatCards />
     </View>
   )
 
-  const MainColumnTopBars = () => (
+  const MainColumnTopBars = (
     <>
       <View
         style={[
@@ -325,7 +234,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         ]}
         testID='mainColumnTopBar'
       >
-        <TopBarMainColumn {...propsOut.topBarMainColumnProps} />
+        <TopBarMainColumn />
       </View>
 
       {sectionsMappingForProfile.length ? (
@@ -339,47 +248,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </>
   )
 
-  const ChatCardsElement = () => (
+  const ChatCardsElement = (
     <View
       style={[style.leftColumnChatCardSpace]}
       testID='leftColumnChatCardSpace'
     >
-      <ChatCards {...propsOut.chatCardsProps} />
+      <ChatCards />
     </View>
   )
 
-  const ChatSpaceElement = () => (
-    <>
-      {messagesWithProfileActive.length ? (
-        <>
-          <ScrollView
-            style={[style.mainColumnChatSpace, themes['themeA'].colors03]}
-            contentContainerStyle={{}}
-            ref={scrollViewRef}
-            nestedScrollEnabled={true}
-            onContentSizeChange={(contentWidth, contentHeight) => {
-              if (isShowModalFrame) {
-                scrollViewRef.current?.scrollTo({
-                  y: 0,
-                  animated: true,
-                })
-                return
-              }
-              scrollViewRef.current?.scrollTo({
-                y: contentHeight,
-                animated: true,
-              })
-            }}
-            testID='mainColumnChatSpace'
-          >
-            <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
-          </ScrollView>
-        </>
-      ) : null}
-    </>
-  )
+  const ChatSpaceElement = <ChatSpace />
 
-  const ChatInputElement = () => (
+  const ChatInputElement = (
     <>
       {isShowModalFrame === false && (
         <View
@@ -392,27 +272,31 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </>
   )
 
+  console.info('PageChatsWholeScreen [399]', { store })
+
   return (
     <LayoutScreen {...propsOut.layoutScreenProps}>
       {/** @description <NavigationTop /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
-        <TopBarChatCardsElement />
-        {!isMainColumnBlank && <MainColumnTopBars />}
+        {TopBarChatCardsElement}
+        {!isMainColumnBlank && MainColumnTopBars}
       </LayoutOfRow>
       {/** @description <MainContent /> */}
       <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
-        <ChatCardsElement />
-        {!isMainColumnBlank && <ChatSpaceElement />}
+        {ChatCardsElement}
+        {!isMainColumnBlank && ChatSpaceElement}
       </LayoutOfRow>
       {/** @description <NavigationBottom /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
         {null}
-        {!isMainColumnBlank && <ChatInputElement />}
+        {!isMainColumnBlank && ChatInputElement}
       </LayoutOfRow>
     </LayoutScreen>
   )
 }
 
 export const PageChatsWholeScreen = React.memo(
-  withStoreStateYrl(withParamsMediaYrl(PageChatsWholeScreenComponent))
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withStoreStateYrl(withParamsMediaYrl(PageChatsWholeScreenComponent))
+  )
 )
