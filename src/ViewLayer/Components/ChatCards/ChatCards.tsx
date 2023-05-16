@@ -2,7 +2,9 @@ import React, { ReactElement } from 'react'
 import { View } from 'react-native'
 
 import {
+  urlParamsDefault,
   mediaParamsDefault,
+  withParamsMediaYrl,
   withStoreStateYrl,
 } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
@@ -17,13 +19,18 @@ const ChatCardsComponent: ChatCardsType = props => {
   const {
     styleProps = { ChatCards: {} },
     mediaParams = mediaParamsDefault,
-    idProfileActive,
-    profiles,
-    urlParam1,
-    urlParam2,
-    query,
+    urlParams = urlParamsDefault,
+    store,
+    urlParamsSearch,
   } = props
   const { deviceType } = mediaParams
+  const { urlParam1, urlParam2 } = urlParams
+
+  const {
+    globalVars: { idProfileActive },
+    profiles,
+  } = store
+
   const style = styles[deviceType]
 
   const getChatCards = (profilesIn: ProfileType[]): ReactElement[] => {
@@ -35,7 +42,9 @@ const ChatCardsComponent: ChatCardsType = props => {
           isActive: profile.idProfile === idProfileActive,
           urlParam1,
           urlParam2,
-          query,
+          query: {
+            s: urlParamsSearch.get('s'),
+          },
         },
       }
       return <ChatCard {...propsOut.chatCardProps} />
@@ -51,4 +60,6 @@ const ChatCardsComponent: ChatCardsType = props => {
   )
 }
 
-export const ChatCards = React.memo(withStoreStateYrl(ChatCardsComponent))
+export const ChatCards = React.memo(
+  withStoreStateYrl(withParamsMediaYrl(ChatCardsComponent))
+)

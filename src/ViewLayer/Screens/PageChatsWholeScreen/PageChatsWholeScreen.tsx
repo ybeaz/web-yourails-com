@@ -233,13 +233,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         },
       },
     },
-    chatCardsProps: {
-      profiles: profilesChatCards,
-      idProfileActive,
-      urlParam1,
-      urlParam2,
-      query,
-    },
     mainColumnContentMenuProps: {
       styleProps: {
         buttonWrapper: {
@@ -311,7 +304,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       style={[style.leftColumnChatCardSpace]}
       testID='leftColumnChatCardSpace'
     >
-      <ChatCards {...propsOut.chatCardsProps} />
+      <ChatCards />
     </View>
   )
 
