@@ -1,21 +1,23 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect } from 'react'
 import { View } from 'react-native'
 
-import { withElementDimensionsYrl } from '../../../YrlNativeViewLibrary/Hooks/withElementDimensionsYrl'
-import { ProjectView } from '../ProjectView/ProjectView'
-import { getFilteredObjsArrayBy } from '../../../Shared/getFilteredObjsArrayBy'
-import { withStoreStateYrl } from '../../../YrlNativeViewLibrary'
-import { ProjectType } from '../../../@types/ProjectType'
-import { Header } from '../Header/Header'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import {
+  withStoreStateYrl,
+  withPropsYrl,
+  withElementDimensionsYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
+import { ProjectView } from '../ProjectView/ProjectView'
+import { getFilteredObjsArrayBy } from '../../../Shared/getFilteredObjsArrayBy'
+import { ProjectType } from '../../../@types/ProjectType'
+import { Header } from '../Header/Header'
 import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
 import { styles } from './PortfolioStyles'
 import { PortfolioType } from './PortfolioTypes'
 
-import { projects } from '../../../ContentMock/projectsMock'
+import { projects as projectsIn } from '../../../ContentMock/projectsMock'
 
 /**
  * @import import { Portfolio } from '../Components/Portfolio/Portfolio'
@@ -26,13 +28,19 @@ const PortfolioComponent: PortfolioType = props => {
     mediaParams = mediaParamsDefault,
     store,
     elementDimensions: { elementWidth },
+    handleEvents,
   } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
 
   const {
     globalVars: { idProfileActive },
+    projects,
   } = store
+
+  useEffect(() => {
+    handleEvents.ADD_PROJECTS({}, { projects: projectsIn })
+  }, [projectsIn])
 
   const projectsUserHost = getFilteredObjsArrayBy(
     projects,
@@ -104,7 +112,9 @@ const PortfolioComponent: PortfolioType = props => {
 }
 
 export const Portfolio = React.memo(
-  withStoreStateYrl(
-    withParamsMediaYrl(withElementDimensionsYrl(PortfolioComponent))
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withStoreStateYrl(
+      withParamsMediaYrl(withElementDimensionsYrl(PortfolioComponent))
+    )
   )
 )
