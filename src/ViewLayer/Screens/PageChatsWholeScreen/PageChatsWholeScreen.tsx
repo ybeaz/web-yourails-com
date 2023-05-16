@@ -11,13 +11,8 @@ import {
 
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
-import { MessageType } from '../../../@types/MessageType'
 import { ProfileType } from '../../../@types/ProfileType'
 
-import {
-  getMessagesWithProfileActive,
-  GetMessagesWithProfileActivePropsType,
-} from '../../../Shared/getMessagesWithProfileActive'
 import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
 import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
@@ -32,8 +27,6 @@ import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 
-import { conversations } from '../../../ContentMock/conversationsMock'
-import { messages } from '../../../ContentMock/messagesMock'
 import { profiles as profilesIn } from '../../../ContentMock/profilesMock'
 import { sectionsMapping as sectionsMappingIn } from '../../../ContentMock/sectionsMappingMock'
 
@@ -54,12 +47,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const renderCounter = useRef(0)
   renderCounter.current = renderCounter.current + 1
 
-  const {
-    globalVars: { idProfileHost, idProfileActive },
-    componentsState,
-    profiles,
-    sectionsMapping,
-  } = store
+  const { componentsState, profiles, sectionsMapping } = store
 
   const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
     componentsState
@@ -79,17 +67,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const sectionsMappingForProfile: SectionMappingType[] =
     getSectionsMappingForProfile(sectionsMapping, profileNameChat)
 
-  const getMessagesWithProfileActiveProps: GetMessagesWithProfileActivePropsType =
-    {
-      conversations,
-      messages,
-      idProfileHost,
-      idProfileActive,
-    }
-  const messagesWithProfileActive: MessageType[] = getMessagesWithProfileActive(
-    getMessagesWithProfileActiveProps
-  )
-
   const initDataIdentifier = JSON.stringify({
     profilesIn,
     sectionsMappingIn,
@@ -101,7 +78,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       {},
       { sectionsMapping: sectionsMappingIn }
     )
-    console.info('PageChatsWholeScreen [120]')
   }, [initDataIdentifier])
 
   const urlParamsMediaIdentifier = JSON.stringify({
@@ -234,16 +210,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         },
       },
     },
-    mainColumnChatSpaceProps: {
-      styleProps: {
-        ChatSpace: {},
-      },
-      messages: messagesWithProfileActive,
-      idProfileHost,
-      idProfileActive,
-      profileActive,
-      modalFrame: { ...modalFrame, childProps: {} },
-    },
   }
 
   const TopBarChatCardsElement = (
@@ -291,7 +257,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </View>
   )
 
-  const ChatSpaceElement = <ChatSpace {...propsOut.mainColumnChatSpaceProps} />
+  const ChatSpaceElement = <ChatSpace />
 
   const ChatInputElement = (
     <>

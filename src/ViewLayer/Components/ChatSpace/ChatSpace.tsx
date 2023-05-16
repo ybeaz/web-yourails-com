@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, useEffect } from 'react'
 import { ScrollView, View } from 'react-native'
 
 import { ProfileType } from '../../../@types/ProfileType'
@@ -13,6 +13,10 @@ import {
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 
+import {
+  getMessagesWithProfileActive,
+  GetMessagesWithProfileActivePropsType,
+} from '../../../Shared/getMessagesWithProfileActive'
 import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getDateLocale } from '../../../Shared/getDateLocale'
 import { MessageType } from '../../../@types/MessageType'
@@ -26,6 +30,9 @@ import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 
+import { conversations as conversationsIn } from '../../../ContentMock/conversationsMock'
+import { messages as messagesIn } from '../../../ContentMock/messagesMock'
+
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
  */
@@ -36,7 +43,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     urlParams = urlParamsDefault,
     store,
     handleEvents,
-    messages,
   } = props
 
   const { deviceType } = mediaParams
@@ -44,9 +50,11 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const style = styles[deviceType]
 
   const {
-    globalVars: { idProfileHost },
+    globalVars: { idProfileHost, idProfileActive },
     componentsState,
     profiles,
+    conversations,
+    messages,
   } = store
 
   const { modalFrame } = componentsState
@@ -59,15 +67,39 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     childProps,
   } = modalFrame
 
+  const initDataIdentifier = JSON.stringify({
+    conversationsIn,
+    messagesIn,
+  })
+
+  useEffect(() => {
+    handleEvents.ADD_CONVERSATIONS({}, { conversations: conversationsIn })
+    handleEvents.ADD_MESSAGES({}, { messages: messagesIn })
+  }, [initDataIdentifier])
+
   const profileActive: ProfileType = getProfileChat({
     profiles,
     urlParam1,
     urlParam2,
   })
 
+  const getMessagesWithProfileActiveProps: GetMessagesWithProfileActivePropsType =
+    {
+      conversations,
+      messages,
+      idProfileHost,
+      idProfileActive,
+    }
+  const messagesWithProfileActive: MessageType[] = getMessagesWithProfileActive(
+    getMessagesWithProfileActiveProps
+  )
+
   const Child = childName ? MODAL_CONTENTS[childName] : null
 
-  const messagesPrep = getPreproccedMessages(messages, idProfileHost)
+  const messagesPrep = getPreproccedMessages(
+    messagesWithProfileActive,
+    idProfileHost
+  )
 
   /**
    * @description Styles adjustments for different devices
@@ -92,12 +124,9 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const propsOut = {
     messageProps: {
-      ...messages[0],
+      ...messagesWithProfileActive[0],
       profile: profileActive,
       isTail: true,
-    },
-    ChatCardProps: {
-      profile: profileActive,
     },
     modalFrameYrlProps: {
       styleProps: {
@@ -189,7 +218,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     },
   }
 
-  let dateString = getDateLocale(messages)
+  let dateString = getDateLocale(messagesWithProfileActive)
 
   const getMessagesJsx = (messagesIn: MessageType[]): ReactElement[] => {
     return messagesIn.map((message: MessageType, index: number) => {
@@ -246,7 +275,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       testID='ScrollViewChatSpace'
     >
       <View style={[style.ChatSpace, styleProps.ChatSpace]} testID='ChatSpace'>
-        {messages.length && !isShowModalFrame ? (
+        {messagesWithProfileActive.length && !isShowModalFrame ? (
           <AnimatedYrl {...propsOut.chatSpaceJsxAnimatedYrlProps}>
             <ChatSpaceJsx />
           </AnimatedYrl>
