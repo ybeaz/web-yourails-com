@@ -73,9 +73,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   })
 
   useEffect(() => {
-    handleEvents.ADD_CONVERSATIONS({}, { conversations: conversationsIn })
-    handleEvents.ADD_MESSAGES({}, { messages: messagesIn })
-  }, [initDataIdentifier])
+    handleEvents.ADD_CONVERSATION({}, {})
+  }, [])
 
   const profileActive: ProfileType = getProfileChat({
     profiles,
