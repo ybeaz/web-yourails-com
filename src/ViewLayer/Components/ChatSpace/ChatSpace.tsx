@@ -30,9 +30,6 @@ import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 
-import { conversations as conversationsIn } from '../../../ContentMock/conversationsMock'
-import { messages as messagesIn } from '../../../ContentMock/messagesMock'
-
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
  */
@@ -66,11 +63,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     isButtonClose,
     childProps,
   } = modalFrame
-
-  const initDataIdentifier = JSON.stringify({
-    conversationsIn,
-    messagesIn,
-  })
 
   useEffect(() => {
     handleEvents.ADD_CONVERSATION({}, {})

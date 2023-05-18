@@ -27,6 +27,7 @@ const ACTIONS_SYNC: string[] = [
 /** @description Asynchroneous actions for saga */
 const ACTION_ASYNC: string[] = [
   'TEMPLATE_ASYNC',
+  'ADD_PROJECTS_ASYNC',
   'INIT_LOADING_ASYNC',
   'ADD_CONVERSATION_ASYNC',
 ]

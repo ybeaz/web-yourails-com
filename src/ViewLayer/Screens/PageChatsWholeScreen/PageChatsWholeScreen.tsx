@@ -27,9 +27,6 @@ import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 
-import { profiles as profilesIn } from '../../../ContentMock/profilesMock'
-import { sectionsMapping as sectionsMappingIn } from '../../../ContentMock/sectionsMappingMock'
-
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
     styleProps = { PageChatsWholeScreen: {} },

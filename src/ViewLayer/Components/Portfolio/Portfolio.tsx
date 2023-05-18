@@ -17,8 +17,6 @@ import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of
 import { styles } from './PortfolioStyles'
 import { PortfolioType } from './PortfolioTypes'
 
-import { projects as projectsIn } from '../../../ContentMock/projectsMock'
-
 /**
  * @import import { Portfolio } from '../Components/Portfolio/Portfolio'
  */
@@ -39,8 +37,8 @@ const PortfolioComponent: PortfolioType = props => {
   } = store
 
   useEffect(() => {
-    handleEvents.ADD_PROJECTS({}, { projects: projectsIn })
-  }, [projectsIn])
+    handleEvents.ADD_PROJECTS({}, {})
+  }, [])
 
   const projectsUserHost = getFilteredObjsArrayBy(
     projects,
