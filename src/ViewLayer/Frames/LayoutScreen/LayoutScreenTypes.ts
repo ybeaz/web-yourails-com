@@ -3,6 +3,7 @@ import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 
 export interface LayoutScreenPropsType {
   styleProps?: any
+  isActive: boolean
   children: ReactElement[]
 }
 

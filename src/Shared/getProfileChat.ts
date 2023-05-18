@@ -1,20 +1,6 @@
 import { ProfileType } from '../@types/ProfileType'
 import { getProfileUrlFromParams } from './getProfileUrlFromParams'
-
-const profileDefault: ProfileType = {
-  idProfile: '0',
-  idUser: '0',
-  profileName: '@',
-  nameFirst: '',
-  nameLast: '',
-  uriAvatar: '',
-  phones: [],
-  emails: [],
-  messengers: [],
-  locations: [],
-  serviceSpecs: [],
-  summary: '',
-}
+import { HOST_NAME } from '../Constants/hostname.const'
 
 type GetProfileNameChatPropsType = {
   urlParam1: string | undefined
@@ -35,6 +21,8 @@ export const getProfileChat: GetProfileNameChatType = ({
   urlParam2,
   profiles,
 }) => {
+  if (HOST_NAME === 'r1.userto.com') return profiles[1]
+
   const profileName: string | undefined = getProfileUrlFromParams(
     urlParam1,
     urlParam2
@@ -46,7 +34,7 @@ export const getProfileChat: GetProfileNameChatType = ({
       (profileIn: ProfileType) => profileIn.profileName === profileName
     )
 
-  const output2: ProfileType = output ? output : profileDefault
+  const output2: ProfileType = output ? output : profiles[0]
 
   return output2
 }

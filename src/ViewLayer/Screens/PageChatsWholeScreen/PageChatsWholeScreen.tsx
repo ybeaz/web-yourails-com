@@ -94,7 +94,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     isLeftColumn,
     isMainColumn,
     styleProps: {
-      LayoutOfRow: style.LayoutOfRow,
+      LayoutOfRow: style.layoutOfRow,
     },
   }
 
@@ -111,6 +111,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         },
         layoutNavigationBottom: { height: '4rem' },
       },
+      isActive: profiles.length ? true : false,
     },
     layoutOfRowNavigationTopProps: {
       ...layoutOfRowProps,
@@ -129,7 +130,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         mainColumn: {
           borderStyle: 'solid',
           // borderTopWidth: 1,
-          borderRightWidth: isMainColumnBlank ? 0 : 1,
+          borderRightWidth: 1,
           // borderBottomWidth: 1,
           // borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
@@ -154,7 +155,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           borderStyle: 'solid',
           borderTopWidth:
             !isMainColumnBlank && sectionsMappingForProfile.length ? 1 : 0,
-          borderRightWidth: isMainColumnBlank ? 0 : 1,
+          borderRightWidth: 1,
           // borderBottomWidth: 1,
           borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
@@ -178,7 +179,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         mainColumn: {
           borderStyle: 'solid',
           // borderTopWidth: 1,
-          // borderRightWidth: 1,
+          borderRightWidth: 1,
           // borderBottomWidth: 1,
           borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
@@ -208,25 +209,30 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   )
 
   const MainColumnTopBars = (
-    <>
-      <View
-        style={[
-          style.mainColumnTopBar,
-          {
-            borderStyle: 'solid',
-            // borderTopWidth: 1,
-            // borderRightWidth: 1,
-            borderBottomWidth: 1,
-            borderLeftWidth: 1,
-          },
-          themes['themeA'].colors01,
-        ]}
-        testID='mainColumnTopBar'
-      >
-        <TopBarMainColumn />
-      </View>
+    <View
+      style={[style.mainColumnTopBars, themes['themeA'].colors03]}
+      testID='mainColumnTopBars'
+    >
+      {!isMainColumnBlank ? (
+        <View
+          style={[
+            style.mainColumnTopBar,
+            {
+              borderStyle: 'solid',
+              // borderTopWidth: 1,
+              // borderRightWidth: 1,
+              borderBottomWidth: 1,
+              borderLeftWidth: 1,
+            },
+            themes['themeA'].colors01,
+          ]}
+          testID='mainColumnTopBar'
+        >
+          <TopBarMainColumn />
+        </View>
+      ) : null}
 
-      {sectionsMappingForProfile.length ? (
+      {!isMainColumnBlank && sectionsMappingForProfile.length ? (
         <View
           style={[style.mainColumnContentMenu, themes['themeA'].colors01]}
           testID='mainColumnContentMenu'
@@ -234,7 +240,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
         </View>
       ) : null}
-    </>
+    </View>
   )
 
   const ChatCardsElement = (
@@ -249,16 +255,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const ChatSpaceElement = <ChatSpace />
 
   const ChatInputElement = (
-    <>
-      {isShowModalFrame === false && (
-        <View
-          style={[style.chatInput, themes['themeA'].colors03]}
-          testID='chatInput'
-        >
-          <ChatInput />
-        </View>
-      )}
-    </>
+    <View
+      style={[style.chatInput, themes['themeA'].colors03]}
+      testID='chatInput'
+    >
+      {!isMainColumnBlank && isShowModalFrame === false && <ChatInput />}
+    </View>
   )
 
   return (
@@ -266,17 +268,17 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       {/** @description <NavigationTop /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
         {TopBarChatCardsElement}
-        {!isMainColumnBlank && MainColumnTopBars}
+        {MainColumnTopBars}
       </LayoutOfRow>
       {/** @description <MainContent /> */}
       <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
         {ChatCardsElement}
-        {!isMainColumnBlank && ChatSpaceElement}
+        {ChatSpaceElement}
       </LayoutOfRow>
       {/** @description <NavigationBottom /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
         {null}
-        {!isMainColumnBlank && ChatInputElement}
+        {ChatInputElement}
       </LayoutOfRow>
     </LayoutScreen>
   )

@@ -15,12 +15,13 @@ const LayoutScreenComponent: LayoutScreenType = props => {
       layoutMainContent: {},
       layoutNavigationBottom: {},
     },
+    isActive,
     children,
   } = props
 
   const propsOut: LayoutScreenPropsOutType = {}
 
-  return (
+  return isActive ? (
     <SafeAreaView
       style={[style.LayoutScreen, styleProps.LayoutScreen]}
       testID='LayoutScreenPageChats'
@@ -48,6 +49,8 @@ const LayoutScreenComponent: LayoutScreenType = props => {
         {children[2]}
       </View>
     </SafeAreaView>
+  ) : (
+    <></>
   )
 }
 
