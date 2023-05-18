@@ -27,14 +27,19 @@ const ChatCardsComponent: ChatCardsType = props => {
   const { urlParam1, urlParam2 } = urlParams
 
   const {
-    globalVars: { idProfileActive },
+    globalVars: { idProfileHost, idProfileActive },
     profiles,
   } = store
 
   const style = styles[deviceType]
 
   const getChatCards = (profilesIn: ProfileType[]): ReactElement[] => {
-    return profilesIn.map((profile: ProfileType, index: number) => {
+    const profiles = profilesIn.filter((profile: ProfileType) => {
+      const { idProfile } = profile
+      return idProfile !== '0' && idProfile !== idProfileHost
+    })
+
+    return profiles.map((profile: ProfileType, index: number) => {
       const propsOut: Record<string, any> = {
         chatCardProps: {
           key: `chatCard-${index}`,

@@ -5,6 +5,7 @@ import { actionSync } from '../../DataLayer/index.action'
 import { DeviceType } from '../../YrlNativeViewLibrary'
 import { getSetStoreScenario } from '../../Shared/getSetStoreScenario'
 import { getRedirected } from '../../Shared/getRedirected'
+import { HOST_NAME } from '../../Constants/hostname.const'
 
 const { dispatch, getState } = store
 
@@ -59,7 +60,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     redirectPathname,
   } = getSetStoreScenario({
     profiles,
-    hostname: window.location.hostname, // 'r1.userto.com'
+    hostname: HOST_NAME,
     urlParam1,
     urlParam2,
     urlParam3,
@@ -77,6 +78,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   getRedirected(redirectPathname, { replace: true })
 
   if (idProfile === idProfileNext) return
+
   dispatch(
     actionSync.SET_ID_PROFILE_ACTIVE({
       idProfileActive: idProfileNext,

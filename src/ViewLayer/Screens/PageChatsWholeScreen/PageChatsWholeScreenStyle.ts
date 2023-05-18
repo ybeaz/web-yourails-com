@@ -17,7 +17,16 @@ export const stylesDefault = StyleSheet.create({
     // borderLeftWidth: 1,
   },
   leftColumnTopBars: {
+    display: 'flex',
+    // flex: 1,
     paddingTop: '0.75rem',
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+  },
+  mainColumnTopBars: {
+    display: 'flex',
+    height: '100%',
+    flexDirection: 'column',
   },
   leftColumnChatCardSpace: {
     flexDirection: 'column',
@@ -25,7 +34,7 @@ export const stylesDefault = StyleSheet.create({
     overflow: 'scroll',
   },
 
-  LayoutOfRow: {
+  layoutOfRow: {
     display: 'flex',
     flex: 1,
     flexDirection: 'row',
@@ -37,11 +46,11 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'row',
   },
   mainColumn: {
+    display: 'flex',
     flex: 3,
     flexGrow: 3,
     flexDirection: 'column',
   },
-  mainColumnTopBars: {},
   mainColumnTopBar: {},
   mainColumnContentMenu: {},
   scrollViewWrapper: {},
@@ -77,8 +86,8 @@ const mdDevice = StyleSheet.create({
 
 const lgDevice = StyleSheet.create({
   ...stylesDefault,
-  LayoutOfRow: {
-    ...stylesDefault.LayoutOfRow,
+  layoutOfRow: {
+    ...stylesDefault.layoutOfRow,
     marginRight: '7.5%',
     marginLeft: '7.5%',
   },
@@ -86,8 +95,8 @@ const lgDevice = StyleSheet.create({
 
 const xlDevice = StyleSheet.create({
   ...stylesDefault,
-  LayoutOfRow: {
-    ...stylesDefault.LayoutOfRow,
+  layoutOfRow: {
+    ...stylesDefault.layoutOfRow,
     marginRight: '7.5%',
     marginLeft: '7.5%',
   },

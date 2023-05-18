@@ -14,6 +14,7 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'column',
   },
   mainColumn: {
+    display: 'flex',
     flex: 3,
     flexGrow: 3,
     flexDirection: 'column',

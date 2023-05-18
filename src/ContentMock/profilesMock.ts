@@ -2,6 +2,20 @@ import { ProfileType } from '../@types/ProfileType'
 
 export const profiles: ProfileType[] = [
   {
+    idProfile: '0',
+    idUser: '0',
+    profileName: '@',
+    nameFirst: '',
+    nameLast: '',
+    uriAvatar: '',
+    phones: [],
+    emails: [],
+    messengers: [],
+    locations: [],
+    serviceSpecs: [],
+    summary: '',
+  },
+  {
     idProfile: '1',
     idUser: '1',
     profileName: '@rome',

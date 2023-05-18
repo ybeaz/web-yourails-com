@@ -51,6 +51,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
     urlParam1,
     urlParam2,
   })
+
   const { uriAvatar, serviceSpecs } = profileActive
 
   const isButtonBackTopBarMainColumn =
