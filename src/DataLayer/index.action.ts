@@ -25,7 +25,7 @@ const ACTIONS_SYNC: string[] = [
 ]
 
 /** @description Asynchroneous actions for saga */
-const ACTION_ASYNC: string[] = ['TEMPLATE_ASYNC']
+const ACTION_ASYNC: string[] = ['TEMPLATE_ASYNC', 'INIT_LOADING_ASYNC']
 
 export const actionSync: CreateSyncAction = createSyncActions(ACTIONS_SYNC)
 export const actionAsync: CreateAsyncAction = createAsyncAction(ACTION_ASYNC)
