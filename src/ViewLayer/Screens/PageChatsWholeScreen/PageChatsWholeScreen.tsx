@@ -276,10 +276,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         {ChatSpaceElement}
       </LayoutOfRow>
       {/** @description <NavigationBottom /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
-        {null}
-        {ChatInputElement}
-      </LayoutOfRow>
+      {!isShowModalFrame && (
+        <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
+          {null}
+          {ChatInputElement}
+        </LayoutOfRow>
+      )}
     </LayoutScreen>
   )
 }
