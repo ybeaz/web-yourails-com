@@ -5,9 +5,5 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 const { dispatch, getState } = store
 
 export const ADD_PROJECTS: ActionEventType = (event, data) => {
-  dispatch(
-    actionSync.ADD_PROJECTS({
-      projects: data.projects,
-    })
-  )
+  dispatch(actionAsync.ADD_PROJECTS_ASYNC.REQUEST({}))
 }

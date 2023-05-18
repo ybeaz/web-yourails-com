@@ -27,9 +27,6 @@ import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 
-import { profiles as profilesIn } from '../../../ContentMock/profilesMock'
-import { sectionsMapping as sectionsMappingIn } from '../../../ContentMock/sectionsMappingMock'
-
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
     styleProps = { PageChatsWholeScreen: {} },
@@ -67,25 +64,17 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const sectionsMappingForProfile: SectionMappingType[] =
     getSectionsMappingForProfile(sectionsMapping, profileNameChat)
 
-  const initDataIdentifier = JSON.stringify({
-    profilesIn,
-    sectionsMappingIn,
-  })
-
-  useEffect(() => {
-    handleEvents.ADD_PROFILES({}, { profiles: profilesIn })
-    handleEvents.ADD_SECTIONS_MAPPING(
-      {},
-      { sectionsMapping: sectionsMappingIn }
-    )
-  }, [initDataIdentifier])
-
   const urlParamsMediaIdentifier = JSON.stringify({
     urlParam1,
     urlParam2,
     urlParam3,
     deviceType,
+    sectionsMappingForProfile,
   })
+
+  useEffect(() => {
+    handleEvents.INIT_LOADING({}, {})
+  }, [])
 
   useEffect(() => {
     handleEvents.SET_STORE_SCENARIO(
@@ -271,8 +260,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       )}
     </>
   )
-
-  console.info('PageChatsWholeScreen [399]', { store })
 
   return (
     <LayoutScreen {...propsOut.layoutScreenProps}>

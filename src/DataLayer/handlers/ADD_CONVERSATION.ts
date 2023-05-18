@@ -4,10 +4,7 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 
 const { dispatch, getState } = store
 
-export const ADD_PROFILES: ActionEventType = (event, data) => {
-  dispatch(
-    actionSync.ADD_PROFILES({
-      profiles: data.profiles,
-    })
-  )
+export const ADD_CONVERSATION: ActionEventType = (event, data) => {
+  /** @todo Add a specific conversation */
+  dispatch(actionAsync.ADD_CONVERSATION_ASYNC.REQUEST({}))
 }

@@ -1333,6 +1333,54 @@ useCallback: optimizes the performance of a functional component by memoizing a 
 
   {
     idProfile: '1',
+    title: 'React Navigation',
+    contentType: ContentType['CompetencyTagType'],
+    section: 'Front-end',
+    linkHref: 'https://reactnavigation.org/docs/navigation-container/',
+    iconLibrary: 'Ionicons',
+    iconName: 'logo-react',
+    tooltips:
+      "\
+• NavigationContainer is responsible for managing your app state and linking your top-level navigator\n\
+• ServerContainer component provides utilities to render your app on server with the correct navigation state\n\
+• Group components are used to group several screens inside a navigator.\n\
+• Screen components are used to configure various aspects of screens inside a navigator.\n\
+• Options prop on Screen\n\
+• Route Screen prop contains various information regarding current route\n\
+• Navigation Screen prop contains various convenience functions to dispatch navigation actions:\n\
+    - navigate - go to another screen, figures out the action it needs to take to do it\n\
+    - reset - wipe the navigator state and replace it with a new route\n\
+    - goBack - close active screen and move back in the stack\n\
+    - setParams - make changes to route's params\n\
+    - dispatch - send an action object to update the navigation state\n\
+    - setOptions - update the screen's options\n\
+    - isFocused - check whether the screen is focused\n\
+    - addListener - subscribe to updates to events from the navigators\n\
+• NavigationContext provides the navigation object (same object as the navigation prop)\n\
+• Navigation events to listen to various events emitted by React Navigation to get notified of certain events\n\
+• Navigation state to store the navigation structure and history of the app\n\
+• Link component renders a component that can navigate to a screen on press\n\
+• Hooks\n\
+    - useNavigation\n\
+    - useRoute\n\
+    - useNavigationState\n\
+    - useFocusEffect\n\
+    - useIsFocused\n\
+    - useLinkTo\n\
+    - useLinkProps\n\
+    - useLinkBuilder\n\
+    - useScrollToTop\n\
+    - useTheme\n\
+• Actions\n\
+    - CommonActions\n\
+    - StackActions\n\
+    - DrawerActions\n\
+    - TabActions\n\
+",
+  },
+
+  {
+    idProfile: '1',
     title: 'React-router 6',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -1794,12 +1842,16 @@ Type Checking JavaScript Files",
     tooltips:
       "\
 ✔ API Gateway - A fully managed service that makes it easy for developers to create, publish, maintain, monitor, and secure APIs at any scale.\n\
-✔ CloudFront - A fast content delivery network (CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency.\n\
+✔ AppSync is a fully managed service that simplifies the development of serverless GraphQL APIs for web and mobile applications.\n\
+✔ CloudFront - A fast content delivery network(CDN) service that securely delivers data, videos, applications, and APIs to customers globally with low latency.\n\
 ✔ CloudWatch - A monitoring and observability service for resources and applications.\n\
-✔ Cognito - A fully managed service that provides user sign-up, sign-in, and access control to web and mobile apps.\n\
 ✔ CodePipeline - A fully managed continuous integration and continuous delivery service.\n\
+✔ Cognito - A fully managed service that provides user sign-up, sign-in, and access control to web and mobile apps.\n\
 ✔ DynamoDB - A fully-managed NoSQL database service that provides fast and predictable performance with seamless scalability.\n\
 ✔ Identity and Access Management (IAM) - A web service that helps you securely control access to resources for your users.\n\
+✔ Kinesis - A platform for streaming data on the cloud, which can be used for real-time data processing and analysis.\n\
+    - Kinesis Data Streams: gives control over the ingestion and processing, retains data of 24 hours up to 7 days, partitions the data into shards, requires a processing applications\n\
+    - Kinesis Data Firehose: fully managed service, doesn't store data, delivers data near real-time, focuses on the destination and data transformation\n\
 ✔ Lambda - A serverless compute service that lets you run code without provisioning or managing servers.\n\
 ✔ Simple Storage Service (S3) - Object storage service that offers industry-leading scalability, data availability, security, and performance.\n\
 • Batch - A fully - managed batch processing service that enables developers, scientists, and engineers to easily and efficiently run batch computing workloads of any scale.\n\
@@ -1813,7 +1865,6 @@ Type Checking JavaScript Files",
 • Elastic MapReduce (EMR) - A web service that makes it easy to process large amounts of data using Hadoop, Spark, and other big data tools.\n\
 • Glue - A fully-managed extract, transform, and load (ETL) service that makes it easy to move data between data stores.\n\
 • IoT - A managed cloud platform that lets connected devices easily and securely interact with cloud applications and other devices.\n\
-• Kinesis - A platform for streaming data on the cloud, which can be used for real-time data processing and analysis.\n\
 • Neptune - A fully managed graph database service that enables you to build and run applications that work with highly connected datasets.\n\
 • Redshift - A fully managed, petabyte - scale data warehouse service in the cloud.\n\
 • Relational Database Service (RDS) - A managed service that makes it easier to set up, operate, and scale a relational database in the cloud.\n\
@@ -1994,21 +2045,22 @@ GraphQL is a query language and runtime for APIs with functional notation\n\
     iconName: '',
     tooltips:
       '\
-ARP (Address Resolution Protocol): Maps a network address (such as an IP address) to a physical address (such as a MAC address).\n\
+📩 HTTP (Hypertext Transfer Protocol): Used for transferring web content (such as HTML pages) between a client and server over a network.\n\
+📩 HTTPS (Hypertext Transfer Protocol Secure): A secure version of HTTP that encrypts data sent between a client and server using SSL/TLS protocols.\n\
+📩 HTTP long polling: The client sends an HTTP request to the server, the server keeps the request open until the server has new data to send or an event occurs (seconds, several minutes). The client then processes the response and immediately sends another request to keep the connection open for future updates.\n\
+📩 WebSocket protocol: Used for for real-time bidirectional connection, provides full-duplex communication channels over a single TCP connection.\n\
+📩 MQTT(Message Queuing Telemetry Transport): A lightweight messaging protocol used for machine - to - machine communication, IoT devices, and mobile applications.\n\
+📩 Signal Protocol: An end-to-end encryption protocol used by Signal messaging app and other messaging apps that support it, providing secure messaging and voice/video calls.\n\
+📩 XMPP (Extensible Messaging and Presence Protocol): An open-source protocol used for instant messaging and presence information, also used by some IoT devices and mobile applications.\n\
+ARP(Address Resolution Protocol): Maps a network address(such as an IP address) to a physical address(such as a MAC address).\n\
 DHCP (Dynamic Host Configuration Protocol): Dynamically assigns IP addresses to devices on a network.\n\
 DNS (Domain Name System): Translates domain names into IP addresses, allowing devices to access websites and other network resources.\n\
 FTP (File Transfer Protocol): Used for transferring files between a client and server over a network.\n\
-HTTP (Hypertext Transfer Protocol): Used for transferring web content (such as HTML pages) between a client and server over a network.\n\
-📩 HTTP long polling: A technique that uses regular HTTP requests to simulate real-time streaming of data from a server to a client.\n\
-HTTPS (Hypertext Transfer Protocol Secure): A secure version of HTTP that encrypts data sent between a client and server using SSL/TLS protocols.\n\
 ICMP (Internet Control Message Protocol): Used for reporting errors and status information about network connections.\n\
 IMAP (Internet Message Access Protocol): Used for accessing and retrieving email messages from a mail server.\n\
 IP (Internet Protocol): Provides the basic addressing and routing information for all data transmitted over the internet.\n\
-📩 MQTT (Message Queuing Telemetry Transport): A lightweight messaging protocol used for machine-to-machine communication, IoT devices, and mobile applications.\n\
-📩 MTProto (Mobile Transport Protocol): A proprietary messaging protocol used by Telegram for secure messaging and media transfer.\n\
 POP3 (Post Office Protocol version 3): Used for retrieving email messages from a mail server.\n\
 RTP (Real-time Transport Protocol): Used for streaming audio and video over the internet in real-time.\n\
-📩 Signal Protocol: An end-to-end encryption protocol used by Signal messaging app and other messaging apps that support it, providing secure messaging and voice/video calls.\n\
 SIP (Session Initiation Protocol): Used for establishing and managing multimedia communication sessions, such as voice and video calls, over IP networks.\n\
 SMTP (Simple Mail Transfer Protocol): Used for sending email messages between mail servers.\n\
 SNMP (Simple Network Management Protocol): Used for managing and monitoring network devices, such as routers and switches.\n\
@@ -2016,7 +2068,7 @@ SSH (Secure Shell): Provides secure remote access to a server over an unsecured 
 TCP (Transmission Control Protocol): Provides reliable and ordered delivery of data between two endpoints over a network.\n\
 TLS/SSL (Transport Layer Security/Secure Sockets Layer): Encryption protocols used to secure data sent over the internet.\n\
 UDP (User Datagram Protocol): Provides a connectionless and unreliable transport service for sending datagrams over a network.\n\
-📩 XMPP (Extensible Messaging and Presence Protocol): An open-source protocol used for instant messaging and presence information, also used by some IoT devices and mobile applications.',
+',
   },
 
   {

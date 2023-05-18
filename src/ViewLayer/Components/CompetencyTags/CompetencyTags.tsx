@@ -12,8 +12,6 @@ import { TagProperty } from '../TagProperty/TagProperty'
 import { CompetencyTagsType } from './CompetencyTagsType'
 import { style } from './CompetencyTagsStyle'
 
-import { competencyTags as competencyTagsIn } from '../../../ContentMock/competencyTagsMock'
-
 /**
  * @import import { CompetencyTags } from '../Components/CompetencyTags/CompetencyTags'
  */
@@ -27,8 +25,8 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   } = store
 
   useEffect(() => {
-    handleEvents.ADD_COMPETENCY_TAGS({}, { competencyTags: competencyTagsIn })
-  }, [competencyTagsIn])
+    handleEvents.ADD_COMPETENCY_TAGS({}, {})
+  }, [])
 
   const competencyTagsUserHost = getFilteredObjsArrayBy(
     competencyTags,
