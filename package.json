@@ -161,6 +161,7 @@
     "resolve": "1.18.1",
     "rimraf": "^3.0.2",
     "semver": "7.3.2",
+    "socket.io-client": "^4.6.1",
     "stream-chat-react-native": "^5.11.2",
     "ts-jest": "^29.1.0",
     "ts-pnp": "1.2.0",
