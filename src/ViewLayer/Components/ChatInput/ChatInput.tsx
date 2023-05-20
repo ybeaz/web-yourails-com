@@ -2,11 +2,12 @@ import React from 'react'
 import { View } from 'react-native'
 
 import {
+  ButtonYrl,
+  IconYrl,
   withStoreStateYrl,
   InputTextYrl,
   withPropsYrl,
 } from '../../../YrlNativeViewLibrary'
-import { IconYrl } from '../../../YrlNativeViewLibrary'
 import { ChatInputType } from './ChatInputType'
 import { style } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
@@ -40,6 +41,13 @@ const ChatInputComponent: ChatInputType = props => {
       placeholderTextColor: '#a2acb4',
       value: idProfileActive ? inputChat[idProfileActive] : '',
     },
+    sendButtonYrlProps: {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: '',
+      testID: 'ButtonYrl',
+      disabled: false,
+      onPress: () => handleEvents.CLICK_ON_SEND_MESSAGE({}, {}),
+    },
     sendIconYrlProps: {
       library: 'Ionicons',
       name: 'send',
@@ -55,7 +63,9 @@ const ChatInputComponent: ChatInputType = props => {
       <View style={[style.inputButton]} testID='ChatInput_inputButton'>
         <InputTextYrl {...propsOut.inputTextYrlProps} />
         <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
-          <IconYrl {...propsOut.sendIconYrlProps} />
+          <ButtonYrl {...propsOut.sendButtonYrlProps}>
+            <IconYrl {...propsOut.sendIconYrlProps} />
+          </ButtonYrl>
         </View>
       </View>
     </View>

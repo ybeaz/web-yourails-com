@@ -1,4 +1,5 @@
 import { TEMPLATE } from './handlers/TEMPLATE'
+import { CLICK_ON_SEND_MESSAGE } from './handlers/CLICK_ON_SEND_MESSAGE'
 import { INIT_LOADING } from './handlers/INIT_LOADING'
 import { ADD_CONVERSATION } from './handlers/ADD_CONVERSATION'
 import { ADD_PROJECTS } from './handlers/ADD_PROJECTS'
@@ -20,6 +21,7 @@ export type HandleEventsType = Record<string, (arg1: any, arg2: any) => any>
 
 export const handleEvents: HandleEventsType = {
   TEMPLATE,
+  CLICK_ON_SEND_MESSAGE,
   INIT_LOADING,
   ADD_CONVERSATION,
   ADD_PROJECTS,
