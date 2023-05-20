@@ -52,7 +52,6 @@ export const withParamsMediaYrl: WithParamsMediaYrlType = function (Component) {
     const [urlParamsSearch] = useSearchParams()
     const mediaParams: MediaParamsDefaultType = useMediaQueryResYrl()
     const propsNext = { ...props, mediaParams, urlParams, urlParamsSearch }
-
     return <Component {...propsNext} />
   }
 }
