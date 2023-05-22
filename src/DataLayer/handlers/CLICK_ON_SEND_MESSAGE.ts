@@ -2,14 +2,18 @@ import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 
-const { dispatch } = store
+import { socket } from '../../CommunicationLayer/socketio/socketio'
+
+const { dispatch, getState } = store
 
 export const CLICK_ON_SEND_MESSAGE: ActionEventType = (event, data) => {
-  console.info('CLICK_ON_SEND_MESSAGE [9]', { data })
+  const { idProfileActive } = data
 
-  // dispatch(
-  //   actionAsync.CLICK_ON_SEND_MESSAGE_ASYNC.REQUEST({
-  //     id: data.id,
-  //   })
-  // )
+  const {
+    forms: { inputChat },
+  } = getState()
+
+  socket.emit('chatMessage', inputChat[idProfileActive])
+
+  dispatch(actionSync.SET_INPUT_CHAT({ idProfileActive, text: '' }))
 }

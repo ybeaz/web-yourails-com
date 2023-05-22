@@ -26,6 +26,10 @@ import { styles } from './PageChatsWholeScreenStyle'
 import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
+import { getSocketOnConversation } from '../../../CommunicationLayer/socketio/getSocketOnConversation'
+import { getSocketDisconnected } from '../../../CommunicationLayer/socketio/getSocketDisconnected'
+
+getSocketOnConversation()
 
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
@@ -74,6 +78,14 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   useEffect(() => {
     handleEvents.INIT_LOADING({}, {})
+
+    /** @description Add the 'beforeunload' event listener to gracefully disconnect when reloading the page */
+    window.addEventListener('beforeunload', getSocketDisconnected)
+
+    /** @description Clean up the event listener when the component unmounts */
+    return () => {
+      window.removeEventListener('beforeunload', getSocketDisconnected)
+    }
   }, [])
 
   useEffect(() => {

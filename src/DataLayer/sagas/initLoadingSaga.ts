@@ -1,4 +1,4 @@
-import { takeLatest, takeEvery, put, select } from 'redux-saga/effects'
+import { delay, call, takeEvery, put, select } from 'redux-saga/effects'
 
 import { ProfileType } from '../../@types/ProfileType'
 import {
@@ -9,14 +9,10 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { templateConnectorAxios } from '../../CommunicationLayer/template.connector'
 import { profiles as profilesIn } from '../../ContentMock/profilesMock'
 import { sectionsMapping } from '../../ContentMock/sectionsMappingMock'
-import {
-  socketEmitJoinConversation,
-  socketOnConversation,
-} from '../../CommunicationLayer/socketio/socketio'
+import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio/getSocketEmitJoinConversation'
+import { getJoinedConversation } from '../../Shared/getJoinedConversation'
 // import { GetRecipeDocument } from '../../types/graphql'
 // import { apolloClient } from '../../CommunicationLayer/clients/apolloClient'
-
-socketOnConversation()
 
 function* initLoading(input: any) {
   const { data } = input
@@ -41,26 +37,14 @@ function* initLoading(input: any) {
       OperatorType['===']
     )[0] as ProfileType
 
-    if (profileHost.profileName) {
-      profiles.forEach((profile: ProfileType) => {
-        if (
-          profileHost.profileName &&
-          profile.profileName &&
-          profile.profileName !== '@' &&
-          profileHost.profileName !== profile.profileName
-        ) {
-          console.info('initLoadingSaga [52]', {
-            'profile.profileName': profile.profileName,
-          })
-          socketEmitJoinConversation(
-            profileHost.profileName,
-            profile.profileName
-          )
-        }
-      })
+    const getJoinedConversationProps = {
+      profilesIn,
+      profileHostIn: profileHost,
+      getSocketEmitJoinConversationIn: getSocketEmitJoinConversation,
     }
-  } catch (error) {
-    const err: any = error
+    yield call(getJoinedConversation, getJoinedConversationProps)
+  } catch (error: any) {
+    console.log('initLoadingSaga [81]', { message: error.message })
   }
 }
 

@@ -46,7 +46,8 @@ const ChatInputComponent: ChatInputType = props => {
       titleText: '',
       testID: 'ButtonYrl',
       disabled: false,
-      onPress: () => handleEvents.CLICK_ON_SEND_MESSAGE({}, {}),
+      onPress: () =>
+        handleEvents.CLICK_ON_SEND_MESSAGE({}, { idProfileActive }),
     },
     sendIconYrlProps: {
       library: 'Ionicons',
