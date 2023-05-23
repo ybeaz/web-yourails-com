@@ -28,8 +28,10 @@ import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCard
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 import { getSocketOnConversation } from '../../../CommunicationLayer/socketio/getSocketOnConversation'
 import { getSocketDisconnected } from '../../../CommunicationLayer/socketio/getSocketDisconnected'
+import { getSocketOnMessage } from '../../../CommunicationLayer/socketio/getSocketOnMessage'
 
 getSocketOnConversation()
+getSocketOnMessage()
 
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
