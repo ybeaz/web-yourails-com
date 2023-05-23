@@ -262,6 +262,55 @@ Polymorphism manifests itself by having multiple methods all with the same name,
 
   {
     idProfile: '1',
+    title: 'Programming Principles',
+    contentType: ContentType['CompetencyTagType'],
+    section: 'Best Practices and Methodologies',
+    linkHref: 'https://en.wikipedia.org/wiki/Category:Programming_principles',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips:
+      "Practival Principles of Programming\n\
+★ ASID for reliable transaction processing in database systems:\n\
+    - Atomicity: Atomicity guarantees that a transaction is treated as a single indivisible unit of work.\n\
+    - Consistency: Consistency ensures that a transaction brings the database from one valid state to another\n\
+    - Isolation: Each transaction must be executed as if it were the only transaction executing in the system\n\
+    - Durability: Durability ensures that once a transaction is committed, its effects persist if system failures\n\
+★ DRY (Don't Repeat Yourself):\n\
+    - avoidance of duplicating code or logic in a system\n\
+    - every piece of knowledge or functionality should have a single, unambiguous representation\n\
+    - emphasis on the code reusability, maintainability, and reducing redundancy\n\
+★ SCRIPT: Self-documenting Code, Readability, Intelligibility (for AI), Program structure, Tidiness\n\
+    - Self-documenting Code: Use meaningful names, consistent conventions, and\n\
+          logical organization reduces the need for excessive comments.\n\
+    - Readability: Prioritize readable patterns and\n\
+          and clear syntax makes the code easier to understand.\n\
+    - Intelligibility (for AI): Make the code understandable and\n\
+          for artificial intelligence systems enables automated analysis and comprehension.\n\
+    - Program Structure: Organize code into logical components (modules, classes) and\n\
+          and maintaine a single level of abstraction to enhance maintainability and reusability.\n\
+    - Tidiness: Applye consistent formatting, adhering to a coding style, and\n\
+          avoide repetition and duplication create clean and efficient code.\n\
+★ SLAP: Single Level of Abstraction Principle\n\
+★ SOLID for creating software that is easier to understand, maintain, and extend: \n\
+    - Single responsibility principle:\n\
+          a class should have only a single responsibility\n\
+          (i.e. changes to only one part of the software's\n\
+          specification should be able to affect the specification of the class),\n\
+    - Open/closed principle:\n\
+          classes should be open for extension, but closed for modification.\n\
+    - Liskov substitution principle:\n\
+          objects in a program should be replaceable with instances of their subtypes without altering\n\
+          the correctness of that program.\n\
+    - Interface segregation principle:\n\
+          many client-specific interfaces are better than one general-purpose interface.\n\
+    - Dependency inversion principle:\n\
+          one should depend upon abstractions, [not] concretions.\n\
+★ YAGNI is actually the longest acronym on this list. You Aren't Gonna Need It\n\
+",
+  },
+
+  {
+    idProfile: '1',
     title: 'Scrum',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
@@ -346,30 +395,6 @@ Test-driven development (TDD):\n\
 4. Test automation: TDD requires automated tests to be written, which can be run continuously to ensure that the codebase remains stable and meets the expected behavior.\n\
 5. Code coverage: TDD emphasizes achieving high code coverage, meaning that as much of the codebase as possible is covered by automated tests.\n\
 6. Integration with development tools: TDD requires integration with development tools, such as continuous integration (CI) systems, to automate the process of running tests and providing feedback to developers.',
-  },
-
-  {
-    idProfile: '1',
-    title: 'SOLID',
-    contentType: ContentType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
-    linkHref: 'https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)',
-    iconLibrary: 'Ionicons',
-    iconName: '',
-    tooltips:
-      "\
-* Single responsibility principle:\t\
-a class should have only a single responsibility (i.e. changes to only one part of the software's \
-specification should be able to affect the specification of the class), \n\
-* Open/closed principle\t\
-classes should be open for extension, but closed for modification.\n\
-* Liskov substitution principle\t\
-objects in a program should be replaceable with instances of their subtypes without altering \
-the correctness of that program. \n\
-* Interface segregation principle\t\
-many client-specific interfaces are better than one general-purpose interface. \n\
-* Dependency inversion principle\t\
-one should depend upon abstractions, [not] concretions.",
   },
 
   {
