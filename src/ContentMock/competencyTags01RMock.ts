@@ -280,16 +280,18 @@ Polymorphism manifests itself by having multiple methods all with the same name,
     - every piece of knowledge or functionality should have a single, unambiguous representation\n\
     - emphasis on the code reusability, maintainability, and reducing redundancy\n\
 ★ SCRIPT: Self-documenting Code, Readability, Intelligibility (for AI), Program structure, Tidiness\n\
-    - Self-documenting Code: Use meaningful names, consistent conventions, and\n\
-          logical organization reduces the need for excessive comments.\n\
-    - Readability: Prioritize readable patterns and\n\
-          and clear syntax makes the code easier to understand.\n\
-    - Intelligibility (for AI): Make the code understandable and\n\
-          for artificial intelligence systems enables automated analysis and comprehension.\n\
-    - Program Structure: Organize code into logical components (modules, classes) and\n\
-          and maintaine a single level of abstraction to enhance maintainability and reusability.\n\
-    - Tidiness: Applye consistent formatting, adhering to a coding style, and\n\
-          avoide repetition and duplication create clean and efficient code.\n\
+              to make the code easier to understand\n\
+              to enable automated analysis and development\n\
+              to reduce the need for excessive comments.\n\
+              to enhance maintainability and reusability\n\
+              to create clean and consise code\n\
+    - Self-documenting Code: Use meaningful names and logical organization\n\
+    - Readability: Prioritize readable patterns and clear syntax\n\
+    - Intelligibility (for AI): Make the code understandable for artificial intelligence\n\
+    - Program Structure: Organize code into logical components (modules, classes),\n\
+          maintaine a single level of abstraction and opt composition over inheritance\n\
+    - Tidiness: Apply consistent formatting, adhering to a coding style, and\n\
+          avoide repetition and duplication.\n\
 ★ SLAP: Single Level of Abstraction Principle\n\
 ★ SOLID for creating software that is easier to understand, maintain, and extend: \n\
     - Single responsibility principle:\n\
