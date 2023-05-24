@@ -1,4 +1,3 @@
-import { conversations } from '../__mocks__/conversationsMock'
 import { messages } from '../__mocks__/messagesMock'
 
 import { getMessagesWithProfileActive } from '../getMessagesWithProfileActive'
@@ -12,7 +11,6 @@ describe('Test function getMessagesWithProfileActive', () => {
       {
         isActive: true,
         input: {
-          conversations,
           messages,
           idProfileHost: '3',
           idProfileActive: '2',
@@ -79,7 +77,6 @@ describe('Test function getMessagesWithProfileActive', () => {
       {
         isActive: true,
         input: {
-          conversations,
           messages,
           idProfileHost: '2',
           idProfileActive: '3',
@@ -146,7 +143,6 @@ describe('Test function getMessagesWithProfileActive', () => {
       {
         isActive: true,
         input: {
-          conversations,
           messages,
           idProfileHost: '1',
           idProfileActive: '4',
@@ -227,7 +223,6 @@ describe('Test function getMessagesWithProfileActive', () => {
       {
         isActive: true,
         input: {
-          conversations,
           messages,
           idProfileHost: '1',
           idProfileActive: '1',
@@ -237,7 +232,6 @@ describe('Test function getMessagesWithProfileActive', () => {
       {
         isActive: true,
         input: {
-          conversations,
           messages,
           idProfileHost: '1',
           idProfileActive: '9999',
@@ -247,7 +241,6 @@ describe('Test function getMessagesWithProfileActive', () => {
       {
         isActive: true,
         input: {
-          conversations,
           messages,
           idProfileHost: '1',
           idProfileActive: undefined,
@@ -257,7 +250,6 @@ describe('Test function getMessagesWithProfileActive', () => {
       {
         isActive: true,
         input: {
-          conversations,
           messages,
           idProfileHost: undefined,
           idProfileActive: '4',
@@ -267,7 +259,6 @@ describe('Test function getMessagesWithProfileActive', () => {
       {
         isActive: true,
         input: {
-          conversations,
           messages,
           idProfileHost: undefined,
           idProfileActive: undefined,

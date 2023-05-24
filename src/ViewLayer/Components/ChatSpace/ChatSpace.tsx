@@ -50,7 +50,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     globalVars: { idProfileHost, idProfileActive },
     componentsState,
     profiles,
-    conversations,
     messages,
   } = store
 
@@ -65,7 +64,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   } = modalFrame
 
   useEffect(() => {
-    handleEvents.ADD_CONVERSATION({}, {})
+    handleEvents.ADD_MESSAGES({}, {})
   }, [])
 
   const profileActive: ProfileType = getProfileChat({
@@ -76,7 +75,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const getMessagesWithProfileActiveProps: GetMessagesWithProfileActivePropsType =
     {
-      conversations,
       messages,
       idProfileHost,
       idProfileActive,

@@ -16,7 +16,7 @@ interface GetFilteredObjsArrayByIdUserType {
 
 /**
  * @description Function to
- * @import import {getFilteredObjsArrayByIdUser, OperatorType } from '../../../Shared/getFilteredObjsArrayByIdUser'
+ * @import import {getFilteredObjsArrayBy, OperatorType } from '../../../Shared/getFilteredObjsArrayBy'
  */
 export const getFilteredObjsArrayBy: GetFilteredObjsArrayByIdUserType = (
   objsArr,

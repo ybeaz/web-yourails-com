@@ -1,6 +1,8 @@
 import { TEMPLATE } from './handlers/TEMPLATE'
+import { ON_MESSAGE_SOCKET } from './handlers/ON_MESSAGE_SOCKET'
+import { CLICK_ON_SEND_MESSAGE } from './handlers/CLICK_ON_SEND_MESSAGE'
 import { INIT_LOADING } from './handlers/INIT_LOADING'
-import { ADD_CONVERSATION } from './handlers/ADD_CONVERSATION'
+import { ADD_MESSAGES } from './handlers/ADD_MESSAGES'
 import { ADD_PROJECTS } from './handlers/ADD_PROJECTS'
 import { ADD_COMPETENCY_TAGS } from './handlers/ADD_COMPETENCY_TAGS'
 import { ON_CHANGE_INPUT_SEARCH } from './handlers/ON_CHANGE_INPUT_SEARCH'
@@ -20,8 +22,10 @@ export type HandleEventsType = Record<string, (arg1: any, arg2: any) => any>
 
 export const handleEvents: HandleEventsType = {
   TEMPLATE,
+  ON_MESSAGE_SOCKET,
+  CLICK_ON_SEND_MESSAGE,
   INIT_LOADING,
-  ADD_CONVERSATION,
+  ADD_MESSAGES,
   ADD_PROJECTS,
   ADD_COMPETENCY_TAGS,
   ON_CHANGE_INPUT_SEARCH,

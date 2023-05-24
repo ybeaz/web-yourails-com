@@ -9,6 +9,14 @@ updated 2023-04-29 partially
 
 ## Plans
 
+2023-05-24 edition. One weeks sprint
+
+- Refactor ChatSpace to see if Conversations are really needed
+- Integrate Socket.io into Nest.js locally
+- Configure Nest.js to work with Socket.io remotely
+- Develop modal window with drop down menu for "Frequency" choice
+- Implement switching from one profileHost to another
+
 2023-04-29 edition. Two weeks sprint
 
 - - Provide route path to each modal view panel

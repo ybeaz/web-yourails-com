@@ -1,5 +1,11 @@
 import { getTemplate } from '../getTemplate'
 
+const consoleDirOptions = {
+  showHidden: true,
+  depth: null,
+  showPrototypes: true,
+}
+
 /**
  * @test yarn jest getTemplate.test
  */
@@ -18,7 +24,7 @@ describe('Test function getTemplate', () => {
       if (isActive) {
         const outputed = getTemplate()
 
-        console.info('getTemplat [21]', { outputed })
+        console.info('getTemplate [21]', { outputed })
 
         // expect(outputed).toEqual(expected)
       }
