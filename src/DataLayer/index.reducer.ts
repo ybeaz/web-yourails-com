@@ -4,7 +4,6 @@ import { ActionType } from '../@types/ActionType'
 import { TEMPLATE } from './reducers/TEMPLATE'
 import { ON_MESSAGE_SOCKET } from './reducers/ON_MESSAGE_SOCKET'
 import { ADD_MESSAGES } from './reducers/ADD_MESSAGES'
-import { ADD_CONVERSATIONS } from './reducers/ADD_CONVERSATIONS'
 import { ADD_PROJECTS } from './reducers/ADD_PROJECTS'
 import { ADD_COMPETENCY_TAGS } from './reducers/ADD_COMPETENCY_TAGS'
 import { ADD_SECTIONS_MAPPING } from './reducers/ADD_SECTIONS_MAPPING'
@@ -36,7 +35,6 @@ export const indexReducer: IndexReducerType = (
     TEMPLATE,
     ON_MESSAGE_SOCKET,
     ADD_MESSAGES,
-    ADD_CONVERSATIONS,
     ADD_PROJECTS,
     ADD_COMPETENCY_TAGS,
     ADD_SECTIONS_MAPPING,

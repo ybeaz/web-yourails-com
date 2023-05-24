@@ -79,7 +79,6 @@ export const rootStoreDefault: RootStoreType = {
   sectionsMapping: [],
   competencyTags: [],
   projects: [],
-  conversations: [],
   messages: [],
   forms: formsDefault,
   isLoaded: {

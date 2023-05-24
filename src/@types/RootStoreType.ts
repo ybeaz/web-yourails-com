@@ -4,7 +4,6 @@ import { IdUserType } from './UserType'
 import { SectionMappingType } from './SectionMappingType'
 import { CompetencyTagType } from './CompetencyTagType'
 import { ProjectType } from './ProjectType'
-import { ConversationType } from './ConversationType'
 
 export type ModalFrameType = {
   childName: string
@@ -36,7 +35,6 @@ export interface RootStoreType {
   sectionsMapping: SectionMappingType[]
   competencyTags: CompetencyTagType[]
   projects: ProjectType[]
-  conversations: ConversationType[]
   messages: Omit<MessageType, 'position' | 'isTail'>[]
   forms: FormsType | any
   isLoaded: {

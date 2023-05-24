@@ -6,7 +6,6 @@ import { ActionType } from '../@types/ActionType'
 const ACTIONS_SYNC: string[] = [
   'ON_MESSAGE_SOCKET',
   'ADD_MESSAGES',
-  'ADD_CONVERSATIONS',
   'ADD_PROJECTS',
   'ADD_COMPETENCY_TAGS',
   'ADD_SECTIONS_MAPPING',
@@ -31,7 +30,7 @@ const ACTION_ASYNC: string[] = [
   'ADD_COMPETENCY_TAGS_ASYNC',
   'ADD_PROJECTS_ASYNC',
   'INIT_LOADING_ASYNC',
-  'ADD_CONVERSATION_ASYNC',
+  'ADD_MESSAGES_ASYNC',
 ]
 
 export const actionSync: CreateSyncAction = createSyncActions(ACTIONS_SYNC)

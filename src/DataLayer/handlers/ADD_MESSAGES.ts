@@ -4,7 +4,7 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 
 const { dispatch, getState } = store
 
-export const ADD_CONVERSATION: ActionEventType = (event, data) => {
+export const ADD_MESSAGES: ActionEventType = (event, data) => {
   /** @todo Add a specific conversation */
-  dispatch(actionAsync.ADD_CONVERSATION_ASYNC.REQUEST({}))
+  dispatch(actionAsync.ADD_MESSAGES_ASYNC.REQUEST({}))
 }
