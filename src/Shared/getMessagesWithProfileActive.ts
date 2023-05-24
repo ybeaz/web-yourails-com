@@ -31,8 +31,8 @@ export const getMessagesWithProfileActive: GetMessagesWithProfileActiveType = ({
 }) => {
   if (!idProfileHost || !idProfileActive) return []
 
-  const conversationsWithProfileActive: ConversationType[] =
-    conversations.filter((conversation: ConversationType) => {
+  const conversationWithProfileActive: ConversationType | undefined =
+    conversations.find((conversation: ConversationType) => {
       const idsProfilesConversationSortedString = getSortedHashedStringifyArray(
         conversation.idsProfiles
       )
@@ -40,10 +40,6 @@ export const getMessagesWithProfileActive: GetMessagesWithProfileActiveType = ({
         idProfileHost,
         idProfileActive,
       ])
-
-      console.info('getMessagesWithProfileActive [44]', {
-        idsProfilesInputSortedString,
-      })
 
       return (
         idsProfilesConversationSortedString === idsProfilesInputSortedString
@@ -53,8 +49,7 @@ export const getMessagesWithProfileActive: GetMessagesWithProfileActiveType = ({
   const messagesWithProfileActive: MessageType[] = messages.filter(
     (message: any) => {
       return (
-        message.idConversation ===
-        conversationsWithProfileActive[0]?.idConversation
+        message.idConversation === conversationWithProfileActive?.idConversation
       )
     }
   )
