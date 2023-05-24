@@ -13,8 +13,7 @@ export const getSocketOnConversation: GetSocketOnConversationType = () => {
     socket.on('conversations', data => {
       const { conversation } = data
       const { profiles } = conversation
-      console.info('socketio [14]', { conversation, profiles })
-      // outputProfiles(profiles)
+      // console.info('socketio [14]', { conversation, profiles })
     })
   } catch (error: any) {
     console.log('socketio [19]', { message: error.message })

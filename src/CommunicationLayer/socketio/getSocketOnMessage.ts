@@ -1,4 +1,5 @@
 import { socket } from './socketio'
+import { handleEvents } from '../../DataLayer/index.handleEvents'
 
 interface GetSocketOnMessageType {
   (): void
@@ -11,6 +12,6 @@ interface GetSocketOnMessageType {
 export const getSocketOnMessage: GetSocketOnMessageType = () => {
   socket.on('message', message => {
     console.log(message)
-    // outputMessage(message)
+    handleEvents.ON_MESSAGE_SOCKET({}, { message })
   })
 }

@@ -2,6 +2,7 @@ import { RootStoreType } from '../@types/RootStoreType'
 import { ActionType } from '../@types/ActionType'
 
 import { TEMPLATE } from './reducers/TEMPLATE'
+import { ON_MESSAGE_SOCKET } from './reducers/ON_MESSAGE_SOCKET'
 import { ADD_MESSAGES } from './reducers/ADD_MESSAGES'
 import { ADD_CONVERSATIONS } from './reducers/ADD_CONVERSATIONS'
 import { ADD_PROJECTS } from './reducers/ADD_PROJECTS'
@@ -33,6 +34,7 @@ export const indexReducer: IndexReducerType = (
 
   const output = {
     TEMPLATE,
+    ON_MESSAGE_SOCKET,
     ADD_MESSAGES,
     ADD_CONVERSATIONS,
     ADD_PROJECTS,

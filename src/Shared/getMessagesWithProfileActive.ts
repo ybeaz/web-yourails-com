@@ -41,6 +41,10 @@ export const getMessagesWithProfileActive: GetMessagesWithProfileActiveType = ({
         idProfileActive,
       ])
 
+      console.info('getMessagesWithProfileActive [44]', {
+        idsProfilesInputSortedString,
+      })
+
       return (
         idsProfilesConversationSortedString === idsProfilesInputSortedString
       )
