@@ -14,9 +14,7 @@ import { getJoinedConversation } from '../../Shared/getJoinedConversation'
 // import { GetRecipeDocument } from '../../types/graphql'
 // import { apolloClient } from '../../CommunicationLayer/clients/apolloClient'
 
-function* initLoading(input: any) {
-  const { data } = input
-
+function* initLoading() {
   const { profiles: profilesPrev, sectionsMapping: sectionsMappingPrev } =
     yield select(store => store)
   if (profilesPrev.length && sectionsMappingPrev.length) return

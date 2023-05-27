@@ -1,10 +1,11 @@
 import * as React from 'react'
-import { SafeAreaView, TextInput } from 'react-native'
+import { SafeAreaView, TextInput, ReturnKeyTypeOptions } from 'react-native'
 import { InputTextYrlType } from './InputTextYrlType'
 import { InputTextYrlStyle as style } from './InputTextYrlStyle'
 
 /**
  * @import import { InputTextYrl, InputTextYrlPropsType } from './YrlNativeViewLibrary'
+ * @link https://stackoverflow.com/questions/35764782/identify-return-key-action-in-react-native
  * @propsOut 
   inputTextYrlProps: {
     styleProps: { InputTextYrl: {}, inputText: {} },
@@ -20,9 +21,10 @@ import { InputTextYrlStyle as style } from './InputTextYrlStyle'
 export const InputTextYrl: InputTextYrlType = props => {
   const {
     styleProps = { InputTextYrl: {}, inputText: {} },
-    multiline,
-    numberOfLines,
+    multiline = false,
+    numberOfLines = 3,
     onChangeText,
+    onSubmitEditing,
     placeholder,
     placeholderTextColor,
     testID = 'InputTextYrl',
@@ -40,9 +42,13 @@ export const InputTextYrl: InputTextYrlType = props => {
         multiline={multiline}
         numberOfLines={numberOfLines}
         onChangeText={onChangeText}
+        onSubmitEditing={onSubmitEditing}
         value={value}
         placeholder={placeholder}
         placeholderTextColor={placeholderTextColor}
+        returnKeyType='send'
+        autoFocus={true}
+        blurOnSubmit={true}
       />
     </SafeAreaView>
   )

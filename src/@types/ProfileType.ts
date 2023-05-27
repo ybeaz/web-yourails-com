@@ -9,18 +9,19 @@ export type MessengerType = {
  * @import import { ProfileType, MessengerType } from '../@types/ProfileType'
  */
 export interface ProfileType {
-  idProfile: string | number
-  idUser: IdUserType
+  idSocket?: string
+  idProfile?: string | number
+  idUser?: IdUserType
+  contacts?: string[]
+  emails?: string[]
+  locations?: string[]
+  messengers?: MessengerType[]
   nameFirst?: string
   nameLast?: string
-  uriAvatar?: string
-  profileName?: string
   phones?: (string | number | undefined)[]
-  emails?: string[]
-  messengers?: MessengerType[]
-  serviceSpecs?: string[]
-  locations?: string[]
-  contacts?: string[]
+  profileName?: string
   serviceSections?: []
-  summary: string
+  serviceSpecs?: string[]
+  summary?: string
+  uriAvatar?: string
 }
