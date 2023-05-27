@@ -25,6 +25,8 @@ const ChatInputComponent: ChatInputType = props => {
     inputTextYrlProps: {
       onChangeText: (text: string) =>
         handleEvents.ON_CHANGE_INPUT_CHAT({}, { idProfileActive, text }),
+      onSubmitEditing: () =>
+        handleEvents.CLICK_ON_SEND_MESSAGE({}, { idProfileActive }),
       styleProps: {
         InputTextYrl: style.InputTextYrl,
         inputText: {
@@ -36,10 +38,10 @@ const ChatInputComponent: ChatInputType = props => {
       },
       testID: 'ChatInput_InputTextYrl',
       multiline: true,
-      numberOfLines: 4,
+      numberOfLines: 3,
       placeholder: 'Message',
       placeholderTextColor: '#a2acb4',
-      value: idProfileActive ? inputChat[idProfileActive] : '',
+      value: (idProfileActive && inputChat[idProfileActive]) || '',
     },
     sendButtonYrlProps: {
       styleProps: { ButtonYrl: {}, title: {} },

@@ -27,3 +27,6 @@ export const SERVERS: IServer = {
 }
 
 export const URL_APP_BASE = 'https://futuralis.com'
+
+// export const SERVER_SOCKET_IO_HOST = 'http://localhost:3000'
+export const SERVER_SOCKET_IO_HOST = 'https://yourails.com'
