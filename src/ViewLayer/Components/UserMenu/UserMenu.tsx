@@ -59,41 +59,44 @@ const UserMenuComponent: UserMenuType = props => {
   const getUserMenuItems = (
     userMenuItemsIn: UserMenuItemType[]
   ): ReactElement[] => {
-    return userMenuItemsIn.map((userMenuItem: UserMenuItemType) => {
-      const { title, iconLibrary, iconName, color, onPress } = userMenuItem
+    return userMenuItemsIn.map(
+      (userMenuItem: UserMenuItemType, index: number) => {
+        const { title, iconLibrary, iconName, color, onPress } = userMenuItem
 
-      const propsOut = {
-        userMenuButtonYrlProps: {
-          styleProps: { ButtonYrl: {}, title: {} },
-          disabled: false,
-          onPress,
-          testID: 'userMenuButtonYrlProps',
-        },
-        userMenuIconYrlProps: {
-          library: iconLibrary,
-          name: iconName,
-          styleProps: { IconYrl: { paddingRight: '0.5rem' } },
-          size: 24,
-          color,
-          testID: 'userMenuIconYrlProps',
-        },
-        userMenuTextProps: {
-          styleProps: {
-            Text: { color },
+        const propsOut = {
+          userMenuButtonYrlProps: {
+            key: `userMenuItem-${index}`,
+            styleProps: { ButtonYrl: {}, title: {} },
+            disabled: false,
+            onPress,
+            testID: 'userMenuButtonYrlProps',
           },
-          testID: 'userMenuTextProps',
-        },
-      }
+          userMenuIconYrlProps: {
+            library: iconLibrary,
+            name: iconName,
+            styleProps: { IconYrl: { paddingRight: '0.5rem' } },
+            size: 24,
+            color,
+            testID: 'userMenuIconYrlProps',
+          },
+          userMenuTextProps: {
+            styleProps: {
+              Text: { color },
+            },
+            testID: 'userMenuTextProps',
+          },
+        }
 
-      return (
-        <ButtonYrl {...propsOut.userMenuButtonYrlProps}>
-          <>
-            <IconYrl {...propsOut.userMenuIconYrlProps} />
-            <Text {...propsOut.userMenuTextProps}>{title}</Text>
-          </>
-        </ButtonYrl>
-      )
-    })
+        return (
+          <ButtonYrl {...propsOut.userMenuButtonYrlProps}>
+            <>
+              <IconYrl {...propsOut.userMenuIconYrlProps} />
+              <Text {...propsOut.userMenuTextProps}>{title}</Text>
+            </>
+          </ButtonYrl>
+        )
+      }
+    )
   }
 
   const propsOut: UserMenuPropsOutType = {}

@@ -9,4 +9,9 @@ export const CLICK_ON_BUTTON_NUMBURGER: ActionEventType = (event, data) => {
     componentsState: { isUserMenu },
   } = getState()
   dispatch(actionSync.TOGGLE_IS_USER_MENU({ isUserMenu: !isUserMenu }))
+  dispatch(
+    actionSync.TOGGLE_PROFILE_SELECT_MENU({
+      isProfileSelectMenu: false,
+    })
+  )
 }

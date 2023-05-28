@@ -23,6 +23,9 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
   const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
 
+  // TODO: A NEW USER WITH SEVERAL PROFILES. YOU CAN NOT CHANGE THIS USER, BUT YOU CAN SELECT DIFFERENT PROFILES
+  // OR YOU NEED TO BE ABLE TO CHANGE THE USER
+
   const propsOut: ProfileSelectMenuPropsOutType = {}
 
   return (

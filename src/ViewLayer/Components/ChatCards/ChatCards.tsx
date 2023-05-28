@@ -16,6 +16,7 @@ import { styles } from './ChatCardsStyles'
 import { themes } from '../../Styles/themes'
 import { ChatCard } from '../ChatCard/ChatCard'
 import { UserMenu } from '../UserMenu/UserMenu'
+import { ProfileSelectMenu } from '../ProfileSelectMenu/ProfileSelectMenu'
 
 /**
  * @import import { ChatCards } from '../Components/ChatCards/ChatCards'
@@ -121,17 +122,22 @@ const ChatCardsComponent: ChatCardsType = props => {
         },
       },
     },
+    profileSelectMenuProps: {},
   }
 
-  console.info('ChatCards [126]', { isProfileSelectMenu })
+  console.info('ChatCards [126]', { isUserMenu, isProfileSelectMenu })
 
   return (
     <View style={[style.ChatCards, styleProps.ChatCards]} testID='ChatCards'>
-      {!isUserMenu ? (
+      {!isUserMenu && !isProfileSelectMenu ? (
         getChatCards(profiles)
       ) : (
         <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
-          <UserMenu {...propsOut.userMenuProps} />
+          {isUserMenu ? (
+            <UserMenu {...propsOut.userMenuProps} />
+          ) : (
+            <ProfileSelectMenu {...propsOut.profileSelectMenuProps} />
+          )}
         </ModalFrameYrl>
       )}
     </View>
