@@ -5,6 +5,7 @@ import {
   ModalFrameYrlPropsType,
 } from '../../../YrlNativeViewLibrary'
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
+import { UserMenuPropsType } from '../UserMenu/UserMenuTypes'
 
 export interface ChatCardsPropsType {
   styleProps?: any
@@ -13,10 +14,6 @@ export interface ChatCardsPropsType {
   urlParamsSearch: any
   store: RootStoreType
   handleEvents: HandleEventsType
-}
-
-export type ChatCardsPropsOutType = {
-  modalFrameYrlProps: ModalFrameYrlPropsType
 }
 
 /**

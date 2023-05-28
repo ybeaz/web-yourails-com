@@ -90,7 +90,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       library: 'Ionicons',
       name: 'menu-outline',
       size: 32,
-      color: themes['themeA'].colors01.borderColor,
+      color: themes['themeA'].colors01.color,
       testID: 'TopBarChatCardsComponent_ButtonYrl_menu-outline',
     },
     inputTextYrlProps: {

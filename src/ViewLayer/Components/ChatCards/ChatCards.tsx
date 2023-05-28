@@ -10,18 +10,21 @@ import {
   ModalFrameYrl,
 } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
-import { ChatCardsType, ChatCardsPropsOutType } from './ChatCardsTypes'
+import { ChatCardsType } from './ChatCardsTypes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { styles } from './ChatCardsStyles'
 import { themes } from '../../Styles/themes'
-import { ChatCard } from '../../Components/ChatCard/ChatCard'
+import { ChatCard } from '../ChatCard/ChatCard'
+import { UserMenu } from '../UserMenu/UserMenu'
 
 /**
  * @import import { ChatCards } from '../Components/ChatCards/ChatCards'
  */
 const ChatCardsComponent: ChatCardsType = props => {
   const {
-    styleProps = { ChatCards: {} },
+    styleProps = {
+      ChatCards: {},
+    },
     mediaParams = mediaParamsDefault,
     urlParams = urlParamsDefault,
     store,
@@ -62,7 +65,7 @@ const ChatCardsComponent: ChatCardsType = props => {
     })
   }
 
-  const propsOut: ChatCardsPropsOutType = {
+  const propsOut: Record<string, any> = {
     modalFrameYrlProps: {
       styleProps: {
         ModalFrameYrl: {},
@@ -71,7 +74,7 @@ const ChatCardsComponent: ChatCardsType = props => {
         },
         content: {},
         buttonBackWrapper: {},
-        buttonCloseWrapper: {},
+        buttonCloseWrapper: { top: '1rem', right: '1rem' },
       },
       linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.25)'],
       isShow: isUserMenu,
@@ -97,15 +100,7 @@ const ChatCardsComponent: ChatCardsType = props => {
         titleText: '',
         testID: 'ModalFrameYrl-buttonClose',
         disabled: false,
-        onPress: () =>
-          handleEvents.SET_MODAL_FRAME(
-            {},
-            {
-              // childName,
-              // isShow: false,
-              // childProps: {},
-            }
-          ),
+        onPress: () => handleEvents.CLICK_ON_BUTTON_NUMBURGER({}, {}),
         iconProps: {
           styleProps: { IconYrl: {} },
           library: 'Ionicons',
@@ -119,6 +114,13 @@ const ChatCardsComponent: ChatCardsType = props => {
       isButtonBack: false,
       isButtonClose: true,
     },
+    userMenuProps: {
+      styleProps: {
+        UserMenu: {
+          ...themes['themeA'].colors01,
+        },
+      },
+    },
   }
 
   return (
@@ -127,7 +129,7 @@ const ChatCardsComponent: ChatCardsType = props => {
         getChatCards(profiles)
       ) : (
         <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
-          <>123</>
+          <UserMenu {...propsOut.userMenuProps} />
         </ModalFrameYrl>
       )}
     </View>
