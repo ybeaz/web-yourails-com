@@ -111,7 +111,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     buttonTop = '1rem'
   }
 
-  const propsOut = {
+  const propsOut: Record<string, any> = {
     messageProps: {
       ...messagesWithProfileActive[0],
       profile: profileActive,

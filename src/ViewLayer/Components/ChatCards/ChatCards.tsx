@@ -6,10 +6,14 @@ import {
   mediaParamsDefault,
   withParamsMediaYrl,
   withStoreStateYrl,
+  withPropsYrl,
+  ModalFrameYrl,
 } from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/ProfileType'
-import { ChatCardsType } from './ChatCardsTypes'
+import { ChatCardsType, ChatCardsPropsOutType } from './ChatCardsTypes'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { styles } from './ChatCardsStyles'
+import { themes } from '../../Styles/themes'
 import { ChatCard } from '../../Components/ChatCard/ChatCard'
 
 /**
@@ -21,6 +25,7 @@ const ChatCardsComponent: ChatCardsType = props => {
     mediaParams = mediaParamsDefault,
     urlParams = urlParamsDefault,
     store,
+    handleEvents,
     urlParamsSearch,
   } = props
   const { deviceType } = mediaParams
@@ -57,17 +62,80 @@ const ChatCardsComponent: ChatCardsType = props => {
     })
   }
 
-  console.info('ChatCards [59]', { isUserMenu })
-
-  const propsOut: Record<string, any> = {}
+  const propsOut: ChatCardsPropsOutType = {
+    modalFrameYrlProps: {
+      styleProps: {
+        ModalFrameYrl: {},
+        imageBackground: {
+          backgroundColor: themes['themeA'].colors07.backgroundColor,
+        },
+        content: {},
+        buttonBackWrapper: {},
+        buttonCloseWrapper: {},
+      },
+      linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.25)'],
+      isShow: isUserMenu,
+      isShowImageBackground: true,
+      testID: 'ChatSpace_modalFrameYrl',
+      buttonBackProps: {
+        styleProps: { ButtonYrl: {}, title: {} },
+        titleText: '',
+        testID: 'ModalFrameYrl-buttonBack',
+        disabled: false,
+        onPress: () => {},
+        iconProps: {
+          styleProps: { IconYrl: {} },
+          library: 'Ionicons',
+          name: 'arrow-back-outline',
+          size: 24,
+          color: '', // themes['themeA'].colors07.color,
+          testID: 'ModalFrameYrl-buttonBack-iconBack',
+        },
+      },
+      buttonCloseProps: {
+        styleProps: { ButtonYrl: {}, title: {} },
+        titleText: '',
+        testID: 'ModalFrameYrl-buttonClose',
+        disabled: false,
+        onPress: () =>
+          handleEvents.SET_MODAL_FRAME(
+            {},
+            {
+              // childName,
+              // isShow: false,
+              // childProps: {},
+            }
+          ),
+        iconProps: {
+          styleProps: { IconYrl: {} },
+          library: 'Ionicons',
+          name: 'close',
+          size: 24,
+          color: themes['themeA'].colors07.color,
+          testID: 'ModalFrameYrl-buttonClose-iconClose',
+        },
+      },
+      imageBackgroundSource: undefined, // require('../../../Assets/canopy-of-leaves-2.jpg'),
+      isButtonBack: false,
+      isButtonClose: true,
+    },
+  }
 
   return (
     <View style={[style.ChatCards, styleProps.ChatCards]} testID='ChatCards'>
-      {getChatCards(profiles)}
+      {!isUserMenu ? (
+        getChatCards(profiles)
+      ) : (
+        <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
+          <>123</>
+        </ModalFrameYrl>
+      )}
     </View>
   )
 }
 
 export const ChatCards = React.memo(
-  withStoreStateYrl(withParamsMediaYrl(ChatCardsComponent))
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withStoreStateYrl(withParamsMediaYrl(ChatCardsComponent))
+  )
 )
