@@ -77,14 +77,14 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     buttonHamburgerProps: {
       styleProps: {
         ButtonYrl: {
-          cursor: 'not-allowed',
+          cursor: 'pointer',
         },
         title: {},
       },
       titleText: '',
       testID: 'ButtonYrl',
       disabled: false,
-      onPress: () => {},
+      onPress: () => handleEvents.CLICK_ON_BUTTON_NUMBURGER({}, {}),
     },
     iconHamburgerProps: {
       library: 'Ionicons',
@@ -111,6 +111,9 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       numberOfLines: 1,
       onChangeText: (text: string) =>
         handleEvents.ON_CHANGE_INPUT_SEARCH({}, { text }),
+      onSubmitEditing: () => {
+        /* TODO when a search functionality will be ready */
+      },
       placeholder: 'Search',
       placeholderTextColor: themes['themeA'].colors01.borderColor,
       testID: 'TopBarChatCards_InputTextYrl',

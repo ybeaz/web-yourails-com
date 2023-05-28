@@ -4,6 +4,7 @@ import { ActionType } from '../@types/ActionType'
 
 /** @description  Synchroneours redux actions */
 const ACTIONS_SYNC: string[] = [
+  'TOGGLE_IS_USER_MENU',
   'ON_MESSAGE_SOCKET',
   'ADD_MESSAGES',
   'ADD_PROJECTS',

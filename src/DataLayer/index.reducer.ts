@@ -2,6 +2,7 @@ import { RootStoreType } from '../@types/RootStoreType'
 import { ActionType } from '../@types/ActionType'
 
 import { TEMPLATE } from './reducers/TEMPLATE'
+import { TOGGLE_IS_USER_MENU } from './reducers/TOGGLE_IS_USER_MENU'
 import { ON_MESSAGE_SOCKET } from './reducers/ON_MESSAGE_SOCKET'
 import { ADD_MESSAGES } from './reducers/ADD_MESSAGES'
 import { ADD_PROJECTS } from './reducers/ADD_PROJECTS'
@@ -33,6 +34,7 @@ export const indexReducer: IndexReducerType = (
 
   const output = {
     TEMPLATE,
+    TOGGLE_IS_USER_MENU,
     ON_MESSAGE_SOCKET,
     ADD_MESSAGES,
     ADD_PROJECTS,

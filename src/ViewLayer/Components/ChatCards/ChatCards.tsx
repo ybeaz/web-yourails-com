@@ -27,6 +27,7 @@ const ChatCardsComponent: ChatCardsType = props => {
   const { urlParam1, urlParam2 } = urlParams
 
   const {
+    componentsState: { isUserMenu },
     globalVars: { idProfileHost, idProfileActive },
     profiles,
   } = store
@@ -55,6 +56,8 @@ const ChatCardsComponent: ChatCardsType = props => {
       return <ChatCard {...propsOut.chatCardProps} />
     })
   }
+
+  console.info('ChatCards [59]', { isUserMenu })
 
   const propsOut: Record<string, any> = {}
 
