@@ -35,7 +35,7 @@ const ChatCardsComponent: ChatCardsType = props => {
   const { urlParam1, urlParam2 } = urlParams
 
   const {
-    componentsState: { isUserMenu },
+    componentsState: { isUserMenu, isProfileSelectMenu },
     globalVars: { idProfileHost, idProfileActive },
     profiles,
   } = store
@@ -122,6 +122,8 @@ const ChatCardsComponent: ChatCardsType = props => {
       },
     },
   }
+
+  console.info('ChatCards [126]', { isProfileSelectMenu })
 
   return (
     <View style={[style.ChatCards, styleProps.ChatCards]} testID='ChatCards'>

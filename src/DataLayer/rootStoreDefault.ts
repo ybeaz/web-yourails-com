@@ -43,6 +43,7 @@ export const componentsStateR1: ComponentsStateType = {
   isMainColumn: true,
   isMainColumnBlank: false,
   isUserMenu: false,
+  isProfileSelectMenu: false,
   modalFrame: {
     childName: 'Portfolio', // Portfolio, Profile CompetencyTags
     isShow: true,
@@ -58,6 +59,7 @@ export const componentsStateDefault: ComponentsStateType = {
   isMainColumn: false,
   isMainColumnBlank: true,
   isUserMenu: true,
+  isProfileSelectMenu: true,
   modalFrame: {
     childName: 'Portfolio', // Portfolio, Profile CompetencyTags
     isShow: false,

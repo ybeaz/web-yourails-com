@@ -5,6 +5,7 @@ import {
   ButtonYrl,
   ImageYrl,
   IconYrl,
+  withPropsYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
@@ -16,20 +17,25 @@ import {
 } from './UserMenuTypes'
 import { themes } from '../../Styles/themes'
 import { styles } from './UserMenuStyles'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 
 type UserMenuItemType = {
   title: string
   iconLibrary: string
   iconName: string
   color: string
+  onPress: () => void
 }
 
 /**
  * @import import { UserMenu } from '../Components/UserMenu/UserMenu'
  */
 const UserMenuComponent: UserMenuType = props => {
-  const { styleProps = { UserMenu: {} }, mediaParams = mediaParamsDefault } =
-    props
+  const {
+    styleProps = { UserMenu: {} },
+    mediaParams = mediaParamsDefault,
+    handleEvents,
+  } = props
   const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
 
@@ -39,12 +45,14 @@ const UserMenuComponent: UserMenuType = props => {
       iconLibrary: 'Ionicons',
       iconName: 'people-outline',
       color: themes['themeA'].colors01.color,
+      onPress: () => handleEvents.TOGGLE_PROFILE_SELECT_MENU({}, {}),
     },
     {
       title: 'Sign out',
       iconLibrary: 'Ionicons',
       iconName: 'log-out-outline',
       color: themes['themeA'].colors01.borderColor,
+      onPress: () => {},
     },
   ]
 
@@ -52,15 +60,13 @@ const UserMenuComponent: UserMenuType = props => {
     userMenuItemsIn: UserMenuItemType[]
   ): ReactElement[] => {
     return userMenuItemsIn.map((userMenuItem: UserMenuItemType) => {
-      const { title, iconLibrary, iconName, color } = userMenuItem
+      const { title, iconLibrary, iconName, color, onPress } = userMenuItem
 
       const propsOut = {
         userMenuButtonYrlProps: {
           styleProps: { ButtonYrl: {}, title: {} },
           disabled: false,
-          onPress: () => {
-            console.info('ButtonYrl []', 'click test')
-          },
+          onPress,
           testID: 'userMenuButtonYrlProps',
         },
         userMenuIconYrlProps: {
@@ -100,4 +106,8 @@ const UserMenuComponent: UserMenuType = props => {
 }
 
 export type { UserMenuPropsType }
-export const UserMenu = React.memo(withParamsMediaYrl(UserMenuComponent))
+export const UserMenu = React.memo(
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withParamsMediaYrl(UserMenuComponent)
+  )
+)
