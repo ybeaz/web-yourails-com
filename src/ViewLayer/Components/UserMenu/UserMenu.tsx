@@ -45,7 +45,7 @@ const UserMenuComponent: UserMenuType = props => {
       iconLibrary: 'Ionicons',
       iconName: 'people-outline',
       color: themes['themeA'].colors01.color,
-      onPress: () => handleEvents.TOGGLE_PROFILE_SELECT_MENU({}, {}),
+      onPress: () => handleEvents.CLICK_ON_PROFILE_SELECT({}, {}),
     },
     {
       title: 'Sign out',

@@ -1,5 +1,5 @@
 import { TEMPLATE } from './handlers/TEMPLATE'
-import { TOGGLE_PROFILE_SELECT_MENU } from './handlers/TOGGLE_PROFILE_SELECT_MENU'
+import { CLICK_ON_PROFILE_SELECT } from './handlers/CLICK_ON_PROFILE_SELECT'
 import { CLICK_ON_BUTTON_NUMBURGER } from './handlers/CLICK_ON_BUTTON_NUMBURGER'
 import { ON_MESSAGE_SOCKET } from './handlers/ON_MESSAGE_SOCKET'
 import { CLICK_ON_SEND_MESSAGE } from './handlers/CLICK_ON_SEND_MESSAGE'
@@ -24,7 +24,7 @@ export type HandleEventsType = Record<string, (arg1: any, arg2: any) => any>
 
 export const handleEvents: HandleEventsType = {
   TEMPLATE,
-  TOGGLE_PROFILE_SELECT_MENU,
+  CLICK_ON_PROFILE_SELECT,
   CLICK_ON_BUTTON_NUMBURGER,
   ON_MESSAGE_SOCKET,
   CLICK_ON_SEND_MESSAGE,

@@ -4,7 +4,7 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 
 const { dispatch, getState } = store
 
-export const TOGGLE_PROFILE_SELECT_MENU: ActionEventType = (event, data) => {
+export const CLICK_ON_PROFILE_SELECT: ActionEventType = (event, data) => {
   const {
     componentsState: { isProfileSelectMenu },
   } = getState()
