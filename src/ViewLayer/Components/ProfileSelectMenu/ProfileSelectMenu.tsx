@@ -25,6 +25,7 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
   const {
     styleProps = { ProfileSelectMenu: {} },
     mediaParams = mediaParamsDefault,
+    handleEvents,
   } = props
   const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
@@ -45,5 +46,7 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
 }
 
 export const ProfileSelectMenu = React.memo(
-  withParamsMediaYrl(ProfileSelectMenuComponent)
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withParamsMediaYrl(ProfileSelectMenuComponent)
+  )
 )
