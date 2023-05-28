@@ -3,7 +3,6 @@ import { View } from 'react-native'
 
 import {
   ButtonYrl,
-  ImageYrl,
   IconYrl,
   withPropsYrl,
   withParamsMediaYrl,

@@ -2,6 +2,10 @@ import React from 'react'
 import { View } from 'react-native'
 
 import {
+  ButtonYrl,
+  ImageYrl,
+  IconYrl,
+  withPropsYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
@@ -11,6 +15,8 @@ import {
   ProfileSelectMenuPropsOutType,
 } from './ProfileSelectMenuTypes'
 import { styles } from './ProfileSelectMenuStyles'
+import { themes } from '../../Styles/themes'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 
 /**
  * @import import { ProfileSelectMenu } from '../Components/ProfileSelectMenu/ProfileSelectMenu'
@@ -33,7 +39,7 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
       style={[style.ProfileSelectMenu, styleProps.ProfileSelectMenu]}
       testID='ProfileSelectMenu'
     >
-      <>123</>
+      <Text>123</Text>
     </View>
   )
 }

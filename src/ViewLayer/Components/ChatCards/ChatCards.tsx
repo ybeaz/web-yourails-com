@@ -78,7 +78,7 @@ const ChatCardsComponent: ChatCardsType = props => {
         buttonCloseWrapper: { top: '1rem', right: '1rem' },
       },
       linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.25)'],
-      isShow: isUserMenu,
+      isShow: isUserMenu || isProfileSelectMenu,
       isShowImageBackground: true,
       testID: 'ChatSpace_modalFrameYrl',
       buttonBackProps: {
