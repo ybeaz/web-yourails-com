@@ -13,7 +13,11 @@ export const getSocketEmitJoinConversation: GetSocketEmitJoinConversationType =
     try {
       socket.emit('joinConversation', {
         profileNameHost,
-        profileName, // '@smid',
+        profileName,
+      })
+      console.info('getSocketEmitJoinConversation [18]', {
+        profileNameHost,
+        profileName,
       })
     } catch (error: any) {
       console.log('socketio [34]', { message: error.message })
