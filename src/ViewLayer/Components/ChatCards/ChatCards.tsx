@@ -101,7 +101,10 @@ const ChatCardsComponent: ChatCardsType = props => {
         titleText: '',
         testID: 'ModalFrameYrl-buttonClose',
         disabled: false,
-        onPress: () => handleEvents.CLICK_ON_BUTTON_NUMBURGER({}, {}),
+        onPress: () => {
+          handleEvents.CLICK_ON_BUTTON_HUMBURGER({}, {})
+          // handleEvents.CLICK_ON_PROFILE_SELECT({}, { })
+        },
         iconProps: {
           styleProps: { IconYrl: {} },
           library: 'Ionicons',
@@ -132,6 +135,8 @@ const ChatCardsComponent: ChatCardsType = props => {
       idUserHost,
     },
   }
+
+  console.info('ChatCards [139]', { isUserMenu, isProfileSelectMenu })
 
   return (
     <View style={[style.ChatCards, styleProps.ChatCards]} testID='ChatCards'>
