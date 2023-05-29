@@ -1,18 +1,15 @@
 import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
-import { actionSync, actionAsync } from '../../DataLayer/index.action'
+import { actionSync } from '../../DataLayer/index.action'
 import { getSortedArray } from '../../Shared/getSortedArray'
 import { getSocketEmitMessage } from '../../CommunicationLayer/socketio/getSocketEmitMessage'
 
-import { socket } from '../../CommunicationLayer/socketio/socketio'
-
 const { dispatch, getState } = store
 
-export const CLICK_ON_SEND_MESSAGE: ActionEventType = (event, data) => {
+export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, data) => {
   const { idProfileActive } = data
 
   const {
-    profiles,
     forms: { inputChat },
     globalVars: { idProfileHost },
   } = getState()
