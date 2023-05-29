@@ -22,6 +22,16 @@ import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handl
 
 /**
  * @import import { ProfileSelectMenu } from '../Components/ProfileSelectMenu/ProfileSelectMenu'
+ * @propsOut
+   profileSelectMenuProps: {
+      styleProps: {
+        ProfileSelectMenu: {
+          ...themes['themeA'].colors01,
+        },
+      },
+      profiles,
+      idUserHost,
+   },
  */
 const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
   const {

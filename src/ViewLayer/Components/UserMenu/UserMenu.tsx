@@ -28,6 +28,14 @@ type UserMenuItemType = {
 
 /**
  * @import import { UserMenu } from '../Components/UserMenu/UserMenu'
+ * @propsOut
+   userMenuProps: {
+      styleProps: {
+        UserMenu: {
+          ...themes['themeA'].colors01,
+        },
+      },
+   },
  */
 const UserMenuComponent: UserMenuType = props => {
   const {

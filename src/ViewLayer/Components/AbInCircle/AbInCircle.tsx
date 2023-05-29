@@ -41,6 +41,15 @@ const COLORS_2 = {
 
 /**
  * @import import { AbInCircle } from '../Components/AbInCircle/AbInCircle'
+ * @propsOut
+   abInCircleProps: {
+      styleProps: {
+        AbInCircle: {},
+        text: {},
+      },
+      text: initials,
+      testID: 'AbInCircle',
+   },
  */
 const AbInCircleComponent: AbInCircleType = props => {
   const {
