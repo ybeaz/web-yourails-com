@@ -9,7 +9,6 @@ import {
 
 import {
   ButtonYrl,
-  ImageYrl,
   IconYrl,
   InputTextYrl,
   withStoreStateYrl,
@@ -21,6 +20,7 @@ import {
 import { themes } from '../../Styles/themes'
 import { style } from './TopBarChatCardsStyle'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 
 /**
  * @import import { TopBarChatCards } from '../Components/TopBarChatCards/TopBarChatCards'
@@ -41,22 +41,20 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     profiles,
   } = store
 
-  const profileHost: ProfileType | undefined =
-    profiles &&
-    profiles.find(profile => profile.idProfile == (idProfileHost || '1'))
+  const profileHost: ProfileType =
+    (profiles &&
+      profiles.find(profile => profile.idProfile == (idProfileHost || '1'))) ||
+    profiles[0]
   const { idProfile, profileName, uriAvatar } = profileHost
     ? profileHost
     : { idProfile: '0', profileName: '@', uriAvatar: '' }
 
   const propsOut: TopBarChatCardsPropsOutType = {
-    buttonProfileHostAvatarProps: {
+    avatarPlusInfoProps: {
       styleProps: {
-        ButtonYrl: {},
-        title: {},
+        avatar: {},
       },
-      titleText: '',
-      testID: 'buttonProfileHostAvatarProps',
-      disabled: false,
+      profile: profileHost,
       onPress: () => {
         handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
         handleEvents.CLICK_ON_USER_CHAT_CARD(
@@ -78,6 +76,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       styleProps: {
         ButtonYrl: {
           cursor: 'pointer',
+          paddingLeft: '1rem',
         },
         title: {},
       },
@@ -139,9 +138,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         testID='buttonHamburgerWrapper'
       >
         {(urlParam1 === 'k' && !urlParam2) || idProfileActive !== idProfile ? (
-          <ButtonYrl {...propsOut.buttonProfileHostAvatarProps}>
-            <ImageYrl {...propsOut.imageProfileHostAvatarProps} />
-          </ButtonYrl>
+          <AvatarPlusInfo {...propsOut.avatarPlusInfoProps} />
         ) : (
           <ButtonYrl {...propsOut.buttonHamburgerProps}>
             <IconYrl {...propsOut.iconHamburgerProps} />

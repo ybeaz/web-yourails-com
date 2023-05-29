@@ -9,8 +9,8 @@ export interface AvatarPlusInfoPropsType {
   }
   onPress: () => any
   profile: ProfileType
-  children: ReactElement
-  isImageAvatar: boolean
+  children?: ReactElement
+  isImageAvatar?: boolean
 }
 
 /**
