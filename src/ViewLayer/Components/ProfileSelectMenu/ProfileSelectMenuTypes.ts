@@ -1,10 +1,13 @@
 import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
+import { ProfileType } from '../../../@types/ProfileType'
 
 export interface ProfileSelectMenuPropsType {
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
   handleEvents: HandleEventsType
+  profiles: ProfileType[]
+  idUserHost: string
 }
 
 export type ProfileSelectMenuPropsOutType = Record<string, any>

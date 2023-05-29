@@ -37,7 +37,7 @@ const ChatCardsComponent: ChatCardsType = props => {
 
   const {
     componentsState: { isUserMenu, isProfileSelectMenu },
-    globalVars: { idProfileHost, idProfileActive },
+    globalVars: { idUserHost, idProfileHost, idProfileActive },
     profiles,
   } = store
 
@@ -128,6 +128,8 @@ const ChatCardsComponent: ChatCardsType = props => {
           ...themes['themeA'].colors01,
         },
       },
+      profiles,
+      idUserHost,
     },
   }
 

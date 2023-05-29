@@ -5,6 +5,9 @@ export const stylesDefault = StyleSheet.create({
   ProfileSelectMenu: {
     ...styleGlobal.typography,
     flexDirection: 'column',
+    alignItems: 'flex-start',
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem',
   },
 })
 

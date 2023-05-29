@@ -9,22 +9,16 @@ import {
   withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
-import { Text } from '../../Components/Text/Text'
+import { NameStatus } from '../NameStatus/NameStatus'
 import {
   ProfileSelectMenuType,
   ProfileSelectMenuPropsOutType,
 } from './ProfileSelectMenuTypes'
+import { ProfileType } from '../../../@types/ProfileType'
+import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { styles } from './ProfileSelectMenuStyles'
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-
-type UserMenuItemType = {
-  title: string
-  iconLibrary: string
-  iconName: string
-  color: string
-  onPress: () => void
-}
 
 /**
  * @import import { ProfileSelectMenu } from '../Components/ProfileSelectMenu/ProfileSelectMenu'
@@ -34,54 +28,51 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
     styleProps = { ProfileSelectMenu: {} },
     mediaParams = mediaParamsDefault,
     handleEvents,
+    profiles,
+    idUserHost,
   } = props
   const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
 
-  // TODO: A NEW USER WITH SEVERAL PROFILES. YOU CAN NOT CHANGE THIS USER, BUT YOU CAN SELECT DIFFERENT PROFILES
-  // OR YOU NEED TO BE ABLE TO CHANGE THE USER
+  const profilesUserHost = profiles.filter(
+    (profile: ProfileType) => profile.idUser === idUserHost
+  )
 
-  const getUserMenuItems = (
-    userMenuItemsIn: UserMenuItemType[]
+  const getProfilesUserHost = (
+    profilesUserHostIn: ProfileType[]
   ): ReactElement[] => {
-    return userMenuItemsIn.map(
-      (userMenuItem: UserMenuItemType, index: number) => {
-        const { title, iconLibrary, iconName, color, onPress } = userMenuItem
-
-        const propsOut = {
-          userMenuButtonYrlProps: {
-            key: `userMenuItem-${index}`,
-            styleProps: { ButtonYrl: {}, title: {} },
-            disabled: false,
-            onPress,
-            testID: 'userMenuButtonYrlProps',
+    return profilesUserHostIn.map((profile: ProfileType, index: number) => {
+      const propsOut = {
+        userMenuButtonYrlProps: {
+          key: `userMenuItem-${index}`,
+          styleProps: { ButtonYrl: {}, title: {} },
+          disabled: false,
+          onPress: () => {},
+          testID: 'userMenuButtonYrlProps',
+        },
+        avatarPlusInfoProps: {
+          styleProps: {},
+          profile,
+          onPress: () => {},
+        },
+        nameStatusProps: {
+          styleProps: {
+            NameStatus: {},
+            viewStyle: themes['themeA'].colors01,
           },
-          userMenuIconYrlProps: {
-            library: iconLibrary,
-            name: iconName,
-            styleProps: { IconYrl: { paddingRight: '0.5rem' } },
-            size: 24,
-            color,
-            testID: 'userMenuIconYrlProps',
-          },
-          userMenuTextProps: {
-            styleProps: {
-              Text: { color },
-            },
-            testID: 'userMenuTextProps',
-          },
-        }
-
-        return (
-          <ButtonYrl {...propsOut.userMenuButtonYrlProps}>
-            <>
-              <IconYrl {...propsOut.userMenuIconYrlProps} />
-              <Text {...propsOut.userMenuTextProps}>{title}</Text>
-            </>
-          </ButtonYrl>
-        )
+          profile,
+          status: '',
+        },
       }
-    )
+
+      return (
+        <ButtonYrl {...propsOut.userMenuButtonYrlProps}>
+          <AvatarPlusInfo {...propsOut.avatarPlusInfoProps}>
+            <NameStatus {...propsOut.nameStatusProps} />
+          </AvatarPlusInfo>
+        </ButtonYrl>
+      )
+    })
   }
 
   const propsOut: ProfileSelectMenuPropsOutType = {}
@@ -91,7 +82,7 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
       style={[style.ProfileSelectMenu, styleProps.ProfileSelectMenu]}
       testID='ProfileSelectMenu'
     >
-      <Text>123</Text>
+      {getProfilesUserHost(profilesUserHost)}
     </View>
   )
 }
