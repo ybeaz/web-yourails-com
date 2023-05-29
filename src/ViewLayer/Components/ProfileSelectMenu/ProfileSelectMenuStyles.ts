@@ -6,7 +6,7 @@ export const stylesDefault = StyleSheet.create({
     ...styleGlobal.typography,
     flexDirection: 'column',
     alignItems: 'flex-start',
-    paddingTop: '0.5rem',
+    paddingTop: '1rem',
     paddingBottom: '0.5rem',
   },
 })

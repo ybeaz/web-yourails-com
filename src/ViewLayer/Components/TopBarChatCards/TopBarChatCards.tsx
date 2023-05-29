@@ -62,6 +62,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
           { idProfile, profileName, urlParam1, urlParam2, query }
         )
       },
+      testID: 'topBarChatCardsAvatarPlusInfo',
     },
     imageProfileHostAvatarProps: {
       styleProps: {
@@ -83,7 +84,14 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       titleText: '',
       testID: 'ButtonYrl',
       disabled: false,
-      onPress: () => handleEvents.CLICK_ON_MENU_CONTROL({}, {}),
+      onPress: () =>
+        handleEvents.CLICK_ON_MENU_CONTROL(
+          {},
+          {
+            isProfileSelectMenu: false,
+            isUserMenu: true,
+          }
+        ),
     },
     iconHamburgerProps: {
       library: 'Ionicons',

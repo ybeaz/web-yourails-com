@@ -11,6 +11,7 @@ export interface AvatarPlusInfoPropsType {
   profile: ProfileType
   children?: ReactElement
   isImageAvatar?: boolean
+  testID: string
 }
 
 /**

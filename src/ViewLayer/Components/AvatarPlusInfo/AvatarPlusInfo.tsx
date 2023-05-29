@@ -16,6 +16,7 @@ import { AbInCircle } from '../AbInCircle/AbInCircle'
         viewStyle: themes['themeA'].colors07,
       },
       onPress: () => {}
+      testID: 'testID'
     },
  */
 const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
@@ -25,6 +26,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
     profile,
     isImageAvatar = true,
     children,
+    testID,
   } = props
   const { uriAvatar = '', nameFirst, nameLast } = profile
 

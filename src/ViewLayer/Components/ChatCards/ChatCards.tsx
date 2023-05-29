@@ -102,7 +102,13 @@ const ChatCardsComponent: ChatCardsType = props => {
         testID: 'ModalFrameYrl-buttonClose',
         disabled: false,
         onPress: () => {
-          handleEvents.CLICK_ON_MENU_CONTROL({}, {})
+          handleEvents.CLICK_ON_MENU_CONTROL(
+            {},
+            {
+              isProfileSelectMenu: false,
+              isUserMenu: false,
+            }
+          )
           // handleEvents.CLICK_ON_PROFILE_SELECT({}, { })
         },
         iconProps: {
@@ -135,8 +141,6 @@ const ChatCardsComponent: ChatCardsType = props => {
       idUserHost,
     },
   }
-
-  console.info('ChatCards [139]', { isUserMenu, isProfileSelectMenu })
 
   return (
     <View style={[style.ChatCards, styleProps.ChatCards]} testID='ChatCards'>

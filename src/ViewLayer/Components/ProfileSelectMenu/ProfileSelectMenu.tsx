@@ -53,7 +53,9 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
       const propsOut = {
         avatarPlusInfoProps: {
           key: `userHostAvatarPlusInfo-${index}`,
-          styleProps: {},
+          styleProps: {
+            AvatarPlusInfo: { paddingBottom: '0.5rem' },
+          },
           profile,
           onPress: () =>
             handleEvents.CLICK_ON_HOST_PROFILE_SELECT({}, { idProfile }),

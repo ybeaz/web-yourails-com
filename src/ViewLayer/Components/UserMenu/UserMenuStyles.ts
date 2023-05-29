@@ -8,6 +8,8 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-start',
     padding: '0.5rem',
+    paddingTop: '1rem',
+    paddingBottom: '1rem',
   },
 })
 
