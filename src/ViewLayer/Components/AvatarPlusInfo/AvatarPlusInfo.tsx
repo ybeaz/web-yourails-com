@@ -15,6 +15,7 @@ import { AbInCircle } from '../AbInCircle/AbInCircle'
       styleProps: {
         viewStyle: themes['themeA'].colors07,
       },
+      onPress: () => {}
     },
  */
 const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {

@@ -2,9 +2,6 @@ import React, { ReactElement } from 'react'
 import { View } from 'react-native'
 
 import {
-  ButtonYrl,
-  ImageYrl,
-  IconYrl,
   withPropsYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
@@ -48,22 +45,19 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
     (profile: ProfileType) => profile.idUser === idUserHost
   )
 
-  const getProfilesUserHost = (
+  const getUserHostProfiles = (
     profilesUserHostIn: ProfileType[]
   ): ReactElement[] => {
     return profilesUserHostIn.map((profile: ProfileType, index: number) => {
+      const { idProfile } = profile
       const propsOut = {
-        userMenuButtonYrlProps: {
-          key: `userMenuItem-${index}`,
-          styleProps: { ButtonYrl: {}, title: {} },
-          disabled: false,
-          onPress: () => {},
-          testID: 'userMenuButtonYrlProps',
-        },
         avatarPlusInfoProps: {
+          key: `userHostAvatarPlusInfo-${index}`,
           styleProps: {},
           profile,
-          onPress: () => {},
+          onPress: () =>
+            handleEvents.CLICK_ON_HOST_PROFILE_SELECT({}, { idProfile }),
+          testID: 'userHostAvatarPlusInfo',
         },
         nameStatusProps: {
           styleProps: {
@@ -76,11 +70,9 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
       }
 
       return (
-        <ButtonYrl {...propsOut.userMenuButtonYrlProps}>
-          <AvatarPlusInfo {...propsOut.avatarPlusInfoProps}>
-            <NameStatus {...propsOut.nameStatusProps} />
-          </AvatarPlusInfo>
-        </ButtonYrl>
+        <AvatarPlusInfo {...propsOut.avatarPlusInfoProps}>
+          <NameStatus {...propsOut.nameStatusProps} />
+        </AvatarPlusInfo>
       )
     })
   }
@@ -92,7 +84,7 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
       style={[style.ProfileSelectMenu, styleProps.ProfileSelectMenu]}
       testID='ProfileSelectMenu'
     >
-      {getProfilesUserHost(profilesUserHost)}
+      {getUserHostProfiles(profilesUserHost)}
     </View>
   )
 }

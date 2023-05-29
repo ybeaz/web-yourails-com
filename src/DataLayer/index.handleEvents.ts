@@ -1,4 +1,5 @@
 import { TEMPLATE } from './handlers/TEMPLATE'
+import { CLICK_ON_HOST_PROFILE_SELECT } from './handlers/CLICK_ON_HOST_PROFILE_SELECT'
 import { CLICK_ON_PROFILE_SELECT } from './handlers/CLICK_ON_PROFILE_SELECT'
 import { CLICK_ON_BUTTON_NUMBURGER } from './handlers/CLICK_ON_BUTTON_NUMBURGER'
 import { ON_MESSAGE_SOCKET } from './handlers/ON_MESSAGE_SOCKET'
@@ -24,6 +25,7 @@ export type HandleEventsType = Record<string, (arg1: any, arg2: any) => any>
 
 export const handleEvents: HandleEventsType = {
   TEMPLATE,
+  CLICK_ON_HOST_PROFILE_SELECT,
   CLICK_ON_PROFILE_SELECT,
   CLICK_ON_BUTTON_NUMBURGER,
   ON_MESSAGE_SOCKET,

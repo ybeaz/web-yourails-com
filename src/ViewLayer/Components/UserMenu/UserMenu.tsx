@@ -76,7 +76,7 @@ const UserMenuComponent: UserMenuType = props => {
             styleProps: { ButtonYrl: {}, title: {} },
             disabled: false,
             onPress,
-            testID: 'userMenuButtonYrlProps',
+            testID: 'userMenuButtonYrl',
           },
           userMenuIconYrlProps: {
             library: iconLibrary,
@@ -84,13 +84,13 @@ const UserMenuComponent: UserMenuType = props => {
             styleProps: { IconYrl: { paddingRight: '0.5rem' } },
             size: 24,
             color,
-            testID: 'userMenuIconYrlProps',
+            testID: 'userMenuIconYrl',
           },
           userMenuTextProps: {
             styleProps: {
               Text: { color },
             },
-            testID: 'userMenuTextProps',
+            testID: 'userMenuText',
           },
         }
 
