@@ -83,7 +83,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       titleText: '',
       testID: 'ButtonYrl',
       disabled: false,
-      onPress: () => handleEvents.CLICK_ON_BUTTON_HUMBURGER({}, {}),
+      onPress: () => handleEvents.CLICK_ON_MENU_CONTROL({}, {}),
     },
     iconHamburgerProps: {
       library: 'Ionicons',

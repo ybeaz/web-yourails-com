@@ -4,7 +4,7 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 
 const { dispatch, getState } = store
 
-export const CLICK_ON_BUTTON_HUMBURGER: ActionEventType = (event, data) => {
+export const CLICK_ON_MENU_CONTROL: ActionEventType = (event, data) => {
   const {
     componentsState: { isUserMenu },
   } = getState()

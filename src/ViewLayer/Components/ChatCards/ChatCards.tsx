@@ -102,7 +102,7 @@ const ChatCardsComponent: ChatCardsType = props => {
         testID: 'ModalFrameYrl-buttonClose',
         disabled: false,
         onPress: () => {
-          handleEvents.CLICK_ON_BUTTON_HUMBURGER({}, {})
+          handleEvents.CLICK_ON_MENU_CONTROL({}, {})
           // handleEvents.CLICK_ON_PROFILE_SELECT({}, { })
         },
         iconProps: {
