@@ -122,10 +122,14 @@ const ChatCardsComponent: ChatCardsType = props => {
         },
       },
     },
-    profileSelectMenuProps: {},
+    profileSelectMenuProps: {
+      styleProps: {
+        ProfileSelectMenu: {
+          ...themes['themeA'].colors01,
+        },
+      },
+    },
   }
-
-  console.info('ChatCards [126]', { isUserMenu, isProfileSelectMenu })
 
   return (
     <View style={[style.ChatCards, styleProps.ChatCards]} testID='ChatCards'>
