@@ -60,7 +60,7 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     redirectPathname,
   } = getSetStoreScenario({
     profiles,
-    hostname: HOST_NAME,
+    hostname: HOST_NAME, // 'r1.userto.com',
     urlParam1,
     urlParam2,
     urlParam3,
@@ -69,6 +69,8 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     sectionsMappingForProfile,
   })
 
+  dispatch(actionSync.SET_HOST_USER({ idUser: idUserNext }))
+  dispatch(actionSync.SET_HOST_PROFILE({ idProfile: idProfileNext }))
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
@@ -76,6 +78,20 @@ export const SET_STORE_SCENARIO: ActionEventType = (
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
   getRedirected(redirectPathname, { replace: true })
+
+  console.info('SET_STORE_SCENARIO [83]', {
+    caseNo,
+    caseDesc,
+    caseConditions,
+    isShowApp: isShowAppNext,
+    idUser: idUserNext,
+    idProfile: idProfileNext,
+    isLeftColumn: isLeftColumnNext,
+    isMainColumn: isMainColumnNext,
+    isMainColumnBlank: isMainColumnBlankNext,
+    modalFrame: modalFrameNext,
+    redirectPathname,
+  })
 
   if (idProfile === idProfileNext) return
 

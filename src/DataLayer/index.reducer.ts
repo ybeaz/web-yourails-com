@@ -2,7 +2,8 @@ import { RootStoreType } from '../@types/RootStoreType'
 import { ActionType } from '../@types/ActionType'
 
 import { TEMPLATE } from './reducers/TEMPLATE'
-import { SELECT_HOST_PROFILE } from './reducers/SELECT_HOST_PROFILE'
+import { SET_HOST_USER } from './reducers/SET_HOST_USER'
+import { SET_HOST_PROFILE } from './reducers/SET_HOST_PROFILE'
 import { TOGGLE_PROFILE_SELECT_MENU } from './reducers/TOGGLE_PROFILE_SELECT_MENU'
 import { TOGGLE_IS_USER_MENU } from './reducers/TOGGLE_IS_USER_MENU'
 import { ON_MESSAGE_SOCKET } from './reducers/ON_MESSAGE_SOCKET'
@@ -36,7 +37,8 @@ export const indexReducer: IndexReducerType = (
 
   const output = {
     TEMPLATE,
-    SELECT_HOST_PROFILE,
+    SET_HOST_USER,
+    SET_HOST_PROFILE,
     TOGGLE_PROFILE_SELECT_MENU,
     TOGGLE_IS_USER_MENU,
     ON_MESSAGE_SOCKET,
