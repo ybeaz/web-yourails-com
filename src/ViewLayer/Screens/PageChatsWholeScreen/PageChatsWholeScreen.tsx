@@ -29,6 +29,7 @@ import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainCo
 import { getSocketOnConversation } from '../../../CommunicationLayer/socketio/getSocketOnConversation'
 import { getSocketDisconnected } from '../../../CommunicationLayer/socketio/getSocketDisconnected'
 import { getSocketOnMessage } from '../../../CommunicationLayer/socketio/getSocketOnMessage'
+import { isHostR1UserToComFlag } from '../../../FeatureFlags'
 
 getSocketOnConversation()
 getSocketOnMessage()
@@ -65,8 +66,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     profiles,
     urlParam1,
     urlParam2,
+    isHostR1UserToComFlag,
   })
   const profileNameChat = profileActive ? profileActive.profileName : undefined
+
   const sectionsMappingForProfile: SectionMappingType[] =
     getSectionsMappingForProfile(sectionsMapping, profileNameChat)
 
