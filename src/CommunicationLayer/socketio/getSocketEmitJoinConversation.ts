@@ -15,10 +15,6 @@ export const getSocketEmitJoinConversation: GetSocketEmitJoinConversationType =
         idProfileHost,
         idProfile,
       })
-      console.info('getSocketEmitJoinConversation [18]', {
-        idProfileHost,
-        idProfile,
-      })
     } catch (error: any) {
       console.log('socketio [34]', { message: error.message })
     }
