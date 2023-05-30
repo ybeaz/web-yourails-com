@@ -21,7 +21,7 @@ export const getProfileChat: GetProfileNameChatType = ({
   urlParam1,
   urlParam2,
   profiles,
-  isHostR1UserToComFlag = () => true,
+  isHostR1UserToComFlag = () => false,
 }) => {
   let hostname = HOST_NAME
   if (isHostR1UserToComFlag()) hostname = 'r1.userto.com'
@@ -40,8 +40,6 @@ export const getProfileChat: GetProfileNameChatType = ({
     )
 
   const output2: ProfileType = output ? output : profiles[0]
-
-  console.info('getProfileChat [39]', { output })
 
   return output2
 }

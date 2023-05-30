@@ -43,7 +43,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
 
   const profileHost: ProfileType =
     (profiles &&
-      profiles.find(profile => profile.idProfile == (idProfileHost || '1'))) ||
+      profiles.find(profile => profile.idProfile == idProfileHost)) ||
     profiles[0]
   const { idProfile, profileName, uriAvatar } = profileHost
     ? profileHost
@@ -136,6 +136,16 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     },
   }
 
+  console.info('TopBarChatCards [139]', {
+    profileHost,
+    avatarCondition:
+      (urlParam1 === 'k' && !urlParam2) || idProfileActive !== idProfileHost,
+    'idProfileActive !== idProfileHost': idProfileActive !== idProfileHost,
+    idProfileActive,
+    idProfileHost,
+    idProfile,
+  })
+
   return (
     <View
       style={[style.TopBarChatCards, styleProps.TopBarChatCards]}
@@ -145,7 +155,8 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         style={[style.buttonHamburgerWrapper]}
         testID='buttonHamburgerWrapper'
       >
-        {(urlParam1 === 'k' && !urlParam2) || idProfileActive !== idProfile ? (
+        {(urlParam1 === 'k' && !urlParam2) ||
+        idProfileActive !== idProfileHost ? (
           <AvatarPlusInfo {...propsOut.avatarPlusInfoProps} />
         ) : (
           <ButtonYrl {...propsOut.buttonHamburgerProps}>
