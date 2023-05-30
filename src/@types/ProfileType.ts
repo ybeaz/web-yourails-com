@@ -10,7 +10,7 @@ export type MessengerType = {
  */
 export interface ProfileType {
   idSocket?: string
-  idProfile?: string | number
+  idProfile: string
   idUser?: IdUserType
   contacts?: string[]
   emails?: string[]

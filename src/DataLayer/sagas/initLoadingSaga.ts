@@ -10,7 +10,7 @@ import { templateConnectorAxios } from '../../CommunicationLayer/template.connec
 import { profiles as profilesIn } from '../../ContentMock/profilesMock'
 import { sectionsMapping } from '../../ContentMock/sectionsMappingMock'
 import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio/getSocketEmitJoinConversation'
-import { getJoinedConversation } from '../../Shared/getJoinedConversation'
+import { getJoinedConversation } from '../../CommunicationLayer/socketio/getJoinedConversation'
 // import { GetRecipeDocument } from '../../types/graphql'
 // import { apolloClient } from '../../CommunicationLayer/clients/apolloClient'
 
