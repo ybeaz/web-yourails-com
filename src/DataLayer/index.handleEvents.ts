@@ -1,4 +1,7 @@
 import { TEMPLATE } from './handlers/TEMPLATE'
+import { CLICK_ON_HOST_PROFILE_SELECT } from './handlers/CLICK_ON_HOST_PROFILE_SELECT'
+import { CLICK_ON_PROFILE_SELECT } from './handlers/CLICK_ON_PROFILE_SELECT'
+import { CLICK_ON_MENU_CONTROL } from './handlers/CLICK_ON_MENU_CONTROL'
 import { ON_MESSAGE_SOCKET } from './handlers/ON_MESSAGE_SOCKET'
 import { CLICK_ON_SEND_MESSAGE } from './handlers/CLICK_ON_SEND_MESSAGE'
 import { INIT_LOADING } from './handlers/INIT_LOADING'
@@ -22,6 +25,9 @@ export type HandleEventsType = Record<string, (arg1: any, arg2: any) => any>
 
 export const handleEvents: HandleEventsType = {
   TEMPLATE,
+  CLICK_ON_HOST_PROFILE_SELECT,
+  CLICK_ON_PROFILE_SELECT,
+  CLICK_ON_MENU_CONTROL,
   ON_MESSAGE_SOCKET,
   CLICK_ON_SEND_MESSAGE,
   INIT_LOADING,

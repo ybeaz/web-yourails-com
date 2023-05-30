@@ -9,7 +9,6 @@ import {
 
 import {
   ButtonYrl,
-  ImageYrl,
   IconYrl,
   InputTextYrl,
   withStoreStateYrl,
@@ -21,6 +20,7 @@ import {
 import { themes } from '../../Styles/themes'
 import { style } from './TopBarChatCardsStyle'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 
 /**
  * @import import { TopBarChatCards } from '../Components/TopBarChatCards/TopBarChatCards'
@@ -41,22 +41,20 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     profiles,
   } = store
 
-  const profileHost: ProfileType | undefined =
-    profiles &&
-    profiles.find(profile => profile.idProfile == (idProfileHost || '1'))
+  const profileHost: ProfileType =
+    (profiles &&
+      profiles.find(profile => profile.idProfile == idProfileHost)) ||
+    profiles[0]
   const { idProfile, profileName, uriAvatar } = profileHost
     ? profileHost
     : { idProfile: '0', profileName: '@', uriAvatar: '' }
 
   const propsOut: TopBarChatCardsPropsOutType = {
-    buttonProfileHostAvatarProps: {
+    avatarPlusInfoProps: {
       styleProps: {
-        ButtonYrl: {},
-        title: {},
+        avatar: {},
       },
-      titleText: '',
-      testID: 'buttonProfileHostAvatarProps',
-      disabled: false,
+      profile: profileHost,
       onPress: () => {
         handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
         handleEvents.CLICK_ON_USER_CHAT_CARD(
@@ -64,6 +62,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
           { idProfile, profileName, urlParam1, urlParam2, query }
         )
       },
+      testID: 'topBarChatCardsAvatarPlusInfo',
     },
     imageProfileHostAvatarProps: {
       styleProps: {
@@ -77,20 +76,28 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     buttonHamburgerProps: {
       styleProps: {
         ButtonYrl: {
-          cursor: 'not-allowed',
+          cursor: 'pointer',
+          paddingLeft: '1rem',
         },
         title: {},
       },
       titleText: '',
       testID: 'ButtonYrl',
       disabled: false,
-      onPress: () => {},
+      onPress: () =>
+        handleEvents.CLICK_ON_MENU_CONTROL(
+          {},
+          {
+            isProfileSelectMenu: false,
+            isUserMenu: true,
+          }
+        ),
     },
     iconHamburgerProps: {
       library: 'Ionicons',
       name: 'menu-outline',
       size: 32,
-      color: themes['themeA'].colors01.borderColor,
+      color: themes['themeA'].colors01.color,
       testID: 'TopBarChatCardsComponent_ButtonYrl_menu-outline',
     },
     inputTextYrlProps: {
@@ -111,6 +118,9 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       numberOfLines: 1,
       onChangeText: (text: string) =>
         handleEvents.ON_CHANGE_INPUT_SEARCH({}, { text }),
+      onSubmitEditing: () => {
+        /* TODO when a search functionality will be ready */
+      },
       placeholder: 'Search',
       placeholderTextColor: themes['themeA'].colors01.borderColor,
       testID: 'TopBarChatCards_InputTextYrl',
@@ -135,10 +145,9 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         style={[style.buttonHamburgerWrapper]}
         testID='buttonHamburgerWrapper'
       >
-        {(urlParam1 === 'k' && !urlParam2) || idProfileActive !== idProfile ? (
-          <ButtonYrl {...propsOut.buttonProfileHostAvatarProps}>
-            <ImageYrl {...propsOut.imageProfileHostAvatarProps} />
-          </ButtonYrl>
+        {(urlParam1 === 'k' && !urlParam2) ||
+        idProfileActive !== idProfileHost ? (
+          <AvatarPlusInfo {...propsOut.avatarPlusInfoProps} />
         ) : (
           <ButtonYrl {...propsOut.buttonHamburgerProps}>
             <IconYrl {...propsOut.iconHamburgerProps} />

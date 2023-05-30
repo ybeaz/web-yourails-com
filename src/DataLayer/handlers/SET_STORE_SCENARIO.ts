@@ -6,6 +6,7 @@ import { DeviceType } from '../../YrlNativeViewLibrary'
 import { getSetStoreScenario } from '../../Shared/getSetStoreScenario'
 import { getRedirected } from '../../Shared/getRedirected'
 import { HOST_NAME } from '../../Constants/hostname.const'
+import { isHostR1UserToComFlag } from '../../FeatureFlags'
 
 const { dispatch, getState } = store
 
@@ -46,11 +47,15 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     profiles,
   } = getState()
 
+  let hostname = HOST_NAME
+  if (isHostR1UserToComFlag()) hostname = 'r1.userto.com'
+
   const {
     caseNo,
     caseDesc,
     caseConditions,
     isShowApp: isShowAppNext,
+    idUserHost: idUserHostNext,
     idUser: idUserNext,
     idProfile: idProfileNext,
     isLeftColumn: isLeftColumnNext,
@@ -59,8 +64,9 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     modalFrame: modalFrameNext,
     redirectPathname,
   } = getSetStoreScenario({
+    idUserHost,
     profiles,
-    hostname: HOST_NAME,
+    hostname,
     urlParam1,
     urlParam2,
     urlParam3,
@@ -69,6 +75,8 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     sectionsMappingForProfile,
   })
 
+  dispatch(actionSync.SET_ID_USER_HOST({ idUserHost: idUserHostNext }))
+  dispatch(actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: idProfileNext }))
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))

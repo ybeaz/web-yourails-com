@@ -18,6 +18,8 @@ export interface ComponentsStateType {
   isLeftColumn: boolean
   isMainColumn: boolean
   isMainColumnBlank: boolean
+  isUserMenu: boolean
+  isProfileSelectMenu: boolean
   modalFrame: ModalFrameType
 }
 

@@ -1,17 +1,15 @@
 import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
-import { actionSync, actionAsync } from '../../DataLayer/index.action'
+import { actionSync } from '../../DataLayer/index.action'
 import { getSortedArray } from '../../Shared/getSortedArray'
-
-import { socket } from '../../CommunicationLayer/socketio/socketio'
+import { getSocketEmitMessage } from '../../CommunicationLayer/socketio/getSocketEmitMessage'
 
 const { dispatch, getState } = store
 
-export const CLICK_ON_SEND_MESSAGE: ActionEventType = (event, data) => {
+export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, data) => {
   const { idProfileActive } = data
 
   const {
-    profiles,
     forms: { inputChat },
     globalVars: { idProfileHost },
   } = getState()
@@ -26,7 +24,7 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = (event, data) => {
     text: inputChat[idProfileActive],
   }
 
-  socket.emit('chatMessage', message)
+  getSocketEmitMessage(message)
 
   dispatch(actionSync.SET_INPUT_CHAT({ idProfileActive, text: '' }))
 }

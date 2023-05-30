@@ -42,6 +42,8 @@ export const componentsStateR1: ComponentsStateType = {
   isLeftColumn: false,
   isMainColumn: true,
   isMainColumnBlank: false,
+  isUserMenu: false,
+  isProfileSelectMenu: false,
   modalFrame: {
     childName: 'Portfolio', // Portfolio, Profile CompetencyTags
     isShow: true,
@@ -56,6 +58,8 @@ export const componentsStateDefault: ComponentsStateType = {
   isLeftColumn: false,
   isMainColumn: false,
   isMainColumnBlank: true,
+  isUserMenu: false,
+  isProfileSelectMenu: false,
   modalFrame: {
     childName: 'Portfolio', // Portfolio, Profile CompetencyTags
     isShow: false,
@@ -85,8 +89,8 @@ export const rootStoreDefault: RootStoreType = {
     isLoadedGlobalVars: false,
   },
   globalVars: {
-    idUserHost: '1',
-    idProfileHost: '1',
+    idUserHost: '5',
+    idProfileHost: '5',
     idProfileActive: undefined,
     theme: 'light',
     language: 'en',

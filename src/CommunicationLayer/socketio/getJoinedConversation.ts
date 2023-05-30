@@ -1,5 +1,5 @@
-import { ProfileType } from '../@types/ProfileType'
-import { getItDelayedBy } from './getItDelayedBy'
+import { ProfileType } from '../../@types/ProfileType'
+import { getItDelayedBy } from '../../Shared/getItDelayedBy'
 
 type GetJoinedConversationPropsType = {
   profilesIn: ProfileType[]
@@ -33,8 +33,8 @@ export const getJoinedConversation: GetJoinedConversationType = async ({
         profileHostIn.profileName !== profile.profileName
       ) {
         getSocketEmitJoinConversationIn(
-          profileHostIn.profileName,
-          profile.profileName
+          profileHostIn.idProfile,
+          profile.idProfile
         )
       }
       await getItDelayedBy(10)

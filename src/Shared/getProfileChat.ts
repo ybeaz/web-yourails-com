@@ -6,6 +6,7 @@ type GetProfileNameChatPropsType = {
   urlParam1: string | undefined
   urlParam2: string | undefined
   profiles: ProfileType[]
+  isHostR1UserToComFlag?: () => boolean
 }
 
 interface GetProfileNameChatType {
@@ -20,8 +21,12 @@ export const getProfileChat: GetProfileNameChatType = ({
   urlParam1,
   urlParam2,
   profiles,
+  isHostR1UserToComFlag = () => false,
 }) => {
-  if (HOST_NAME === 'r1.userto.com') return profiles[1]
+  let hostname = HOST_NAME
+  if (isHostR1UserToComFlag()) hostname = 'r1.userto.com'
+
+  if (hostname === 'r1.userto.com') return profiles[1]
 
   const profileName: string | undefined = getProfileUrlFromParams(
     urlParam1,

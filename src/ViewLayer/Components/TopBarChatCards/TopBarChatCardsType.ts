@@ -1,7 +1,6 @@
-import { ProfileType } from '../../../@types/ProfileType'
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 import { RootStoreType } from '../../../@types/RootStoreType'
-
+import { AvatarPlusInfoPropsType } from '../AvatarPlusInfo/AvatarPlusInfoType'
 import {
   ButtonYrlPropsType,
   ImageYrlPropsType,
@@ -22,7 +21,7 @@ export interface TopBarChatCardsPropsType {
 }
 
 export type TopBarChatCardsPropsOutType = {
-  buttonProfileHostAvatarProps: ButtonYrlPropsType
+  avatarPlusInfoProps: AvatarPlusInfoPropsType
   imageProfileHostAvatarProps: ImageYrlPropsType
   buttonHamburgerProps: ButtonYrlPropsType
   iconHamburgerProps: IconYrlPropsType

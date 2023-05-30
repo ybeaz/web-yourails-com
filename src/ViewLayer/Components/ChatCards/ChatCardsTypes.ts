@@ -1,6 +1,11 @@
 import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 import { RootStoreType } from '../../../@types/RootStoreType'
-import { UrlParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import {
+  UrlParamsDefaultType,
+  ModalFrameYrlPropsType,
+} from '../../../YrlNativeViewLibrary'
+import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
+import { UserMenuPropsType } from '../UserMenu/UserMenuTypes'
 
 export interface ChatCardsPropsType {
   styleProps?: any
@@ -8,6 +13,7 @@ export interface ChatCardsPropsType {
   urlParams?: UrlParamsDefaultType
   urlParamsSearch: any
   store: RootStoreType
+  handleEvents: HandleEventsType
 }
 
 /**

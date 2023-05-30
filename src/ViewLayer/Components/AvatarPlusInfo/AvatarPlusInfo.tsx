@@ -5,6 +5,7 @@ import { AvatarPlusInfoType } from './AvatarPlusInfoType'
 import { style } from './AvatarPlusInfoStyle'
 import { ImageYrl } from '../../../YrlNativeViewLibrary'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary'
+import { AbInCircle } from '../AbInCircle/AbInCircle'
 
 /**
  * @import import { AvatarPlusInfo } from '../Components/AvatarPlusInfo/AvatarPlusInfo'
@@ -14,6 +15,8 @@ import { ButtonYrl } from '../../../YrlNativeViewLibrary'
       styleProps: {
         viewStyle: themes['themeA'].colors07,
       },
+      onPress: () => {}
+      testID: 'testID'
     },
  */
 const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
@@ -23,8 +26,13 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
     profile,
     isImageAvatar = true,
     children,
+    testID,
   } = props
-  const { uriAvatar = '' } = profile
+  const { uriAvatar = '', nameFirst, nameLast } = profile
+
+  const initials = `${(nameFirst && nameFirst[0]) || 'A'}${
+    (nameLast && nameLast[0]) || 'Z'
+  }`
 
   const propsOut: Record<string, any> = {
     imageYrlProps: {
@@ -39,10 +47,18 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
     ButtonYrl: {
       // titleText: nameStatus,
       styleProps: { ButtonYrl: {} },
-      testID: 'ButtonYrl',
       disabled: false,
       onPress,
       iconProps: undefined,
+      testID: 'avatarPlusInfoButtonYrl',
+    },
+    abInCircleProps: {
+      styleProps: {
+        AbInCircle: {},
+        text: style.image,
+      },
+      text: initials,
+      testID: 'AvatarPlusInfoAbInCircle',
     },
   }
 
@@ -55,7 +71,11 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
         <>
           {isImageAvatar && (
             <View style={[style.avatar, styleProps.avatar]} testID='avatar'>
-              <ImageYrl {...propsOut.imageYrlProps} />
+              {uriAvatar ? (
+                <ImageYrl {...propsOut.imageYrlProps} />
+              ) : (
+                <AbInCircle {...propsOut.abInCircleProps} />
+              )}
             </View>
           )}
           {children}
