@@ -136,16 +136,6 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     },
   }
 
-  console.info('TopBarChatCards [139]', {
-    profileHost,
-    avatarCondition:
-      (urlParam1 === 'k' && !urlParam2) || idProfileActive !== idProfileHost,
-    'idProfileActive !== idProfileHost': idProfileActive !== idProfileHost,
-    idProfileActive,
-    idProfileHost,
-    idProfile,
-  })
-
   return (
     <View
       style={[style.TopBarChatCards, styleProps.TopBarChatCards]}

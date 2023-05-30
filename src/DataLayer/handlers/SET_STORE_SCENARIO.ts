@@ -75,14 +75,6 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     sectionsMappingForProfile,
   })
 
-  console.info('SET_STORE_SCENARIO [77]', {
-    idUserHost,
-    idUserHostNext,
-    caseNo,
-    caseDesc,
-    caseConditions,
-  })
-
   dispatch(actionSync.SET_ID_USER_HOST({ idUserHost: idUserHostNext }))
   dispatch(actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: idProfileNext }))
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
