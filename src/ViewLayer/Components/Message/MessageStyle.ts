@@ -19,6 +19,11 @@ const Message: any = StyleSheet.create({
     padding: '1rem',
     maxWidth: '75%',
   },
+  textCommon: {},
+  dateStringCommon: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+  },
 })
 
 export const styles: any = {
@@ -31,7 +36,8 @@ export const styles: any = {
     },
     // viewPadding: Message.viewPadding,
     content: Message.contentCommon,
-    text: {},
+    text: Message.textCommon,
+    dateString: Message.dateStringCommon,
   }),
   right: StyleSheet.create({
     Message: {
@@ -42,7 +48,8 @@ export const styles: any = {
     },
     // viewPadding: Message.viewPadding,
     content: Message.contentCommon,
-    text: {},
+    text: Message.textCommon,
+    dateString: Message.dateStringCommon,
   }),
   roundAllCorners: StyleSheet.create({
     style: {
