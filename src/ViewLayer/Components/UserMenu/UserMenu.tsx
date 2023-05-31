@@ -28,6 +28,7 @@ type UserMenuItemType = {
 
 /**
  * @import import { UserMenu } from '../Components/UserMenu/UserMenu'
+ * @link https://oblador.github.io/react-native-vector-icons/
  * @propsOut
    userMenuProps: {
       styleProps: {
@@ -54,6 +55,13 @@ const UserMenuComponent: UserMenuType = props => {
       color: themes['themeA'].colors01.color,
       onPress: () => handleEvents.CLICK_ON_PROFILE_SELECT({}, {}),
     },
+    // { // TODO: I STOPPED HERE, TODO LOGIC TO SHOW HIS/HER OWN ACTIVE PROFILE
+    //   title: 'This profile',
+    //   iconLibrary: 'Ionicons',
+    //   iconName: 'person-outline',
+    //   color: themes['themeA'].colors01.color,
+    //   onPress: () => handleEvents.CLICK_ON_PROFILE_SELECT({}, {}),
+    // },
     {
       title: 'Sign out',
       iconLibrary: 'Ionicons',
@@ -73,7 +81,10 @@ const UserMenuComponent: UserMenuType = props => {
         const propsOut = {
           userMenuButtonYrlProps: {
             key: `userMenuItem-${index}`,
-            styleProps: { ButtonYrl: {}, title: {} },
+            styleProps: {
+              ButtonYrl: { paddingLeft: '1rem', paddingBottom: '1rem' },
+              title: {},
+            },
             disabled: false,
             onPress,
             testID: 'userMenuButtonYrl',

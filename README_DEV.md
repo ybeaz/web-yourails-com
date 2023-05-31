@@ -9,18 +9,22 @@ updated 2023-04-29 partially
 
 ## Plans
 
+2023-05-31 edition. One week sprint
+
+- Implement logic to show a user his/her own profile through the UserMenu
+
 2023-05-30 edition. One week sprint
 
-- Add messageEvent for server and for client
-- Change UI for time and system messages
+- - Add messageEvent for server and for client
+- - Change UI for time and system messages
 
 2023-05-24 edition. One week sprint
 
-- Refactor ChatSpace to see if Conversations are really needed
-- Integrate Socket.io into Nest.js locally
-- Configure Nest.js to work with Socket.io remotely
-- Develop modal window with drop down menu for "Frequency" choice
-- Implement switching from one profileHost to another
+- - Refactor ChatSpace to see if Conversations are really needed
+- - Integrate Socket.io into Nest.js locally
+- - Configure Nest.js to work with Socket.io remotely
+- - Develop modal window with drop down menu for "Frequency" choice
+- - Implement switching from one profileHost to another
 
 2023-04-29 edition. Two weeks sprint
 
@@ -28,7 +32,7 @@ updated 2023-04-29 partially
 - - Refactor app close to the real conversation scenario: create two other users
 - - Move userHost-active Profile to the upper bar in the left column
 
-* - Create sliding up panel from the bottom of the left column while pushing/ clicking on the userHost-active Profile. And while clicking on the each userHost profile it becomes active for the user
+- - Create sliding up panel from the bottom of the left column while pushing/ clicking on the userHost-active Profile. And while clicking on the each userHost profile it becomes active for the user
 
 - Each tab-modal window makes its own request of its own content with the help of the useEffect-axios mechanism
 - Main screen makes a request and populates tabs according to the available tabs. And load a conversation with a respondent or if there is no, the blank chat space. First move is to implement this without request but based on the import
