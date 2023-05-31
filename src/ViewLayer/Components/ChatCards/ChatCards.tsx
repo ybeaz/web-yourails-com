@@ -109,7 +109,6 @@ const ChatCardsComponent: ChatCardsType = props => {
               isUserMenu: false,
             }
           )
-          // handleEvents.CLICK_ON_PROFILE_SELECT({}, { })
         },
         iconProps: {
           styleProps: { IconYrl: {} },
@@ -139,6 +138,11 @@ const ChatCardsComponent: ChatCardsType = props => {
       },
       profiles,
       idUserHost,
+      urlParam1,
+      urlParam2,
+      query: {
+        s: urlParamsSearch.get('s'),
+      },
     },
   }
 

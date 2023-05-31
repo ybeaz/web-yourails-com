@@ -37,6 +37,9 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
     handleEvents,
     profiles,
     idUserHost,
+    urlParam1,
+    urlParam2,
+    query,
   } = props
   const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
@@ -49,7 +52,7 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
     profilesUserHostIn: ProfileType[]
   ): ReactElement[] => {
     return profilesUserHostIn.map((profile: ProfileType, index: number) => {
-      const { idProfile } = profile
+      const { idProfile, profileName } = profile
       const propsOut = {
         avatarPlusInfoProps: {
           key: `userHostAvatarPlusInfo-${index}`,
@@ -58,7 +61,16 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
           },
           profile,
           onPress: () =>
-            handleEvents.CLICK_ON_HOST_PROFILE_SELECT({}, { idProfile }),
+            handleEvents.CLICK_ON_HOST_PROFILE_SELECT(
+              {},
+              {
+                idProfileHost: idProfile,
+                profileNameHost: profileName,
+                urlParam1,
+                urlParam2,
+                query,
+              }
+            ),
           testID: 'userHostAvatarPlusInfo',
         },
         nameStatusProps: {

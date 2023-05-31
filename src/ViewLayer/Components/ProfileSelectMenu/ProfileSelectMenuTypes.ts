@@ -8,6 +8,9 @@ export interface ProfileSelectMenuPropsType {
   handleEvents: HandleEventsType
   profiles: ProfileType[]
   idUserHost: string
+  urlParam1: string
+  urlParam2: string
+  query: any
 }
 
 export type ProfileSelectMenuPropsOutType = Record<string, any>

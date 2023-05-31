@@ -70,7 +70,11 @@ const UserMenuComponent: UserMenuType = props => {
       iconLibrary: 'Ionicons',
       iconName: 'people-outline',
       color: themes['themeA'].colors01.color,
-      onPress: () => handleEvents.CLICK_ON_PROFILE_SELECT({}, {}),
+      onPress: () =>
+        handleEvents.CLICK_ON_USER_OPTION_SELECT(
+          {},
+          { isUserMenu: false, isProfileSelectMenu: true }
+        ),
     },
     {
       title: 'This profile',
@@ -88,6 +92,10 @@ const UserMenuComponent: UserMenuType = props => {
             urlParam2,
             query,
           }
+        )
+        handleEvents.CLICK_ON_USER_OPTION_SELECT(
+          {},
+          { isUserMenu: false, isProfileSelectMenu: false }
         )
       },
     },
