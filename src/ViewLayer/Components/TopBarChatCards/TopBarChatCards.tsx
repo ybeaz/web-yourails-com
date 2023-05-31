@@ -56,10 +56,12 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       },
       profile: profileHost,
       onPress: () => {
-        handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
-        handleEvents.CLICK_ON_USER_CHAT_CARD(
+        handleEvents.CLICK_ON_MENU_CONTROL(
           {},
-          { idProfile, profileName, urlParam1, urlParam2, query }
+          {
+            isProfileSelectMenu: false,
+            isUserMenu: true,
+          }
         )
       },
       testID: 'topBarChatCardsAvatarPlusInfo',

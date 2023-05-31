@@ -30,7 +30,7 @@ import { themes } from '../../Styles/themes'
 import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { getProfileNameByIdProfile } from '../../../Shared/getProfileNameByIdProfile'
+import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
@@ -215,7 +215,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       let textNext = text
       if (eventType === EventType['joinConversation']) {
         const idProfileFromText = JSON.parse(text).idProfile
-        const profileName = getProfileNameByIdProfile(
+        const { profileName } = getProfileByIdProfile(
           profiles,
           idProfileFromText
         )

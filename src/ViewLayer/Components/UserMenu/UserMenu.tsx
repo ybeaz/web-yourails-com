@@ -5,10 +5,14 @@ import {
   ButtonYrl,
   IconYrl,
   withPropsYrl,
+  withStoreStateYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
+  urlParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
+
+import { ProfileType } from '../../../@types/ProfileType'
 import {
   UserMenuType,
   UserMenuPropsType,
@@ -17,6 +21,7 @@ import {
 import { themes } from '../../Styles/themes'
 import { styles } from './UserMenuStyles'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 type UserMenuItemType = {
   title: string
@@ -41,10 +46,23 @@ type UserMenuItemType = {
 const UserMenuComponent: UserMenuType = props => {
   const {
     styleProps = { UserMenu: {} },
-    mediaParams = mediaParamsDefault,
     handleEvents,
+    mediaParams: { deviceType } = mediaParamsDefault,
+    urlParams: { urlParam1, urlParam2 } = urlParamsDefault,
+    urlParamsSearch: query,
+    store,
   } = props
-  const { deviceType, screenCase, width, height } = mediaParams
+
+  const {
+    globalVars: { idProfileHost },
+    profiles,
+  } = store
+
+  const { profileName: profileNameHost } = getProfileByIdProfile(
+    profiles,
+    idProfileHost
+  )
+
   const style = styles[deviceType]
 
   const userMenuItems: UserMenuItemType[] = [
@@ -55,13 +73,26 @@ const UserMenuComponent: UserMenuType = props => {
       color: themes['themeA'].colors01.color,
       onPress: () => handleEvents.CLICK_ON_PROFILE_SELECT({}, {}),
     },
-    // { // TODO: I STOPPED HERE, TODO LOGIC TO SHOW HIS/HER OWN ACTIVE PROFILE
-    //   title: 'This profile',
-    //   iconLibrary: 'Ionicons',
-    //   iconName: 'person-outline',
-    //   color: themes['themeA'].colors01.color,
-    //   onPress: () => handleEvents.CLICK_ON_PROFILE_SELECT({}, {}),
-    // },
+    {
+      title: 'This profile',
+      iconLibrary: 'Ionicons',
+      iconName: 'person-outline',
+      color: themes['themeA'].colors01.color,
+      onPress: () => {
+        handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
+        handleEvents.CLICK_ON_USER_CHAT_CARD(
+          {},
+          {
+            idProfile: idProfileHost,
+            profileName: profileNameHost,
+            urlParam1,
+            urlParam2,
+            query,
+          }
+        )
+      },
+    },
+
     {
       title: 'Sign out',
       iconLibrary: 'Ionicons',
@@ -129,6 +160,6 @@ const UserMenuComponent: UserMenuType = props => {
 export type { UserMenuPropsType }
 export const UserMenu = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    withParamsMediaYrl(UserMenuComponent)
+    withStoreStateYrl(withParamsMediaYrl(UserMenuComponent))
   )
 )
