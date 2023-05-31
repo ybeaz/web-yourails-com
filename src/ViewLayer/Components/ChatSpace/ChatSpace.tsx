@@ -2,6 +2,8 @@ import React, { ReactElement, useEffect } from 'react'
 import { ScrollView, View } from 'react-native'
 
 import { ProfileType } from '../../../@types/ProfileType'
+import { MessageType } from '../../../@types/MessageType'
+import { EventType } from '../../../@types/EventType'
 
 import {
   AnimatedYrl,
@@ -19,7 +21,6 @@ import {
 } from '../../../Shared/getMessagesWithProfileActive'
 import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getDateLocale } from '../../../Shared/getDateLocale'
-import { MessageType } from '../../../@types/MessageType'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import { Text } from '../../Components/Text/Text'
 import { ChatSpaceType } from './ChatSpaceType'
@@ -29,6 +30,7 @@ import { themes } from '../../Styles/themes'
 import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { getProfileNameByIdProfile } from '../../../Shared/getProfileNameByIdProfile'
 
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
@@ -207,38 +209,51 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     },
   }
 
-  let dateString = getDateLocale(messagesWithProfileActive)
-
   const getMessagesJsx = (messagesIn: MessageType[]): ReactElement[] => {
-    return messagesIn.map((message: MessageType, index: number) => {
-      const propsOut = {
-        messageProps: message,
+    return messagesIn.map((message: MessageType) => {
+      const { idMessage, text, eventType, idProfile } = message
+      let textNext = text
+      if (eventType === EventType['joinConversation']) {
+        const idProfileFromText = JSON.parse(text).idProfile
+        const profileName = getProfileNameByIdProfile(
+          profiles,
+          idProfileFromText
+        )
+        textNext = `${profileName} joined conversation`
       }
-      return <Message key={`message-${index}`} {...propsOut.messageProps} />
+
+      const propsOut = {
+        messageProps: { ...message, text: textNext },
+      }
+      return <Message key={idMessage} {...propsOut.messageProps} />
     })
   }
 
-  const ChatSpaceJsx = () => (
-    <View
-      style={[
-        style.ChatSpaceJsx,
-        themes['themeA'].colors03,
-        styleAddSidebarRight,
-      ]}
-      testID='ChatSpaceJsx'
-    >
-      <View style={[style.viewPadding]} testID='viewPadding'>
-        <View style={style.date} testID='date'>
-          <Text style={style.dateText} testID='dateText'>
-            {dateString}
-          </Text>
-        </View>
-        <View style={style.messages} testID='messages'>
-          {getMessagesJsx(messagesPrep)}
+  const ChatSpaceJsx = () => {
+    let dateString = getDateLocale(+new Date())
+
+    return (
+      <View
+        style={[
+          style.ChatSpaceJsx,
+          themes['themeA'].colors03,
+          styleAddSidebarRight,
+        ]}
+        testID='ChatSpaceJsx'
+      >
+        <View style={[style.viewPadding]} testID='viewPadding'>
+          <View style={style.date} testID='date'>
+            <Text style={[style.dateText, { color: 'grey' }]} testID='dateText'>
+              {dateString}
+            </Text>
+          </View>
+          <View style={style.messages} testID='messages'>
+            {getMessagesJsx(messagesPrep)}
+          </View>
         </View>
       </View>
-    </View>
-  )
+    )
+  }
 
   const scrollViewRef = React.useRef<ScrollView>(null)
 

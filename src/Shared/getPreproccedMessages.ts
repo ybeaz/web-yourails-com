@@ -18,9 +18,9 @@ export const getPreproccedMessages: getPreproccedMessagesType = (
   idProfileHost
 ) => {
   const messagesNext: MessageType[] = messages.map(
-    (item: Omit<MessageType, 'position' | 'isTail'>, index: number) => {
+    (message: Omit<MessageType, 'position' | 'isTail'>, index: number) => {
       const messagesLen = messages.length
-      const { idProfile } = item
+      const { idProfile } = message
       const idUserPrev =
         index - 1 >= 0 ? messages[index - 1].idProfile : undefined
       const idUserNext =
@@ -33,9 +33,9 @@ export const getPreproccedMessages: getPreproccedMessagesType = (
       else if (idUserPrev && idUserNext && idProfile === idUserNext)
         isTail = false
 
-      const itemNext = { ...item, position, isTail }
+      const messageNext = { ...message, position, isTail }
 
-      return itemNext
+      return messageNext
     }
   )
 

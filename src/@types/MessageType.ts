@@ -7,7 +7,7 @@ import { EventType } from '../@types/EventType'
 export type MessageType = {
   createdAt?: number
   idConversation: string
-  idMessage?: string
+  idMessage: string
   idProfile: IdUserType
   isTail?: boolean
   position?: string

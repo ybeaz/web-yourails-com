@@ -34,7 +34,7 @@ export const getMessagesWithProfileActive: GetMessagesWithProfileActiveType = ({
   ])
 
   const messagesWithProfileActive: MessageType[] = messages.filter(
-    (message: any) => {
+    (message: MessageType) => {
       return message.idConversation === idConversation
     }
   )

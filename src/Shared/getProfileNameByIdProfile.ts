@@ -1,5 +1,7 @@
+import { IdUserType } from 'src/@types/UserType'
+
 interface GetProfileNameByIdProfileType {
-  (profiles: any[], profileName: string | undefined): string | undefined
+  (profiles: any[], idProfile: IdUserType): string | undefined
 }
 
 /**

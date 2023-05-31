@@ -15,6 +15,8 @@ import { LOCALE, TIME_FORMAT } from '../../../Constants/locale.const'
 const MessageComponent: MessageType = props => {
   const {
     idMessage,
+    idProfile,
+    eventType,
     text,
     createdAt,
     position = 'right',
@@ -55,7 +57,10 @@ const MessageComponent: MessageType = props => {
         <Text style={[styles[position].text]} testID='text'>
           {text}
         </Text>
-        <Text style={[styles[position].text]} testID='text'>
+        <Text
+          style={[styles[position].dateString, { color: 'grey' }]}
+          testID='dateString'
+        >
           {dateString}
         </Text>
       </View>
