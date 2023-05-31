@@ -12,7 +12,6 @@ import {
 } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
 
-import { ProfileType } from '../../../@types/ProfileType'
 import {
   UserMenuType,
   UserMenuPropsType,

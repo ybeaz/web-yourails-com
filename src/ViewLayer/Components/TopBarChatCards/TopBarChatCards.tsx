@@ -1,7 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { ProfileType } from '../../../@types/ProfileType'
 import {
   TopBarChatCardsType,
   TopBarChatCardsPropsOutType,
@@ -13,7 +12,6 @@ import {
   InputTextYrl,
   withStoreStateYrl,
   withParamsMediaYrl,
-  mediaParamsDefault,
   urlParamsDefault,
   withPropsYrl,
 } from '../../../YrlNativeViewLibrary'
@@ -21,6 +19,7 @@ import { themes } from '../../Styles/themes'
 import { style } from './TopBarChatCardsStyle'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
+import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 /**
  * @import import { TopBarChatCards } from '../Components/TopBarChatCards/TopBarChatCards'
@@ -29,9 +28,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
   const {
     styleProps = { TopBarChatCards: {} },
     handleEvents,
-    mediaParams: { deviceType } = mediaParamsDefault,
     urlParams: { urlParam1, urlParam2 } = urlParamsDefault,
-    urlParamsSearch: query,
     store,
   } = props
 
@@ -41,13 +38,8 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     profiles,
   } = store
 
-  const profileHost: ProfileType =
-    (profiles &&
-      profiles.find(profile => profile.idProfile == idProfileHost)) ||
-    profiles[0]
-  const { idProfile, profileName, uriAvatar } = profileHost
-    ? profileHost
-    : { idProfile: '0', profileName: '@', uriAvatar: '' }
+  const profileHost = getProfileByIdProfile(profiles, idProfileHost)
+  const { uriAvatar } = profileHost
 
   const propsOut: TopBarChatCardsPropsOutType = {
     avatarPlusInfoProps: {
