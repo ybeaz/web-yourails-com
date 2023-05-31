@@ -8,8 +8,6 @@ import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio
 
 const { dispatch, getState } = store
 
-// const getIsProfileUserHost = ()
-
 export const CLICK_ON_HOST_PROFILE_SELECT: ActionEventType = (event, data) => {
   const { idProfileHost, profileNameHost, urlParam1, urlParam2, query } = data
   const {
