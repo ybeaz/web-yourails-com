@@ -12,6 +12,7 @@ interface GetSocketOnMessageType {
  */
 export const getSocketOnMessage: GetSocketOnMessageType = () => {
   socket.on('message', (message: MessageType) => {
+    // console.log('getSocketOnMessage [15]', { message })
     handleEvents.ON_MESSAGE_SOCKET({}, { message })
   })
 }
