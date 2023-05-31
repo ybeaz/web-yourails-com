@@ -11,8 +11,8 @@ interface GetSocketOnConversationType {
 export const getSocketOnConversation: GetSocketOnConversationType = () => {
   try {
     socket.on('conversations', data => {
-      const { conversation } = data
-      const { profiles } = conversation
+      // const { conversation } = data
+      // const { profiles } = conversation
       // console.info('socketio [14]', { conversation, profiles })
     })
   } catch (error: any) {

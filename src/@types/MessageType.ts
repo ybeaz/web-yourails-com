@@ -1,4 +1,5 @@
 import { IdUserType } from '../@types/UserType'
+import { EventType } from '../@types/EventType'
 
 /**
  * @import import { MessageType } from '../@types/MessageType'
@@ -10,5 +11,6 @@ export type MessageType = {
   idProfile: IdUserType
   isTail?: boolean
   position?: string
+  eventType: EventType
   text: string
 }

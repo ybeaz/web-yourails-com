@@ -9,9 +9,14 @@ updated 2023-04-29 partially
 
 ## Plans
 
-2023-05-24 edition. One weeks sprint
+2023-05-30 edition. One week sprint
 
-+ Refactor ChatSpace to see if Conversations are really needed
+- Add messageEvent for server and for client
+- Change UI for time and system messages
+
+2023-05-24 edition. One week sprint
+
+- Refactor ChatSpace to see if Conversations are really needed
 - Integrate Socket.io into Nest.js locally
 - Configure Nest.js to work with Socket.io remotely
 - Develop modal window with drop down menu for "Frequency" choice

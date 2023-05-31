@@ -1,4 +1,5 @@
 import { MessageType } from '../@types/MessageType'
+import { EventType } from '../@types/EventType'
 
 export const messages01R: Omit<MessageType, 'position' | 'isTail'>[] = [
   {
@@ -6,6 +7,7 @@ export const messages01R: Omit<MessageType, 'position' | 'isTail'>[] = [
     idConversation: '["1","4"]',
     idProfile: '4',
     createdAt: 1646145000000,
+    eventType: EventType['chatMessage'],
     text: 'Need a web app for appointment management.',
   },
   {
@@ -13,6 +15,7 @@ export const messages01R: Omit<MessageType, 'position' | 'isTail'>[] = [
     idConversation: '["1","4"]',
     idProfile: '1',
     createdAt: 1646145300000,
+    eventType: EventType['chatMessage'],
     text: 'Details on how you want the app to work?',
   },
   {
@@ -20,6 +23,7 @@ export const messages01R: Omit<MessageType, 'position' | 'isTail'>[] = [
     idConversation: '["1","4"]',
     idProfile: '4',
     createdAt: 1646145640000,
+    eventType: EventType['chatMessage'],
     text: 'Schedule, cancel, notifications. Show past appts in calendar view.',
   },
   {
@@ -27,6 +31,7 @@ export const messages01R: Omit<MessageType, 'position' | 'isTail'>[] = [
     idConversation: '["1","4"]',
     idProfile: '1',
     createdAt: 1646145960000,
+    eventType: EventType['chatMessage'],
     text: 'Specific design or layout requirements?',
   },
   {
@@ -34,6 +39,7 @@ export const messages01R: Omit<MessageType, 'position' | 'isTail'>[] = [
     idConversation: '["1","4"]',
     idProfile: '4',
     createdAt: 1646146300000,
+    eventType: EventType['chatMessage'],
     text: 'Clean, modern, easy to use.',
   },
   {
@@ -41,6 +47,7 @@ export const messages01R: Omit<MessageType, 'position' | 'isTail'>[] = [
     idConversation: '["1","4"]',
     idProfile: '1',
     createdAt: 1646146620000,
+    eventType: EventType['chatMessage'],
     text: 'How many users?',
   },
   {
@@ -48,6 +55,7 @@ export const messages01R: Omit<MessageType, 'position' | 'isTail'>[] = [
     idConversation: '["1","4"]',
     idProfile: '4',
     createdAt: 1646146980000,
+    eventType: EventType['chatMessage'],
     text: 'Around 50.',
   },
   {
@@ -55,6 +63,7 @@ export const messages01R: Omit<MessageType, 'position' | 'isTail'>[] = [
     idConversation: '["1","4"]',
     idProfile: '1',
     createdAt: 1646147340000,
+    eventType: EventType['chatMessage'],
     text: 'Deadline for project?',
   },
   {
@@ -62,6 +71,7 @@ export const messages01R: Omit<MessageType, 'position' | 'isTail'>[] = [
     idConversation: '["1","4"]',
     idProfile: '4',
     createdAt: 1646147700000,
+    eventType: EventType['chatMessage'],
     text: '3 months.',
   },
   {
@@ -69,6 +79,7 @@ export const messages01R: Omit<MessageType, 'position' | 'isTail'>[] = [
     idConversation: '["1","4"]',
     idProfile: '1',
     createdAt: 1646148060000,
+    eventType: EventType['chatMessage'],
     text: 'Starting project, will keep you updated.',
   },
 ]
