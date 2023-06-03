@@ -21,7 +21,7 @@ export const profiles: ProfileType[] = [
     profileName: '@rome',
     nameFirst: 'Roman',
     nameLast: 'Ches',
-    uriAvatar: 'https://r1.userto.com/img/avatar-rome.jpg', // https://yourails.com/images/sphinx-01.jpg
+    uriAvatar: 'https://yourails.com/images/users/avatar-rome.jpg', // https://yourails.com/images/sphinx-01.jpg
     phones: ['415-650-9893'],
     emails: ['t3531350@yahoo.com'],
     messengers: [{ name: 'Telegram', profileName: '@rome_sfba2' }],
@@ -40,7 +40,7 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
     profileName: '@smid',
     nameFirst: 'Dmitrii',
     nameLast: 'Smid',
-    uriAvatar: 'https://r1.userto.com/img/avatar-smid.jpg',
+    uriAvatar: 'https://yourails.com/images/users/avatar-smid.jpg',
     phones: ['415-340-9293'],
     emails: ['smiddist@gmail.com'],
     messengers: [],
