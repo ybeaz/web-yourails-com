@@ -6,16 +6,13 @@ import {
   ImageYrlPropsType,
   IconYrlPropsType,
   InputTextYrlPropsType,
-  MediaParamsDefaultType,
   UrlParamsDefaultType,
 } from '../../../YrlNativeViewLibrary'
 
 export interface TopBarChatCardsPropsType {
   styleProps?: any
   handleEvents: HandleEventsType
-  mediaParams?: MediaParamsDefaultType
   urlParams: UrlParamsDefaultType
-  urlParamsSearch: any
   inputSearch: string
   store: RootStoreType
 }

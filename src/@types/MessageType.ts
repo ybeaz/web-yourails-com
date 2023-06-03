@@ -1,5 +1,5 @@
 import { IdUserType } from '../@types/UserType'
-import { EventType } from '../@types/EventType'
+import { MessageEventType } from '../@types/MessageEventType'
 
 /**
  * @import import { MessageType } from '../@types/MessageType'
@@ -7,10 +7,11 @@ import { EventType } from '../@types/EventType'
 export type MessageType = {
   createdAt?: number
   idConversation: string
-  idMessage: string
+  idMessage?: string
   idProfile: IdUserType
+  isAsyncAwait?: boolean
   isTail?: boolean
   position?: string
-  eventType: EventType
+  eventType: MessageEventType
   text: string
 }
