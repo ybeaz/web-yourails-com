@@ -13,7 +13,12 @@ interface GetSocketOnAwaitType {
 export const getSocketOnAwait: GetSocketOnAwaitType = () => {
   socket.on('await', data => {
     const { isAwaiting } = data
-    console.log('getSocketOnAwait [15]', { isAwaiting })
-    // handleEvents.ON_MESSAGE_SOCKET({}, { message })
+    const dataModal = {
+      childName: 'AwaitView',
+      isShow: isAwaiting,
+      childProps: {},
+    }
+    console.log('getSocketOnAwait [15]', { isAwaiting, dataModal })
+    handleEvents.ON_SET_MODAL_AWAIT_VIEW({}, dataModal)
   })
 }
