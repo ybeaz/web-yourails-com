@@ -1,5 +1,8 @@
 import { store } from '../store'
+
 import { ActionEventType } from '../../@types/ActionEventType'
+import { MessageEventType } from '../../@types/MessageEventType'
+
 import { actionSync } from '../../DataLayer/index.action'
 import { getSortedArray } from '../../Shared/getSortedArray'
 import { getSocketEmitMessage } from '../../CommunicationLayer/socketio/getSocketEmitMessage'
@@ -22,6 +25,7 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, data) => {
     idConversation,
     idProfile: idProfileHost,
     text: inputChat[idProfileActive],
+    eventType: MessageEventType['chatMessage'],
   }
 
   getSocketEmitMessage(message)

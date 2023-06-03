@@ -1,4 +1,4 @@
-export enum EventType {
+export enum MessageEventType {
   'joinConversation' = 'joinConversation',
   'disconnectConversation' = 'disconnectConversation',
   'chatMessage' = 'chatMessage',

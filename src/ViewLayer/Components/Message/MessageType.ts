@@ -1,10 +1,10 @@
 import { IdUserType } from '../../../@types/UserType'
-import { EventType } from '../../../@types/EventType'
+import { MessageEventType } from '../../../@types/MessageEventType'
 
 export interface MessagePropsType {
-  idMessage: string
+  idMessage?: string
   idProfile: IdUserType
-  eventType: EventType
+  eventType: MessageEventType
   text: string
   createdAt?: number
   position?: string

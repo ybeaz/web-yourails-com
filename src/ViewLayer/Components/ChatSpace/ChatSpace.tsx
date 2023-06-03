@@ -3,7 +3,7 @@ import { ScrollView, View } from 'react-native'
 
 import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
-import { EventType } from '../../../@types/EventType'
+import { MessageEventType } from '../../../@types/MessageEventType'
 
 import {
   AnimatedYrl,
@@ -210,10 +210,10 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   }
 
   const getMessagesJsx = (messagesIn: MessageType[]): ReactElement[] => {
-    return messagesIn.map((message: MessageType) => {
+    return messagesIn.map((message: MessageType, index) => {
       const { idMessage, text, eventType, idProfile } = message
       let textNext = text
-      if (eventType === EventType['joinConversation']) {
+      if (eventType === MessageEventType['joinConversation']) {
         const idProfileFromText = JSON.parse(text).idProfile
         const { profileName } = getProfileByIdProfile(
           profiles,
@@ -225,7 +225,12 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       const propsOut = {
         messageProps: { ...message, text: textNext },
       }
-      return <Message key={idMessage} {...propsOut.messageProps} />
+      return (
+        <Message
+          key={idMessage || `message-${index}`}
+          {...propsOut.messageProps}
+        />
+      )
     })
   }
 
