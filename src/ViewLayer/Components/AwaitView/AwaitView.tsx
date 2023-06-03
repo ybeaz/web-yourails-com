@@ -2,10 +2,11 @@ import React from 'react'
 import { View } from 'react-native'
 
 import {
+  ImageYrl,
+  ImageYrlPropsType,
   withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
-import { Text } from '../../Components/Text/Text'
 import { AwaitViewType, AwaitViewPropsOutType } from './AwaitViewTypes'
 import { styles } from './AwaitViewStyles'
 
@@ -18,11 +19,24 @@ const AwaitViewComponent: AwaitViewType = props => {
   const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
 
-  const propsOut: AwaitViewPropsOutType = {}
+  const propsOut: AwaitViewPropsOutType = {
+    imageYrlProps: {
+      styleProps: {
+        ImageYrl: {},
+        image: {
+          height: '10rem',
+          width: '10rem',
+        },
+      },
+      testID: 'ImageYrl',
+      uri: 'https://yourails.com/images/loading/loading09.gif',
+      resizeMode: 'cover', // 'cover' | 'contain' | 'stretch' | 'repeat' | 'center'
+    },
+  }
 
   return (
     <View style={[style.AwaitView, styleProps.AwaitView]} testID='AwaitView'>
-      <Text>1234567890</Text>
+      <ImageYrl {...propsOut.imageYrlProps} />
     </View>
   )
 }
