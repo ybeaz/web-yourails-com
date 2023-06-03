@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react'
+import React, { ReactElement, useEffect, FunctionComponent } from 'react'
 import { ScrollView, View } from 'react-native'
 
 import { ProfileType } from '../../../@types/ProfileType'
@@ -85,7 +85,9 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     getMessagesWithProfileActiveProps
   )
 
-  const Child = childName ? MODAL_CONTENTS[childName] : null
+  const Child: FunctionComponent | null = childName
+    ? MODAL_CONTENTS[childName]
+    : null
 
   const messagesPrep = getPreproccedMessages(
     messagesWithProfileActive,
@@ -293,7 +295,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         {childName && (
           <AnimatedYrl {...propsOut.modalFrameYrlAnimatedYrlProps}>
             <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
-              <Child {...childProps} />
+              {Child && <Child {...childProps} />}
             </ModalFrameYrl>
           </AnimatedYrl>
         )}
