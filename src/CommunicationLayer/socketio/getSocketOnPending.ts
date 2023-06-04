@@ -6,13 +6,20 @@ interface GetSocketOnPendingType {
 }
 
 /**
- * @description Function to
+ * @description Function to listed if the message is pending/ in preparation stage
  * @import import { getSocketOnPending } from '../../CommunicationLayer/socketio/getSocketOnPending'
  */
 export const getSocketOnPending: GetSocketOnPendingType = () => {
   socket.on('pending', data => {
-    const { idProfile, isPending } = data
-    // console.info('getSocketOnPending [16]', { idProfile, isPending })
-    handleEvents.ON_AWAIT_FROM_ID_PROFILE({}, { idProfile, isPending })
+    const { idProfile, isPending, pendingImage } = data
+    // console.log('getSocketOnPending [16]', {
+    //   idProfile,
+    //   isPending,
+    //   pendingImage,
+    // })
+    handleEvents.ON_AWAIT_FROM_ID_PROFILE(
+      {},
+      { idProfile, isPending, pendingImage }
+    )
   })
 }

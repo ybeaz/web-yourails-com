@@ -2,6 +2,7 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import dayjs from 'dayjs'
 
+import { ImageYrl } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
 import { MessageType } from './MessageType'
 import { styles } from './MessageStyle'
@@ -28,10 +29,27 @@ const MessageComponent: MessageType = props => {
     isSent,
     isReceived,
     isPending,
+    pendingImage,
   } = props
 
+  const roundAllCornersStyle = !isTail ? styles.roundAllCorners.style : {}
+
+  const dateString = dayjs(createdAt).locale(LOCALE).format(TIME_FORMAT)
+
   const propsOut: Record<string, any> = {
-    TriangleCorner: {
+    imageYrlProps: {
+      styleProps: {
+        ImageYrl: { paddingRight: '0.5rem' },
+        image: {
+          height: '4rem',
+          width: '4rem',
+        },
+      },
+      testID: 'ImageYrl',
+      uri: pendingImage, // 'https://yourails.com/images/loading/loading09.gif'
+      resizeMode: 'cover', // 'cover' | 'contain' | 'stretch' | 'repeat' | 'center'
+    },
+    triangleCorner: {
       isShow: !!isTail,
       styleProps: {
         borderColor: themes['themeA'].colors06,
@@ -39,13 +57,9 @@ const MessageComponent: MessageType = props => {
     },
   }
 
-  const roundAllCornersStyle = !isTail ? styles.roundAllCorners.style : {}
-
-  const dateString = dayjs(createdAt).locale(LOCALE).format(TIME_FORMAT)
-
   return (
     <View style={[styles[position].Message]} testID='Message'>
-      <TriangleCorner {...propsOut.TriangleCorner} />
+      <TriangleCorner {...propsOut.triangleCorner} />
       <View
         style={[
           styles[position].content,
@@ -54,9 +68,12 @@ const MessageComponent: MessageType = props => {
         ]}
         testID='content'
       >
-        <Text style={[styles[position].text]} testID='text'>
-          {text}
-        </Text>
+        <View style={[styles[position].messageWrapper]} testID='messageWrapper'>
+          {isPending && <ImageYrl {...propsOut.imageYrlProps} />}
+          <Text style={[styles[position].text]} testID='text'>
+            {text}
+          </Text>
+        </View>
         <Text
           style={[styles[position].dateString, { color: 'grey' }]}
           testID='dateString'

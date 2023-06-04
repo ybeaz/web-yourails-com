@@ -16,6 +16,7 @@ export interface MessagePropsType {
   isSent?: boolean
   isReceived?: boolean
   isPending?: boolean
+  pendingImage?: string
 }
 
 /**

@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid'
 import { store } from '../store'
+import { MessageType } from '../../@types/MessageType'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { MessageEventType } from '../../@types/MessageEventType'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
@@ -9,7 +10,7 @@ import { getSortedHashedStringifyArray } from '../../Shared/getSortedHashedStrin
 const { dispatch, getState } = store
 
 export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
-  const { idProfile, isPending } = data
+  const { idProfile, isPending, pendingImage } = data
 
   const {
     globalVars: { idProfileHost },
@@ -23,18 +24,12 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
       idProfile,
     ])
 
-    console.info('ON_AWAIT_FROM_ID_PROFILE [9]', {
-      idConversation,
-      idProfileHost,
-      idProfile,
-      isPending,
-    })
-
-    const message = {
+    const message: MessageType = {
       idMessage,
       idConversation,
       idProfile,
       isPending,
+      pendingImage,
       eventType: MessageEventType['chatMessage'],
       text: 'I am thinking',
     }
