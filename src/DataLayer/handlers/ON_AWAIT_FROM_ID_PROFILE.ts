@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid'
 import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { MessageEventType } from '../../@types/MessageEventType'
@@ -18,6 +19,8 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
   } = getState()
 
   if (isAwaiting === true) {
+    const idMessage = nanoid()
+
     const idConversation = getSortedHashedStringifyArray([
       idProfileHost,
       idProfile,
@@ -31,6 +34,7 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
     })
 
     const message = {
+      idMessage,
       idConversation,
       idProfile,
       eventType: MessageEventType['chatMessage'],
