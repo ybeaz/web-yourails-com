@@ -12,7 +12,13 @@ interface GetSocketOnAwaitType {
  */
 export const getSocketOnAwait: GetSocketOnAwaitType = () => {
   socket.on('await', data => {
-    const { isAwaiting } = data
+    const { idProfile, isAwaiting } = data
+    handleEvents.ON_AWAIT_FROM_ID_PROFILE({}, { idProfile, isAwaiting })
+  })
+}
+
+/*
+
     const dataModal = {
       childName: 'AwaitView',
       isShow: isAwaiting,
@@ -20,5 +26,5 @@ export const getSocketOnAwait: GetSocketOnAwaitType = () => {
     }
     console.log('getSocketOnAwait [15]', { isAwaiting, dataModal })
     handleEvents.ON_SET_MODAL_AWAIT_VIEW({}, dataModal)
-  })
-}
+
+*/

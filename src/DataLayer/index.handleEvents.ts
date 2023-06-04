@@ -1,4 +1,5 @@
 import { TEMPLATE } from './handlers/TEMPLATE'
+import { ON_AWAIT_FROM_ID_PROFILE } from './handlers/ON_AWAIT_FROM_ID_PROFILE'
 import { ON_SET_MODAL_AWAIT_VIEW } from './handlers/ON_SET_MODAL_AWAIT_VIEW'
 import { CLICK_ON_HOST_PROFILE_SELECT } from './handlers/CLICK_ON_HOST_PROFILE_SELECT'
 import { CLICK_ON_USER_OPTION_SELECT } from './handlers/CLICK_ON_USER_OPTION_SELECT'
@@ -26,6 +27,7 @@ export type HandleEventsType = Record<string, (arg1: any, arg2: any) => any>
 
 export const handleEvents: HandleEventsType = {
   TEMPLATE,
+  ON_AWAIT_FROM_ID_PROFILE,
   ON_SET_MODAL_AWAIT_VIEW,
   CLICK_ON_HOST_PROFILE_SELECT,
   CLICK_ON_USER_OPTION_SELECT,
