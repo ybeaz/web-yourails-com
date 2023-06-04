@@ -10,7 +10,9 @@ import { getSocketEmitMessage } from '../../CommunicationLayer/socketio/getSocke
 const { dispatch, getState } = store
 
 export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, data) => {
-  const { idProfileActive } = data
+  const {
+    profileActive: { idProfile: idProfileActive },
+  } = data
 
   const {
     forms: { inputChat },

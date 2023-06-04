@@ -29,10 +29,12 @@ import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainCo
 import { getSocketOnConversation } from '../../../CommunicationLayer/socketio/getSocketOnConversation'
 import { getSocketDisconnected } from '../../../CommunicationLayer/socketio/getSocketDisconnected'
 import { getSocketOnMessage } from '../../../CommunicationLayer/socketio/getSocketOnMessage'
+import { getSocketOnPending } from '../../../CommunicationLayer/socketio/getSocketOnPending'
 import { isHostR1UserToComFlag } from '../../../FeatureFlags'
 
 getSocketOnConversation()
 getSocketOnMessage()
+getSocketOnPending()
 
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {

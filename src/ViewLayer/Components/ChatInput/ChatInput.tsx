@@ -12,21 +12,25 @@ import { ChatInputType } from './ChatInputType'
 import { style } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 const ChatInputComponent: ChatInputType = props => {
   const { handleEvents, store } = props
 
   const {
+    profiles,
     globalVars: { idProfileActive },
     forms: { inputChat },
   } = store
+
+  const profileActive = getProfileByIdProfile(profiles, idProfileActive)
 
   const propsOut: Record<string, any> = {
     inputTextYrlProps: {
       onChangeText: (text: string) =>
         handleEvents.ON_CHANGE_INPUT_CHAT({}, { idProfileActive, text }),
       onSubmitEditing: () =>
-        handleEvents.CLICK_ON_SEND_MESSAGE({}, { idProfileActive }),
+        handleEvents.CLICK_ON_SEND_MESSAGE({}, { profileActive }),
       styleProps: {
         InputTextYrl: style.InputTextYrl,
         inputText: {
@@ -48,8 +52,7 @@ const ChatInputComponent: ChatInputType = props => {
       titleText: '',
       testID: 'ButtonYrl',
       disabled: false,
-      onPress: () =>
-        handleEvents.CLICK_ON_SEND_MESSAGE({}, { idProfileActive }),
+      onPress: () => handleEvents.CLICK_ON_SEND_MESSAGE({}, { profileActive }),
     },
     sendIconYrlProps: {
       library: 'Ionicons',

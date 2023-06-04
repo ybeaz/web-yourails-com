@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react'
+import React, { ReactElement, useEffect, FunctionComponent } from 'react'
 import { ScrollView, View } from 'react-native'
 
 import { ProfileType } from '../../../@types/ProfileType'
@@ -44,7 +44,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     handleEvents,
   } = props
 
-  const { deviceType } = mediaParams
+  const { deviceType, height: heightScreen } = mediaParams
   const { urlParam1, urlParam2 } = urlParams
   const style = styles[deviceType]
 
@@ -85,7 +85,9 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     getMessagesWithProfileActiveProps
   )
 
-  const Child = childName ? MODAL_CONTENTS[childName] : null
+  const Child: FunctionComponent | null = childName
+    ? MODAL_CONTENTS[childName]
+    : null
 
   const messagesPrep = getPreproccedMessages(
     messagesWithProfileActive,
@@ -185,6 +187,57 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       imageBackgroundSource: undefined, // require('../../../Assets/canopy-of-leaves-2.jpg'),
       isButtonBack,
       isButtonClose,
+    },
+    modalFrameAwaitViewProps: {
+      styleProps: {
+        ModalFrameYrl: { height: '100%' },
+        imageBackground: {
+          backgroundColor: themes['themeA'].colors01.backgroundColor,
+        },
+        content: {
+          height: '100%',
+          marginLeft: '45%',
+          marginRight: '46%',
+          marginTop: heightScreen / 3,
+          // ...themes['themeA'].colors03,
+        },
+        buttonBackWrapper: {},
+        buttonCloseWrapper: {},
+      },
+      linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.25)'],
+      isShow: isShowModalFrame,
+      testID: 'ChatSpace_modalFrameAwaitView',
+      buttonBackProps: {
+        styleProps: { ButtonYrl: {}, title: {} },
+        titleText: '',
+        testID: 'ModalFrameYrl-buttonBack',
+        disabled: true,
+        onPress: () => {},
+        iconProps: undefined,
+      },
+      buttonCloseProps: {
+        styleProps: { ButtonYrl: {}, title: {} },
+        titleText: '',
+        testID: 'ModalFrameYrl-buttonClose',
+        disabled: false,
+        onPress: () => {},
+        iconProps: undefined,
+      },
+      isShowImageBackground: false,
+      imageBackgroundSource: undefined, // require('../../../Assets/canopy-of-leaves-2.jpg'),
+      isButtonBack: false,
+      isButtonClose: false,
+    },
+    modalFrameYrlAnimatedYrlAwaitViewProps: {
+      styleProps: { AnimatedYrl: { height: '100%' } },
+      isActive: true,
+      valueInit: isShowModalFrame ? 0 : 0.5,
+      valueTarget: isShowModalFrame ? 0.5 : 0,
+      nameHtmlCssAttribute: 'opacity',
+      duration: 1000,
+      trigger: isShowModalFrame,
+      triggerShouldEqual: isShowModalFrame ? true : false,
+      testID: 'ChatSpace_leftColumnIn_animatedYrl_Inner',
     },
     chatSpaceJsxAnimatedYrlProps: {
       isActive: true,
@@ -290,10 +343,18 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           </AnimatedYrl>
         ) : null}
 
-        {childName && (
+        {childName && childName !== 'AwaitView' && (
           <AnimatedYrl {...propsOut.modalFrameYrlAnimatedYrlProps}>
             <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
-              <Child {...childProps} />
+              {Child && <Child {...childProps} />}
+            </ModalFrameYrl>
+          </AnimatedYrl>
+        )}
+
+        {isShowModalFrame && childName && childName === 'AwaitView' && (
+          <AnimatedYrl {...propsOut.modalFrameYrlAnimatedYrlAwaitViewProps}>
+            <ModalFrameYrl {...propsOut.modalFrameAwaitViewProps}>
+              {Child && <Child {...childProps} />}
             </ModalFrameYrl>
           </AnimatedYrl>
         )}

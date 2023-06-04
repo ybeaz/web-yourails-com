@@ -12,7 +12,7 @@ header("Access-Control-Allow-Headers: Content-Type");
   <meta httpequiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport"
     content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1.00001,viewport-fit=cover" />
-  <title>Portfolio site</title>
+  <title>Chat Service</title>
   <link rel="icon" type="image/png" href="https://r1.userto.com/img/Chat_Bubbles@2x_fb.png">
   <style>
     #root,

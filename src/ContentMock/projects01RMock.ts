@@ -18,7 +18,8 @@ export const projects01R: ProjectType[] = [
     customer: 'Business, hobby, leasure communities',
     builtwith:
       'React, react-router-dom, Typescript, ES7, ESLint, Babel, Webpack',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-yourails-academy.jpg',
+    imgSrc:
+      'https://yourails.com/images/@rome/yrl-23-demo-yourails-academy.jpg',
     linkHref: 'https://study.yourails.com/academy',
   },
 
@@ -38,7 +39,7 @@ export const projects01R: ProjectType[] = [
     customer: 'Not limited',
     builtwith:
       'React, React-dom, ES7, Babel, Webpack, Jest, Enzyme, JSONP, Php, MySQL',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-site-windows.jpg',
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-site-windows.jpg',
     linkHref: 'https://sitewindows.com/site-windows-info.html', //'https://r1-2022.userto.com/demo-site-windows.html',
   },
 
@@ -58,7 +59,7 @@ export const projects01R: ProjectType[] = [
 
     customer: 'Not limited',
     builtwith: 'React-native, React, ES7, Typescript, Expo/Webpack, Jest',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-sep-project.jpg',
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-sep-project.jpg',
     linkHref: 'https://web1.yourails.com/k/@smid',
   },
 
@@ -76,7 +77,7 @@ export const projects01R: ProjectType[] = [
     ],
     customer: 'Gaming, leasure time',
     builtwith: 'ES7, ESLint, Babel, Webpack',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-tic-tak-toe-js.jpg',
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-tic-tak-toe-js.jpg',
     linkHref: 'https://r1-2022.userto.com/demo-tic-tak-toe-js.html',
   },
 
@@ -95,7 +96,7 @@ export const projects01R: ProjectType[] = [
     customer: 'Business, hobby, leasure communities',
     builtwith:
       'Antd Compoment lib, React, react-router-dom, Typescript, ES7, ESLint, Babel, Webpack',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-sep.jpg',
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-sep.jpg',
     linkHref:
       'https://study.yourails.com/sep?ssr=Photoshop&hiw=true&sfs=true&sfb=true&ln=en',
   },
@@ -112,7 +113,8 @@ export const projects01R: ProjectType[] = [
     customer: 'Business, hobby, leasure sites',
     builtwith:
       'React, react-router-dom, Typescript, ES7, ESLint, Babel, Webpack',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-auth-social-service.jpg',
+    imgSrc:
+      'https://yourails.com/images/@rome/yrl-23-demo-auth-social-service.jpg',
     linkHref:
       'https://study.yourails.com/c/cj8dDTHGJBY/Eukaryopolis---The-City-of-Animal-Cells-Crash-Course-Biology-4',
   },
@@ -128,7 +130,8 @@ export const projects01R: ProjectType[] = [
       'The service assists users with memorizing texts or word sets: hiding text parts, mark difficult words, active reading, 25th frame, etc.',
     customer: 'Education. Language training provider',
     builtwith: 'Bootstrap, Bootstrap-select, javascript',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-learnByHeartService.jpg',
+    imgSrc:
+      'https://yourails.com/images/@rome/yrl-23-demo-learnByHeartService.jpg',
     linkHref:
       'https://r1-2022.userto.com/learning-text-learn-phrases-learn-words.html',
   },
@@ -144,7 +147,7 @@ export const projects01R: ProjectType[] = [
       'The service allows users to create telephone directory and keep contacts locally on their computers. This is a prototype for various dashboard function architectures.',
     customer: 'Not limited',
     builtwith: 'React, React-dom, ES7, Bootstrap, Webpack',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-tel-book.jpg',
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-tel-book.jpg',
     linkHref: 'https://r1-2022.userto.com/demo-tel-book-reactjs.html',
   },
 
@@ -159,7 +162,8 @@ export const projects01R: ProjectType[] = [
       'This is a react component illustrating the menu development with unlimited depth of the data tree',
     customer: 'Any industry',
     builtwith: 'React, Typescript, ES7, ESLint, Webpack',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-dynamic-tree-component.jpg',
+    imgSrc:
+      'https://yourails.com/images/@rome/yrl-23-demo-dynamic-tree-component.jpg',
     linkHref: 'https://r1-2022.userto.com/demo-dynamic-tree-component.html',
   },
 
@@ -175,7 +179,7 @@ export const projects01R: ProjectType[] = [
       'The common part of many types of interactive communication is providing the user with some research tools, such as filtering, sorting, picking up information items. In many times this includes the ability to edit information in some fields and create temporary lists for future consideration. This is a set of ReactJs components for a personal cabinet. This example includes the table, sortable ascending and discending order by columns. Free ride filters and preset filters are implemented. Modal windows as a part of selection process are implemented.',
     customer: 'e-commerce',
     builtwith: 'React, React-dom, Semantic-UI-React ES7, Babel, Webpack, Mocha',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-table-match.png',
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-table-match.png',
     linkHref:
       'https://bb.userto.com/analytics-c7b094941e7e11c6bf93d57366738802',
   },
@@ -192,7 +196,8 @@ export const projects01R: ProjectType[] = [
     customer: 'e-commerce',
     builtwith:
       'React, React-dom, React-redux, Redux, Enzyme, Enzyme-adapter-react, Jjest',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-purchase-summary.jpg',
+    imgSrc:
+      'https://yourails.com/images/@rome/yrl-23-demo-purchase-summary.jpg',
     linkHref: 'https://r1-2022.userto.com/demo-reactjs-purchase-summary.html',
   },
 
@@ -207,7 +212,8 @@ export const projects01R: ProjectType[] = [
       'Here are proven, effective techniques and questions for finding true masters of the language.',
     customer: 'Education, job hiring consulting',
     builtwith: 'ReactJS, Bootstrap, javascript',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-js-algorithms-problems.png',
+    imgSrc:
+      'https://yourails.com/images/@rome/yrl-23-demo-js-algorithms-problems.png',
     linkHref: 'https://r1-2022.userto.com/demo-js-algorithms-problems.html',
   },
 
@@ -222,7 +228,8 @@ export const projects01R: ProjectType[] = [
       'The service allows to get feedback from visitors of your site instantly on the mobile devices of managers and track the actions. It sends messages from your site feedback forms to your Telegram account. Promt replys for your client requests build trust and loyalty, which is important for sales and for beginning stage of co-operation.',
     customer: 'Sales, small and middle business sites',
     builtwith: 'Telegram API, AJAX, PHP CURL POST Requests',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-feedbackTelegram.png',
+    imgSrc:
+      'https://yourails.com/images/@rome/yrl-23-demo-feedbackTelegram.png',
     linkHref: 'http://r1-2022.userto.com/contacts',
   },
 
@@ -238,7 +245,7 @@ export const projects01R: ProjectType[] = [
     customer: 'Dashboards and services creation',
     builtwith:
       'jQuery File Upload API (AngularJS case), Angular 1.7, jQuery, Bootstrap, AJAX, PHP, GET, POST requests',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-fileUpload.png',
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-fileUpload.png',
     linkHref: 'https://r1-2022.userto.com/demo-file-upload.php',
   },
 
@@ -254,8 +261,10 @@ export const projects01R: ProjectType[] = [
       'It helps earning money from site traffic with numerous levels of flexibility without redesigning of the sites and getting into site engines. The project is based on the brand new Brand Banner technology for website design management, which is neutral to the site engine.',
     customer: '',
     builtwith: 'Angularjs 1.7, Bootstrap, jQuery, AJAX, PHP',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-brendBannerPromo.png',
-    linkHref: 'https://r1.userto.com/img/yrl-23-demo-brendBannerPromo.png',
+    imgSrc:
+      'https://yourails.com/images/@rome/yrl-23-demo-brendBannerPromo.png',
+    linkHref:
+      'https://yourails.com/images/@rome/yrl-23-demo-brendBannerPromo.png',
   },
 
   {
@@ -270,8 +279,10 @@ export const projects01R: ProjectType[] = [
       'The project involved a development of the javascript micro-library and light server part for fast creating feedback forms. The script allows developers to include an unlimited number of feedback forms for one page, to use an unlimited number of fields on one form, to build various scenarious for users utilizing modal window techniques, to apply standards for field description, to validate fields and alert user before form submitting',
     customer: '',
     builtwith: 'Bootstrap, jQuery, AJAX, PHP, POST requests, Telegram API, OOP',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-feedbackFormExample05.png', //'https://r1.userto.com/img/feedbackFormDemo.png',
-    linkHref: 'https://r1.userto.com/img/yrl-23-demo-feedbackFormExample05.png', // https://r1.userto.com/lib-feedback-forms
+    imgSrc:
+      'https://yourails.com/images/@rome/yrl-23-demo-feedbackFormExample05.png', //'https://yourails.com/images/@rome/feedbackFormDemo.png',
+    linkHref:
+      'https://yourails.com/images/@rome/yrl-23-demo-feedbackFormExample05.png',
   },
 
   {
@@ -286,8 +297,8 @@ export const projects01R: ProjectType[] = [
     customer: '',
     builtwith:
       'Angularjs 1.7, jQuery, AJAX, JSON PHP, POST requests, OOP, MySQL-MariaDB.',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-authorRegistr.png',
-    linkHref: 'https://r1.userto.com/img/yrl-23-demo-authorRegistr.png', // https://my.userto.com/dashboard.php#!/?lang=en
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-authorRegistr.png',
+    linkHref: 'https://yourails.com/images/@rome/yrl-23-demo-authorRegistr.png', // https://my.userto.com/dashboard.php#!/?lang=en
   },
 
   {
@@ -303,8 +314,8 @@ export const projects01R: ProjectType[] = [
     customer: 'Finance, Medicine, Computer science, etc.',
     builtwith:
       'php FANN library 2.2, PHP, AJAX, POST requests, Regexp, OOP, Bootstrap, Angularjs 1.7, jQuery, AJAX, JSON',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-langDetectAnn.png',
-    linkHref: 'https://r1.userto.com/img/yrl-23-demo-langDetectAnn.png', //'https://ann.userto.com/demo-language-detection.php'
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-langDetectAnn.png',
+    linkHref: 'https://yourails.com/images/@rome/yrl-23-demo-langDetectAnn.png', //'https://ann.userto.com/demo-language-detection.php'
   },
 
   {
@@ -319,8 +330,8 @@ export const projects01R: ProjectType[] = [
     customer: '',
     builtwith:
       'ReactJS, Bootstrap, jQuery, AJAX, PHP, POST requests, Telegram API, OOP',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-trizLang.png',
-    linkHref: 'https://r1.userto.com/img/yrl-23-demo-trizLang.png', // https://r1.userto.com/triz-lang-forms
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-trizLang.png',
+    linkHref: 'https://yourails.com/images/@rome/yrl-23-demo-trizLang.png',
   },
 
   {
@@ -335,8 +346,9 @@ export const projects01R: ProjectType[] = [
     customer: '',
     builtwith:
       'CSS 3, Pure JS, Yandex share API, Regexp, DOM Scripting, JSON, PHP, Bing search api, AJAX GET POST requests, Regexp, OOP',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-feedbackWidget.png',
-    linkHref: 'https://r1.userto.com/img/yrl-23-demo-feedbackWidget.png', //'https://r1-2022.userto.com/demo-feedback-widget.php'
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-feedbackWidget.png',
+    linkHref:
+      'https://yourails.com/images/@rome/yrl-23-demo-feedbackWidget.png', //'https://r1-2022.userto.com/demo-feedback-widget.php'
   },
 
   {
@@ -352,8 +364,8 @@ export const projects01R: ProjectType[] = [
     customer: '',
     builtwith:
       'CSS 3, Pure JS, Yandex share API, Regexp, DOM Scripting, JSON, PHP, Bing search api, AJAX GET POST requests, Regexp, OOP',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-answerLot.png',
-    linkHref: 'https://r1.userto.com/img/yrl-23-demo-answerLot.png', //'https://userto.com/question/T94408/Does-my-travel-insurance-policy-covers-me-in-case-of-an-accident'
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-answerLot.png',
+    linkHref: 'https://yourails.com/images/@rome/yrl-23-demo-answerLot.png', //'https://userto.com/question/T94408/Does-my-travel-insurance-policy-covers-me-in-case-of-an-accident'
   },
 
   {
@@ -367,8 +379,8 @@ export const projects01R: ProjectType[] = [
       'Shopping cart for quick check out providing configuration of shopping scenarios. The widget demonstrates the simple, but effective functionality of the shopping cart. It can be used as a first step for small online stores or as part of a more complex scenario.',
     customer: 'e-commerce',
     builtwith: 'jQuery, Bootstrap, AJAX, PHP, GET, POST requests',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-basket-cart.png',
-    linkHref: 'https://r1.userto.com/img/yrl-23-demo-basket-cart.png', // https://userto.com/product/10/kenmore-74233-5-0-cu-ft-freestanding-gas-range-w-convection-stainless-steel/en
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-basket-cart.png',
+    linkHref: 'https://yourails.com/images/@rome/yrl-23-demo-basket-cart.png', // https://userto.com/product/10/kenmore-74233-5-0-cu-ft-freestanding-gas-range-w-convection-stainless-steel/en
   },
 
   {
@@ -383,8 +395,8 @@ export const projects01R: ProjectType[] = [
     customer: 'e-commerce',
     builtwith:
       'React, React-dom, React-redux, React-router-dom, Redux ES7, Bootstrap, Webpack',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-itemLibDemo.png',
-    linkHref: 'https://r1.userto.com/img/yrl-23-demo-itemLibDemo.png', // https://r1.userto.com/lib-catalog-items
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-itemLibDemo.png',
+    linkHref: 'https://yourails.com/images/@rome/yrl-23-demo-itemLibDemo.png',
   },
 
   {
@@ -398,7 +410,7 @@ export const projects01R: ProjectType[] = [
     customer: '',
     builtwith:
       'jQuery, Bootstrap, JS widgets, Used: Google AdWords, Google Analytics',
-    imgSrc: 'https://r1.userto.com/img/premierExpertPromo.png',
+    imgSrc: 'https://yourails.com/images/@rome/premierExpertPromo.png',
     linkHref: 'https://pe.userto.com/info01.php',
   },
 
@@ -413,7 +425,7 @@ export const projects01R: ProjectType[] = [
       'This is a landing page for the startup which provides ordinary sites with online shop functionality without reprogramming. We use original JS eCommerce library of functions, cloud content broadcasting and brand banner technology.',
     customer: '',
     builtwith: 'Bootstrap, jQuery',
-    imgSrc: 'https://r1.userto.com/img/wikiGoodsPromo.png',
+    imgSrc: 'https://yourails.com/images/@rome/wikiGoodsPromo.png',
     linkHref: 'https://userto.com/promo-ecommerce.php',
   },
 
@@ -429,7 +441,7 @@ export const projects01R: ProjectType[] = [
     customer: 'Not limited',
     builtwith:
       'Redux, React-redux, React, React-dom, ES7, Babel, Bootstrap, Webpack, Mocha',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-noteLibDemo.jpg',
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-noteLibDemo.jpg',
     linkHref: 'https://r1-2022.userto.com/demo-note-book.html',
   },
 
@@ -443,7 +455,7 @@ export const projects01R: ProjectType[] = [
     description: '',
     customer: '',
     builtwith: 'Bootstrap, Bootstrap-select, jQuery, AJAX, ',
-    imgSrc: 'https://r1.userto.com/img/imgResizeDemo.png',
+    imgSrc: 'https://yourails.com/images/@rome/imgResizeDemo.png',
     linkHref: 'https://r1-2022.userto.com/demo-image-resize.php',
   },
 
@@ -460,7 +472,7 @@ export const projects01R: ProjectType[] = [
     customer: 'Any industry',
     builtwith:
       'ExpressJS, GraphQL, React, react-router-dom, Typescript, ES7, ESLint, Babel, Webpack',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-ecom-yanazon.jpg',
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-ecom-yanazon.jpg',
     linkHref:
       'https://r1-2022.userto.com/demo-ecom-yunazon-espa-neptun-FL60.html',
   },
@@ -476,7 +488,7 @@ export const projects01R: ProjectType[] = [
       'This is a react SPA demo for e-commerce product(s) representation',
     customer: 'E-commerce',
     builtwith: 'React, react-router-dom, ES7, ESLint, Babel, Webpack',
-    imgSrc: 'https://r1.userto.com/img/yrl-23-demo-item-carousel.jpg',
+    imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-item-carousel.jpg',
     linkHref: 'https://r1-2022.userto.com/demo-js-item-carousel.html',
   },
 
@@ -491,7 +503,7 @@ export const projects01R: ProjectType[] = [
     customer: 'Any industry',
     builtwith: 'React, react-router-dom, ES7, ESLint, Babel, Webpack',
     imgSrc:
-      'https://r1.userto.com/img/yrl-23-demo-earthquake-zen-garden-screens.jpg',
+      'https://yourails.com/images/@rome/yrl-23-demo-earthquake-zen-garden-screens.jpg',
     linkHref: 'https://r1-2022.userto.com/demo-earthquake-zen-garden-js.html',
   },
 
@@ -506,7 +518,7 @@ export const projects01R: ProjectType[] = [
       'The project involves using 1C-Bitrix CMS, a great deal of content management, CEO, processing Word xml into html CEO friendly pages.',
     customer: '',
     builtwith: '1C-Bitrix CMS, bootstrap, PHP, MySQL-MariaDB',
-    imgSrc: 'https://r1.userto.com/img/arbirRuExample.png',
+    imgSrc: 'https://yourails.com/images/@rome/arbirRuExample.png',
     linkHref:
       'https://arbir.ru/miscellany/U18S864E55782-Situation-awareness-new-paradigm-for-the-next-generation-infrastructures',
   },
@@ -522,7 +534,7 @@ export const projects01R: ProjectType[] = [
       'The service provides a quick outlook for how Alex, Google, Yandex see the domain.',
     customer: 'Internet analytics',
     builtwith: 'REST Google API, Yandex API, angularjs 1.7, bootstrap',
-    imgSrc: 'https://r1.userto.com/img/domainStatService.png',
+    imgSrc: 'https://yourails.com/images/@rome/domainStatService.png',
     linkHref: 'https://my.userto.com/dashboard.php#!/domainStat?lang=en',
   },
 
@@ -537,8 +549,8 @@ export const projects01R: ProjectType[] = [
       'This is a smart phone app for friends to buy, lend, give for free things easily and get fun of the process',
     customer: 'Mobile users',
     builtwith: 'React Native, Expo, ES7, ESLint, Babel',
-    imgSrc: 'https://r1.userto.com/img/yunazon-screens.png',
-    linkHref: 'https://r1.userto.com/img/yunazon-screens.png', // https://r1.userto.com/lib-catalog-items
+    imgSrc: 'https://yourails.com/images/@rome/yunazon-screens.png',
+    linkHref: 'https://yourails.com/images/@rome/yunazon-screens.png',
   },
 
   {
@@ -554,8 +566,8 @@ export const projects01R: ProjectType[] = [
     customer: 'Not limited',
     builtwith:
       'Angularjs-1.7, jQuery, AJAX, JSON PHP, POST requests, OOP, MySQL-MariaDB',
-    imgSrc: 'https://r1.userto.com/img/mmsAaaDemo.png',
-    linkHref: 'https://r1.userto.com/img/mmsAaaDemo.png',
+    imgSrc: 'https://yourails.com/images/@rome/mmsAaaDemo.png',
+    linkHref: 'https://yourails.com/images/@rome/mmsAaaDemo.png',
   },
 
   {
@@ -569,7 +581,7 @@ export const projects01R: ProjectType[] = [
     customer: '',
     builtwith:
       'jQuery, Bootstrap, JS widgets, Used: Google AdWords, Google Analytics',
-    imgSrc: 'https://r1.userto.com/img/feedbackWidgetPromo.png',
-    linkHref: 'https://r1.userto.com/img/feedbackWidgetPromo.png', // https://my.yacontent.com/services/LpUserTo/index.html
+    imgSrc: 'https://yourails.com/images/@rome/feedbackWidgetPromo.png',
+    linkHref: 'https://yourails.com/images/@rome/feedbackWidgetPromo.png', // https://my.yacontent.com/services/LpUserTo/index.html
   },
 ]
