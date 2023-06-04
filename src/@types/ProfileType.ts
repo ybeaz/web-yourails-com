@@ -24,5 +24,4 @@ export interface ProfileType {
   serviceSpecs?: string[]
   summary?: string
   uriAvatar?: string
-  isAsyncAwait?: boolean
 }

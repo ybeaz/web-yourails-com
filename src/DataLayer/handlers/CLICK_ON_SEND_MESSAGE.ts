@@ -11,10 +11,7 @@ const { dispatch, getState } = store
 
 export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, data) => {
   const {
-    profileActive: {
-      idProfile: idProfileActive,
-      isAsyncAwait: isAsyncAwaitActive,
-    },
+    profileActive: { idProfile: idProfileActive },
   } = data
 
   const {
@@ -31,7 +28,6 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, data) => {
     idProfile: idProfileHost,
     text: inputChat[idProfileActive],
     eventType: MessageEventType['chatMessage'],
-    isAsyncAwait: isAsyncAwaitActive,
   }
 
   getSocketEmitMessage(message)

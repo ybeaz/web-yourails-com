@@ -4,21 +4,18 @@ import { ActionEventType } from '../../@types/ActionEventType'
 import { MessageEventType } from '../../@types/MessageEventType'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { handleEvents } from '../index.handleEvents'
-import {
-  getSortedHashedStringifyArray,
-  HashFunctionType,
-} from '../../Shared/getSortedHashedStringifyArray'
+import { getSortedHashedStringifyArray } from '../../Shared/getSortedHashedStringifyArray'
 
 const { dispatch, getState } = store
 
 export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
-  const { idProfile, isAwaiting } = data
+  const { idProfile, isPending } = data
 
   const {
     globalVars: { idProfileHost },
   } = getState()
 
-  if (isAwaiting === true) {
+  if (isPending === true) {
     const idMessage = nanoid()
 
     const idConversation = getSortedHashedStringifyArray([
@@ -30,13 +27,14 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
       idConversation,
       idProfileHost,
       idProfile,
-      isAwaiting,
+      isPending,
     })
 
     const message = {
       idMessage,
       idConversation,
       idProfile,
+      isPending,
       eventType: MessageEventType['chatMessage'],
       text: 'I am thinking',
     }
