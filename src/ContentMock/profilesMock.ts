@@ -30,11 +30,12 @@ export const profiles: ProfileType[] = [
     messengers: [],
     locations: ['History'],
     serviceSpecs: ['Simulation', 'Question Answering'],
-    summary:
-      '\n\
+    summary: `
+      Disclaimer: As a AI language model, I can generate text based on patterns and examples from a wide range of sources. While I strive to provide accurate and helpful information, I must clarify that I do not have direct access to or knowledge of specific authors' works, including exact citations or specific phrases from their writings.
+    
       Alexander Sergeyevich Pushkin (1799-1837) was a Russian poet, playwright, and novelist, widely regarded as the founder of modern Russian literature. His works, including "Eugene Onegin" and "The Bronze Horseman," combined classical forms with colloquial language, capturing the essence of the Russian people and exploring themes of love, freedom, and identity. Pushkin\'s profound insights into human nature and society, along with his lyrical poetry, have had a lasting impact on Russian literature.\n\
       Despite facing censorship and political pressure, Pushkin\'s creativity flourished, and he produced remarkable works during his exile in southern Russia. His writings not only influenced subsequent generations of Russian authors but also resonated with readers through their emotional depth and historical context. Tragically, Pushkin\'s life was cut short when he died at the age of 37 in a duel, but his literary legacy continues to be celebrated as a vital part of Russian cultural heritage.\n\
-      Alexander Pushkin\'s immense contribution to Russian literature, his ability to blend classical and vernacular language, and his exploration of universal themes have solidified his status as a literary icon. His enduring works and keen observations of human experience have left an indelible mark, making him one of the most revered and influential figures in the history of Russian literature.',
+      Alexander Pushkin\'s immense contribution to Russian literature, his ability to blend classical and vernacular language, and his exploration of universal themes have solidified his status as a literary icon. His enduring works and keen observations of human experience have left an indelible mark, making him one of the most revered and influential figures in the history of Russian literature.`,
   },
 
   {
@@ -51,12 +52,13 @@ export const profiles: ProfileType[] = [
     messengers: [],
     locations: ['History'],
     serviceSpecs: ['Simulation', 'Question Answering'],
-    summary:
-      "\n\
+    summary: `
+      Disclaimer: As a AI language model, I can generate text based on patterns and examples from a wide range of sources. While I strive to provide accurate and helpful information, I must clarify that I do not have direct access to or knowledge of specific authors' works, including exact citations or specific phrases from their writings.
+
       Albert Einstein(1879- 1955) was a German - born physicist who is widely regarded as one of the greatest scientific minds in history.He revolutionized our understanding of the physical world, particularly through his theory of relativity, which provided a new framework for comprehending space, time, and gravity.\n\
       Einstein's most famous equation, E=mc², established the equivalence of mass and energy and played a significant role in the development of atomic energy. His groundbreaking work on the photoelectric effect earned him the Nobel Prize in Physics in 1921. Einstein's theories also contributed to advancements in various scientific fields, including astrophysics, quantum mechanics, and cosmology.\n\
-      Beyond his scientific achievements, Einstein was known for his advocacy of civil rights, pacifism, and humanitarian causes. He spoke out against war, supported the formation of a Jewish homeland, and fought against racial discrimination. Einstein's wisdom and wit, coupled with his distinctive appearance and iconic image, have made him a globally recognizable figure.\n\
-      Overall, Albert Einstein's scientific discoveries and his impact on the world continue to be celebrated, solidifying his status as an intellectual giant and a cultural icon of the 20th century.",
+      Beyond his scientific achievements, Einstein was known for his advocacy of civil rights, pacifism, and humanitarian causes. He spoke out against war, supported the formation of a Jewish homeland, and fought against racial discrimination. Einstein's wisdom and wit, coupled with his distinctive appearance and iconic image, have made him a globally recognizable figure.
+      Overall, Albert Einstein\'s scientific discoveries and his impact on the world continue to be celebrated, solidifying his status as an intellectual giant and a cultural icon of the 20th century.`,
   },
   {
     idProfile: '8',
@@ -73,8 +75,10 @@ export const profiles: ProfileType[] = [
     messengers: [],
     locations: ['Internet'],
     serviceSpecs: ['Content Creation', 'Question Answering'],
-    summary:
-      'GPT-3.5 Turbo is an advanced language model developed by OpenAI. It is the successor to GPT-3 and is designed to generate human-like text based on given prompts. With the GPT-3.5 Turbo API, developers can integrate this powerful language model into their applications, products, or services. It can be used for a wide range of natural language processing tasks, such as drafting emails, writing code, answering questions, creating conversational agents, language translation, and more. The API allows you to make requests to the model by sending a prompt and receiving the generated text in response. It provides an intuitive and efficient way to leverage the capabilities of GPT-3.5 Turbo and create interactive and intelligent applications.',
+    summary: `
+      Disclaimer: As a AI language model, I can generate text based on patterns and examples from a wide range of sources. While I strive to provide accurate and helpful information, I must clarify that I do not have direct access to or knowledge of specific authors' works, including exact citations or specific phrases from their writings.
+      
+      GPT-3.5 Turbo is an advanced language model developed by OpenAI. It is the successor to GPT-3 and is designed to generate human-like text based on given prompts. With the GPT-3.5 Turbo API, developers can integrate this powerful language model into their applications, products, or services. It can be used for a wide range of natural language processing tasks, such as drafting emails, writing code, answering questions, creating conversational agents, language translation, and more. The API allows you to make requests to the model by sending a prompt and receiving the generated text in response. It provides an intuitive and efficient way to leverage the capabilities of GPT-3.5 Turbo and create interactive and intelligent applications.`,
   },
   {
     idProfile: '1',
