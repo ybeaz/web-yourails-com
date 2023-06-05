@@ -11,15 +11,11 @@ interface GetSocketOnPendingType {
  */
 export const getSocketOnPending: GetSocketOnPendingType = () => {
   socket.on('pending', data => {
-    const { idProfile, isPending, pendingImage } = data
+    const { idProfile, isPending } = data
     // console.log('getSocketOnPending [16]', {
     //   idProfile,
     //   isPending,
-    //   pendingImage,
     // })
-    handleEvents.ON_AWAIT_FROM_ID_PROFILE(
-      {},
-      { idProfile, isPending, pendingImage }
-    )
+    handleEvents.ON_AWAIT_FROM_ID_PROFILE({}, { idProfile, isPending })
   })
 }

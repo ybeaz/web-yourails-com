@@ -32,6 +32,7 @@ import { getSocketOnMessage } from '../../../CommunicationLayer/socketio/getSock
 import { getSocketOnPending } from '../../../CommunicationLayer/socketio/getSocketOnPending'
 import { isHostR1UserToComFlag } from '../../../FeatureFlags'
 
+/** @description Add socket.io listeners **/
 getSocketOnConversation()
 getSocketOnMessage()
 getSocketOnPending()

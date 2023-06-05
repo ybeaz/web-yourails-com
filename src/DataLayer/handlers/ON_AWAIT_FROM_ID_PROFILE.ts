@@ -10,7 +10,7 @@ import { getSortedHashedStringifyArray } from '../../Shared/getSortedHashedStrin
 const { dispatch, getState } = store
 
 export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
-  const { idProfile, isPending, pendingImage } = data
+  const { idProfile, isPending } = data
 
   const {
     globalVars: { idProfileHost },
@@ -29,7 +29,6 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
       idConversation,
       idProfile,
       isPending,
-      pendingImage,
       eventType: MessageEventType['chatMessage'],
       text: 'I am thinking',
     }
