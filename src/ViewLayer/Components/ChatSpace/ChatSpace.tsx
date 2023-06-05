@@ -268,12 +268,13 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       const { pendingImage } = getProfileByIdProfile(profiles, idProfile)
       let textNext = text
       if (eventType === MessageEventType['joinConversation']) {
-        const idProfileFromText = JSON.parse(text).idProfile
+        const { idProfile: idProfileRespondent, text: textJoinConversation } =
+          JSON.parse(text)
         const { profileName } = getProfileByIdProfile(
           profiles,
-          idProfileFromText
+          idProfileRespondent
         )
-        textNext = `${profileName} joined conversation`
+        textNext = `${profileName} ${textJoinConversation}`
       }
 
       const propsOut = {
