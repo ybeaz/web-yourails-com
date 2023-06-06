@@ -1062,21 +1062,6 @@ $ git push -u origin ...\n\
 
   {
     idProfile: '1',
-    title: 'JWT',
-    contentType: ContentType['CompetencyTagType'],
-    section: 'Front-end',
-    linkHref: 'https://jwt.io/',
-    iconLibrary: 'Ionicons',
-    iconName: '',
-    tooltips:
-      '\
-  JSON Web Tokens are an open, industry standard RFC 7519 method for\n\
-  representing claims securely between two parties.\n\
-  ',
-  },
-
-  {
-    idProfile: '1',
     title: 'Less',
     contentType: ContentType['CompetencyTagType'],
     section: 'Front-end',
@@ -2119,6 +2104,26 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
 
   {
     idProfile: '1',
+    title: 'JWT',
+    contentType: ContentType['CompetencyTagType'],
+    section: 'Back-end',
+    linkHref: 'https://jwt.io/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips: `
+JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties.\n\
+  
+High-level overview of how SSO can work with JWT:
+
+1. Authentication: When a user authenticates with the identity provider (IdP), the IdP generates a JWT containing relevant information about the user, such as their identity and granted permissions. This JWT is digitally signed by the IdP using a secret key.
+2. Token Exchange: After successful authentication, the IdP issues the JWT to the user, who can then present this token to the service providers (SPs) they wish to access.
+3. Token Validation: The SPs, upon receiving the JWT, validate the signature of the token using the public key of the IdP. This ensures the authenticity and integrity of the JWT.  
+4. Authorization: Once the JWT is validated, the SPs extract the relevant information from the token, such as the user's identity and permissions, to authorize access to the requested resources or applications.
+`,
+  },
+
+  {
+    idProfile: '1',
     title: 'LAMP',
     contentType: ContentType['CompetencyTagType'],
     section: 'Back-end',
@@ -2559,6 +2564,23 @@ Status codes',
 • socket.join(roomName): Makes a client join a specific room.\n\
 • socket.leave(roomName): Makes a client leave a specific room.\n\
 • socket.on(eventName, callback): Listens for a specific event on the client side.",
+  },
+
+  {
+    idProfile: '1',
+    title: 'SSO',
+    contentType: ContentType['CompetencyTagType'],
+    section: 'Back-end',
+    linkHref: 'https://en.wikipedia.org/wiki/Single_sign-on',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips: `
+• Federated SSO: In this approach, an identity provider (IdP) is used to authenticate users, and trusted third-party service providers (SPs) rely on the IdP for authentication. The IdP issues security tokens that the SPs can validate to grant access.
+• Social Media SSO: This approach allows users to authenticate using their social media accounts such as Google, Facebook, or Twitter. The social media platform acts as the identity provider, and the user's login credentials are used for authentication across various applications.
+• Enterprise SSO: This type of SSO is specifically designed for organizations and integrates with their existing identity management systems. It enables employees to access multiple internal applications with a single set of credentials managed by the organization.
+• Password Vault SSO: In this approach, a password vault or manager securely stores and manages user credentials. Users authenticate with the password vault, which then automatically fills in the login credentials for various applications.
+• Biometric SSO: This emerging approach uses biometric authentication, such as fingerprints or facial recognition, to grant access to multiple applications or systems without requiring users to enter passwords.
+`,
   },
 
   {
