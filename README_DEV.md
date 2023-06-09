@@ -9,6 +9,12 @@ updated 2023-04-29 partially
 
 ## Plans
 
+2023-06-05
+
+- Create a discription for the concept for SEP AI-ML model aggregator/ distributor
+- Create a separate page for Disclaimer and How to
+- Add a link to the user profile
+
 2023-05-31 edition. One week sprint
 
 - Implement logic to show a user his/her own profile through the UserMenu

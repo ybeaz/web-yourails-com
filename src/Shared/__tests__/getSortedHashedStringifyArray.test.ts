@@ -12,6 +12,14 @@ describe('Test function getSortedHashedStringifyArray', () => {
       {
         isActive: true,
         input: {
+          arr: ['11', '5'],
+          options: { hashFunction: null },
+        },
+        expected: '["5","11"]',
+      },
+      {
+        isActive: true,
+        input: {
           arr: ['1', '3'],
           options: { hashFunction: HashFunctionType['SHA256'] },
         },

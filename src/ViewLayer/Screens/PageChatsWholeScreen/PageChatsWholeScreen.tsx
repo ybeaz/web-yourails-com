@@ -32,10 +32,6 @@ import { getSocketOnMessage } from '../../../CommunicationLayer/socketio/getSock
 import { getSocketOnPending } from '../../../CommunicationLayer/socketio/getSocketOnPending'
 import { isHostR1UserToComFlag } from '../../../FeatureFlags'
 
-getSocketOnConversation()
-getSocketOnMessage()
-getSocketOnPending()
-
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
     styleProps = { PageChatsWholeScreen: {} },
@@ -51,7 +47,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const style = styles[deviceType]
 
   const renderCounter = useRef(0)
-  renderCounter.current = renderCounter.current + 1
 
   const { componentsState, profiles, sectionsMapping } = store
 
@@ -84,10 +79,20 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   })
 
   useEffect(() => {
-    handleEvents.INIT_LOADING({}, {})
+    if (renderCounter.current === 0) {
+      /** @description Add socket.io listeners **/
+      getSocketOnConversation()
+      getSocketOnMessage()
+      getSocketOnPending()
 
-    /** @description Add the 'beforeunload' event listener to gracefully disconnect when reloading the page */
-    window.addEventListener('beforeunload', getSocketDisconnected)
+      /** @description Loading profiles, messages, etc. as a first step **/
+      handleEvents.INIT_LOADING({}, {})
+
+      /** @description Add the 'beforeunload' event listener to gracefully disconnect when reloading the page */
+      window.addEventListener('beforeunload', getSocketDisconnected)
+    }
+
+    renderCounter.current = renderCounter.current + 1
 
     /** @description Clean up the event listener when the component unmounts */
     return () => {

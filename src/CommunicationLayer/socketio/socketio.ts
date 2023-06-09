@@ -1,4 +1,6 @@
 import { io } from 'socket.io-client'
-import { SERVER_SOCKET_IO_HOST } from '../../Constants/servers.const'
+import { getServerSocketIoHost } from '../../Shared/getServerSocketIoHost'
 
-export const socket = io(SERVER_SOCKET_IO_HOST)
+const serverSocketIoHost = getServerSocketIoHost()
+
+export const socket = io(serverSocketIoHost)

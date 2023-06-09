@@ -24,4 +24,5 @@ export interface ProfileType {
   serviceSpecs?: string[]
   summary?: string
   uriAvatar?: string
+  pendingImage?: string
 }

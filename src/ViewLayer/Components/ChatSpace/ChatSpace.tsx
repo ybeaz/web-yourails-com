@@ -265,18 +265,20 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const getMessagesJsx = (messagesIn: MessageType[]): ReactElement[] => {
     return messagesIn.map((message: MessageType, index) => {
       const { idMessage, text, eventType, idProfile } = message
+      const { pendingImage } = getProfileByIdProfile(profiles, idProfile)
       let textNext = text
       if (eventType === MessageEventType['joinConversation']) {
-        const idProfileFromText = JSON.parse(text).idProfile
+        const { idProfile: idProfileRespondent, text: textJoinConversation } =
+          JSON.parse(text)
         const { profileName } = getProfileByIdProfile(
           profiles,
-          idProfileFromText
+          idProfileRespondent
         )
-        textNext = `${profileName} joined conversation`
+        textNext = `${profileName} ${textJoinConversation}`
       }
 
       const propsOut = {
-        messageProps: { ...message, text: textNext },
+        messageProps: { ...message, text: textNext, pendingImage },
       }
       return (
         <Message
