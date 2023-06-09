@@ -8,4 +8,4 @@ interface GetSortedArrayType {
  */
 
 export const getSortedArray: GetSortedArrayType = arr =>
-  arr.sort((a, b) => a.localeCompare(b))
+  arr.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
