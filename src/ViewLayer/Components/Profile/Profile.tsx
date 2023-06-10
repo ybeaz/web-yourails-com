@@ -34,6 +34,7 @@ const getProfileItemsObjList = (
     messengers = [],
     locations = [],
     summary,
+    disclaimer,
     serviceSpecs = [],
   } = profileIn
 
@@ -58,6 +59,14 @@ const getProfileItemsObjList = (
       content: summary,
       label: 'Summary',
       isActive: summary ? true : false,
+    },
+    {
+      iconLibrary: 'Ionicons',
+      iconName: 'alert-circle-outline',
+      contentType: 'string',
+      content: disclaimer,
+      label: 'Disclaimer',
+      isActive: disclaimer ? true : false,
     },
     {
       iconLibrary: 'Ionicons',

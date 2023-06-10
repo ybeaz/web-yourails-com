@@ -6,6 +6,7 @@ import { MessageEventType } from '../../@types/MessageEventType'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { handleEvents } from '../index.handleEvents'
 import { getSortedHashedStringifyArray } from '../../Shared/getSortedHashedStringifyArray'
+import { getProfileByIdProfile } from '../../Shared/getProfileByIdProfile'
 
 const { dispatch, getState } = store
 
@@ -13,6 +14,7 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
   const { idProfile, isPending } = data
 
   const {
+    profiles,
     globalVars: { idProfileHost },
   } = getState()
 
@@ -24,13 +26,16 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
       idProfile,
     ])
 
+    const profile = getProfileByIdProfile(profiles, idProfile)
+    const pendingText = profile.pendingText ? profile.pendingText : ''
+
     const message: MessageType = {
       idMessage,
       idConversation,
       idProfile,
       isPending,
       eventType: MessageEventType['chatMessage'],
-      text: 'I am thinking',
+      text: pendingText,
     }
 
     handleEvents.ON_MESSAGE_SOCKET({}, { message })

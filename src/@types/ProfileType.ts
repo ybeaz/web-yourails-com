@@ -25,4 +25,6 @@ export interface ProfileType {
   summary?: string
   uriAvatar?: string
   pendingImage?: string
+  pendingText?: string
+  disclaimer?: string
 }
