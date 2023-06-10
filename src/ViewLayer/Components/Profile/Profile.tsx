@@ -165,9 +165,11 @@ const ProfileComponent: ProfileComponentType = props => {
 
   return (
     <View style={[style.Profile, styleProps.Profile]} testID='Profile'>
-      <View style={[style.imageWrapper]} testID='imageWrapper'>
-        <ImageYrl {...propsOut.imageYrlProps} />
-      </View>
+      {profileTagsUserHost.uriAvatar ? (
+        <View style={[style.imageWrapper]} testID='imageWrapper'>
+          <ImageYrl {...propsOut.imageYrlProps} />
+        </View>
+      ) : null}
       <View style={[style.profileItemsWrapper]} testID='profileItemsWrapper'>
         {getProfileItems(profileItems)}
       </View>
