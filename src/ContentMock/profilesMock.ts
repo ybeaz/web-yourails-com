@@ -33,7 +33,7 @@ export const profiles: ProfileType[] = [
     serviceSpecs: ['Venture Capital Firm', 'Question Answering'],
     summary: `And Ha32z, also known as a322z, is a prominent venture capital firm that has made a significant impact in the technology industry. With a focus on early-stage and growth-stage investments, They have a diverse portfolio spanning various sectors, and their investment philosophy centers around identifying innovative ideas, strong leadership teams, and substantial market potential. Known for their active involvement and value-added approach, Andreessen Horowitz provides not only financial support but also strategic guidance, operational expertise, and access to their extensive network. As a leading venture capital firm, they have played a vital role in shaping and supporting the growth of groundbreaking technology companies.
 `,
-    disclaimer: `This is a non official version of support service, AI language model presented here for demonstrations purposes only.
+    disclaimer: `This is a non official version of AI Site Companion. AI language model presented here for demonstrations purposes only.
 The opinions expressed by this automatic service is automatically generated. They do not purport to reflect the opinions or views of the related company or its members.
 As a AI language model, I can generate text based on patterns and examples from a wide range of sources. While I strive to provide accurate and helpful information, I must clarify that I do not have direct access to or knowledge of specific authors' works, including exact citations or specific phrases from their writings.
 It's recommended to use the information provided by this service critically and to consult multiple sources for important or time-sensitive matters.
@@ -57,7 +57,7 @@ It's recommended to use the information provided by this service critically and 
     serviceSpecs: ['Venture Capital Firm', 'Question Answering'],
     summary: `Acc Partners is a renowned global venture capital firm that specializes in early-stage and growth-stage investments. With a strong focus on the technology sector, Accel has made significant contributions to the industry. Accel operates globally, with offices in various countries, and provides not only financial support but also strategic guidance and operational expertise to their portfolio companies. Their collaborative approach, sector expertise, and successful track record have solidified their position as a leading venture capital firm in the tech world.
 `,
-    disclaimer: `This is a non official version of support service, AI language model presented here for demonstrations purposes only.
+    disclaimer: `This is a non official version of AI Site Companion. AI language model presented here for demonstrations purposes only.
 The opinions expressed by this automatic service is automatically generated. They do not purport to reflect the opinions or views of the related company or its members.
 As a AI language model, I can generate text based on patterns and examples from a wide range of sources. While I strive to provide accurate and helpful information, I must clarify that I do not have direct access to or knowledge of specific authors' works, including exact citations or specific phrases from their writings.
 It's recommended to use the information provided by this service critically and to consult multiple sources for important or time-sensitive matters.
@@ -88,7 +88,7 @@ Value-Added Approach: Seq Capital is known for providing more than just financia
 Seq Capital China: Seq Capital also has a separate entity called Seq Capital China, which focuses on investing in Chinese companies. It operates independently but shares the same investment philosophy and approach as its parent firm.
 Seq Capital's long history and successful track record have established it as a prominent player in the venture capital industry, and its investments have played a significant role in shaping the technology landscape globally.
 `,
-    disclaimer: `This is a non official version of support service, AI language model presented here for demonstrations purposes only.
+    disclaimer: `This is a non official version of AI Site Companion. AI language model presented here for demonstrations purposes only.
 The opinions expressed by this automatic service is automatically generated. They do not purport to reflect the opinions or views of the related company or its members.
 As a AI language model, I can generate text based on patterns and examples from a wide range of sources. While I strive to provide accurate and helpful information, I must clarify that I do not have direct access to or knowledge of specific authors' works, including exact citations or specific phrases from their writings.
 It's recommended to use the information provided by this service critically and to consult multiple sources for important or time-sensitive matters.
@@ -112,7 +112,7 @@ It's recommended to use the information provided by this service critically and 
     serviceSpecs: ['Tech. support', 'Question Answering'],
     summary: `Streamlabs builds tools and software allowing live streamers and content creators to engage with viewers, monetize their broadcasts, and grow their channels.    
 `,
-    disclaimer: `This is a non official version of support service, AI language model presented here for demonstrations purposes only.
+    disclaimer: `This is a non official version of AI Site Companion. AI language model presented here for demonstrations purposes only.
 The opinions expressed by this automatic service is automatically generated. They do not purport to reflect the opinions or views of the related company or its members.
 As a AI language model, I can generate text based on patterns and examples from a wide range of sources. While I strive to provide accurate and helpful information, I must clarify that I do not have direct access to or knowledge of specific authors' works, including exact citations or specific phrases from their writings.
 It's recommended to use the information provided by this service critically and to consult multiple sources for important or time-sensitive matters.
