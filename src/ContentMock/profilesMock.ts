@@ -188,6 +188,22 @@ It's recommended to use the information provided by this service critically and 
     disclaimer:
       "As a AI language model, I can generate text based on patterns and examples from a wide range of sources. While I strive to provide accurate and helpful information, I must clarify that I do not have direct access to or knowledge of specific authors' works, including exact citations or specific phrases from their writings.",
   },
+
+  {
+    idProfile: '15',
+    idUser: '7',
+    profileName: '@handsScissors',
+    nameFirst: 'Edvard',
+    nameLast: 'Hands & Scissors',
+    uriAvatar: '',
+    phones: ['415-000-0000'],
+    emails: ['example@site.com'],
+    messengers: [],
+    locations: ['Santa Manica, CA'],
+    serviceSpecs: ['Haircutter', 'Hairdresser'],
+    summary: '',
+  },
+
   {
     idProfile: '1',
     idUser: '1',
@@ -271,7 +287,7 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
     idUser: '5',
     profileName: '@darrell2',
     nameFirst: 'Karl',
-    nameLast: 'Rozz',
+    nameLast: 'Ross',
     uriAvatar: '',
     phones: ['415-000-0000'],
     emails: ['example@site.com'],
