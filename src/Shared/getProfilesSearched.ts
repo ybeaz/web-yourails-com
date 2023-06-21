@@ -37,6 +37,6 @@ export const getProfilesSearched: getProfilesSearchedType = (
     const serviceSpecsStr = getStringFromArrayStrings(serviceSpecs)
     const strToSearch = `${idProfile}${idUser}${contactsStr}${emailsStr}${locationsStr}${nameFirst}${nameLast}${phonesStr}${serviceSectionsStr}${serviceSpecsStr}${summary}`
 
-    return strToSearch.toLowerCase().includes(inputSearchIn)
+    return strToSearch.toLowerCase().includes(inputSearchIn.toLowerCase())
   })
 }
