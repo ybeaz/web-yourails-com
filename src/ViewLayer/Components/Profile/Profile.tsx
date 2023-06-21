@@ -93,7 +93,7 @@ const getProfileItemsObjList = (
       iconLibrary: 'Ionicons',
       iconName: 'call-outline',
       content: phones.join(', '),
-      label: 'Phons',
+      label: 'Phones',
       isActive: phones.length ? true : false,
     },
     {

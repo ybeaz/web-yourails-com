@@ -17,6 +17,7 @@ import { themes } from '../../Styles/themes'
 import { ChatCard } from '../ChatCard/ChatCard'
 import { UserMenu } from '../UserMenu/UserMenu'
 import { ProfileSelectMenu } from '../ProfileSelectMenu/ProfileSelectMenu'
+import { getProfilesSearched } from '../../../Shared/getProfilesSearched'
 
 /**
  * @import import { ChatCards } from '../Components/ChatCards/ChatCards'
@@ -38,10 +39,13 @@ const ChatCardsComponent: ChatCardsType = props => {
   const {
     componentsState: { isUserMenu, isProfileSelectMenu },
     globalVars: { idUserHost, idProfileHost, idProfileActive },
+    forms: { inputSearch },
     profiles,
   } = store
 
   const style = styles[deviceType]
+
+  const profilesSearched = getProfilesSearched(profiles, inputSearch)
 
   const getChatCards = (profilesIn: ProfileType[]): ReactElement[] => {
     const profiles = profilesIn.filter((profile: ProfileType) => {
@@ -149,7 +153,7 @@ const ChatCardsComponent: ChatCardsType = props => {
   return (
     <View style={[style.ChatCards, styleProps.ChatCards]} testID='ChatCards'>
       {!isUserMenu && !isProfileSelectMenu ? (
-        getChatCards(profiles)
+        getChatCards(profilesSearched)
       ) : (
         <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
           {isUserMenu ? (
