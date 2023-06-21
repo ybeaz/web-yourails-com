@@ -8,7 +8,7 @@ export type MessengerType = {
 /**
  * @import import { ProfileType, MessengerType } from '../@types/ProfileType'
  */
-export interface ProfileType {
+export type ProfileType = {
   idSocket?: string
   idProfile: string
   idUser?: IdUserType

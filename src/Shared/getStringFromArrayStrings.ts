@@ -13,6 +13,7 @@ export const getStringFromArrayStrings: getStringFromArrayStringsType =
 
     return stringsArray.reduce((accum: string, item) => {
       if (!item) return accum
-      return `${accum}${String(item)}`
+      else if (typeof item === 'string') return `${accum}${String(item)}`
+      return accum
     }, '')
   }

@@ -14,28 +14,20 @@ export const getProfilesSearched: getProfilesSearchedType = (
   profilesIn,
   inputSearchIn
 ) => {
-  return profilesIn.filter((profile: ProfileType) => {
-    const {
-      idProfile,
-      idUser,
-      contacts,
-      emails,
-      locations,
-      nameFirst,
-      nameLast,
-      phones,
-      serviceSections,
-      serviceSpecs,
-      summary,
-    } = profile
+  if (!inputSearchIn) return profilesIn
 
-    const contactsStr = getStringFromArrayStrings(contacts)
-    const emailsStr = getStringFromArrayStrings(emails)
-    const locationsStr = getStringFromArrayStrings(locations)
-    const phonesStr = getStringFromArrayStrings(phones)
-    const serviceSectionsStr = getStringFromArrayStrings(serviceSections)
-    const serviceSpecsStr = getStringFromArrayStrings(serviceSpecs)
-    const strToSearch = `${idProfile}${idUser}${contactsStr}${emailsStr}${locationsStr}${nameFirst}${nameLast}${phonesStr}${serviceSectionsStr}${serviceSpecsStr}${summary}`
+  return profilesIn.filter((profile: ProfileType) => {
+    const strToSearch = Object.keys(profile).reduce(
+      (accum: string, key: string) => {
+        // @ts-ignore
+        const item = profile[key]
+        if (!item) return accum
+        else if (typeof item === 'string') return `${accum}${item}`
+        else if (Array.isArray(item)) return getStringFromArrayStrings(item)
+        return accum
+      },
+      ''
+    )
 
     return strToSearch.toLowerCase().includes(inputSearchIn.toLowerCase())
   })
