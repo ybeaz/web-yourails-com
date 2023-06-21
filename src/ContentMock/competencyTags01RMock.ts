@@ -70,6 +70,33 @@ Behavior-driven development (BDD):\n\
 
   {
     idProfile: '1',
+    title: 'CI/CD',
+    contentType: ContentType['CompetencyTagType'],
+    section: 'Best Practices and Methodologies',
+    linkHref: 'https://www.agilealliance.org/glossary/bdd',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips: `DevOps tools, implementing pipelines:
+    ❧ Jenkins
+    ❧ GitHub
+    ❧ Bitbucket
+    ❧ GitLab
+    ❧ CodePipeline
+    
+Pipelines workflow:
+    ✔ Software Build
+    ✔ Static Code Analysis
+    ✔ Artifact Management
+    ✔ Unit Testing
+    ✔ Deployment
+    ✔ Integration Testing
+    ✔ UI (Functional) Testing
+    ✔ Security scanning
+`,
+  },
+
+  {
+    idProfile: '1',
     title: 'CLI',
     contentType: ContentType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',

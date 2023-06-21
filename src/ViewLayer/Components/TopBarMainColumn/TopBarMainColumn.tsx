@@ -5,7 +5,6 @@ import { nanoid } from 'nanoid'
 import { ProfileType } from '../../../@types/ProfileType'
 
 import {
-  urlParamsDefault,
   withStoreStateYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
@@ -13,7 +12,6 @@ import {
   ButtonYrl,
 } from '../../../YrlNativeViewLibrary'
 
-import { getProfileChat } from '../../../Shared/getProfileChat'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { NameStatus } from '../NameStatus/NameStatus'
 import { Text } from '../../Components/Text/Text'
@@ -21,20 +19,20 @@ import { themes } from '../../Styles/themes'
 import { styles } from './TopBarMainColumnStyle'
 import { TopBarMainColumnType } from './TopBarMainColumnType'
 import { handleEvents } from '../../../DataLayer/index.handleEvents'
+import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 /**
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
  */
 const TopBarMainColumnComponent: TopBarMainColumnType = props => {
-  const {
-    urlParams = urlParamsDefault,
-    mediaParams = mediaParamsDefault,
-    store,
-  } = props
+  const { mediaParams = mediaParamsDefault, store } = props
   const { deviceType } = mediaParams
-  const { urlParam1, urlParam2 } = urlParams
 
-  const { profiles, componentsState } = store
+  const {
+    profiles,
+    componentsState,
+    globalVars: { idProfileActive },
+  } = store
   const { modalFrame } = componentsState
 
   const {
@@ -46,11 +44,10 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
 
   const style = styles[deviceType]
 
-  const profileActive: ProfileType = getProfileChat({
+  const profileActive: ProfileType = getProfileByIdProfile(
     profiles,
-    urlParam1,
-    urlParam2,
-  })
+    idProfileActive
+  )
 
   const { uriAvatar, serviceSpecs } = profileActive
 

@@ -5,6 +5,7 @@ import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handl
 import { getFilteredObjsArrayBy } from '../../../Shared/getFilteredObjsArrayBy'
 import { withPropsYrl, withStoreStateYrl } from '../../../YrlNativeViewLibrary'
 import { CompetencyTagType } from '../../../@types/CompetencyTagType'
+import { SectionMappingType } from '../../../@types/SectionMappingType'
 import { getSectionsFromTagsCompetencies } from '../../../Shared/getSectionsFromTagsCompetencies'
 import { Header } from '../Header/Header'
 import { Text } from '../../Components/Text/Text'
@@ -21,17 +22,38 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   // const store = useSelector((store2: RootStoreType) => store2)
   const {
     globalVars: { idProfileActive },
+    componentsState: {
+      modalFrame: { childName },
+    },
     competencyTags,
+    sectionsMapping,
   } = store
 
   useEffect(() => {
     handleEvents.ADD_COMPETENCY_TAGS({}, {})
   }, [])
 
-  const competencyTagsUserHost = getFilteredObjsArrayBy(
+  const sectionMapping =
+    sectionsMapping.find(
+      (item: SectionMappingType) =>
+        item.idProfile === idProfileActive && item.childName === childName
+    ) || sectionsMapping[0]
+
+  const { title } = sectionMapping
+
+  // TODO Remove in the future
+  const idProfileActive2 = idProfileActive === '16' ? '1' : idProfileActive
+
+  console.info('CompetencyTags [33]', {
+    idProfileActive2,
+    childName,
+    sectionsMapping,
+  })
+
+  const competencyTagsUserActive = getFilteredObjsArrayBy(
     competencyTags,
     'idProfile',
-    idProfileActive
+    idProfileActive2
   ) as CompetencyTagType[]
 
   const getTagList = (competencies: CompetencyTagType[]): ReactElement[] => {
@@ -83,7 +105,7 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
         headerText: {},
       },
       mediaParams: { deviceType: '' },
-      headerText: 'Competency Tags',
+      headerText: title,
     },
   }
 
@@ -93,7 +115,7 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
       testID='CompetencyTags'
     >
       <Header {...propsOut.headerProps} />
-      {getCompetencyTagsJsx(competencyTagsUserHost)}
+      {getCompetencyTagsJsx(competencyTagsUserActive)}
     </View>
   )
 }

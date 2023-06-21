@@ -1,10 +1,11 @@
 import { ContentType } from './ContentType'
-
+import { IdUserType } from './UserType'
 /**
  * @import import { SectionMappingType } from '../@types/SectionMappingType'
  */
 
 export type SectionMappingType = {
+  idProfile: IdUserType
   profileName: string
   contentType: ContentType
   title: string
