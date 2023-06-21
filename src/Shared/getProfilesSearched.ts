@@ -21,9 +21,9 @@ export const getProfilesSearched: getProfilesSearchedType = (
       (accum: string, key: string) => {
         // @ts-ignore
         const item = profile[key]
-        if (!item) return accum
-        else if (typeof item === 'string') return `${accum}${item}`
-        else if (Array.isArray(item)) return getStringFromArrayStrings(item)
+        if (typeof item === 'string') return `${accum}${item}`
+        else if (Array.isArray(item))
+          return `${accum}${getStringFromArrayStrings(item)}`
         return accum
       },
       ''
