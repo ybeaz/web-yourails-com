@@ -89,7 +89,10 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
       testID: 'ButtonYrl',
       disabled: false,
       onPress: () => {
-        handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
+        handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN(
+          {},
+          { deviceType, from: 'TopBarMainColumn.tsx' }
+        )
       },
       iconProps: {
         library: 'Ionicons',

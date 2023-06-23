@@ -34,14 +34,31 @@ export const getPathNameForReplace: GetPathNameForReplaceType = ({
   else if (search) addOnQuery = search
   else addOnQuery = ''
 
+  let caseNo = ''
+
   if (urlParam1 === 'k' && !urlParam2) {
-    if (profileName) pathnameNext = `/${urlParam1}/${profileName}`
+    caseNo = '1'
+    if (profileName) {
+      caseNo = '1.2'
+      pathnameNext = `/${urlParam1}/${profileName}`
+    }
   } else if (urlParam1 === 'k' && urlParam2[0] === '@') {
+    caseNo = '2'
     pathnameNext = `/${urlParam1}/${urlParam2}`
-    if (profileName) pathnameNext = `/${urlParam1}/${profileName}`
-  } else if (urlParam1 && urlParam1[0] === '@') {
+    if (profileName) {
+      caseNo = '2.2'
+      pathnameNext = `/${urlParam1}/${profileName}`
+    }
+  } else if (urlParam1 === 'k' && urlParam2 === '/') {
+    caseNo = '3'
     pathnameNext = `/${urlParam1}`
-    if (profileName) pathnameNext = `/${profileName}`
+  } else if (urlParam1 && urlParam1[0] === '@') {
+    caseNo = '4'
+    pathnameNext = `/${urlParam1}`
+    if (profileName) {
+      caseNo = '4.2'
+      pathnameNext = `/${profileName}`
+    }
   }
 
   pathnameNext = `${pathnameNext}${addOnTab}${addOnQuery}`
