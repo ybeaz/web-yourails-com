@@ -46,6 +46,9 @@ const ChatCardsComponent: ChatCardsType = props => {
   const style = styles[deviceType]
 
   const profilesSearched = getProfilesSearched(profiles, inputSearch)
+  const profilesSorted = profilesSearched.sort(
+    (a, b) => a.position - b.position
+  )
 
   const getChatCards = (profilesIn: ProfileType[]): ReactElement[] => {
     const profiles = profilesIn.filter((profile: ProfileType) => {
@@ -153,7 +156,7 @@ const ChatCardsComponent: ChatCardsType = props => {
   return (
     <View style={[style.ChatCards, styleProps.ChatCards]} testID='ChatCards'>
       {!isUserMenu && !isProfileSelectMenu ? (
-        getChatCards(profilesSearched)
+        getChatCards(profilesSorted)
       ) : (
         <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
           {isUserMenu ? (
