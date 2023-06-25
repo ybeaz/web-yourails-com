@@ -5,6 +5,7 @@ export const profiles: ProfileType[] = [
     idProfile: '0',
     idUser: '0',
     profileName: '@',
+    position: 0,
     nameFirst: '',
     nameLast: '',
     uriAvatar: '',
@@ -19,6 +20,7 @@ export const profiles: ProfileType[] = [
   {
     idProfile: '11',
     idUser: '6',
+    position: 1,
     profileName: '@streamlabs_bot',
     nameFirst: 'Streamlabs',
     nameLast: 'SupportBot',
@@ -43,6 +45,7 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '9',
     idUser: '6',
+    position: 2,
     profileName: '@einstein_bot',
     nameFirst: 'Albert',
     nameLast: 'EinsteinBot',
@@ -67,6 +70,7 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '10',
     idUser: '6',
+    position: 3,
     profileName: '@pushkin_bot',
     nameFirst: 'Alexander',
     nameLast: 'PushkinBot',
@@ -91,6 +95,7 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '8',
     idUser: '6',
+    position: 4,
     profileName: '@gpt-3.5-turbo',
     nameFirst: 'GPT3.5Turbo',
     nameLast: '',
@@ -113,6 +118,7 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '15',
     idUser: '7',
+    position: 5,
     profileName: '@handsScissors',
     nameFirst: 'Edvard',
     nameLast: 'Hands & Scissors',
@@ -133,6 +139,7 @@ Beyond the technical aspects of my craft, I believe in creating an inviting and 
   {
     idProfile: '1',
     idUser: '1',
+    position: 6,
     profileName: '@rome',
     nameFirst: 'Roman',
     nameLast: 'Ches',
@@ -153,6 +160,7 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
   {
     idProfile: '16',
     idUser: '1',
+    position: 7,
     profileName: '@yourails',
     nameFirst: 'YouRails.com',
     nameLast: '',
@@ -192,6 +200,7 @@ For Enterprise users:
   {
     idProfile: '14',
     idUser: '6',
+    position: 8,
     profileName: '@a32z_bot',
     nameFirst: 'And ',
     nameLast: 'H. a32zBot',
@@ -216,6 +225,7 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '13',
     idUser: '6',
+    position: 9,
     profileName: '@acc_partners_bot',
     nameFirst: 'Acc',
     nameLast: 'PartnersBot',
@@ -240,6 +250,7 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '12',
     idUser: '6',
+    position: 10,
     profileName: '@seq_capital_bot',
     nameFirst: 'Seq',
     nameLast: 'CapitalBot',
@@ -271,6 +282,7 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '2',
     idUser: '2',
+    position: 11,
     profileName: '@smid',
     nameFirst: 'Dmitrii',
     nameLast: 'Smid',
@@ -287,6 +299,7 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '4',
     idUser: '4',
+    position: 12,
     profileName: '@wilson',
     nameFirst: 'Alicia',
     nameLast: 'Wilson',
@@ -302,6 +315,7 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '3',
     idUser: '3',
+    position: 13,
     profileName: '@trivedi',
     nameFirst: 'Jack',
     nameLast: 'Trivedi',
@@ -317,6 +331,7 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '5',
     idUser: '5',
+    position: 14,
     profileName: '@darrell',
     nameFirst: 'Darrell',
     nameLast: 'Ross',
@@ -331,6 +346,7 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '6',
     idUser: '5',
+    position: 15,
     profileName: '@darrell2',
     nameFirst: 'Karl',
     nameLast: 'Ross',
@@ -345,6 +361,7 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '7',
     idUser: '5',
+    position: 16,
     profileName: '@darrell3',
     nameFirst: 'Dar',
     nameLast: 'Sorr',

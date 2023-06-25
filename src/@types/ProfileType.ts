@@ -12,6 +12,7 @@ export type ProfileType = {
   idSocket?: string
   idProfile: string
   idUser?: IdUserType
+  position: number
   contacts?: string[]
   emails?: string[]
   locations?: string[]
