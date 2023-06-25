@@ -12,13 +12,12 @@ import {
   withStoreStateYrl,
   withPropsYrl,
   withParamsMediaYrl,
-  urlParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 
-import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 /**
  * @import import { ContentMenuMainColumn } from '../Components/ContentMenuMainColumn/ContentMenuMainColumn'
@@ -26,12 +25,9 @@ import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handl
 const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
   const {
     styleProps = { ContentMenuMainColumn: {}, buttonWrapper: {} },
-    urlParams = urlParamsDefault,
     store,
     handleEvents,
   } = props
-
-  const { urlParam1, urlParam2 } = urlParams
 
   const {
     profiles,
@@ -39,13 +35,13 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
     componentsState: {
       modalFrame: { childName: childNameModalStore, isShow: isShowModalStore },
     },
+    globalVars: { idProfileActive },
   } = store
 
-  const profileActive: ProfileType = getProfileChat({
+  const profileActive: ProfileType = getProfileByIdProfile(
     profiles,
-    urlParam1,
-    urlParam2,
-  })
+    idProfileActive
+  )
 
   const profileNameChat = profileActive ? profileActive.profileName : undefined
 
@@ -115,8 +111,6 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
       }
     )
   }
-
-  const propsOut: Record<string, any> = {}
 
   return (
     <View

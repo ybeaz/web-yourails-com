@@ -61,9 +61,13 @@ export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
     window.location.pathname.split('/')
   const search = window.location.search
 
+  let urlParam2Next = urlParam2
+  if (isLeftColumnNext === true && isMainColumnNext === false)
+    urlParam2Next = '/'
+
   const getPathNameForReplaceProps = {
     urlParam1,
-    urlParam2,
+    urlParam2: urlParam2Next,
     urlParam3,
     search,
     tabName: '',

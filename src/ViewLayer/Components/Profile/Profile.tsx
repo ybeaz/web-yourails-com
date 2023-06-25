@@ -34,6 +34,7 @@ const getProfileItemsObjList = (
     messengers = [],
     locations = [],
     summary,
+    disclaimer,
     serviceSpecs = [],
   } = profileIn
 
@@ -61,6 +62,14 @@ const getProfileItemsObjList = (
     },
     {
       iconLibrary: 'Ionicons',
+      iconName: 'alert-circle-outline',
+      contentType: 'string',
+      content: disclaimer,
+      label: 'Disclaimer',
+      isActive: disclaimer ? true : false,
+    },
+    {
+      iconLibrary: 'Ionicons',
       iconName: 'at',
       content: profileName.toString(),
       label: 'Username',
@@ -84,7 +93,7 @@ const getProfileItemsObjList = (
       iconLibrary: 'Ionicons',
       iconName: 'call-outline',
       content: phones.join(', '),
-      label: 'Phons',
+      label: 'Phones',
       isActive: phones.length ? true : false,
     },
     {
@@ -156,9 +165,11 @@ const ProfileComponent: ProfileComponentType = props => {
 
   return (
     <View style={[style.Profile, styleProps.Profile]} testID='Profile'>
-      <View style={[style.imageWrapper]} testID='imageWrapper'>
-        <ImageYrl {...propsOut.imageYrlProps} />
-      </View>
+      {profileTagsUserHost.uriAvatar ? (
+        <View style={[style.imageWrapper]} testID='imageWrapper'>
+          <ImageYrl {...propsOut.imageYrlProps} />
+        </View>
+      ) : null}
       <View style={[style.profileItemsWrapper]} testID='profileItemsWrapper'>
         {getProfileItems(profileItems)}
       </View>

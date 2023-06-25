@@ -19,7 +19,6 @@ import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
-import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { styles } from './PageChatsWholeScreenStyle'
@@ -30,7 +29,7 @@ import { getSocketOnConversation } from '../../../CommunicationLayer/socketio/ge
 import { getSocketDisconnected } from '../../../CommunicationLayer/socketio/getSocketDisconnected'
 import { getSocketOnMessage } from '../../../CommunicationLayer/socketio/getSocketOnMessage'
 import { getSocketOnPending } from '../../../CommunicationLayer/socketio/getSocketOnPending'
-import { isHostR1UserToComFlag } from '../../../FeatureFlags'
+import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const {
@@ -48,7 +47,12 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const renderCounter = useRef(0)
 
-  const { componentsState, profiles, sectionsMapping } = store
+  const {
+    componentsState,
+    profiles,
+    sectionsMapping,
+    globalVars: { idProfileActive },
+  } = store
 
   const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
     componentsState
@@ -59,12 +63,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     s: urlParamsSearch.get('s'),
   }
 
-  const profileActive: ProfileType = getProfileChat({
+  const profileActive: ProfileType = getProfileByIdProfile(
     profiles,
-    urlParam1,
-    urlParam2,
-    isHostR1UserToComFlag,
-  })
+    idProfileActive
+  )
+
   const profileNameChat = profileActive ? profileActive.profileName : undefined
 
   const sectionsMappingForProfile: SectionMappingType[] =
