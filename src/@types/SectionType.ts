@@ -1,4 +1,4 @@
-export enum ContentType {
+export enum SectionType {
   CompetencyTagType = 'CompetencyTagType',
   ProjectType = 'ProjectType',
   ProfileType = 'ProfileType',

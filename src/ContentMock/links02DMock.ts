@@ -1,11 +1,11 @@
-import { ContentType, LinkType } from '../@types/LinkType'
+import { SectionType, LinkType } from '../@types/LinkType'
 
 export const links02D: LinkType[] = [
   {
     idProfile: '2',
     iconLibrary: 'Ionicons',
     iconName: 'logo-linkedin',
-    contentType: ContentType['linkHref'],
+    contentType: SectionType['linkHref'],
     contentSrc: 'https://www.linkedin.com/in/dmitry-che/',
     content: 'Profile in Linkedin.com',
     label: 'Link',
@@ -15,7 +15,7 @@ export const links02D: LinkType[] = [
     idProfile: '2',
     iconLibrary: undefined,
     iconName: undefined,
-    contentType: ContentType['imageSrc'],
+    contentType: SectionType['imageSrc'],
     contentSrc: 'https://yourails.com/images/users/qrcode-romeQuietZone00.png',
     content: '',
     label: 'QR code with contacts',

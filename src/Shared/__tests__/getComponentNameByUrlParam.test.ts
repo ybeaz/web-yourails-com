@@ -1,5 +1,5 @@
 import { getComponentNameByUrlParam } from '../getComponentNameByUrlParam'
-import { ContentType } from '../../@types/ContentType'
+import { SectionType } from '../../@types/SectionType'
 
 /**
  * @test yarn jest getComponentNameByUrlParam.test
@@ -9,7 +9,7 @@ describe('Test function getComponentNameByUrlParam', () => {
     const sectionsMappingForProfile = [
       {
         profileName: '@smid',
-        contentType: ContentType['ProjectType'],
+        contentType: SectionType['ProjectType'],
         title: 'Work Examples',
         pathname: 'work-examples',
         iconLibrary: 'Ionicons',
@@ -19,7 +19,7 @@ describe('Test function getComponentNameByUrlParam', () => {
       },
       {
         profileName: '@smid',
-        contentType: ContentType['CompetencyTagType'],
+        contentType: SectionType['CompetencyTagType'],
         title: 'Competency Tags',
         pathname: 'skills',
         iconLibrary: 'Ionicons',
@@ -29,7 +29,7 @@ describe('Test function getComponentNameByUrlParam', () => {
       },
       {
         profileName: '@smid',
-        contentType: ContentType['ProfileType'],
+        contentType: SectionType['ProfileType'],
         title: '',
         pathname: 'profile',
         iconLibrary: 'Ionicons',

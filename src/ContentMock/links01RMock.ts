@@ -1,11 +1,11 @@
-import { ContentType, LinkType } from '../@types/LinkType'
+import { SectionType, LinkType } from '../@types/LinkType'
 
 export const links01R: LinkType[] = [
   {
     idProfile: '1',
     iconLibrary: 'Ionicons',
     iconName: 'calendar-outline',
-    contentType: ContentType['linkHref'],
+    contentType: SectionType['linkHref'],
     contentSrc: 'https://calendly.com/romanch',
     content: 'Feel free to setup a phone call',
     label: 'Link',
@@ -15,7 +15,7 @@ export const links01R: LinkType[] = [
     idProfile: '1',
     iconLibrary: 'Ionicons',
     iconName: 'logo-linkedin',
-    contentType: ContentType['linkHref'],
+    contentType: SectionType['linkHref'],
     contentSrc: 'https://www.linkedin.com/in/romanches',
     content: 'Profile in Linkedin.com',
     label: 'Link',
@@ -25,7 +25,7 @@ export const links01R: LinkType[] = [
     idProfile: '1',
     iconLibrary: 'Ionicons',
     iconName: 'logo-stackoverflow',
-    contentType: ContentType['linkHref'],
+    contentType: SectionType['linkHref'],
     contentSrc: 'https://stackoverflow.com/users/4791116/roman',
     content: 'Profile in Stackoverflow',
     label: 'Link',
@@ -35,7 +35,7 @@ export const links01R: LinkType[] = [
     idProfile: '1',
     iconLibrary: 'Ionicons',
     iconName: 'logo-github',
-    contentType: ContentType['linkHref'],
+    contentType: SectionType['linkHref'],
     contentSrc: 'https://github.com/ybeaz',
     content: 'Profile in Github',
     label: 'Link',
@@ -45,7 +45,7 @@ export const links01R: LinkType[] = [
     idProfile: '1',
     iconLibrary: undefined,
     iconName: undefined,
-    contentType: ContentType['imageSrc'],
+    contentType: SectionType['imageSrc'],
     contentSrc: 'https://yourails.com/images/users/qrcode-romeQuietZone00.png',
     content: '',
     label: 'QR code with contacts',

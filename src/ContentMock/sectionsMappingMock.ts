@@ -1,12 +1,12 @@
 import { SectionMappingType } from '../@types/SectionMappingType'
 
-import { ContentType } from '../@types/ContentType'
+import { SectionType } from '../@types/SectionType'
 
 export const sectionsMapping: SectionMappingType[] = [
   {
     idProfile: '1',
     profileName: '@rome',
-    contentType: ContentType['ProjectType'],
+    contentType: SectionType['ProjectType'],
     title: 'Projects And Work Examples',
     pathname: 'projects',
     iconLibrary: 'Ionicons',
@@ -17,7 +17,7 @@ export const sectionsMapping: SectionMappingType[] = [
   {
     idProfile: '1',
     profileName: '@rome',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     title: 'Technologies',
     pathname: 'technologies',
     iconLibrary: 'Ionicons',
@@ -28,7 +28,7 @@ export const sectionsMapping: SectionMappingType[] = [
   {
     idProfile: '2',
     profileName: '@smid',
-    contentType: ContentType['ProjectType'],
+    contentType: SectionType['ProjectType'],
     title: 'Work Examples',
     pathname: 'work-examples',
     iconLibrary: 'Ionicons',
@@ -39,7 +39,7 @@ export const sectionsMapping: SectionMappingType[] = [
   {
     idProfile: '2',
     profileName: '@smid',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     title: 'Competency Tags',
     pathname: 'skills',
     iconLibrary: 'Ionicons',
@@ -50,7 +50,7 @@ export const sectionsMapping: SectionMappingType[] = [
   {
     idProfile: '2',
     profileName: '@smid',
-    contentType: ContentType['ProfileType'],
+    contentType: SectionType['ProfileType'],
     title: '',
     pathname: 'profile',
     iconLibrary: 'Ionicons',
@@ -61,7 +61,7 @@ export const sectionsMapping: SectionMappingType[] = [
   {
     idProfile: '16',
     profileName: '@yourails',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     title: 'Technologies',
     pathname: 'technologies',
     iconLibrary: 'Ionicons',
@@ -72,7 +72,7 @@ export const sectionsMapping: SectionMappingType[] = [
   {
     idProfile: '16',
     profileName: '@yourails',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     title: '',
     pathname: 'profile',
     iconLibrary: 'Ionicons',
@@ -83,7 +83,7 @@ export const sectionsMapping: SectionMappingType[] = [
   {
     idProfile: '1',
     profileName: '@rome',
-    contentType: ContentType['ProfileType'],
+    contentType: SectionType['ProfileType'],
     title: '',
     pathname: 'profile',
     iconLibrary: 'Ionicons',

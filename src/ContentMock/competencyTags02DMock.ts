@@ -1,11 +1,11 @@
 import { CompetencyTagType } from '../@types/CompetencyTagType'
-import { ContentType } from '../@types/ContentType'
+import { SectionType } from '../@types/SectionType'
 
 export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Appliance Repair',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Technical Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Home_appliance',
     tooltips:
@@ -20,7 +20,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Electrical Troubleshooting',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Technical Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Electrical_troubleshooting',
     tooltips:
@@ -35,7 +35,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Diagnostics and Testing',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Technical Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Diagnostics',
     tooltips:
@@ -50,7 +50,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Equipment Maintenance',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Technical Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Maintenance_(technical)',
     tooltips:
@@ -65,7 +65,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Safety Procedures',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Technical Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Safety_procedure',
     tooltips:
@@ -80,7 +80,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Technical Documentation',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Technical Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Technical_writing',
     tooltips:
@@ -95,7 +95,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Time Management',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Soft Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Time_management',
     tooltips:
@@ -110,7 +110,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Customer Service',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Soft Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Customer_service',
     tooltips:
@@ -125,7 +125,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Teamwork',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Soft Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Teamwork',
     tooltips:
@@ -140,7 +140,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Inventory Management',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Logistics Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Inventory_management',
     tooltips:
@@ -155,7 +155,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Quality Control',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Logistics Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Quality_control',
     tooltips:
@@ -170,7 +170,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Communication Skills',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Soft Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Communication_skills',
     tooltips:
@@ -185,7 +185,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Problem Solving',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Soft Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Problem_solving',
     tooltips:
@@ -200,7 +200,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Attention to Detail',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Soft Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Attention_to_detail',
     tooltips:
@@ -214,7 +214,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Project Management',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Management Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Project_management',
     tooltips:
@@ -229,7 +229,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Tool Maintenance',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Technical Skills',
     linkHref: 'https://en.wikipedia.org/wiki/Tool_maintenance',
     tooltips:
@@ -243,7 +243,7 @@ export const competencyTags02D: CompetencyTagType[] = [
   {
     idProfile: '2',
     title: 'Parts Ordering and Inventory',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Logistics Skills',
     linkHref:
       'https://en.wikipedia.org/wiki/Inventory_management#Parts_inventory_management',

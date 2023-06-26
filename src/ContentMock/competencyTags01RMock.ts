@@ -1,11 +1,11 @@
 import { CompetencyTagType } from '../@types/CompetencyTagType'
-import { ContentType } from '../@types/ContentType'
+import { SectionType } from '../@types/SectionType'
 
 export const competencyTags01R: CompetencyTagType[] = [
   {
     idProfile: '1',
     title: 'Agile',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.agilealliance.org/agile101/12-principles-behind-the-agile-manifesto/',
@@ -30,7 +30,7 @@ export const competencyTags01R: CompetencyTagType[] = [
   {
     idProfile: '1',
     title: 'Automation Tools',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref: 'https://webpack.js.org/',
     iconLibrary: 'Ionicons',
@@ -51,7 +51,7 @@ Browser devtools\n\
   {
     idProfile: '1',
     title: 'BDD',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref: 'https://www.agilealliance.org/glossary/bdd',
     iconLibrary: 'Ionicons',
@@ -71,7 +71,7 @@ Behavior-driven development (BDD):\n\
   {
     idProfile: '1',
     title: 'CI/CD',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref: 'https://www.agilealliance.org/glossary/bdd',
     iconLibrary: 'Ionicons',
@@ -98,7 +98,7 @@ Pipelines workflow:
   {
     idProfile: '1',
     title: 'CLI',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref: 'https://docs.npmjs.com/cli/npm',
     iconLibrary: 'Ionicons',
@@ -119,7 +119,7 @@ Windows CMD',
   {
     idProfile: '1',
     title: 'Data Structures',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.techtarget.com/searchdatamanagement/definition/data-structure',
@@ -141,7 +141,7 @@ Windows CMD',
   {
     idProfile: '1',
     title: 'Design Patterns',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Software_design_pattern',
     iconLibrary: 'Ionicons',
@@ -183,7 +183,7 @@ Design patterns are advanced object-oriented solutions to commonly occurring sof
   {
     idProfile: '1',
     title: 'DevOps',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.digital-management-blog.de/wp-content/uploads/2017/06/devops.jpg',
@@ -211,7 +211,7 @@ S   Sharing - there are user-friendly communication channels that encourage ongo
   {
     idProfile: '1',
     title: 'Issue-tracking systems',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://en.wikipedia.org/wiki/Comparison_of_issue-tracking_systems',
@@ -228,7 +228,7 @@ Bugzilla\n\
   {
     idProfile: '1',
     title: 'Kanban',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
@@ -246,7 +246,7 @@ Bugzilla\n\
   {
     idProfile: '1',
     title: 'Lints',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref: '',
     iconLibrary: 'Ionicons',
@@ -266,7 +266,7 @@ Bugzilla\n\
   {
     idProfile: '1',
     title: 'OOP',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Object-oriented_programming',
     iconLibrary: 'Ionicons',
@@ -290,7 +290,7 @@ Polymorphism manifests itself by having multiple methods all with the same name,
   {
     idProfile: '1',
     title: 'Programming Principles',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Category:Programming_principles',
     iconLibrary: 'Ionicons',
@@ -341,7 +341,7 @@ Polymorphism manifests itself by having multiple methods all with the same name,
   {
     idProfile: '1',
     title: 'Scrum',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
@@ -370,7 +370,7 @@ Roles: Product Owner, Scrum Master, and Team Members\n\
   {
     idProfile: '1',
     title: 'SDLC',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Systems_development_life_cycle',
     iconLibrary: 'Ionicons',
@@ -390,7 +390,7 @@ or application development life-cycle: \n\
   {
     idProfile: '1',
     title: 'Search Algorithms',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref: 'https://en.wikipedia.org/wiki/Systems_development_life_cycle',
     iconLibrary: 'Ionicons',
@@ -410,7 +410,7 @@ or application development life-cycle: \n\
   {
     idProfile: '1',
     title: 'TDD',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref: 'https://www.agilealliance.org/glossary/tdd/',
     iconLibrary: 'Ionicons',
@@ -429,7 +429,7 @@ Test-driven development (TDD):\n\
   {
     idProfile: '1',
     title: 'Testing/Debugging',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref: '',
     iconLibrary: 'Ionicons',
@@ -464,7 +464,7 @@ Lint\n\
   {
     idProfile: '1',
     title: 'Version Control/Git',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices and Methodologies',
     linkHref:
       'https://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html',
@@ -491,7 +491,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Ajax',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/XMLHttpRequest/',
     iconLibrary: 'Ionicons',
@@ -506,7 +506,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Amp',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://www.ampproject.org/',
     iconLibrary: 'Ionicons',
@@ -522,7 +522,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Ant Design',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://ant.design/docs/react/introduce',
     iconLibrary: 'Ionicons',
@@ -536,7 +536,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Axios',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://github.com/axios/axios',
     iconLibrary: 'Ionicons',
@@ -580,7 +580,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Bootstrap',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://bootstrapdocs.com/',
     iconLibrary: 'Ionicons',
@@ -628,7 +628,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'BEM methodology',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://en.bem.info/methodology/',
     iconLibrary: 'Ionicons',
@@ -647,7 +647,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Browser Developer Tools',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://developers.google.com/web/tools/chrome-devtools/',
     iconLibrary: 'Ionicons',
@@ -665,7 +665,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Cookie',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://tools.ietf.org/html/rfc6265',
     iconLibrary: 'Ionicons',
@@ -686,7 +686,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'CSS Preprocessing',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://lesscss.org/functions/',
     iconLibrary: 'Ionicons',
@@ -701,7 +701,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Css3',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://www.w3.org/Style/CSS/specs.en.html',
     iconLibrary: 'Ionicons',
@@ -734,7 +734,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'ECMAScript6',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://github.com/lukehoban/es6features',
     iconLibrary: 'Ionicons',
@@ -781,7 +781,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'ESLint',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://eslint.org/',
     iconLibrary: 'Ionicons',
@@ -795,7 +795,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Icons lib',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://www.w3schools.com/icons/icons_reference.asp',
     iconLibrary: 'Ionicons',
@@ -810,7 +810,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Html5',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/html5/',
     iconLibrary: 'Ionicons',
@@ -838,7 +838,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'HTML DOM',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://www.w3.org/TR/DOM-Level-1/introduction.html',
     iconLibrary: 'Ionicons',
@@ -865,7 +865,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'JavaScript',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref:
       'https://www.ecma-international.org/publications/standards/Stnindex.htm',
@@ -922,7 +922,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Jest',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://jestjs.io/docs/api',
     iconLibrary: 'Ionicons',
@@ -959,7 +959,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'jQuery',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://jquery.com/',
     iconLibrary: 'Ionicons',
@@ -998,7 +998,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'jQuery-UI',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://jqueryui.com/',
     iconLibrary: 'Ionicons',
@@ -1045,7 +1045,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'JS Frameworks',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: '',
     iconLibrary: 'Ionicons',
@@ -1072,7 +1072,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'JSONP',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/JSONP',
     iconLibrary: 'Ionicons',
@@ -1090,7 +1090,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Less',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://lesscss.org/functions/',
     iconLibrary: 'Ionicons',
@@ -1107,7 +1107,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Lodash',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://lodash.com/docs/',
     iconLibrary: 'Ionicons',
@@ -1124,7 +1124,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Material Design',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://material.io/',
     iconLibrary: 'Ionicons',
@@ -1141,7 +1141,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Microformats/Schema.org',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://schema.org/',
     iconLibrary: 'Ionicons',
@@ -1162,7 +1162,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'Mocha',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://mochajs.org/',
     iconLibrary: 'Ionicons',
@@ -1208,7 +1208,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'MVC',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref:
       'https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller',
@@ -1234,7 +1234,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'OAuth',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/OAuth',
     iconLibrary: 'Ionicons',
@@ -1253,7 +1253,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'ReactJS',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://facebook.github.io/react/',
     iconLibrary: 'Ionicons',
@@ -1282,7 +1282,7 @@ $ git push -u origin ...\n\
   {
     idProfile: '1',
     title: 'React Hooks',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://react.dev/reference/react',
     iconLibrary: 'Ionicons',
@@ -1305,7 +1305,7 @@ useCallback: optimizes the performance of a functional component by memoizing a 
   {
     idProfile: '1',
     title: 'React Native',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://reactnative.dev/',
     iconLibrary: 'Ionicons',
@@ -1373,7 +1373,7 @@ useCallback: optimizes the performance of a functional component by memoizing a 
   {
     idProfile: '1',
     title: 'React Navigation',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://reactnavigation.org/docs/navigation-container/',
     iconLibrary: 'Ionicons',
@@ -1421,7 +1421,7 @@ useCallback: optimizes the performance of a functional component by memoizing a 
   {
     idProfile: '1',
     title: 'React-router 6',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://reacttraining.com/react-router/',
     iconLibrary: 'Ionicons',
@@ -1511,7 +1511,7 @@ Utilities\n\
   {
     idProfile: '1',
     title: 'Redux',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://redux.js.org',
     iconLibrary: 'Ionicons',
@@ -1530,7 +1530,7 @@ Utilities\n\
   {
     idProfile: '1',
     title: 'Redux-saga',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://redux-saga.js.org/',
     iconLibrary: 'Ionicons',
@@ -1594,7 +1594,7 @@ Utilities\n\
   {
     idProfile: '1',
     title: 'Regex',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://perldoc.perl.org/perlre.html',
     iconLibrary: 'Ionicons',
@@ -1614,7 +1614,7 @@ Utilities\n\
   {
     idProfile: '1',
     title: 'Responsive Design',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://bootstrapdocs.com/',
     iconLibrary: 'Ionicons',
@@ -1632,7 +1632,7 @@ Utilities\n\
   {
     idProfile: '1',
     title: 'Semantic-UI-React',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://react.semantic-ui.com/introduction',
     iconLibrary: 'Ionicons',
@@ -1652,7 +1652,7 @@ Utilities\n\
   {
     idProfile: '1',
     title: 'Seo',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://support.google.com/webmasters/answer/35769?hl=en',
     iconLibrary: 'Ionicons',
@@ -1690,7 +1690,7 @@ Utilities\n\
   {
     idProfile: '1',
     title: 'Session',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://php.net/manual/en/features.sessions.php',
     iconLibrary: 'Ionicons',
@@ -1706,7 +1706,7 @@ Utilities\n\
   {
     idProfile: '1',
     title: 'SPA',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://en.wikipedia.org/wiki/Single-page_application',
     iconLibrary: 'Ionicons',
@@ -1723,7 +1723,7 @@ Utilities\n\
   {
     idProfile: '1',
     title: 'SSO',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref:
       'https://www.techtarget.com/searchsecurity/definition/single-sign-on',
@@ -1743,7 +1743,7 @@ SSO services use protocols:\n\
   {
     idProfile: '1',
     title: 'Typescript',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://www.typescriptlang.org/docs/home.html',
     iconLibrary: 'Ionicons',
@@ -1814,7 +1814,7 @@ Type Checking JavaScript Files",
   {
     idProfile: '1',
     title: 'Webpack',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Front-end',
     linkHref: 'https://webpack.js.org/',
     iconLibrary: 'Ionicons',
@@ -1835,7 +1835,7 @@ Type Checking JavaScript Files",
   {
     idProfile: '1',
     title: 'Analytics/ Monitoring',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://www.google.com/analytics/',
     iconLibrary: 'Ionicons',
@@ -1852,7 +1852,7 @@ Type Checking JavaScript Files",
   {
     idProfile: '1',
     title: 'Apollo',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://www.apollographql.com/docs/',
     iconLibrary: 'Ionicons',
@@ -1872,7 +1872,7 @@ Type Checking JavaScript Files",
   {
     idProfile: '1',
     title: 'AWS serveless',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref:
       'https://docs.aws.amazon.com/whitepapers/latest/aws-overview/introduction.html',
@@ -1917,7 +1917,7 @@ Type Checking JavaScript Files",
   {
     idProfile: '1',
     title: 'Docker',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref:
       'https://docs.docker.com/develop/develop-images/dockerfile_best-practices/',
@@ -1945,7 +1945,7 @@ ONBUILD - to execute command after the current Dockerfile build completes. It is
   {
     idProfile: '1',
     title: 'ExpressJS',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://expressjs.com/en/4x/api.html',
     iconLibrary: 'Ionicons',
@@ -2055,7 +2055,7 @@ ONBUILD - to execute command after the current Dockerfile build completes. It is
   {
     idProfile: '1',
     title: 'Graphql',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://spec.graphql.org/draft/',
     iconLibrary: 'Ionicons',
@@ -2076,7 +2076,7 @@ GraphQL is a query language and runtime for APIs with functional notation\n\
   {
     idProfile: '1',
     title: 'Internet Protocols',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref:
       'https://en.wikipedia.org/wiki/List_of_network_protocols_(OSI_model)📩',
@@ -2113,7 +2113,7 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
   {
     idProfile: '1',
     title: 'JSON',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://json-schema.org/',
     iconLibrary: 'Ionicons',
@@ -2132,7 +2132,7 @@ UDP (User Datagram Protocol): Provides a connectionless and unreliable transport
   {
     idProfile: '1',
     title: 'JWT',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://jwt.io/',
     iconLibrary: 'Ionicons',
@@ -2152,7 +2152,7 @@ High-level overview of how SSO can work with JWT:
   {
     idProfile: '1',
     title: 'LAMP',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://en.wikipedia.org/wiki/LAMP_(software_bundle)',
     iconLibrary: 'Ionicons',
@@ -2168,7 +2168,7 @@ High-level overview of how SSO can work with JWT:
   {
     idProfile: '1',
     title: 'MERN',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref:
       'https://medium.com/javascript-in-plain-english/full-stack-mongodb-react-node-js-express-js-in-one-simple-app-6cc8ed6de274',
@@ -2185,7 +2185,7 @@ High-level overview of how SSO can work with JWT:
   {
     idProfile: '1',
     title: 'Microservices',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://www.mysql.com/',
     iconLibrary: 'Ionicons',
@@ -2204,7 +2204,7 @@ High-level overview of how SSO can work with JWT:
   {
     idProfile: '1',
     title: 'Migration',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://www.mysql.com/',
     iconLibrary: 'Ionicons',
@@ -2230,7 +2230,7 @@ A template/ example for a migration plan from the monolithic PHP + Docker applic
   {
     idProfile: '1',
     title: 'MongoDB',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://www.mysql.com/',
     iconLibrary: 'Ionicons',
@@ -2248,7 +2248,7 @@ A template/ example for a migration plan from the monolithic PHP + Docker applic
   {
     idProfile: '1',
     title: 'MySQL',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://www.mysql.com/',
     iconLibrary: 'Ionicons',
@@ -2272,7 +2272,7 @@ A template/ example for a migration plan from the monolithic PHP + Docker applic
   {
     idProfile: '1',
     title: 'NestJS',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://docs.nestjs.com/',
     iconLibrary: 'Ionicons',
@@ -2295,7 +2295,7 @@ A template/ example for a migration plan from the monolithic PHP + Docker applic
   {
     idProfile: '1',
     title: 'Node.js',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://nodejs.org/en/',
     iconLibrary: 'Ionicons',
@@ -2325,7 +2325,7 @@ Modules:\n\
   {
     idProfile: '1',
     title: 'Php',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://php.net/manual/en/langref.php',
     iconLibrary: 'Ionicons',
@@ -2379,7 +2379,7 @@ Modules:\n\
   {
     idProfile: '1',
     title: 'Regex',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref:
       'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp',
@@ -2407,7 +2407,7 @@ Modules:\n\
   {
     idProfile: '1',
     title: 'RESTful-API',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://www.restapitutorial.com/lessons/whatisrest.html',
     iconLibrary: 'Ionicons',
@@ -2438,7 +2438,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Routing',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: '',
     iconLibrary: 'Ionicons',
@@ -2455,7 +2455,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Seo',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref:
       'https://www.searchenginejournal.com/200-parameters-in-google-algorithm/15457/',
@@ -2481,7 +2481,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Session',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://php.net/manual/en/features.sessions.php',
     iconLibrary: 'Ionicons',
@@ -2499,7 +2499,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Sql',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref:
       'https://docs.oracle.com/cd/B28359_01/server.111/b28286/intro002.htm#SQLRF50928',
@@ -2572,7 +2572,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Socket.io',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://socket.io/docs/v4/',
     iconLibrary: 'Ionicons',
@@ -2596,7 +2596,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'SSO',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://en.wikipedia.org/wiki/Single_sign-on',
     iconLibrary: 'Ionicons',
@@ -2613,7 +2613,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Swagger-OpenAPI',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://swagger.io/docs/specification/about/',
     iconLibrary: 'Ionicons',
@@ -2657,7 +2657,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Telegram-bot',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://telegram-bot-sdk.readme.io/docs/commands-system',
     iconLibrary: 'Ionicons',
@@ -2677,7 +2677,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Ubuntu',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://www.ubuntu.com/',
     iconLibrary: 'Ionicons',
@@ -2702,7 +2702,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Xml',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
     linkHref: 'https://www.w3.org/TR/REC-xml/',
     iconLibrary: 'Ionicons',
@@ -2755,7 +2755,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'AI & Machine Learning',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'AI/ ML',
     linkHref: 'https://keras.io/',
     iconLibrary: 'Ionicons',
@@ -2803,7 +2803,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Algoritms for ML & AI',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'AI/ ML',
     linkHref:
       'https://www.analyticsvidhya.com/blog/2017/09/common-machine-learning-algorithms/',
@@ -2844,7 +2844,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Fann',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'AI/ ML',
     linkHref: 'https://leenissen.dk/fann/wp/',
     iconLibrary: 'Ionicons',
@@ -2866,7 +2866,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Keras',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'AI/ ML',
     linkHref: 'https://keras.io/api/',
     iconLibrary: 'Ionicons',
@@ -2971,7 +2971,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Matplotlib',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'AI/ ML',
     linkHref: 'https://matplotlib.org/contents.html',
     iconLibrary: 'Ionicons',
@@ -2992,7 +2992,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'NumPy',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'AI/ ML',
     linkHref: 'https://numpy.org/',
     iconLibrary: 'Ionicons',
@@ -3019,7 +3019,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Pandas',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'AI/ ML',
     linkHref: 'https://pandas.pydata.org/docs/',
     iconLibrary: 'Ionicons',
@@ -3039,7 +3039,7 @@ Status codes',
   {
     idProfile: '1',
     title: 'Python',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'AI/ ML',
     linkHref: 'https://docs.python.org/3/',
     iconLibrary: 'Ionicons',
@@ -3094,7 +3094,7 @@ Delete Files',
   {
     idProfile: '1',
     title: 'SciPy',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'AI/ ML',
     linkHref: 'https://www.scipy.org/docs.html',
     iconLibrary: 'Ionicons',
@@ -3114,7 +3114,7 @@ Delete Files',
   {
     idProfile: '1',
     title: 'Scikit-Learn',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'AI/ ML',
     linkHref: 'https://scikit-learn.org/stable/modules/classes.html',
     iconLibrary: 'Ionicons',
@@ -3164,7 +3164,7 @@ Delete Files',
   {
     idProfile: '1',
     title: 'TensorFlow',
-    contentType: ContentType['CompetencyTagType'],
+    contentType: SectionType['CompetencyTagType'],
     section: 'AI/ ML',
     linkHref: 'https://www.tensorflow.org/api_docs/python/tf',
     iconLibrary: 'Ionicons',
