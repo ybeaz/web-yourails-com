@@ -1,5 +1,6 @@
 import { store } from '../store'
 
+import { ContentType } from '../../@types/ContentType'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { MessageEventType } from '../../@types/MessageEventType'
 
@@ -23,10 +24,16 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, data) => {
     getSortedArray([idProfileHost, idProfileActive])
   )
 
+  const textObj = {
+    contentType: ContentType['textArray'],
+    textArray: [inputChat[idProfileActive]],
+  }
+  const textNext = JSON.stringify(textObj)
+
   const message = {
     idConversation,
     idProfile: idProfileHost,
-    text: inputChat[idProfileActive],
+    text: textNext,
     eventType: MessageEventType['chatMessage'],
   }
 

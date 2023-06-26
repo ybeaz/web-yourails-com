@@ -21,14 +21,13 @@ export const profiles: ProfileType[] = [
     idProfile: '19',
     idUser: '6',
     profileName: '@gpt-image-generator-v1',
-    nameFirst: 'Regular',
+    nameFirst: 'Painter',
     nameLast: 'GPT ImageGen v1',
     position: 4,
-    uriAvatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnzx1ngnxz8biiKq_MVC5j6HBfa-6zAYS-_yfCqiTRkVq7AuAiaG2aGBy63Au3Adkeclo&usqp=CAU',
+    uriAvatar: 'https://yourails.com/images/chatgpt-logo/chatgpt-03.jpeg',
     pendingImage:
-      'https://i.pinimg.com/originals/87/dc/79/87dc799670c06e9754bccb3b37d9541d.gif',
-    pendingText: 'I am thinking',
+      'https://otvet.imgsmail.ru/download/88388439_94ff949a9d607a033cd4eb11d83937ed_800.gif',
+    pendingText: 'I am creating',
     phones: [],
     emails: [],
     messengers: [],
@@ -46,8 +45,7 @@ export const profiles: ProfileType[] = [
     nameFirst: 'Creative',
     nameLast: 'GPT3.5Turbo',
     position: 4,
-    uriAvatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnzx1ngnxz8biiKq_MVC5j6HBfa-6zAYS-_yfCqiTRkVq7AuAiaG2aGBy63Au3Adkeclo&usqp=CAU',
+    uriAvatar: 'https://yourails.com/images/chatgpt-logo/chatgpt-06.jpeg',
     pendingImage:
       'https://i.pinimg.com/originals/87/dc/79/87dc799670c06e9754bccb3b37d9541d.gif',
     pendingText: 'I am thinking',
@@ -68,10 +66,9 @@ export const profiles: ProfileType[] = [
     nameFirst: 'Pedant',
     nameLast: 'GPT3.5Turbo',
     position: 4,
-    uriAvatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnzx1ngnxz8biiKq_MVC5j6HBfa-6zAYS-_yfCqiTRkVq7AuAiaG2aGBy63Au3Adkeclo&usqp=CAU',
+    uriAvatar: 'https://yourails.com/images/chatgpt-logo/chatgpt-09.jpeg',
     pendingImage:
-      'https://i.pinimg.com/originals/87/dc/79/87dc799670c06e9754bccb3b37d9541d.gif',
+      'https://media.tenor.com/NdWpwj3NKpYAAAAC/santosh-dawar-scientist.gif',
     pendingText: 'I am thinking',
     phones: [],
     emails: [],
@@ -308,10 +305,8 @@ It's recommended to use the information provided by this service critically and 
     nameFirst: 'Regular',
     nameLast: 'GPT3.5Turbo',
     position: 4,
-    uriAvatar:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnzx1ngnxz8biiKq_MVC5j6HBfa-6zAYS-_yfCqiTRkVq7AuAiaG2aGBy63Au3Adkeclo&usqp=CAU',
-    pendingImage:
-      'https://i.pinimg.com/originals/87/dc/79/87dc799670c06e9754bccb3b37d9541d.gif',
+    uriAvatar: 'https://yourails.com/images/chatgpt-logo/chatgpt-05.jpeg',
+    pendingImage: 'https://yourails.com/images/bots-logos/Ak7z.gif',
     pendingText: 'I am thinking',
     phones: [],
     emails: [],
