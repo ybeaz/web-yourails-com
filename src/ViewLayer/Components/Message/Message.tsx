@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import React, { ReactElement } from 'react'
+import { View, ImageResizeMode } from 'react-native'
 import dayjs from 'dayjs'
 
 import { ImageYrl } from '../../../YrlNativeViewLibrary'
@@ -32,12 +32,74 @@ const MessageComponent: MessageType = props => {
     pendingImage,
   } = props
 
-  const roundAllCornersStyle = !isTail ? styles.roundAllCorners.style : {}
-
   const dateString = dayjs(createdAt).locale(LOCALE).format(TIME_FORMAT)
 
+  const contentObj = JSON.parse(text)
+  const { contentType } = contentObj
+
+  const roundAllCornersStyle = !isTail ? styles.roundAllCorners.style : {}
+
+  const getTextComponentsFromTextArray = (
+    textArrayIn: string[]
+  ): ReactElement[] => {
+    return textArrayIn.map((textItem: string, index: number) => {
+      return (
+        <Text
+          key={`textItem-${index}`}
+          style={[styles[position].text]}
+          testID='textItem'
+        >
+          {textItem}
+        </Text>
+      )
+    })
+  }
+
+  const getImageComponentsFromImageArray = (
+    imageArrayIn: string[]
+  ): ReactElement[] => {
+    return imageArrayIn.map((textItem: string, index: number) => {
+      const resizeMode: ImageResizeMode = 'cover'
+
+      const propsOut = {
+        messageImageYrlProps: {
+          key: `messageImageYrl-${index}`,
+          styleProps: {
+            ImageYrl: { paddingRight: '0.5rem' },
+            image: {
+              height: '15vw',
+              width: '15vw',
+            },
+          },
+          testID: 'messageImageYrl',
+          uri: textItem,
+          resizeMode, // 'cover' | 'contain' | 'stretch' | 'repeat' | 'center'
+        },
+      }
+
+      return <ImageYrl {...propsOut.messageImageYrlProps} />
+    })
+  }
+
+  let messageContentOutput = null
+  let widthContentStyle = {}
+  if (contentType === 'textArray')
+    messageContentOutput = getTextComponentsFromTextArray(
+      contentObj[contentType]
+    )
+  else if (contentType === 'imageArray') {
+    messageContentOutput = getImageComponentsFromImageArray(
+      contentObj[contentType]
+    )
+    widthContentStyle = {
+      maxWidth: '100%',
+    }
+  }
+
+  const resizeMode: ImageResizeMode = 'cover'
+
   const propsOut: Record<string, any> = {
-    imageYrlProps: {
+    pendingImageYrlProps: {
       styleProps: {
         ImageYrl: { paddingRight: '0.5rem' },
         image: {
@@ -45,9 +107,9 @@ const MessageComponent: MessageType = props => {
           width: '4rem',
         },
       },
-      testID: 'ImageYrl',
+      testID: 'pendingImageYrl',
       uri: pendingImage, // 'https://yourails.com/images/loading/loading09.gif'
-      resizeMode: 'cover', // 'cover' | 'contain' | 'stretch' | 'repeat' | 'center'
+      resizeMode, // 'cover' | 'contain' | 'stretch' | 'repeat' | 'center'
     },
     triangleCorner: {
       isShow: !!isTail,
@@ -65,13 +127,14 @@ const MessageComponent: MessageType = props => {
           styles[position].content,
           themes['themeA'].colors01,
           roundAllCornersStyle,
+          widthContentStyle,
         ]}
         testID='content'
       >
         <View style={[styles[position].messageWrapper]} testID='messageWrapper'>
-          {isPending && <ImageYrl {...propsOut.imageYrlProps} />}
+          {isPending && <ImageYrl {...propsOut.pendingImageYrlProps} />}
           <Text style={[styles[position].text]} testID='text'>
-            {text}
+            {messageContentOutput}
           </Text>
         </View>
         <Text

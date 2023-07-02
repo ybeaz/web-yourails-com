@@ -1,5 +1,7 @@
 export enum ContentType {
-  CompetencyTagType = 'CompetencyTagType',
-  ProjectType = 'ProjectType',
-  ProfileType = 'ProfileType',
+  text = 'text',
+  textArray = 'textArray',
+  image = 'image',
+  imageArray = 'imageArray',
+  joinConversation = 'joinConversation',
 }

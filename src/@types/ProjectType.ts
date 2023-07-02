@@ -1,9 +1,9 @@
-import { ContentType } from './ContentType'
+import { SectionType } from './SectionType'
 
 export type ProjectType = {
   idProfile: string | number
   title: string
-  contentType: ContentType.ProjectType
+  contentType: SectionType.ProjectType
   isActive: boolean
   pathname?: string
   subtitle?: string

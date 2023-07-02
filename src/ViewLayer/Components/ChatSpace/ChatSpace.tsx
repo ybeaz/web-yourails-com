@@ -1,6 +1,7 @@
 import React, { ReactElement, useEffect, FunctionComponent } from 'react'
 import { ScrollView, View } from 'react-native'
 
+import { ContentType } from '../../../@types/ContentType'
 import { ProfileType } from '../../../@types/ProfileType'
 import { MessageType } from '../../../@types/MessageType'
 import { MessageEventType } from '../../../@types/MessageEventType'
@@ -267,14 +268,26 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       const { idMessage, text, eventType, idProfile } = message
       const { pendingImage } = getProfileByIdProfile(profiles, idProfile)
       let textNext = text
-      if (eventType === MessageEventType['joinConversation']) {
-        const { idProfile: idProfileRespondent, text: textJoinConversation } =
-          JSON.parse(text)
+
+      // TODO to underderstand the logic and fix the name issue, who left
+      if (
+        eventType === MessageEventType['joinConversation'] ||
+        eventType === MessageEventType['disconnectConversation']
+      ) {
+        // console.info('ChatSpace [275]', { text })
+        const textParsed = typeof text === 'string' ? JSON.parse(text) : text
+        const idProfileRespondent = textParsed?.idProfile || '0'
+        const textJoinConversation = textParsed?.text || ''
+
         const { profileName } = getProfileByIdProfile(
           profiles,
           idProfileRespondent
         )
-        textNext = `${profileName} ${textJoinConversation}`
+        const textObject = {
+          contentType: ContentType['textArray'],
+          textArray: [`${profileName} ${textJoinConversation}`],
+        }
+        textNext = JSON.stringify(textObject)
       }
 
       const propsOut = {

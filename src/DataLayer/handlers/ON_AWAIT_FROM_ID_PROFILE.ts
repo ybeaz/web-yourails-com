@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid'
 import { store } from '../store'
+import { ContentType } from '../../@types/ContentType'
 import { MessageType } from '../../@types/MessageType'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { MessageEventType } from '../../@types/MessageEventType'
@@ -28,6 +29,11 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
 
     const profile = getProfileByIdProfile(profiles, idProfile)
     const pendingText = profile.pendingText ? profile.pendingText : ''
+    const textObj = {
+      contentType: ContentType['textArray'],
+      textArray: [pendingText],
+    }
+    const textNext = JSON.stringify(textObj)
 
     const message: MessageType = {
       idMessage,
@@ -35,7 +41,7 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
       idProfile,
       isPending,
       eventType: MessageEventType['chatMessage'],
-      text: pendingText,
+      text: textNext,
     }
 
     handleEvents.ON_MESSAGE_SOCKET({}, { message })
