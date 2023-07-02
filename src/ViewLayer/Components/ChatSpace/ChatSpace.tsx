@@ -274,7 +274,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         eventType === MessageEventType['joinConversation'] ||
         eventType === MessageEventType['disconnectConversation']
       ) {
-        console.info('ChatSpace [275]', { text })
+        // console.info('ChatSpace [275]', { text })
         const textParsed = typeof text === 'string' ? JSON.parse(text) : text
         const idProfileRespondent = textParsed?.idProfile || '0'
         const textJoinConversation = textParsed?.text || ''

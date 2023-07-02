@@ -20,9 +20,9 @@ export const profiles: ProfileType[] = [
   {
     idProfile: '19',
     idUser: '6',
-    profileName: '@gpt-image-generator-v1',
+    profileName: '@gpt-image-v1-Bot',
     nameFirst: 'Painter',
-    nameLast: 'GPT ImageGen v1',
+    nameLast: 'GPT v1 Bot',
     position: 4,
     uriAvatar: 'https://yourails.com/images/chatgpt-logo/chatgpt-03.jpeg',
     pendingImage:
@@ -41,9 +41,9 @@ export const profiles: ProfileType[] = [
   {
     idProfile: '18',
     idUser: '6',
-    profileName: '@gpt-creative',
+    profileName: '@gpt-creativeBot',
     nameFirst: 'Creative',
-    nameLast: 'GPT3.5Turbo',
+    nameLast: 'GPT3.5 Bot',
     position: 4,
     uriAvatar: 'https://yourails.com/images/chatgpt-logo/chatgpt-06.jpeg',
     pendingImage:
@@ -62,9 +62,9 @@ export const profiles: ProfileType[] = [
   {
     idProfile: '17',
     idUser: '6',
-    profileName: '@gpt-pedant',
+    profileName: '@gpt-pedantBot',
     nameFirst: 'Pedant',
-    nameLast: 'GPT3.5Turbo',
+    nameLast: 'GPT3.5 Bot',
     position: 4,
     uriAvatar: 'https://yourails.com/images/chatgpt-logo/chatgpt-09.jpeg',
     pendingImage:
@@ -301,9 +301,9 @@ It's recommended to use the information provided by this service critically and 
   {
     idProfile: '8',
     idUser: '6',
-    profileName: '@gpt-3.5-turbo',
+    profileName: '@gpt-3.5- Bot',
     nameFirst: 'Regular',
-    nameLast: 'GPT3.5Turbo',
+    nameLast: 'GPT3.5 Bot',
     position: 4,
     uriAvatar: 'https://yourails.com/images/chatgpt-logo/chatgpt-05.jpeg',
     pendingImage: 'https://yourails.com/images/bots-logos/Ak7z.gif',
