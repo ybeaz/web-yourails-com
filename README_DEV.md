@@ -136,6 +136,7 @@ Note: to config `codegen` edit ??? `codegen.yml`
 
 ### How to build and deploy web.yourails.com
 
+@link https://github.com/jsdelivr/jsdelivr // Link to CDN that works with GitHub.com
 @link https://docs.expo.dev/distribution/publishing-websites/
 
 - Building
