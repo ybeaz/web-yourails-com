@@ -14,8 +14,6 @@ export const style = StyleSheet.create({
   },
   ImageYrl: {},
   image: {
-    width: 45,
-    height: 45,
     borderRadius: 50,
   },
   nameStatus: {

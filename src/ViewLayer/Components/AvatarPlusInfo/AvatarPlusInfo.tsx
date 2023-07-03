@@ -28,17 +28,24 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
     children,
     testID,
   } = props
-  const { avatarSrc = '', nameFirst, nameLast } = profile
+  const { avatarSrc = '', avatarSize, nameFirst, nameLast } = profile
 
   const initials = `${(nameFirst && nameFirst[0]) || 'A'}${
     (nameLast && nameLast[0]) || 'Z'
   }`
 
+  let width = undefined
+  let height = undefined
+  if (avatarSize) {
+    width = avatarSize.width | 45
+    height = avatarSize.height | 45
+  }
+
   const propsOut: Record<string, any> = {
     imageYrlProps: {
       styleProps: {
         ImageYrl: style.ImageYrl,
-        image: style.image,
+        image: { ...style.image, width, height },
       },
       resizeMode: 'cover',
       testID: 'ChatCard_imageYrl',
