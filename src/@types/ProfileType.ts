@@ -24,8 +24,9 @@ export type ProfileType = {
   serviceSections?: []
   serviceSpecs?: string[]
   summary?: string
-  uriAvatar?: string
-  pendingImage?: string
+  avatarSrc?: string
+  avatarSize?: { width: number; height: number }
+  imagePendingSrc?: string
   pendingText?: string
   disclaimer?: string
 }

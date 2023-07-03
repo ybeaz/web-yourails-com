@@ -266,7 +266,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const getMessagesJsx = (messagesIn: MessageType[]): ReactElement[] => {
     return messagesIn.map((message: MessageType, index) => {
       const { idMessage, text, eventType, idProfile } = message
-      const { pendingImage } = getProfileByIdProfile(profiles, idProfile)
+      const { imagePendingSrc } = getProfileByIdProfile(profiles, idProfile)
       let textNext = text
 
       // TODO to underderstand the logic and fix the name issue, who left
@@ -291,7 +291,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       }
 
       const propsOut = {
-        messageProps: { ...message, text: textNext, pendingImage },
+        messageProps: { ...message, text: textNext, imagePendingSrc },
       }
       return (
         <Message

@@ -15,4 +15,4 @@ export const getProfileByIdProfile: GetProfileNameByIdProfileType = (
   idProfile
 ) =>
   profiles.find((profile: ProfileType) => profile.idProfile === idProfile) ||
-  profiles[0] || { idProfile: '0', profileName: '@', uriAvatar: '' }
+  profiles[0] || { idProfile: '0', profileName: '@', avatarSrc: '' }

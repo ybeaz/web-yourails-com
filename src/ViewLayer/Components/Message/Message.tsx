@@ -29,7 +29,7 @@ const MessageComponent: MessageType = props => {
     isSent,
     isReceived,
     isPending,
-    pendingImage,
+    imagePendingSrc,
   } = props
 
   const dateString = dayjs(createdAt).locale(LOCALE).format(TIME_FORMAT)
@@ -108,7 +108,7 @@ const MessageComponent: MessageType = props => {
         },
       },
       testID: 'pendingImageYrl',
-      uri: pendingImage, // 'https://yourails.com/images/loading/loading09.gif'
+      uri: imagePendingSrc, // 'https://yourails.com/images/loading/loading09.gif'
       resizeMode, // 'cover' | 'contain' | 'stretch' | 'repeat' | 'center'
     },
     triangleCorner: {

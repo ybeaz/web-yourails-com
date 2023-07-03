@@ -10,7 +10,7 @@ export type MessageType = {
   idMessage?: string
   idProfile: IdUserType
   isPending?: boolean
-  pendingImage?: string
+  imagePendingSrc?: string
   isTail?: boolean
   position?: string
   eventType: MessageEventType
