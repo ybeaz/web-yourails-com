@@ -134,19 +134,31 @@ Note: to config `codegen` edit ??? `codegen.yml`
 - **`timeFormat`** _(String)_ - Format to use for rendering times; default is `'LT'` (see [Day.js Format](https://day.js.org/docs/en/display/format))
 - **`dateFormat`** _(String)_ - Forma
 
-### How to build for web environment and deploy on Panel.NetAngels.ru
+### How to build and deploy web.yourails.com
 
 @link https://docs.expo.dev/distribution/publishing-websites/
 
 - Building
   `yarn export:web`: To build. It runs script from package.json file. Legacy command `npx expo export:web`
-- Deployment on Panel.NetAngels.ru
-  With ForkLift copy folder static to SIM link folder `2023-04-22.yourails.com/`. It serves automatically to
-
-  - `r1.userto.com/static/`
-  - `web1.yourails.com/static/`
-
-- `npx serve web-build`: Does not work. To serve locally
+- Copy `~/Dev/yourails-sep-web-native/web-build/static` into
+  `~/Dev/yourails-assets/dist/static-web-yourails`
+- In Terminal, go to `~/Dev/yourails-assets/`
+- In Terminal, `~/Dev/yourails-assets/`
+  - `eval $(ssh-agent -s); ssh-add ~/.ssh/2020-10-19-rsa`
+  - ??? `npm login`
+  - `npm init`, go through steps and change version to the next one
+  - `npm publish`
+- In VS Code, `~/Dev/yourails-sep-web-native/deployment`,
+  - open `/deployment/index-r1.userto.html` and `/deployment/index-web.yourails.html`
+  - change version in links for `bundle.min.js` and `main.bundle.min.js`
+- In ForkLift copy
+  - copy `/deployment/index-r1.userto.html` to `r1.userto.com/www/`
+  - copy `/deployment/index-web.yourails.html` to `../web.yourails.com/www`
+  - ` /deployment/index-web.yourails.html``index.html ` and `.htaccess` to the directories
+- In Browser, new Tab,
+  - `shift`+`command`+`delete` and remove cache
+  - check r1.userto.com
+  - check `web.yourails.com`
 
 ### How to navigae? Rules for Urls
 

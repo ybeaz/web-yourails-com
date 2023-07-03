@@ -15,6 +15,7 @@ export const getMinifiedBundle = (
 
   // minify the code using UglifyJS
   const result = uglify.minify(inputCode)
+  fs.writeFileSync(outputFileIn, result.code)
 
   // compress the minified code using gzip
   zlib.gzip(result.code, (error: any, buffer: any) => {
@@ -22,7 +23,7 @@ export const getMinifiedBundle = (
       console.error(error)
     } else {
       // write the compressed code to the output file
-      fs.writeFileSync(outputFileIn, buffer)
+      fs.writeFileSync(`${outputFileIn}.gz`, buffer)
     }
   })
 }
