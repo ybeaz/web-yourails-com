@@ -28,7 +28,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
     children,
     testID,
   } = props
-  const { uriAvatar = '', nameFirst, nameLast } = profile
+  const { avatarSrc = '', nameFirst, nameLast } = profile
 
   const initials = `${(nameFirst && nameFirst[0]) || 'A'}${
     (nameLast && nameLast[0]) || 'Z'
@@ -42,7 +42,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
       },
       resizeMode: 'cover',
       testID: 'ChatCard_imageYrl',
-      uri: uriAvatar,
+      uri: avatarSrc,
     },
     ButtonYrl: {
       // titleText: nameStatus,
@@ -71,7 +71,7 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
         <>
           {isImageAvatar && (
             <View style={[style.avatar, styleProps.avatar]} testID='avatar'>
-              {uriAvatar ? (
+              {avatarSrc ? (
                 <ImageYrl {...propsOut.imageYrlProps} />
               ) : (
                 <AbInCircle {...propsOut.abInCircleProps} />

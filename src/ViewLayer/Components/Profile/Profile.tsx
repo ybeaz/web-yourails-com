@@ -159,13 +159,13 @@ const ProfileComponent: ProfileComponentType = props => {
       },
       resizeMode: 'cover',
       testID: 'profile_imageYrl',
-      uri: profileTagsUserHost.uriAvatar,
+      uri: profileTagsUserHost.avatarSrc,
     },
   }
 
   return (
     <View style={[style.Profile, styleProps.Profile]} testID='Profile'>
-      {profileTagsUserHost.uriAvatar ? (
+      {profileTagsUserHost.avatarSrc ? (
         <View style={[style.imageWrapper]} testID='imageWrapper'>
           <ImageYrl {...propsOut.imageYrlProps} />
         </View>

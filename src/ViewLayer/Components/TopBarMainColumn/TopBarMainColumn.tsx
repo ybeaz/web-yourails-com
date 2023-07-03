@@ -49,7 +49,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
     idProfileActive
   )
 
-  const { uriAvatar, serviceSpecs } = profileActive
+  const { avatarSrc, serviceSpecs } = profileActive
 
   const isButtonBackTopBarMainColumn =
     isButtonBackModal && isButtonCloseModal ? true : false
@@ -123,7 +123,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
         image: style.image,
       },
       testID: 'TopBarMainColumn_imageYrl',
-      uri: uriAvatar,
+      uri: avatarSrc,
     },
     nameStatusProps: {
       styleProps: {
