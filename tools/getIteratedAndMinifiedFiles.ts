@@ -15,8 +15,8 @@ export const getIteratedAndMinifiedFiles: GetIteratedAndMinifiedFilesType =
       const includesMainPrefix = file.includes('main')
 
       const outputFile = includesMainPrefix
-        ? `${inputDir}/static/js/main.bundle.min.js.gz`
-        : `${inputDir}/static/js/bundle.min.js.gz`
+        ? `${inputDir}/static/js/main.bundle.min.js`
+        : `${inputDir}/static/js/bundle.min.js`
 
       getMinifiedBundle(inputFile, outputFile)
 
