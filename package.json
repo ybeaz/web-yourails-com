@@ -181,9 +181,7 @@
     "typescript": "^4.9.4"
   },
   "scripts": {
-    "start": "PORT=3550 node scripts/start.js",
-    "dev": "BROWSER=none PORT=3550 node scripts/start.js",
-    "build": "node scripts/build.js",
+    "start:dev": "expo start --web",
     "test": "jest",
     "test2": "node scripts/test.js",
     "jest": "jest --colors",
@@ -192,11 +190,13 @@
     "expo:start": "open -a Simulator && expo start",
     "expo:android": "expo start --android",
     "expo:ios": "expo start --ios",
-    "expo:web": "expo start --web",
     "expo:eject": "expo eject",
     "server:mock": "ts-node graphql/server.ts",
     "minify": "ts-node tools/getPreparedFilesPublicWeb.ts",
-    "export:web": "yarn expo export:web && yarn minify"
+    "export:web": "yarn expo export:web && yarn minify",
+    "archieve:start": "PORT=3550 node scripts/start.js",
+    "archieve:dev": "BROWSER=none PORT=3550 node scripts/start.js",
+    "archieve:build": "node scripts/build.js"
   },
   "eslintConfig": {
     "extends": "react-app"
