@@ -143,15 +143,16 @@ Note: to config `codegen` edit ??? `codegen.yml`
   `yarn export:web`: To build. It runs script from package.json file. Legacy command `npx expo export:web`
 - Copy `~/Dev/yourails-sep-web-native/web-build/static` into
   `~/Dev/yourails-assets/dist/static-web-yourails`
+- In Browser authorise at https://www.npmjs.com/ and check previous `yourails-assets-temp` package version
 - In Terminal, go to `~/Dev/yourails-assets/`
 - In Terminal, `~/Dev/yourails-assets/`
   - `eval $(ssh-agent -s); ssh-add ~/.ssh/2020-10-19-rsa`
-  - ??? `npm login`
+  <!-- - ??? `npm login` -->
   - `npm init`, go through steps and change version to the next one
   - `npm publish`
 - In VS Code, `~/Dev/yourails-sep-web-native/deployment`,
   - open `/deployment/index-r1.userto.html` and `/deployment/index-web.yourails.html`
-  - change version in links for `bundle.min.js` and `main.bundle.min.js`
+  - !!! change version in links for `bundle.min.js` and `main.bundle.min.js`
 - In ForkLift copy
   - copy `/deployment/index-r1.userto.html` to `r1.userto.com/www/`
   - copy `/deployment/index-web.yourails.html` to `../web.yourails.com/www`
