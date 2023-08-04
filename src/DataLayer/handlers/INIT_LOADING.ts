@@ -11,5 +11,5 @@ export const INIT_LOADING: ActionEventType = async (event, data) => {
   if (counter > 0) return
   counter += 1
 
-  await dispatch(actionAsync.INIT_LOADING_ASYNC.REQUEST({}))
+  await dispatch(actionAsync.INIT_LOADING_ASYNC.REQUEST(data))
 }

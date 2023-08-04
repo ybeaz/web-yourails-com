@@ -14,7 +14,14 @@ import { getJoinedConversation } from '../../CommunicationLayer/socketio/getJoin
 // import { GetRecipeDocument } from '../../types/graphql'
 // import { apolloClient } from '../../CommunicationLayer/clients/apolloClient'
 
-function* initLoading() {
+type InitLoadingType = {
+  type: 'INIT_LOADING_ASYNC_REQUEST'
+  query: { s: string | null; code: string | null }
+}
+
+function* initLoading(data: InitLoadingType) {
+  console.info('initLoadingSaga [18]', { data }) // STOPPED HERE for coming back in the future
+
   const { profiles: profilesPrev, sectionsMapping: sectionsMappingPrev } =
     yield select(store => store)
   if (profilesPrev.length && sectionsMappingPrev.length) return

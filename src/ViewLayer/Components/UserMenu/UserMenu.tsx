@@ -9,7 +9,9 @@ import {
   withParamsMediaYrl,
   mediaParamsDefault,
   urlParamsDefault,
+  useLinkClickResYrl,
 } from '../../../YrlNativeViewLibrary'
+
 import { Text } from '../../Components/Text/Text'
 
 import {
@@ -27,7 +29,7 @@ type UserMenuItemType = {
   iconLibrary: string
   iconName: string
   color: string
-  onPress: () => void
+  onPress: any // () => void | void
 }
 
 /**
@@ -61,6 +63,10 @@ const UserMenuComponent: UserMenuType = props => {
     profiles,
     idProfileHost
   )
+
+  const linkSignIn =
+    'https://yourails.auth.us-east-1.amazoncognito.com/login?client_id=7bif6o0h9s2c5a0eg9aamktasl&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:19006&&scope=email+openid+profile'
+  const linkSignOut = ''
 
   const style = styles[deviceType]
 
@@ -99,7 +105,13 @@ const UserMenuComponent: UserMenuType = props => {
         )
       },
     },
-
+    {
+      title: 'Sign in',
+      iconLibrary: 'Ionicons',
+      iconName: 'log-in-outline',
+      color: themes['themeA'].colors01.color,
+      onPress: useLinkClickResYrl(linkSignIn),
+    },
     {
       title: 'Sign out',
       iconLibrary: 'Ionicons',

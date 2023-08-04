@@ -61,6 +61,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const query = {
     s: urlParamsSearch.get('s'),
+    code: urlParamsSearch.get('code'),
   }
 
   const profileActive: ProfileType = getProfileByIdProfile(
@@ -88,8 +89,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       getSocketOnMessage()
       getSocketOnPending()
 
-      /** @description Loading profiles, messages, etc. as a first step **/
-      handleEvents.INIT_LOADING({}, {})
+      /** @description Obtaining a user data, loading profiles, messages, etc. as a first step **/
+      handleEvents.INIT_LOADING({}, { query })
 
       /** @description Add the 'beforeunload' event listener to gracefully disconnect when reloading the page */
       window.addEventListener('beforeunload', getSocketDisconnected)
