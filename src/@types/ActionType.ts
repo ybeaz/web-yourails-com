@@ -1,8 +1,9 @@
+import { Action } from 'redux'
+
 /**
  * @import import { ActionType } from '../@types/ActionType'
  */
-export interface ActionType {
-  type?: string
+export type ActionType = Action & {
   typeEvent?: string
   data?: any
 }

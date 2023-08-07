@@ -1,3 +1,5 @@
+import { Reducer, Action, ReducersMapObject } from 'redux'
+
 import { RootStoreType } from '../@types/RootStoreType'
 import { ActionType } from '../@types/ActionType'
 
@@ -25,14 +27,18 @@ import { TOGGLE_LOADER_OVERLAY } from './reducers/TOGGLE_LOADER_OVERLAY'
 
 import { rootStoreDefault } from './rootStoreDefault'
 
-export interface IndexReducerType {
-  (store: RootStoreType, action: ActionType): RootStoreType
-}
+export type IndexReducerType =
+  | Reducer<RootStoreType, Action<any>>
+  | ReducersMapObject<RootStoreType, Action<any>>
+// export interface IndexReducerType {
+//   (store: RootStoreType, action: ActionType): RootStoreType
+// }
 
 export const indexReducer: IndexReducerType = (
   store = rootStoreDefault,
   action = { type: 'DEFAULT' }
 ) => {
+  // @ts-ignore
   const { type, data } = action
 
   const output = {

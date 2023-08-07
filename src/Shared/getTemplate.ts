@@ -3,7 +3,7 @@ interface GetTemplateType {
 }
 
 /**
- * @description Function to
+ * @description Function to getTemplate
  * @import import { getTemplate } from '../../../Shared/getTemplate'
  */
 

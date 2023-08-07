@@ -20,7 +20,7 @@ type InitLoadingType = {
 }
 
 function* initLoading(data: InitLoadingType) {
-  console.info('initLoadingSaga [18]', { data }) // STOPPED HERE for coming back in the future
+  console.info('initLoadingSaga [18]', { data }) // STOPPED HERE for coming back in the future, Branch B-053
 
   const { profiles: profilesPrev, sectionsMapping: sectionsMappingPrev } =
     yield select(store => store)
