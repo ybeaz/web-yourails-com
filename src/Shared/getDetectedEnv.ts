@@ -1,9 +1,13 @@
-export const getDetectedEnv: Function = (): string => {
-  const locationStub: any = {}
-  return locationStub.hostname === '127.0.0.1' ||
-    locationStub.Stubhostname === 'localhost'
-    ? 'localServer'
-    : locationStub.hostname === '127.0.0.1' && locationStub.port === '3550'
-    ? 'localWebpack'
+interface GetDetectedEnv {
+  (): string
+}
+
+/**
+ * @description Function to detect environment type
+ * @import import { getDetectedEnv } from '../../../Shared/getDetectedEnv'
+ */
+export const getDetectedEnv: GetDetectedEnv = () => {
+  return location.hostname === '127.0.0.1' || location.hostname === 'localhost'
+    ? 'local'
     : 'remote'
 }

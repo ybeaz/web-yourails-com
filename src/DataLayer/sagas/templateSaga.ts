@@ -1,7 +1,7 @@
 import { takeLatest, takeEvery, put, select } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { templateConnectorAxios } from '../../CommunicationLayer/template.connector'
+import { templateConnectorAxios } from '../../CommunicationLayer/templateConnector'
 import { GetRecipeDocument } from '../../types/graphql'
 import { apolloClient } from '../../CommunicationLayer/clients/apolloClient'
 
@@ -32,6 +32,10 @@ function* template(input: any) {
   }
 }
 
+/**
+ * @description Function to templateSaga
+ * @import import templateSaga from './sagas/templateSaga'
+ */
 export default function* templateSaga() {
   yield takeEvery([actionAsync.TEMPLATE_ASYNC.REQUEST().type], template)
 }

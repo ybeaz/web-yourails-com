@@ -1,5 +1,6 @@
 import { Axios, Method } from 'axios'
-export interface IConnectorOutput {
+
+export interface ConnectorOutputType {
   client: Axios
   params?: {
     operationName: string
@@ -8,4 +9,4 @@ export interface IConnectorOutput {
   }
 }
 
-export { Method } from 'axios'
+export type { Method }

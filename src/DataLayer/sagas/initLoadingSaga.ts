@@ -6,7 +6,6 @@ import {
   OperatorType,
 } from '../../Shared/getFilteredObjsArrayBy'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { templateConnectorAxios } from '../../CommunicationLayer/template.connector'
 import { profiles as profilesIn } from '../../ContentMock/profilesMock'
 import { sectionsMapping } from '../../ContentMock/sectionsMappingMock'
 import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio/getSocketEmitJoinConversation'
@@ -16,11 +15,17 @@ import { getJoinedConversation } from '../../CommunicationLayer/socketio/getJoin
 
 type InitLoadingType = {
   type: 'INIT_LOADING_ASYNC_REQUEST'
-  query: { s: string | null; code: string | null }
+  data: { query: { s: string | null; code: string | null } }
 }
 
 function* initLoading(data: InitLoadingType) {
-  console.info('initLoadingSaga [18]', { data }) // STOPPED HERE for coming back in the future, Branch B-053
+  const code = data?.data?.query?.code
+
+  console.info('initLoadingSaga [18]', { code, data }) // STOPPED HERE for coming back in the future, Branch B-053
+
+  if (code) {
+    yield put(actionAsync.GET_USERID_DATA_AWS_COGNITO_ASYNC.REQUEST({ code }))
+  }
 
   const { profiles: profilesPrev, sectionsMapping: sectionsMappingPrev } =
     yield select(store => store)
