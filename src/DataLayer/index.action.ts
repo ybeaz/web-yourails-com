@@ -1,9 +1,10 @@
 import { createSyncActions, CreateSyncAction } from './createActionsSync'
 import { createAsyncAction, CreateAsyncAction } from './createActionsAsync'
-import { ActionType } from '../@types/ActionType'
 
 /** @description  Synchroneours redux actions */
 const ACTIONS_SYNC: string[] = [
+  'REVOKE_USERID_DATA_AWS_COGNITO',
+  'SET_USERID_DATA_AWS_COGNITO',
   'REMOVE_LAST_MESSAGE_ID_PROFILE',
   'SET_ID_USER_HOST',
   'SET_ID_PROFILE_HOST',
@@ -32,6 +33,7 @@ const ACTIONS_SYNC: string[] = [
 /** @description Asynchroneous actions for saga */
 const ACTION_ASYNC: string[] = [
   'TEMPLATE_ASYNC',
+  'GET_REFRESHED_USER_AUTH_AWS_COGNITO_ASYNC',
   'GET_USERID_DATA_AWS_COGNITO_ASYNC',
   'ADD_COMPETENCY_TAGS_ASYNC',
   'ADD_PROJECTS_ASYNC',

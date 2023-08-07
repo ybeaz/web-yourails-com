@@ -28,6 +28,16 @@ export interface FormsType {
   inputSearch: string
 }
 
+export type UserIdDataAwsCognito = {
+  cognito_groups: string[]
+  email: string | null
+  exp: number | null
+  message: string | null
+  preferred_username: string | null
+  refresh_token: string | null
+  sub: string | null
+}
+
 /**
  * @import import { RootStoreType, ComponentsStateType, FormsType, ModalFrameType } from '../@types/RootStoreType'
  */
@@ -42,6 +52,7 @@ export interface RootStoreType {
   isLoaded: {
     isLoadedGlobalVars: boolean
   }
+  userIdDataAwsCognito: UserIdDataAwsCognito
   globalVars: {
     idProfileHost: IdUserType
     idUserHost: IdUserType

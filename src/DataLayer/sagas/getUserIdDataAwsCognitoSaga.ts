@@ -1,21 +1,14 @@
-import { takeLatest, takeEvery, put, select } from 'redux-saga/effects'
+import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { getUserIdDataAwsCognitoConnector } from '../../CommunicationLayer/getUserIdDataAwsCognitoConnector'
 import { CLIENTS, ClientsType } from '../../Constants/clients.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 
-import { getUserIdDataAwsCognitoQuery } from '../../CommunicationLayer/graphql/getUserIdDataAwsCognitoQuery'
-
 function* getUserIdDataAwsCognito(input: any) {
   const {
     data: { code },
   } = input
-  console.info('getUserIdDataAwsCognitoSaga [11]', {
-    code,
-    input,
-    getUserIdDataAwsCognitoQuery,
-  })
 
   try {
     const envType: string = getDetectedEnv()
@@ -32,13 +25,14 @@ function* getUserIdDataAwsCognito(input: any) {
 
     const {
       data: {
-        data: { getUserIdDataAwsCognito: idDataAwsCognito },
+        data: { getUserIdDataAwsCognito: userIdDataAwsCognito },
       },
     } = yield client.post('', params)
 
-    console.info('getUserIdDataAwsCognitoSaga [45]', { idDataAwsCognito })
+    yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
   } catch (error) {
     const err: any = error
+    console.log('ERROR getUserIdDataAwsCognitoSaga', { err })
   }
 }
 
