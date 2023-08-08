@@ -53,12 +53,6 @@ function* initLoading(data: InitLoadingType) {
     const code = data?.data?.query?.code
 
     const refresh_token = localStorage.getItem('refresh_token')
-    console.info('initLoadingSaga [56]', {
-      profilesIn,
-      code,
-      refresh_token,
-      data,
-    })
 
     if (code) {
       yield put(actionAsync.GET_USERID_DATA_AWS_COGNITO_ASYNC.REQUEST({ code }))

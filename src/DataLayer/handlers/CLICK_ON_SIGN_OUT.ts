@@ -9,8 +9,6 @@ export const CLICK_ON_SIGN_OUT: ActionEventType = (event, data) => {
     userIdDataAwsCognito: { refresh_token },
   } = getState()
 
-  console.info('CLICK_ON_SIGN_OUT [15]', { refresh_token })
-
   dispatch(
     actionAsync.GET_REVOKED_USER_AUTH_AWS_COGNITO_ASYNC.REQUEST({
       refresh_token,

@@ -1,11 +1,12 @@
 import { ReducerType } from '../../@types/ReducerType'
+import { ProfileType } from '../../@types/ProfileType'
 
 export const SET_USERID_DATA_AWS_COGNITO: ReducerType = (store, data) => {
   const { userIdDataAwsCognito } = data
   const { globalVars, profiles } = store
 
   const profileHost = profiles.find(
-    (profile: any) => profile.idUser === userIdDataAwsCognito.sub
+    (profile: ProfileType) => profile.idUser === userIdDataAwsCognito.sub
   ) || { idUser: undefined, idProfile: undefined }
 
   const globalVarsNext = {

@@ -14,13 +14,6 @@ const envType: string = getDetectedEnv()
 const baseURL = SERVERS[envType as keyof ServersType] as string
 const { timeout } = SERVERS
 
-console.info('axiosClient [17]', {
-  envType,
-  baseURL: `${baseURL}/graphql`,
-  timeout,
-  headers,
-})
-
 export const axiosClient = axios.create({
   baseURL: `${baseURL}/graphql`,
   timeout,

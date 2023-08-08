@@ -31,10 +31,6 @@ function* getRefreshedUserAuthAwsCognito(input: any) {
       },
     } = yield client.post('', params)
 
-    console.info('getRefreshedUserAuthAwsCognitoSaga [34]', {
-      userIdDataAwsCognito,
-    })
-
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
 
     getSetObjToLocalStorage(userIdDataAwsCognito)
