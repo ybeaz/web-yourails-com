@@ -1,7 +1,10 @@
+import { Reducer, Action, ReducersMapObject } from 'redux'
+
 import { RootStoreType } from '../@types/RootStoreType'
-import { ActionType } from '../@types/ActionType'
+import { ReducerType } from '../@types/ReducerType'
 
 import { TEMPLATE } from './reducers/TEMPLATE'
+import { SET_USERID_DATA_AWS_COGNITO } from './reducers/SET_USERID_DATA_AWS_COGNITO'
 import { REMOVE_LAST_MESSAGE_ID_PROFILE } from './reducers/REMOVE_LAST_MESSAGE_ID_PROFILE'
 import { SET_ID_PROFILE_HOST } from './reducers/SET_ID_PROFILE_HOST'
 import { TOGGLE_PROFILE_SELECT_MENU } from './reducers/TOGGLE_PROFILE_SELECT_MENU'
@@ -25,18 +28,23 @@ import { TOGGLE_LOADER_OVERLAY } from './reducers/TOGGLE_LOADER_OVERLAY'
 
 import { rootStoreDefault } from './rootStoreDefault'
 
-export interface IndexReducerType {
-  (store: RootStoreType, action: ActionType): RootStoreType
-}
+export type IndexReducerType =
+  | Reducer<RootStoreType, Action<any>>
+  | ReducersMapObject<RootStoreType, Action<any>>
+// export interface IndexReducerType {
+//   (store: RootStoreType, action: ActionType): RootStoreType
+// }
 
 export const indexReducer: IndexReducerType = (
   store = rootStoreDefault,
   action = { type: 'DEFAULT' }
 ) => {
+  // @ts-ignore
   const { type, data } = action
 
-  const output = {
+  const output: Record<string, ReducerType> = {
     TEMPLATE,
+    SET_USERID_DATA_AWS_COGNITO,
     REMOVE_LAST_MESSAGE_ID_PROFILE,
     SET_ID_PROFILE_HOST,
     TOGGLE_PROFILE_SELECT_MENU,
@@ -59,6 +67,5 @@ export const indexReducer: IndexReducerType = (
     TOGGLE_LOADER_OVERLAY,
   }
 
-  // @ts-ignore
   return output[type] ? output[type](store, data) : store
 }

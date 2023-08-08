@@ -1,7 +1,7 @@
 import axios, { AxiosRequestHeaders } from 'axios'
 
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
-import { SERVERS, IServer } from '../../Constants/servers.const'
+import { SERVERS, ServersType } from '../../Constants/servers.const'
 
 const headers: AxiosRequestHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -11,7 +11,7 @@ const headers: AxiosRequestHeaders = {
 
 const envType: string = getDetectedEnv()
 
-const baseURL = SERVERS[envType as keyof IServer] as string
+const baseURL = SERVERS[envType as keyof ServersType] as string
 const { timeout } = SERVERS
 
 export const axiosClient = axios.create({

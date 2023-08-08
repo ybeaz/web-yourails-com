@@ -1,5 +1,6 @@
 import {
   RootStoreType,
+  UserIdDataAwsCognito,
   ComponentsStateType,
   FormsType,
 } from '../@types/RootStoreType'
@@ -88,9 +89,18 @@ export const rootStoreDefault: RootStoreType = {
   isLoaded: {
     isLoadedGlobalVars: false,
   },
+  userIdDataAwsCognito: {
+    cognito_groups: [],
+    email: null,
+    exp: 0,
+    message: null,
+    preferred_username: null,
+    refresh_token: null,
+    sub: null,
+  },
   globalVars: {
-    idUserHost: '5',
-    idProfileHost: '5',
+    idUserHost: undefined,
+    idProfileHost: undefined,
     idProfileActive: undefined,
     theme: 'light',
     language: 'en',

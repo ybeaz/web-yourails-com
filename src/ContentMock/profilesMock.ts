@@ -19,6 +19,26 @@ export const profiles: ProfileType[] = [
   },
 
   {
+    idProfile: '20',
+    idUser: '240844e8-90c1-7048-eddd-5f58260ef473',
+    profileName: '@ybeaz',
+    nameFirst: 'Igor',
+    nameLast: 'Beaz',
+    position: 2,
+    avatarSrc: '',
+    avatarSize: { width: 50, height: 50 },
+    imagePendingSrc: '',
+    pendingText: 'I am thinking',
+    phones: [],
+    emails: ['ybeaz@yahoo.com'],
+    messengers: [],
+    locations: ['Internet'],
+    serviceSpecs: ['Content Creation', 'Question Answering'],
+    summary: ``,
+    disclaimer: '',
+  },
+
+  {
     idProfile: '19',
     idUser: '6',
     profileName: '@gpt-image-v1-Bot',
@@ -91,7 +111,10 @@ export const profiles: ProfileType[] = [
     nameFirst: 'YouRails.com',
     nameLast: '',
     position: 7,
-    avatarSrc: 'https://yourails.com/images/promo01/logo-2023-06-18-2.jpeg', // https://yourails.com/images/sphinx-01.jpg
+    avatarSrc: 'https://yourails.com/images/promo01/logo-2023-06-18-2.jpeg',
+    // https://yourails.com/images/logoYouRails/logoYouRails-ChAlR-001.png
+    // https://yourails.com/images/promo01/logo-2023-06-18-2.jpeg
+    // https://yourails.com/images/sphinx-01.jpg
     avatarSize: { width: 45, height: 45 },
     phones: ['415-650-9893'],
     emails: ['t3531350@yahoo.com'],

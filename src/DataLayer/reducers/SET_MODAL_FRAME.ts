@@ -1,6 +1,7 @@
 import { RootStoreType } from '../../@types/RootStoreType'
+import { ReducerType } from '../../@types/ReducerType'
 
-export const SET_MODAL_FRAME: Function = (
+export const SET_MODAL_FRAME: ReducerType = (
   store: RootStoreType,
   data: any
 ): RootStoreType => {

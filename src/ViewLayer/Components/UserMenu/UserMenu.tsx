@@ -9,7 +9,9 @@ import {
   withParamsMediaYrl,
   mediaParamsDefault,
   urlParamsDefault,
+  useLinkClickResYrl,
 } from '../../../YrlNativeViewLibrary'
+
 import { Text } from '../../Components/Text/Text'
 
 import {
@@ -24,10 +26,11 @@ import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 type UserMenuItemType = {
   title: string
+  isActive: boolean
   iconLibrary: string
   iconName: string
   color: string
-  onPress: () => void
+  onPress: any // () => void | void
 }
 
 /**
@@ -62,11 +65,16 @@ const UserMenuComponent: UserMenuType = props => {
     idProfileHost
   )
 
+  const linkSignIn =
+    'https://yourails.auth.us-east-1.amazoncognito.com/login?client_id=7bif6o0h9s2c5a0eg9aamktasl&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:19006&&scope=email+openid+profile'
+  const linkSignOut = ''
+
   const style = styles[deviceType]
 
   const userMenuItems: UserMenuItemType[] = [
     {
       title: 'Select profile',
+      isActive: !!idProfileHost,
       iconLibrary: 'Ionicons',
       iconName: 'people-outline',
       color: themes['themeA'].colors01.color,
@@ -78,6 +86,7 @@ const UserMenuComponent: UserMenuType = props => {
     },
     {
       title: 'This profile',
+      isActive: !!idProfileHost,
       iconLibrary: 'Ionicons',
       iconName: 'person-outline',
       color: themes['themeA'].colors01.color,
@@ -99,21 +108,34 @@ const UserMenuComponent: UserMenuType = props => {
         )
       },
     },
-
+    {
+      title: 'Sign in',
+      isActive: !idProfileHost,
+      iconLibrary: 'Ionicons',
+      iconName: 'log-in-outline',
+      color: themes['themeA'].colors01.color,
+      onPress: useLinkClickResYrl(linkSignIn),
+    },
     {
       title: 'Sign out',
+      isActive: !!idProfileHost,
       iconLibrary: 'Ionicons',
       iconName: 'log-out-outline',
-      color: themes['themeA'].colors01.borderColor,
-      onPress: () => {},
+      color: themes['themeA'].colors01.color,
+      onPress: () => {
+        handleEvents.CLICK_ON_SIGN_OUT({}, {})
+      },
     },
   ]
 
   const getUserMenuItems = (
     userMenuItemsIn: UserMenuItemType[]
   ): ReactElement[] => {
-    return userMenuItemsIn.map(
-      (userMenuItem: UserMenuItemType, index: number) => {
+    return userMenuItemsIn
+      .filter(
+        (userMenuItem: UserMenuItemType) => userMenuItem.isActive === true
+      )
+      .map((userMenuItem: UserMenuItemType, index: number) => {
         const { title, iconLibrary, iconName, color, onPress } = userMenuItem
 
         const propsOut = {
@@ -151,8 +173,7 @@ const UserMenuComponent: UserMenuType = props => {
             </>
           </ButtonYrl>
         )
-      }
-    )
+      })
   }
 
   const propsOut: UserMenuPropsOutType = {}
