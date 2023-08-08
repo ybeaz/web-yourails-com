@@ -26,6 +26,7 @@ import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 type UserMenuItemType = {
   title: string
+  isActive: boolean
   iconLibrary: string
   iconName: string
   color: string
@@ -73,6 +74,7 @@ const UserMenuComponent: UserMenuType = props => {
   const userMenuItems: UserMenuItemType[] = [
     {
       title: 'Select profile',
+      isActive: !!idProfileHost,
       iconLibrary: 'Ionicons',
       iconName: 'people-outline',
       color: themes['themeA'].colors01.color,
@@ -84,6 +86,7 @@ const UserMenuComponent: UserMenuType = props => {
     },
     {
       title: 'This profile',
+      isActive: !!idProfileHost,
       iconLibrary: 'Ionicons',
       iconName: 'person-outline',
       color: themes['themeA'].colors01.color,
@@ -107,6 +110,7 @@ const UserMenuComponent: UserMenuType = props => {
     },
     {
       title: 'Sign in',
+      isActive: !idProfileHost,
       iconLibrary: 'Ionicons',
       iconName: 'log-in-outline',
       color: themes['themeA'].colors01.color,
@@ -114,9 +118,10 @@ const UserMenuComponent: UserMenuType = props => {
     },
     {
       title: 'Sign out',
+      isActive: !!idProfileHost,
       iconLibrary: 'Ionicons',
       iconName: 'log-out-outline',
-      color: themes['themeA'].colors01.borderColor,
+      color: themes['themeA'].colors01.color,
       onPress: () => {},
     },
   ]
@@ -124,8 +129,11 @@ const UserMenuComponent: UserMenuType = props => {
   const getUserMenuItems = (
     userMenuItemsIn: UserMenuItemType[]
   ): ReactElement[] => {
-    return userMenuItemsIn.map(
-      (userMenuItem: UserMenuItemType, index: number) => {
+    return userMenuItemsIn
+      .filter(
+        (userMenuItem: UserMenuItemType) => userMenuItem.isActive === true
+      )
+      .map((userMenuItem: UserMenuItemType, index: number) => {
         const { title, iconLibrary, iconName, color, onPress } = userMenuItem
 
         const propsOut = {
@@ -163,8 +171,7 @@ const UserMenuComponent: UserMenuType = props => {
             </>
           </ButtonYrl>
         )
-      }
-    )
+      })
   }
 
   const propsOut: UserMenuPropsOutType = {}

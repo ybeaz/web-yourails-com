@@ -139,8 +139,9 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         style={[style.buttonHamburgerWrapper]}
         testID='buttonHamburgerWrapper'
       >
-        {(urlParam1 === 'k' && !urlParam2) ||
-        idProfileActive !== idProfileHost ? (
+        {idProfileHost &&
+        ((urlParam1 === 'k' && !urlParam2) ||
+          idProfileActive !== idProfileHost) ? (
           <AvatarPlusInfo {...propsOut.avatarPlusInfoProps} />
         ) : (
           <ButtonYrl {...propsOut.buttonHamburgerProps}>
