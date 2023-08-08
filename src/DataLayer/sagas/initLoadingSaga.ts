@@ -21,10 +21,15 @@ type InitLoadingType = {
 function* initLoading(data: InitLoadingType) {
   const code = data?.data?.query?.code
 
-  console.info('initLoadingSaga [18]', { code, data }) // STOPPED HERE for coming back in the future, Branch B-053
+  const refresh_token = localStorage.getItem('refresh_token')
+  console.info('initLoadingSaga [18]', { code, refresh_token, data }) // STOPPED HERE for coming back in the future, Branch B-053
 
   if (code) {
     yield put(actionAsync.GET_USERID_DATA_AWS_COGNITO_ASYNC.REQUEST({ code }))
+  } else if (refresh_token) {
+    yield put(
+      actionAsync.GET_REFRESHED_USER_AUTH_AWS_COGNITO_ASYNC.REQUEST({ code })
+    )
   }
 
   const { profiles: profilesPrev, sectionsMapping: sectionsMappingPrev } =
