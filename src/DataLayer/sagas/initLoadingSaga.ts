@@ -27,24 +27,24 @@ function* initLoading(data: InitLoadingType) {
     yield put(actionSync.ADD_PROFILES({ profiles: profilesIn }))
     yield put(actionSync.ADD_SECTIONS_MAPPING({ sectionsMapping }))
 
-    const {
-      profiles,
-      globalVars: { idProfileHost },
-    } = yield select(store => store)
+    const { profiles, globalVars } = yield select(store => store)
 
-    const profileHost: ProfileType = getFilteredObjsArrayBy(
-      profiles,
-      'idProfile',
-      idProfileHost,
-      OperatorType['===']
-    )[0] as ProfileType
+    const idProfileHost = globalVars?.idProfileHost
+    if (idProfileHost) {
+      const profileHost: ProfileType = getFilteredObjsArrayBy(
+        profiles,
+        'idProfile',
+        idProfileHost,
+        OperatorType['===']
+      )[0] as ProfileType
 
-    const getJoinedConversationProps = {
-      profilesIn,
-      profileHostIn: profileHost,
-      getSocketEmitJoinConversationIn: getSocketEmitJoinConversation,
+      const getJoinedConversationProps = {
+        profilesIn,
+        profileHostIn: profileHost,
+        getSocketEmitJoinConversationIn: getSocketEmitJoinConversation,
+      }
+      yield call(getJoinedConversation, getJoinedConversationProps)
     }
-    yield call(getJoinedConversation, getJoinedConversationProps)
   } catch (error: any) {
     console.log('initLoadingSaga [54]', { message: error.message })
   }
