@@ -4,6 +4,7 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { getUserIdDataAwsCognitoConnector } from '../../CommunicationLayer/getUserIdDataAwsCognitoConnector'
 import { CLIENTS, ClientsType } from '../../Constants/clients.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
+import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
 
 function* getUserIdDataAwsCognito(input: any) {
   const {
@@ -30,6 +31,8 @@ function* getUserIdDataAwsCognito(input: any) {
     } = yield client.post('', params)
 
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
+
+    getSetObjToLocalStorage(userIdDataAwsCognito)
   } catch (error) {
     const err: any = error
     console.log('ERROR getUserIdDataAwsCognitoSaga', { err })

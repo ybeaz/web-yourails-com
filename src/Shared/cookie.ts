@@ -1,10 +1,21 @@
+export type CookieType = {
+  get: (name: string) => string
+  set: (
+    name: string,
+    value: string,
+    opts: { days?: number; 'max-age'?: number; domain?: string }
+  ) => void
+  delete: (name: string, opts: any) => void
+}
+
 /**
  * @description cookie: get, set, delete
  * @link https://stackoverflow.com/a/48706852/4791116
  * @link http://usejsdoc.org/
+ * @import import { cookie } from '../../Shared/cookie'
  */
-export const cookie = {
-  get: (name: string): string => {
+export const cookie: CookieType = {
+  get: name => {
     const cookieMatch = document?.cookie?.match(
       `(?:(?:^|.*; *)${name} *= *([^;]*).*$)|^.*$`
     )
@@ -14,7 +25,7 @@ export const cookie = {
     return ''
   },
 
-  set: (name: string, value: string, opts: any = {}) => {
+  set: (name, value, opts = { days: 1 }) => {
     document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;'
 
     if (opts.days) {
@@ -32,7 +43,6 @@ export const cookie = {
     document.cookie = `${name}=${encodeURIComponent(value)};${optsStr}`
   },
 
-  delete: (name: string, opts: any) =>
-    cookie.set(name, '', { 'max-age': -1, ...opts }),
+  delete: (name, opts) => cookie.set(name, '', { 'max-age': -1, ...opts }),
   // path & domain must match cookie being deleted
 }
