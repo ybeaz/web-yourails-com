@@ -1,18 +1,16 @@
-import { takeLatest, takeEvery, put, select } from 'redux-saga/effects'
+import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { getRevokedUserAuthAwsCognitoConnector } from '../../CommunicationLayer/getRevokedUserAuthAwsCognitoConnector'
 import { CLIENTS, ClientsType } from '../../Constants/clients.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
+import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
+import { getDeletedObjFromLocalStorage } from '../../Shared/getDeletedObjFromLocalStorage'
 
 function* getRevokedUserAuthAwsCognito(input: any) {
   const {
     data: { refresh_token },
   } = input
-  console.info('getRevokedUserAuthAwsCognitoSaga [11]', {
-    refresh_token,
-    input,
-  })
 
   try {
     const envType: string = getDetectedEnv()
@@ -24,7 +22,7 @@ function* getRevokedUserAuthAwsCognito(input: any) {
         redirect_uri,
       },
     }
-    console.info('getRevokedUserAuthAwsCognitoSaga [30]', { variables })
+
     const { client, params } = getRevokedUserAuthAwsCognitoConnector(variables)
 
     const {
@@ -32,18 +30,16 @@ function* getRevokedUserAuthAwsCognito(input: any) {
         data: { getRevokedUserAuthAwsCognito: userIdDataAwsCognito },
       },
     } = yield client.post('', params)
-    console.info('getRevokedUserAuthAwsCognitoSaga [38]', {
-      userIdDataAwsCognito,
-    })
 
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
 
-    console.info('getRevokedUserAuthAwsCognitoSaga [45]', {
-      userIdDataAwsCognito,
+    getDeletedObjFromLocalStorage({
+      ...userIdDataAwsCognito,
+      refresh_token: null,
     })
   } catch (error) {
     const err: any = error
-    console.info('ERROR getRevokedUserAuthAwsCognitoSaga', { err })
+    console.log('ERROR getRevokedUserAuthAwsCognitoSaga', { err })
   }
 }
 

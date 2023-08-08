@@ -19,19 +19,6 @@ type InitLoadingType = {
 }
 
 function* initLoading(data: InitLoadingType) {
-  const code = data?.data?.query?.code
-
-  const refresh_token = localStorage.getItem('refresh_token')
-  console.info('initLoadingSaga [18]', { code, refresh_token, data }) // STOPPED HERE for coming back in the future, Branch B-053
-
-  if (code) {
-    yield put(actionAsync.GET_USERID_DATA_AWS_COGNITO_ASYNC.REQUEST({ code }))
-  } else if (refresh_token) {
-    yield put(
-      actionAsync.GET_REFRESHED_USER_AUTH_AWS_COGNITO_ASYNC.REQUEST({ code })
-    )
-  }
-
   const { profiles: profilesPrev, sectionsMapping: sectionsMappingPrev } =
     yield select(store => store)
   if (profilesPrev.length && sectionsMappingPrev.length) return
@@ -58,6 +45,30 @@ function* initLoading(data: InitLoadingType) {
       getSocketEmitJoinConversationIn: getSocketEmitJoinConversation,
     }
     yield call(getJoinedConversation, getJoinedConversationProps)
+  } catch (error: any) {
+    console.log('initLoadingSaga [54]', { message: error.message })
+  }
+
+  try {
+    const code = data?.data?.query?.code
+
+    const refresh_token = localStorage.getItem('refresh_token')
+    console.info('initLoadingSaga [56]', {
+      profilesIn,
+      code,
+      refresh_token,
+      data,
+    })
+
+    if (code) {
+      yield put(actionAsync.GET_USERID_DATA_AWS_COGNITO_ASYNC.REQUEST({ code }))
+    } else if (refresh_token) {
+      yield put(
+        actionAsync.GET_REFRESHED_USER_AUTH_AWS_COGNITO_ASYNC.REQUEST({
+          refresh_token,
+        })
+      )
+    }
   } catch (error: any) {
     console.log('initLoadingSaga [81]', { message: error.message })
   }

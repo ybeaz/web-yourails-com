@@ -122,7 +122,9 @@ const UserMenuComponent: UserMenuType = props => {
       iconLibrary: 'Ionicons',
       iconName: 'log-out-outline',
       color: themes['themeA'].colors01.color,
-      onPress: () => {},
+      onPress: () => {
+        handleEvents.CLICK_ON_SIGN_OUT({}, {})
+      },
     },
   ]
 

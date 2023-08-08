@@ -4,15 +4,12 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { getRefreshedUserAuthAwsCognitoConnector } from '../../CommunicationLayer/getRefreshedUserAuthAwsCognitoConnector'
 import { CLIENTS, ClientsType } from '../../Constants/clients.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
+import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
 
 function* getRefreshedUserAuthAwsCognito(input: any) {
   const {
     data: { refresh_token },
   } = input
-  console.info('getRefreshedUserAuthAwsCognitoSaga [11]', {
-    refresh_token,
-    input,
-  })
 
   try {
     const envType: string = getDetectedEnv()
@@ -24,7 +21,7 @@ function* getRefreshedUserAuthAwsCognito(input: any) {
         redirect_uri,
       },
     }
-    console.info('getRefreshedUserAuthAwsCognitoSaga [30]', { variables })
+
     const { client, params } =
       getRefreshedUserAuthAwsCognitoConnector(variables)
 
@@ -33,18 +30,17 @@ function* getRefreshedUserAuthAwsCognito(input: any) {
         data: { getRefreshedUserAuthAwsCognito: userIdDataAwsCognito },
       },
     } = yield client.post('', params)
-    console.info('getRefreshedUserAuthAwsCognitoSaga [38]', {
+
+    console.info('getRefreshedUserAuthAwsCognitoSaga [34]', {
       userIdDataAwsCognito,
     })
 
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
 
-    console.info('getRefreshedUserAuthAwsCognitoSaga [45]', {
-      userIdDataAwsCognito,
-    })
+    getSetObjToLocalStorage(userIdDataAwsCognito)
   } catch (error) {
     const err: any = error
-    console.info('ERROR getRefreshedUserAuthAwsCognitoSaga', { err })
+    console.log('ERROR getRefreshedUserAuthAwsCognitoSaga', { err })
   }
 }
 

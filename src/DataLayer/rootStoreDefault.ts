@@ -100,7 +100,7 @@ export const rootStoreDefault: RootStoreType = {
   },
   globalVars: {
     idUserHost: undefined,
-    idProfileHost: '',
+    idProfileHost: undefined,
     idProfileActive: undefined,
     theme: 'light',
     language: 'en',

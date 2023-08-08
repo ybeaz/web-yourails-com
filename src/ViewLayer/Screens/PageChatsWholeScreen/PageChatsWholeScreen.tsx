@@ -292,7 +292,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </View>
   )
 
-  console.info('PageChatsWholeScreen [294]', { userIdDataAwsCognito })
+  // console.info('PageChatsWholeScreen [294]', { userIdDataAwsCognito })
 
   return (
     <LayoutScreen {...propsOut.layoutScreenProps}>
