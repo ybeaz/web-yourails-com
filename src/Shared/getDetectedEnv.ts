@@ -1,5 +1,7 @@
+import { CLIENTS } from '../Constants/clients.const'
+
 interface GetDetectedEnv {
-  (): string
+  (): keyof typeof CLIENTS
 }
 
 /**
