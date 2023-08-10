@@ -1,5 +1,3 @@
-import { print } from 'graphql'
-
 import { axiosClient } from './clients/axiosClient'
 import { ConnectorOutputType } from '../Interfaces/ConnectorOutputType'
 import { templateQuery } from './graphql/templateQuery'
@@ -16,7 +14,7 @@ export const templateConnector: ConnectorType = variables => {
   const obj: ConnectorOutputType = {
     client: axiosClient,
     params: {
-      operationName: 'TemplateConnector',
+      operationName: 'Templater',
       variables,
       query: templateQuery,
     },

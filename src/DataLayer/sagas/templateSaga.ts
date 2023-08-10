@@ -1,7 +1,7 @@
 import { takeLatest, takeEvery, put, select } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { templateConnectorAxios } from '../../CommunicationLayer/templateConnector'
+import { templateConnector } from '../../CommunicationLayer/templateConnector'
 import { GetRecipeDocument } from '../../types/graphql'
 import { apolloClient } from '../../CommunicationLayer/clients/apolloClient'
 
@@ -14,7 +14,7 @@ function* template(input: any) {
     /**
      * @description Code snippet to use axios as a connector client
      * @example: */
-    const { client, params } = templateConnectorAxios(variables)
+    const { client, params } = templateConnector(variables)
     const {
       data: { data },
     } = yield client.post('', params)
