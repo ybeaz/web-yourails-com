@@ -18,7 +18,6 @@ import { ProfileType } from '../../../@types/ProfileType'
 import { getMessengesString } from '../../../Shared/getMessengesString'
 
 import { links } from '../../../ContentMock/linksMock'
-import { profiles } from '../../../ContentMock/profilesMock'
 
 // TODO Refactor wile moving to multiprofile and multiprofiler service
 const getProfileItemsObjList = (
@@ -121,6 +120,7 @@ const ProfileComponent: ProfileComponentType = props => {
 
   // const store = useSelector((store2: RootStoreType) => store2)
   const {
+    profiles,
     globalVars: { idProfileActive },
   } = store
 

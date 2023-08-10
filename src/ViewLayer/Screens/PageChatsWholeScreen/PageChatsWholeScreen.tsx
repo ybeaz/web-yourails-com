@@ -81,6 +81,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     urlParam3,
     deviceType,
     sectionsMappingForProfile,
+    profilesLen: profiles.length,
   })
 
   useEffect(() => {

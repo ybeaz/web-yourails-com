@@ -33,6 +33,7 @@ const ACTIONS_SYNC: string[] = [
 /** @description Asynchroneous actions for saga */
 const ACTION_ASYNC: string[] = [
   'TEMPLATE_ASYNC',
+  'GET_PROFILES_ASYNC',
   'GET_REVOKED_USER_AUTH_AWS_COGNITO_ASYNC',
   'GET_REFRESHED_USER_AUTH_AWS_COGNITO_ASYNC',
   'GET_USERID_DATA_AWS_COGNITO_ASYNC',

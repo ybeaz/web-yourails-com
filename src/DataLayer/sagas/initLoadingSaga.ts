@@ -6,12 +6,10 @@ import {
   OperatorType,
 } from '../../Shared/getFilteredObjsArrayBy'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { profiles as profilesIn } from '../../ContentMock/profilesMock'
+// import { profiles as profilesIn } from '../../ContentMock/profilesMock'
 import { sectionsMapping } from '../../ContentMock/sectionsMappingMock'
 import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio/getSocketEmitJoinConversation'
 import { getJoinedConversation } from '../../CommunicationLayer/socketio/getJoinedConversation'
-// import { GetRecipeDocument } from '../../types/graphql'
-// import { apolloClient } from '../../CommunicationLayer/clients/apolloClient'
 
 type InitLoadingType = {
   type: 'INIT_LOADING_ASYNC_REQUEST'
@@ -24,7 +22,7 @@ function* initLoading(data: InitLoadingType) {
   if (profilesPrev.length && sectionsMappingPrev.length) return
 
   try {
-    yield put(actionSync.ADD_PROFILES({ profiles: profilesIn }))
+    yield put(actionAsync.GET_PROFILES_ASYNC.REQUEST())
     yield put(actionSync.ADD_SECTIONS_MAPPING({ sectionsMapping }))
 
     const { profiles, globalVars } = yield select(store => store)
@@ -39,17 +37,17 @@ function* initLoading(data: InitLoadingType) {
       )[0] as ProfileType
 
       const getJoinedConversationProps = {
-        profilesIn,
+        profilesIn: profiles,
         profileHostIn: profileHost,
         getSocketEmitJoinConversationIn: getSocketEmitJoinConversation,
       }
       yield call(getJoinedConversation, getJoinedConversationProps)
     }
-  } catch (error: any) {
-    console.log('initLoadingSaga [54]', { message: error.message })
-  }
+    // } catch (error: any) {
+    //   console.log('initLoadingSaga [54]', { message: error.message })
+    // }
 
-  try {
+    // try {
     const code = data?.data?.query?.code
 
     const refresh_token = localStorage.getItem('refresh_token')

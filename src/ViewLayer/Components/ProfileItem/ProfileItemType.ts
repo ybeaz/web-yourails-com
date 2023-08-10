@@ -1,14 +1,12 @@
 import { ReactElement } from 'react'
 
-import { ProfileType } from '../../../@types/ProfileType'
-
 export interface ProfileItemPropsType {
   styleProps?: any
   iconLibrary?: string
   iconName?: string
   contentType?: string
   contentSrc?: string
-  content?: string | ReactElement | ReactElement[]
+  content?: null | string | ReactElement | ReactElement[]
   label: string
   isActive: boolean
 }
