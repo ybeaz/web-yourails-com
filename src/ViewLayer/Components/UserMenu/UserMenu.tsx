@@ -11,6 +11,11 @@ import {
   urlParamsDefault,
   useLinkClickResYrl,
 } from '../../../YrlNativeViewLibrary'
+import {
+  AWS_COGNITO_URL,
+  AWS_COGNITO_CLIENT_ID,
+} from '../../../Constants/aws.const'
+import { CLIENTS } from '../../../Constants/clients.const'
 
 import { Text } from '../../Components/Text/Text'
 
@@ -23,6 +28,7 @@ import { themes } from '../../Styles/themes'
 import { styles } from './UserMenuStyles'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
+import { getDetectedEnv } from '../../../Shared/getDetectedEnv'
 
 type UserMenuItemType = {
   title: string
@@ -65,9 +71,9 @@ const UserMenuComponent: UserMenuType = props => {
     idProfileHost
   )
 
-  const linkSignIn =
-    'https://yourails.auth.us-east-1.amazoncognito.com/login?client_id=7bif6o0h9s2c5a0eg9aamktasl&response_type=code&redirect_uri=http%3A%2F%2Flocalhost:19006&&scope=email+openid+profile'
-  const linkSignOut = ''
+  const environment = getDetectedEnv()
+  const redirect_url: CLIENTS = CLIENTS[environment]
+  const linkSignIn = `${AWS_COGNITO_URL}/login?client_id=${AWS_COGNITO_CLIENT_ID}&response_type=code&redirect_uri=${redirect_url}&&scope=email+openid+profile`
 
   const style = styles[deviceType]
 

@@ -118,7 +118,6 @@ const ProfileComponent: ProfileComponentType = props => {
   const { deviceType } = mediaParams
   const style = styles[deviceType]
 
-  // const store = useSelector((store2: RootStoreType) => store2)
   const {
     profiles,
     globalVars: { idProfileActive },
