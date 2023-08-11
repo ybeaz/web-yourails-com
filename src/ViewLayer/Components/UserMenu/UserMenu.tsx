@@ -80,7 +80,7 @@ const UserMenuComponent: UserMenuType = props => {
   const userMenuItems: UserMenuItemType[] = [
     {
       title: 'Select profile',
-      isActive: !!idProfileHost,
+      isActive: !!idProfileHost && idProfileHost !== '0',
       iconLibrary: 'Ionicons',
       iconName: 'people-outline',
       color: themes['themeA'].colors01.color,
@@ -92,7 +92,7 @@ const UserMenuComponent: UserMenuType = props => {
     },
     {
       title: 'This profile',
-      isActive: !!idProfileHost,
+      isActive: !!idProfileHost && idProfileHost !== '0',
       iconLibrary: 'Ionicons',
       iconName: 'person-outline',
       color: themes['themeA'].colors01.color,
@@ -116,7 +116,7 @@ const UserMenuComponent: UserMenuType = props => {
     },
     {
       title: 'Sign in',
-      isActive: !idProfileHost,
+      isActive: !idProfileHost || idProfileHost === '0',
       iconLibrary: 'Ionicons',
       iconName: 'log-in-outline',
       color: themes['themeA'].colors01.color,
@@ -124,7 +124,7 @@ const UserMenuComponent: UserMenuType = props => {
     },
     {
       title: 'Sign out',
-      isActive: !!idProfileHost,
+      isActive: !!idProfileHost && idProfileHost !== '0',
       iconLibrary: 'Ionicons',
       iconName: 'log-out-outline',
       color: themes['themeA'].colors01.color,

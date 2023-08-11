@@ -3,7 +3,7 @@ import { takeEvery, put } from 'redux-saga/effects'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { getProfilesConnector } from '../../CommunicationLayer/getProfilesConnector'
 
-function* getProfiles() {
+export function* getProfiles() {
   try {
     /**
      * @description Code snippet to use axios as a connector client
@@ -16,8 +16,6 @@ function* getProfiles() {
     } = yield client.post('', params)
 
     yield put(actionSync.ADD_PROFILES({ profiles }))
-
-    return profiles
   } catch (error) {
     const err: any = error
   }

@@ -10,6 +10,7 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { sectionsMapping } from '../../ContentMock/sectionsMappingMock'
 import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio/getSocketEmitJoinConversation'
 import { getJoinedConversation } from '../../CommunicationLayer/socketio/getJoinedConversation'
+import { getProfiles } from './getProfilesSaga'
 
 type InitLoadingType = {
   type: 'INIT_LOADING_ASYNC_REQUEST'
@@ -22,7 +23,8 @@ function* initLoading(data: InitLoadingType) {
   if (profilesPrev.length && sectionsMappingPrev.length) return
 
   try {
-    yield put(actionAsync.GET_PROFILES_ASYNC.REQUEST())
+    yield call(getProfiles)
+
     yield put(actionSync.ADD_SECTIONS_MAPPING({ sectionsMapping }))
 
     const { profiles, globalVars } = yield select(store => store)
@@ -43,11 +45,7 @@ function* initLoading(data: InitLoadingType) {
       }
       yield call(getJoinedConversation, getJoinedConversationProps)
     }
-    // } catch (error: any) {
-    //   console.log('initLoadingSaga [54]', { message: error.message })
-    // }
 
-    // try {
     const code = data?.data?.query?.code
 
     const refresh_token = localStorage.getItem('refresh_token')
