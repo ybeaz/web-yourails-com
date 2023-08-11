@@ -46,8 +46,8 @@ const lgDevice = StyleSheet.create({
   ...stylesDefault,
   viewPadding: {
     ...stylesDefault.viewPadding,
-    paddingRight: '15%',
-    paddingLeft: '15%',
+    paddingRight: '10%',
+    paddingLeft: '10%',
   },
 })
 
@@ -55,8 +55,8 @@ const xlDevice = StyleSheet.create({
   ...stylesDefault,
   viewPadding: {
     ...stylesDefault.viewPadding,
-    paddingRight: '20%',
-    paddingLeft: '20%',
+    paddingRight: '10%',
+    paddingLeft: '10%',
   },
 })
 

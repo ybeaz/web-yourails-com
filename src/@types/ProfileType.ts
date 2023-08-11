@@ -11,7 +11,8 @@ export type MessengerType = {
 export type ProfileType = {
   idSocket?: string
   idProfile: string
-  idUser?: IdUserType
+  idUser: IdUserType
+  isActive: boolean
   position: number
   contacts?: string[]
   emails?: string[]
@@ -25,8 +26,8 @@ export type ProfileType = {
   serviceSpecs?: string[]
   summary?: string
   avatarSrc?: string
-  avatarSize?: { width: number; height: number } | null
-  imagePendingSrc?: string | null
-  pendingText?: string | null
-  disclaimer?: string | null
+  avatarSize?: { width: number; height: number }
+  imagePendingSrc?: string
+  pendingText?: string
+  disclaimer?: string
 }
