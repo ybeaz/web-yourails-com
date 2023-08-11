@@ -1,4 +1,4 @@
-import { takeLatest, takeEvery, put, select } from 'redux-saga/effects'
+import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { getRefreshedUserAuthAwsCognitoConnector } from '../../CommunicationLayer/getRefreshedUserAuthAwsCognitoConnector'
@@ -6,7 +6,7 @@ import { CLIENTS } from '../../Constants/clients.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
 
-function* getRefreshedUserAuthAwsCognito(input: any) {
+export function* getRefreshedUserAuthAwsCognito(input: any) {
   const {
     data: { refresh_token },
   } = input

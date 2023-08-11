@@ -11,6 +11,8 @@ import { sectionsMapping } from '../../ContentMock/sectionsMappingMock'
 import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio/getSocketEmitJoinConversation'
 import { getJoinedConversation } from '../../CommunicationLayer/socketio/getJoinedConversation'
 import { getProfiles } from './getProfilesSaga'
+import { getUserIdDataAwsCognito } from './getUserIdDataAwsCognitoSaga'
+import { getRefreshedUserAuthAwsCognito } from './getRefreshedUserAuthAwsCognitoSaga'
 
 type InitLoadingType = {
   type: 'INIT_LOADING_ASYNC_REQUEST'
@@ -26,6 +28,16 @@ function* initLoading(data: InitLoadingType) {
     yield call(getProfiles)
 
     yield put(actionSync.ADD_SECTIONS_MAPPING({ sectionsMapping }))
+
+    const code = data?.data?.query?.code
+
+    const refresh_token = localStorage.getItem('refresh_token')
+
+    if (code) {
+      yield call(getUserIdDataAwsCognito, { data: { code } })
+    } else if (refresh_token) {
+      yield call(getRefreshedUserAuthAwsCognito, { data: { refresh_token } })
+    }
 
     const { profiles, globalVars } = yield select(store => store)
 
@@ -44,20 +56,6 @@ function* initLoading(data: InitLoadingType) {
         getSocketEmitJoinConversationIn: getSocketEmitJoinConversation,
       }
       yield call(getJoinedConversation, getJoinedConversationProps)
-    }
-
-    const code = data?.data?.query?.code
-
-    const refresh_token = localStorage.getItem('refresh_token')
-
-    if (code) {
-      yield put(actionAsync.GET_USERID_DATA_AWS_COGNITO_ASYNC.REQUEST({ code }))
-    } else if (refresh_token) {
-      yield put(
-        actionAsync.GET_REFRESHED_USER_AUTH_AWS_COGNITO_ASYNC.REQUEST({
-          refresh_token,
-        })
-      )
     }
   } catch (error: any) {
     console.log('initLoadingSaga [81]', { message: error.message })

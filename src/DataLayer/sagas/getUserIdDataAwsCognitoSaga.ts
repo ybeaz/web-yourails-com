@@ -2,18 +2,18 @@ import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { getUserIdDataAwsCognitoConnector } from '../../CommunicationLayer/getUserIdDataAwsCognitoConnector'
-import { CLIENTS, ClientsType } from '../../Constants/clients.const'
+import { CLIENTS } from '../../Constants/clients.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
 
-function* getUserIdDataAwsCognito(input: any) {
+export function* getUserIdDataAwsCognito(input: any) {
   const {
     data: { code },
   } = input
 
   try {
-    const envType: string = getDetectedEnv()
-    const redirect_uri = CLIENTS[envType as keyof ClientsType] as string
+    const envType = getDetectedEnv()
+    const redirect_uri = CLIENTS[envType]
 
     const variables = {
       userIdDataAwsCognitoInput: {
