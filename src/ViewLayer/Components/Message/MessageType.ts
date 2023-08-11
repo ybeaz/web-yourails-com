@@ -7,7 +7,7 @@ export interface MessagePropsType {
   eventType: MessageEventType
   text: string
   createdAt?: number
-  position?: string
+  position?: number | null
   isTail?: boolean
   image?: string
   video?: string
@@ -16,7 +16,7 @@ export interface MessagePropsType {
   isSent?: boolean
   isReceived?: boolean
   isPending?: boolean
-  imagePendingSrc?: string
+  imagePendingSrc?: string | null
 }
 
 /**

@@ -53,6 +53,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     sectionsMapping,
     globalVars: { idProfileActive },
     userIdDataAwsCognito,
+    messages,
   } = store
 
   const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
@@ -292,8 +293,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       {!isMainColumnBlank && isShowModalFrame === false && <ChatInput />}
     </View>
   )
-
-  // console.info('PageChatsWholeScreen [294]', { userIdDataAwsCognito })
 
   return (
     <LayoutScreen {...propsOut.layoutScreenProps}>
