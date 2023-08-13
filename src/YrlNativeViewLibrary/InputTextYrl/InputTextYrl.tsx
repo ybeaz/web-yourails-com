@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { SafeAreaView, TextInput, ReturnKeyTypeOptions } from 'react-native'
-import { InputTextYrlType } from './InputTextYrlType'
+import { View, TextInput, Platform } from 'react-native'
+import { InputTextYrlType, InputTextPropsOutType } from './InputTextYrlType'
 import { InputTextYrlStyle as style } from './InputTextYrlStyle'
 
 /**
@@ -31,25 +31,49 @@ export const InputTextYrl: InputTextYrlType = props => {
     value,
   } = props
 
+  const propsOut: InputTextPropsOutType = {
+    viewProps: {
+      style: [style.InputTextYrl, styleProps.InputTextYrl],
+      testID,
+    },
+    textInputProps: {
+      style: [style.inputText, styleProps.inputText],
+      testID: `${testID}_TextInput`,
+      multiline,
+      numberOfLines,
+      onChangeText,
+      onSubmitEditing,
+      value,
+      placeholder,
+      placeholderTextColor,
+      returnKeyType: 'send',
+      autoFocus: true,
+      blurOnSubmit: true,
+    },
+  }
+
+  propsOut.textInputPropsResize = {
+    ...propsOut.textInputProps,
+    style: [
+      style.inputText,
+      styleProps.inputText,
+      {
+        // @ts-ignore
+        resize: 'vertical',
+        minHeight: 32,
+        maxHeight: '75vh',
+      },
+    ],
+  }
+
+  const textInputProps =
+    Platform.OS === 'web'
+      ? propsOut.textInputPropsResize
+      : propsOut.textInputProps
+
   return (
-    <SafeAreaView
-      style={[style.InputTextYrl, styleProps.InputTextYrl]}
-      testID={testID}
-    >
-      <TextInput
-        style={[style.inputText, styleProps.inputText]}
-        testID={`${testID}_TextInput`}
-        multiline={multiline}
-        numberOfLines={numberOfLines}
-        onChangeText={onChangeText}
-        onSubmitEditing={onSubmitEditing}
-        value={value}
-        placeholder={placeholder}
-        placeholderTextColor={placeholderTextColor}
-        returnKeyType='send'
-        autoFocus={true}
-        blurOnSubmit={true}
-      />
-    </SafeAreaView>
+    <View {...propsOut.viewProps}>
+      <TextInput {...textInputProps} />
+    </View>
   )
 }

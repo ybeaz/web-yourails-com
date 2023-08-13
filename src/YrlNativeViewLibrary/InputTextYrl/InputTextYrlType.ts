@@ -1,4 +1,4 @@
-import { TextInput } from 'react-native'
+import { TextInput, ViewProps, TextInputProps } from 'react-native'
 
 /**
  * IInputYrlProps Interface
@@ -26,6 +26,12 @@ export interface InputTextYrlPropsType {
   styleProps?: { InputTextYrl: Object; inputText: Object }
   testID: string
   value?: string
+}
+
+export type InputTextPropsOutType = {
+  viewProps: ViewProps
+  textInputProps: TextInputProps
+  textInputPropsResize?: TextInputProps
 }
 
 export interface InputTextYrlType
