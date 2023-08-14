@@ -36,27 +36,31 @@ const ProfileItemComponent: ProfileItemType = props => {
       color: themes['themeA'].colors01.color,
       testID: `${label.toLowerCase()}_IconYrl_ios_send`,
     },
-    readMore: {
-      style: { ...style.readMoreLess, color: themes['themeA'].colors08.color },
-      testID: 'readMore',
+    readMoreComponent: {
+      numberOfLines: 3,
+      testID: 'readMoreComponent',
     },
-    readLess: {
+    readMoreLink: {
       style: { ...style.readMoreLess, color: themes['themeA'].colors08.color },
-      testID: 'readLess',
+      testID: 'readMoreLink',
+    },
+    readLessLink: {
+      style: { ...style.readMoreLess, color: themes['themeA'].colors08.color },
+      testID: 'readLessLink',
     },
   }
 
   const handlers: Record<string, (handlePress: () => void) => ReactNode> = {
     renderTruncatedFooter(handlePress) {
       return (
-        <Text {...propsOut.readMore} onPress={handlePress}>
+        <Text {...propsOut.readMoreLink} onPress={handlePress}>
           Read more
         </Text>
       )
     },
     renderRevealedFooter(handlePress) {
       return (
-        <Text {...propsOut.readLess} onPress={handlePress}>
+        <Text {...propsOut.readLessLink} onPress={handlePress}>
           Show less
         </Text>
       )
@@ -129,7 +133,7 @@ const ProfileItemComponent: ProfileItemType = props => {
 
       <View style={[style.column2]} testID='column2'>
         <ReadMore
-          numberOfLines={3}
+          {...propsOut.readMoreComponent}
           renderTruncatedFooter={handlers.renderTruncatedFooter}
           renderRevealedFooter={handlers.renderRevealedFooter}
           onReady={() => {}}
