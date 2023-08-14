@@ -13,7 +13,7 @@ const TextComponent: TextType = props => {
   return (
     <TextReactNative
       {...props}
-      style={[styleDefault.Text, style, styleProps.Text]}
+      style={[styleDefault.Text, style, styleProps.Text, { flex: 1 }]}
     >
       {props.children}
     </TextReactNative>

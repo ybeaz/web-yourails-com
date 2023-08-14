@@ -26,6 +26,7 @@ export interface InputTextYrlPropsType {
   styleProps?: { InputTextYrl: Object; inputText: Object }
   testID: string
   value?: string
+  markdown?: boolean
 }
 
 export type InputTextPropsOutType = {

@@ -42,7 +42,8 @@ const MessageComponent: MessageType = props => {
   const roundAllCornersStyle = !isTail ? styles.roundAllCorners.style : {}
 
   const getTextComponentsFromTextArray = (
-    textArrayIn: string[]
+    textArrayIn: string[],
+    position: string
   ): ReactElement[] => {
     return textArrayIn.map((textItem: string, index: number) => {
       return (
@@ -51,8 +52,12 @@ const MessageComponent: MessageType = props => {
           style={[styles[position].text]}
           testID='textItem'
         >
-          {/* @ts-ignore */}
-          <MarkdownDisplay style={markdownStyles}>{textItem}</MarkdownDisplay>
+          {position === 'right' ? (
+            textItem
+          ) : (
+            /* @ts-ignore */
+            <MarkdownDisplay style={markdownStyles}>{textItem}</MarkdownDisplay>
+          )}
         </Text>
       )
     })
@@ -88,7 +93,8 @@ const MessageComponent: MessageType = props => {
   let widthContentStyle = {}
   if (contentType === 'textArray')
     messageContentOutput = getTextComponentsFromTextArray(
-      contentObj[contentType]
+      contentObj[contentType],
+      position
     )
   else if (contentType === 'imageArray') {
     messageContentOutput = getImageComponentsFromImageArray(

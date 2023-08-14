@@ -439,25 +439,39 @@ Test-driven development (TDD):\n\
 BDD Behavior Driven Development\n\
 TDD Test Driven Development\n\
 Unit testing\n\
-  ✔ Mocha - mochajs.org\n\
-  ✔ Enzyme - airbnb.io/enzyme/\n\
-  ✔ Sinon - sinonjs.org/\n\
-  ✔ Jest - facebook.github.io/jest/\n\
   ✔ Chai - chaijs.com\n\
+  ✔ Enzyme - airbnb.io/enzyme/\n\
   ✔ Jasmine - jasmine.github.io\n\
+  ✔ Jest - facebook.github.io/jest/\n\
   ✔ Karma - karma-runner.github.io\n\
+  ✔ Mocha - mochajs.org\n\
+  ✔ React Testing Library - testing-library.com/docs/react-testing-library/intro\n\
+  ✔ Sinon - sinonjs.org/\n\
 Integration testing\n\
   ✔ Cypress - cypress.io\n\
   ✔ TestCafe - testcafe.devexpress.com/\n\
 Browser devtools\n\
-  ✔ Network\n\
-  ✔ Sources: breakpoints\n\
   ✔ LightHouse\n\
+  ✔ Network\n\
   ✔ Performance\n\
   ✔ Profiler (dev React)\n\
+  ✔ Sources: breakpoints\n\
 Lint\n\
   ✔ Eslint google style: npm run eslint filename.js\n\
   ✔ NodeJs htmllint: htmllint filename.html\n\
+Unit testing coverage for React Components\n\
+  ✔ Render Test\n\
+  ✔ Props Test\n\
+  ✔ Function Callbacks Test\n\
+  ✔ Behavior Test\n\
+  ✔ State Change Test\n\
+  ✔ Conditional Rendering Test\n\
+  ✔ Error Handling Test\n\
+  ✔ Snapshot Test\n\
+  ✔ Prop Validation Test\n\
+  ✔ Mocking External Dependencies Test\n\
+  ✔ Lifecycle Methods Test\n\
+  ✔ Integration Tests\n\
 ',
   },
 

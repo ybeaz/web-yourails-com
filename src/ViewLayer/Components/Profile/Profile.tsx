@@ -19,7 +19,7 @@ import { getMessengesString } from '../../../Shared/getMessengesString'
 
 import { links } from '../../../ContentMock/linksMock'
 
-// TODO Refactor wile moving to multiprofile and multiprofiler service
+// TODO Refactor wile moving to multiprofile service
 const getProfileItemsObjList = (
   profileIn: ProfileType,
   linksIn: LinkType[],

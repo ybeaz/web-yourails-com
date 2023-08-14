@@ -9,25 +9,26 @@ export type MessengerType = {
  * @import import { ProfileType, MessengerType } from '../@types/ProfileType'
  */
 export type ProfileType = {
-  idSocket?: string
   idProfile: string
+  idSocket?: string
   idUser: IdUserType
-  isActive: boolean
-  position: number
+  avatarSize?: { width: number; height: number }
+  avatarSrc?: string
   contacts?: string[]
+  disclaimer?: string
   emails?: string[]
+  imagePendingSrc?: string
+  isActive: boolean
   locations?: string[]
   messengers?: MessengerType[]
   nameFirst?: string
   nameLast?: string
+  pendingText?: string
   phones?: (string | number | undefined)[]
+  position: number
   profileName?: string
+  promptExamples?: string[]
   serviceSections?: []
   serviceSpecs?: string[]
   summary?: string
-  avatarSrc?: string
-  avatarSize?: { width: number; height: number }
-  imagePendingSrc?: string
-  pendingText?: string
-  disclaimer?: string
 }
