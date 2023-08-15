@@ -37,7 +37,7 @@ const ProfileItemComponent: ProfileItemType = props => {
       testID: `${label.toLowerCase()}_IconYrl_ios_send`,
     },
     readMoreComponent: {
-      numberOfLines: 3,
+      numberOfLines: 4,
       testID: 'readMoreComponent',
     },
     readMoreLink: {

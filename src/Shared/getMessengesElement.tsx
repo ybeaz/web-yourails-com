@@ -1,13 +1,14 @@
+import React from 'react'
 import { View } from 'react-native'
 import { Text } from '../ViewLayer/Components/Text/Text'
 import { MessengerType } from '../@types/ProfileType'
 
 /**
  * @description Function to
- * @import import { getMessengesString } from '../../../Shared/getMessengesString'
+ * @import import { getMessengesElement } from '../../../Shared/getMessengesElement'
  */
 
-export const getMessengesString = (messengers: MessengerType[], style: any) =>
+export const getMessengesElement = (messengers: MessengerType[], style: any) =>
   messengers.map((messenger: MessengerType, index: number) => {
     const { name: messengerName, profileName } = messenger
     return (
