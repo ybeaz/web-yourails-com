@@ -6,7 +6,7 @@ export const competencyTags01R: CompetencyTagType[] = [
     idProfile: '1',
     title: 'Agile',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://www.agilealliance.org/agile101/12-principles-behind-the-agile-manifesto/',
     iconLibrary: 'Ionicons',
@@ -31,7 +31,7 @@ export const competencyTags01R: CompetencyTagType[] = [
     idProfile: '1',
     title: 'Automation Tools',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://webpack.js.org/',
     iconLibrary: 'Ionicons',
     iconName: '',
@@ -52,7 +52,7 @@ Browser devtools\n\
     idProfile: '1',
     title: 'BDD',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://www.agilealliance.org/glossary/bdd',
     iconLibrary: 'Ionicons',
     iconName: '',
@@ -72,7 +72,7 @@ Behavior-driven development (BDD):\n\
     idProfile: '1',
     title: 'CI/CD',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://www.agilealliance.org/glossary/bdd',
     iconLibrary: 'Ionicons',
     iconName: '',
@@ -99,7 +99,7 @@ Pipelines workflow:
     idProfile: '1',
     title: 'CLI',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://docs.npmjs.com/cli/npm',
     iconLibrary: 'Ionicons',
     iconName: '',
@@ -120,7 +120,7 @@ Windows CMD',
     idProfile: '1',
     title: 'Data Structures',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://www.techtarget.com/searchdatamanagement/definition/data-structure',
     iconLibrary: 'Ionicons',
@@ -142,7 +142,7 @@ Windows CMD',
     idProfile: '1',
     title: 'Design Patterns',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://en.wikipedia.org/wiki/Software_design_pattern',
     iconLibrary: 'Ionicons',
     iconName: '',
@@ -184,7 +184,7 @@ Design patterns are advanced object-oriented solutions to commonly occurring sof
     idProfile: '1',
     title: 'DevOps',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://www.digital-management-blog.de/wp-content/uploads/2017/06/devops.jpg',
     iconLibrary: 'Ionicons',
@@ -212,7 +212,7 @@ S   Sharing - there are user-friendly communication channels that encourage ongo
     idProfile: '1',
     title: 'Issue-tracking systems',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://en.wikipedia.org/wiki/Comparison_of_issue-tracking_systems',
     iconLibrary: 'Ionicons',
@@ -227,9 +227,27 @@ Bugzilla\n\
 
   {
     idProfile: '1',
+    title: 'LLM AI/ML',
+    contentType: SectionType['CompetencyTagType'],
+    section: 'Best Practices',
+    linkHref:
+      'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips: `
+    Large language models
+● ChatGPT (OpenAI)
+● Copilot (GitHub and OpenAI )
+● LaMDA (Google)
+● BLOOM (HuggingFace's BigScience team, the Microsoft DeepSpeed team, the NVIDIA Megatron-LM)
+● Stable Diffusion (text-to-image model https://github.com/vladmandic/automatic)`,
+  },
+
+  {
+    idProfile: '1',
     title: 'Kanban',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
     iconLibrary: 'Ionicons',
@@ -247,7 +265,7 @@ Bugzilla\n\
     idProfile: '1',
     title: 'Lints',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: '',
     iconLibrary: 'Ionicons',
     iconName: '',
@@ -265,38 +283,13 @@ Bugzilla\n\
 
   {
     idProfile: '1',
-    title: 'OOP',
-    contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
-    linkHref: 'https://en.wikipedia.org/wiki/Object-oriented_programming',
-    iconLibrary: 'Ionicons',
-    iconName: '',
-    tooltips:
-      'The four principles of OOP\n\
-1. Encapsulation:\n\
-Encapsulation means that the internal representation of an object is generally \
-hidden from view outside of the object’s definition. \
-Typically, only the object’s own methods can directly inspect or manipulate its fields.\n\
-2. Abstraction\n\
-An abstraction is a simplified representation of a complex system or entity that focuses on its essential characteristics and behaviors, while ignoring the details that are not relevant to its use.\n\
-3. Inheritance\n\
-Inheritance is a way to reuse code of existing objects, or to establish a subtype from an existing object.\n\
-4. Polymorphism\n\
-Polymorphism means one name, many forms. \
-Polymorphism manifests itself by having multiple methods all with the same name, but slightly different functionality.\
-',
-  },
-
-  {
-    idProfile: '1',
     title: 'Programming Principles',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://en.wikipedia.org/wiki/Category:Programming_principles',
     iconLibrary: 'Ionicons',
     iconName: '',
-    tooltips:
-      "Practival Principles of Programming\n\
+    tooltips: `Practival Principles of Programming\n\
 ★ ASID for reliable transaction processing in database systems:\n\
     - Atomicity: Atomicity guarantees that a transaction is treated as a single indivisible unit of work.\n\
     - Consistency: Consistency ensures that a transaction brings the database from one valid state to another\n\
@@ -306,6 +299,13 @@ Polymorphism manifests itself by having multiple methods all with the same name,
     - avoidance of duplicating code or logic in a system\n\
     - every piece of knowledge or functionality should have a single, unambiguous representation\n\
     - emphasis on the code reusability, maintainability, and reducing redundancy\n\
+★ FIRST-U rules for unit testing:
+    - Fast
+    - Isolated/Independent
+    - Repeatable
+    - Self-validating
+    - Timely
+    - Understandable
 ★ SCRIPT: Self-documenting Code, Readability, Intelligibility (for AI), Program structure, Tidiness\n\
               to make the code easier to understand\n\
               to enable automated analysis and development\n\
@@ -335,14 +335,49 @@ Polymorphism manifests itself by having multiple methods all with the same name,
     - Dependency inversion principle:\n\
           one should depend upon abstractions, [not] concretions.\n\
 ★ YAGNI is actually the longest acronym on this list. You Aren't Gonna Need It\n\
-",
+`,
+  },
+
+  {
+    idProfile: '1',
+    title: 'Programming Styles',
+    contentType: SectionType['CompetencyTagType'],
+    section: 'Best Practices',
+    linkHref: 'https://en.wikipedia.org/wiki/Object-oriented_programming',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips: `
+    OOP paradigm:
+0. Classes and Objects: Classes are blueprints for creating objects. Objects are instances of classes, each with its own state (data) and behavior (methods)
+1. Encapsulation
+Encapsulation means that the internal representation of an object is generally hidden from view outside of the object’s definition.
+Typically, only the object’s own methods can directly inspect or manipulate its fields.\n\
+2. Abstraction
+An abstraction is a simplified representation of a complex system or entity that focuses on its essential characteristics and behaviors, while ignoring the details that are not relevant to its use.\n\
+3. Inheritance
+Inheritance is a way to reuse code of existing objects, or to establish a subtype from an existing object.\n\
+4. Polymorphism
+Polymorphism means one name, many forms. Polymorphism manifests itself by having multiple methods all with the same name, but slightly different functionality.
+
+    FP paradigm:
+1. Pure Functions
+Pure functions are functions that always produce the same output for the same input and have no side effects. They avoid modifying external state and provide a predictable and testable way to perform computations.
+2. Immutability
+In FP, data is typically immutable, meaning that once created, it cannot be changed. Instead of modifying data, you create new data structures with the desired changes.
+3. First-Class Functions
+Functions in FP are treated as first-class citizens, meaning they can be assigned to variables, passed as arguments to other functions, and returned as values from other functions.
+4. Higher-Order Functions
+These are functions that take other functions as arguments or return them as results. They allow for more modular and reusable code by abstracting common patterns.
+5. Functional Composition
+Composing functions involves chaining multiple functions together to create more complex functionality. This can lead to highly expressive and reusable code.
+`,
   },
 
   {
     idProfile: '1',
     title: 'Scrum',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
     iconLibrary: 'Ionicons',
@@ -371,7 +406,7 @@ Roles: Product Owner, Scrum Master, and Team Members\n\
     idProfile: '1',
     title: 'SDLC',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://en.wikipedia.org/wiki/Systems_development_life_cycle',
     iconLibrary: 'Ionicons',
     iconName: '',
@@ -391,7 +426,7 @@ or application development life-cycle: \n\
     idProfile: '1',
     title: 'Search Algorithms',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://en.wikipedia.org/wiki/Systems_development_life_cycle',
     iconLibrary: 'Ionicons',
     iconName: 'search',
@@ -411,7 +446,7 @@ or application development life-cycle: \n\
     idProfile: '1',
     title: 'TDD',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://www.agilealliance.org/glossary/tdd/',
     iconLibrary: 'Ionicons',
     iconName: '',
@@ -430,7 +465,7 @@ Test-driven development (TDD):\n\
     idProfile: '1',
     title: 'Testing/Debugging',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: '',
     iconLibrary: 'Ionicons',
     iconName: 'bug-outline',
@@ -479,7 +514,7 @@ Unit testing coverage for React Components\n\
     idProfile: '1',
     title: 'Version Control/Git',
     contentType: SectionType['CompetencyTagType'],
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html',
     iconLibrary: 'Ionicons',

@@ -15,8 +15,8 @@ import { ProfileItemPropsType } from '../ProfileItem/ProfileItemType'
 import { styles } from './ProfileStyle'
 import { ProfileComponentType } from './ProfileComponentType'
 import { ProfileType } from '../../../@types/ProfileType'
-import { getMessengesElement } from '../../../Shared/getMessengesElement'
-import { getPromptsExamplesElement } from '../../../Shared/getPromptsExamplesElement'
+import { MessengesElement } from './MessengesElement'
+import { PromptsExamplesElement } from './PromptsExamplesElement'
 
 import { links } from '../../../ContentMock/linksMock'
 
@@ -64,9 +64,9 @@ const getProfileItemsObjList = (
     {
       iconLibrary: 'Ionicons',
       iconName: 'pencil-outline',
-      content: getPromptsExamplesElement(promptExamples),
+      content: <PromptsExamplesElement promptExamples={promptExamples} />,
       label: 'Prompt Examples',
-      isActive: promptExamples.length ? true : false,
+      isActive: promptExamples?.length ? true : false,
     },
     {
       iconLibrary: 'Ionicons',
@@ -93,7 +93,7 @@ const getProfileItemsObjList = (
     {
       iconLibrary: 'Ionicons',
       iconName: 'chatbox-ellipses-outline',
-      content: getMessengesElement(messengers, style),
+      content: <MessengesElement messengers={messengers} style={style} />,
       label: 'Messengers',
       isActive: messengers.length ? true : false,
     },
