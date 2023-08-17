@@ -1,5 +1,6 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, ReactNode } from 'react'
 import { View, ImageResizeMode } from 'react-native'
+import ReadMore from 'react-native-read-more-text'
 
 import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary'
@@ -34,6 +35,35 @@ const ProfileItemComponent: ProfileItemType = props => {
       size: 24,
       color: themes['themeA'].colors01.color,
       testID: `${label.toLowerCase()}_IconYrl_ios_send`,
+    },
+    readMoreComponent: {
+      numberOfLines: 4,
+      testID: 'readMoreComponent',
+    },
+    readMoreLink: {
+      style: { ...style.readMoreLess, color: themes['themeA'].colors08.color },
+      testID: 'readMoreLink',
+    },
+    readLessLink: {
+      style: { ...style.readMoreLess, color: themes['themeA'].colors08.color },
+      testID: 'readLessLink',
+    },
+  }
+
+  const handlers: Record<string, (handlePress: () => void) => ReactNode> = {
+    renderTruncatedFooter(handlePress) {
+      return (
+        <Text {...propsOut.readMoreLink} onPress={handlePress}>
+          Read more
+        </Text>
+      )
+    },
+    renderRevealedFooter(handlePress) {
+      return (
+        <Text {...propsOut.readLessLink} onPress={handlePress}>
+          Show less
+        </Text>
+      )
     },
   }
 
@@ -102,7 +132,14 @@ const ProfileItemComponent: ProfileItemType = props => {
       </View>
 
       <View style={[style.column2]} testID='column2'>
-        <Text style={[style.content]}>{contentEntity}</Text>
+        <ReadMore
+          {...propsOut.readMoreComponent}
+          renderTruncatedFooter={handlers.renderTruncatedFooter}
+          renderRevealedFooter={handlers.renderRevealedFooter}
+          onReady={() => {}}
+        >
+          <Text style={[style.content]}>{contentEntity}</Text>
+        </ReadMore>
         <Text style={[style.label, { color: themes['themeA'].colors05.color }]}>
           {label}
         </Text>

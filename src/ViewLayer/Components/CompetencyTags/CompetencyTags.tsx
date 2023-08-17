@@ -44,12 +44,6 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   // TODO Remove in the future
   const idProfileActive2 = idProfileActive === '16' ? '1' : idProfileActive
 
-  console.info('CompetencyTags [33]', {
-    idProfileActive2,
-    childName,
-    sectionsMapping,
-  })
-
   const competencyTagsUserActive = getFilteredObjsArrayBy(
     competencyTags,
     'idProfile',

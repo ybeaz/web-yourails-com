@@ -1,11 +1,13 @@
 import React, { ReactElement } from 'react'
-import { View, ImageResizeMode } from 'react-native'
+import { StyleSheet, View, ImageResizeMode } from 'react-native'
 import dayjs from 'dayjs'
 
+import MarkdownDisplay from 'react-native-markdown-display'
 import { ImageYrl } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
 import { MessageType } from './MessageType'
 import { styles } from './MessageStyle'
+import { markdownStyles } from './MarkdownStyle'
 import { themes } from '../../Styles/themes'
 import { TriangleCorner } from '../TriangleCorner/TriangleCorner'
 import { LOCALE, TIME_FORMAT } from '../../../Constants/locale.const'
@@ -40,7 +42,8 @@ const MessageComponent: MessageType = props => {
   const roundAllCornersStyle = !isTail ? styles.roundAllCorners.style : {}
 
   const getTextComponentsFromTextArray = (
-    textArrayIn: string[]
+    textArrayIn: string[],
+    position: string
   ): ReactElement[] => {
     return textArrayIn.map((textItem: string, index: number) => {
       return (
@@ -49,7 +52,12 @@ const MessageComponent: MessageType = props => {
           style={[styles[position].text]}
           testID='textItem'
         >
-          {textItem}
+          {position === 'right' ? (
+            textItem
+          ) : (
+            /* @ts-ignore */
+            <MarkdownDisplay style={markdownStyles}>{textItem}</MarkdownDisplay>
+          )}
         </Text>
       )
     })
@@ -81,11 +89,12 @@ const MessageComponent: MessageType = props => {
     })
   }
 
-  let messageContentOutput = null
+  let messageContentOutput: any = ''
   let widthContentStyle = {}
   if (contentType === 'textArray')
     messageContentOutput = getTextComponentsFromTextArray(
-      contentObj[contentType]
+      contentObj[contentType],
+      position
     )
   else if (contentType === 'imageArray') {
     messageContentOutput = getImageComponentsFromImageArray(

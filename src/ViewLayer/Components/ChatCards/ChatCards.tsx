@@ -47,7 +47,7 @@ const ChatCardsComponent: ChatCardsType = props => {
 
   const profilesSearched = getProfilesSearched(profiles, inputSearch)
   const profilesSorted = profilesSearched.sort(
-    (a, b) => a.position - b.position
+    (a, b) => b.position - a.position
   )
 
   const getChatCards = (profilesIn: ProfileType[]): ReactElement[] => {

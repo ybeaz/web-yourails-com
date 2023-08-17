@@ -37,7 +37,6 @@ export const style = StyleSheet.create({
     position: 'absolute',
     paddingRight: '1rem',
     right: 0,
-    top: '20%',
-    bottom: '20%',
+    top: '0.5rem',
   },
 })

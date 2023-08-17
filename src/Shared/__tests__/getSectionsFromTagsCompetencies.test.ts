@@ -7,12 +7,7 @@ describe('Test function getSectionsFromTagsCompetencies', () => {
   it('test', () => {
     const outputed = getSectionsFromTagsCompetencies(competencyTags)
 
-    const expected = [
-      'Best Practices and Methodologies',
-      'Front-end',
-      'Back-end',
-      'AI/ ML',
-    ]
+    const expected = ['Best Practices', 'Front-end', 'Back-end', 'AI/ ML']
     // console.info('getSectionsFromTagsCompetencies.test [11]', { outputed })
 
     expect(outputed).toEqual(expected)

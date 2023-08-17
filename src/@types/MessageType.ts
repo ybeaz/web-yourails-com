@@ -12,7 +12,7 @@ export type MessageType = {
   isPending?: boolean
   imagePendingSrc?: string
   isTail?: boolean
-  position?: number
+  position?: string
   eventType: MessageEventType
   text: string
 }

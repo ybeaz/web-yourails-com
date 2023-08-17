@@ -27,4 +27,10 @@ export const style = StyleSheet.create({
   messengerView: { flexDirection: 'row' },
   messengerNameText: {},
   profilenameText: {},
+  readMoreLess: {
+    fontSize: 13,
+    color: 'blue',
+    marginTop: 5,
+    alignSelf: 'flex-end',
+  },
 })

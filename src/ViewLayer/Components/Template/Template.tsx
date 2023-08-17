@@ -10,6 +10,7 @@ import { TemplateType, TemplatePropsOutType } from './TemplateTypes'
 import { styles } from './TemplateStyles'
 
 /**
+ * @description Component to render
  * @import import { Template } from '../Components/Template/Template'
  */
 const TemplateComponent: TemplateType = props => {

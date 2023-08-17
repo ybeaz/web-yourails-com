@@ -15,11 +15,12 @@ import { ProfileItemPropsType } from '../ProfileItem/ProfileItemType'
 import { styles } from './ProfileStyle'
 import { ProfileComponentType } from './ProfileComponentType'
 import { ProfileType } from '../../../@types/ProfileType'
-import { getMessengesString } from '../../../Shared/getMessengesString'
+import { MessengesElement } from './MessengesElement'
+import { PromptsExamplesElement } from './PromptsExamplesElement'
 
 import { links } from '../../../ContentMock/linksMock'
 
-// TODO Refactor wile moving to multiprofile and multiprofiler service
+// TODO Refactor wile moving to multiprofile service
 const getProfileItemsObjList = (
   profileIn: ProfileType,
   linksIn: LinkType[],
@@ -35,6 +36,7 @@ const getProfileItemsObjList = (
     summary,
     disclaimer,
     serviceSpecs = [],
+    promptExamples = [],
   } = profileIn
 
   return [
@@ -61,6 +63,13 @@ const getProfileItemsObjList = (
     },
     {
       iconLibrary: 'Ionicons',
+      iconName: 'pencil-outline',
+      content: <PromptsExamplesElement promptExamples={promptExamples} />,
+      label: 'Prompt Examples',
+      isActive: promptExamples?.length ? true : false,
+    },
+    {
+      iconLibrary: 'Ionicons',
       iconName: 'alert-circle-outline',
       contentType: 'string',
       content: disclaimer,
@@ -84,7 +93,7 @@ const getProfileItemsObjList = (
     {
       iconLibrary: 'Ionicons',
       iconName: 'chatbox-ellipses-outline',
-      content: getMessengesString(messengers, style),
+      content: <MessengesElement messengers={messengers} style={style} />,
       label: 'Messengers',
       isActive: messengers.length ? true : false,
     },

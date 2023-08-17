@@ -1,7 +1,7 @@
 export const competencyTags: any[] = [
   {
     title: 'Agile',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://www.agilealliance.org/agile101/12-principles-behind-the-agile-manifesto/',
     tooltips:
@@ -22,7 +22,7 @@ export const competencyTags: any[] = [
 
   {
     title: 'Automation Tools',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://webpack.js.org/',
     tooltips:
       '\
@@ -39,7 +39,7 @@ Browser devtools\n\
 
   {
     title: 'CLI',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://docs.npmjs.com/cli/npm',
     tooltips:
       '\
@@ -56,7 +56,7 @@ Windows CMD',
 
   {
     title: 'Design Patterns',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://en.wikipedia.org/wiki/Software_design_pattern',
     tooltips:
       '\
@@ -94,7 +94,7 @@ Design patterns are advanced object-oriented solutions to commonly occurring sof
 
   {
     title: 'DevOps',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://www.digital-management-blog.de/wp-content/uploads/2017/06/devops.jpg',
     tooltips:
@@ -118,7 +118,7 @@ S   Sharing - there are user-friendly communication channels that encourage ongo
 
   {
     title: 'Docker',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://docs.docker.com/develop/develop-images/dockerfile_best-practices/',
     tooltips:
@@ -142,7 +142,7 @@ ONBUILD - to execute command after the current Dockerfile build completes. It is
 
   {
     title: 'Issue-tracking systems',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://en.wikipedia.org/wiki/Comparison_of_issue-tracking_systems',
     tooltips:
@@ -155,7 +155,7 @@ Bugzilla\n\
 
   {
     title: 'Kanban',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
     tooltips:
@@ -169,7 +169,7 @@ Bugzilla\n\
 
   {
     title: 'Lints',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: '',
     tooltips:
       '\
@@ -185,7 +185,7 @@ Bugzilla\n\
 
   {
     title: 'OOP',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://en.wikipedia.org/wiki/Object-oriented_programming',
     tooltips:
       'The four principles of OOP\n\
@@ -206,7 +206,7 @@ Polymorphism manifests itself by having multiple methods all with the same name,
 
   {
     title: 'RESTful-API',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://www.restapitutorial.com/lessons/whatisrest.html',
     tooltips:
       '\
@@ -232,7 +232,7 @@ Status codes',
 
   {
     title: 'Scrum',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://www.agilealliance.org/agile101/subway-map-to-agile-practices/',
     tooltips:
@@ -257,7 +257,7 @@ Roles: Product Owner, Scrum Master, and Team Members\n\
 
   {
     title: 'SDLC',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://en.wikipedia.org/wiki/Systems_development_life_cycle',
     tooltips:
       'The systems development life cycle (SDLC), \n\
@@ -273,7 +273,7 @@ or application development life-cycle: \n\
 
   {
     title: 'SOLID',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: 'https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)',
     tooltips:
       "\
@@ -293,7 +293,7 @@ one should depend upon abstractions, [not] concretions.",
 
   {
     title: 'Testing/Debugging',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref: '',
     tooltips:
       '\
@@ -324,7 +324,7 @@ Lint\n\
 
   {
     title: 'Version Control/Git',
-    section: 'Best Practices and Methodologies',
+    section: 'Best Practices',
     linkHref:
       'https://dont-be-afraid-to-commit.readthedocs.io/en/latest/git/commandlinegit.html',
     tooltips:
