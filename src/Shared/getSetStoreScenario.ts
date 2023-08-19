@@ -166,6 +166,13 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       ...output,
       caseDesc,
     }
+  } else if (caseNoUrl === 7) {
+    caseDesc =
+      'The Chat service Yourails.com about in the first param of the URL'
+    output = {
+      ...output,
+      caseDesc,
+    }
   } else if (caseNoUrl === 2) {
     caseDesc =
       'The Chat service Yourails.com without /k and a user in the first param of the URL'
