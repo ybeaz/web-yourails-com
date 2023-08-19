@@ -54,16 +54,7 @@ export const InputTextYrl: InputTextYrlType = props => {
 
   propsOut.textInputPropsResize = {
     ...propsOut.textInputProps,
-    style: [
-      style.inputText,
-      styleProps.inputText,
-      {
-        // @ts-ignore
-        resize: 'vertical',
-        minHeight: 32,
-        maxHeight: '75vh',
-      },
-    ],
+    style: [style.inputText, style.textInputTextResize, styleProps.inputText],
   }
 
   const textInputProps =
