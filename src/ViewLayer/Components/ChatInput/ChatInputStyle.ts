@@ -70,14 +70,7 @@ const lgDevice = StyleSheet.create({
 
 const xlDevice = StyleSheet.create({
   ...stylesDefault,
-  inputText: {
-    width: '50vw',
-  },
-  inputTextResize: {
-    maxWidth: '50vw',
-    maxHeight: '75vh',
-    resize: 'both',
-  },
+  ...lgDevice,
 })
 
 /**

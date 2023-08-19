@@ -3,7 +3,11 @@ import { StyleSheet, View, ImageResizeMode } from 'react-native'
 import dayjs from 'dayjs'
 
 import MarkdownDisplay from 'react-native-markdown-display'
-import { ImageYrl } from '../../../YrlNativeViewLibrary'
+import {
+  ImageYrl,
+  withParamsMediaYrl,
+  mediaParamsDefault,
+} from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
 import { MessageType } from './MessageType'
 import { styles } from './MessageStyle'
@@ -32,14 +36,18 @@ const MessageComponent: MessageType = props => {
     isReceived,
     isPending,
     imagePendingSrc,
+    mediaParams = mediaParamsDefault,
   } = props
+
+  const { deviceType } = mediaParams
+  const style = styles[deviceType]
 
   const dateString = dayjs(createdAt).locale(LOCALE).format(TIME_FORMAT)
 
   const contentObj = JSON.parse(text)
   const { contentType } = contentObj
 
-  const roundAllCornersStyle = !isTail ? styles.roundAllCorners.style : {}
+  const roundAllCornersStyle = !isTail ? style.roundAllCorners.style : {}
 
   const getTextComponentsFromTextArray = (
     textArrayIn: string[],
@@ -49,7 +57,7 @@ const MessageComponent: MessageType = props => {
       return (
         <Text
           key={`textItem-${index}`}
-          style={[styles[position].text]}
+          style={[style[position].text]}
           testID='textItem'
         >
           {position === 'right' ? (
@@ -129,25 +137,25 @@ const MessageComponent: MessageType = props => {
   }
 
   return (
-    <View style={[styles[position].Message]} testID='Message'>
+    <View style={[style[position].Message]} testID='Message'>
       <TriangleCorner {...propsOut.triangleCorner} />
       <View
         style={[
-          styles[position].content,
+          style[position].content,
           themes['themeA'].colors01,
           roundAllCornersStyle,
           widthContentStyle,
         ]}
         testID='content'
       >
-        <View style={[styles[position].messageWrapper]} testID='messageWrapper'>
+        <View style={[style[position].messageWrapper]} testID='messageWrapper'>
           {isPending && <ImageYrl {...propsOut.pendingImageYrlProps} />}
-          <Text style={[styles[position].text]} testID='text'>
+          <Text style={[style[position].text]} testID='text'>
             {messageContentOutput}
           </Text>
         </View>
         <Text
-          style={[styles[position].dateString, { color: 'grey' }]}
+          style={[style[position].dateString, { color: 'grey' }]}
           testID='dateString'
         >
           {dateString}
@@ -157,4 +165,4 @@ const MessageComponent: MessageType = props => {
   )
 }
 
-export const Message = React.memo(MessageComponent)
+export const Message = React.memo(withParamsMediaYrl(MessageComponent))

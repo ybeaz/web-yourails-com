@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
-const Message: any = StyleSheet.create({
+const Message: any = {
   MessageCommon: {
     ...styleGlobal.typography,
     flexDirection: 'row',
@@ -27,10 +27,10 @@ const Message: any = StyleSheet.create({
     display: 'flex',
     justifyContent: 'flex-end',
   },
-})
+}
 
-export const styles: any = {
-  left: StyleSheet.create({
+export const stylesDefault: any = {
+  left: {
     Message: {
       ...Message.MessageCommon,
       justifyContent: 'flex-start',
@@ -41,8 +41,8 @@ export const styles: any = {
     messageWrapper: Message.messageWrapperCommon,
     text: Message.textCommon,
     dateString: Message.dateStringCommon,
-  }),
-  right: StyleSheet.create({
+  },
+  right: {
     Message: {
       ...Message.MessageCommon,
       justifyContent: 'flex-end',
@@ -53,13 +53,69 @@ export const styles: any = {
     messageWrapper: Message.messageWrapperCommon,
     text: Message.textCommon,
     dateString: Message.dateStringCommon,
-  }),
-  roundAllCorners: StyleSheet.create({
+  },
+  roundAllCorners: {
     style: {
       borderTopLeftRadius: 15,
       borderTopRightRadius: 15,
       borderBottomRightRadius: 15,
       borderBottomLeftRadius: 15,
     },
-  }),
+  },
+}
+
+const xsDevice = StyleSheet.create({
+  ...stylesDefault,
+})
+
+const smDevice = StyleSheet.create({
+  ...stylesDefault,
+})
+
+const mdDevice = StyleSheet.create({
+  ...stylesDefault,
+})
+
+const lgDevice = StyleSheet.create({
+  ...stylesDefault,
+  left: {
+    Message: {
+      ...Message.MessageCommon,
+      justifyContent: 'flex-start',
+      marginLeft: 0,
+      marginRight: 0,
+    },
+    content: Message.contentCommon,
+    messageWrapper: Message.messageWrapperCommon,
+    text: Message.textCommon,
+    dateString: Message.dateStringCommon,
+  },
+  right: {
+    Message: {
+      ...Message.MessageCommon,
+      justifyContent: 'flex-end',
+      marginLeft: 0,
+      marginRight: 0,
+    },
+    content: Message.contentCommon,
+    messageWrapper: Message.messageWrapperCommon,
+    text: Message.textCommon,
+    dateString: Message.dateStringCommon,
+  },
+})
+
+const xlDevice = StyleSheet.create({
+  ...stylesDefault,
+  ...lgDevice,
+})
+
+/**
+ * @import import { styles } from './PageChatsWholeScreenStyles'
+ */
+export const styles: Record<string, any> = {
+  xsDevice: xsDevice,
+  smDevice: smDevice,
+  mdDevice: mdDevice,
+  lgDevice: lgDevice,
+  xlDevice: xlDevice,
 }
