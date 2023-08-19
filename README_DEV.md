@@ -147,7 +147,6 @@ Note: to config `codegen` edit ??? `codegen.yml`
 - In Terminal, go to `~/Dev/yourails-assets/`
 - In Terminal, `~/Dev/yourails-assets/`
   - `eval $(ssh-agent -s); ssh-add ~/.ssh/2020-10-19-rsa`
-  <!-- - ??? `npm login` -->
   - `npm init`, go through steps and change version to the next one
   - `npm publish`
 - In VS Code, `~/Dev/yourails-sep-web-native/deployment`,

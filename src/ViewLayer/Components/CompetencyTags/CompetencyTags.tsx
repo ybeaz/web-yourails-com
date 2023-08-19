@@ -82,7 +82,7 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
           style={[style.tagListWrapper]}
           testID='tagListWrapper'
         >
-          <Text style={[style.tagSubheading]} testID='tagSubheadingText'>
+          <Text style={[style.tagSubheading]} testID='tagSubheading'>
             {`${section}: `}
           </Text>
           {getTagList(competencyTagsFiltered)}

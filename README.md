@@ -2,7 +2,7 @@
 
 ## Moto-manifest of the service:
 
-Discover People, Connect, and Create Your Best Life
+Discover AI and People, Create a New Environment for a Better Life
 
 ## Subtitle motto:
 
@@ -31,3 +31,16 @@ YouRails.com facilitates users in finding people, solutions, and establishing co
 
 - Digital Business Card:
   The app functions as a digital business card, providing a unique link (QR code) to the user's online profiles. This allows the user to share relevant contact information (such as email, telephone, LinkedIn, Telegram, Instagram, etc.) for seamless communication.
+
+  ## Release Notes
+
+  August 17, 2023 v0.57.0
+
+- Added authentication based on AWS Cognito services. Now without limitation of functionality.
+- Introduced bots with complex prompts processing: ReactJS FC Bot, ReactJS Unit Tests Bot, Render ReactJS Unit Tests Bot. They are capable to return non-trivial code snippets based on predefined patterns
+- Added new simple AI personalities with predefined context: Master TRIZ Tech Bot, USCIS Support Bot, Software Resume Assistant Bot, Typescript Bot, C# Bot, Dr. Ophthalmologist Bot
+- Added a subsection Prompt examples in the Profile section, that helps to interact with complex behavior bots. These samples provide templates for queries
+- Improved UI:
+  - added the ability to increase the chat input field
+  - added markdown for the input messages
+- Added better error handling for Chat GPT model requests
