@@ -7,21 +7,27 @@ import {
   withStoreStateYrl,
   InputTextYrl,
   withPropsYrl,
+  mediaParamsDefault,
+  withParamsMediaYrl,
 } from '../../../YrlNativeViewLibrary'
 import { ChatInputType } from './ChatInputType'
-import { style } from './ChatInputStyle'
+import { styles } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
+import Draggable from 'react-native-draggable'
 
 const ChatInputComponent: ChatInputType = props => {
-  const { handleEvents, store } = props
+  const { handleEvents, store, mediaParams = mediaParamsDefault } = props
 
   const {
     profiles,
     globalVars: { idProfileActive },
     forms: { inputChat },
   } = store
+
+  const { deviceType } = mediaParams
+  const style = styles[deviceType]
 
   const profileActive = getProfileByIdProfile(profiles, idProfileActive)
 
@@ -39,6 +45,7 @@ const ChatInputComponent: ChatInputType = props => {
           border: 0,
           outlineWidth: 0,
         },
+        inputTextResize: style.inputTextResize,
       },
       testID: 'ChatInput_InputTextYrl',
       multiline: true,
@@ -80,6 +87,6 @@ const ChatInputComponent: ChatInputType = props => {
 
 export const ChatInput = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(ChatInputComponent)
+    withStoreStateYrl(withParamsMediaYrl(ChatInputComponent))
   )
 )

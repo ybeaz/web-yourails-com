@@ -8,7 +8,6 @@ export const stylesDefault = StyleSheet.create({
   ChatSpaceJsx: {
     ...styleGlobal.typography,
     flexDirection: 'column',
-    padding: '0.5rem',
     flex: 1,
     justifyContent: 'flex-end',
   },
@@ -20,9 +19,7 @@ export const stylesDefault = StyleSheet.create({
   dateText: {
     width: 'fit-content',
   },
-  messages: {
-    padding: '0.5rem',
-  },
+  messages: {},
 })
 
 const xmDevice = StyleSheet.create({

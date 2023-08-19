@@ -2,6 +2,7 @@ import * as React from 'react'
 import { View, TextInput, Platform } from 'react-native'
 import { InputTextYrlType, InputTextPropsOutType } from './InputTextYrlType'
 import { InputTextYrlStyle as style } from './InputTextYrlStyle'
+import Draggable from 'react-native-draggable'
 
 /**
  * @import import { InputTextYrl, InputTextYrlPropsType } from './YrlNativeViewLibrary'
@@ -20,7 +21,7 @@ import { InputTextYrlStyle as style } from './InputTextYrlStyle'
  */
 export const InputTextYrl: InputTextYrlType = props => {
   const {
-    styleProps = { InputTextYrl: {}, inputText: {} },
+    styleProps = { InputTextYrl: {}, inputText: {}, inputTextResize: {} },
     multiline = false,
     numberOfLines = 3,
     onChangeText,
@@ -54,7 +55,12 @@ export const InputTextYrl: InputTextYrlType = props => {
 
   propsOut.textInputPropsResize = {
     ...propsOut.textInputProps,
-    style: [style.inputText, style.textInputTextResize, styleProps.inputText],
+    style: [
+      style.inputText,
+      style.inputTextResize,
+      styleProps.inputText,
+      styleProps.inputTextResize,
+    ],
   }
 
   const textInputProps =
@@ -63,8 +69,10 @@ export const InputTextYrl: InputTextYrlType = props => {
       : propsOut.textInputProps
 
   return (
+    // <Draggable x={20} renderSize={100}>
     <View {...propsOut.viewProps}>
       <TextInput {...textInputProps} />
     </View>
+    // </Draggable>
   )
 }

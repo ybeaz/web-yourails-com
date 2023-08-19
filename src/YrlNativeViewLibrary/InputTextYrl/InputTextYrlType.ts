@@ -23,7 +23,11 @@ export interface InputTextYrlPropsType {
   placeholder?: string
   placeholderTextColor?: string
   reference?: any
-  styleProps?: { InputTextYrl: Object; inputText: Object }
+  styleProps?: {
+    InputTextYrl: Object
+    inputText: Object
+    inputTextResize: Object
+  }
   testID: string
   value?: string
   markdown?: boolean

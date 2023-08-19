@@ -103,7 +103,7 @@ const xlDevice = StyleSheet.create({
 })
 
 /**
- * @import import { styles } from './TemplateStyles'
+ * @import import { styles } from './PageChatsWholeScreenStyles'
  */
 export const styles: Record<string, any> = {
   xsDevice: smDevice,
