@@ -15,7 +15,6 @@ import { styles } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
-import Draggable from 'react-native-draggable'
 
 const ChatInputComponent: ChatInputType = props => {
   const { handleEvents, store, mediaParams = mediaParamsDefault } = props
