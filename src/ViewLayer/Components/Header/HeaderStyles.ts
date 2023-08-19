@@ -13,31 +13,31 @@ export const stylesDefault = StyleSheet.create({
   },
 })
 
-const xmDevice = StyleSheet.create({
+const xsDevice = StyleSheet.create({
   ...stylesDefault,
 })
 
 const smDevice = StyleSheet.create({
-  ...xmDevice,
+  ...xsDevice,
 })
 
 const mdDevice = StyleSheet.create({
-  ...xmDevice,
+  ...xsDevice,
 })
 
 const lgDevice = StyleSheet.create({
-  ...xmDevice,
+  ...xsDevice,
 })
 
 const xlDevice = StyleSheet.create({
-  ...xmDevice,
+  ...xsDevice,
 })
 
 /**
  * @import import { styles } from './HeaderStyles'
  */
 export const styles: Record<string, any> = {
-  xsDevice: smDevice,
+  xsDevice: xsDevice,
   smDevice: smDevice,
   mdDevice: mdDevice,
   lgDevice: lgDevice,

@@ -44,7 +44,7 @@ export const stylesDefault = StyleSheet.create({
   },
 })
 
-const xmDevice = StyleSheet.create({
+const xsDevice = StyleSheet.create({
   ...stylesDefault,
 })
 
@@ -84,7 +84,7 @@ const xlDevice = StyleSheet.create({
  * @import import { styles } from './PageChatsWholeScreenStyles'
  */
 export const styles: Record<string, any> = {
-  xsDevice: smDevice,
+  xsDevice: xsDevice,
   smDevice: smDevice,
   mdDevice: mdDevice,
   lgDevice: lgDevice,

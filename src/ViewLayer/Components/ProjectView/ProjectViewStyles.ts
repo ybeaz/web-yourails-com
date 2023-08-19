@@ -47,7 +47,7 @@ const stylesDefault: any = {
   builtwithText: {},
 }
 
-const xmDevice = StyleSheet.create({
+const xsDevice = StyleSheet.create({
   ...stylesDefault,
   ProjectView: {
     flexDirection: 'column',
@@ -57,11 +57,11 @@ const xmDevice = StyleSheet.create({
 })
 
 const smDevice = StyleSheet.create({
-  ...xmDevice,
+  ...xsDevice,
 })
 
 const mdDevice = StyleSheet.create({
-  ...xmDevice,
+  ...xsDevice,
 })
 
 const lgDevice = StyleSheet.create({
@@ -85,7 +85,7 @@ const xlDevice = StyleSheet.create({
  * @import import { styles } from './PortfolioStyles'
  */
 export const styles: Record<string, any> = {
-  xsDevice: smDevice,
+  xsDevice: xsDevice,
   smDevice: smDevice,
   mdDevice: mdDevice,
   lgDevice: lgDevice,
