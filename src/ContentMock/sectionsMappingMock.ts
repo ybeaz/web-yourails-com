@@ -87,7 +87,7 @@ export const sectionsMapping: SectionMappingType[] = [
     title: '',
     pathname: 'about',
     iconLibrary: 'Ionicons',
-    iconName: 'cog-outline',
+    iconName: 'book-outline',
     iconTitleText: 'About us',
     childName: 'AboutUs',
   },

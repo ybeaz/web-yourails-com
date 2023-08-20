@@ -117,10 +117,10 @@ const UserMenuComponent: UserMenuType = props => {
       },
     },
     {
-      title: 'About us',
+      title: 'About YouRails',
       isActive: true,
       iconLibrary: 'Ionicons',
-      iconName: 'log-in-outline',
+      iconName: 'book-outline',
       color: themes['themeA'].colors01.color,
       onPress: () => getRedirected(linkAboutUs, { replace: true }),
     },
