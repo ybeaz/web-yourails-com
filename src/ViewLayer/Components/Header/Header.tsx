@@ -23,6 +23,7 @@ const HeaderComponent: HeaderType = props => {
     styleProps = { Header: {}, headerText: {} },
     mediaParams = mediaParamsDefault,
     headerText,
+    children,
   } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
@@ -36,6 +37,7 @@ const HeaderComponent: HeaderType = props => {
         testID='headerText'
       >
         {headerText}
+        {children}
       </Text>
     </View>
   )

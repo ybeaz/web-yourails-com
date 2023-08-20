@@ -3,6 +3,7 @@
 import { consoler } from './consoler'
 import { consolerError } from './consolerError'
 import { getWriteFile } from './getWriteFile'
+import { execSync } from 'child_process'
 
 interface GetGitBuildDataType {
   (pathFull: string, options?: { printRes: boolean }): Promise<any>
@@ -10,6 +11,7 @@ interface GetGitBuildDataType {
 
 /**
  * @description Function to getGitBuildData
+ * @run ts-node tools/getGitBuildData.ts
  * @import import { getGitBuildData } from './getGitBuildData'
  */
 
@@ -18,19 +20,32 @@ export const getGitBuildData: GetGitBuildDataType = async (
   options
 ) => {
   try {
-    let getGitBuildDataRes = await require('child_process')
-      .execSync(
-        `git log -1 --pretty=format:'{%n  "commit": "%H",%n  "author": {%n    "name": "%aN",%n    "email": "%aE"%n  },%n  "date": "%ad",%n  "message": "%f"%n}'`
-      )
+    const branchCurrent = await execSync(`git branch --show-current`)
       .toString()
       .trim()
+
+    let getGitBuildDataRes = await execSync(
+      `git log -1 --pretty=format:'{%n  "commit": "%H",%n  "author": {%n    "name": "%aN",%n    "email": "%aE"%n  },%n  "date": "%ad",%n  "message": "%f"%n}'`
+    )
+      .toString()
+      .trim()
+
+    const getGitBuildDataResObj = JSON.parse(getGitBuildDataRes) as Object
+
+    getGitBuildDataRes = JSON.stringify({
+      ...getGitBuildDataResObj,
+      branchCurrent,
+    })
 
     getGitBuildDataRes = `export const buildData = ${getGitBuildDataRes}`
 
     await getWriteFile(pathFull, getGitBuildDataRes)
 
     if (options?.printRes) {
-      consoler('getGitBuildData', 'getGitBuildDataRes', getGitBuildDataRes)
+      consoler('getGitBuildData', 'getGitBuildDataRes', {
+        getGitBuildDataRes,
+        getGitBuildDataResObj,
+      })
     }
 
     return getGitBuildDataRes
