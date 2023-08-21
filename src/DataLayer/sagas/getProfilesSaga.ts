@@ -2,22 +2,33 @@ import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { getProfilesConnector } from '../../CommunicationLayer/getProfilesConnector'
+import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
+import { profiles as profilesMock } from '../../ContentMock/profilesMock'
 
 export function* getProfiles() {
+  let profiles
   try {
     /**
      * @description Code snippet to use axios as a connector client
      * @example: */
     const { client, params } = getProfilesConnector({})
-    const {
-      data: {
-        data: { getProfiles: profiles },
-      },
-    } = yield client.post('', params)
 
-    yield put(actionSync.ADD_PROFILES({ profiles }))
+    if (!isLocalDataMockOnlyFlag()) {
+      const {
+        data: {
+          data: { getProfiles },
+        },
+      } = yield client.post('', params)
+      profiles = getProfiles
+    } else {
+      profiles = profilesMock
+    }
+
+    // yield put(actionSync.ADD_PROFILES({ profiles }))
   } catch (error) {
     const err: any = error
+  } finally {
+    yield put(actionSync.ADD_PROFILES({ profiles }))
   }
 }
 

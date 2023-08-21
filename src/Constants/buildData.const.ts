@@ -1,1 +1,1 @@
-export const buildData = {"commit":"0b6d996c483f3069b39b17f64c96c5c193561942","author":{"name":"rome_sfba","email":"admin@3440-mbp.gateway.sonic.net"},"date":"Sat Aug 19 21:54:31 2023 -0700","message":"perf-devops-add-personalities-VII","branchCurrent":"B-058"}
+export const buildData = {"commit":"9293377e45bcc710532d22792dfdefa3b2ed334e","author":{"name":"rome_sfba","email":"admin@3440-mbp.gateway.sonic.net"},"date":"Sat Aug 19 22:07:21 2023 -0700","message":"perf-devops-add-personalities-VIII","branchCurrent":"B-058"}
