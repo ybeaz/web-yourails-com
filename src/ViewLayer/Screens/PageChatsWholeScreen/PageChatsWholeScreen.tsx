@@ -93,7 +93,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       getSocketOnMessage()
       getSocketOnPending()
 
-      /** @description Obtaining a user data, loading profiles, messages, etc. as a first step **/
+      /** @description Obtaining a user data, loading profiles, messages, etc. as a first step. **/
       handleEvents.INIT_LOADING({}, { query })
 
       /** @description Add the 'beforeunload' event listener to gracefully disconnect when reloading the page */

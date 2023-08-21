@@ -1,4 +1,6 @@
-# SEP Project, eddition 2023-04-29
+![YouRails_Logo_Horizontal_FullColor](https://yourails.com/images/promo01/logo-2023-06-18-2.jpeg)
+
+# YouRails
 
 ## Moto-manifest of the service:
 
@@ -6,11 +8,7 @@ Discover AI and People, Create a New Environment for a Better Life
 
 ## Subtitle motto:
 
-The single point of online presence
-
-## Concept:
-
-YouRails.com facilitates users in finding people, solutions, and establishing connections through a chat-first/messenger platform. This platform provides users with the possibility to create and manage multiple profiles that reflect their current life goals and intentions. The process is simplified with an AI-based environment and services.
+YouRails is a React Native open source chat project. It aims to provide multiprofile feature for a user, facilitates adding AI personas and organize different interaction scenarios, make fun for the process.
 
 ## Key features:
 

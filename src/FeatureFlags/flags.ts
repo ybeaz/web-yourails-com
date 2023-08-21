@@ -18,4 +18,4 @@ export const isHostR1UserToComFlag: IsFeatureFlag = (envTypeIn = envType) =>
  * @import import { isLocalDataMockOnlyFlag } from './FeatureFlags'
  */
 export const isLocalDataMockOnlyFlag: IsFeatureFlag = (envTypeIn = envType) =>
-  false
+  true

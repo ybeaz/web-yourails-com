@@ -1,4 +1,4 @@
-import { delay, call, takeEvery, put, select } from 'redux-saga/effects'
+import { call, takeEvery, put, select } from 'redux-saga/effects'
 
 import { ProfileType } from '../../@types/ProfileType'
 import {
