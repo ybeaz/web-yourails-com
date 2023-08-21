@@ -1,18 +1,13 @@
-import { takeLatest, takeEvery, put, select } from 'redux-saga/effects'
+import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { templateConnectorAxios } from '../../CommunicationLayer/template.connector'
-import { GetRecipeDocument } from '../../types/graphql'
-import { apolloClient } from '../../CommunicationLayer/clients/apolloClient'
 import { projects } from '../../ContentMock/projectsMock'
 
-function* addProjects(input: any) {
-  const { data: variables } = input
-
+function* addProjects() {
   try {
     yield put(actionSync.ADD_PROJECTS({ projects }))
-  } catch (error) {
-    const err: any = error
+  } catch (error: any) {
+    console.log('ERROR addProjectsSaga', { error: error.message })
   }
 }
 

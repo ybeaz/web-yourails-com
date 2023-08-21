@@ -8,9 +8,6 @@ import { profiles as profilesMock } from '../../ContentMock/profilesMock'
 export function* getProfiles() {
   let profiles
   try {
-    /**
-     * @description Code snippet to use axios as a connector client
-     * @example: */
     const { client, params } = getProfilesConnector({})
 
     if (!isLocalDataMockOnlyFlag()) {
@@ -23,10 +20,9 @@ export function* getProfiles() {
     } else {
       profiles = profilesMock
     }
-
-    // yield put(actionSync.ADD_PROFILES({ profiles }))
-  } catch (error) {
-    const err: any = error
+  } catch (error: any) {
+    console.log('ERROR getProfilesSaga', { error: error.message })
+    profiles = profilesMock
   } finally {
     yield put(actionSync.ADD_PROFILES({ profiles }))
   }

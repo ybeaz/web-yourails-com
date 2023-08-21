@@ -58,7 +58,7 @@ function* initLoading(data: InitLoadingType) {
       yield call(getJoinedConversation, getJoinedConversationProps)
     }
   } catch (error: any) {
-    console.log('initLoadingSaga [81]', { message: error.message })
+    console.log('ERROR initLoadingSaga', { error: error.message })
   }
 }
 

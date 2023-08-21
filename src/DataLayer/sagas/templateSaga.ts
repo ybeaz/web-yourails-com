@@ -27,8 +27,8 @@ function* template(input: any) {
     yield put(actionAsync.TEMPLATE_ASYNC.SUCCESS(data))
 
     yield put(actionSync.TOGGLE_LOADER_OVERLAY(false))
-  } catch (error) {
-    const err: any = error
+  } catch (error: any) {
+    console.log('ERROR templateSaga', { error: error.message })
   }
 }
 

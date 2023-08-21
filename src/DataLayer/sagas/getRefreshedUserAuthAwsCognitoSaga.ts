@@ -34,9 +34,10 @@ export function* getRefreshedUserAuthAwsCognito(input: any) {
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
 
     getSetObjToLocalStorage(userIdDataAwsCognito)
-  } catch (error) {
-    const err: any = error
-    console.log('ERROR getRefreshedUserAuthAwsCognitoSaga', { err })
+  } catch (error: any) {
+    console.log('ERROR getRefreshedUserAuthAwsCognitoSaga', {
+      error: error.message,
+    })
   }
 }
 

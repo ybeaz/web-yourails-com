@@ -33,9 +33,8 @@ export function* getUserIdDataAwsCognito(input: any) {
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
 
     getSetObjToLocalStorage(userIdDataAwsCognito)
-  } catch (error) {
-    const err: any = error
-    console.log('ERROR getUserIdDataAwsCognitoSaga', { err })
+  } catch (error: any) {
+    console.log('ERROR getUserIdDataAwsCognitoSaga', { error: error.message })
   }
 }
 

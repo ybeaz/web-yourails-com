@@ -1,18 +1,13 @@
-import { takeLatest, takeEvery, put, select } from 'redux-saga/effects'
+import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { templateConnectorAxios } from '../../CommunicationLayer/template.connector'
-import { GetRecipeDocument } from '../../types/graphql'
-import { apolloClient } from '../../CommunicationLayer/clients/apolloClient'
 import { competencyTags } from '../../ContentMock/competencyTagsMock'
 
-function* addCompetencyTags(input: any) {
-  const { data: variables } = input
-
+function* addCompetencyTags() {
   try {
     yield put(actionSync.ADD_COMPETENCY_TAGS({ competencyTags }))
-  } catch (error) {
-    const err: any = error
+  } catch (error: any) {
+    console.log('ERROR addCompetencyTagsSaga', { error: error.message })
   }
 }
 
