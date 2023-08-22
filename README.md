@@ -1,5 +1,5 @@
 <div align="center" ">
-  <img src="https://yourails.com/images/promo01/logo-2023-06-18-2.jpeg" style="border-radius:50%; clip-path: circle();" />
+  <img src="https://yourails.com/images/promo01/logo-2023-06-18-2.jpeg" style="border-radius:50% !important;" />
 </div>
 
 # YouRails
