@@ -2,7 +2,7 @@
   <img src="https://yourails.com/images/promo01/logo-2023-06-18-2.jpeg" />
 </div>
 
-# YouRails - Discover AI and People, Create a New Environment for a Better Life
+# YouRails - Discover AI and People, the New Environment for a Better Life
 
 [Release Notes](https://github.com/ybeaz/yourails-sep-web-native/releases)
 

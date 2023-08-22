@@ -1936,6 +1936,8 @@ Type Checking JavaScript Files",
 ✔ CodePipeline - A fully managed continuous integration and continuous delivery service.\n\
 ✔ Cognito - A fully managed service that provides user sign-up, sign-in, and access control to web and mobile apps.\n\
 ✔ DynamoDB - A fully-managed NoSQL database service that provides fast and predictable performance with seamless scalability.\n\
+✔ Elastic Compute Cloud (EC2) - A web service that provides scalable compute capacity in the cloud.\n\
+✔ Elastic Container Service (ECS) - A highly scalable, high-performance container management service that supports Docker containers.\n\
 ✔ Identity and Access Management (IAM) - A web service that helps you securely control access to resources for your users.\n\
 ✔ Kinesis - A platform for streaming data on the cloud, which can be used for real-time data processing and analysis.\n\
     - Kinesis Data Streams: gives control over the ingestion and processing, retains data of 24 hours up to 7 days, partitions the data into shards, requires a processing applications\n\
@@ -1946,8 +1948,6 @@ Type Checking JavaScript Files",
 • CloudFormation - A service that helps you model and set up resources so you can spend less time managing those resources and more time focusing on your applications that run in the cloud.\n\
 • CloudSearch - A fully managed search service that provides easy-to-use search capabilities for websites and applications.\n\
 • Elastic Block Store (EBS) - A block-level storage service designed to be used with EC2 instances.\n\
-• Elastic Compute Cloud (EC2) - A web service that provides scalable compute capacity in the cloud.\n\
-• Elastic Container Service (ECS) - A highly scalable, high-performance container management service that supports Docker containers.\n\
 • Elastic Kubernetes Service (EKS) - A fully-managed Kubernetes service that makes it easy to run Kubernetes.\n\
 • Elastic Load Balancing (ELB) - Automatically distributes incoming application traffic across multiple targets, such as EC2 instances, containers, and IP addresses.\n\
 • Elastic MapReduce (EMR) - A web service that makes it easy to process large amounts of data using Hadoop, Spark, and other big data tools.\n\
