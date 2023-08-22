@@ -1,15 +1,11 @@
-import React, { useCallback } from 'react'
-import { ScrollView, View, Modal } from 'react-native'
-// import Modal from 'modal-react-native-web';
+import React from 'react'
+import { View, Modal } from 'react-native'
 
-import Draggable from 'react-native-draggable'
-import { Text as TextRrneui } from '@rneui/themed'
+import { TooltipPopover } from '../TooltipPopover/TooltipPopover'
 import { Text } from '../Text/Text'
 import { IconYrl } from '../../../YrlNativeViewLibrary/'
-import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
-import { TagPropertyType } from './TagPropertyType'
+import { TagPropertyType, TagPropertyPropsOutType } from './TagPropertyType'
 import { style } from './TagPropertyStyle'
 import { themes } from '../../Styles/themes'
 
@@ -29,34 +25,14 @@ const TagPropertyComponent: TagPropertyType = props => {
     testID = 'TagProperty',
   } = props
 
-  const propsOut: Record<string, any> = {
-    tooltip_buttonYrlLinking: {
-      styleProps: {
-        ButtonYrl: {},
-        title: {
-          color: themes['themeA'].colors08.color,
-          textDecoration: 'underline',
-          paddingBottom: '0.5rem',
-        },
-      },
-      titleText: `<${title} />`, //'<Documentation />',
-      testID: 'tooltip_buttonYrl',
-      disabled: false,
-      onPress: useLinkClickResYrl(linkHref),
-      iconProps: {
-        library: iconLibrary,
-        name: iconName,
-        styleProps: {
-          IconYrl: {
-            cursor: 'pointer',
-            paddingRight: '0.25rem',
-            paddingBottom: '0.25rem',
-          },
-        },
-        size: 16,
-        color: themes['themeA'].colors02.color,
-        testID: '<entity>_IconYrl_ios_send',
-      },
+  const propsOut: TagPropertyPropsOutType = {
+    tooltipPopoverProps: {
+      title: `<${title} />`,
+      content: tooltips,
+      linkHref,
+      iconLibrary,
+      iconName,
+      testID: `Tooltip_${title}_${id}`,
     },
     iconProps: {
       library: iconLibrary,
@@ -68,32 +44,12 @@ const TagPropertyComponent: TagPropertyType = props => {
     },
   }
 
-  const Popover = () => (
-    <View
-      style={[style.tooltip_containerView]}
-      testID={'tooltip_containerView'}
-    >
-      <ScrollView
-        style={[style.tooltip_scrollView]}
-        testID={'tooltip_scrollView'}
-      >
-        <ButtonYrl {...propsOut.tooltip_buttonYrlLinking} />
-        <TextRrneui
-          style={[style.tooltip_textRrneui]}
-          testID={'tooltip_textRrneui'}
-        >
-          {tooltips}
-        </TextRrneui>
-      </ScrollView>
-    </View>
-  )
-
   return (
     <View style={[style.TagProperty, styleProps.TagProperty]} testID={testID}>
       <ControlledTooltip
         ModalComponent={Modal}
         backgroundColor={themes['themeA'].colors09.backgroundColor}
-        popover={<Popover />}
+        popover={<TooltipPopover {...propsOut.tooltipPopoverProps} />}
         containerStyle={[style.tooltip_container]}
         withOverlay={true}
         withPointer={true}

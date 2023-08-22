@@ -6,7 +6,7 @@ import { IconYrlPropsType } from '../IconYrl/IconYrlType'
 /**
  * @import import { ButtonYrlPropsType } from './YrlNativeViewLibrary/ButtonYrl/ButtonYrlType'
  */
-export interface ButtonYrlPropsType {
+export type ButtonYrlPropsType = {
   titleText?: string | ReactElement
   styleProps?: { ButtonYrl: any; title?: any }
   testID: string

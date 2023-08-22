@@ -14,6 +14,7 @@ export const ControlledTooltip: React.FC<
   ControlledTooltipPropsType
 > = props => {
   const [open, setOpen] = React.useState(false)
+
   return (
     <Tooltip
       visible={open}

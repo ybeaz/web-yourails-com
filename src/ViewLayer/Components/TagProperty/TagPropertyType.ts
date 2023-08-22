@@ -1,3 +1,6 @@
+import { IconYrlPropsType } from '../../../YrlNativeViewLibrary/'
+import { TooltipPopoverPropsOutType } from '../TooltipPopover/TooltipPopover'
+
 export interface TagPropertyPropsType {
   styleProps?: any
   id?: string
@@ -7,6 +10,11 @@ export interface TagPropertyPropsType {
   iconLibrary?: string
   iconName?: string
   testID?: string
+}
+
+export type TagPropertyPropsOutType = {
+  tooltipPopoverProps: TooltipPopoverPropsOutType
+  iconProps: IconYrlPropsType
 }
 
 /**

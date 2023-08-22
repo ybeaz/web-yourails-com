@@ -1,5 +1,6 @@
 import React from 'react'
-import { View } from 'react-native'
+import { ScrollView, View, Modal } from 'react-native'
+import { Text as TextRrneui } from '@rneui/themed'
 
 import {
   ButtonYrl,
@@ -10,6 +11,8 @@ import {
   mediaParamsDefault,
   withParamsMediaYrl,
 } from '../../../YrlNativeViewLibrary'
+import { Text } from '../Text/Text'
+import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
 import { ChatInputType } from './ChatInputType'
 import { styles } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
@@ -70,8 +73,49 @@ const ChatInputComponent: ChatInputType = props => {
     },
   }
 
+  const Popover = () => (
+    <View
+      style={[style.tooltip_containerView]}
+      testID={'tooltip_containerView'}
+    >
+      <ScrollView
+        style={[style.tooltip_scrollView]}
+        testID={'tooltip_scrollView'}
+      >
+        <ButtonYrl {...propsOut.tooltip_buttonYrlLinking} />
+        <TextRrneui
+          style={[style.tooltip_textRrneui]}
+          testID={'tooltip_textRrneui'}
+        >
+          {'tooltips'}
+        </TextRrneui>
+      </ScrollView>
+    </View>
+  )
+
   return (
     <View style={[style.ChatInput]} testID='ChatInput'>
+      <ControlledTooltip
+        ModalComponent={Modal}
+        backgroundColor={themes['themeA'].colors09.backgroundColor}
+        popover={<Popover />}
+        containerStyle={[style.tooltip_container]}
+        withOverlay={true}
+        withPointer={true}
+      >
+        <View style={style.tagIconTextWrapper} testID='tagIconTextWrapper'>
+          <Text
+            style={[
+              style.titleText,
+              { color: themes['themeA'].colors08.color },
+            ]}
+            testID='tagIconText'
+          >
+            {/* {iconLibrary && iconName && <IconYrl {...propsOut.iconProps} />} */}
+            {'title'}
+          </Text>
+        </View>
+      </ControlledTooltip>
       <View style={[style.inputButton]} testID='ChatInput_inputButton'>
         <InputTextYrl {...propsOut.inputTextYrlProps} />
         <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>

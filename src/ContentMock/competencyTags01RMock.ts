@@ -2373,6 +2373,22 @@ Modules:\n\
 
   {
     idProfile: '1',
+    title: 'NoSQL DBs',
+    contentType: SectionType['CompetencyTagType'],
+    section: 'Back-end',
+    linkHref: 'https://en.wikipedia.org/wiki/NoSQL',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips: `Examples:
+• Cassandra: Cassandra is often used for applications that require high availability, fault tolerance, and massive scalability, such as large-scale data analytics, time-series data, and IoT applications.
+• Kafka: It is widely used for building real-time streaming applications, event sourcing, log aggregation, and messaging systems.
+• MongoDB: MongoDB is suitable for a wide range of use cases, including content management systems, e-commerce platforms, mobile applications, and real-time analytics.
+• REDIS: REDIS is commonly used for caching, real-time analytics, messaging systems, and session management due to its fast in-memory storage and support for various data structures.
+`,
+  },
+
+  {
+    idProfile: '1',
     title: 'Php',
     contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
