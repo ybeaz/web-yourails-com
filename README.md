@@ -1,6 +1,6 @@
-<p align="center">
+<div align="center" style="clip-path: circle();">
   <img src="https://yourails.com/images/promo01/logo-2023-06-18-2.jpeg" />
-</p>
+</div>
 
 # YouRails
 
