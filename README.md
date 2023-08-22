@@ -2,11 +2,11 @@
   <img src="https://yourails.com/images/promo01/logo-2023-06-18-2.jpeg" />
 </div>
 
-# YouRails -Discover AI and People, Create a New Environment for a Better Life
+# YouRails - Discover AI and People, Create a New Environment for a Better Life
 
-[![Release Notes](https://img.shields.io/github/release/FlowiseAI/Flowise)](https://github.com/ybeaz/yourails-sep-web-native/releases)
+[Release Notes](https://github.com/ybeaz/yourails-sep-web-native/releases)
 
-YouRails is an open-source React Native chat project for real people and AI personas. The project facilitates the creation of AI personas and the organization of various interaction scenarios easily and naturally.
+YouRails is an open-source React Native chat project for networking people and AI personas. The project facilitates the creation of AI personas and the organization of various interaction scenarios easily and naturally.
 
 ## App Concept
 
