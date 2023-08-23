@@ -1,7 +1,13 @@
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 import { RootStoreType } from '../../../@types/RootStoreType'
-
-import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import { TooltipPopoverPropsOutType } from '../TooltipPopover/TooltipPopover'
+import { ControlledTooltipPropsType } from '../ControlledTooltip/ControlledTooltipType'
+import {
+  InputTextYrlPropsType,
+  ButtonYrlPropsType,
+  IconYrlPropsType,
+  MediaParamsDefaultType,
+} from '../../../YrlNativeViewLibrary'
 
 export interface ChatInputPropsType {
   handleEvents: HandleEventsType
@@ -9,6 +15,18 @@ export interface ChatInputPropsType {
   inputChat: Record<string, string>
   store: RootStoreType
   mediaParams?: MediaParamsDefaultType
+}
+
+export type ChatInputPropsOutType = {
+  inputTextYrlProps: InputTextYrlPropsType
+  sendButtonYrlProps: ButtonYrlPropsType
+  sendIconYrlProps: IconYrlPropsType
+  tooltipPopoverIconProps: IconYrlPropsType
+  tooltipPopoverProps: TooltipPopoverPropsOutType
+  controlledTooltipProps: Omit<
+    ControlledTooltipPropsType,
+    'children' | 'popover'
+  >
 }
 
 /**

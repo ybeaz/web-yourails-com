@@ -42,6 +42,11 @@ export const stylesDefault = StyleSheet.create({
     right: 0,
     top: '0.5rem',
   },
+  promptExamplesWrapper: {
+    flexDirection: 'row',
+    paddingBottom: '0.3rem',
+    alignItems: 'center',
+  },
 })
 
 const xsDevice = StyleSheet.create({

@@ -10,6 +10,7 @@ export interface ControlledTooltipPropsType {
   withOverlay?: boolean
   withPointer?: boolean
   children: ReactElement
+  testID: string
 }
 
 /**

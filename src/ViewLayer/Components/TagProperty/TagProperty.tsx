@@ -32,7 +32,7 @@ const TagPropertyComponent: TagPropertyType = props => {
       linkHref,
       iconLibrary,
       iconName,
-      testID: `Tooltip_${title}_${id}`,
+      testID: `tooltip_${title}_${id}`,
     },
     iconProps: {
       library: iconLibrary,
@@ -40,7 +40,7 @@ const TagPropertyComponent: TagPropertyType = props => {
       styleProps: { IconYrl: { cursor: 'pointer', paddingRight: '0.25rem' } },
       size: 24,
       color: themes['themeA'].colors02.color,
-      testID: '<entity>_IconYrl_ios_send',
+      testID: 'tagProperty_IconYrl',
     },
   }
 
@@ -53,6 +53,7 @@ const TagPropertyComponent: TagPropertyType = props => {
         containerStyle={[style.tooltip_container]}
         withOverlay={true}
         withPointer={true}
+        testID='controlledTooltip'
       >
         <View style={style.tagIconTextWrapper} testID='tagIconTextWrapper'>
           <Text

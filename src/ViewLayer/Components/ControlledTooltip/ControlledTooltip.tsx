@@ -3,7 +3,7 @@ import { Tooltip } from '@rneui/themed'
 import { Dimensions } from 'react-native'
 
 import { ControlledTooltipPropsType } from './ControlledTooltipType'
-
+import { style } from './ControlledTooltipStyle'
 const { height } = Dimensions.get('window')
 
 /**
