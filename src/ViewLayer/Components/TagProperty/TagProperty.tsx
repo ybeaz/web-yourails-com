@@ -3,9 +3,17 @@ import { View, Modal } from 'react-native'
 
 import { TooltipPopover } from '../TooltipPopover/TooltipPopover'
 import { Text } from '../Text/Text'
-import { IconYrl } from '../../../YrlNativeViewLibrary/'
+import {
+  IconYrl,
+  useLinkClickResYrl,
+  ButtonYrl,
+} from '../../../YrlNativeViewLibrary/'
 import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
-import { TagPropertyType, TagPropertyPropsOutType } from './TagPropertyType'
+import {
+  TagPropertyType,
+  TagPropertyPropsOutM1Type,
+  TagPropertyPropsOutType,
+} from './TagPropertyType'
 import { style } from './TagPropertyStyle'
 import { themes } from '../../Styles/themes'
 
@@ -25,10 +33,53 @@ const TagPropertyComponent: TagPropertyType = props => {
     testID = 'TagProperty',
   } = props
 
+  const propsOutM1: TagPropertyPropsOutM1Type = {
+    tooltipsLinkingButtonYrlProps: {
+      styleProps: {
+        ButtonYrl: {},
+        title: {
+          color: themes['themeA'].colors08.color,
+          textDecoration: 'underline',
+          paddingBottom: '0.5rem',
+        },
+      },
+      titleText: title,
+      testID: 'tooltip_buttonYrl',
+      disabled: false,
+      onPress: useLinkClickResYrl(linkHref),
+      iconProps: {
+        library: iconLibrary,
+        name: iconName,
+        styleProps: {
+          IconYrl: {
+            cursor: 'pointer',
+            paddingRight: '0.25rem',
+            paddingBottom: '0.25rem',
+          },
+        },
+        size: 16,
+        color: themes['themeA'].colors02.color,
+        testID: 'tooltipPopoverText',
+      },
+    },
+    tooltipsTextProps: {
+      styleProps: { Text: style.tooltipsText },
+      testID: 'tooltipPopoverText',
+    },
+  }
+
+  const tooltipsContent = (
+    <>
+      {' '}
+      <ButtonYrl {...propsOutM1.tooltipsLinkingButtonYrlProps} />
+      <Text {...propsOutM1.tooltipsTextProps}>{tooltips}</Text>
+    </>
+  )
+
   const propsOut: TagPropertyPropsOutType = {
     tooltipPopoverProps: {
       title: `<${title} />`,
-      content: tooltips,
+      children: tooltipsContent,
       linkHref,
       iconLibrary,
       iconName,

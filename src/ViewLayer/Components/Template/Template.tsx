@@ -16,7 +16,8 @@ import { styles } from './TemplateStyles'
 
 /**
  * @description Component to render
- * @import import { Template, TemplatePropsType, TemplatePropsOutType, TemplateType } from '../Components/Template/Template'
+ * @import import { Template, TemplatePropsType, TemplatePropsOutType, TemplateType } 
+             from '../Components/Template/Template'
  */
 const TemplateComponent: TemplateType = props => {
   const { styleProps = { Template: {} }, mediaParams = mediaParamsDefault } =

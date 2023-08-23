@@ -9,11 +9,6 @@ export const stylesDefault = StyleSheet.create({
   scrollView: {
     marginHorizontal: 20,
   },
-  text: {
-    paddingBottom: '1rem',
-    userSelect: 'text',
-    cursor: 'text',
-  },
 })
 
 const xsDevice = StyleSheet.create({

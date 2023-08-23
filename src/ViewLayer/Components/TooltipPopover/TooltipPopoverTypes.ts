@@ -1,13 +1,10 @@
+import { ReactElement } from 'react'
 import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 
 export interface TooltipPopoverPropsType {
-  title?: string
-  content: string
-  linkHref?: string
-  iconLibrary?: string
-  iconName?: string
-  styleProps?: any
+  children: string | ReactElement
   mediaParams?: MediaParamsDefaultType
+  styleProps?: any
   testID: string
 }
 

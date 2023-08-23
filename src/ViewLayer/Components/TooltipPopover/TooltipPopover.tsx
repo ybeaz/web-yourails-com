@@ -23,7 +23,7 @@ import { styles } from './TooltipPopoverStyles'
   tooltipPopoverProps: {
     styleProps: { TooltipPopover: {}, scrollView: {}, text: {} },
     title: 'string',
-    content: 'string',
+    children: 'string | ReactEelement',
     linkHref: 'string',
     iconLibrary: 'string',
     iconName: 'string',
@@ -32,52 +32,13 @@ import { styles } from './TooltipPopoverStyles'
  */
 const TooltipPopoverComponent: TooltipPopoverType = props => {
   const {
-    title,
-    content,
-    linkHref,
-    iconLibrary,
-    iconName,
+    children,
     testID,
     styleProps = { TooltipPopover: {} },
     mediaParams = mediaParamsDefault,
   } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
-
-  const propsOut: TooltipPopoverPropsOutType = {
-    buttonYrlLinkingProps: {
-      styleProps: {
-        ButtonYrl: {},
-        title: {
-          color: themes['themeA'].colors08.color,
-          textDecoration: 'underline',
-          paddingBottom: '0.5rem',
-        },
-      },
-      titleText: title,
-      testID: 'tooltip_buttonYrl',
-      disabled: false,
-      onPress: useLinkClickResYrl(linkHref),
-      iconProps: {
-        library: iconLibrary,
-        name: iconName,
-        styleProps: {
-          IconYrl: {
-            cursor: 'pointer',
-            paddingRight: '0.25rem',
-            paddingBottom: '0.25rem',
-          },
-        },
-        size: 16,
-        color: themes['themeA'].colors02.color,
-        testID: 'tooltipPopoverText',
-      },
-    },
-    textProps: {
-      styleProps: { Text: style.text },
-      testID: 'tooltipPopoverText',
-    },
-  }
 
   return (
     <View
@@ -88,10 +49,7 @@ const TooltipPopoverComponent: TooltipPopoverType = props => {
         style={[style.scrollView, styleProps.scrollView]}
         testID={'scrollView'}
       >
-        <ButtonYrl {...propsOut.buttonYrlLinkingProps} />
-        <Text styleProps={{ Text: style.text }} testID={'text'}>
-          {content}
-        </Text>
+        {children}
       </ScrollView>
     </View>
   )

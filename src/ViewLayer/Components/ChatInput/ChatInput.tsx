@@ -86,11 +86,7 @@ const ChatInputComponent: ChatInputType = props => {
       testID: 'tooltip_IconYrl',
     },
     tooltipPopoverProps: {
-      title: undefined,
-      content: 'tooltips',
-      linkHref: undefined,
-      iconLibrary: undefined,
-      iconName: undefined,
+      children: 'tooltips',
       testID: `tooltip_chatInput`,
     },
     controlledTooltipProps: {
