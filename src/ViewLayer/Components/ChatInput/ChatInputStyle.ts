@@ -42,10 +42,12 @@ export const stylesDefault = StyleSheet.create({
     right: 0,
     top: '0.5rem',
   },
-  promptExamplesWrapper: {
+  tooltipsWrapper: {
+    alignSelf: 'flex-start',
+  },
+  tooltipTitleWrapper: {
     flexDirection: 'row',
     paddingBottom: '0.3rem',
-    alignItems: 'center',
   },
 })
 

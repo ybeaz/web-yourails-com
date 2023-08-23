@@ -10,10 +10,15 @@ import {
   withPropsYrl,
   mediaParamsDefault,
   withParamsMediaYrl,
+  TooltipYrl,
 } from '../../../YrlNativeViewLibrary'
 import { TooltipPopover } from '../TooltipPopover/TooltipPopover'
 import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
-import { ChatInputType, ChatInputPropsOutType } from './ChatInputType'
+import {
+  ChatInputType,
+  ChatInputPropsOutM1Type,
+  ChatInputPropsOutType,
+} from './ChatInputType'
 import { styles } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
@@ -32,6 +37,38 @@ const ChatInputComponent: ChatInputType = props => {
   const style = styles[deviceType]
 
   const profileActive = getProfileByIdProfile(profiles, idProfileActive)
+
+  const propsOutM1: ChatInputPropsOutM1Type = {
+    tooltipTitleWrapperProps: {
+      style: [style.tooltipTitleWrapper],
+      testID: 'tooltipTitleWrapper',
+    },
+    tooltipPopoverIconProps: {
+      library: 'Ionicons',
+      name: 'pencil-outline',
+      styleProps: {
+        IconYrl: {
+          cursor: 'pointer',
+          paddingRight: '0.25rem',
+        },
+      },
+      size: 16,
+      color: themes['themeA'].colors02.color,
+      testID: 'tooltip_IconYrl',
+    },
+  }
+
+  const tooltipTitlePromptExample = (
+    <View {...propsOutM1.tooltipTitleWrapperProps}>
+      <IconYrl {...propsOutM1.tooltipPopoverIconProps} />
+      <TextRrneui
+        style={[style.titleText, { color: themes['themeA'].colors08.color }]}
+        testID='tooltipTitle'
+      >
+        Prompt Examples
+      </TextRrneui>
+    </View>
+  )
 
   const propsOut: ChatInputPropsOutType = {
     // const propsOut: Record<string, any> = {
@@ -72,58 +109,29 @@ const ChatInputComponent: ChatInputType = props => {
       color: themes['themeA'].colors02.color,
       testID: 'chatInput_IconYrl_search',
     },
-    tooltipPopoverIconProps: {
-      library: 'Ionicons',
-      name: 'pencil-outline',
-      styleProps: {
-        IconYrl: {
-          cursor: 'pointer',
-          paddingRight: '0.25rem',
-        },
-      },
-      size: 16,
-      color: themes['themeA'].colors02.color,
-      testID: 'tooltip_IconYrl',
-    },
-    tooltipPopoverProps: {
-      children: 'tooltips',
-      testID: `tooltip_chatInput`,
-    },
-    controlledTooltipProps: {
-      ModalComponent: Modal,
+    tooltipPromptExamples: {
       backgroundColor: themes['themeA'].colors09.backgroundColor,
-      containerStyle: [style.tooltip_container],
-      withOverlay: true,
-      withPointer: true,
-      testID: 'controlledTooltipPromptExample',
+      children: (
+        <View {...propsOutM1.tooltipTitleWrapperProps}>
+          <TextRrneui>tooltips</TextRrneui>
+        </View>
+      ),
+      styleProps: {
+        TooltipYrl: {},
+        iconTextWrapper: {},
+        titleText: [{ color: themes['themeA'].colors08.color }],
+      },
+      testID: `tooltipPromptExample`,
+      tooltipTitle: tooltipTitlePromptExample,
     },
   }
 
   return (
     <View style={[style.ChatInput]} testID='ChatInput'>
-      <View style={{ alignSelf: 'flex-start' }}>
-        <ControlledTooltip
-          {...propsOut.controlledTooltipProps}
-          popover={<TooltipPopover {...propsOut.tooltipPopoverProps} />}
-        >
-          <View
-            style={style.promptExamplesWrapper}
-            testID='promptExamplesWrapper'
-          >
-            <IconYrl {...propsOut.tooltipPopoverIconProps} />
-            <TextRrneui
-              style={[
-                style.titleText,
-                { color: themes['themeA'].colors08.color },
-              ]}
-              testID='tooltipTitle'
-            >
-              Prompt Examples
-            </TextRrneui>
-          </View>
-        </ControlledTooltip>
+      <View style={[style.tooltipsWrapper]} testID='tooltipsWrapper'>
+        <TooltipYrl {...propsOut.tooltipPromptExamples} />
       </View>
-      <View style={[style.inputButton]} testID='ChatInput_inputButton'>
+      <View style={[style.inputButton]} testID='inputButton'>
         <InputTextYrl {...propsOut.inputTextYrlProps} />
         <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
           <ButtonYrl {...propsOut.sendButtonYrlProps}>

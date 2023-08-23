@@ -1,16 +1,13 @@
 import React from 'react'
-import { View, Modal } from 'react-native'
+import { View } from 'react-native'
 
-import { TooltipPopover } from '../TooltipPopover/TooltipPopover'
 import { Text } from '../Text/Text'
 import {
   IconYrl,
   useLinkClickResYrl,
   ButtonYrl,
   TooltipYrl,
-  TooltipYrlPropsType,
 } from '../../../YrlNativeViewLibrary/'
-import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
 import {
   TagPropertyType,
   TagPropertyPropsOutM1Type,
@@ -98,7 +95,7 @@ const TagPropertyComponent: TagPropertyType = props => {
   )
 
   const propsOut: TagPropertyPropsOutType = {
-    TooltipYrlProps: {
+    tooltipYrlProps: {
       backgroundColor: themes['themeA'].colors09.backgroundColor,
       children: tooltipsContent,
       styleProps: {
@@ -112,41 +109,11 @@ const TagPropertyComponent: TagPropertyType = props => {
       testID: `tooltip_${title}_${id}`,
       tooltipTitle: tooltipsTitle,
     },
-    tooltipPopoverProps: {
-      title: `<${title} />`,
-      children: tooltipsContent,
-      linkHref,
-      iconLibrary,
-      iconName,
-      testID: `tooltip_${title}_${id}`,
-    },
   }
 
   return (
     <View style={[style.TagProperty, styleProps.TagProperty]} testID={testID}>
-      <TooltipYrl {...propsOut.TooltipYrlProps} />
-      {/* <ControlledTooltip
-        ModalComponent={Modal}
-        backgroundColor={themes['themeA'].colors09.backgroundColor}
-        popover={<TooltipPopover {...propsOut.tooltipPopoverProps} />}
-        containerStyle={[style.tooltip_container]}
-        withOverlay={true}
-        withPointer={true}
-        testID='controlledTooltip'
-      >
-        <View style={style.tagIconTextWrapper} testID='tagIconTextWrapper'>
-          <Text
-            style={[
-              style.titleText,
-              { color: themes['themeA'].colors08.color },
-            ]}
-            testID='tagIconText'
-          >
-            {iconLibrary && iconName && <IconYrl {...propsOut.iconProps} />}
-            {title}
-          </Text>
-        </View>
-      </ControlledTooltip> */}
+      <TooltipYrl {...propsOut.tooltipYrlProps} />
     </View>
   )
 }

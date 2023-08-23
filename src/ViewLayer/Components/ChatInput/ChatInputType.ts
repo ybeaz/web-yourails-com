@@ -7,6 +7,7 @@ import {
   ButtonYrlPropsType,
   IconYrlPropsType,
   MediaParamsDefaultType,
+  TooltipYrlPropsType,
 } from '../../../YrlNativeViewLibrary'
 
 export interface ChatInputPropsType {
@@ -17,16 +18,19 @@ export interface ChatInputPropsType {
   mediaParams?: MediaParamsDefaultType
 }
 
+export type ChatInputPropsOutM1Type = {
+  tooltipTitleWrapperProps: {
+    style: any
+    testID: string
+  }
+  tooltipPopoverIconProps: IconYrlPropsType
+}
+
 export type ChatInputPropsOutType = {
   inputTextYrlProps: InputTextYrlPropsType
   sendButtonYrlProps: ButtonYrlPropsType
   sendIconYrlProps: IconYrlPropsType
-  tooltipPopoverIconProps: IconYrlPropsType
-  tooltipPopoverProps: TooltipPopoverPropsOutType
-  controlledTooltipProps: Omit<
-    ControlledTooltipPropsType,
-    'children' | 'popover'
-  >
+  tooltipPromptExamples: TooltipYrlPropsType
 }
 
 /**

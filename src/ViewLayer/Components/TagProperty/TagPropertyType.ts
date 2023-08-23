@@ -24,8 +24,7 @@ export type TagPropertyPropsOutM1Type = {
 }
 
 export type TagPropertyPropsOutType = {
-  TooltipYrlProps: TooltipYrlPropsType
-  tooltipPopoverProps: TooltipPopoverPropsOutType
+  tooltipYrlProps: TooltipYrlPropsType
 }
 
 /**

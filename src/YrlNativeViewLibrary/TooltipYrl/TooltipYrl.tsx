@@ -13,6 +13,7 @@ import { ControlledTooltip } from '../../ViewLayer/Components/ControlledTooltip/
 
 /**
  * @import import { TooltipYrl, TooltipYrlPropsType } from './YrlNativeViewLibrary'
+ * @link https://reactnativeelements.com/docs/components/tooltip
  * @propsOut
   TooltipYrlProps: {
     backgroundColor: 'string',
