@@ -3,32 +3,32 @@ import { View, Modal } from 'react-native'
 import { Tooltip, Text as TextRrneui } from '@rneui/themed'
 import { IconYrl, TooltipPopoverYrl } from '../'
 import {
-  TooltipsYrlPropsType,
+  TooltipYrlPropsType,
   TooltipsPropsOutYrlType,
-  TooltipsYrlType,
-} from './TooltipsYrlType'
-import { TooltipsYrlStyle as style } from './TooltipsYrlStyle'
+  TooltipYrlType,
+} from './TooltipYrlType'
+import { TooltipYrlStyle as style } from './TooltipYrlStyle'
 
 import { ControlledTooltip } from '../../ViewLayer/Components/ControlledTooltip/ControlledTooltip'
 
 /**
- * @import import { TooltipsYrl, TooltipsYrlPropsType } from './YrlNativeViewLibrary'
+ * @import import { TooltipYrl, TooltipYrlPropsType } from './YrlNativeViewLibrary'
  * @propsOut
-  TooltipsYrlProps: {
+  TooltipYrlProps: {
     backgroundColor: 'string',
     children: 'string | ReactElement',
-    styleProps: { TooltipsYrl: {}, iconTextWrapper:{}, titleText: {} },
-    testID: 'tooltipsYrl',
+    styleProps: { TooltipYrl: {}, iconTextWrapper:{}, titleText: {} },
+    testID: 'TooltipYrl',
     tooltipTitle: 'string | ReactElement',
   }
  */
-export const TooltipsYrl: TooltipsYrlType = props => {
+export const TooltipYrl: TooltipYrlType = props => {
   const {
     backgroundColor,
-    styleProps = { TooltipsYrl: {}, iconTextWrapper: {}, titleText: {} },
+    styleProps = { TooltipYrl: {}, iconTextWrapper: {}, titleText: {} },
     tooltipTitle,
     children,
-    testID = 'TooltipsYrl',
+    testID = 'TooltipYrl',
   } = props
 
   const [open, setOpen] = React.useState(false)
@@ -37,7 +37,7 @@ export const TooltipsYrl: TooltipsYrlType = props => {
     tooltipProps: {
       ModalComponent: Modal,
       backgroundColor,
-      containerStyle: styleProps.TooltipsYrl,
+      containerStyle: styleProps.TooltipYrl,
       withOverlay: true,
       withPointer: true,
       testID,
@@ -66,4 +66,4 @@ export const TooltipsYrl: TooltipsYrlType = props => {
   )
 }
 
-export type { TooltipsYrlPropsType, TooltipsPropsOutYrlType, TooltipsYrlType }
+export type { TooltipYrlPropsType, TooltipsPropsOutYrlType, TooltipYrlType }

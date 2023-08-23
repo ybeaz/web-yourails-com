@@ -1,7 +1,7 @@
 import {
   IconYrlPropsType,
   ButtonYrlPropsType,
-  TooltipsYrlPropsType,
+  TooltipYrlPropsType,
 } from '../../../YrlNativeViewLibrary/'
 import { TooltipPopoverPropsOutType } from '../TooltipPopover/TooltipPopover'
 import { TextPropsType } from '../Text/Text'
@@ -24,7 +24,7 @@ export type TagPropertyPropsOutM1Type = {
 }
 
 export type TagPropertyPropsOutType = {
-  tooltipsYrlProps: TooltipsYrlPropsType
+  TooltipYrlProps: TooltipYrlPropsType
   tooltipPopoverProps: TooltipPopoverPropsOutType
 }
 

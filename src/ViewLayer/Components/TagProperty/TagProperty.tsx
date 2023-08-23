@@ -7,8 +7,8 @@ import {
   IconYrl,
   useLinkClickResYrl,
   ButtonYrl,
-  TooltipsYrl,
-  TooltipsYrlPropsType,
+  TooltipYrl,
+  TooltipYrlPropsType,
 } from '../../../YrlNativeViewLibrary/'
 import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
 import {
@@ -98,11 +98,11 @@ const TagPropertyComponent: TagPropertyType = props => {
   )
 
   const propsOut: TagPropertyPropsOutType = {
-    tooltipsYrlProps: {
+    TooltipYrlProps: {
       backgroundColor: themes['themeA'].colors09.backgroundColor,
       children: tooltipsContent,
       styleProps: {
-        TooltipsYrl: style.tooltip_container,
+        TooltipYrl: style.tooltip_container,
         iconTextWrapper: style.tagIconTextWrapper,
         titleText: [
           style.titleText,
@@ -124,7 +124,7 @@ const TagPropertyComponent: TagPropertyType = props => {
 
   return (
     <View style={[style.TagProperty, styleProps.TagProperty]} testID={testID}>
-      <TooltipsYrl {...propsOut.tooltipsYrlProps} />
+      <TooltipYrl {...propsOut.TooltipYrlProps} />
       {/* <ControlledTooltip
         ModalComponent={Modal}
         backgroundColor={themes['themeA'].colors09.backgroundColor}
