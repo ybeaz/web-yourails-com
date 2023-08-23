@@ -17,6 +17,7 @@ import {
   ChatInputPropsOutM1Type,
   ChatInputPropsOutType,
 } from './ChatInputType'
+import { PromptExamples } from '../PromptExamples/PromptExamples'
 import { styles } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
@@ -54,9 +55,12 @@ const ChatInputComponent: ChatInputType = props => {
       color: themes['themeA'].colors02.color,
       testID: 'tooltip_IconYrl',
     },
+    promptExamplesProps: {
+      promptExamples: profileActive?.promptExamples,
+    },
   }
 
-  const tooltipTitlePromptExample = (
+  const tooltipTitlePromptExamples = profileActive?.promptExamples?.length ? (
     <View {...propsOutM1.tooltipTitleWrapperProps}>
       <IconYrl {...propsOutM1.tooltipPopoverIconProps} />
       <TextRrneui
@@ -66,7 +70,7 @@ const ChatInputComponent: ChatInputType = props => {
         Prompt Examples
       </TextRrneui>
     </View>
-  )
+  ) : null
 
   const propsOut: ChatInputPropsOutType = {
     // const propsOut: Record<string, any> = {
@@ -109,18 +113,14 @@ const ChatInputComponent: ChatInputType = props => {
     },
     tooltipPromptExamples: {
       backgroundColor: themes['themeA'].colors09.backgroundColor,
-      children: (
-        <View {...propsOutM1.tooltipTitleWrapperProps}>
-          <TextRrneui>tooltips</TextRrneui>
-        </View>
-      ),
+      children: <PromptExamples {...propsOutM1.promptExamplesProps} />,
       styleProps: {
         TooltipYrl: {},
         iconTextWrapper: {},
         titleText: [{ color: themes['themeA'].colors08.color }],
       },
       testID: `tooltipPromptExample`,
-      tooltipTitle: tooltipTitlePromptExample,
+      tooltipTitle: tooltipTitlePromptExamples,
     },
   }
 

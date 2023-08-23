@@ -8,9 +8,10 @@ import {
 import { Text } from '../../Components/Text/Text'
 import { themes } from '../../Styles/themes'
 import {
-  TemplateType,
   TemplatePropsType,
   TemplatePropsOutType,
+  TemplateComponentType,
+  TemplateType,
 } from './TemplateTypes'
 import { styles } from './TemplateStyles'
 
@@ -19,7 +20,7 @@ import { styles } from './TemplateStyles'
  * @import import { Template, TemplatePropsType, TemplatePropsOutType, TemplateType } 
              from '../Components/Template/Template'
  */
-const TemplateComponent: TemplateType = props => {
+const TemplateComponent: TemplateComponentType = props => {
   const { styleProps = { Template: {} }, mediaParams = mediaParamsDefault } =
     props
   const { deviceType, screenCase, width, height } = mediaParams
@@ -34,5 +35,12 @@ const TemplateComponent: TemplateType = props => {
   )
 }
 
-export const Template = React.memo(withParamsMediaYrl(TemplateComponent))
-export type { TemplatePropsType, TemplatePropsOutType, TemplateType }
+export const Template: TemplateType = React.memo(
+  withParamsMediaYrl(TemplateComponent)
+)
+export type {
+  TemplatePropsType,
+  TemplatePropsOutType,
+  TemplateComponentType,
+  TemplateType,
+}

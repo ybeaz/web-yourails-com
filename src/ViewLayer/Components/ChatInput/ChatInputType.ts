@@ -7,6 +7,7 @@ import {
   MediaParamsDefaultType,
   TooltipYrlPropsType,
 } from '../../../YrlNativeViewLibrary'
+import { PromptExamplesPropsType } from '../PromptExamples/PromptExamples'
 
 export interface ChatInputPropsType {
   handleEvents: HandleEventsType
@@ -22,6 +23,7 @@ export type ChatInputPropsOutM1Type = {
     testID: string
   }
   tooltipPopoverIconProps: IconYrlPropsType
+  promptExamplesProps: PromptExamplesPropsType
 }
 
 export type ChatInputPropsOutType = {
