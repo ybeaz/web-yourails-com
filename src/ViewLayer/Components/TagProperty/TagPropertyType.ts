@@ -3,7 +3,6 @@ import {
   ButtonYrlPropsType,
   TooltipYrlPropsType,
 } from '../../../YrlNativeViewLibrary/'
-import { TooltipPopoverPropsOutType } from '../TooltipPopover/TooltipPopover'
 import { TextPropsType } from '../Text/Text'
 
 export interface TagPropertyPropsType {

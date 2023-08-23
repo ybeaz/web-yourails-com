@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Modal } from 'react-native'
+import { View } from 'react-native'
 import { Text as TextRrneui } from '@rneui/themed'
 
 import {
@@ -12,8 +12,6 @@ import {
   withParamsMediaYrl,
   TooltipYrl,
 } from '../../../YrlNativeViewLibrary'
-import { TooltipPopover } from '../TooltipPopover/TooltipPopover'
-import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
 import {
   ChatInputType,
   ChatInputPropsOutM1Type,

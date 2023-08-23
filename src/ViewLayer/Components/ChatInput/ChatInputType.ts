@@ -1,7 +1,5 @@
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 import { RootStoreType } from '../../../@types/RootStoreType'
-import { TooltipPopoverPropsOutType } from '../TooltipPopover/TooltipPopover'
-import { ControlledTooltipPropsType } from '../ControlledTooltip/ControlledTooltipType'
 import {
   InputTextYrlPropsType,
   ButtonYrlPropsType,

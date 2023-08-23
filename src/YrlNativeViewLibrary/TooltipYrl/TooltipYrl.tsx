@@ -1,15 +1,13 @@
 import React from 'react'
 import { View, Modal } from 'react-native'
-import { Tooltip, Text as TextRrneui } from '@rneui/themed'
-import { IconYrl, TooltipPopoverYrl } from '../'
+import { Tooltip } from '@rneui/themed'
+import { TooltipPopoverYrl } from '../'
 import {
   TooltipYrlPropsType,
   TooltipsPropsOutYrlType,
   TooltipYrlType,
 } from './TooltipYrlType'
 import { TooltipYrlStyle as style } from './TooltipYrlStyle'
-
-import { ControlledTooltip } from '../../ViewLayer/Components/ControlledTooltip/ControlledTooltip'
 
 /**
  * @import import { TooltipYrl, TooltipYrlPropsType } from './YrlNativeViewLibrary'

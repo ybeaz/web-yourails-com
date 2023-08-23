@@ -43,7 +43,7 @@ export const stylesDefault = StyleSheet.create({
     top: '0.5rem',
   },
   tooltipsWrapper: {
-    alignSelf: 'flex-start',
+    alignSelf: 'flex-end',
   },
   tooltipTitleWrapper: {
     flexDirection: 'row',
