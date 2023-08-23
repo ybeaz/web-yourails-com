@@ -24,6 +24,12 @@ import {
   ModalFrameYrlPropsType,
   ModalFrameYrlType as ModalFrameYrlTypeIndex,
 } from './ModalFrameYrl/ModalFrameYrlType'
+import {
+  TooltipPopoverYrl,
+  TooltipPopoverYrlType,
+  TooltipPopoverYrlPropsType,
+} from './TooltipPopoverYrl/TooltipPopoverYrl'
+import { TooltipsYrl, TooltipsYrlPropsType } from './TooltipsYrl/TooltipsYrl'
 
 import {
   useAnimatedYrl,
@@ -116,6 +122,9 @@ export type {
   LoaderOverlayYrlType,
   ModalFrameYrlPropsType,
   ModalFrameYrlTypeIndex as ModalFrameYrlType,
+  TooltipPopoverYrlType,
+  TooltipPopoverYrlPropsType,
+  TooltipsYrlPropsType,
 }
 
 export {
@@ -126,6 +135,8 @@ export {
   InputTextYrl,
   LoaderOverlayYrl,
   ModalFrameYrl,
+  TooltipPopoverYrl,
+  TooltipsYrl,
 }
 
 // export {
