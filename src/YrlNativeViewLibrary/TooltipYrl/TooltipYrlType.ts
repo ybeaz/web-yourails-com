@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import { ReactElement, Dispatch, SetStateAction } from 'react'
 
 /**
  * TooltipYrlType and TooltipYrlProps Interface
@@ -14,6 +14,8 @@ export interface TooltipYrlPropsType {
     TooltipPopoverYrl?: any
   }
   testID: string
+  setIsVisibleProp?: Dispatch<SetStateAction<boolean>>
+  isVisibleProp?: boolean
   titleText: string | ReactElement | undefined | null
 }
 

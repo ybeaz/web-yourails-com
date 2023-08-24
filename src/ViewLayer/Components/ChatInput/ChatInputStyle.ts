@@ -10,7 +10,6 @@ export const stylesDefault = StyleSheet.create({
     paddingLeft: '10%',
     paddingRight: '10%',
     paddingBottom: '1rem',
-    border: '1px solid blue',
   },
   inputButton: {
     justifyContent: 'flex-end',
@@ -23,6 +22,7 @@ export const stylesDefault = StyleSheet.create({
     paddingRight: '2rem',
   },
   inputTextResize: {
+    borderRadius: 10,
     maxWidth: '80vw',
     maxHeight: '75vh',
     resize: 'both',
@@ -56,15 +56,13 @@ export const stylesDefault = StyleSheet.create({
   tooltip_container: {
     width: 'auto',
     height: 'auto',
-    border: '1px solid red',
-    // top: 0,
-    // right: 20,
+    right: 20,
   },
   tooltip_iconTextWrapper: {
     maxHeight: 350,
   },
   tooltip_titleText: {
-    marginHorizontal: 20,
+    marginHorizontal: 5,
   },
   tooltip_tooltipPopover: {
     width: '100%;',
@@ -86,9 +84,11 @@ const mdDevice = StyleSheet.create({
 const lgDevice = StyleSheet.create({
   ...stylesDefault,
   inputText: {
+    borderRadius: 10,
     width: '50vw',
   },
   inputTextResize: {
+    borderRadius: 10,
     maxWidth: '50vw',
     maxHeight: '75vh',
     resize: 'both',

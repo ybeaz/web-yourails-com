@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View } from 'react-native'
 import { Text as TextRrneui } from '@rneui/themed'
 
@@ -32,8 +32,18 @@ const ChatInputComponent: ChatInputType = props => {
     forms: { inputChat },
   } = store
 
-  const { deviceType } = mediaParams
+  const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
+
+  const [promptExamplesHeightState, setPromptExamplesHeightState] = useState(32)
+  const [isVisiblePropState, setisVisiblePropState] = useState(false)
+
+  const onHeightChange = (height: number): void => {
+    setPromptExamplesHeightState(height)
+  }
+  const onPromptExampleClick = (): void => {
+    setisVisiblePropState(false)
+  }
 
   const profileActive = getProfileByIdProfile(profiles, idProfileActive)
 
@@ -58,6 +68,8 @@ const ChatInputComponent: ChatInputType = props => {
     promptExamplesProps: {
       styleProps: {},
       promptExamples: profileActive?.promptExamples,
+      onHeightChange,
+      onPromptExampleClick,
     },
   }
 
@@ -73,8 +85,10 @@ const ChatInputComponent: ChatInputType = props => {
     </View>
   ) : null
 
+  const tooltipContainerStyleTop: number =
+    height - 83 - promptExamplesHeightState
+
   const propsOut: ChatInputPropsOutType = {
-    // const propsOut: Record<string, any> = {
     inputTextYrlProps: {
       onChangeText: (text: string) =>
         handleEvents.ON_CHANGE_INPUT_CHAT({}, { idProfileActive, text }),
@@ -122,9 +136,14 @@ const ChatInputComponent: ChatInputType = props => {
           style.tooltip_titleText,
           { color: themes['themeA'].colors08.color },
         ],
-        containerStyle: style.tooltip_container,
+        containerStyle: {
+          ...style.tooltip_container,
+          top: tooltipContainerStyleTop,
+        },
         TooltipPopoverYrl: style.tooltip_tooltipPopover,
       },
+      setIsVisibleProp: setisVisiblePropState,
+      isVisibleProp: isVisiblePropState,
       testID: `tooltipPromptExample`,
       titleText: tooltipTitlePromptExamples,
     },

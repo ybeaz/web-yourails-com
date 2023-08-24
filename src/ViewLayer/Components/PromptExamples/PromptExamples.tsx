@@ -1,10 +1,11 @@
-import React from 'react'
-import { View } from 'react-native'
+import React, { ReactElement } from 'react'
+import { View, ScrollView } from 'react-native'
 import { nanoid } from 'nanoid'
 
 import {
   withParamsMediaYrl,
   mediaParamsDefault,
+  ButtonYrl,
 } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
 import { themes } from '../../Styles/themes'
@@ -25,41 +26,73 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
   const {
     styleProps = {
       PromptExamples: {},
-      promptExampleView: {},
+      scrollView: {},
       promptExampleText: {},
     },
     mediaParams = mediaParamsDefault,
     promptExamples,
+    onHeightChange,
+    onPromptExampleClick,
   } = props
   const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
 
-  const propsOut: PromptExamplesPropsOutType = {}
+  const handleLayout = (event: any) => {
+    const { height } = event.nativeEvent.layout
+    onHeightChange(height)
+  }
 
   return (
     <View
       style={[style.PromptExamples, styleProps.PromptExamples]}
+      onLayout={(event: any) => handleLayout(event)}
       testID='PromptExamples'
     >
-      {promptExamples?.map((promptExample: string) => {
-        const key = nanoid()
-        return (
-          <View
-            key={key}
-            style={[style.promptExampleView, styleProps.promptExampleView]}
-            testID='PromptExampleView'
-          >
+      <ScrollView
+        style={[style.scrollView, styleProps.scrollView]}
+        testID='scrollView'
+      >
+        {promptExamples?.map((promptExample: string, index: number) => {
+          const key = nanoid()
+
+          const titleText: ReactElement = (
             <Text
+              key={key}
               style={[style.promptExampleText, styleProps.promptExampleText]}
               ellipsizeMode='tail'
               numberOfLines={2}
               testID='PromptExampleText'
             >
-              {promptExample}
+              {`${index + 1}. ${promptExample}`}
             </Text>
-          </View>
-        )
-      })}
+          )
+
+          const propsOut: PromptExamplesPropsOutType = {
+            tooltipsLinkingButtonYrlProps: {
+              key,
+              styleProps: {
+                ButtonYrl: {},
+                title: {
+                  color: themes['themeA'].colors08.color,
+                  textDecoration: 'underline',
+                  paddingBottom: '0.5rem',
+                },
+              },
+              titleText,
+              testID: 'tooltipButtonYrl',
+              disabled: false,
+              onPress: () => {
+                onPromptExampleClick()
+                console.info('PromptExamples [56]')
+                // STOPPED HERE. Need to add action to add prompt to the input
+              },
+              iconProps: undefined,
+            },
+          }
+
+          return <ButtonYrl {...propsOut.tooltipsLinkingButtonYrlProps} />
+        })}
+      </ScrollView>
     </View>
   )
 }

@@ -6,7 +6,11 @@ export const stylesDefault = StyleSheet.create({
     ...styleGlobal.typography,
     flexDirection: 'column',
   },
-  promptExampleView: {},
+  scrollView: {
+    marginHorizontal: 10,
+    height: 'fit-content',
+    maxHeight: 350,
+  },
   promptExampleText: {},
 })
 

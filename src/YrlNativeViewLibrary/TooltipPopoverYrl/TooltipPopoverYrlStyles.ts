@@ -3,7 +3,9 @@ import { StyleSheet } from 'react-native'
 export const stylesDefault = StyleSheet.create({
   TooltipPopoverYrl: {},
   scrollView: {
-    marginHorizontal: 20,
+    marginHorizontal: 10,
+    height: 'fit-content',
+    maxHeight: 350,
   },
 })
 

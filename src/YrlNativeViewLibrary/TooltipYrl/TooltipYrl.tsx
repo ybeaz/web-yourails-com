@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Modal } from 'react-native'
 import { Tooltip, Text as TextRrneui } from '@rneui/themed'
 import { TooltipPopoverYrl } from '../'
@@ -34,9 +34,18 @@ export const TooltipYrl: TooltipYrlType = props => {
     titleText,
     children,
     testID = 'TooltipYrl',
+    setIsVisibleProp,
+    isVisibleProp = false,
   } = props
 
-  const [open, setOpen] = React.useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+
+  let isVisibleUsed = isVisible
+  let setIsVisibleUsed = setIsVisible
+  if (setIsVisibleProp && isVisibleProp !== undefined) {
+    isVisibleUsed = isVisibleProp
+    setIsVisibleUsed = setIsVisibleProp
+  }
 
   const propsOut: TooltipsPropsOutYrlType = {
     tooltipProps: {
@@ -58,9 +67,13 @@ export const TooltipYrl: TooltipYrlType = props => {
   return (
     <Tooltip
       {...propsOut.tooltipProps}
-      visible={open}
-      onOpen={() => setOpen(true)}
-      onClose={() => setOpen(false)}
+      visible={isVisibleUsed}
+      onOpen={() => {
+        setIsVisibleUsed(true)
+      }}
+      onClose={() => {
+        setIsVisibleUsed(false)
+      }}
       popover={<TooltipPopoverYrl {...propsOut.tooltipPopoverProps} />}
       testID='Tooltip'
     >

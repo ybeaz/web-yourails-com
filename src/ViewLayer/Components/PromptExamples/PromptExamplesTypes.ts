@@ -3,11 +3,13 @@ import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 export interface PromptExamplesPropsType {
   styleProps?: {
     PromptExamples?: any
-    promptExampleView?: any
+    scrollView?: any
     promptExampleText?: any
   }
   mediaParams?: MediaParamsDefaultType
   promptExamples?: string[]
+  onHeightChange: (height: number) => void
+  onPromptExampleClick: () => void
 }
 
 export type PromptExamplesPropsOutType = Record<string, any>

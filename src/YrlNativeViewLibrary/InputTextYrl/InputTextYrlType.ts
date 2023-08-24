@@ -26,7 +26,7 @@ export interface InputTextYrlPropsType {
   styleProps?: {
     InputTextYrl: Object
     inputText: Object
-    inputTextResize: Object
+    inputTextResize?: Object
   }
   testID: string
   value?: string
