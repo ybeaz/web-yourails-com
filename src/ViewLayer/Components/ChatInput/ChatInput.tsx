@@ -56,6 +56,7 @@ const ChatInputComponent: ChatInputType = props => {
       testID: 'tooltip_IconYrl',
     },
     promptExamplesProps: {
+      styleProps: {},
       promptExamples: profileActive?.promptExamples,
     },
   }
@@ -115,12 +116,17 @@ const ChatInputComponent: ChatInputType = props => {
       backgroundColor: themes['themeA'].colors09.backgroundColor,
       children: <PromptExamples {...propsOutM1.promptExamplesProps} />,
       styleProps: {
-        TooltipYrl: {},
-        iconTextWrapper: {},
-        titleText: [{ color: themes['themeA'].colors08.color }],
+        TooltipYrl: style.tooltip_TooltipYrl,
+        iconTextWrapper: style.tooltip_iconTextWrapper,
+        titleText: [
+          style.tooltip_titleText,
+          { color: themes['themeA'].colors08.color },
+        ],
+        containerStyle: style.tooltip_container,
+        TooltipPopoverYrl: style.tooltip_tooltipPopover,
       },
       testID: `tooltipPromptExample`,
-      tooltipTitle: tooltipTitlePromptExamples,
+      titleText: tooltipTitlePromptExamples,
     },
   }
 

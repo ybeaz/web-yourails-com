@@ -10,6 +10,7 @@ export const stylesDefault = StyleSheet.create({
     paddingLeft: '10%',
     paddingRight: '10%',
     paddingBottom: '1rem',
+    border: '1px solid blue',
   },
   inputButton: {
     justifyContent: 'flex-end',
@@ -43,11 +44,30 @@ export const stylesDefault = StyleSheet.create({
     top: '0.5rem',
   },
   tooltipsWrapper: {
+    justifyContent: 'flex-end',
     alignSelf: 'flex-end',
+    color: 'red',
   },
   tooltipTitleWrapper: {
     flexDirection: 'row',
     paddingBottom: '0.3rem',
+  },
+  tooltip_TooltipYrl: {},
+  tooltip_container: {
+    width: 'auto',
+    height: 'auto',
+    border: '1px solid red',
+    // top: 0,
+    // right: 20,
+  },
+  tooltip_iconTextWrapper: {
+    maxHeight: 350,
+  },
+  tooltip_titleText: {
+    marginHorizontal: 20,
+  },
+  tooltip_tooltipPopover: {
+    width: '100%;',
   },
 })
 

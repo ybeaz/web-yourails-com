@@ -2,9 +2,9 @@ import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 
 export interface PromptExamplesPropsType {
   styleProps?: {
-    PromptExamples: any
-    promptExampleView: any
-    promptExampleText: any
+    PromptExamples?: any
+    promptExampleView?: any
+    promptExampleText?: any
   }
   mediaParams?: MediaParamsDefaultType
   promptExamples?: string[]

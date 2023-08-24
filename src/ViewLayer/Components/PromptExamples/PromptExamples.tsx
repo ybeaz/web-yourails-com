@@ -1,5 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
+import { nanoid } from 'nanoid'
 
 import {
   withParamsMediaYrl,
@@ -41,13 +42,17 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
       testID='PromptExamples'
     >
       {promptExamples?.map((promptExample: string) => {
+        const key = nanoid()
         return (
           <View
+            key={key}
             style={[style.promptExampleView, styleProps.promptExampleView]}
             testID='PromptExampleView'
           >
             <Text
               style={[style.promptExampleText, styleProps.promptExampleText]}
+              ellipsizeMode='tail'
+              numberOfLines={2}
               testID='PromptExampleText'
             >
               {promptExample}

@@ -1,9 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 export const stylesDefault = StyleSheet.create({
-  TooltipPopoverYrl: {
-    flexDirection: 'column',
-  },
+  TooltipPopoverYrl: {},
   scrollView: {
     marginHorizontal: 20,
   },

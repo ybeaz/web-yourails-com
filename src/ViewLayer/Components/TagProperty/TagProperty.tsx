@@ -99,15 +99,16 @@ const TagPropertyComponent: TagPropertyType = props => {
       backgroundColor: themes['themeA'].colors09.backgroundColor,
       children: tooltipsContent,
       styleProps: {
-        TooltipYrl: style.tooltip_container,
+        TooltipYrl: {},
         iconTextWrapper: style.tagIconTextWrapper,
         titleText: [
           style.titleText,
           { color: themes['themeA'].colors08.color },
         ],
+        containerStyle: style.tooltip_container,
       },
       testID: `tooltip_${title}_${id}`,
-      tooltipTitle: tooltipsTitle,
+      titleText: tooltipsTitle,
     },
   }
 

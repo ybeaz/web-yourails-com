@@ -7,4 +7,5 @@ export const TooltipYrlStyle = StyleSheet.create({
   },
   iconTextWrapper: {},
   titleText: {},
+  containerStyle: {},
 })

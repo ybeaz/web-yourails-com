@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Modal } from 'react-native'
-import { Tooltip } from '@rneui/themed'
+import { Tooltip, Text as TextRrneui } from '@rneui/themed'
 import { TooltipPopoverYrl } from '../'
 import {
   TooltipYrlPropsType,
@@ -24,8 +24,14 @@ import { TooltipYrlStyle as style } from './TooltipYrlStyle'
 export const TooltipYrl: TooltipYrlType = props => {
   const {
     backgroundColor,
-    styleProps = { TooltipYrl: {}, iconTextWrapper: {}, titleText: {} },
-    tooltipTitle,
+    styleProps = {
+      TooltipYrl: {},
+      iconTextWrapper: {},
+      titleText: {},
+      containerStyle: {},
+      TooltipPopoverYrl: {},
+    },
+    titleText,
     children,
     testID = 'TooltipYrl',
   } = props
@@ -36,14 +42,16 @@ export const TooltipYrl: TooltipYrlType = props => {
     tooltipProps: {
       ModalComponent: Modal,
       backgroundColor,
-      containerStyle: styleProps.TooltipYrl,
+      style: styleProps.TooltipYrl,
+      containerStyle: styleProps.containerStyle,
       withOverlay: true,
       withPointer: true,
       testID,
     },
     tooltipPopoverProps: {
       children,
-      testID: `tooltip_chatInput`,
+      styleProps: { TooltipPopoverYrl: styleProps.TooltipPopoverYrl },
+      testID: `TooltipPopoverYrl`,
     },
   }
 
@@ -54,12 +62,18 @@ export const TooltipYrl: TooltipYrlType = props => {
       onOpen={() => setOpen(true)}
       onClose={() => setOpen(false)}
       popover={<TooltipPopoverYrl {...propsOut.tooltipPopoverProps} />}
+      testID='Tooltip'
     >
       <View
         style={[style.iconTextWrapper, styleProps.iconTextWrapper]}
-        testID='promptExamplesWrapper'
+        testID='tooltiptViewWrapper'
       >
-        {tooltipTitle}
+        <TextRrneui
+          style={[style.titleText, styleProps.titleText]}
+          testID='tooltipTitleText'
+        >
+          {titleText}
+        </TextRrneui>
       </View>
     </Tooltip>
   )

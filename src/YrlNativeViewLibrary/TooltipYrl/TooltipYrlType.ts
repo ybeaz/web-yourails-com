@@ -6,9 +6,15 @@ import { ReactElement } from 'react'
 export interface TooltipYrlPropsType {
   backgroundColor: string
   children: string | ReactElement | undefined | null
-  styleProps?: { TooltipYrl: any; iconTextWrapper: any; titleText: any }
+  styleProps?: {
+    TooltipYrl: any
+    iconTextWrapper: any
+    titleText: any
+    containerStyle?: any
+    TooltipPopoverYrl?: any
+  }
   testID: string
-  tooltipTitle: string | ReactElement | undefined | null
+  titleText: string | ReactElement | undefined | null
 }
 
 export type TooltipsPropsOutYrlType = Record<string, any>

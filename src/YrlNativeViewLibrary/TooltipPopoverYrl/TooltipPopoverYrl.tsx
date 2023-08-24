@@ -1,7 +1,6 @@
 import React from 'react'
 import { ScrollView, View } from 'react-native'
-
-import { withParamsMediaYrl, mediaParamsDefault } from '../'
+import { mediaParamsDefault } from '../'
 
 import {
   TooltipPopoverYrlPropsType,
@@ -41,7 +40,7 @@ export const TooltipPopoverYrl: TooltipPopoverYrlType = props => {
     >
       <ScrollView
         style={[style.scrollView, styleProps.scrollView]}
-        testID={'scrollView'}
+        testID='tooltipPopoverYrlScrollView'
       >
         {children}
       </ScrollView>
