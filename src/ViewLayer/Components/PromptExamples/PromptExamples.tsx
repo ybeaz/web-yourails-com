@@ -61,7 +61,7 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
               style={[style.promptExampleText, styleProps.promptExampleText]}
               ellipsizeMode='tail'
               numberOfLines={2}
-              testID='PromptExampleText'
+              testID='text'
             >
               {`${index + 1}. ${promptExample}`}
             </Text>
@@ -74,7 +74,6 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
                 ButtonYrl: {},
                 title: {
                   color: themes['themeA'].colors08.color,
-                  textDecoration: 'underline',
                   paddingBottom: '0.5rem',
                 },
               },
