@@ -23,7 +23,7 @@ export type ChatInputPropsOutM1Type = {
     testID: string
   }
   tooltipPopoverIconProps: IconYrlPropsType
-  promptExamplesProps: PromptExamplesPropsType
+  promptExamplesProps: Omit<PromptExamplesPropsType, 'handleEvents'>
 }
 
 export type ChatInputPropsOutType = {

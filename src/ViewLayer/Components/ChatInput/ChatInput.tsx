@@ -32,15 +32,21 @@ const ChatInputComponent: ChatInputType = props => {
     forms: { inputChat },
   } = store
 
-  const { deviceType, screenCase, width, height } = mediaParams
+  const { deviceType, height } = mediaParams
   const style = styles[deviceType]
 
   const [promptExamplesHeightState, setPromptExamplesHeightState] = useState(32)
+  const [inputTextYrlHeightState, setInputTextYrlHeightState] = useState(32)
   const [isVisiblePropState, setisVisiblePropState] = useState(false)
 
-  const onHeightChange = (height: number): void => {
+  const onPromptExampleHeightChange = (height: number): void => {
     setPromptExamplesHeightState(height)
   }
+
+  const onInputTextYrlHeightChange = (height: number): void => {
+    setInputTextYrlHeightState(height)
+  }
+
   const onPromptExampleClick = (): void => {
     setisVisiblePropState(false)
   }
@@ -68,8 +74,9 @@ const ChatInputComponent: ChatInputType = props => {
     promptExamplesProps: {
       styleProps: {},
       promptExamples: profileActive?.promptExamples,
-      onHeightChange,
+      onHeightChange: onPromptExampleHeightChange,
       onPromptExampleClick,
+      idProfileActive,
     },
   }
 
@@ -86,7 +93,7 @@ const ChatInputComponent: ChatInputType = props => {
   ) : null
 
   const tooltipContainerStyleTop: number =
-    height - 83 - promptExamplesHeightState
+    height - 70 - inputTextYrlHeightState - promptExamplesHeightState
 
   const propsOut: ChatInputPropsOutType = {
     inputTextYrlProps: {
@@ -94,6 +101,7 @@ const ChatInputComponent: ChatInputType = props => {
         handleEvents.ON_CHANGE_INPUT_CHAT({}, { idProfileActive, text }),
       onSubmitEditing: () =>
         handleEvents.CLICK_ON_SEND_MESSAGE({}, { profileActive }),
+      onHeightChange: onInputTextYrlHeightChange,
       styleProps: {
         InputTextYrl: style.InputTextYrl,
         inputText: {

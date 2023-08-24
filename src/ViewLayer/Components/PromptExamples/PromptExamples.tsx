@@ -3,6 +3,7 @@ import { View, ScrollView } from 'react-native'
 import { nanoid } from 'nanoid'
 
 import {
+  withPropsYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
   ButtonYrl,
@@ -15,6 +16,7 @@ import {
   PromptExamplesPropsType,
   PromptExamplesPropsOutType,
 } from './PromptExamplesTypes'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { styles } from './PromptExamplesStyles'
 
 /**
@@ -33,8 +35,10 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
     promptExamples,
     onHeightChange,
     onPromptExampleClick,
+    handleEvents,
+    idProfileActive,
   } = props
-  const { deviceType, screenCase, width, height } = mediaParams
+  const { deviceType } = mediaParams
   const style = styles[deviceType]
 
   const handleLayout = (event: any) => {
@@ -63,7 +67,7 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
               numberOfLines={2}
               testID='text'
             >
-              {`${index + 1}. ${promptExample}`}
+              {`Example ${index + 1}. ${promptExample}`}
             </Text>
           )
 
@@ -74,7 +78,7 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
                 ButtonYrl: {},
                 title: {
                   color: themes['themeA'].colors08.color,
-                  paddingBottom: '0.5rem',
+                  paddingBottom: '0.25rem',
                 },
               },
               titleText,
@@ -82,8 +86,10 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
               disabled: false,
               onPress: () => {
                 onPromptExampleClick()
-                console.info('PromptExamples [56]')
-                // STOPPED HERE. Need to add action to add prompt to the input
+                handleEvents.CLICK_ON_PROMPT_EXAMPLE(
+                  {},
+                  { idProfileActive, text: promptExample }
+                )
               },
               iconProps: undefined,
             },
@@ -97,7 +103,9 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
 }
 
 export const PromptExamples: PromptExamplesType = React.memo(
-  withParamsMediaYrl(PromptExamplesComponent)
+  withPropsYrl({ handleEvents: handleEventsProp })(
+    withParamsMediaYrl(PromptExamplesComponent)
+  )
 )
 export type {
   PromptExamplesPropsType,

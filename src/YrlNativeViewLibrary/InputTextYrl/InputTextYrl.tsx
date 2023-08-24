@@ -26,11 +26,18 @@ export const InputTextYrl: InputTextYrlType = props => {
     numberOfLines = 3,
     onChangeText,
     onSubmitEditing,
+    onHeightChange,
     placeholder,
     placeholderTextColor,
     testID = 'InputTextYrl',
     value,
   } = props
+
+  const handleLayout = (event: any) => {
+    if (!onHeightChange) return
+    const { height } = event.nativeEvent.layout
+    onHeightChange(height)
+  }
 
   const propsOut: InputTextPropsOutType = {
     viewProps: {
@@ -70,7 +77,10 @@ export const InputTextYrl: InputTextYrlType = props => {
 
   return (
     // <Draggable x={20} renderSize={100}>
-    <View {...propsOut.viewProps}>
+    <View
+      {...propsOut.viewProps}
+      onLayout={(event: any) => handleLayout(event)}
+    >
       <TextInput {...textInputProps} />
     </View>
     // </Draggable>

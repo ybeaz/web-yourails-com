@@ -20,6 +20,7 @@ export interface InputTextYrlPropsType {
   numberOfLines?: number
   onChangeText: (text: string) => void
   onSubmitEditing: () => void
+  onHeightChange: (height: number) => void
   placeholder?: string
   placeholderTextColor?: string
   reference?: any

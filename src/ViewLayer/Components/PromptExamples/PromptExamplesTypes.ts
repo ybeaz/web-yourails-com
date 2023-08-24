@@ -1,4 +1,6 @@
 import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
+import { IdUserType } from '../../../@types/UserType'
 
 export interface PromptExamplesPropsType {
   styleProps?: {
@@ -10,6 +12,8 @@ export interface PromptExamplesPropsType {
   promptExamples?: string[]
   onHeightChange: (height: number) => void
   onPromptExampleClick: () => void
+  handleEvents: HandleEventsType
+  idProfileActive: IdUserType
 }
 
 export type PromptExamplesPropsOutType = Record<string, any>
