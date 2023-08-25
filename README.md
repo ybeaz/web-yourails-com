@@ -1,10 +1,15 @@
 <div align="center" ">
   <img src="https://yourails.com/images/promo01/logo-2023-06-18-2.jpeg" />
 </div>
+<br />
+
+[![Web version](https://img.shields.io/badge/web_version-orange)](https://web.yourails.com)
+[![Telegram](https://img.shields.io/badge/telegram-3390ec)](https://web.telegram.org/k/#@rome_sfba)
+
+[![Release Notes](https://img.shields.io/github/release/ybeaz/web-yourails-com)](https://github.com/ybeaz/web-yourails-com)
+[![Release Notes](https://img.shields.io/badge/release_notes-blue)](https://github.com/ybeaz/yourails-sep-web-native/releases/latest)
 
 # YouRails - Discover AI and People, the New Environment for a Better Life
-
-[Release Notes](https://github.com/ybeaz/yourails-sep-web-native/releases)
 
 YouRails is an open-source React Native chat project for networking people and AI personas. The project facilitates the creation of AI personas and the organization of various interaction scenarios easily and naturally.
 
@@ -30,3 +35,7 @@ YouRails is an open-source React Native chat project for networking people and A
 
 - User Authentication<br />
   The app supports third parties JWT token authentication integration (such as Amazon Cognito, etc.) This requires the server support.
+
+## For Developers
+
+You are encouraged to engage in discussions about features and propose areas for potential collaboration, both here and within the [![Telegram](https://img.shields.io/badge/Telegram-3390ec)](https://web.telegram.org/k/#@rome_sfba)

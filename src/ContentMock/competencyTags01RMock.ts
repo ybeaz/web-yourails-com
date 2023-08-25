@@ -1342,7 +1342,7 @@ $ git push -u origin ...\n\
 - useEffect: allows a functional component to perform side effects like fetching data from APIs, manipulating the DOM, or - interacting with the browser.\n\
 - useContext: allows a functional component to consume data from a parent component without having to pass the data through every level of the component tree.\n\
 - useReducer: allows a functional component to have a more complex state that requires multiple actions.\n\
-useCallback: optimizes the performance of a functional component by memoizing a function so that it is not recreated on every render.\n\
+- useCallback: optimizes the performance of a functional component by memoizing a function so that it is not recreated on every render.\n\
 - useMemo: optimizes the performance of a functional component by memoizing a value so that it is not recalculated on every render.\n\
 - useRef: allows a functional component to access a mutable value that persists across renders.\n\
 - useLayoutEffect: similar to useEffect, but runs synchronously after all DOM mutations. Can be used for DOM measurements and other side effects that require synchronous access to the DOM.\n\
@@ -2380,10 +2380,10 @@ Modules:\n\
     iconLibrary: 'Ionicons',
     iconName: '',
     tooltips: `Examples:
-• Cassandra: Cassandra is often used for applications that require high availability, fault tolerance, and massive scalability, such as large-scale data analytics, time-series data, and IoT applications.
-• Kafka: It is widely used for building real-time streaming applications, event sourcing, log aggregation, and messaging systems.
-• MongoDB: MongoDB is suitable for a wide range of use cases, including content management systems, e-commerce platforms, mobile applications, and real-time analytics.
-• REDIS: REDIS is commonly used for caching, real-time analytics, messaging systems, and session management due to its fast in-memory storage and support for various data structures.
+• Cassandra. It is often used for applications that require high availability, fault tolerance, and massive scalability, such as large-scale data analytics, time-series data, and IoT applications.
+• Kafka. It is widely used for building real-time streaming applications, event sourcing, log aggregation, and messaging systems.
+• MongoDB. It is suitable for a wide range of use cases, including content management systems, e-commerce platforms, mobile applications, and real-time analytics.
+• REDIS. It is commonly used for caching, real-time analytics, messaging systems, and session management due to its fast in-memory storage and support for various data structures.
 `,
   },
 

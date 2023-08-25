@@ -29,36 +29,42 @@ const AboutUsComponent: AboutUsType = props => {
         Header: style.header3Header,
         headerText: style.header3HeaderText,
       },
-      mediaParams: { deviceType: '' },
+      testID: 'header3',
     },
     header4Props: {
       styleProps: {
         Header: style.header4Header,
         headerText: style.header4HeaderText,
       },
-      mediaParams: { deviceType: '' },
+      testID: 'header4',
+    },
+    textProps: {
+      styleProps: {
+        Text: style.text,
+      },
+      testID: 'text',
     },
   }
 
   return (
     <View style={[style.AboutUs, styleProps.AboutUs]} testID='AboutUs'>
       <Header {...propsOut.header3Props}>Current build</Header>
-      <Text>
+      <View style={[style.viewWrapper]} testID='viewWrapper'>
         <Header {...propsOut.header4Props}>branchCurrent</Header>
-        {branchCurrent}
-      </Text>
-      <Text>
+        <Text {...propsOut.textProps}>{branchCurrent}</Text>
+      </View>
+      <View style={[style.viewWrapper]} testID='viewWrapper'>
         <Header {...propsOut.header4Props}>date</Header>
-        {date}
-      </Text>
-      <Text>
+        <Text {...propsOut.textProps}>{date}</Text>
+      </View>
+      <View style={[style.viewWrapper]} testID='viewWrapper'>
         <Header {...propsOut.header4Props}>commit</Header>
-        {commit}
-      </Text>
-      <Text>
+        <Text {...propsOut.textProps}>{commit}</Text>
+      </View>
+      <View style={[style.viewWrapper]} testID='viewWrapper'>
         <Header {...propsOut.header4Props}>message</Header>
-        {message}
-      </Text>
+        <Text {...propsOut.textProps}>{message}</Text>
+      </View>
     </View>
   )
 }

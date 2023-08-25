@@ -1,13 +1,13 @@
 import React from 'react'
 import { Text as TextReactNative } from 'react-native'
 
-import { TextPropsType, TextType } from './TextType'
+import { TextPropsType, TextComponentType } from './TextType'
 import { style as styleDefault } from './TextStyle'
 
 /**
  * @import import { TextPropsType, TextType } from '../Components/Text/Text'
  */
-const TextComponent: TextType = props => {
+const TextComponent: TextComponentType = props => {
   const { style, styleProps = { Text: {} } } = props
 
   return (
@@ -20,5 +20,5 @@ const TextComponent: TextType = props => {
   )
 }
 
-export const Text = React.memo(TextComponent)
-export type { TextPropsType, TextType }
+export const Text: React.NamedExoticComponent<any> = React.memo(TextComponent)
+export type { TextPropsType, TextComponentType }

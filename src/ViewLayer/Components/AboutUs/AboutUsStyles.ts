@@ -6,10 +6,17 @@ export const stylesDefault = StyleSheet.create({
     ...styleGlobal.typography,
     flexDirection: 'column',
   },
-  header3Header: { padding: '1rem' },
+  header3Header: { padding: '1rem', paddingTop: '2rem' },
   header3HeaderText: styleGlobal.h3,
-  header4Header: { padding: '1rem', minWidth: '10rem' },
-  header4HeaderText: styleGlobal.h4,
+  viewWrapper: { padding: '1rem', flexDirection: 'row' },
+  header4Header: { flex: 2 },
+  header4HeaderText: { ...styleGlobal.h4 },
+  text: {
+    ...styleGlobal.norm,
+    flex: 3,
+    overflowWrap: 'anywhere',
+    // wordBreak: 'break-all',
+  },
 })
 
 const xsDevice = StyleSheet.create({
