@@ -25,25 +25,31 @@ export const getGitBuildData: GetGitBuildDataType = async (
       .toString()
       .trim()
 
-    const date = getDateString({ style: 'US' })
-
     let getGitBuildDataRes = await execSync(
       `git log -1 --pretty=format:'{%n  "commit": "%H",%n  "author": {%n    "name": "%aN",%n    "email": "%aE"%n  },%n  "date": "%ad",%n  "message": "%f"%n}'`
     )
       .toString()
       .trim()
 
-    const getGitBuildDataResObj = JSON.parse(getGitBuildDataRes) as Object
+    const getGitBuildDataResObjM1: any = JSON.parse(
+      getGitBuildDataRes
+    ) as Object
 
-    consoler('getGitBuildData [28]', '', {
-      date,
-      getGitBuildDataResObj,
+    const date = getDateString({ timestamp: getGitBuildDataResObjM1.date })
+    const year = getDateString({
+      timestamp: getGitBuildDataResObjM1.date,
+      style: 'year',
     })
+    const copyright = `© ${year} Roman Ches`
 
-    getGitBuildDataRes = JSON.stringify({
-      ...getGitBuildDataResObj,
+    const getGitBuildDataResObj = {
+      ...getGitBuildDataResObjM1,
       branchCurrent,
-    })
+      date,
+      copyright,
+    }
+
+    getGitBuildDataRes = JSON.stringify(getGitBuildDataResObj)
 
     getGitBuildDataRes = `import { BuildDataType } from '../@types/BuildDataType'; export const buildData: BuildDataType = ${getGitBuildDataRes}`
 
@@ -65,5 +71,5 @@ export const getGitBuildData: GetGitBuildDataType = async (
 ;(async () => {
   const pathFull =
     '/Users/admin/Dev/yourails-sep-web-native/src/Constants/buildData.const.ts'
-  await getGitBuildData(pathFull, { printRes: false })
+  await getGitBuildData(pathFull, { printRes: true })
 })()

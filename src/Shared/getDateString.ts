@@ -51,7 +51,9 @@ export const getDateString: GetDateString = ({
     res = `${date}/${month}/${year}${hoursPlus}${minutesPlus}${secondsPlus}${restPlus}`
   else if (style === 'US')
     res = `${month}/${date}/${year}${hoursPlus}${minutesPlus}${secondsPlus}${restPlus}`
-  else
+  else if (style === 'year') {
+    res = String(year)
+  } else
     res = `${year}-${month}-${date}${hoursPlus}${minutesPlus}${secondsPlus}${restPlus}`
 
   return res

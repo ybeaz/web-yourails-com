@@ -122,7 +122,16 @@ const UserMenuComponent: UserMenuType = props => {
       iconLibrary: 'Ionicons',
       iconName: 'book-outline',
       color: themes['themeA'].colors01.color,
-      onPress: () => getRedirected(linkAboutUs, { replace: true }),
+      onPress: () => {
+        getRedirected(linkAboutUs, { replace: true })
+        handleEvents.CLICK_ON_MENU_CONTROL(
+          {},
+          {
+            isProfileSelectMenu: false,
+            isUserMenu: false,
+          }
+        )
+      },
     },
     {
       title: 'Sign in',
