@@ -21,7 +21,7 @@ const AboutUsComponent: AboutUsType = props => {
   const { deviceType, screenCase, width, height } = mediaParams
   const style = styles[deviceType]
 
-  const { branchCurrent, commit, date, message } = buildData
+  const { branchCurrent, commit, date, message, copyright } = buildData
 
   const propsOut: AboutUsPropsOutType = {
     header3Props: {
@@ -64,6 +64,10 @@ const AboutUsComponent: AboutUsType = props => {
       <View style={[style.viewWrapper]} testID='viewWrapper'>
         <Header {...propsOut.header4Props}>message</Header>
         <Text {...propsOut.textProps}>{message}</Text>
+      </View>
+      <View style={[style.viewWrapper]} testID='viewWrapper'>
+        <Header {...propsOut.header4Props}></Header>
+        <Text {...propsOut.textProps}>{copyright}</Text>
       </View>
     </View>
   )

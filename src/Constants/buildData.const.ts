@@ -1,7 +1,1 @@
-export const buildData = {
-  commit: '9302f77e2b8aac6a9b35630fa094b37cfa3a2be9',
-  author: { name: 'rome_sfba', email: 'admin@3440-mbp.gateway.sonic.net' },
-  date: 'Wed Aug 23 22:08:32 2023 -0700',
-  message: 'perf-devops-add-personalities-XXXV',
-  branchCurrent: 'B-058',
-}
+import { BuildDataType } from '../@types/BuildDataType'; export const buildData: BuildDataType = {"commit":"d6e74c90483f76106c3c9837c9acb7091fcac947","author":{"name":"Roman Ches","email":"contact@yourails.com"},"date":"2023-08-25 08:16","message":"perf-devops-add-personalities-XXXVIII","branchCurrent":"B-058","copyright":"© 2023 Roman Ches"}

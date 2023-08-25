@@ -5,8 +5,10 @@ export const stylesDefault = StyleSheet.create({
   AboutUs: {
     ...styleGlobal.typography,
     flexDirection: 'column',
+    paddingTop: '1rem',
+    paddingBottom: '1rem',
   },
-  header3Header: { padding: '1rem', paddingTop: '2rem' },
+  header3Header: { padding: '1rem', paddingTop: '1rem' },
   header3HeaderText: styleGlobal.h3,
   viewWrapper: { padding: '1rem', flexDirection: 'row' },
   header4Header: { flex: 2 },

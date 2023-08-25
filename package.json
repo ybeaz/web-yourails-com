@@ -1,6 +1,6 @@
 {
   "name": "javascript-react-chat-app",
-  "version": "3.0.6-1",
+  "version": "0.58.0",
   "private": true,
   "main": "./src/App",
   "dependencies": {
