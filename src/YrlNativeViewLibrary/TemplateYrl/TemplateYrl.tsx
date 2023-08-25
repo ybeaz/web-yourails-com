@@ -1,6 +1,10 @@
 import React from 'react'
 import { View } from 'react-native'
-import { TemplateYrlType, TemplatePropsOutYrlType } from './TemplateYrlType'
+import {
+  TemplateYrlPropsType,
+  TemplatePropsOutYrlType,
+  TemplateYrlType,
+} from './TemplateYrlType'
 import { TemplateYrlStyle as style } from './TemplateYrlStyle'
 
 /**
@@ -21,3 +25,5 @@ export const TemplateYrl: TemplateYrlType = props => {
     ></View>
   )
 }
+
+export type { TemplateYrlPropsType, TemplatePropsOutYrlType, TemplateYrlType }

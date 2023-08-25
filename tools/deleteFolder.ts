@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-const deleteFolder = path => {
+const deleteFolder = (path: string) => {
   if (fs.existsSync(path) && fs.lstatSync(path).isDirectory()) {
     fs.readdirSync(path).forEach(function (file, index) {
       var curPath = path + '/' + file

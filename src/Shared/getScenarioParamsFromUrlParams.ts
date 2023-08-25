@@ -48,6 +48,14 @@ export const getScenarioParamsFromUrlParams: GetScenarioParamsFromUrlParamsType 
       isLeftColumn = true
       isMainColumnBlank = true
       redirectPathname = 'k'
+    } else if (urlParam1 && urlParam1 === 'about') {
+      caseNo = 7
+      caseConditions = "urlParam1 && urlParam1 == 'about'"
+      isLeftColumn = true
+      isMainColumnBlank = true
+      isShowModalFrame = true
+      modalFrameParamName = 'AboutUs'
+      redirectPathname = '/k/@yourails/about'
     } else if (urlParam1 && urlParam1 !== 'k' && urlParam1[0] !== '@') {
       caseNo = 2
       caseConditions = "urlParam1 && urlParam1 !== 'k' && urlParam1[0] !== '@'"

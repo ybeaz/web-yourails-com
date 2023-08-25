@@ -27,7 +27,6 @@ export const style = StyleSheet.create({
     fontWeight: 'bold',
   },
   flatListContentContainerStyle: {
-    flex: 1,
     flexDirection: 'row',
     // flexWrap: 'wrap',
   },

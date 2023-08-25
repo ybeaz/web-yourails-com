@@ -6,14 +6,21 @@ import {
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
-import { TemplateType, TemplatePropsOutType } from './TemplateTypes'
+import { themes } from '../../Styles/themes'
+import {
+  TemplatePropsType,
+  TemplatePropsOutType,
+  TemplateComponentType,
+  TemplateType,
+} from './TemplateTypes'
 import { styles } from './TemplateStyles'
 
 /**
  * @description Component to render
- * @import import { Template } from '../Components/Template/Template'
+ * @import import { Template, TemplatePropsType, TemplatePropsOutType, TemplateType } 
+             from '../Components/Template/Template'
  */
-const TemplateComponent: TemplateType = props => {
+const TemplateComponent: TemplateComponentType = props => {
   const { styleProps = { Template: {} }, mediaParams = mediaParamsDefault } =
     props
   const { deviceType, screenCase, width, height } = mediaParams
@@ -28,4 +35,12 @@ const TemplateComponent: TemplateType = props => {
   )
 }
 
-export const Template = React.memo(withParamsMediaYrl(TemplateComponent))
+export const Template: TemplateType = React.memo(
+  withParamsMediaYrl(TemplateComponent)
+)
+export type {
+  TemplatePropsType,
+  TemplatePropsOutType,
+  TemplateComponentType,
+  TemplateType,
+}

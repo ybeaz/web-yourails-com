@@ -1,4 +1,4 @@
-import { delay, call, takeEvery, put, select } from 'redux-saga/effects'
+import { call, takeEvery, put, select } from 'redux-saga/effects'
 
 import { ProfileType } from '../../@types/ProfileType'
 import {
@@ -58,7 +58,7 @@ function* initLoading(data: InitLoadingType) {
       yield call(getJoinedConversation, getJoinedConversationProps)
     }
   } catch (error: any) {
-    console.log('initLoadingSaga [81]', { message: error.message })
+    console.log('ERROR initLoadingSaga', { error: error.message })
   }
 }
 

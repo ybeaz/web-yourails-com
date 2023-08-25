@@ -8,7 +8,7 @@ export const stylesDefault = StyleSheet.create({
   },
 })
 
-const xmDevice = StyleSheet.create({
+const xsDevice = StyleSheet.create({
   ...stylesDefault,
 })
 

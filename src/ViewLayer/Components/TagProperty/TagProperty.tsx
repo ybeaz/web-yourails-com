@@ -1,15 +1,18 @@
-import React, { useCallback } from 'react'
-import { ScrollView, View, Modal } from 'react-native'
-// import Modal from 'modal-react-native-web';
+import React from 'react'
+import { View } from 'react-native'
 
-import Draggable from 'react-native-draggable'
-import { Text as TextRrneui } from '@rneui/themed'
 import { Text } from '../Text/Text'
-import { IconYrl } from '../../../YrlNativeViewLibrary/'
-import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
-import { ButtonYrl } from '../../../YrlNativeViewLibrary'
-import { ControlledTooltip } from '../ControlledTooltip/ControlledTooltip'
-import { TagPropertyType } from './TagPropertyType'
+import {
+  IconYrl,
+  useLinkClickResYrl,
+  ButtonYrl,
+  TooltipYrl,
+} from '../../../YrlNativeViewLibrary/'
+import {
+  TagPropertyType,
+  TagPropertyPropsOutM1Type,
+  TagPropertyPropsOutType,
+} from './TagPropertyType'
 import { style } from './TagPropertyStyle'
 import { themes } from '../../Styles/themes'
 
@@ -29,8 +32,8 @@ const TagPropertyComponent: TagPropertyType = props => {
     testID = 'TagProperty',
   } = props
 
-  const propsOut: Record<string, any> = {
-    tooltip_buttonYrlLinking: {
+  const propsOutM1: TagPropertyPropsOutM1Type = {
+    tooltipsLinkingButtonYrlProps: {
       styleProps: {
         ButtonYrl: {},
         title: {
@@ -39,7 +42,7 @@ const TagPropertyComponent: TagPropertyType = props => {
           paddingBottom: '0.5rem',
         },
       },
-      titleText: `<${title} />`, //'<Documentation />',
+      titleText: title,
       testID: 'tooltip_buttonYrl',
       disabled: false,
       onPress: useLinkClickResYrl(linkHref),
@@ -55,8 +58,12 @@ const TagPropertyComponent: TagPropertyType = props => {
         },
         size: 16,
         color: themes['themeA'].colors02.color,
-        testID: '<entity>_IconYrl_ios_send',
+        testID: 'tooltipPopoverText',
       },
+    },
+    tooltipsTextProps: {
+      styleProps: { Text: style.tooltipsText },
+      testID: 'tooltipPopoverText',
     },
     iconProps: {
       library: iconLibrary,
@@ -64,53 +71,50 @@ const TagPropertyComponent: TagPropertyType = props => {
       styleProps: { IconYrl: { cursor: 'pointer', paddingRight: '0.25rem' } },
       size: 24,
       color: themes['themeA'].colors02.color,
-      testID: '<entity>_IconYrl_ios_send',
+      testID: 'tagProperty_IconYrl',
     },
   }
 
-  const Popover = () => (
-    <View
-      style={[style.tooltip_containerView]}
-      testID={'tooltip_containerView'}
-    >
-      <ScrollView
-        style={[style.tooltip_scrollView]}
-        testID={'tooltip_scrollView'}
-      >
-        <ButtonYrl {...propsOut.tooltip_buttonYrlLinking} />
-        <TextRrneui
-          style={[style.tooltip_textRrneui]}
-          testID={'tooltip_textRrneui'}
-        >
-          {tooltips}
-        </TextRrneui>
-      </ScrollView>
-    </View>
+  const tooltipsContent = (
+    <>
+      <ButtonYrl {...propsOutM1.tooltipsLinkingButtonYrlProps} />
+      <Text {...propsOutM1.tooltipsTextProps}>{tooltips}</Text>
+    </>
   )
+
+  const tooltipsTitle = (
+    <>
+      <Text
+        style={[style.titleText, { color: themes['themeA'].colors08.color }]}
+        testID='tagIconText'
+      >
+        {iconLibrary && iconName && <IconYrl {...propsOutM1.iconProps} />}
+        {title}
+      </Text>
+    </>
+  )
+
+  const propsOut: TagPropertyPropsOutType = {
+    tooltipYrlProps: {
+      backgroundColor: themes['themeA'].colors09.backgroundColor,
+      children: tooltipsContent,
+      styleProps: {
+        TooltipYrl: {},
+        iconTextWrapper: style.tagIconTextWrapper,
+        titleText: [
+          style.titleText,
+          { color: themes['themeA'].colors08.color },
+        ],
+        containerStyle: style.tooltip_container,
+      },
+      testID: `tooltip_${title}_${id}`,
+      titleText: tooltipsTitle,
+    },
+  }
 
   return (
     <View style={[style.TagProperty, styleProps.TagProperty]} testID={testID}>
-      <ControlledTooltip
-        ModalComponent={Modal}
-        backgroundColor={themes['themeA'].colors09.backgroundColor}
-        popover={<Popover />}
-        containerStyle={[style.tooltip_container]}
-        withOverlay={true}
-        withPointer={true}
-      >
-        <View style={style.tagIconTextWrapper} testID='tagIconTextWrapper'>
-          <Text
-            style={[
-              style.titleText,
-              { color: themes['themeA'].colors08.color },
-            ]}
-            testID='tagIconText'
-          >
-            {iconLibrary && iconName && <IconYrl {...propsOut.iconProps} />}
-            {title}
-          </Text>
-        </View>
-      </ControlledTooltip>
+      <TooltipYrl {...propsOut.tooltipYrlProps} />
     </View>
   )
 }

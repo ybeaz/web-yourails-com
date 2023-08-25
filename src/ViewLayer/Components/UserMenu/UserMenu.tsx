@@ -29,6 +29,7 @@ import { styles } from './UserMenuStyles'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 import { getDetectedEnv } from '../../../Shared/getDetectedEnv'
+import { getRedirected } from '../../../Shared/getRedirected'
 
 type UserMenuItemType = {
   title: string
@@ -74,6 +75,7 @@ const UserMenuComponent: UserMenuType = props => {
   const environment = getDetectedEnv()
   const redirect_url: CLIENTS = CLIENTS[environment]
   const linkSignIn = `${AWS_COGNITO_URL}/login?client_id=${AWS_COGNITO_CLIENT_ID}&response_type=code&redirect_uri=${redirect_url}&&scope=email+openid+profile`
+  const linkAboutUs = `/k/@yourails/about`
 
   const style = styles[deviceType]
 
@@ -113,6 +115,14 @@ const UserMenuComponent: UserMenuType = props => {
           { isUserMenu: false, isProfileSelectMenu: false }
         )
       },
+    },
+    {
+      title: 'About YouRails',
+      isActive: true,
+      iconLibrary: 'Ionicons',
+      iconName: 'book-outline',
+      color: themes['themeA'].colors01.color,
+      onPress: () => getRedirected(linkAboutUs, { replace: true }),
     },
     {
       title: 'Sign in',

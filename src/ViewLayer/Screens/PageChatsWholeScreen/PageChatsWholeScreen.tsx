@@ -18,6 +18,7 @@ import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
+import { AboutUs } from '../../Components/AboutUs/AboutUs'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
@@ -92,7 +93,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       getSocketOnMessage()
       getSocketOnPending()
 
-      /** @description Obtaining a user data, loading profiles, messages, etc. as a first step **/
+      /** @description Obtaining a user data, loading profiles, messages, etc. as a first step. **/
       handleEvents.INIT_LOADING({}, { query })
 
       /** @description Add the 'beforeunload' event listener to gracefully disconnect when reloading the page */

@@ -1,6 +1,8 @@
 import { IdUserType } from '../../../@types/UserType'
 import { MessageEventType } from '../../../@types/MessageEventType'
 
+import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+
 export interface MessagePropsType {
   idMessage?: string
   idProfile: IdUserType
@@ -17,6 +19,7 @@ export interface MessagePropsType {
   isReceived?: boolean
   isPending?: boolean
   imagePendingSrc?: string | null
+  mediaParams?: MediaParamsDefaultType
 }
 
 /**

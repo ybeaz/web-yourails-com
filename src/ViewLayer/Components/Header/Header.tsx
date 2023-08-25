@@ -6,7 +6,7 @@ import {
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 import { Text } from '../../Components/Text/Text'
-import { HeaderType } from './HeaderTypes'
+import { HeaderPropsType, HeaderComponentType } from './HeaderTypes'
 import { styles } from './HeaderStyles'
 
 /**
@@ -18,11 +18,12 @@ import { styles } from './HeaderStyles'
     headerText: ''
 }
  */
-const HeaderComponent: HeaderType = props => {
+const HeaderComponent: HeaderComponentType = (props: HeaderPropsType) => {
   const {
     styleProps = { Header: {}, headerText: {} },
     mediaParams = mediaParamsDefault,
-    headerText,
+    headerText = null,
+    children = null,
   } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
@@ -35,10 +36,16 @@ const HeaderComponent: HeaderType = props => {
         style={[style.headerText, styleProps.headerText]}
         testID='headerText'
       >
-        {headerText}
+        <>
+          {headerText}
+          {children}
+        </>
       </Text>
     </View>
   )
 }
 
-export const Header = React.memo(withParamsMediaYrl(HeaderComponent))
+export const Header: React.NamedExoticComponent<any> = React.memo(
+  withParamsMediaYrl(HeaderComponent)
+)
+export type { HeaderPropsType, HeaderComponentType }

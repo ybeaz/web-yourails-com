@@ -20,10 +20,15 @@ export interface InputTextYrlPropsType {
   numberOfLines?: number
   onChangeText: (text: string) => void
   onSubmitEditing: () => void
+  onHeightChange: (height: number) => void
   placeholder?: string
   placeholderTextColor?: string
   reference?: any
-  styleProps?: { InputTextYrl: Object; inputText: Object }
+  styleProps?: {
+    InputTextYrl: Object
+    inputText: Object
+    inputTextResize?: Object
+  }
   testID: string
   value?: string
   markdown?: boolean

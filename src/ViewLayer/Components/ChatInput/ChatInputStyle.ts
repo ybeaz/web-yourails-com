@@ -1,27 +1,31 @@
 import { StyleSheet } from 'react-native'
 
-export const style = StyleSheet.create({
+export const stylesDefault = StyleSheet.create({
   ChatInput: {
     flex: 1,
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'flex-end',
-    alignItems: 'center',
+    alignItems: 'flex-end',
+    paddingLeft: '10%',
+    paddingRight: '10%',
     paddingBottom: '1rem',
   },
   inputButton: {
-    width: '80%',
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  InputTextYrl: {
-    width: '100%',
-    cursor: 'pointer',
-  },
+  InputTextYrl: {},
   inputText: {
-    width: '100%',
+    width: '80vw',
     borderRadius: 10,
     paddingRight: '2rem',
+  },
+  inputTextResize: {
+    borderRadius: 10,
+    maxWidth: '80vw',
+    maxHeight: '75vh',
+    resize: 'both',
   },
   ButtonYrl: {
     position: 'absolute',
@@ -39,4 +43,70 @@ export const style = StyleSheet.create({
     right: 0,
     top: '0.5rem',
   },
+  tooltipsWrapper: {
+    justifyContent: 'flex-end',
+    alignSelf: 'flex-end',
+    color: 'red',
+  },
+  tooltipTitleWrapper: {
+    flexDirection: 'row',
+    paddingBottom: '0.3rem',
+  },
+  tooltip_TooltipYrl: {},
+  tooltip_container: {
+    width: 'auto',
+    height: 'auto',
+    right: 20,
+  },
+  tooltip_iconTextWrapper: {
+    maxHeight: 350,
+  },
+  tooltip_titleText: {
+    marginHorizontal: 5,
+  },
+  tooltip_tooltipPopover: {
+    width: '100%;',
+  },
 })
+
+const xsDevice = StyleSheet.create({
+  ...stylesDefault,
+})
+
+const smDevice = StyleSheet.create({
+  ...stylesDefault,
+})
+
+const mdDevice = StyleSheet.create({
+  ...stylesDefault,
+})
+
+const lgDevice = StyleSheet.create({
+  ...stylesDefault,
+  inputText: {
+    borderRadius: 10,
+    width: '50vw',
+  },
+  inputTextResize: {
+    borderRadius: 10,
+    maxWidth: '50vw',
+    maxHeight: '75vh',
+    resize: 'both',
+  },
+})
+
+const xlDevice = StyleSheet.create({
+  ...stylesDefault,
+  ...lgDevice,
+})
+
+/**
+ * @import import { styles } from './PageChatsWholeScreenStyles'
+ */
+export const styles: Record<string, any> = {
+  xsDevice: xsDevice,
+  smDevice: smDevice,
+  mdDevice: mdDevice,
+  lgDevice: lgDevice,
+  xlDevice: xlDevice,
+}

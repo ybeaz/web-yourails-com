@@ -37,9 +37,10 @@ function* getRevokedUserAuthAwsCognito(input: any) {
       ...userIdDataAwsCognito,
       refresh_token: null,
     })
-  } catch (error) {
-    const err: any = error
-    console.log('ERROR getRevokedUserAuthAwsCognitoSaga', { err })
+  } catch (error: any) {
+    console.log('ERROR getRevokedUserAuthAwsCognitoSaga', {
+      error: error.message,
+    })
   }
 }
 

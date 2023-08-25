@@ -2,6 +2,7 @@ import * as React from 'react'
 import { View, TextInput, Platform } from 'react-native'
 import { InputTextYrlType, InputTextPropsOutType } from './InputTextYrlType'
 import { InputTextYrlStyle as style } from './InputTextYrlStyle'
+import Draggable from 'react-native-draggable'
 
 /**
  * @import import { InputTextYrl, InputTextYrlPropsType } from './YrlNativeViewLibrary'
@@ -20,16 +21,23 @@ import { InputTextYrlStyle as style } from './InputTextYrlStyle'
  */
 export const InputTextYrl: InputTextYrlType = props => {
   const {
-    styleProps = { InputTextYrl: {}, inputText: {} },
+    styleProps = { InputTextYrl: {}, inputText: {}, inputTextResize: {} },
     multiline = false,
     numberOfLines = 3,
     onChangeText,
     onSubmitEditing,
+    onHeightChange,
     placeholder,
     placeholderTextColor,
     testID = 'InputTextYrl',
     value,
   } = props
+
+  const handleLayout = (event: any) => {
+    if (!onHeightChange) return
+    const { height } = event.nativeEvent.layout
+    onHeightChange(height)
+  }
 
   const propsOut: InputTextPropsOutType = {
     viewProps: {
@@ -56,13 +64,9 @@ export const InputTextYrl: InputTextYrlType = props => {
     ...propsOut.textInputProps,
     style: [
       style.inputText,
+      style.inputTextResize,
       styleProps.inputText,
-      {
-        // @ts-ignore
-        resize: 'vertical',
-        minHeight: 32,
-        maxHeight: '75vh',
-      },
+      styleProps.inputTextResize,
     ],
   }
 
@@ -72,8 +76,13 @@ export const InputTextYrl: InputTextYrlType = props => {
       : propsOut.textInputProps
 
   return (
-    <View {...propsOut.viewProps}>
+    // <Draggable x={20} renderSize={100}>
+    <View
+      {...propsOut.viewProps}
+      onLayout={(event: any) => handleLayout(event)}
+    >
       <TextInput {...textInputProps} />
     </View>
+    // </Draggable>
   )
 }

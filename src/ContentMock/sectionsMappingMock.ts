@@ -81,6 +81,17 @@ export const sectionsMapping: SectionMappingType[] = [
     childName: 'Profile',
   },
   {
+    idProfile: '16',
+    profileName: '@yourails',
+    contentType: SectionType['CompetencyTagType'],
+    title: '',
+    pathname: 'about',
+    iconLibrary: 'Ionicons',
+    iconName: 'book-outline',
+    iconTitleText: 'About us',
+    childName: 'AboutUs',
+  },
+  {
     idProfile: '1',
     profileName: '@rome',
     contentType: SectionType['ProfileType'],

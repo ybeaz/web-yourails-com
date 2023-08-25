@@ -6,7 +6,7 @@ import { SERVERS, ServersType } from '../../Constants/servers.const'
 const headers: AxiosRequestHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Content-Type': 'application/json',
-  timestamp: +new Date(),
+  timestamp: `${+new Date()}`,
 }
 
 const envType: string = getDetectedEnv()

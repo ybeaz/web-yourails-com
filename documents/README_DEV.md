@@ -1,48 +1,5 @@
 # README React Typescript UI Native Template
 
-## Revisions history notes
-
-created 2022
-updated 2022-10-05
-updated 2023-03-17
-updated 2023-04-29 partially
-
-## Plans
-
-2023-06-05
-
-- Create a discription for the concept for SEP AI-ML model aggregator/ distributor
-- Create a separate page for Disclaimer and How to
-- Add a link to the user profile
-
-2023-05-31 edition. One week sprint
-
-- Implement logic to show a user his/her own profile through the UserMenu
-
-2023-05-30 edition. One week sprint
-
-- - Add messageEvent for server and for client
-- - Change UI for time and system messages
-
-2023-05-24 edition. One week sprint
-
-- - Refactor ChatSpace to see if Conversations are really needed
-- - Integrate Socket.io into Nest.js locally
-- - Configure Nest.js to work with Socket.io remotely
-- - Develop modal window with drop down menu for "Frequency" choice
-- - Implement switching from one profileHost to another
-
-2023-04-29 edition. Two weeks sprint
-
-- - Provide route path to each modal view panel
-- - Refactor app close to the real conversation scenario: create two other users
-- - Move userHost-active Profile to the upper bar in the left column
-
-- - Create sliding up panel from the bottom of the left column while pushing/ clicking on the userHost-active Profile. And while clicking on the each userHost profile it becomes active for the user
-
-- Each tab-modal window makes its own request of its own content with the help of the useEffect-axios mechanism
-- Main screen makes a request and populates tabs according to the available tabs. And load a conversation with a respondent or if there is no, the blank chat space. First move is to implement this without request but based on the import
-
 ## Decisions made
 
 1. We consider as a Container, the root for loading the store the following types. These components are "smart". We put in there store. All descendents are "dumb". Smart/ container components are:
@@ -147,7 +104,6 @@ Note: to config `codegen` edit ??? `codegen.yml`
 - In Terminal, go to `~/Dev/yourails-assets/`
 - In Terminal, `~/Dev/yourails-assets/`
   - `eval $(ssh-agent -s); ssh-add ~/.ssh/2020-10-19-rsa`
-  <!-- - ??? `npm login` -->
   - `npm init`, go through steps and change version to the next one
   - `npm publish`
 - In VS Code, `~/Dev/yourails-sep-web-native/deployment`,

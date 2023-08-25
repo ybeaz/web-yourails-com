@@ -2,6 +2,7 @@ import React, { ReactElement, ReactNode } from 'react'
 import { View, ImageResizeMode } from 'react-native'
 import ReadMore from 'react-native-read-more-text'
 
+import { LinkButton } from '../../Components/LinkButton/LinkButton'
 import { useLinkClickResYrl } from '../../../YrlNativeViewLibrary'
 import { ButtonYrl } from '../../../YrlNativeViewLibrary'
 import { IconYrl } from '../../../YrlNativeViewLibrary'
@@ -87,34 +88,6 @@ const ProfileItemComponent: ProfileItemType = props => {
     }
 
     return <ImageYrl {...propsOut.qrCodeImageProps} />
-  }
-
-  const LinkButton = ({
-    contentSrc,
-    content,
-  }: {
-    contentSrc?: string
-    content: any
-  }): ReactElement => {
-    if (!contentSrc) null
-    const propsOut: Record<string, any> = {
-      qrCodeImageProps: {
-        styleProps: {
-          ButtonYrl: {},
-          title: {
-            color: themes['themeA'].colors08.color,
-            textDecoration: 'underline',
-          },
-        },
-        titleText: content,
-        testID: 'tooltip_buttonYrl',
-        disabled: false,
-        onPress: useLinkClickResYrl(contentSrc),
-        iconProps: undefined,
-      },
-    }
-
-    return <ButtonYrl {...propsOut.qrCodeImageProps} />
   }
 
   let contentEntity: string | ReactElement = content as string

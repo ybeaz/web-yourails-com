@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { Linking, Alert } from 'react-native'
 
 export interface UseLinkClickResYrlType {
-  (url?: string): void
+  (url?: string): () => Promise<void> | null | undefined
 }
 
 /**
@@ -10,7 +10,7 @@ export interface UseLinkClickResYrlType {
  * @import import { useLinkClickResYrl } from './YrlNativeViewLibrary'
  */
 export const useLinkClickResYrl: UseLinkClickResYrlType = url => {
-  if (!url) return undefined
+  if (!url) return () => undefined
 
   return useCallback(async () => {
     // Checking if the link is supported for links with custom URL scheme.
