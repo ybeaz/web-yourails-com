@@ -1,7 +1,1 @@
-export const buildData = {
-  commit: '9302f77e2b8aac6a9b35630fa094b37cfa3a2be9',
-  author: { name: 'rome_sfba', email: 'admin@3440-mbp.gateway.sonic.net' },
-  date: 'Wed Aug 23 22:08:32 2023 -0700',
-  message: 'perf-devops-add-personalities-XXXV',
-  branchCurrent: 'B-058',
-}
+import { BuildDataType } from '../@types/BuildDataType'; export const buildData: BuildDataType = {"commit":"c3ca48c15b1c0c977fa22a406fa7f364c7b494bd","author":{"name":"rome_sfba","email":"admin@3440-mbp.gateway.sonic.net"},"date":"Thu Aug 24 21:20:55 2023 -0700","message":"perf-devops-add-personalities-XXXVII","branchCurrent":"B-058"}

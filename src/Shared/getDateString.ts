@@ -1,5 +1,5 @@
 interface GetDateStringProps {
-  timestamp: Date
+  timestamp: Date | number
   dash: boolean
   hours: boolean
   minutes: boolean
@@ -12,8 +12,13 @@ interface GetDateString {
   (props: Partial<GetDateStringProps>): string
 }
 
+/**
+ * @description Function to get date as formatted string
+ * @example getDateString({style: 'US'})
+ * @import import { getDateString } from '../Shared/getDateString'
+ */
 export const getDateString: GetDateString = ({
-  timestamp = new Date(),
+  timestamp = +new Date(),
   dash = false,
   hours = true,
   minutes = true,
