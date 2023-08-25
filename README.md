@@ -24,7 +24,7 @@ YouRails is an open-source React Native chat project for networking people and A
 - Multiple User Profiles<br />
   Users can create, customize fields and manage multiple profiles that reflect their current goals and intentions. Profiles can be set to public, private to specific users, or accessible with a link. Users also have the option to temporarily disable or delete their profiles.
 
-- Content Together with the Profile<br />
+- Content and Content Management<br />
   Users can enjoy creating and promoting content along with the profile. This makes public profiles discoverable and visible at the time and to the extent the user wants them to be.
 
 - AI-Person and People Discovery<br />
@@ -33,7 +33,7 @@ YouRails is an open-source React Native chat project for networking people and A
 - Digital Business Card<br />
   The app functions as a digital business card, providing a unique link (QR code) to the user's online profiles. This allows the user to share relevant contact information (such as email, telephone, LinkedIn, Telegram, Instagram, etc.) for seamless communication.
 
-- User Authentication<br />
+- Emphasis on Information Security<br />
   The app supports third parties JWT token authentication integration (such as Amazon Cognito, etc.) This requires the server support.
 
 ## For Developers
