@@ -1,4 +1,4 @@
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 
 export interface NameStatusPropsType {
   styleProps?: any

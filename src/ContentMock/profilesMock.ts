@@ -1,4 +1,3 @@
-// import { ProfileType } from '../@types/ProfileType'
 import { ProfileType, ProfileNatureType } from '../@types/GraphqlTypes'
 
 export const profiles: ProfileType[] = [

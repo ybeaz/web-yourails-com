@@ -1,5 +1,5 @@
 import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 
 export interface ChatCardPropsType {

@@ -11,7 +11,7 @@ import {
 
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 
 import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
 import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'

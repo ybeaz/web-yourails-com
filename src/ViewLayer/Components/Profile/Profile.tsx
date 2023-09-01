@@ -14,7 +14,7 @@ import { ProfileItem } from '../ProfileItem/ProfileItem'
 import { ProfileItemPropsType } from '../ProfileItem/ProfileItemType'
 import { styles } from './ProfileStyle'
 import { ProfileComponentType } from './ProfileComponentType'
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 import { MessengesElement } from './MessengesElement'
 import { PromptsExamplesElement } from './PromptsExamplesElement'
 

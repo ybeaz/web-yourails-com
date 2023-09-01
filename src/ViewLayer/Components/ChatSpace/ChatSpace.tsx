@@ -2,7 +2,7 @@ import React, { ReactElement, useEffect, FunctionComponent } from 'react'
 import { ScrollView, View } from 'react-native'
 
 import { ContentType } from '../../../@types/ContentType'
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 import { MessageType } from '../../../@types/MessageType'
 import { MessageEventType } from '../../../@types/MessageEventType'
 

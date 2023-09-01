@@ -9,7 +9,7 @@ import {
   withPropsYrl,
   ModalFrameYrl,
 } from '../../../YrlNativeViewLibrary'
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 import { ChatCardsType } from './ChatCardsTypes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { styles } from './ChatCardsStyles'

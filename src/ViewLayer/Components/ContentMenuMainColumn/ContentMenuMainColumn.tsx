@@ -1,7 +1,7 @@
 import React from 'react'
 import { View } from 'react-native'
 
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'
 
 import { style } from './ContentMenuMainColumnStyle'

@@ -2,7 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { nanoid } from 'nanoid'
 
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 
 import {
   withStoreStateYrl,

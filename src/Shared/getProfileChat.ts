@@ -1,4 +1,4 @@
-import { ProfileType } from '../@types/ProfileType'
+import { ProfileType } from '../@types/GraphqlTypes'
 import { getProfileUrlFromParams } from './getProfileUrlFromParams'
 import { HOST_NAME } from '../Constants/hostname.const'
 

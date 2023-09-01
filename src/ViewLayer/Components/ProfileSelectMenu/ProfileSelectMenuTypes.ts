@@ -1,6 +1,6 @@
 import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 
 export interface ProfileSelectMenuPropsType {
   styleProps?: any

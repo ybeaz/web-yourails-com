@@ -1,5 +1,5 @@
 import { IdUserType } from '../../../@types/UserType'
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 import { MessageType } from '../../../@types/MessageType'
 import { RootStoreType } from '../../../@types/RootStoreType'
 

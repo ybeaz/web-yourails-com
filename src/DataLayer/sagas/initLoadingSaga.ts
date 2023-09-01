@@ -1,6 +1,6 @@
 import { call, takeEvery, put, select } from 'redux-saga/effects'
 
-import { ProfileType } from '../../@types/ProfileType'
+import { ProfileType } from '../../@types/GraphqlTypes'
 import {
   getFilteredObjsArrayBy,
   OperatorType,

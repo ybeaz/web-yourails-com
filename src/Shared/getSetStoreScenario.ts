@@ -1,4 +1,4 @@
-import { ProfileType } from '../@types/ProfileType'
+import { ProfileType } from '../@types/GraphqlTypes'
 import { ModalFrameType } from '../@types/RootStoreType'
 import { IdUserType } from '../@types/UserType'
 import { getScenarioParamsFromUrlParams } from './getScenarioParamsFromUrlParams'
