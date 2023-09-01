@@ -5,6 +5,8 @@ import { SectionMappingType } from './SectionMappingType'
 import { CompetencyTagType } from './CompetencyTagType'
 import { ProjectType } from './ProjectType'
 
+import { ProfileModelGraphql } from './GraphqlTypes'
+
 export type ModalFrameType = {
   childName: string
   isShow: boolean
@@ -43,7 +45,7 @@ export type UserIdDataAwsCognito = {
  */
 export interface RootStoreType {
   componentsState: ComponentsStateType
-  profiles: ProfileType[]
+  profiles: ProfileModelGraphql[]
   sectionsMapping: SectionMappingType[]
   competencyTags: CompetencyTagType[]
   projects: ProjectType[]

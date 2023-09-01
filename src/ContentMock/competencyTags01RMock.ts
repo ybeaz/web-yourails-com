@@ -118,6 +118,34 @@ Windows CMD',
 
   {
     idProfile: '1',
+    title: 'Debugging',
+    contentType: SectionType['CompetencyTagType'],
+    section: 'Best Practices',
+    linkHref: '',
+    iconLibrary: 'Ionicons',
+    iconName: 'bug-outline',
+    tooltips: `Debugging approaches
+  - Use JS console.info (.log, etc.)
+  - Use try - catch statements for async code or just questionable parts
+  - Use Browser devtools: Console tab to model a part of the code
+  - Use simple example that implements only a small, but the most questionable or vague part of the problem and then to increase functionality
+  - Use top-down stubbing: to stub all dependencies/ children to see if the problem dissapier and then add them one by one
+  - Use down-top stubbing: to stub dependency one after another to see which step the problem dissapier. Simplify the complex code (usually eliminating and isolating the problem, removing its parts) untill the problem dissapier
+  - Use browser Network tab and check request/response for external requests
+  - Use mock response tab to check the effect on application
+  - Use Postman for external requests
+  - Use curl request in terminal
+Browser devtools
+  - LightHouse
+  - Network
+  - Performance
+  - Profiler (dev React)
+  - Sources: breakpoints
+`,
+  },
+
+  {
+    idProfile: '1',
     title: 'Data Structures',
     contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices',
@@ -279,6 +307,62 @@ Bugzilla\n\
 6. Pylance\n\
 7. PHP-sat\n\
 ',
+  },
+
+  {
+    idProfile: '1',
+    title: 'Microservices',
+    contentType: SectionType['CompetencyTagType'],
+    section: 'Best Practices',
+    linkHref: 'https://microservices.io',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips: `Microservices are an architectural approach that involves breaking down a larger application into smaller, loosely coupled, and independently deployable components designed to perform specific functions or tasks within the application. Each microservice operates as a separate unit, communicating with others through APIs.
+
+    Key characteristics and benefits of microservices:
+    
+    - Decomposition: Microservices encourage breaking down a complex application into smaller, manageable pieces, often corresponding to individual business capabilities or features. This makes development, maintenance, and scaling more efficient.
+    
+    - Independence: Each microservice operates independently of the others. This means they can be developed, deployed, and scaled individually, without affecting the entire application. Teams can work on different microservices simultaneously.
+    
+    - Technology Diversity: Microservices allow you to use different technologies and programming languages for different components, based on their specific requirements. This flexibility can optimize each service's performance.
+    
+    - Scalability: Since each microservice is separate, you can scale only the parts of the application that require additional resources, rather than scaling the entire monolithic application.
+    
+    - Resilience: Failures in one microservice don't necessarily bring down the entire application. Services can be designed to gracefully handle errors and degrade functionality in case of failures.
+    
+    - Deployment Flexibility: Microservices can be deployed independently, which allows for quicker updates and releases. This also facilitates a more continuous integration and continuous deployment (CI/CD) pipeline.
+    
+    - Team Autonomy: Different teams can work on different microservices, allowing for specialized expertise and faster development. This also reduces the risk of one team's work affecting another team's progress.
+    
+    - Easier Maintenance: Since each microservice is smaller and focused on a specific functionality, maintenance and updates become more manageable and less risky.
+    
+    - Evolvability: Microservices can be updated, replaced, or even removed without affecting the entire system. This adaptability makes it easier to respond to changing business requirements.
+    
+    - Complexity Management: While microservices offer benefits, they also introduce a certain level of complexity in terms of managing interactions between services, data consistency, and inter-service communication.
+`,
+  },
+
+  {
+    idProfile: '1',
+    title: 'Observability',
+    contentType: SectionType['CompetencyTagType'],
+    section: 'Best Practices',
+    linkHref: 'https://en.wikipedia.org/wiki/Observability_(software)',
+    iconLibrary: 'Ionicons',
+    iconName: '',
+    tooltips: `Types of telemetry data:
+- Metrics. Measurements of how a service or component performs over time. For example, an observability tool might gather metrics about memory usage, bandwidth utilization, HTTP requests per second or an assortment of other systems.
+- Logs. Records of events that occur on a specific system or application. The event information might be recorded as plain text, as structured data or in a binary format. Event logs are often the first thing administrators and developers look at when troubleshooting system or application issues.
+- Traces. Representational profiles of entire processes as they're carried out across a distributed system. A trace links together the events in a single request or transaction to provide a complete picture of how it flows from one point to the next. For example, traces can show how applications are contending for network and storage resources.
+
+1. AppDynamics
+2. Datadog dashboard screenshot
+3. Dynatrace dashboard screenshot
+4. Grafana
+5. Lightstep
+6. New Relic
+7. Splunk`,
   },
 
   {
@@ -463,51 +547,43 @@ Test-driven development (TDD):\n\
 
   {
     idProfile: '1',
-    title: 'Testing/Debugging',
+    title: 'Testing',
     contentType: SectionType['CompetencyTagType'],
     section: 'Best Practices',
     linkHref: '',
     iconLibrary: 'Ionicons',
-    iconName: 'bug-outline',
-    tooltips:
-      '\
-BDD Behavior Driven Development\n\
-TDD Test Driven Development\n\
-Unit testing\n\
-  ✔ Chai - chaijs.com\n\
-  ✔ Enzyme - airbnb.io/enzyme/\n\
-  ✔ Jasmine - jasmine.github.io\n\
-  ✔ Jest - facebook.github.io/jest/\n\
-  ✔ Karma - karma-runner.github.io\n\
-  ✔ Mocha - mochajs.org\n\
-  ✔ React Testing Library - testing-library.com/docs/react-testing-library/intro\n\
-  ✔ Sinon - sinonjs.org/\n\
-Integration testing\n\
-  ✔ Cypress - cypress.io\n\
-  ✔ TestCafe - testcafe.devexpress.com/\n\
-Browser devtools\n\
-  ✔ LightHouse\n\
-  ✔ Network\n\
-  ✔ Performance\n\
-  ✔ Profiler (dev React)\n\
-  ✔ Sources: breakpoints\n\
-Lint\n\
-  ✔ Eslint google style: npm run eslint filename.js\n\
-  ✔ NodeJs htmllint: htmllint filename.html\n\
-Unit testing coverage for React Components\n\
-  ✔ Render Test\n\
-  ✔ Props Test\n\
-  ✔ Function Callbacks Test\n\
-  ✔ Behavior Test\n\
-  ✔ State Change Test\n\
-  ✔ Conditional Rendering Test\n\
-  ✔ Error Handling Test\n\
-  ✔ Snapshot Test\n\
-  ✔ Prop Validation Test\n\
-  ✔ Mocking External Dependencies Test\n\
-  ✔ Lifecycle Methods Test\n\
-  ✔ Integration Tests\n\
-',
+    iconName: 'checkmark-outline',
+    tooltips: `
+BDD Behavior Driven Development
+TDD Test Driven Development
+Unit testing
+  - Chai - chaijs.com
+  - Enzyme - airbnb.io/enzyme/
+  - Jasmine - jasmine.github.io
+  - Jest - facebook.github.io/jest/
+  - Karma - karma-runner.github.io
+  - Mocha - mochajs.org
+  - React Testing Library - testing-library.com/docs/react-testing-library/intro
+  - Sinon - sinonjs.org/
+Integration testing
+  - Cypress - cypress.io
+  - TestCafe - testcafe.devexpress.com/
+Lint
+  - Eslint google style: npm run eslint filename.js
+  - NodeJs htmllint: htmllint filename.html
+Unit testing coverage for React Components
+  - Render Test
+  - Props Test
+  - Function Callbacks Test
+  - Behavior Test
+  - State Change Test
+  - Conditional Rendering Test
+  - Error Handling Test
+  - Snapshot Test
+  - Prop Validation Test
+  - Mocking External Dependencies Test
+  - Lifecycle Methods Test
+  - Integration Tests`,
   },
 
   {
@@ -788,30 +864,28 @@ $ git push -u origin ...\n\
     linkHref: 'https://github.com/lukehoban/es6features',
     iconLibrary: 'Ionicons',
     iconName: 'logo-javascript',
-    tooltips:
-      '\
-  ES7 includes the following new features:\n\
-  arrows\n\
-  classes\n\
-  enhanced object literals\n\
-  template strings\n\
-  destructuring\n\
-  default + rest + spread\n\
-  let + const\n\
-  iterators + for..of\n\
-  generators\n\
-  unicode\n\
-  modules\n\
-  module loaders\n\
-  map + set + weakmap + weakset\n\
-  proxies\n\
-  symbols\n\
-  subclassable built-ins\n\
-  promises\n\
-  math + number + string + array + object APIs\n\
-  binary and octal literals\n\
-  reflect api\n\
-  tail calls',
+    tooltips: `ES7 includes the following new features:
+  - arrows
+  - classes
+  - enhanced object literals
+  - template strings
+  - destructuring
+  - default + rest + spread
+  - let + const
+  - iterators + for..of
+  - generators
+  - unicode
+  - modules
+  - module loaders
+  - map + set + weakmap + weakset
+  - proxies
+  - symbols
+  - subclassable built-ins
+  - promises
+  - math + number + string + array + object APIs
+  - binary and octal literals
+  - reflect api
+  - tail calls`,
   },
 
   /*
@@ -2389,6 +2463,61 @@ Modules:\n\
 
   {
     idProfile: '1',
+    title: 'Python',
+    contentType: SectionType['CompetencyTagType'],
+    section: 'Back-end',
+    linkHref: 'https://docs.python.org/3/',
+    iconLibrary: 'Ionicons',
+    iconName: 'logo-python',
+    tooltips:
+      '\
+Py General\n\
+★ Global Interpreter Lock (GIL): The Global Interpreter Lock (GIL) is a mechanism used in CPython (the default implementation of Python) to synchronize access to Python objects, preventing multiple native threads from executing Python bytecodes at once. It is a form of thread-level locking.\n\
+★ Passing Arguments: In Python, arguments are passed by value, which means that a copy of the object reference is passed to the function. This copy is then used to access the object inside the function. If the object is mutable, you can modify its state, but you cannot reassign the object reference itself.\n\
+★ Data Types\n\
+  - Immutable:\n\
+      Strings (str)\n\
+      Numbers (int, float, complex)\n\
+      Tuples (tuple)\n\
+      Frozen Sets (frozenset)\n\
+      Bytes (bytes)\n\
+      Namedtuples (from the collections module)\n\
+  - Mutable:\n\
+    Lists: Lists are ordered collections of items that can be modified.\n\
+    Dictionaries: Dictionaries are key-value pairs, and their content can be modified.\n\
+    Sets: Sets are unordered collections of unique elements.\n\
+    Byte arrays: Byte arrays are mutable sequences of integers in the range 0-255.\n\
+    User-defined objects: If you create your own custom classes\n\
+Comments\n\
+Variables\n\
+Casting\n\
+Operators\n\
+If...Else\n\
+While Loops\n\
+For Loops\n\
+Functions\n\
+Lambda\n\
+Inheritance\n\
+Iterators\n\
+Scope\n\
+Modules\n\
+Dates\n\
+Math\n\
+JSON\n\
+RegEx\n\
+PIP\n\
+Try...Except\n\
+User Input\n\
+String Formatting\n\
+Py File Handling\n\
+File Handling\n\
+Read Files\n\
+Write/Create Files\n\
+Delete Files',
+  },
+
+  {
+    idProfile: '1',
     title: 'Php',
     contentType: SectionType['CompetencyTagType'],
     section: 'Back-end',
@@ -3099,61 +3228,6 @@ Status codes',
   Cleaning Data\n\
   Correlations\n\
   Plotting',
-  },
-
-  {
-    idProfile: '1',
-    title: 'Python',
-    contentType: SectionType['CompetencyTagType'],
-    section: 'AI/ ML',
-    linkHref: 'https://docs.python.org/3/',
-    iconLibrary: 'Ionicons',
-    iconName: 'logo-python',
-    tooltips:
-      '\
-Py General\n\
-★ Global Interpreter Lock (GIL): The Global Interpreter Lock (GIL) is a mechanism used in CPython (the default implementation of Python) to synchronize access to Python objects, preventing multiple native threads from executing Python bytecodes at once. It is a form of thread-level locking.\n\
-★ Passing Arguments: In Python, arguments are passed by value, which means that a copy of the object reference is passed to the function. This copy is then used to access the object inside the function. If the object is mutable, you can modify its state, but you cannot reassign the object reference itself.\n\
-★ Data Types\n\
-  - Immutable:\n\
-      Strings (str)\n\
-      Numbers (int, float, complex)\n\
-      Tuples (tuple)\n\
-      Frozen Sets (frozenset)\n\
-      Bytes (bytes)\n\
-      Namedtuples (from the collections module)\n\
-  - Mutable:\n\
-    Lists: Lists are ordered collections of items that can be modified.\n\
-    Dictionaries: Dictionaries are key-value pairs, and their content can be modified.\n\
-    Sets: Sets are unordered collections of unique elements.\n\
-    Byte arrays: Byte arrays are mutable sequences of integers in the range 0-255.\n\
-    User-defined objects: If you create your own custom classes\n\
-Comments\n\
-Variables\n\
-Casting\n\
-Operators\n\
-If...Else\n\
-While Loops\n\
-For Loops\n\
-Functions\n\
-Lambda\n\
-Inheritance\n\
-Iterators\n\
-Scope\n\
-Modules\n\
-Dates\n\
-Math\n\
-JSON\n\
-RegEx\n\
-PIP\n\
-Try...Except\n\
-User Input\n\
-String Formatting\n\
-Py File Handling\n\
-File Handling\n\
-Read Files\n\
-Write/Create Files\n\
-Delete Files',
   },
 
   {

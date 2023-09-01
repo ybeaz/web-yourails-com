@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, Pressable } from 'react-native'
 
 import {
   withParamsMediaYrl,
@@ -51,17 +51,39 @@ const ChatCardComponent: ChatCardType = props => {
       profile,
       status: 'last seen recently',
     },
+    pressableProps: {
+      onHoverIn: (event: MouseEvent) => {
+        // TODO Implement popup TooltipYrl with information about the profile
+        // https://reactnative.dev/docs/pressable
+        // console.info('ChatCard [55]', 'onHoverIn', {
+        //   eventTarget: event.target,
+        //   idProfile,
+        //   profileName,
+        // })
+      },
+      onHoverOut: (event: MouseEvent) => {
+        // TODO Implement popup TooltipYrl with information about the profile
+        // https://reactnative.dev/docs/pressable
+        // console.info('ChatCard [56]', 'onHoverOut', {
+        //   eventTarget: event.target,
+        //   idProfile,
+        //   profileName,
+        // })
+      },
+    },
   }
 
   return (
-    <View
-      style={[style.ChatCard, styleProps.ChatCard, colorStyle]}
-      testID='ChatCard'
-    >
-      <AvatarPlusInfo {...propsOut.avatarPlusInfoProps}>
-        <NameStatus {...propsOut.nameStatusProps} />
-      </AvatarPlusInfo>
-    </View>
+    <Pressable {...propsOut.pressableProps}>
+      <View
+        style={[style.ChatCard, styleProps.ChatCard, colorStyle]}
+        testID='ChatCard'
+      >
+        <AvatarPlusInfo {...propsOut.avatarPlusInfoProps}>
+          <NameStatus {...propsOut.nameStatusProps} />
+        </AvatarPlusInfo>
+      </View>
+    </Pressable>
   )
 }
 
