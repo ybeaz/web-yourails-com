@@ -47,16 +47,16 @@ export type Scalars = {
         output: any;
     };
 };
-export type AddDocumentInputGraphql = {
+export type AddDocumentInputType = {
     capture: Scalars['String']['input'];
     contentIDs: Array<Scalars['String']['input']>;
     courseID: Scalars['ID']['input'];
     description?: InputMaybe<Scalars['String']['input']>;
     env: Scalars['String']['input'];
     lang: Scalars['String']['input'];
-    meta: MetaInputGraphql;
+    meta: MetaInputType;
     moduleIDs: Array<Scalars['String']['input']>;
-    userName: UserNameInputGraphql;
+    userName: UserNameInputType;
 };
 export type AvatarSizeGraphgl = {
     __typename?: 'AvatarSizeGraphgl';
@@ -65,11 +65,11 @@ export type AvatarSizeGraphgl = {
     /** width */
     width?: Maybe<Scalars['Float']['output']>;
 };
-export type ChoiceModelGraphql = {
-    __typename?: 'ChoiceModelGraphql';
+export type ChoiceType = {
+    __typename?: 'ChoiceType';
     finish_reason: Scalars['String']['output'];
     index: Scalars['Int']['output'];
-    message: MessageModelGraphql;
+    message: MessageType;
 };
 export type ComparisonFields = {
     /** user ID */
@@ -77,8 +77,8 @@ export type ComparisonFields = {
     /** user ID */
     userIdProfile?: InputMaybe<Scalars['ID']['input']>;
 };
-export type DocumentModelGraphql = {
-    __typename?: 'DocumentModelGraphql';
+export type DocumentType = {
+    __typename?: 'DocumentType';
     capture: Scalars['String']['output'];
     contentIDs: Array<Scalars['String']['output']>;
     courseID: Scalars['ID']['output'];
@@ -88,42 +88,42 @@ export type DocumentModelGraphql = {
     env: Scalars['String']['output'];
     ip: Scalars['String']['output'];
     lang: Scalars['String']['output'];
-    meta: MetaObjectGraphql;
+    meta: MetaObjectType;
     moduleIDs: Array<Scalars['String']['output']>;
     pathName: Scalars['String']['output'];
-    userName: UserNameObjectGraphql;
+    userName: UserNameObjectType;
 };
-export type ImageDataOpenAiModelGraphql = {
-    __typename?: 'ImageDataOpenAiModelGraphql';
+export type ImageDataOpenAiType = {
+    __typename?: 'ImageDataOpenAiType';
     b64_json?: Maybe<Scalars['String']['output']>;
     url?: Maybe<Scalars['String']['output']>;
 };
-export type ImageOpenAiInputGraphql = {
+export type ImageOpenAiInputType = {
     n: Scalars['Int']['input'];
     prompt: Scalars['String']['input'];
     response_format?: InputMaybe<Scalars['String']['input']>;
     size: Scalars['String']['input'];
 };
-export type ImagesOpenAiModelGraphql = {
-    __typename?: 'ImagesOpenAiModelGraphql';
+export type ImagesOpenAiType = {
+    __typename?: 'ImagesOpenAiType';
     created: Scalars['Int']['output'];
-    data: Array<ImageDataOpenAiModelGraphql>;
+    data: Array<ImageDataOpenAiType>;
 };
-export type MessageAssistantInputGraphql = {
-    messages: Array<MessageInputGraphql>;
+export type MessageAssistantInputType = {
+    messages: Array<MessageInputType>;
     model: Scalars['String']['input'];
     temperature: Scalars['Float']['input'];
 };
-export type MessageAssistantModelGraphql = {
-    __typename?: 'MessageAssistantModelGraphql';
-    choices: Array<ChoiceModelGraphql>;
+export type MessageAssistantType = {
+    __typename?: 'MessageAssistantType';
+    choices: Array<ChoiceType>;
 };
-export type MessageInputGraphql = {
+export type MessageInputType = {
     content?: InputMaybe<Scalars['String']['input']>;
     role: Scalars['String']['input'];
 };
-export type MessageModelGraphql = {
-    __typename?: 'MessageModelGraphql';
+export type MessageType = {
+    __typename?: 'MessageType';
     content?: Maybe<Scalars['String']['output']>;
     role: Scalars['String']['output'];
 };
@@ -134,15 +134,15 @@ export type MessengerGraphgl = {
     /** profileName */
     profileName?: Maybe<Scalars['String']['output']>;
 };
-export type MetaInputGraphql = {
+export type MetaInputType = {
     email: Scalars['String']['input'];
     institution: Scalars['String']['input'];
     isSendingBcc: Scalars['Boolean']['input'];
     specName: Scalars['String']['input'];
     specTitle: Scalars['String']['input'];
 };
-export type MetaObjectGraphql = {
-    __typename?: 'MetaObjectGraphql';
+export type MetaObjectType = {
+    __typename?: 'MetaObjectType';
     email: Scalars['String']['output'];
     institution: Scalars['String']['output'];
     isSendingBcc: Scalars['Boolean']['output'];
@@ -151,28 +151,28 @@ export type MetaObjectGraphql = {
 };
 export type Mutation = {
     __typename?: 'Mutation';
-    addDocument: DocumentModelGraphql;
-    addRecipe: RecipeModelGraphql;
-    createTemplate: TemplateResponseExtendedGraphql;
-    createUser: UserModelExtendedGraphql;
-    deleteTemplate: TemplateResponseExtendedGraphql;
-    deleteUser: UserModelExtendedGraphql;
+    addDocument: DocumentType;
+    addRecipe: RecipeType;
+    createTemplate: TemplateResponseExtendedType;
+    createUser: UserModelExtendedType;
+    deleteTemplate: TemplateResponseExtendedType;
+    deleteUser: UserModelExtendedType;
     removeDocument: Scalars['Boolean']['output'];
     removeRecipe: Scalars['Boolean']['output'];
-    updateTemplate: TemplateResponseExtendedGraphql;
-    updateUser: UserModelExtendedGraphql;
+    updateTemplate: TemplateResponseExtendedType;
+    updateUser: UserModelExtendedType;
 };
 export type MutationAddDocumentArgs = {
-    addDocumentInputGraphql: AddDocumentInputGraphql;
+    addDocumentInputType: AddDocumentInputType;
 };
 export type MutationAddRecipeArgs = {
-    newRecipeData: NewRecipeInputGraphql;
+    newRecipeData: NewRecipeInputType;
 };
 export type MutationCreateTemplateArgs = {
-    templateInputGraphql: TemplateInputGraphql;
+    templateInputType: TemplateInputType;
 };
 export type MutationCreateUserArgs = {
-    userInputGraphql: UserInputGraphql;
+    userInputType: UserInputType;
 };
 export type MutationDeleteTemplateArgs = {
     templateId: Scalars['String']['input'];
@@ -188,18 +188,23 @@ export type MutationRemoveRecipeArgs = {
     id: Scalars['String']['input'];
 };
 export type MutationUpdateTemplateArgs = {
-    templateInputGraphql: TemplateInputGraphql;
+    templateInputType: TemplateInputType;
 };
 export type MutationUpdateUserArgs = {
-    userInputGraphql2: UserInputGraphql;
+    userInputType2: UserInputType;
 };
-export type NewRecipeInputGraphql = {
+export type NewRecipeInputType = {
     description?: InputMaybe<Scalars['String']['input']>;
     ingredients: Array<Scalars['String']['input']>;
     title: Scalars['String']['input'];
 };
-export type ProfileModelGraphql = {
-    __typename?: 'ProfileModelGraphql';
+export declare enum ProfileNatureType {
+    Bot = "bot",
+    Company = "company",
+    Human = "human"
+}
+export type ProfileType = {
+    __typename?: 'ProfileType';
     /** avatarSrc */
     avatarSize?: Maybe<AvatarSizeGraphgl>;
     /** avatarSrc */
@@ -236,6 +241,8 @@ export type ProfileModelGraphql = {
     position?: Maybe<Scalars['Float']['output']>;
     /** profile ID */
     profileName: Scalars['String']['output'];
+    /** profileNature */
+    profileNature: ProfileNatureType;
     /** promptExamples */
     promptExamples?: Maybe<Array<Scalars['String']['output']>>;
     /** serviceSections */
@@ -247,21 +254,21 @@ export type ProfileModelGraphql = {
 };
 export type Query = {
     __typename?: 'Query';
-    findAllDocuments: Array<DocumentModelGraphql>;
-    findDocument: DocumentModelGraphql;
-    getImagesOpenAi: ImagesOpenAiModelGraphql;
-    getMessageAssistant: MessageAssistantModelGraphql;
-    getProfiles: Array<ProfileModelGraphql>;
-    getRefreshedUserAuthAwsCognito: UserIdDataAwsCognitoGraphql;
-    getRevokedUserAuthAwsCognito: UserIdDataAwsCognitoGraphql;
-    getUserIdDataAwsCognito: UserIdDataAwsCognitoGraphql;
-    readTemplates: Array<TemplateModelGraphql>;
-    readUserAuth: UserModelExtendedGraphql;
-    readUserProfile: UserModelExtendedGraphql;
-    readUsers: UsersGraphql;
-    recipe: RecipeModelGraphql;
-    recipes: Array<RecipeModelGraphql>;
-    sendEmailDocument: DocumentModelGraphql;
+    findAllDocuments: Array<DocumentType>;
+    findDocument: DocumentType;
+    getImagesOpenAi: ImagesOpenAiType;
+    getMessageAssistant: MessageAssistantType;
+    getProfiles: Array<ProfileType>;
+    getRefreshedUserAuthAwsCognito: UserIdDataAwsCognitoType;
+    getRevokedUserAuthAwsCognito: UserIdDataAwsCognitoType;
+    getUserIdDataAwsCognito: UserIdDataAwsCognitoType;
+    readTemplates: Array<TemplateType>;
+    readUserAuth: UserModelExtendedType;
+    readUserProfile: UserModelExtendedType;
+    readUsers: UsersType;
+    recipe: RecipeType;
+    recipes: Array<RecipeType>;
+    sendEmailDocument: DocumentType;
 };
 export type QueryFindAllDocumentsArgs = {
     skip?: Scalars['Int']['input'];
@@ -271,22 +278,22 @@ export type QueryFindDocumentArgs = {
     documentID: Scalars['String']['input'];
 };
 export type QueryGetImagesOpenAiArgs = {
-    imageOpenAiInput: ImageOpenAiInputGraphql;
+    imageOpenAiInput: ImageOpenAiInputType;
 };
 export type QueryGetMessageAssistantArgs = {
-    messageAssistantInput: MessageAssistantInputGraphql;
+    messageAssistantInput: MessageAssistantInputType;
 };
 export type QueryGetRefreshedUserAuthAwsCognitoArgs = {
-    userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputGraphql;
+    userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType;
 };
 export type QueryGetRevokedUserAuthAwsCognitoArgs = {
-    userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputGraphql;
+    userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType;
 };
 export type QueryGetUserIdDataAwsCognitoArgs = {
-    userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputGraphql;
+    userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType;
 };
 export type QueryReadTemplatesArgs = {
-    options: TemplateOptionsReadGraphql;
+    options: TemplateOptionsReadType;
 };
 export type QueryReadUserAuthArgs = {
     userIdAuth: Scalars['String']['input'];
@@ -318,16 +325,16 @@ export type ReadUsersOptions = {
     /** user fields equal to, see https://docs.mongodb.com/manual/reference/operator/query/ne/ */
     ne?: InputMaybe<Array<ComparisonFields>>;
 };
-export type RecipeModelGraphql = {
-    __typename?: 'RecipeModelGraphql';
+export type RecipeType = {
+    __typename?: 'RecipeType';
     creationDate: Scalars['String']['output'];
     description?: Maybe<Scalars['String']['output']>;
     id: Scalars['ID']['output'];
     ingredients: Array<Scalars['String']['output']>;
     title: Scalars['String']['output'];
 };
-export type ResponseMessageGraphql = {
-    __typename?: 'ResponseMessageGraphql';
+export type ResponseMessageType = {
+    __typename?: 'ResponseMessageType';
     /** description message */
     message?: Maybe<Scalars['String']['output']>;
     /** status: success or failure */
@@ -335,10 +342,10 @@ export type ResponseMessageGraphql = {
 };
 export type Subscription = {
     __typename?: 'Subscription';
-    documentAdded: DocumentModelGraphql;
-    recipeAdded: RecipeModelGraphql;
+    documentAdded: DocumentType;
+    recipeAdded: RecipeType;
 };
-export type TemplateInputGraphql = {
+export type TemplateInputType = {
     /** template created date */
     templateDateCreated?: InputMaybe<Scalars['Date']['input']>;
     /** template closed date */
@@ -348,31 +355,20 @@ export type TemplateInputGraphql = {
     /** template ID */
     templateId?: InputMaybe<Scalars['ID']['input']>;
 };
-export type TemplateMessageGraphql = {
-    __typename?: 'TemplateMessageGraphql';
+export type TemplateMessageType = {
+    __typename?: 'TemplateMessageType';
     /** description message */
     message?: Maybe<Scalars['String']['output']>;
     /** status: success or failure */
     status?: Maybe<Scalars['String']['output']>;
 };
-export type TemplateModelGraphql = {
-    __typename?: 'TemplateModelGraphql';
-    /** template created date */
-    templateDateCreated?: Maybe<Scalars['Date']['output']>;
-    /** template closed date */
-    templateDateDeleted?: Maybe<Scalars['Date']['output']>;
-    /** template updated date */
-    templateDateUpdated?: Maybe<Scalars['Date']['output']>;
-    /** template ID */
-    templateId?: Maybe<Scalars['ID']['output']>;
-};
-export type TemplateOptionsReadGraphql = {
+export type TemplateOptionsReadType = {
     /** temporary name - value */
     param?: InputMaybe<Scalars['String']['input']>;
 };
-export type TemplateResponseExtendedGraphql = {
-    __typename?: 'TemplateResponseExtendedGraphql';
-    responseMessage: TemplateMessageGraphql;
+export type TemplateResponseExtendedType = {
+    __typename?: 'TemplateResponseExtendedType';
+    responseMessage: TemplateMessageType;
     /** template created date */
     templateDateCreated?: Maybe<Scalars['Date']['output']>;
     /** template closed date */
@@ -382,8 +378,27 @@ export type TemplateResponseExtendedGraphql = {
     /** template ID */
     templateId?: Maybe<Scalars['ID']['output']>;
 };
-export type UserIdDataAwsCognitoGraphql = {
-    __typename?: 'UserIdDataAwsCognitoGraphql';
+export type TemplateType = {
+    __typename?: 'TemplateType';
+    /** template created date */
+    templateDateCreated?: Maybe<Scalars['Date']['output']>;
+    /** template closed date */
+    templateDateDeleted?: Maybe<Scalars['Date']['output']>;
+    /** template updated date */
+    templateDateUpdated?: Maybe<Scalars['Date']['output']>;
+    /** template ID */
+    templateId?: Maybe<Scalars['ID']['output']>;
+};
+export type UserIdDataAwsCognitoInputType = {
+    /** AWS code from authorisation workflow */
+    code?: InputMaybe<Scalars['String']['input']>;
+    /** AWS redirect_uri */
+    redirect_uri?: InputMaybe<Scalars['String']['input']>;
+    /** AWS refresh token from post-authorization workflow */
+    refresh_token?: InputMaybe<Scalars['String']['input']>;
+};
+export type UserIdDataAwsCognitoType = {
+    __typename?: 'UserIdDataAwsCognitoType';
     /** at hash */
     at_hash?: Maybe<Scalars['String']['output']>;
     /** The user pool app client that authenticated your user. Amazon Cognito renders the same value in the access token client_id claim */
@@ -419,15 +434,7 @@ export type UserIdDataAwsCognitoGraphql = {
     /** The intended purpose of the token. In an ID token, its value is id */
     token_use?: Maybe<Scalars['String']['output']>;
 };
-export type UserIdDataAwsCognitoInputGraphql = {
-    /** AWS code from authorisation workflow */
-    code?: InputMaybe<Scalars['String']['input']>;
-    /** AWS redirect_uri */
-    redirect_uri?: InputMaybe<Scalars['String']['input']>;
-    /** AWS refresh token from post-authorization workflow */
-    refresh_token?: InputMaybe<Scalars['String']['input']>;
-};
-export type UserInputGraphql = {
+export type UserInputType = {
     /** user avatar */
     userAvatar?: InputMaybe<Scalars['String']['input']>;
     /** user year of birthday */
@@ -471,9 +478,9 @@ export type UserInputGraphql = {
     /** user web site */
     userWebLink?: InputMaybe<Scalars['String']['input']>;
 };
-export type UserModelExtendedGraphql = {
-    __typename?: 'UserModelExtendedGraphql';
-    responseMessage: ResponseMessageGraphql;
+export type UserModelExtendedType = {
+    __typename?: 'UserModelExtendedType';
+    responseMessage: ResponseMessageType;
     /** user avatar */
     userAvatar?: Maybe<Scalars['String']['output']>;
     /** user year of birthday */
@@ -525,72 +532,72 @@ export type UserModelExtendedGraphql = {
     /** user web site */
     userWebLink?: Maybe<Scalars['String']['output']>;
 };
-export type UserModelGraphql = {
-    __typename?: 'UserModelGraphql';
-    /** user avatar */
-    userAvatar?: Maybe<Scalars['String']['output']>;
-    /** user year of birthday */
-    userBirthYear?: Maybe<Scalars['Float']['output']>;
-    /** user created date */
-    userDateCreated?: Maybe<Scalars['Date']['output']>;
-    /** user closed date */
-    userDateDeleted?: Maybe<Scalars['Date']['output']>;
-    /** user updated date */
-    userDateUpdated?: Maybe<Scalars['Date']['output']>;
-    /** user email */
-    userEmail?: Maybe<Scalars['String']['output']>;
-    /** user gender */
-    userGender?: Maybe<Scalars['String']['output']>;
-    /** user ID */
-    userIdAuth?: Maybe<Scalars['ID']['output']>;
-    /** user ID */
-    userIdProfile?: Maybe<Scalars['ID']['output']>;
-    /** user short information */
-    userInfoAbout?: Maybe<Scalars['String']['output']>;
-    /** user speaking languages */
-    userLanguages?: Maybe<Array<Scalars['String']['output']>>;
-    /** user city location */
-    userLocaleCity?: Maybe<Scalars['String']['output']>;
-    /** user country location */
-    userLocaleCountry?: Maybe<Scalars['String']['output']>;
-    /** user timezone */
-    userLoginSource?: Maybe<Scalars['String']['output']>;
-    /** user media */
-    userMedia?: Maybe<Array<Scalars['String']['output']>>;
-    /** user accepted/ visible name as a result of registration */
-    userName?: Maybe<Scalars['String']['output']>;
-    /** user first name */
-    userNameFirst?: Maybe<Scalars['String']['output']>;
-    /** user last name */
-    userNameLast?: Maybe<Scalars['String']['output']>;
-    /** user middle name */
-    userNameMiddle?: Maybe<Scalars['String']['output']>;
-    /** user accepted/ visible name to display other people */
-    userNameNick: Scalars['String']['output'];
-    /** user telephone number */
-    userPhone?: Maybe<Scalars['Float']['output']>;
-    /** user roles to perform actions */
-    userRoles?: Maybe<Array<Scalars['String']['output']>>;
-    /** user set of skills, expertises */
-    userSkillsExpertise?: Maybe<Array<Scalars['String']['output']>>;
-    /** user timezone */
-    userTimeZone?: Maybe<Scalars['String']['output']>;
-    /** user web site */
-    userWebLink?: Maybe<Scalars['String']['output']>;
-};
-export type UserNameInputGraphql = {
+export type UserNameInputType = {
     firstName: Scalars['String']['input'];
     lastName: Scalars['String']['input'];
     middleName: Scalars['String']['input'];
 };
-export type UserNameObjectGraphql = {
-    __typename?: 'UserNameObjectGraphql';
+export type UserNameObjectType = {
+    __typename?: 'UserNameObjectType';
     firstName: Scalars['String']['output'];
     lastName: Scalars['String']['output'];
     middleName: Scalars['String']['output'];
 };
-export type UsersGraphql = {
-    __typename?: 'UsersGraphql';
-    responseMessage: ResponseMessageGraphql;
-    users: Array<UserModelGraphql>;
+export type UserType = {
+    __typename?: 'UserType';
+    /** user avatar */
+    userAvatar?: Maybe<Scalars['String']['output']>;
+    /** user year of birthday */
+    userBirthYear?: Maybe<Scalars['Float']['output']>;
+    /** user created date */
+    userDateCreated?: Maybe<Scalars['Date']['output']>;
+    /** user closed date */
+    userDateDeleted?: Maybe<Scalars['Date']['output']>;
+    /** user updated date */
+    userDateUpdated?: Maybe<Scalars['Date']['output']>;
+    /** user email */
+    userEmail?: Maybe<Scalars['String']['output']>;
+    /** user gender */
+    userGender?: Maybe<Scalars['String']['output']>;
+    /** user ID */
+    userIdAuth?: Maybe<Scalars['ID']['output']>;
+    /** user ID */
+    userIdProfile?: Maybe<Scalars['ID']['output']>;
+    /** user short information */
+    userInfoAbout?: Maybe<Scalars['String']['output']>;
+    /** user speaking languages */
+    userLanguages?: Maybe<Array<Scalars['String']['output']>>;
+    /** user city location */
+    userLocaleCity?: Maybe<Scalars['String']['output']>;
+    /** user country location */
+    userLocaleCountry?: Maybe<Scalars['String']['output']>;
+    /** user timezone */
+    userLoginSource?: Maybe<Scalars['String']['output']>;
+    /** user media */
+    userMedia?: Maybe<Array<Scalars['String']['output']>>;
+    /** user accepted/ visible name as a result of registration */
+    userName?: Maybe<Scalars['String']['output']>;
+    /** user first name */
+    userNameFirst?: Maybe<Scalars['String']['output']>;
+    /** user last name */
+    userNameLast?: Maybe<Scalars['String']['output']>;
+    /** user middle name */
+    userNameMiddle?: Maybe<Scalars['String']['output']>;
+    /** user accepted/ visible name to display other people */
+    userNameNick: Scalars['String']['output'];
+    /** user telephone number */
+    userPhone?: Maybe<Scalars['Float']['output']>;
+    /** user roles to perform actions */
+    userRoles?: Maybe<Array<Scalars['String']['output']>>;
+    /** user set of skills, expertises */
+    userSkillsExpertise?: Maybe<Array<Scalars['String']['output']>>;
+    /** user timezone */
+    userTimeZone?: Maybe<Scalars['String']['output']>;
+    /** user web site */
+    userWebLink?: Maybe<Scalars['String']['output']>;
+};
+export type UsersType = {
+    __typename?: 'UsersType';
+    responseMessage: ResponseMessageType;
+    users: Array<UserType>;
 };

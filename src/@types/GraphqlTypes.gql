@@ -2,16 +2,16 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-input AddDocumentInputGraphql {
+input AddDocumentInputType {
   capture: String!
   contentIDs: [String!]!
   courseID: ID!
   description: String
   env: String!
   lang: String!
-  meta: MetaInputGraphql!
+  meta: MetaInputType!
   moduleIDs: [String!]!
-  userName: UserNameInputGraphql!
+  userName: UserNameInputType!
 }
 
 type AvatarSizeGraphgl {
@@ -22,10 +22,10 @@ type AvatarSizeGraphgl {
   width: Float
 }
 
-type ChoiceModelGraphql {
+type ChoiceType {
   finish_reason: String!
   index: Int!
-  message: MessageModelGraphql!
+  message: MessageType!
 }
 
 input ComparisonFields {
@@ -39,7 +39,7 @@ input ComparisonFields {
 """Date custom scalar type"""
 scalar Date
 
-type DocumentModelGraphql {
+type DocumentType {
   capture: String!
   contentIDs: [String!]!
   courseID: ID!
@@ -49,45 +49,45 @@ type DocumentModelGraphql {
   env: String!
   ip: String!
   lang: String!
-  meta: MetaObjectGraphql!
+  meta: MetaObjectType!
   moduleIDs: [String!]!
   pathName: String!
-  userName: UserNameObjectGraphql!
+  userName: UserNameObjectType!
 }
 
-type ImageDataOpenAiModelGraphql {
+type ImageDataOpenAiType {
   b64_json: String
   url: String
 }
 
-input ImageOpenAiInputGraphql {
+input ImageOpenAiInputType {
   n: Int!
   prompt: String!
   response_format: String
   size: String!
 }
 
-type ImagesOpenAiModelGraphql {
+type ImagesOpenAiType {
   created: Int!
-  data: [ImageDataOpenAiModelGraphql!]!
+  data: [ImageDataOpenAiType!]!
 }
 
-input MessageAssistantInputGraphql {
-  messages: [MessageInputGraphql!]!
+input MessageAssistantInputType {
+  messages: [MessageInputType!]!
   model: String!
   temperature: Float!
 }
 
-type MessageAssistantModelGraphql {
-  choices: [ChoiceModelGraphql!]!
+type MessageAssistantType {
+  choices: [ChoiceType!]!
 }
 
-input MessageInputGraphql {
+input MessageInputType {
   content: String
   role: String!
 }
 
-type MessageModelGraphql {
+type MessageType {
   content: String
   role: String!
 }
@@ -100,7 +100,7 @@ type MessengerGraphgl {
   profileName: String
 }
 
-input MetaInputGraphql {
+input MetaInputType {
   email: String!
   institution: String!
   isSendingBcc: Boolean!
@@ -108,7 +108,7 @@ input MetaInputGraphql {
   specTitle: String!
 }
 
-type MetaObjectGraphql {
+type MetaObjectType {
   email: String!
   institution: String!
   isSendingBcc: Boolean!
@@ -117,25 +117,31 @@ type MetaObjectGraphql {
 }
 
 type Mutation {
-  addDocument(addDocumentInputGraphql: AddDocumentInputGraphql!): DocumentModelGraphql!
-  addRecipe(newRecipeData: NewRecipeInputGraphql!): RecipeModelGraphql!
-  createTemplate(templateInputGraphql: TemplateInputGraphql!): TemplateResponseExtendedGraphql!
-  createUser(userInputGraphql: UserInputGraphql!): UserModelExtendedGraphql!
-  deleteTemplate(templateId: String!): TemplateResponseExtendedGraphql!
-  deleteUser(userIdAuth: String!, userIdProfile: String!): UserModelExtendedGraphql!
+  addDocument(addDocumentInputType: AddDocumentInputType!): DocumentType!
+  addRecipe(newRecipeData: NewRecipeInputType!): RecipeType!
+  createTemplate(templateInputType: TemplateInputType!): TemplateResponseExtendedType!
+  createUser(userInputType: UserInputType!): UserModelExtendedType!
+  deleteTemplate(templateId: String!): TemplateResponseExtendedType!
+  deleteUser(userIdAuth: String!, userIdProfile: String!): UserModelExtendedType!
   removeDocument(id: String!): Boolean!
   removeRecipe(id: String!): Boolean!
-  updateTemplate(templateInputGraphql: TemplateInputGraphql!): TemplateResponseExtendedGraphql!
-  updateUser(userInputGraphql2: UserInputGraphql!): UserModelExtendedGraphql!
+  updateTemplate(templateInputType: TemplateInputType!): TemplateResponseExtendedType!
+  updateUser(userInputType2: UserInputType!): UserModelExtendedType!
 }
 
-input NewRecipeInputGraphql {
+input NewRecipeInputType {
   description: String
   ingredients: [String!]!
   title: String!
 }
 
-type ProfileModelGraphql {
+enum ProfileNatureType {
+  bot
+  company
+  human
+}
+
+type ProfileType {
   """avatarSrc"""
   avatarSize: AvatarSizeGraphgl
 
@@ -190,6 +196,9 @@ type ProfileModelGraphql {
   """profile ID"""
   profileName: String!
 
+  """profileNature"""
+  profileNature: ProfileNatureType!
+
   """promptExamples"""
   promptExamples: [String!]
 
@@ -204,21 +213,21 @@ type ProfileModelGraphql {
 }
 
 type Query {
-  findAllDocuments(skip: Int! = 0, take: Int! = 25): [DocumentModelGraphql!]!
-  findDocument(documentID: String!): DocumentModelGraphql!
-  getImagesOpenAi(imageOpenAiInput: ImageOpenAiInputGraphql!): ImagesOpenAiModelGraphql!
-  getMessageAssistant(messageAssistantInput: MessageAssistantInputGraphql!): MessageAssistantModelGraphql!
-  getProfiles: [ProfileModelGraphql!]!
-  getRefreshedUserAuthAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputGraphql!): UserIdDataAwsCognitoGraphql!
-  getRevokedUserAuthAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputGraphql!): UserIdDataAwsCognitoGraphql!
-  getUserIdDataAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputGraphql!): UserIdDataAwsCognitoGraphql!
-  readTemplates(options: TemplateOptionsReadGraphql!): [TemplateModelGraphql!]!
-  readUserAuth(userIdAuth: String!): UserModelExtendedGraphql!
-  readUserProfile(userIdProfile: String!): UserModelExtendedGraphql!
-  readUsers(options: ReadUsersOptions!): UsersGraphql!
-  recipe(id: String!): RecipeModelGraphql!
-  recipes(skip: Int! = 0, take: Int! = 25): [RecipeModelGraphql!]!
-  sendEmailDocument(documentID: String!, sendBcc: String!, sendCc: String!, sendTo: String!): DocumentModelGraphql!
+  findAllDocuments(skip: Int! = 0, take: Int! = 25): [DocumentType!]!
+  findDocument(documentID: String!): DocumentType!
+  getImagesOpenAi(imageOpenAiInput: ImageOpenAiInputType!): ImagesOpenAiType!
+  getMessageAssistant(messageAssistantInput: MessageAssistantInputType!): MessageAssistantType!
+  getProfiles: [ProfileType!]!
+  getRefreshedUserAuthAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
+  getRevokedUserAuthAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
+  getUserIdDataAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
+  readTemplates(options: TemplateOptionsReadType!): [TemplateType!]!
+  readUserAuth(userIdAuth: String!): UserModelExtendedType!
+  readUserProfile(userIdProfile: String!): UserModelExtendedType!
+  readUsers(options: ReadUsersOptions!): UsersType!
+  recipe(id: String!): RecipeType!
+  recipes(skip: Int! = 0, take: Int! = 25): [RecipeType!]!
+  sendEmailDocument(documentID: String!, sendBcc: String!, sendCc: String!, sendTo: String!): DocumentType!
 }
 
 input ReadUsersOptions {
@@ -236,7 +245,7 @@ input ReadUsersOptions {
   ne: [ComparisonFields!]
 }
 
-type RecipeModelGraphql {
+type RecipeType {
   creationDate: String!
   description: String
   id: ID!
@@ -244,7 +253,7 @@ type RecipeModelGraphql {
   title: String!
 }
 
-type ResponseMessageGraphql {
+type ResponseMessageType {
   """description message"""
   message: String
 
@@ -253,11 +262,11 @@ type ResponseMessageGraphql {
 }
 
 type Subscription {
-  documentAdded: DocumentModelGraphql!
-  recipeAdded: RecipeModelGraphql!
+  documentAdded: DocumentType!
+  recipeAdded: RecipeType!
 }
 
-input TemplateInputGraphql {
+input TemplateInputType {
   """template created date"""
   templateDateCreated: Date
 
@@ -271,7 +280,7 @@ input TemplateInputGraphql {
   templateId: ID
 }
 
-type TemplateMessageGraphql {
+type TemplateMessageType {
   """description message"""
   message: String
 
@@ -279,27 +288,13 @@ type TemplateMessageGraphql {
   status: String
 }
 
-type TemplateModelGraphql {
-  """template created date"""
-  templateDateCreated: Date
-
-  """template closed date"""
-  templateDateDeleted: Date
-
-  """template updated date"""
-  templateDateUpdated: Date
-
-  """template ID"""
-  templateId: ID
-}
-
-input TemplateOptionsReadGraphql {
+input TemplateOptionsReadType {
   """temporary name - value"""
   param: String
 }
 
-type TemplateResponseExtendedGraphql {
-  responseMessage: TemplateMessageGraphql!
+type TemplateResponseExtendedType {
+  responseMessage: TemplateMessageType!
 
   """template created date"""
   templateDateCreated: Date
@@ -314,7 +309,32 @@ type TemplateResponseExtendedGraphql {
   templateId: ID
 }
 
-type UserIdDataAwsCognitoGraphql {
+type TemplateType {
+  """template created date"""
+  templateDateCreated: Date
+
+  """template closed date"""
+  templateDateDeleted: Date
+
+  """template updated date"""
+  templateDateUpdated: Date
+
+  """template ID"""
+  templateId: ID
+}
+
+input UserIdDataAwsCognitoInputType {
+  """AWS code from authorisation workflow"""
+  code: String
+
+  """AWS redirect_uri"""
+  redirect_uri: String
+
+  """AWS refresh token from post-authorization workflow"""
+  refresh_token: String
+}
+
+type UserIdDataAwsCognitoType {
   """at hash"""
   at_hash: String
 
@@ -383,18 +403,7 @@ type UserIdDataAwsCognitoGraphql {
   token_use: String
 }
 
-input UserIdDataAwsCognitoInputGraphql {
-  """AWS code from authorisation workflow"""
-  code: String
-
-  """AWS redirect_uri"""
-  redirect_uri: String
-
-  """AWS refresh token from post-authorization workflow"""
-  refresh_token: String
-}
-
-input UserInputGraphql {
+input UserInputType {
   """user avatar"""
   userAvatar: String
 
@@ -459,8 +468,8 @@ input UserInputGraphql {
   userWebLink: String
 }
 
-type UserModelExtendedGraphql {
-  responseMessage: ResponseMessageGraphql!
+type UserModelExtendedType {
+  responseMessage: ResponseMessageType!
 
   """user avatar"""
   userAvatar: String
@@ -538,7 +547,19 @@ type UserModelExtendedGraphql {
   userWebLink: String
 }
 
-type UserModelGraphql {
+input UserNameInputType {
+  firstName: String!
+  lastName: String!
+  middleName: String!
+}
+
+type UserNameObjectType {
+  firstName: String!
+  lastName: String!
+  middleName: String!
+}
+
+type UserType {
   """user avatar"""
   userAvatar: String
 
@@ -615,19 +636,7 @@ type UserModelGraphql {
   userWebLink: String
 }
 
-input UserNameInputGraphql {
-  firstName: String!
-  lastName: String!
-  middleName: String!
-}
-
-type UserNameObjectGraphql {
-  firstName: String!
-  lastName: String!
-  middleName: String!
-}
-
-type UsersGraphql {
-  responseMessage: ResponseMessageGraphql!
-  users: [UserModelGraphql!]!
+type UsersType {
+  responseMessage: ResponseMessageType!
+  users: [UserType!]!
 }
