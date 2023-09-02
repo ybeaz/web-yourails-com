@@ -7,6 +7,8 @@ export const getProfilesDocument: DocumentNode = gql`
       idProfile
       idUser
       profileName
+      isActive
+      profileNature
       nameFirst
       nameLast
       position

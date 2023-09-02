@@ -6,6 +6,10 @@ export const style = StyleSheet.create({
     ...styleGlobal.typography,
     paddingLeft: '1rem',
   },
+  firstRowWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   name: {
     fontWeight: '600',
     fontSize: 16,
