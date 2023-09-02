@@ -5,6 +5,7 @@ import { ImageResizeMode } from 'react-native'
  * IImageYrlProps Interface
  */
 export interface ImageYrlPropsType {
+  isActive?: boolean
   styleProps?: { ImageYrl: any; image: any }
   key?: string
   testID: string
@@ -15,5 +16,5 @@ export interface ImageYrlPropsType {
 
 export interface ImageYrlType
   extends React.FunctionComponent<ImageYrlPropsType> {
-  (props: ImageYrlPropsType): React.ReactElement
+  (props: ImageYrlPropsType): React.ReactElement | null
 }

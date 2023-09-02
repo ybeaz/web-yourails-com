@@ -39,6 +39,7 @@ const NameStatusComponent: NameStatusComponentType = props => {
 
   const propsOut: NameStatusPropsOutType = {
     iconProfileNatureProps: {
+      isActive: PROFILE_NATURE_ICON_DICTIONARY[profileNature] ? true : false,
       library: 'MaterialCommunityIcons',
       name: PROFILE_NATURE_ICON_DICTIONARY[profileNature],
       styleProps: {

@@ -8,6 +8,7 @@ import { ImageYrl, ImageYrlPropsType } from '../index'
  * @propsOut 
   iconYrlProps: {
     // || undefined
+    isActive: true,
     library: 'Ionicons',
     name: 'send',
     styleProps: { IconYrl: { cursor: 'pointer' } },
@@ -19,6 +20,7 @@ import { ImageYrl, ImageYrlPropsType } from '../index'
  */
 export const IconYrl: IconYrlType = props => {
   const {
+    isActive = true,
     library = '',
     name = '',
     styleProps = { IconYrl: {} },
@@ -76,7 +78,7 @@ export const IconYrl: IconYrlType = props => {
     },
   }
 
-  return <ImageYrl {...propsOut.imageYrlProps} />
+  return isActive ? <ImageYrl {...propsOut.imageYrlProps} /> : null
 
   /**
    * @description Snippet allowing to use local svg files for icons 
