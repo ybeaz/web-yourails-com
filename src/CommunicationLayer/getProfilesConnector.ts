@@ -14,7 +14,7 @@ export const getProfilesConnector: ConnectorType = variables => {
   const obj: ConnectorOutputType = {
     client: axiosClient,
     params: {
-      operationName: 'GetProfiles',
+      operationName: 'ReadProfiles',
       variables,
       query: getProfilesQuery,
     },

@@ -119,13 +119,13 @@ type MetaObjectType {
 type Mutation {
   addDocument(addDocumentInputType: AddDocumentInputType!): DocumentType!
   addRecipe(newRecipeData: NewRecipeInputType!): RecipeType!
-  createTemplate(templateInputType: TemplateInputType!): TemplateResponseExtendedType!
+  createTemplate(templateInputType: TemplateInputType!): TemplateType!
   createUser(userInputType: UserInputType!): UserModelExtendedType!
-  deleteTemplate(templateId: String!): TemplateResponseExtendedType!
+  deleteTemplate(templateId: String!): TemplateType!
   deleteUser(userIdAuth: String!, userIdProfile: String!): UserModelExtendedType!
   removeDocument(id: String!): Boolean!
   removeRecipe(id: String!): Boolean!
-  updateTemplate(templateInputType: TemplateInputType!): TemplateResponseExtendedType!
+  updateTemplate(templateInputType: TemplateInputType!): TemplateType!
   updateUser(userInputType2: UserInputType!): UserModelExtendedType!
 }
 
@@ -217,10 +217,10 @@ type Query {
   findDocument(documentID: String!): DocumentType!
   getImagesOpenAi(imageOpenAiInput: ImageOpenAiInputType!): ImagesOpenAiType!
   getMessageAssistant(messageAssistantInput: MessageAssistantInputType!): MessageAssistantType!
-  getProfiles: [ProfileType!]!
   getRefreshedUserAuthAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
   getRevokedUserAuthAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
   getUserIdDataAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
+  readProfiles: [ProfileType!]!
   readTemplates(options: TemplateOptionsReadType!): [TemplateType!]!
   readUserAuth(userIdAuth: String!): UserModelExtendedType!
   readUserProfile(userIdProfile: String!): UserModelExtendedType!
@@ -280,33 +280,9 @@ input TemplateInputType {
   templateId: ID
 }
 
-type TemplateMessageType {
-  """description message"""
-  message: String
-
-  """status: success or failure"""
-  status: String
-}
-
 input TemplateOptionsReadType {
   """temporary name - value"""
   param: String
-}
-
-type TemplateResponseExtendedType {
-  responseMessage: TemplateMessageType!
-
-  """template created date"""
-  templateDateCreated: Date
-
-  """template closed date"""
-  templateDateDeleted: Date
-
-  """template updated date"""
-  templateDateUpdated: Date
-
-  """template ID"""
-  templateId: ID
 }
 
 type TemplateType {

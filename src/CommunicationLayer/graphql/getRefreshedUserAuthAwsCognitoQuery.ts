@@ -3,7 +3,7 @@ import { print } from 'graphql'
 
 const getRefreshedUserAuthAwsCognitoDocument: DocumentNode = gql`
   query GetRefreshedUserAuthAwsCognito(
-    $userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputGraphql!
+    $userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!
   ) {
     getRefreshedUserAuthAwsCognito(
       userIdDataAwsCognitoInput: $userIdDataAwsCognitoInput

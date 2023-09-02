@@ -144,13 +144,13 @@ export type Mutation = {
   __typename?: 'Mutation';
   addDocument: DocumentType;
   addRecipe: RecipeType;
-  createTemplate: TemplateResponseExtendedType;
+  createTemplate: TemplateType;
   createUser: UserModelExtendedType;
-  deleteTemplate: TemplateResponseExtendedType;
+  deleteTemplate: TemplateType;
   deleteUser: UserModelExtendedType;
   removeDocument: Scalars['Boolean']['output'];
   removeRecipe: Scalars['Boolean']['output'];
-  updateTemplate: TemplateResponseExtendedType;
+  updateTemplate: TemplateType;
   updateUser: UserModelExtendedType;
 };
 
@@ -273,10 +273,10 @@ export type Query = {
   findDocument: DocumentType;
   getImagesOpenAi: ImagesOpenAiType;
   getMessageAssistant: MessageAssistantType;
-  getProfiles: Array<ProfileType>;
   getRefreshedUserAuthAwsCognito: UserIdDataAwsCognitoType;
   getRevokedUserAuthAwsCognito: UserIdDataAwsCognitoType;
   getUserIdDataAwsCognito: UserIdDataAwsCognitoType;
+  readProfiles: Array<ProfileType>;
   readTemplates: Array<TemplateType>;
   readUserAuth: UserModelExtendedType;
   readUserProfile: UserModelExtendedType;
@@ -404,30 +404,9 @@ export type TemplateInputType = {
   templateId?: InputMaybe<Scalars['ID']['input']>;
 };
 
-export type TemplateMessageType = {
-  __typename?: 'TemplateMessageType';
-  /** description message */
-  message?: Maybe<Scalars['String']['output']>;
-  /** status: success or failure */
-  status?: Maybe<Scalars['String']['output']>;
-};
-
 export type TemplateOptionsReadType = {
   /** temporary name - value */
   param?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type TemplateResponseExtendedType = {
-  __typename?: 'TemplateResponseExtendedType';
-  responseMessage: TemplateMessageType;
-  /** template created date */
-  templateDateCreated?: Maybe<Scalars['Date']['output']>;
-  /** template closed date */
-  templateDateDeleted?: Maybe<Scalars['Date']['output']>;
-  /** template updated date */
-  templateDateUpdated?: Maybe<Scalars['Date']['output']>;
-  /** template ID */
-  templateId?: Maybe<Scalars['ID']['output']>;
 };
 
 export type TemplateType = {

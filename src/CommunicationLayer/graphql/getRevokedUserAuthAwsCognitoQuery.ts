@@ -3,7 +3,7 @@ import { print } from 'graphql'
 
 const getRevokedUserAuthAwsCognitoDocument: DocumentNode = gql`
   query GetRevokedUserAuthAwsCognito(
-    $userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputGraphql!
+    $userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!
   ) {
     getRevokedUserAuthAwsCognito(
       userIdDataAwsCognitoInput: $userIdDataAwsCognitoInput

@@ -13,10 +13,10 @@ export function* getProfiles() {
     if (!isLocalDataMockOnlyFlag()) {
       const {
         data: {
-          data: { getProfiles },
+          data: { readProfiles },
         },
       } = yield client.post('', params)
-      profiles = getProfiles
+      profiles = readProfiles
     } else {
       profiles = profilesMock
     }
