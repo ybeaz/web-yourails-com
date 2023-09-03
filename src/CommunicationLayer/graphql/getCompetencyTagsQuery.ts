@@ -2,8 +2,8 @@ import { gql, DocumentNode } from '@apollo/client'
 import { print } from 'graphql'
 
 export const getCompetencyTagsDocument: DocumentNode = gql`
-  query ReadCompetencyTags($options: CompetencyTagsOptionsReadType!) {
-    readCompetencyTags(options: $options) {
+  query ReadCompetencyTags($params: CompetencyTagsParamsReadType!) {
+    readCompetencyTags(params: $params) {
       idCompetency
       idProfile
       title

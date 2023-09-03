@@ -9,16 +9,13 @@ function* addCompetencyTags(params: any) {
   const {
     data: { idProfile },
   } = params
-  console.info('addCompetencyTagsSaga [10]', { idProfile, params })
 
   let competencyTags
   try {
     if (!isLocalDataMockOnlyFlag()) {
-      // TODO: Now these variables does not work and are used as examples
       const variables = {
-        options: {
-          first: 0,
-          last: 1000000,
+        params: {
+          idProfile,
         },
       }
       const { client, params } = getCompetencyTagsConnector(variables)

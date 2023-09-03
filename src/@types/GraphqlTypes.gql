@@ -14,6 +14,14 @@ input AddDocumentInputType {
   userName: UserNameInputType!
 }
 
+type AvatarSizeGraphgl {
+  """height"""
+  height: Float
+
+  """width"""
+  width: Float
+}
+
 type AvatarSizeType {
   """height"""
   height: Float
@@ -58,10 +66,7 @@ input CompetencyTagsInputType {
 
 input CompetencyTagsOptionsReadType {
   """first item"""
-  first: Float
-
-  """last item"""
-  last: Float
+  idProfile: String
 }
 
 type CompetencyTagsType {
@@ -147,6 +152,14 @@ input MessageChoiceInputType {
 type MessageChoiceType {
   content: String
   role: String!
+}
+
+type MessengerGraphgl {
+  """name"""
+  name: String
+
+  """profileName"""
+  profileName: String
 }
 
 type MessengerType {
