@@ -35,8 +35,8 @@ export type AddDocumentInputType = {
   userName: UserNameInputType;
 };
 
-export type AvatarSizeGraphgl = {
-  __typename?: 'AvatarSizeGraphgl';
+export type AvatarSizeType = {
+  __typename?: 'AvatarSizeType';
   /** height */
   height?: Maybe<Scalars['Float']['output']>;
   /** width */
@@ -47,7 +47,7 @@ export type ChoiceType = {
   __typename?: 'ChoiceType';
   finish_reason: Scalars['String']['output'];
   index: Scalars['Int']['output'];
-  message: MessageType;
+  message: MessageChoiceType;
 };
 
 export type ComparisonFields = {
@@ -55,6 +55,52 @@ export type ComparisonFields = {
   userIdAuth?: InputMaybe<Scalars['ID']['input']>;
   /** user ID */
   userIdProfile?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export enum CompetencyContentType {
+  CompetencyTagsType = 'CompetencyTagsType',
+  ProfileType = 'ProfileType',
+  ProjectType = 'ProjectType'
+}
+
+export type CompetencyTagsInputType = {
+  /** competencyTags created date */
+  competencyTagsDateCreated?: InputMaybe<Scalars['Date']['input']>;
+  /** competencyTags deleted date */
+  competencyTagsDateDeleted?: InputMaybe<Scalars['Date']['input']>;
+  /** competencyTags updated date */
+  competencyTagsDateUpdated?: InputMaybe<Scalars['Date']['input']>;
+  /** competencyTags ID */
+  idCompetencyTags?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type CompetencyTagsOptionsReadType = {
+  /** first item */
+  first?: InputMaybe<Scalars['Float']['input']>;
+  /** last item */
+  last?: InputMaybe<Scalars['Float']['input']>;
+};
+
+export type CompetencyTagsType = {
+  __typename?: 'CompetencyTagsType';
+  /** contentType */
+  contentType: CompetencyContentType;
+  /** iconLibrary */
+  iconLibrary?: Maybe<Scalars['String']['output']>;
+  /** iconName */
+  iconName?: Maybe<Scalars['String']['output']>;
+  /** competency ID */
+  idCompetency: Scalars['ID']['output'];
+  /** profile ID */
+  idProfile: Scalars['ID']['output'];
+  /** linkHref */
+  linkHref?: Maybe<Scalars['String']['output']>;
+  /** section */
+  section?: Maybe<Scalars['String']['output']>;
+  /** title */
+  title?: Maybe<Scalars['String']['output']>;
+  /** tooltips */
+  tooltips?: Maybe<Scalars['String']['output']>;
 };
 
 export type DocumentType = {
@@ -94,7 +140,7 @@ export type ImagesOpenAiType = {
 };
 
 export type MessageAssistantInputType = {
-  messages: Array<MessageInputType>;
+  messages: Array<MessageChoiceInputType>;
   model: Scalars['String']['input'];
   temperature: Scalars['Float']['input'];
 };
@@ -104,19 +150,19 @@ export type MessageAssistantType = {
   choices: Array<ChoiceType>;
 };
 
-export type MessageInputType = {
+export type MessageChoiceInputType = {
   content?: InputMaybe<Scalars['String']['input']>;
   role: Scalars['String']['input'];
 };
 
-export type MessageType = {
-  __typename?: 'MessageType';
+export type MessageChoiceType = {
+  __typename?: 'MessageChoiceType';
   content?: Maybe<Scalars['String']['output']>;
   role: Scalars['String']['output'];
 };
 
-export type MessengerGraphgl = {
-  __typename?: 'MessengerGraphgl';
+export type MessengerType = {
+  __typename?: 'MessengerType';
   /** name */
   name?: Maybe<Scalars['String']['output']>;
   /** profileName */
@@ -144,13 +190,19 @@ export type Mutation = {
   __typename?: 'Mutation';
   addDocument: DocumentType;
   addRecipe: RecipeType;
-  createTemplate: TemplateType;
+  createCompetencyTags: Array<CompetencyTagsType>;
+  createProfiles: Array<ProfileType>;
+  createTemplates: Array<TemplatesType>;
   createUser: UserModelExtendedType;
-  deleteTemplate: TemplateType;
+  deleteCompetencyTags: Array<CompetencyTagsType>;
+  deleteProfiles: Array<ProfileType>;
+  deleteTemplates: Array<TemplatesType>;
   deleteUser: UserModelExtendedType;
   removeDocument: Scalars['Boolean']['output'];
   removeRecipe: Scalars['Boolean']['output'];
-  updateTemplate: TemplateType;
+  updateCompetencyTags: Array<CompetencyTagsType>;
+  updateProfiles: Array<ProfileType>;
+  updateTemplates: Array<TemplatesType>;
   updateUser: UserModelExtendedType;
 };
 
@@ -165,8 +217,18 @@ export type MutationAddRecipeArgs = {
 };
 
 
-export type MutationCreateTemplateArgs = {
-  templateInputType: TemplateInputType;
+export type MutationCreateCompetencyTagsArgs = {
+  competencyTagsInput: CompetencyTagsInputType;
+};
+
+
+export type MutationCreateProfilesArgs = {
+  profilesInput: ProfilesInputType;
+};
+
+
+export type MutationCreateTemplatesArgs = {
+  templatesInput: TemplatesInputType;
 };
 
 
@@ -175,8 +237,18 @@ export type MutationCreateUserArgs = {
 };
 
 
-export type MutationDeleteTemplateArgs = {
-  templateId: Scalars['String']['input'];
+export type MutationDeleteCompetencyTagsArgs = {
+  idCompetencyTags: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteProfilesArgs = {
+  idProfiles: Scalars['String']['input'];
+};
+
+
+export type MutationDeleteTemplatesArgs = {
+  idTemplates: Scalars['String']['input'];
 };
 
 
@@ -196,8 +268,18 @@ export type MutationRemoveRecipeArgs = {
 };
 
 
-export type MutationUpdateTemplateArgs = {
-  templateInputType: TemplateInputType;
+export type MutationUpdateCompetencyTagsArgs = {
+  competencyTagsInput: CompetencyTagsInputType;
+};
+
+
+export type MutationUpdateProfilesArgs = {
+  profilesInput: ProfilesInputType;
+};
+
+
+export type MutationUpdateTemplatesArgs = {
+  templatesInput: TemplatesInputType;
 };
 
 
@@ -220,7 +302,7 @@ export enum ProfileNatureType {
 export type ProfileType = {
   __typename?: 'ProfileType';
   /** avatarSrc */
-  avatarSize?: Maybe<AvatarSizeGraphgl>;
+  avatarSize?: Maybe<AvatarSizeType>;
   /** avatarSrc */
   avatarSrc?: Maybe<Scalars['String']['output']>;
   /** contacts */
@@ -242,7 +324,7 @@ export type ProfileType = {
   /** locations */
   locations?: Maybe<Array<Scalars['String']['output']>>;
   /** messengers */
-  messengers?: Maybe<Array<MessengerGraphgl>>;
+  messengers?: Maybe<Array<MessengerType>>;
   /** nameFirst */
   nameFirst?: Maybe<Scalars['String']['output']>;
   /** nameLast */
@@ -267,6 +349,17 @@ export type ProfileType = {
   summary?: Maybe<Scalars['String']['output']>;
 };
 
+export type ProfilesInputType = {
+  /** profiles ID */
+  idProfiles?: InputMaybe<Scalars['ID']['input']>;
+  /** profiles created date */
+  profilesDateCreated?: InputMaybe<Scalars['Date']['input']>;
+  /** profiles deleted date */
+  profilesDateDeleted?: InputMaybe<Scalars['Date']['input']>;
+  /** profiles updated date */
+  profilesDateUpdated?: InputMaybe<Scalars['Date']['input']>;
+};
+
 export type Query = {
   __typename?: 'Query';
   findAllDocuments: Array<DocumentType>;
@@ -276,8 +369,9 @@ export type Query = {
   getRefreshedUserAuthAwsCognito: UserIdDataAwsCognitoType;
   getRevokedUserAuthAwsCognito: UserIdDataAwsCognitoType;
   getUserIdDataAwsCognito: UserIdDataAwsCognitoType;
+  readCompetencyTags: Array<CompetencyTagsType>;
   readProfiles: Array<ProfileType>;
-  readTemplates: Array<TemplateType>;
+  readTemplates: Array<TemplatesType>;
   readUserAuth: UserModelExtendedType;
   readUserProfile: UserModelExtendedType;
   readUsers: UsersType;
@@ -323,8 +417,13 @@ export type QueryGetUserIdDataAwsCognitoArgs = {
 };
 
 
+export type QueryReadCompetencyTagsArgs = {
+  options: CompetencyTagsOptionsReadType;
+};
+
+
 export type QueryReadTemplatesArgs = {
-  options: TemplateOptionsReadType;
+  options: TemplatesOptionsReadType;
 };
 
 
@@ -393,32 +492,32 @@ export type Subscription = {
   recipeAdded: RecipeType;
 };
 
-export type TemplateInputType = {
-  /** template created date */
-  templateDateCreated?: InputMaybe<Scalars['Date']['input']>;
-  /** template closed date */
-  templateDateDeleted?: InputMaybe<Scalars['Date']['input']>;
-  /** template updated date */
-  templateDateUpdated?: InputMaybe<Scalars['Date']['input']>;
-  /** template ID */
-  templateId?: InputMaybe<Scalars['ID']['input']>;
+export type TemplatesInputType = {
+  /** templates ID */
+  idTemplates?: InputMaybe<Scalars['ID']['input']>;
+  /** templates created date */
+  templatesDateCreated?: InputMaybe<Scalars['Date']['input']>;
+  /** templates deleted date */
+  templatesDateDeleted?: InputMaybe<Scalars['Date']['input']>;
+  /** templates updated date */
+  templatesDateUpdated?: InputMaybe<Scalars['Date']['input']>;
 };
 
-export type TemplateOptionsReadType = {
+export type TemplatesOptionsReadType = {
   /** temporary name - value */
   param?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type TemplateType = {
-  __typename?: 'TemplateType';
-  /** template created date */
-  templateDateCreated?: Maybe<Scalars['Date']['output']>;
-  /** template closed date */
-  templateDateDeleted?: Maybe<Scalars['Date']['output']>;
-  /** template updated date */
-  templateDateUpdated?: Maybe<Scalars['Date']['output']>;
-  /** template ID */
-  templateId?: Maybe<Scalars['ID']['output']>;
+export type TemplatesType = {
+  __typename?: 'TemplatesType';
+  /** templates ID */
+  idTemplates?: Maybe<Scalars['ID']['output']>;
+  /** templates created date */
+  templatesDateCreated?: Maybe<Scalars['Date']['output']>;
+  /** templates deleted date */
+  templatesDateDeleted?: Maybe<Scalars['Date']['output']>;
+  /** templates updated date */
+  templatesDateUpdated?: Maybe<Scalars['Date']['output']>;
 };
 
 export type UserIdDataAwsCognitoInputType = {
@@ -522,7 +621,7 @@ export type UserModelExtendedType = {
   userBirthYear?: Maybe<Scalars['Float']['output']>;
   /** user created date */
   userDateCreated?: Maybe<Scalars['Date']['output']>;
-  /** user closed date */
+  /** user deleted date */
   userDateDeleted?: Maybe<Scalars['Date']['output']>;
   /** user updated date */
   userDateUpdated?: Maybe<Scalars['Date']['output']>;
@@ -589,7 +688,7 @@ export type UserType = {
   userBirthYear?: Maybe<Scalars['Float']['output']>;
   /** user created date */
   userDateCreated?: Maybe<Scalars['Date']['output']>;
-  /** user closed date */
+  /** user deleted date */
   userDateDeleted?: Maybe<Scalars['Date']['output']>;
   /** user updated date */
   userDateUpdated?: Maybe<Scalars['Date']['output']>;

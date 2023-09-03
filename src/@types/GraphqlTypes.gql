@@ -14,7 +14,7 @@ input AddDocumentInputType {
   userName: UserNameInputType!
 }
 
-type AvatarSizeGraphgl {
+type AvatarSizeType {
   """height"""
   height: Float
 
@@ -25,7 +25,7 @@ type AvatarSizeGraphgl {
 type ChoiceType {
   finish_reason: String!
   index: Int!
-  message: MessageType!
+  message: MessageChoiceType!
 }
 
 input ComparisonFields {
@@ -34,6 +34,63 @@ input ComparisonFields {
 
   """user ID"""
   userIdProfile: ID
+}
+
+enum CompetencyContentType {
+  CompetencyTagsType
+  ProfileType
+  ProjectType
+}
+
+input CompetencyTagsInputType {
+  """competencyTags created date"""
+  competencyTagsDateCreated: Date
+
+  """competencyTags deleted date"""
+  competencyTagsDateDeleted: Date
+
+  """competencyTags updated date"""
+  competencyTagsDateUpdated: Date
+
+  """competencyTags ID"""
+  idCompetencyTags: ID
+}
+
+input CompetencyTagsOptionsReadType {
+  """first item"""
+  first: Float
+
+  """last item"""
+  last: Float
+}
+
+type CompetencyTagsType {
+  """contentType"""
+  contentType: CompetencyContentType!
+
+  """iconLibrary"""
+  iconLibrary: String
+
+  """iconName"""
+  iconName: String
+
+  """competency ID"""
+  idCompetency: ID!
+
+  """profile ID"""
+  idProfile: ID!
+
+  """linkHref"""
+  linkHref: String
+
+  """section"""
+  section: String
+
+  """title"""
+  title: String
+
+  """tooltips"""
+  tooltips: String
 }
 
 """Date custom scalar type"""
@@ -73,7 +130,7 @@ type ImagesOpenAiType {
 }
 
 input MessageAssistantInputType {
-  messages: [MessageInputType!]!
+  messages: [MessageChoiceInputType!]!
   model: String!
   temperature: Float!
 }
@@ -82,17 +139,17 @@ type MessageAssistantType {
   choices: [ChoiceType!]!
 }
 
-input MessageInputType {
+input MessageChoiceInputType {
   content: String
   role: String!
 }
 
-type MessageType {
+type MessageChoiceType {
   content: String
   role: String!
 }
 
-type MessengerGraphgl {
+type MessengerType {
   """name"""
   name: String
 
@@ -119,13 +176,19 @@ type MetaObjectType {
 type Mutation {
   addDocument(addDocumentInputType: AddDocumentInputType!): DocumentType!
   addRecipe(newRecipeData: NewRecipeInputType!): RecipeType!
-  createTemplate(templateInputType: TemplateInputType!): TemplateType!
+  createCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagsType!]!
+  createProfiles(profilesInput: ProfilesInputType!): [ProfileType!]!
+  createTemplates(templatesInput: TemplatesInputType!): [TemplatesType!]!
   createUser(userInputType: UserInputType!): UserModelExtendedType!
-  deleteTemplate(templateId: String!): TemplateType!
+  deleteCompetencyTags(idCompetencyTags: String!): [CompetencyTagsType!]!
+  deleteProfiles(idProfiles: String!): [ProfileType!]!
+  deleteTemplates(idTemplates: String!): [TemplatesType!]!
   deleteUser(userIdAuth: String!, userIdProfile: String!): UserModelExtendedType!
   removeDocument(id: String!): Boolean!
   removeRecipe(id: String!): Boolean!
-  updateTemplate(templateInputType: TemplateInputType!): TemplateType!
+  updateCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagsType!]!
+  updateProfiles(profilesInput: ProfilesInputType!): [ProfileType!]!
+  updateTemplates(templatesInput: TemplatesInputType!): [TemplatesType!]!
   updateUser(userInputType2: UserInputType!): UserModelExtendedType!
 }
 
@@ -143,7 +206,7 @@ enum ProfileNatureType {
 
 type ProfileType {
   """avatarSrc"""
-  avatarSize: AvatarSizeGraphgl
+  avatarSize: AvatarSizeType
 
   """avatarSrc"""
   avatarSrc: String
@@ -176,7 +239,7 @@ type ProfileType {
   locations: [String!]
 
   """messengers"""
-  messengers: [MessengerGraphgl!]
+  messengers: [MessengerType!]
 
   """nameFirst"""
   nameFirst: String
@@ -212,6 +275,20 @@ type ProfileType {
   summary: String
 }
 
+input ProfilesInputType {
+  """profiles ID"""
+  idProfiles: ID
+
+  """profiles created date"""
+  profilesDateCreated: Date
+
+  """profiles deleted date"""
+  profilesDateDeleted: Date
+
+  """profiles updated date"""
+  profilesDateUpdated: Date
+}
+
 type Query {
   findAllDocuments(skip: Int! = 0, take: Int! = 25): [DocumentType!]!
   findDocument(documentID: String!): DocumentType!
@@ -220,8 +297,9 @@ type Query {
   getRefreshedUserAuthAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
   getRevokedUserAuthAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
   getUserIdDataAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
+  readCompetencyTags(options: CompetencyTagsOptionsReadType!): [CompetencyTagsType!]!
   readProfiles: [ProfileType!]!
-  readTemplates(options: TemplateOptionsReadType!): [TemplateType!]!
+  readTemplates(options: TemplatesOptionsReadType!): [TemplatesType!]!
   readUserAuth(userIdAuth: String!): UserModelExtendedType!
   readUserProfile(userIdProfile: String!): UserModelExtendedType!
   readUsers(options: ReadUsersOptions!): UsersType!
@@ -266,37 +344,37 @@ type Subscription {
   recipeAdded: RecipeType!
 }
 
-input TemplateInputType {
-  """template created date"""
-  templateDateCreated: Date
+input TemplatesInputType {
+  """templates ID"""
+  idTemplates: ID
 
-  """template closed date"""
-  templateDateDeleted: Date
+  """templates created date"""
+  templatesDateCreated: Date
 
-  """template updated date"""
-  templateDateUpdated: Date
+  """templates deleted date"""
+  templatesDateDeleted: Date
 
-  """template ID"""
-  templateId: ID
+  """templates updated date"""
+  templatesDateUpdated: Date
 }
 
-input TemplateOptionsReadType {
+input TemplatesOptionsReadType {
   """temporary name - value"""
   param: String
 }
 
-type TemplateType {
-  """template created date"""
-  templateDateCreated: Date
+type TemplatesType {
+  """templates ID"""
+  idTemplates: ID
 
-  """template closed date"""
-  templateDateDeleted: Date
+  """templates created date"""
+  templatesDateCreated: Date
 
-  """template updated date"""
-  templateDateUpdated: Date
+  """templates deleted date"""
+  templatesDateDeleted: Date
 
-  """template ID"""
-  templateId: ID
+  """templates updated date"""
+  templatesDateUpdated: Date
 }
 
 input UserIdDataAwsCognitoInputType {
@@ -456,7 +534,7 @@ type UserModelExtendedType {
   """user created date"""
   userDateCreated: Date
 
-  """user closed date"""
+  """user deleted date"""
   userDateDeleted: Date
 
   """user updated date"""
@@ -545,7 +623,7 @@ type UserType {
   """user created date"""
   userDateCreated: Date
 
-  """user closed date"""
+  """user deleted date"""
   userDateDeleted: Date
 
   """user updated date"""

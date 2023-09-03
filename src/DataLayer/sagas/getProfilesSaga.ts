@@ -17,6 +17,7 @@ export function* getProfiles() {
         },
       } = yield client.post('', params)
       profiles = readProfiles
+      if (!readProfiles.length) profiles = profilesMock
     } else {
       profiles = profilesMock
     }

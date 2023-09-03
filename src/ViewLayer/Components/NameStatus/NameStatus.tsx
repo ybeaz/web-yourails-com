@@ -45,11 +45,11 @@ const NameStatusComponent: NameStatusComponentType = props => {
       styleProps: {
         IconYrl: {
           cursor: 'pointer',
-          paddingBottom: '0.5rem',
+          paddingBottom: '0.2rem',
           paddingLeft: '0.25rem',
         },
       },
-      size: '1.5rem',
+      size: '1rem',
       color: styleProps.viewStyle.color,
       testID: 'iconProfileNature',
     },

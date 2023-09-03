@@ -128,3 +128,5 @@ See `src/Shared/getSetStoreScenario` and `src/Shared/__tests__/getSetStoreScenar
 ## Release 0.59.0
 
 - Added icons for bots and corporations
+- Introduced a standard few shot standard for simple AI personas
+- Modernized code: type management
