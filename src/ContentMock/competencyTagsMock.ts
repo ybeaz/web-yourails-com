@@ -1,4 +1,4 @@
-import { CompetencyTagType } from '../@types/CompetencyTagType'
+import { CompetencyTagType } from '../@types/GraphqlTypes'
 
 import { competencyTags02D } from './competencyTags02DMock'
 
