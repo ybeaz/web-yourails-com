@@ -5,7 +5,12 @@ import { competencyTags as competencyTagsMock } from '../../ContentMock/competen
 import { getCompetencyTagsConnector } from '../../CommunicationLayer/getCompetencyTagsConnector'
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 
-function* addCompetencyTags() {
+function* addCompetencyTags(params: any) {
+  const {
+    data: { idProfile },
+  } = params
+  console.info('addCompetencyTagsSaga [10]', { idProfile, params })
+
   let competencyTags
   try {
     if (!isLocalDataMockOnlyFlag()) {

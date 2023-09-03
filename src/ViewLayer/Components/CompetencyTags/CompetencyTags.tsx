@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect } from 'react'
+import React, { ReactElement, useEffect, useRef } from 'react'
 import { View } from 'react-native'
 
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
@@ -29,8 +29,13 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
     sectionsMapping,
   } = store
 
+  const renderCounter = useRef(0)
+
   useEffect(() => {
-    handleEvents.ADD_COMPETENCY_TAGS({}, {})
+    if (renderCounter.current === 0) {
+      handleEvents.ADD_COMPETENCY_TAGS({}, { idProfile: idProfileActive })
+    }
+    renderCounter.current = renderCounter.current + 1
   }, [])
 
   const sectionMapping =
