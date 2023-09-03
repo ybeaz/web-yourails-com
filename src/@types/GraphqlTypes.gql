@@ -45,31 +45,12 @@ input ComparisonFields {
 }
 
 enum CompetencyContentType {
-  CompetencyTagsType
+  CompetencyTagType
   ProfileType
   ProjectType
 }
 
-input CompetencyTagsInputType {
-  """competencyTags created date"""
-  competencyTagsDateCreated: Date
-
-  """competencyTags deleted date"""
-  competencyTagsDateDeleted: Date
-
-  """competencyTags updated date"""
-  competencyTagsDateUpdated: Date
-
-  """competencyTags ID"""
-  idCompetencyTags: ID
-}
-
-input CompetencyTagsOptionsReadType {
-  """first item"""
-  idProfile: String
-}
-
-type CompetencyTagsType {
+type CompetencyTagType {
   """contentType"""
   contentType: CompetencyContentType!
 
@@ -96,6 +77,25 @@ type CompetencyTagsType {
 
   """tooltips"""
   tooltips: String
+}
+
+input CompetencyTagsInputType {
+  """competencyTags created date"""
+  competencyTagsDateCreated: Date
+
+  """competencyTags deleted date"""
+  competencyTagsDateDeleted: Date
+
+  """competencyTags updated date"""
+  competencyTagsDateUpdated: Date
+
+  """competencyTags ID"""
+  idCompetencyTags: ID
+}
+
+input CompetencyTagsParamsReadType {
+  """first item"""
+  idProfile: String
 }
 
 """Date custom scalar type"""
@@ -189,17 +189,17 @@ type MetaObjectType {
 type Mutation {
   addDocument(addDocumentInputType: AddDocumentInputType!): DocumentType!
   addRecipe(newRecipeData: NewRecipeInputType!): RecipeType!
-  createCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagsType!]!
+  createCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagType!]!
   createProfiles(profilesInput: ProfilesInputType!): [ProfileType!]!
   createTemplates(templatesInput: TemplatesInputType!): [TemplatesType!]!
   createUser(userInputType: UserInputType!): UserModelExtendedType!
-  deleteCompetencyTags(idCompetencyTags: String!): [CompetencyTagsType!]!
+  deleteCompetencyTags(idCompetencyTags: String!): [CompetencyTagType!]!
   deleteProfiles(idProfiles: String!): [ProfileType!]!
   deleteTemplates(idTemplates: String!): [TemplatesType!]!
   deleteUser(userIdAuth: String!, userIdProfile: String!): UserModelExtendedType!
   removeDocument(id: String!): Boolean!
   removeRecipe(id: String!): Boolean!
-  updateCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagsType!]!
+  updateCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagType!]!
   updateProfiles(profilesInput: ProfilesInputType!): [ProfileType!]!
   updateTemplates(templatesInput: TemplatesInputType!): [TemplatesType!]!
   updateUser(userInputType2: UserInputType!): UserModelExtendedType!
@@ -310,7 +310,7 @@ type Query {
   getRefreshedUserAuthAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
   getRevokedUserAuthAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
   getUserIdDataAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
-  readCompetencyTags(options: CompetencyTagsOptionsReadType!): [CompetencyTagsType!]!
+  readCompetencyTags(params: CompetencyTagsParamsReadType!): [CompetencyTagType!]!
   readProfiles: [ProfileType!]!
   readTemplates(options: TemplatesOptionsReadType!): [TemplatesType!]!
   readUserAuth(userIdAuth: String!): UserModelExtendedType!

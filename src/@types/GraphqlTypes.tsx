@@ -66,29 +66,13 @@ export type ComparisonFields = {
 };
 
 export enum CompetencyContentType {
-  CompetencyTagsType = 'CompetencyTagsType',
+  CompetencyTagType = 'CompetencyTagType',
   ProfileType = 'ProfileType',
   ProjectType = 'ProjectType'
 }
 
-export type CompetencyTagsInputType = {
-  /** competencyTags created date */
-  competencyTagsDateCreated?: InputMaybe<Scalars['Date']['input']>;
-  /** competencyTags deleted date */
-  competencyTagsDateDeleted?: InputMaybe<Scalars['Date']['input']>;
-  /** competencyTags updated date */
-  competencyTagsDateUpdated?: InputMaybe<Scalars['Date']['input']>;
-  /** competencyTags ID */
-  idCompetencyTags?: InputMaybe<Scalars['ID']['input']>;
-};
-
-export type CompetencyTagsOptionsReadType = {
-  /** first item */
-  idProfile?: InputMaybe<Scalars['String']['input']>;
-};
-
-export type CompetencyTagsType = {
-  __typename?: 'CompetencyTagsType';
+export type CompetencyTagType = {
+  __typename?: 'CompetencyTagType';
   /** contentType */
   contentType: CompetencyContentType;
   /** iconLibrary */
@@ -107,6 +91,22 @@ export type CompetencyTagsType = {
   title?: Maybe<Scalars['String']['output']>;
   /** tooltips */
   tooltips?: Maybe<Scalars['String']['output']>;
+};
+
+export type CompetencyTagsInputType = {
+  /** competencyTags created date */
+  competencyTagsDateCreated?: InputMaybe<Scalars['Date']['input']>;
+  /** competencyTags deleted date */
+  competencyTagsDateDeleted?: InputMaybe<Scalars['Date']['input']>;
+  /** competencyTags updated date */
+  competencyTagsDateUpdated?: InputMaybe<Scalars['Date']['input']>;
+  /** competencyTags ID */
+  idCompetencyTags?: InputMaybe<Scalars['ID']['input']>;
+};
+
+export type CompetencyTagsParamsReadType = {
+  /** first item */
+  idProfile?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type DocumentType = {
@@ -204,17 +204,17 @@ export type Mutation = {
   __typename?: 'Mutation';
   addDocument: DocumentType;
   addRecipe: RecipeType;
-  createCompetencyTags: Array<CompetencyTagsType>;
+  createCompetencyTags: Array<CompetencyTagType>;
   createProfiles: Array<ProfileType>;
   createTemplates: Array<TemplatesType>;
   createUser: UserModelExtendedType;
-  deleteCompetencyTags: Array<CompetencyTagsType>;
+  deleteCompetencyTags: Array<CompetencyTagType>;
   deleteProfiles: Array<ProfileType>;
   deleteTemplates: Array<TemplatesType>;
   deleteUser: UserModelExtendedType;
   removeDocument: Scalars['Boolean']['output'];
   removeRecipe: Scalars['Boolean']['output'];
-  updateCompetencyTags: Array<CompetencyTagsType>;
+  updateCompetencyTags: Array<CompetencyTagType>;
   updateProfiles: Array<ProfileType>;
   updateTemplates: Array<TemplatesType>;
   updateUser: UserModelExtendedType;
@@ -383,7 +383,7 @@ export type Query = {
   getRefreshedUserAuthAwsCognito: UserIdDataAwsCognitoType;
   getRevokedUserAuthAwsCognito: UserIdDataAwsCognitoType;
   getUserIdDataAwsCognito: UserIdDataAwsCognitoType;
-  readCompetencyTags: Array<CompetencyTagsType>;
+  readCompetencyTags: Array<CompetencyTagType>;
   readProfiles: Array<ProfileType>;
   readTemplates: Array<TemplatesType>;
   readUserAuth: UserModelExtendedType;
@@ -432,7 +432,7 @@ export type QueryGetUserIdDataAwsCognitoArgs = {
 
 
 export type QueryReadCompetencyTagsArgs = {
-  options: CompetencyTagsOptionsReadType;
+  params: CompetencyTagsParamsReadType;
 };
 
 

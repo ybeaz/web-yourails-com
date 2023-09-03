@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProfileNatureType = exports.CompetencyContentType = void 0;
 var CompetencyContentType;
 (function (CompetencyContentType) {
-    CompetencyContentType["CompetencyTagsType"] = "CompetencyTagsType";
+    CompetencyContentType["CompetencyTagType"] = "CompetencyTagType";
     CompetencyContentType["ProfileType"] = "ProfileType";
     CompetencyContentType["ProjectType"] = "ProjectType";
 })(CompetencyContentType || (exports.CompetencyContentType = CompetencyContentType = {}));

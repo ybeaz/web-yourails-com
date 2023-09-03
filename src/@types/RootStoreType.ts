@@ -1,11 +1,10 @@
-import { ProfileType } from './ProfileType'
+import { ProfileType } from './GraphqlTypes'
 import { MessageType } from './MessageType'
 import { IdUserType } from './UserType'
 import { SectionMappingType } from './SectionMappingType'
-import { CompetencyTagType } from './CompetencyTagType'
+// import { CompetencyTagType } from './CompetencyTagType'
+import { CompetencyTagType } from './GraphqlTypes'
 import { ProjectType } from './ProjectType'
-
-import { ProfileModelGraphql } from './GraphqlTypes'
 
 export type ModalFrameType = {
   childName: string
@@ -45,7 +44,7 @@ export type UserIdDataAwsCognito = {
  */
 export interface RootStoreType {
   componentsState: ComponentsStateType
-  profiles: ProfileModelGraphql[]
+  profiles: ProfileType[]
   sectionsMapping: SectionMappingType[]
   competencyTags: CompetencyTagType[]
   projects: ProjectType[]
