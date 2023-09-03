@@ -11,7 +11,7 @@ import {
   ProfileSelectMenuType,
   ProfileSelectMenuPropsOutType,
 } from './ProfileSelectMenuTypes'
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { styles } from './ProfileSelectMenuStyles'
 import { themes } from '../../Styles/themes'

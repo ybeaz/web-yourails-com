@@ -1,4 +1,4 @@
-import { ProfileType } from '../@types/ProfileType'
+import { ProfileType } from '../@types/GraphqlTypes'
 import { getStringFromArrayStrings } from './getStringFromArrayStrings'
 
 interface getProfilesSearchedType {

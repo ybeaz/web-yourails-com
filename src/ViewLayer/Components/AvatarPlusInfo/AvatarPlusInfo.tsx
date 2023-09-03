@@ -37,8 +37,8 @@ const AvatarPlusInfoComponent: AvatarPlusInfoType = props => {
   let width = undefined
   let height = undefined
   if (avatarSize) {
-    width = avatarSize.width | 45
-    height = avatarSize.height | 45
+    width = avatarSize?.width ? avatarSize?.width : 45
+    height = avatarSize?.height ? avatarSize?.height : 45
   }
 
   const propsOut: Record<string, any> = {

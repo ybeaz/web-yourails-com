@@ -7,6 +7,7 @@ import { ImageYrlStyle as style } from './ImageYrlStyle'
  * @import import { ImageYrl, ImageYrlPropsType } from './YrlNativeViewLibrary'
  * @propsOut 
   imageYrlProps: {
+    isActive: true,
     styleProps: { ImageYrl: {}, image: {} },
     testID: 'ImageYrl',
     uri: '',
@@ -15,6 +16,7 @@ import { ImageYrlStyle as style } from './ImageYrlStyle'
  */
 export const ImageYrl: ImageYrlType = props => {
   const {
+    isActive = true,
     styleProps = { ImageYrl: {}, image: {} },
     testID = 'ImageYrl',
     uri,
@@ -24,7 +26,7 @@ export const ImageYrl: ImageYrlType = props => {
 
   if (!uri) null
 
-  return (
+  return isActive ? (
     <View style={[style.ImageYrl, styleProps.ImageYrl]} testID={testID}>
       <Image
         style={[style.image, styleProps.image]}
@@ -34,5 +36,5 @@ export const ImageYrl: ImageYrlType = props => {
         testID={`${testID}_Image`}
       />
     </View>
-  )
+  ) : null
 }

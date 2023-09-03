@@ -8,6 +8,7 @@ import { ImageYrl, ImageYrlPropsType } from '../index'
  * @propsOut 
   iconYrlProps: {
     // || undefined
+    isActive: true,
     library: 'Ionicons',
     name: 'send',
     styleProps: { IconYrl: { cursor: 'pointer' } },
@@ -19,12 +20,13 @@ import { ImageYrl, ImageYrlPropsType } from '../index'
  */
 export const IconYrl: IconYrlType = props => {
   const {
+    isActive = true,
+    library = '',
     name = '',
     styleProps = { IconYrl: {} },
     size = 24,
     color = '',
     testID = 'IconYrl',
-    library = '',
   } = props
 
   /**
@@ -51,9 +53,14 @@ export const IconYrl: IconYrlType = props => {
 
   const filter = COLOR_DICT[color] ? COLOR_DICT[color] : ''
 
-  const uriBase =
-    'https://raw.githubusercontent.com/ionic-team/ionicons/main/src/svg'
-
+  /* @link: https://github.com/oblador/react-native-vector-icons
+   */
+  const URI_BASE: Record<string, string> = {
+    Ionicons:
+      'https://raw.githubusercontent.com/ionic-team/ionicons/main/src/svg',
+    MaterialCommunityIcons:
+      'https://raw.githubusercontent.com/Templarian/MaterialDesign/master/svg',
+  }
   const resizeMode: ImageResizeMode | undefined = 'cover' // 'cover' | 'contain' | 'stretch' | 'repeat' | 'center'
 
   const propsOut: IconYrlPropsOutType = {
@@ -65,13 +72,13 @@ export const IconYrl: IconYrlType = props => {
           height: size,
         },
       },
-      uri: `${uriBase}/${name}.svg`,
+      uri: `${URI_BASE[library]}/${name}.svg`,
       resizeMode,
       testID: `ImageYrl-IconYrl-${name}`,
     },
   }
 
-  return <ImageYrl {...propsOut.imageYrlProps} />
+  return isActive ? <ImageYrl {...propsOut.imageYrlProps} /> : null
 
   /**
    * @description Snippet allowing to use local svg files for icons 

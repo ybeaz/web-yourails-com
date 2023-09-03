@@ -1,8 +1,8 @@
-import { ProfileType } from './ProfileType'
+import { ProfileType } from './GraphqlTypes'
 import { MessageType } from './MessageType'
 import { IdUserType } from './UserType'
 import { SectionMappingType } from './SectionMappingType'
-import { CompetencyTagType } from './CompetencyTagType'
+import { CompetencyTagType } from './GraphqlTypes'
 import { ProjectType } from './ProjectType'
 
 export type ModalFrameType = {

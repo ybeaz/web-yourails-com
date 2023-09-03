@@ -6,6 +6,7 @@ export interface PromptExamplesPropsType {
   styleProps?: {
     PromptExamples?: any
     scrollView?: any
+    contentContainerStyle?: any
     promptExampleText?: any
   }
   mediaParams?: MediaParamsDefaultType

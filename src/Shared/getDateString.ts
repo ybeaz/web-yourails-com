@@ -1,4 +1,4 @@
-interface GetDateStringProps {
+export type GetDateStringProps = {
   timestamp: Date | number
   dash: boolean
   hours: boolean
@@ -8,8 +8,18 @@ interface GetDateStringProps {
   style: string
 }
 
+const propsDefault: GetDateStringProps = {
+  timestamp: +new Date(),
+  dash: false,
+  hours: true,
+  minutes: true,
+  seconds: false,
+  rest: false,
+  style: 'military',
+}
+
 interface GetDateString {
-  (props: Partial<GetDateStringProps>): string
+  (props?: Partial<GetDateStringProps>): string
 }
 
 /**
@@ -25,7 +35,7 @@ export const getDateString: GetDateString = ({
   seconds = false,
   rest = false,
   style = 'military',
-}) => {
+} = propsDefault) => {
   const plus0 = (num: number) => `0${num.toString()}`.slice(-2)
 
   const d = new Date(timestamp)

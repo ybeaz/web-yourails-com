@@ -1,8 +1,14 @@
-import React, { ReactElement, useEffect, FunctionComponent } from 'react'
+import React, {
+  ReactElement,
+  useEffect,
+  FunctionComponent,
+  useCallback,
+  useRef,
+} from 'react'
 import { ScrollView, View } from 'react-native'
 
 import { ContentType } from '../../../@types/ContentType'
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 import { MessageType } from '../../../@types/MessageType'
 import { MessageEventType } from '../../../@types/MessageEventType'
 
@@ -66,15 +72,22 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     childProps,
   } = modalFrame
 
+  const renderCounter = useRef(0)
+
   useEffect(() => {
-    handleEvents.ADD_MESSAGES({}, {})
+    if (renderCounter.current === 0) {
+      handleEvents.ADD_MESSAGES({}, {})
+    }
+    renderCounter.current = renderCounter.current + 1
   }, [])
 
-  const profileActive: ProfileType = getProfileChat({
-    profiles,
-    urlParam1,
-    urlParam2,
-  })
+  const profileActive: any = useCallback(() => {
+    getProfileChat({
+      profiles,
+      urlParam1,
+      urlParam2,
+    })
+  }, [profiles, urlParam1, urlParam2])
 
   const getMessagesWithProfileActiveProps: GetMessagesWithProfileActivePropsType =
     {

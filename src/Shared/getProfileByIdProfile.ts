@@ -1,5 +1,5 @@
 import { IdUserType } from 'src/@types/UserType'
-import { ProfileType } from 'src/@types/ProfileType'
+import { ProfileType } from 'src/@types/GraphqlTypes'
 
 interface GetProfileNameByIdProfileType {
   (profiles: ProfileType[], idProfile: IdUserType): ProfileType

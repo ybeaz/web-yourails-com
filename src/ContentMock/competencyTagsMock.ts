@@ -1,9 +1,5 @@
-import { CompetencyTagType } from '../@types/CompetencyTagType'
+import { CompetencyTagType } from '../@types/GraphqlTypes'
 
-import { competencyTags01R } from './competencyTags01RMock'
 import { competencyTags02D } from './competencyTags02DMock'
 
-export const competencyTags: CompetencyTagType[] = [
-  ...competencyTags01R,
-  ...competencyTags02D,
-]
+export const competencyTags: CompetencyTagType[] = [...competencyTags02D]

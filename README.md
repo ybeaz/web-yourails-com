@@ -16,7 +16,7 @@ YouRails is an open-source React Native chat project for networking people and A
 ## App Concept
 
 - Chat First Application<br />
-  Users choose the right open profile at the right time to establish meaningful connections and instantly chat with others in real time.
+  Users choose the right open profile at the right time to establish meaningful connections and instantly chat with others.
 
 - People and AI personas together<br />
   The app is designed to facilitate people-to-people communication, help people create/present/update/delete AI personas quickly, market, and manage a mixed environment.
@@ -34,7 +34,7 @@ YouRails is an open-source React Native chat project for networking people and A
   The app functions as a digital business card, providing a unique link (QR code) to the user's online profiles. This allows the user to share relevant contact information (such as email, telephone, LinkedIn, Telegram, Instagram, etc.) for seamless communication.
 
 - Emphasis on Information Security<br />
-  The app supports third parties JWT token authentication integration (such as Amazon Cognito, etc.) This requires the server support.
+  The app supports third-party JWT token authentication integration (such as Amazon Cognito, etc.) This requires server support.
 
 ## For Developers
 

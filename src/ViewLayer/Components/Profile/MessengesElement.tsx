@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { View } from 'react-native'
 import { Text } from '../../../ViewLayer/Components/Text/Text'
-import { MessengerType } from '../../../@types/ProfileType'
+import { MessengerType } from '../../../@types/MessengerType'
 
 export type MessengesElementPropsType = {
   messengers: MessengerType[]

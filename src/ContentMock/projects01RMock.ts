@@ -1,11 +1,11 @@
 import { ProjectType } from '../@types/ProjectType'
-import { SectionType } from '../@types/SectionType'
+import { CompetencyContentType } from '../@types/GraphqlTypes'
 
 export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web service. YouRails Academy',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'demo-yourails-academy.html',
     subtitle: 'Enjoy Creating Courses Quickly',
@@ -26,7 +26,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web service. SPA Windows in Browser Tabs',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'site-windows',
     subtitle: 'Visualize and manupulate data in web page',
@@ -46,7 +46,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web service. YouRails.com Skills Exchange Messenger',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'YouRails',
     subtitle:
@@ -66,7 +66,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web game. Tic Tac Toe game with random logic',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'demo-tic-tak-toe-js.html',
     subtitle: 'Play in the web',
@@ -84,7 +84,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web app. Prototype: Experience Exchange Messenger',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'demo-experience-exchange-messenger.html',
     subtitle: 'Together know everything',
@@ -104,7 +104,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web compoment. Authorization with Social Media',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'login-social-media.html',
     subtitle: 'Login Quickly as You Like',
@@ -122,7 +122,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web app. SPA Active Learning Text',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'learning-text-learn-phrases-learn-words',
     subtitle: 'Learn by heart easily',
@@ -139,7 +139,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. SPA Online telephone directory',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'demo-tel-book-reactjs',
     subtitle: 'Find a new way to keep your contacts',
@@ -154,7 +154,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web component. A dynamic tree component',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'demo-dynamic-tree-component.html/',
     subtitle: 'Create a menu with folding/unfolding sections',
@@ -171,7 +171,7 @@ export const projects01R: ProjectType[] = [
     idProfile: '1',
     title:
       'Web widget. Tables with sorting and filtering features, popup row menu, inline editable',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'lib-table-match',
     subtitle: 'Get in table what you want with API',
@@ -187,7 +187,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. Purchase summary',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'demo-purchase-summary',
     subtitle: 'Be transpent and encourage online shoppers',
@@ -204,7 +204,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web page. JS Algorithms and Questions',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'demo-js-algorithms-problems',
     subtitle: 'Over-prepare, then go with the flow. Regina Brett',
@@ -220,7 +220,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. Demo Telegram bot',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'feedback-via-telegram',
     subtitle: 'Get messages from your prospects instantly',
@@ -236,7 +236,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. Upload images',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'demo-file-upload',
     subtitle: 'Be free to manage images and files',
@@ -253,7 +253,7 @@ export const projects01R: ProjectType[] = [
     idProfile: '1',
     title:
       'Web landing page. Not supported. AAA Advertising Aggregator for Applications, Brand Banner Project',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'landing-page-brand-banner-project',
     subtitle: '',
@@ -271,7 +271,7 @@ export const projects01R: ProjectType[] = [
     idProfile: '1',
     title:
       'Web widget. Not supported. JS Feedback Forms Builder with Telegram messaging feature',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'demo-feedback-field',
     subtitle: 'Allow users to leave a feedback',
@@ -288,7 +288,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. Not supported. Demo registration and authorization',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'cabinet-registration-authorization',
     subtitle: '',
@@ -305,7 +305,7 @@ export const projects01R: ProjectType[] = [
     idProfile: '1',
     title:
       'Web service. Not supported. Language detection with artificial neuro network (ANN)',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'demo-language-detection',
     subtitle: 'You might not know how, but it works',
@@ -321,7 +321,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. Not supported. TRIZ Language Problem Description',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'triz-lang-forms',
     subtitle: 'Allow everybody to invent',
@@ -337,7 +337,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web service. Not supported. JS Feedback widget for sites',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'demo-feedback-widget',
     subtitle: 'Allow users to contact you',
@@ -355,7 +355,7 @@ export const projects01R: ProjectType[] = [
     idProfile: '1',
     title:
       'Web service. Not supported. Question-answers site for legal questions',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'question-answers-site',
     subtitle: 'You ask, the community responds',
@@ -371,7 +371,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. Not supported. Demo online shoping cart',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'demo-basket-cart',
     subtitle: 'Add shopping cart, start sell online',
@@ -386,7 +386,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. Not supported. Catalog for goods, films, books, etc.',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'lib-catalog-items',
     subtitle: 'Help visitors accessing your site and navigating easily',
@@ -402,7 +402,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Landing Page. Immigration Service Provider',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: false,
     pathname: 'landing-page-immigration-service-provider',
     subtitle: '',
@@ -417,7 +417,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Landing page. Not supported. Wiki Goods Startup',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: false,
     pathname: 'landing-page-wiki-goods-startup',
     subtitle: 'Your site deserves eCommerce functionality!',
@@ -432,7 +432,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. Not supported. Online Notes Keeper',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: false,
     pathname: 'lib-catalog-notes',
     subtitle: 'Keep your thoughts for your tomorrow yourself',
@@ -448,7 +448,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. Not supported. Automatic image resizing on the fly',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: false,
     pathname: 'function-automatic-image-resizing',
     subtitle: '',
@@ -462,7 +462,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web service. Prototype for service Ecom-Yunazon',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: false,
     pathname: 'demo-ecom-yunazon-espa-neptun-FL60.html/',
     subtitle:
@@ -480,7 +480,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. Item card screen',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: false,
     pathname: 'demo-js-item-carousel.html/',
     subtitle: 'Visualize json data in the web page',
@@ -495,7 +495,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. Earthquake Zen Garden ver. 3.12.3',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: false,
     pathname: 'demo-js-item-carousel.html/',
     subtitle: 'Create interactive dashboards',
@@ -510,7 +510,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Content site. Arbir.ru - SEO, content management',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: false,
     pathname: 'arbir-ru-collection-thematic-articles',
     subtitle: '4500 visitors per business day, regular leads flow.',
@@ -526,7 +526,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web service. View Domain Statistics',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: false,
     pathname: 'domain-statistics-service',
     subtitle: 'Know how the Internet sees the domain',
@@ -541,7 +541,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Mobile app. Smartphone app for transactions between friends',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: false,
     pathname: 'lib-catalog-items',
     subtitle: 'Play in the web',
@@ -557,7 +557,7 @@ export const projects01R: ProjectType[] = [
     idProfile: '1',
     title:
       'Landing page. Not supported. MMS Marketplace Management System, API avoiding API™',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: false,
     pathname: 'promoLpMms',
     subtitle: 'An easy way to achieve a synergistic interaction between sites',
@@ -573,7 +573,7 @@ export const projects01R: ProjectType[] = [
   {
     idProfile: '1',
     title: 'Web widget. Not supported. Feedback Widget Project',
-    contentType: SectionType['ProjectType'],
+    contentType: CompetencyContentType['ProjectType'],
     isActive: false,
     pathname: 'landing-page-feedback-widget',
     subtitle: '',

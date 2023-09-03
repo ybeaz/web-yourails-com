@@ -14,6 +14,13 @@
     }
   ],
   "settings": {
+    "grammarly.files.include": [
+      "**/README.md",
+      "**/readme.md",
+      "**/*.txt"
+      // "**/*.ts"
+    ],
+    "grammarly.files.exclude": ["/Users/admin/Dev/archive.txt"],
     "colorize.languages": ["javascript", "typescript"],
     "js/ts.implicitProjectConfig.strictNullChecks": true,
     "window.zoomLevel": 1,

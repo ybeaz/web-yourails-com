@@ -29,6 +29,7 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
     styleProps = {
       PromptExamples: {},
       scrollView: {},
+      contentContainerStyle: {},
       promptExampleText: {},
     },
     mediaParams = mediaParamsDefault,
@@ -54,6 +55,10 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
     >
       <ScrollView
         style={[style.scrollView, styleProps.scrollView]}
+        contentContainerStyle={[
+          style.contentContainerStyle,
+          styleProps.contentContainerStyle,
+        ]}
         testID='scrollView'
       >
         {promptExamples?.map((promptExample: string, index: number) => {

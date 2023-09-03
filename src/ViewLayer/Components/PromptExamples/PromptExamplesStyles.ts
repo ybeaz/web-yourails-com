@@ -11,6 +11,9 @@ export const stylesDefault = StyleSheet.create({
     height: 'fit-content',
     maxHeight: 350,
   },
+  contentContainerStyle: {
+    alignItems: 'flex-start',
+  },
   promptExampleText: {},
 })
 

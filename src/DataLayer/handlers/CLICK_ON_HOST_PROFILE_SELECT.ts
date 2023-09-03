@@ -1,7 +1,7 @@
 import { store } from '../store'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync } from '../../DataLayer/index.action'
-import { ProfileType } from '../../@types/ProfileType'
+import { ProfileType } from '../../@types/GraphqlTypes'
 import { getPathNameForReplace } from '../../Shared/getPathNameForReplace'
 import { getRedirected } from '../../Shared/getRedirected'
 import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio/getSocketEmitJoinConversation'

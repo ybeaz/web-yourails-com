@@ -1,5 +1,5 @@
 import { ReactElement } from 'react'
-import { ProfileType } from '../../../@types/ProfileType'
+import { ProfileType } from '../../../@types/GraphqlTypes'
 
 export interface AvatarPlusInfoPropsType {
   styleProps?: {

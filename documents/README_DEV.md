@@ -124,3 +124,9 @@ See `src/Shared/getSetStoreScenario` and `src/Shared/__tests__/getSetStoreScenar
 ### How to prepare content? Notes
 
 - `16 x 9` resolution/dimensions for pictures for projects are
+
+## Release 0.59.0
+
+- Added icons for bots and corporations
+- Introduced a standard few shot standard for simple AI personas
+- Modernized code: type management
