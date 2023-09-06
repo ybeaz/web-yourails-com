@@ -6,7 +6,7 @@ import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 import { profiles as profilesMock } from '../../ContentMock/profilesMock'
 
 export function* getProfiles(): Iterable<any> {
-  let profiles
+  let profiles = []
   try {
     const { client, params } = getProfilesConnector({})
 

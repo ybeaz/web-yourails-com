@@ -6,11 +6,11 @@ import { getCompetencyTagsConnector } from '../../CommunicationLayer/getCompeten
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 
 function* addCompetencyTags(params: any): Iterable<any> {
-  const {
-    data: { idProfile },
-  } = params
+  const idProfile = params?.data?.idProfile
 
-  let competencyTags
+  console.info('addCompetencyTagsSaga [12]', { idProfile, competencyTagsMock })
+
+  let competencyTags = []
   try {
     if (!isLocalDataMockOnlyFlag()) {
       const variables = {
@@ -19,11 +19,18 @@ function* addCompetencyTags(params: any): Iterable<any> {
         },
       }
       const { client, params } = getCompetencyTagsConnector(variables)
-      const res: any = yield client.post('', params)
-      const readCompetencyTags = res?.data?.data?.readCompetencyTags
 
-      competencyTags = readCompetencyTags
-      if (!readCompetencyTags.length) competencyTags = competencyTagsMock
+      console.info('addCompetencyTagsSaga [24]', { params })
+
+      const res: any = yield client.post('', params)
+
+      console.info('addCompetencyTagsSaga [28]', { res })
+
+      competencyTags = res?.data?.data?.readCompetencyTags
+
+      console.info('addCompetencyTagsSaga [32]', { competencyTags })
+
+      if (!competencyTags?.length) competencyTags = competencyTagsMock
     } else {
       competencyTags = competencyTagsMock
     }
@@ -31,6 +38,7 @@ function* addCompetencyTags(params: any): Iterable<any> {
     console.log('ERROR addCompetencyTags', { error: error.message })
     competencyTags = competencyTagsMock
   } finally {
+    console.info('addCompetencyTagsSaga [42]', { competencyTags })
     yield put(actionSync.ADD_COMPETENCY_TAGS({ competencyTags }))
   }
 }
