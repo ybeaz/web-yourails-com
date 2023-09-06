@@ -8,7 +8,13 @@ import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 function* addCompetencyTags(params: any): Iterable<any> {
   const idProfile = params?.data?.idProfile
 
-  console.info('addCompetencyTagsSaga [12]', { idProfile, competencyTagsMock })
+  console.info('addCompetencyTagsSaga [12]', {
+    params,
+    'params?.data': params?.data,
+    'params?.data?.idProfile': params?.data?.idProfile,
+    idProfile,
+    competencyTagsMock,
+  })
 
   let competencyTags = []
   try {
