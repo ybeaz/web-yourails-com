@@ -1,12 +1,20 @@
-import { takeEvery, put } from 'redux-saga/effects'
+import { takeEvery, put, select } from 'redux-saga/effects'
 
+import { RootStoreType } from '../../@types/RootStoreType'
+import { rootStoreDefault } from '../rootStoreDefault'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { competencyTags as competencyTagsMock } from '../../ContentMock/competencyTagsMock'
 import { getCompetencyTagsConnector } from '../../CommunicationLayer/getCompetencyTagsConnector'
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 
 function* addCompetencyTags(params: any): Iterable<any> {
-  const idProfile = params?.data?.idProfile
+  const idProfile2 = params?.data?.idProfile
+
+  const rootStoreYield: any = yield select(store => store)
+  const rootStore: RootStoreType = rootStoreYield || rootStoreDefault
+  const {
+    globalVars: { idProfileActive: idProfile },
+  } = rootStore || rootStoreDefault
 
   console.info('addCompetencyTagsSaga [12]', {
     params,
