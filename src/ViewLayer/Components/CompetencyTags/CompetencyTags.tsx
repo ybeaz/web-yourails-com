@@ -13,8 +13,6 @@ import { TagProperty, TagPropertyPropsType } from '../TagProperty/TagProperty'
 import { CompetencyTagsType } from './CompetencyTagsType'
 import { style } from './CompetencyTagsStyle'
 
-const idProfileActiveDict: Record<string, boolean> = {}
-
 /**
  * @import import { CompetencyTags } from '../Components/CompetencyTags/CompetencyTags'
  */
@@ -32,15 +30,7 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   } = store
 
   useEffect(() => {
-    console.info('CompetencyTags [37]', { idProfileActive })
-    if (
-      typeof idProfileActive === 'string' &&
-      !idProfileActiveDict[idProfileActive]
-    ) {
-      console.info('CompetencyTags [42]', { idProfileActive })
-      handleEvents.ADD_COMPETENCY_TAGS({}, { idProfile: idProfileActive })
-      idProfileActiveDict[idProfileActive] = true
-    }
+    handleEvents.ADD_COMPETENCY_TAGS({}, { idProfile: idProfileActive })
   }, [idProfileActive])
 
   const sectionMapping =

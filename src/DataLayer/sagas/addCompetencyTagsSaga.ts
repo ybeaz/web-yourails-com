@@ -7,22 +7,18 @@ import { competencyTags as competencyTagsMock } from '../../ContentMock/competen
 import { getCompetencyTagsConnector } from '../../CommunicationLayer/getCompetencyTagsConnector'
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 
-function* addCompetencyTags(params: any): Iterable<any> {
-  const idProfile2 = params?.data?.idProfile
+const idProfileDict: Record<string, boolean> = {}
 
+function* addCompetencyTags(): Iterable<any> {
   const rootStoreYield: any = yield select(store => store)
   const rootStore: RootStoreType = rootStoreYield || rootStoreDefault
   const {
     globalVars: { idProfileActive: idProfile },
   } = rootStore || rootStoreDefault
 
-  console.info('addCompetencyTagsSaga [12]', {
-    params,
-    'params?.data': params?.data,
-    'params?.data?.idProfile': params?.data?.idProfile,
-    idProfile,
-    competencyTagsMock,
-  })
+  if (typeof idProfile !== 'string' || idProfileDict[idProfile]) return
+
+  idProfileDict[idProfile] = true
 
   let competencyTags = []
   try {
@@ -33,16 +29,8 @@ function* addCompetencyTags(params: any): Iterable<any> {
         },
       }
       const { client, params } = getCompetencyTagsConnector(variables)
-
-      console.info('addCompetencyTagsSaga [24]', { params })
-
       const res: any = yield client.post('', params)
-
-      console.info('addCompetencyTagsSaga [28]', { res })
-
       competencyTags = res?.data?.data?.readCompetencyTags
-
-      console.info('addCompetencyTagsSaga [32]', { competencyTags })
 
       if (!competencyTags?.length) competencyTags = competencyTagsMock
     } else {
@@ -52,7 +40,6 @@ function* addCompetencyTags(params: any): Iterable<any> {
     console.log('ERROR addCompetencyTags', { error: error.message })
     competencyTags = competencyTagsMock
   } finally {
-    console.info('addCompetencyTagsSaga [42]', { competencyTags })
     yield put(actionSync.ADD_COMPETENCY_TAGS({ competencyTags }))
   }
 }

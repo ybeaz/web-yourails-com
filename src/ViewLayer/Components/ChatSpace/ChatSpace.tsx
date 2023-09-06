@@ -83,11 +83,13 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const messagesMemed = useMemo(() => messages, [JSON.stringify(messages)])
 
-  const profileActive: any = getProfileChat({
-    profiles,
-    urlParam1,
-    urlParam2,
-  })
+  const profileActive: any = useCallback(() => {
+    getProfileChat({
+      profiles,
+      urlParam1,
+      urlParam2,
+    })
+  }, [profiles, urlParam1, urlParam2])
 
   const getMessagesWithProfileActiveProps: GetMessagesWithProfileActivePropsType =
     {
