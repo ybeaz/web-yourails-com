@@ -1,12 +1,13 @@
 import { call, takeEvery, put, select } from 'redux-saga/effects'
 
+import { RootStoreType } from '../../@types/RootStoreType'
+import { rootStoreDefault } from '../rootStoreDefault'
 import { ProfileType } from '../../@types/GraphqlTypes'
 import {
   getFilteredObjsArrayBy,
   OperatorType,
 } from '../../Shared/getFilteredObjsArrayBy'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-// import { profiles as profilesIn } from '../../ContentMock/profilesMock'
 import { sectionsMapping } from '../../ContentMock/sectionsMappingMock'
 import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio/getSocketEmitJoinConversation'
 import { getJoinedConversation } from '../../CommunicationLayer/socketio/getJoinedConversation'
@@ -19,9 +20,12 @@ type InitLoadingType = {
   data: { query: { s: string | null; code: string | null } }
 }
 
-function* initLoading(data: InitLoadingType) {
+function* initLoading(params: InitLoadingType): Iterable<any> {
+  const rootStoreYield: any = yield select(store => store)
+  const rootStore: RootStoreType = rootStoreYield || rootStoreDefault
   const { profiles: profilesPrev, sectionsMapping: sectionsMappingPrev } =
-    yield select(store => store)
+    rootStore || rootStoreDefault
+
   if (profilesPrev.length && sectionsMappingPrev.length) return
 
   try {
@@ -29,7 +33,7 @@ function* initLoading(data: InitLoadingType) {
 
     yield put(actionSync.ADD_SECTIONS_MAPPING({ sectionsMapping }))
 
-    const code = data?.data?.query?.code
+    const code = params?.data?.query?.code
 
     const refresh_token = localStorage.getItem('refresh_token')
 
@@ -39,7 +43,8 @@ function* initLoading(data: InitLoadingType) {
       yield call(getRefreshedUserAuthAwsCognito, { data: { refresh_token } })
     }
 
-    const { profiles, globalVars } = yield select(store => store)
+    const res: any = yield select(store => store)
+    const { profiles, globalVars } = res
 
     const idProfileHost = globalVars?.idProfileHost
     if (idProfileHost) {

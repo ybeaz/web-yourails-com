@@ -7,10 +7,10 @@ import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
 import { getDeletedObjFromLocalStorage } from '../../Shared/getDeletedObjFromLocalStorage'
 
-function* getRevokedUserAuthAwsCognito(input: any) {
+function* getRevokedUserAuthAwsCognito(params: any): Iterable<any> {
   const {
     data: { refresh_token },
-  } = input
+  } = params
 
   try {
     const envType = getDetectedEnv()
@@ -25,11 +25,9 @@ function* getRevokedUserAuthAwsCognito(input: any) {
 
     const { client, params } = getRevokedUserAuthAwsCognitoConnector(variables)
 
-    const {
-      data: {
-        data: { getRevokedUserAuthAwsCognito: userIdDataAwsCognito },
-      },
-    } = yield client.post('', params)
+    const res: any = yield client.post('', params)
+
+    const userIdDataAwsCognito = res?.data?.data?.getRevokedUserAuthAwsCognito
 
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
 

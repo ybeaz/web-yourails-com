@@ -4,11 +4,11 @@ import React, {
   FunctionComponent,
   useCallback,
   useRef,
+  useMemo,
 } from 'react'
 import { ScrollView, View } from 'react-native'
 
 import { ContentType } from '../../../@types/ContentType'
-import { ProfileType } from '../../../@types/GraphqlTypes'
 import { MessageType } from '../../../@types/MessageType'
 import { MessageEventType } from '../../../@types/MessageEventType'
 
@@ -81,6 +81,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     renderCounter.current = renderCounter.current + 1
   }, [])
 
+  const messagesMemed = useMemo(() => messages, [JSON.stringify(messages)])
+
   const profileActive: any = useCallback(() => {
     getProfileChat({
       profiles,
@@ -91,7 +93,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const getMessagesWithProfileActiveProps: GetMessagesWithProfileActivePropsType =
     {
-      messages,
+      messages: messagesMemed,
       idProfileHost,
       idProfileActive,
     }
@@ -276,8 +278,12 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     },
   }
 
-  const getMessagesJsx = (messagesIn: MessageType[]): ReactElement[] => {
-    return messagesIn.map((message: MessageType, index) => {
+  const getMessagesJsx = ({
+    messages,
+  }: {
+    messages: MessageType[]
+  }): ReactElement[] => {
+    return messages.map((message: MessageType, index) => {
       const { idMessage, text, eventType, idProfile } = message
       const { imagePendingSrc } = getProfileByIdProfile(profiles, idProfile)
       let textNext = text
@@ -315,7 +321,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     })
   }
 
-  const ChatSpaceJsx = () => {
+  const ChatSpaceJsx = ({ messages }: { messages: MessageType[] }) => {
     let dateString = getDateLocale(+new Date())
 
     return (
@@ -334,7 +340,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
             </Text>
           </View>
           <View style={style.messages} testID='messages'>
-            {getMessagesJsx(messagesPrep)}
+            {getMessagesJsx({ messages })}
           </View>
         </View>
       </View>
@@ -349,7 +355,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       contentContainerStyle={{}}
       ref={scrollViewRef}
       nestedScrollEnabled={true}
-      onContentSizeChange={(contentWidth, contentHeight) => {
+      onContentSizeChange={contentHeight => {
         if (isShowModalFrame) {
           scrollViewRef.current?.scrollTo({
             y: 0,
@@ -367,7 +373,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       <View style={[style.ChatSpace, styleProps.ChatSpace]} testID='ChatSpace'>
         {messagesWithProfileActive.length && !isShowModalFrame ? (
           <AnimatedYrl {...propsOut.chatSpaceJsxAnimatedYrlProps}>
-            <ChatSpaceJsx />
+            <ChatSpaceJsx messages={messagesPrep} />
           </AnimatedYrl>
         ) : null}
 

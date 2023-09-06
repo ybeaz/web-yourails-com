@@ -14,6 +14,14 @@
 
 ## How to section, architecture / development notes
 
+### How to debug web page on IOS mobile device
+
+1. @link [Enabling Web Inspector on MacBook - Safari](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/GettingStarted/GettingStarted.html)
+2. Teminal - ifconfig - Search 192... This is your IP address, correspondent to localhost:port (127.0.0.1:port)
+3. On IOS device run app with 192... address
+4. Connect IOS device with cable
+5. Safari > Develop > Your IOS device name > Select tab > debug
+
 ### How to install dependencies, for example module-resolver
 
 `npx expo install module-resolver`

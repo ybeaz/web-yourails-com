@@ -9,6 +9,7 @@ import {
   TooltipYrl,
 } from '../../../YrlNativeViewLibrary/'
 import {
+  TagPropertyPropsType,
   TagPropertyType,
   TagPropertyPropsOutM1Type,
   TagPropertyPropsOutType,
@@ -23,7 +24,6 @@ import { themes } from '../../Styles/themes'
 const TagPropertyComponent: TagPropertyType = props => {
   const {
     styleProps = { TagProperty: {} },
-    id,
     title,
     linkHref,
     tooltips,
@@ -42,13 +42,13 @@ const TagPropertyComponent: TagPropertyType = props => {
           paddingBottom: '0.5rem',
         },
       },
-      titleText: title,
+      titleText: title || '',
       testID: 'tooltip_buttonYrl',
       disabled: false,
-      onPress: useLinkClickResYrl(linkHref),
+      onPress: linkHref ? useLinkClickResYrl(linkHref) : () => {},
       iconProps: {
-        library: iconLibrary,
-        name: iconName,
+        library: iconLibrary || '',
+        name: iconName || '',
         styleProps: {
           IconYrl: {
             cursor: 'pointer',
@@ -66,8 +66,8 @@ const TagPropertyComponent: TagPropertyType = props => {
       testID: 'tooltipPopoverText',
     },
     iconProps: {
-      library: iconLibrary,
-      name: iconName,
+      library: iconLibrary || '',
+      name: iconName || '',
       styleProps: { IconYrl: { cursor: 'pointer', paddingRight: '0.25rem' } },
       size: 24,
       color: themes['themeA'].colors02.color,
@@ -107,7 +107,7 @@ const TagPropertyComponent: TagPropertyType = props => {
         ],
         containerStyle: style.tooltip_container,
       },
-      testID: `tooltip_${title}_${id}`,
+      testID: `tooltip_${title}_${testID}`,
       titleText: tooltipsTitle,
     },
   }
@@ -120,3 +120,4 @@ const TagPropertyComponent: TagPropertyType = props => {
 }
 
 export const TagProperty = React.memo(TagPropertyComponent)
+export type { TagPropertyPropsType }

@@ -9,7 +9,7 @@ import { SectionMappingType } from '../../../@types/SectionMappingType'
 import { getSectionsFromTagsCompetencies } from '../../../Shared/getSectionsFromTagsCompetencies'
 import { Header } from '../Header/Header'
 import { Text } from '../../Components/Text/Text'
-import { TagProperty } from '../TagProperty/TagProperty'
+import { TagProperty, TagPropertyPropsType } from '../TagProperty/TagProperty'
 import { CompetencyTagsType } from './CompetencyTagsType'
 import { style } from './CompetencyTagsStyle'
 
@@ -29,14 +29,9 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
     sectionsMapping,
   } = store
 
-  const renderCounter = useRef(0)
-
   useEffect(() => {
-    if (renderCounter.current === 0) {
-      handleEvents.ADD_COMPETENCY_TAGS({}, { idProfile: idProfileActive })
-    }
-    renderCounter.current = renderCounter.current + 1
-  }, [])
+    handleEvents.ADD_COMPETENCY_TAGS({}, { idProfile: idProfileActive })
+  }, [idProfileActive])
 
   const sectionMapping =
     sectionsMapping.find(
@@ -57,10 +52,9 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
 
   const getTagList = (competencies: CompetencyTagType[]): ReactElement[] => {
     return competencies.map((competency, index: number) => {
-      const { title, linkHref, tooltips, iconLibrary, iconName, iconSize } =
-        competency
+      const { title, linkHref, tooltips, iconLibrary, iconName } = competency
 
-      const tagPropertyProps = {
+      const tagPropertyProps: TagPropertyPropsType = {
         key: `tagProperty-${index}`,
         title,
         linkHref,
