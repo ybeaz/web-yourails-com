@@ -34,10 +34,12 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   const renderCounter = useRef(0)
 
   useEffect(() => {
+    console.info('CompetencyTags [37]', { idProfileActive })
     if (
       typeof idProfileActive === 'string' &&
       !idProfileActiveDict[idProfileActive]
     ) {
+      console.info('CompetencyTags [42]', { idProfileActive })
       handleEvents.ADD_COMPETENCY_TAGS({}, { idProfile: idProfileActive })
       idProfileActiveDict[idProfileActive] = true
     }
