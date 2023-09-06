@@ -13,6 +13,8 @@ import { TagProperty, TagPropertyPropsType } from '../TagProperty/TagProperty'
 import { CompetencyTagsType } from './CompetencyTagsType'
 import { style } from './CompetencyTagsStyle'
 
+const idProfileActiveDict: Record<string, boolean> = {}
+
 /**
  * @import import { CompetencyTags } from '../Components/CompetencyTags/CompetencyTags'
  */
@@ -32,11 +34,15 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   const renderCounter = useRef(0)
 
   useEffect(() => {
-    if (renderCounter.current === 0) {
+    if (
+      typeof idProfileActive === 'string' &&
+      !idProfileActiveDict[idProfileActive]
+    ) {
       handleEvents.ADD_COMPETENCY_TAGS({}, { idProfile: idProfileActive })
+      idProfileActiveDict[idProfileActive] = true
     }
     renderCounter.current = renderCounter.current + 1
-  }, [])
+  }, [idProfileActive])
 
   const sectionMapping =
     sectionsMapping.find(
