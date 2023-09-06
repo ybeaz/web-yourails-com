@@ -9,7 +9,7 @@ import { SectionMappingType } from '../../../@types/SectionMappingType'
 import { getSectionsFromTagsCompetencies } from '../../../Shared/getSectionsFromTagsCompetencies'
 import { Header } from '../Header/Header'
 import { Text } from '../../Components/Text/Text'
-import { TagProperty } from '../TagProperty/TagProperty'
+import { TagProperty, TagPropertyPropsType } from '../TagProperty/TagProperty'
 import { CompetencyTagsType } from './CompetencyTagsType'
 import { style } from './CompetencyTagsStyle'
 
@@ -57,10 +57,9 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
 
   const getTagList = (competencies: CompetencyTagType[]): ReactElement[] => {
     return competencies.map((competency, index: number) => {
-      const { title, linkHref, tooltips, iconLibrary, iconName, iconSize } =
-        competency
+      const { title, linkHref, tooltips, iconLibrary, iconName } = competency
 
-      const tagPropertyProps = {
+      const tagPropertyProps: TagPropertyPropsType = {
         key: `tagProperty-${index}`,
         title,
         linkHref,

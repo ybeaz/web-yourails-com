@@ -3,16 +3,17 @@ import {
   ButtonYrlPropsType,
   TooltipYrlPropsType,
 } from '../../../YrlNativeViewLibrary/'
+import { CompetencyTagType } from '../../../@types/GraphqlTypes'
 import { TextPropsType } from '../Text/Text'
 
-export interface TagPropertyPropsType {
+export type TagPropertyPropsType = {
+  key: string
   styleProps?: any
-  id?: string
-  title: string
-  linkHref: string
-  tooltips: string
-  iconLibrary?: string
-  iconName?: string
+  title: CompetencyTagType['title']
+  linkHref: CompetencyTagType['linkHref']
+  tooltips: CompetencyTagType['tooltips']
+  iconLibrary: CompetencyTagType['iconLibrary']
+  iconName: CompetencyTagType['iconName']
   testID?: string
 }
 

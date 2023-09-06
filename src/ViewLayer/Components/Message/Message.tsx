@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { StyleSheet, View, ImageResizeMode } from 'react-native'
+import { View, ImageResizeMode } from 'react-native'
 import dayjs from 'dayjs'
 
 import MarkdownDisplay from 'react-native-markdown-display'
