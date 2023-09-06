@@ -3,7 +3,7 @@ import { takeEvery, put } from 'redux-saga/effects'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { projects } from '../../ContentMock/projectsMock'
 
-function* addProjects() {
+function* addProjects(): Iterable<any> {
   try {
     yield put(actionSync.ADD_PROJECTS({ projects }))
   } catch (error: any) {

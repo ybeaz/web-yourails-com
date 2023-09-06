@@ -5,7 +5,7 @@ import { competencyTags as competencyTagsMock } from '../../ContentMock/competen
 import { getCompetencyTagsConnector } from '../../CommunicationLayer/getCompetencyTagsConnector'
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 
-function* addCompetencyTags(params: any) {
+function* addCompetencyTags(params: any): Iterable<any> {
   const {
     data: { idProfile },
   } = params
@@ -19,12 +19,9 @@ function* addCompetencyTags(params: any) {
         },
       }
       const { client, params } = getCompetencyTagsConnector(variables)
+      const res: any = yield client.post('', params)
+      const readCompetencyTags = res?.data?.data?.readCompetencyTags
 
-      const {
-        data: {
-          data: { readCompetencyTags },
-        },
-      } = yield client.post('', params)
       competencyTags = readCompetencyTags
       if (!readCompetencyTags.length) competencyTags = competencyTagsMock
     } else {

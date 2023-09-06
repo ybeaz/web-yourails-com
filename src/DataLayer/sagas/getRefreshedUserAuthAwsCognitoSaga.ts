@@ -6,10 +6,10 @@ import { CLIENTS } from '../../Constants/clients.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
 
-export function* getRefreshedUserAuthAwsCognito(input: any) {
+export function* getRefreshedUserAuthAwsCognito(params: any): Iterable<any> {
   const {
     data: { refresh_token },
-  } = input
+  } = params
 
   try {
     const envType = getDetectedEnv()
@@ -25,11 +25,9 @@ export function* getRefreshedUserAuthAwsCognito(input: any) {
     const { client, params } =
       getRefreshedUserAuthAwsCognitoConnector(variables)
 
-    const {
-      data: {
-        data: { getRefreshedUserAuthAwsCognito: userIdDataAwsCognito },
-      },
-    } = yield client.post('', params)
+    const res: any = yield client.post('', params)
+
+    const userIdDataAwsCognito = res?.data?.data?.getRefreshedUserAuthAwsCognito
 
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
 

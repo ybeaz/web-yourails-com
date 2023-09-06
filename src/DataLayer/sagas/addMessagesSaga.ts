@@ -3,7 +3,7 @@ import { takeEvery, put } from 'redux-saga/effects'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { messages } from '../../ContentMock/messagesMock'
 
-function* addMessagesSaga() {
+function* addMessagesSaga(): Iterable<any> {
   try {
     yield put(actionSync.ADD_MESSAGES({ messages }))
   } catch (error: any) {
