@@ -31,8 +31,6 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
     sectionsMapping,
   } = store
 
-  const renderCounter = useRef(0)
-
   useEffect(() => {
     console.info('CompetencyTags [37]', { idProfileActive })
     if (
@@ -43,7 +41,6 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
       handleEvents.ADD_COMPETENCY_TAGS({}, { idProfile: idProfileActive })
       idProfileActiveDict[idProfileActive] = true
     }
-    renderCounter.current = renderCounter.current + 1
   }, [idProfileActive])
 
   const sectionMapping =
