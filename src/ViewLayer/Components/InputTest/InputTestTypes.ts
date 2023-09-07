@@ -1,10 +1,13 @@
 import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import { RootStoreType } from '../../../@types/RootStoreType'
 
 export interface InputTestPropsType {
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
   handleEvents: any
-  store: any
+  storeStateSlice: {
+    inputSearch: RootStoreType['forms']['inputSearch']
+  }
 }
 
 export type InputTestPropsOutType = Record<string, any>

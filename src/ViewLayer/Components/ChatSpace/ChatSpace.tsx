@@ -17,7 +17,7 @@ import {
   withPropsYrl,
   ModalFrameYrl,
   urlParamsDefault,
-  withStoreStateYrl,
+  withStoreStateSliceYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
@@ -47,7 +47,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     styleProps = { ChatSpace: {} },
     mediaParams = mediaParamsDefault,
     urlParams = urlParamsDefault,
-    store,
+    storeStateSlice,
     handleEvents,
   } = props
 
@@ -55,12 +55,20 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const { urlParam1, urlParam2 } = urlParams
   const style = styles[deviceType]
 
+  // const {
+  //   globalVars: { idProfileHost, idProfileActive },
+  //   componentsState,
+  //   profiles,
+  //   messages,
+  // } = store
+
   const {
-    globalVars: { idProfileHost, idProfileActive },
+    idProfileHost,
+    idProfileActive,
     componentsState,
     profiles,
     messages,
-  } = store
+  } = storeStateSlice
 
   const { modalFrame } = componentsState
 
@@ -399,6 +407,15 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
 export const ChatSpace = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(withParamsMediaYrl(ChatSpaceComponent))
+    withStoreStateSliceYrl(
+      [
+        'idProfileHost',
+        'idProfileActive',
+        'componentsState',
+        'profiles',
+        'messages',
+      ],
+      withParamsMediaYrl(ChatSpaceComponent)
+    )
   )
 )

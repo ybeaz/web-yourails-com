@@ -16,7 +16,13 @@ export interface ChatSpacePropsType {
   profileActive: ProfileType
   messages: Omit<MessageType, 'position' | 'isTail'>[]
   modalFrame: any
-  store: RootStoreType
+  storeStateSlice: {
+    idProfileHost: RootStoreType['globalVars']['idProfileHost']
+    idProfileActive: RootStoreType['globalVars']['idProfileActive']
+    componentsState: RootStoreType['componentsState']
+    profiles: RootStoreType['profiles']
+    messages: RootStoreType['messages']
+  }
   handleEvents: any
 }
 

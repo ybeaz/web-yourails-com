@@ -4,9 +4,7 @@ import { View } from 'react-native'
 import {
   InputTextYrl,
   withPropsYrl,
-  withStoreStateYrl,
-  withParamsMediaYrl,
-  mediaParamsDefault,
+  withStoreStateSliceYrl,
 } from '../../../YrlNativeViewLibrary'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { Text } from '../../Components/Text/Text'
@@ -23,7 +21,7 @@ const InputTestComponent: InputTestType = props => {
       InputTextYrl: { border: '1px solid green' },
     },
     handleEvents,
-    store,
+    storeStateSlice,
   } = props
   // const { deviceType, screenCase, width, height } = mediaParams
   // const style = styles[deviceType]
@@ -40,7 +38,7 @@ const InputTestComponent: InputTestType = props => {
       placeholder: '',
       placeholderTextColor: '',
       testID: 'InputTextYrl',
-      value: store.forms.inputSearch,
+      value: storeStateSlice.inputSearch,
     },
   }
 
@@ -53,6 +51,6 @@ const InputTestComponent: InputTestType = props => {
 
 export const InputTest = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(InputTestComponent)
+    withStoreStateSliceYrl(['inputSearch'], InputTestComponent)
   )
 )

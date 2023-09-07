@@ -5,7 +5,7 @@ import {
   urlParamsDefault,
   mediaParamsDefault,
   withParamsMediaYrl,
-  withStoreStateYrl,
+  withStoreStateSliceYrl,
   withPropsYrl,
   ModalFrameYrl,
 } from '../../../YrlNativeViewLibrary'
@@ -29,7 +29,7 @@ const ChatCardsComponent: ChatCardsType = props => {
     },
     mediaParams = mediaParamsDefault,
     urlParams = urlParamsDefault,
-    store,
+    storeStateSlice,
     handleEvents,
     urlParamsSearch,
   } = props
@@ -37,16 +37,20 @@ const ChatCardsComponent: ChatCardsType = props => {
   const { urlParam1, urlParam2 } = urlParams
 
   const {
-    componentsState: { isUserMenu, isProfileSelectMenu },
-    globalVars: { idUserHost, idProfileHost, idProfileActive },
-    forms: { inputSearch },
+    isUserMenu,
+    isProfileSelectMenu,
+    idUserHost,
+    idProfileHost,
+    idProfileActive,
+    inputSearch,
     profiles,
-  } = store
+  } = storeStateSlice
 
   const style = styles[deviceType]
 
   const profilesSearched = getProfilesSearched(profiles, inputSearch)
   const profilesSorted = profilesSearched.sort(
+    // @ts-expect-error
     (a, b) => b.position - a.position
   )
 
@@ -172,6 +176,17 @@ const ChatCardsComponent: ChatCardsType = props => {
 
 export const ChatCards = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(withParamsMediaYrl(ChatCardsComponent))
+    withStoreStateSliceYrl(
+      [
+        'isUserMenu',
+        'isProfileSelectMenu',
+        'idUserHost',
+        'idProfileHost',
+        'idProfileActive',
+        'inputSearch',
+        'profiles',
+      ],
+      withParamsMediaYrl(ChatCardsComponent)
+    )
   )
 )
