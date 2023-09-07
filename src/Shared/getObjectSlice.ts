@@ -28,7 +28,7 @@ export const getObjectSlice: getObjectSliceType = (
     try {
       const objProps = Object.keys(entity)
       if (objProps.length > 0) {
-        Object.keys(entity).forEach((objProp: string) => {
+        objProps.forEach((objProp: string) => {
           if (arrProps.includes(objProp)) output[objProp] = entity[objProp]
           if (isObject(entity[objProp])) {
             return getObjectSlice(
