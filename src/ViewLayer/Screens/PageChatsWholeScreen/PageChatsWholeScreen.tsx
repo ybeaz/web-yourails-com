@@ -288,10 +288,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </View>
   )
 
-  console.info(
-    'PageChatsWholeScreen [291] renderCounter.current',
-    renderCounter.current
-  )
   const ChatSpaceElement = useMemo(() => <ChatSpace />, [])
 
   const ChatInputElement = (
@@ -301,6 +297,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     >
       {!isMainColumnBlank && isShowModalFrame === false && <ChatInput />}
     </View>
+  )
+
+  console.info(
+    'PageChatsWholeScreen [291] renderCounter.current',
+    renderCounter.current
   )
 
   return (
