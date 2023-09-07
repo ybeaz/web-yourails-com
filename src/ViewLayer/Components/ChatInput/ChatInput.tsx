@@ -5,7 +5,7 @@ import { Text as TextRrneui } from '@rneui/themed'
 import {
   ButtonYrl,
   IconYrl,
-  withStoreStateYrl,
+  withStoreStateSliceYrl,
   InputTextYrl,
   withPropsYrl,
   mediaParamsDefault,
@@ -24,13 +24,13 @@ import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handl
 import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 const ChatInputComponent: ChatInputType = props => {
-  const { handleEvents, store, mediaParams = mediaParamsDefault } = props
-
   const {
-    profiles,
-    globalVars: { idProfileActive },
-    forms: { inputChat },
-  } = store
+    handleEvents,
+    storeStateSlice,
+    mediaParams = mediaParamsDefault,
+  } = props
+
+  const { profiles, idProfileActive, inputChat } = storeStateSlice
 
   const { deviceType, height } = mediaParams
   const style = styles[deviceType]
@@ -73,7 +73,7 @@ const ChatInputComponent: ChatInputType = props => {
     },
     promptExamplesProps: {
       styleProps: {},
-      promptExamples: profileActive?.promptExamples,
+      promptExamples: profileActive?.promptExamples || [],
       onHeightChange: onPromptExampleHeightChange,
       onPromptExampleClick,
       idProfileActive,
@@ -176,6 +176,9 @@ const ChatInputComponent: ChatInputType = props => {
 
 export const ChatInput = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(withParamsMediaYrl(ChatInputComponent))
+    withStoreStateSliceYrl(
+      ['profiles', 'idProfileActive', 'inputChat'],
+      withParamsMediaYrl(ChatInputComponent)
+    )
   )
 )

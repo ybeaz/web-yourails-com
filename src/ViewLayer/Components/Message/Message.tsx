@@ -122,10 +122,10 @@ const MessageComponent: MessageComponentType = props => {
   }
 
   const resizeMode: ImageResizeMode = 'cover'
-  console.info('Message [125]', {
-    copyThis: style[position].copyThis,
-    position,
-  })
+  // console.info('Message [125]', {
+  //   copyThis: style[position].copyThis,
+  //   position,
+  // })
 
   const propsOut: MessagePropsOutType = {
     pendingImageYrlProps: {

@@ -55,22 +55,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const { urlParam1, urlParam2 } = urlParams
   const style = styles[deviceType]
 
-  // const {
-  //   globalVars: { idProfileHost, idProfileActive },
-  //   componentsState,
-  //   profiles,
-  //   messages,
-  // } = store
-
-  const {
-    idProfileHost,
-    idProfileActive,
-    componentsState,
-    profiles,
-    messages,
-  } = storeStateSlice
-
-  const { modalFrame } = componentsState
+  const { idProfileHost, idProfileActive, modalFrame, profiles, messages } =
+    storeStateSlice
 
   const {
     childName,
@@ -81,6 +67,13 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   } = modalFrame
 
   const renderCounter = useRef(0)
+
+  console.info(
+    'ChatSpace [85]',
+    renderCounter,
+    messages.length,
+    profiles.length
+  )
 
   useEffect(() => {
     if (renderCounter.current === 0) {
@@ -405,17 +398,9 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   )
 }
 
-export const ChatSpace = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateSliceYrl(
-      [
-        'idProfileHost',
-        'idProfileActive',
-        'componentsState',
-        'profiles',
-        'messages',
-      ],
-      withParamsMediaYrl(ChatSpaceComponent)
-    )
+export const ChatSpace = withPropsYrl({ handleEvents: handleEventsProp })(
+  withStoreStateSliceYrl(
+    ['idProfileHost', 'idProfileActive', 'modalFrame', 'profiles', 'messages'],
+    withParamsMediaYrl(React.memo(ChatSpaceComponent))
   )
 )

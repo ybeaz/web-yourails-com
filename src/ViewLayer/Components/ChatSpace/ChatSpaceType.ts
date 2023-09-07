@@ -19,7 +19,7 @@ export interface ChatSpacePropsType {
   storeStateSlice: {
     idProfileHost: RootStoreType['globalVars']['idProfileHost']
     idProfileActive: RootStoreType['globalVars']['idProfileActive']
-    componentsState: RootStoreType['componentsState']
+    modalFrame: RootStoreType['componentsState']['modalFrame']
     profiles: RootStoreType['profiles']
     messages: RootStoreType['messages']
   }

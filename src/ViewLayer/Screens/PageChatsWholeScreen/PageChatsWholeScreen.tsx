@@ -6,6 +6,7 @@ import {
   urlParamsDefault,
   withParamsMediaYrl,
   withPropsYrl,
+  withStoreStateSliceYrl,
   withStoreStateYrl,
 } from '../../../YrlNativeViewLibrary'
 
@@ -38,6 +39,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     urlParams = urlParamsDefault,
     urlParamsSearch,
     handleEvents,
+    storeStateSlice,
     store,
   } = props
   const { deviceType } = mediaParams
@@ -48,18 +50,22 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const renderCounter = useRef(0)
 
   const {
-    componentsState,
+    idProfileHost,
+    idProfileActive,
+    isLeftColumn,
+    isMainColumn,
+    isMainColumnBlank,
+    modalFrame,
     profiles,
     sectionsMapping,
-    globalVars: { idProfileActive },
-    userIdDataAwsCognito,
-    messages,
-  } = store
-
-  const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
-    componentsState
+  } = storeStateSlice
 
   const { isShow: isShowModalFrame } = modalFrame
+
+  console.info('PageChatsWholeScreen [65], store', store, {
+    idProfileHost,
+    idProfileActive,
+  })
 
   const query = {
     s: urlParamsSearch.get('s'),
@@ -319,6 +325,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
 export const PageChatsWholeScreen = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(withParamsMediaYrl(PageChatsWholeScreenComponent))
+    withStoreStateSliceYrl(
+      [
+        'idProfileHost',
+        'idProfileActive',
+        'isLeftColumn',
+        'isMainColumn',
+        'isMainColumnBlank',
+        'modalFrame',
+        'profiles',
+        'sectionsMapping',
+      ],
+      withParamsMediaYrl(withStoreStateYrl(PageChatsWholeScreenComponent))
+    )
   )
 )
