@@ -25,7 +25,6 @@ export interface PageChatsWholeScreenPropsType {
     profiles: RootStoreType['profiles']
     sectionsMapping: RootStoreType['sectionsMapping']
   }
-  store: RootStoreType
 }
 
 export interface PageChatsWholeScreenType

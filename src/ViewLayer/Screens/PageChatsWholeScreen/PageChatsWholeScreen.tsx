@@ -40,7 +40,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     urlParamsSearch,
     handleEvents,
     storeStateSlice,
-    store,
   } = props
   const { deviceType } = mediaParams
   const { urlParam1, urlParam2, urlParam3 } = urlParams
@@ -62,7 +61,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const { isShow: isShowModalFrame } = modalFrame
 
-  console.info('PageChatsWholeScreen [65], store', store, {
+  console.info('PageChatsWholeScreen [65]', {
     idProfileHost,
     idProfileActive,
   })
@@ -323,20 +322,20 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   )
 }
 
-export const PageChatsWholeScreen = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateSliceYrl(
-      [
-        'idProfileHost',
-        'idProfileActive',
-        'isLeftColumn',
-        'isMainColumn',
-        'isMainColumnBlank',
-        'modalFrame',
-        'profiles',
-        'sectionsMapping',
-      ],
-      withParamsMediaYrl(withStoreStateYrl(PageChatsWholeScreenComponent))
-    )
+export const PageChatsWholeScreen = withPropsYrl({
+  handleEvents: handleEventsProp,
+})(
+  withStoreStateSliceYrl(
+    [
+      'idProfileHost',
+      'idProfileActive',
+      'isLeftColumn',
+      'isMainColumn',
+      'isMainColumnBlank',
+      'modalFrame',
+      'profiles',
+      'sectionsMapping',
+    ],
+    withParamsMediaYrl(React.memo(PageChatsWholeScreenComponent))
   )
 )
