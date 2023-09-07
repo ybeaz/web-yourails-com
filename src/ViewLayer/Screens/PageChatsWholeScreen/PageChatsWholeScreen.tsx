@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useMemo } from 'react'
 import { View } from 'react-native'
 
 import {
@@ -288,7 +288,11 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </View>
   )
 
-  const ChatSpaceElement = <ChatSpace />
+  console.info(
+    'PageChatsWholeScreen [291] renderCounter.current',
+    renderCounter.current
+  )
+  const ChatSpaceElement = useMemo(() => <ChatSpace />, [])
 
   const ChatInputElement = (
     <View

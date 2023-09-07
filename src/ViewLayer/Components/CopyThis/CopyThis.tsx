@@ -23,7 +23,7 @@ import { styles } from './CopyThisStyles'
 const CopyThisComponent: CopyThisComponentType = props => {
   const { styleProps = { CopyThis: {} }, mediaParams = mediaParamsDefault } =
     props
-  const { deviceType, screenCase, width, height } = mediaParams
+  const { deviceType } = mediaParams
   const style = styles[deviceType]
 
   const propsOut: CopyThisPropsOutType = {
@@ -54,9 +54,10 @@ const CopyThisComponent: CopyThisComponentType = props => {
   )
 }
 
-export const CopyThis: CopyThisType = React.memo(
-  withParamsMediaYrl(CopyThisComponent)
+export const CopyThis: CopyThisType = withParamsMediaYrl(
+  React.memo(CopyThisComponent)
 )
+
 export type {
   CopyThisPropsType,
   CopyThisPropsOutType,

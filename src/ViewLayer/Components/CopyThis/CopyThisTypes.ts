@@ -20,4 +20,4 @@ export interface CopyThisComponentType
   (props: CopyThisPropsType): React.ReactElement
 }
 
-export type CopyThisType = React.NamedExoticComponent<any>
+export type CopyThisType = React.FunctionComponent<any>
