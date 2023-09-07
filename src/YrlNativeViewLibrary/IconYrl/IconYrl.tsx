@@ -74,7 +74,7 @@ export const IconYrl: IconYrlType = props => {
       },
       uri: `${URI_BASE[library]}/${name}.svg`,
       resizeMode,
-      testID: `ImageYrl-IconYrl-${name}`,
+      testID: testID ? testID : `ImageYrl-IconYrl-${name}`,
     },
   }
 

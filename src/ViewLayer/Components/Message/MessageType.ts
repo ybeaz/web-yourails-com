@@ -1,9 +1,14 @@
 import { IdUserType } from '../../../@types/UserType'
 import { MessageEventType } from '../../../@types/MessageEventType'
 
-import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import { TriangleCornerPropsType } from '../TriangleCorner/TriangleCorner'
+import {
+  ImageYrlPropsType,
+  MediaParamsDefaultType,
+} from '../../../YrlNativeViewLibrary'
+import { CopyThisPropsType } from '../CopyThis/CopyThis'
 
-export interface MessagePropsType {
+export type MessagePropsType = {
   idMessage?: string
   idProfile: IdUserType
   eventType: MessageEventType
@@ -18,13 +23,22 @@ export interface MessagePropsType {
   isSent?: boolean
   isReceived?: boolean
   isPending?: boolean
-  imagePendingSrc?: string | null
+  imagePendingSrc?: string
   mediaParams?: MediaParamsDefaultType
+}
+
+export type MessagePropsOutType = {
+  pendingImageYrlProps: ImageYrlPropsType
+  triangleCornerProps: TriangleCornerPropsType
+  copyThisProps: CopyThisPropsType
 }
 
 /**
  * @import import { MessageType } from './MessageType'
  */
-export interface MessageType extends React.FunctionComponent<MessagePropsType> {
+export interface MessageComponentType
+  extends React.FunctionComponent<MessagePropsType> {
   (props: MessagePropsType): React.ReactElement
 }
+
+export type MessageType = React.NamedExoticComponent<any>
