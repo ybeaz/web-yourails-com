@@ -75,7 +75,7 @@ const ChatInputComponent: ChatInputType = props => {
         },
       },
       size: 16,
-      color: themes['themeA'].colors02.color,
+      color: themes.themeB.color10,
       testID: 'tooltip_IconYrl',
     },
     promptExamplesProps: {
@@ -91,7 +91,7 @@ const ChatInputComponent: ChatInputType = props => {
     <View {...propsOutM1.tooltipTitleWrapperProps}>
       <IconYrl {...propsOutM1.tooltipPopoverIconProps} />
       <TextRrneui
-        style={[style.titleText, { color: themes['themeA'].colors08.color }]}
+        style={[style.titleText, { color: themes.themeB.color10 }]}
         testID='tooltipTitle'
       >
         Prompt Examples
@@ -147,13 +147,11 @@ const ChatInputComponent: ChatInputType = props => {
       styleProps: {
         TooltipYrl: style.tooltip_TooltipYrl,
         iconTextWrapper: style.tooltip_iconTextWrapper,
-        titleText: [
-          style.tooltip_titleText,
-          { color: themes['themeA'].colors08.color },
-        ],
+        titleText: [style.tooltip_titleText],
         containerStyle: {
           ...style.tooltip_container,
           top: tooltipContainerStyleTop,
+          alignSelf: 'center',
         },
         TooltipPopoverYrl: style.tooltip_tooltipPopover,
       },
@@ -162,6 +160,27 @@ const ChatInputComponent: ChatInputType = props => {
       testID: `tooltipPromptExample`,
       titleText: tooltipTitlePromptExamples,
     },
+    buttonPasteFromClipboardProps: {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: undefined,
+      testID: 'pasteThisButtonYrl',
+      disabled: false,
+      onPress: async () => {
+        const clipboardText = await navigator.clipboard.readText()
+        handleEvents.CLICK_ON_PROMPT_EXAMPLE(
+          {},
+          { idProfileActive, text: clipboardText }
+        )
+      },
+      iconProps: {
+        library: 'Ionicons',
+        name: 'arrow-down-circle-outline',
+        styleProps: { IconYrl: {} },
+        size: 20,
+        color: themes.themeB.color10,
+        testID: 'copyThisIconYrl',
+      },
+    },
   }
 
   return (
@@ -169,6 +188,7 @@ const ChatInputComponent: ChatInputType = props => {
       {!isMainColumnBlank && isShowModalFrame === false ? (
         <View style={[style.ChatInput]} testID='ChatInput'>
           <View style={[style.tooltipsWrapper]} testID='tooltipsWrapper'>
+            <ButtonYrl {...propsOut.buttonPasteFromClipboardProps} />
             <TooltipYrl {...propsOut.tooltipPromptExamples} />
           </View>
           <View style={[style.inputButton]} testID='inputButton'>

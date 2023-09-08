@@ -44,7 +44,7 @@ const CopyThisComponent: CopyThisComponentType = props => {
         name: 'copy-outline',
         styleProps: { IconYrl: {} },
         size: 18,
-        color: '#adb1b5',
+        color: themes.themeB.color10,
         testID: 'copyThisIconYrl',
       },
     },
