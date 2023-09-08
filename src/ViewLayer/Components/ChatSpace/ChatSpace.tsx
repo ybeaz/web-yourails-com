@@ -64,13 +64,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const renderCounter = useRef(0)
 
-  console.info(
-    'ChatSpace [85]',
-    renderCounter,
-    messages.length,
-    profiles.length
-  )
-
   useEffect(() => {
     if (renderCounter.current === 0) {
       handleEvents.ADD_MESSAGES({}, {})
@@ -109,6 +102,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   /**
    * @description Styles adjustments for different devices
    */
+  const scrollViewRef = React.useRef<ScrollView>(null)
+  const dateString = getDateLocale(+new Date())
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
   let modalContentMargin: string | number = '3rem'
   let buttonTop = '0.5rem'
@@ -128,10 +123,25 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   }
 
   const propsOut: Record<string, any> = {
-    messageProps: {
-      ...messagesWithProfileActive[0],
-      profile: profileActive,
-      isTail: true,
+    scrollViewProps: {
+      style: [themes['themeA'].colors03],
+      contentContainerStyle: {},
+      ref: scrollViewRef,
+      nestedScrollEnabled: true,
+      onContentSizeChange: (contentHeight: number) => {
+        if (isShowModalFrame) {
+          scrollViewRef.current?.scrollTo({
+            y: 0,
+            animated: true,
+          })
+          return
+        }
+        scrollViewRef.current?.scrollTo({
+          y: contentHeight,
+          animated: true,
+        })
+      },
+      testID: 'ScrollViewChatSpace',
     },
     modalFrameYrlProps: {
       styleProps: {
@@ -273,76 +283,37 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       testID: 'ChatSpace_leftColumnIn_animatedYrl_Inner',
     },
     messagesProps: {
-      messages,
+      messages: messagesPrep,
       profiles,
     },
   }
 
-  const ChatSpaceJsx = ({
-    profiles,
-    messages,
-  }: {
-    profiles: RootStoreType['profiles']
-    messages: RootStoreType['messages']
-  }) => {
-    let dateString = getDateLocale(+new Date())
-
-    const propsOut = {
-      messagesProps: {
-        messages,
-        profiles,
-      },
-    }
-
-    return (
-      <View
-        style={[
-          style.ChatSpaceJsx,
-          themes['themeA'].colors03,
-          styleAddSidebarRight,
-        ]}
-        testID='ChatSpaceJsx'
-      >
-        <View style={[style.viewPadding]} testID='viewPadding'>
-          <View style={style.date} testID='date'>
-            <Text style={[style.dateText, { color: 'grey' }]} testID='dateText'>
-              {dateString}
-            </Text>
-          </View>
-
-          <Messages {...propsOut.messagesProps} />
-        </View>
-      </View>
-    )
-  }
-
-  const scrollViewRef = React.useRef<ScrollView>(null)
-
   return (
-    <ScrollView
-      style={[themes['themeA'].colors03]}
-      contentContainerStyle={{}}
-      ref={scrollViewRef}
-      nestedScrollEnabled={true}
-      onContentSizeChange={contentHeight => {
-        if (isShowModalFrame) {
-          scrollViewRef.current?.scrollTo({
-            y: 0,
-            animated: true,
-          })
-          return
-        }
-        scrollViewRef.current?.scrollTo({
-          y: contentHeight,
-          animated: true,
-        })
-      }}
-      testID='ScrollViewChatSpace'
-    >
+    <ScrollView {...propsOut.scrollViewProps}>
       <View style={[style.ChatSpace, styleProps.ChatSpace]} testID='ChatSpace'>
         {messagesWithProfileActive.length && !isShowModalFrame ? (
           <AnimatedYrl {...propsOut.chatSpaceJsxAnimatedYrlProps}>
-            <ChatSpaceJsx profiles={profiles} messages={messagesPrep} />
+            <View
+              style={[
+                style.ChatSpaceJsx,
+                themes['themeA'].colors03,
+                styleAddSidebarRight,
+              ]}
+              testID='ChatSpaceJsx'
+            >
+              <View style={[style.viewPadding]} testID='viewPadding'>
+                <View style={style.date} testID='date'>
+                  <Text
+                    style={[style.dateText, { color: 'grey' }]}
+                    testID='dateText'
+                  >
+                    {dateString}
+                  </Text>
+                </View>
+
+                <Messages {...propsOut.messagesProps} />
+              </View>
+            </View>
           </AnimatedYrl>
         ) : null}
 
