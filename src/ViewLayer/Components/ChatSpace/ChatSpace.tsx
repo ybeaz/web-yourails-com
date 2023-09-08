@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  FunctionComponent,
-  useCallback,
-  useRef,
-  useMemo,
-} from 'react'
+import React, { useEffect, FunctionComponent, useRef, useMemo } from 'react'
 import { ScrollView, View } from 'react-native'
 
 import { RootStoreType } from '../../../@types/RootStoreType'
@@ -23,7 +17,6 @@ import {
   getMessagesWithProfileActive,
   GetMessagesWithProfileActivePropsType,
 } from '../../../Shared/getMessagesWithProfileActive'
-import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getDateLocale } from '../../../Shared/getDateLocale'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import { Text } from '../../Components/Text/Text'
@@ -42,13 +35,11 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const {
     styleProps = { ChatSpace: {} },
     mediaParams = mediaParamsDefault,
-    urlParams = urlParamsDefault,
     storeStateSlice,
     handleEvents,
   } = props
 
   const { deviceType, height: heightScreen } = mediaParams
-  const { urlParam1, urlParam2 } = urlParams
   const style = styles[deviceType]
 
   const { idProfileHost, idProfileActive, modalFrame, profiles, messages } =
@@ -72,14 +63,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   }, [])
 
   const messagesMemed = useMemo(() => messages, [JSON.stringify(messages)])
-
-  const profileActive: any = useCallback(() => {
-    getProfileChat({
-      profiles,
-      urlParam1,
-      urlParam2,
-    })
-  }, [profiles, urlParam1, urlParam2])
 
   const getMessagesWithProfileActiveProps: GetMessagesWithProfileActivePropsType =
     {

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useMemo, useCallback } from 'react'
+import React, { useRef, useEffect, useMemo } from 'react'
 import { View } from 'react-native'
 
 import {
@@ -48,7 +48,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const renderCounter = useRef(0)
 
   const {
-    idProfileHost,
     idProfileActive,
     isLeftColumn,
     isMainColumn,
@@ -330,7 +329,6 @@ export const PageChatsWholeScreen = withPropsYrl({
 })(
   withStoreStateSliceYrl(
     [
-      'idProfileHost',
       'idProfileActive',
       'isLeftColumn',
       'isMainColumn',

@@ -11,7 +11,6 @@ import {
 export interface ChatSpacePropsType {
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
-  urlParams?: UrlParamsDefaultType
   idProfileHost: IdUserType
   profileActive: ProfileType
   messages: Omit<MessageType, 'position' | 'isTail'>[]

@@ -16,7 +16,6 @@ export interface PageChatsWholeScreenPropsType {
   handleEvents: HandleEventsType
   history?: History
   storeStateSlice: {
-    idProfileHost: RootStoreType['globalVars']['idProfileHost']
     idProfileActive: RootStoreType['globalVars']['idProfileActive']
     isLeftColumn: RootStoreType['componentsState']['isLeftColumn']
     isMainColumn: RootStoreType['componentsState']['isMainColumn']
