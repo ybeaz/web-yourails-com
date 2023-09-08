@@ -64,7 +64,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         image: { width: 45, height: 45, borderRadius: 50 },
       },
       testID: 'imageProfileHostAvatarProps',
-      uri: avatarSrc,
+      uri: avatarSrc || '',
       resizeMode: 'cover',
     },
     buttonHamburgerProps: {
@@ -159,8 +159,6 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
   )
 }
 
-export const TopBarChatCards = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(withParamsMediaYrl(TopBarChatCardsComponent))
-  )
+export const TopBarChatCards = withPropsYrl({ handleEvents: handleEventsProp })(
+  withStoreStateYrl(withParamsMediaYrl(React.memo(TopBarChatCardsComponent)))
 )

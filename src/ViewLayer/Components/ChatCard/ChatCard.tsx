@@ -87,8 +87,6 @@ const ChatCardComponent: ChatCardType = props => {
   )
 }
 
-export const ChatCard = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withParamsMediaYrl(ChatCardComponent)
-  )
+export const ChatCard = withPropsYrl({ handleEvents: handleEventsProp })(
+  withParamsMediaYrl(React.memo(ChatCardComponent))
 )

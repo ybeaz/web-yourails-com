@@ -97,4 +97,4 @@ const ProjectViewComponent: ProjectViewType = props => {
   )
 }
 
-export const ProjectView = React.memo(withParamsMediaYrl(ProjectViewComponent))
+export const ProjectView = withParamsMediaYrl(React.memo(ProjectViewComponent))

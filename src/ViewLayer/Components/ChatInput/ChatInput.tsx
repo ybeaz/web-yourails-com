@@ -185,17 +185,15 @@ const ChatInputComponent: ChatInputType = props => {
   )
 }
 
-export const ChatInput = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateSliceYrl(
-      [
-        'profiles',
-        'idProfileActive',
-        'inputChat',
-        'isMainColumnBlank',
-        'modalFrame',
-      ],
-      withParamsMediaYrl(ChatInputComponent)
-    )
+export const ChatInput = withPropsYrl({ handleEvents: handleEventsProp })(
+  withStoreStateSliceYrl(
+    [
+      'profiles',
+      'idProfileActive',
+      'inputChat',
+      'isMainColumnBlank',
+      'modalFrame',
+    ],
+    withParamsMediaYrl(React.memo(ChatInputComponent))
   )
 )

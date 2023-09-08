@@ -113,8 +113,6 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   )
 }
 
-export const CompetencyTags = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(CompetencyTagsComponent)
-  )
+export const CompetencyTags = withPropsYrl({ handleEvents: handleEventsProp })(
+  withStoreStateYrl(React.memo(CompetencyTagsComponent))
 )

@@ -16,3 +16,5 @@ export interface HeaderComponentType
   extends React.FunctionComponent<HeaderPropsType> {
   (props: HeaderPropsType): React.ReactElement
 }
+
+export type HeaderType = React.FunctionComponent<HeaderPropsType>

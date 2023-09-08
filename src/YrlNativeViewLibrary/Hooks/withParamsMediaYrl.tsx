@@ -24,7 +24,7 @@ export type UrlParamsDefaultType = {
  *    from useMediaQueryRes hook:
  *    const { deviceType, screenCase, width, height } = mediaParams
  * @import import { withParamsMediaYrl, UseMediaQueryResYrlType } from './YrlNativeViewLibrary'
- * @use export const Portfolio = React.memo(withDeviceType(PortfolioComponent))
+ * @use export const Portfolio = withDeviceType(React.memo(PortfolioComponent))
  * @media accepted sizes:
   xs 320-480px
   mobile sm 481-768

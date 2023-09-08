@@ -211,8 +211,6 @@ const UserMenuComponent: UserMenuType = props => {
 }
 
 export type { UserMenuPropsType }
-export const UserMenu = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(withParamsMediaYrl(UserMenuComponent))
-  )
+export const UserMenu = withPropsYrl({ handleEvents: handleEventsProp })(
+  withStoreStateYrl(withParamsMediaYrl(React.memo(UserMenuComponent)))
 )
