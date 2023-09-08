@@ -7,7 +7,6 @@ import {
   withParamsMediaYrl,
   withPropsYrl,
   withStoreStateSliceYrl,
-  withStoreStateYrl,
 } from '../../../YrlNativeViewLibrary'
 
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'

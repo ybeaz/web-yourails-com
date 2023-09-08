@@ -1,5 +1,4 @@
 import React, {
-  ReactElement,
   useEffect,
   FunctionComponent,
   useCallback,
@@ -8,9 +7,7 @@ import React, {
 } from 'react'
 import { ScrollView, View } from 'react-native'
 
-import { ContentType } from '../../../@types/ContentType'
-import { MessageType } from '../../../@types/MessageType'
-import { MessageEventType } from '../../../@types/MessageEventType'
+import { RootStoreType } from '../../../@types/RootStoreType'
 
 import {
   AnimatedYrl,
@@ -30,14 +27,13 @@ import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getDateLocale } from '../../../Shared/getDateLocale'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import { Text } from '../../Components/Text/Text'
+import { Messages } from '../Messages/Messages'
 import { ChatSpaceType } from './ChatSpaceType'
 import { styles } from './ChatSpaceStyle'
-import { Message } from '../../Components/Message/Message'
 import { themes } from '../../Styles/themes'
 import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
@@ -98,9 +94,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       idProfileHost,
       idProfileActive,
     }
-  const messagesWithProfileActive: MessageType[] = getMessagesWithProfileActive(
-    getMessagesWithProfileActiveProps
-  )
+  const messagesWithProfileActive: RootStoreType['messages'] =
+    getMessagesWithProfileActive(getMessagesWithProfileActiveProps)
 
   const Child: FunctionComponent | null = childName
     ? MODAL_CONTENTS[childName]
@@ -277,53 +272,27 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       triggerShouldEqual: isShowModalFrame ? true : false,
       testID: 'ChatSpace_leftColumnIn_animatedYrl_Inner',
     },
+    messagesProps: {
+      messages,
+      profiles,
+    },
   }
 
-  const getMessagesJsx = ({
+  const ChatSpaceJsx = ({
+    profiles,
     messages,
   }: {
-    messages: MessageType[]
-  }): ReactElement[] => {
-    return messages.map((message: MessageType, index) => {
-      const { idMessage, text, eventType, idProfile } = message
-      const { imagePendingSrc } = getProfileByIdProfile(profiles, idProfile)
-      let textNext = text
-
-      // TODO to underderstand the logic and fix the name issue, who left
-      if (
-        eventType === MessageEventType['joinConversation'] ||
-        eventType === MessageEventType['disconnectConversation']
-      ) {
-        // console.info('ChatSpace [275]', { text })
-        const textParsed = typeof text === 'string' ? JSON.parse(text) : text
-        const idProfileRespondent = textParsed?.idProfile || '0'
-        const textJoinConversation = textParsed?.text || ''
-
-        const { profileName } = getProfileByIdProfile(
-          profiles,
-          idProfileRespondent
-        )
-        const textObject = {
-          contentType: ContentType['textArray'],
-          textArray: [`${profileName} ${textJoinConversation}`],
-        }
-        textNext = JSON.stringify(textObject)
-      }
-
-      const propsOut = {
-        messageProps: { ...message, text: textNext, imagePendingSrc },
-      }
-      return (
-        <Message
-          key={idMessage || `message-${index}`}
-          {...propsOut.messageProps}
-        />
-      )
-    })
-  }
-
-  const ChatSpaceJsx = ({ messages }: { messages: MessageType[] }) => {
+    profiles: RootStoreType['profiles']
+    messages: RootStoreType['messages']
+  }) => {
     let dateString = getDateLocale(+new Date())
+
+    const propsOut = {
+      messagesProps: {
+        messages,
+        profiles,
+      },
+    }
 
     return (
       <View
@@ -340,9 +309,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
               {dateString}
             </Text>
           </View>
-          <View style={style.messages} testID='messages'>
-            {getMessagesJsx({ messages })}
-          </View>
+
+          <Messages {...propsOut.messagesProps} />
         </View>
       </View>
     )
@@ -374,7 +342,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       <View style={[style.ChatSpace, styleProps.ChatSpace]} testID='ChatSpace'>
         {messagesWithProfileActive.length && !isShowModalFrame ? (
           <AnimatedYrl {...propsOut.chatSpaceJsxAnimatedYrlProps}>
-            <ChatSpaceJsx messages={messagesPrep} />
+            <ChatSpaceJsx profiles={profiles} messages={messagesPrep} />
           </AnimatedYrl>
         ) : null}
 

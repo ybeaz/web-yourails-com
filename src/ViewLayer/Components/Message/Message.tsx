@@ -28,21 +28,21 @@ import { isValidJsonString } from '../../../Shared/isValidJsonString'
 const MessageComponent: MessageComponentType = props => {
   const {
     idMessage,
-    idProfile,
-    eventType,
     text,
     createdAt,
     position = 'right',
     isTail = false,
-    image,
-    video,
-    audio,
-    isSystem,
-    isSent,
-    isReceived,
     isPending,
     imagePendingSrc,
     mediaParams = mediaParamsDefault,
+    // idProfile,
+    // eventType,
+    // image,
+    // video,
+    // audio,
+    // isSystem,
+    // isSent,
+    // isReceived,
   } = props
 
   const { deviceType } = mediaParams
@@ -64,7 +64,7 @@ const MessageComponent: MessageComponentType = props => {
     return textArrayIn.map((textItem: string, index: number) => {
       return (
         <Text
-          key={`textItem-${index}`}
+          key={`${idMessage}-${index}`}
           style={[style[position].text]}
           testID='textItem'
         >
@@ -184,6 +184,6 @@ const MessageComponent: MessageComponentType = props => {
   )
 }
 
-export const Message: MessageType = React.memo(
-  withParamsMediaYrl(MessageComponent)
+export const Message: MessageType = withParamsMediaYrl(
+  React.memo(MessageComponent)
 )

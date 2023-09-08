@@ -41,4 +41,4 @@ export interface MessageComponentType
   (props: MessagePropsType): React.ReactElement
 }
 
-export type MessageType = React.NamedExoticComponent<any>
+export type MessageType = React.FunctionComponent<MessagePropsType>

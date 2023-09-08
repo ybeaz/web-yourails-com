@@ -35,9 +35,10 @@ const TemplateComponent: TemplateComponentType = props => {
   )
 }
 
-export const Template: TemplateType = React.memo(
-  withParamsMediaYrl(TemplateComponent)
+export const Template: TemplateType = withParamsMediaYrl(
+  React.memo(TemplateComponent)
 )
+
 export type {
   TemplatePropsType,
   TemplatePropsOutType,

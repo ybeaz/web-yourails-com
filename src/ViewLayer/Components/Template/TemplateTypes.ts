@@ -15,4 +15,4 @@ export interface TemplateComponentType
   (props: TemplatePropsType): React.ReactElement
 }
 
-export type TemplateType = React.NamedExoticComponent<any>
+export type TemplateType = React.FunctionComponent<TemplatePropsType>
