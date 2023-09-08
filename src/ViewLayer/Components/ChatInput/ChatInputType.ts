@@ -17,6 +17,8 @@ export interface ChatInputPropsType {
     profiles: RootStoreType['profiles']
     idProfileActive: RootStoreType['globalVars']['idProfileActive']
     inputChat: RootStoreType['forms']['inputChat']
+    isMainColumnBlank: RootStoreType['componentsState']['isMainColumnBlank']
+    modalFrame: RootStoreType['componentsState']['modalFrame']
   }
   mediaParams?: MediaParamsDefaultType
 }

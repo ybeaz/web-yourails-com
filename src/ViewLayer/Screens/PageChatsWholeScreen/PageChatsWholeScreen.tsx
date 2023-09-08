@@ -61,11 +61,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const { isShow: isShowModalFrame } = modalFrame
 
-  console.info('PageChatsWholeScreen [65]', {
-    idProfileHost,
-    idProfileActive,
-  })
-
   const query = {
     s: urlParamsSearch.get('s'),
     code: urlParamsSearch.get('code'),
@@ -238,10 +233,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
   }
 
-  const TopBarChatCardsElement = (
-    <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
-      <TopBarChatCards />
-    </View>
+  const TopBarChatCardsElement = useMemo(
+    () => (
+      <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
+        <TopBarChatCards />
+      </View>
+    ),
+    []
   )
 
   const MainColumnTopBars = (
@@ -279,29 +277,30 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </View>
   )
 
-  const ChatCardsElement = (
-    <View
-      style={[style.leftColumnChatCardSpace]}
-      testID='leftColumnChatCardSpace'
-    >
-      <ChatCards />
-    </View>
+  const ChatCardsElement = useMemo(
+    () => (
+      <View
+        style={[style.leftColumnChatCardSpace]}
+        testID='leftColumnChatCardSpace'
+      >
+        <ChatCards />
+      </View>
+    ),
+    []
   )
 
   const ChatSpaceElement = useMemo(() => <ChatSpace />, [])
 
-  const ChatInputElement = (
-    <View
-      style={[style.chatInput, themes['themeA'].colors03]}
-      testID='chatInput'
-    >
-      {!isMainColumnBlank && isShowModalFrame === false && <ChatInput />}
-    </View>
-  )
-
-  console.info(
-    'PageChatsWholeScreen [291] renderCounter.current',
-    renderCounter.current
+  const ChatInputElement = useMemo(
+    () => (
+      <View
+        style={[style.chatInput, themes['themeA'].colors03]}
+        testID='chatInput'
+      >
+        <ChatInput />
+      </View>
+    ),
+    []
   )
 
   return (

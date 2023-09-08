@@ -30,7 +30,14 @@ const ChatInputComponent: ChatInputType = props => {
     mediaParams = mediaParamsDefault,
   } = props
 
-  const { profiles, idProfileActive, inputChat } = storeStateSlice
+  const {
+    profiles,
+    idProfileActive,
+    inputChat,
+    isMainColumnBlank,
+    modalFrame,
+  } = storeStateSlice
+  const { isShow: isShowModalFrame } = modalFrame
 
   const { deviceType, height } = mediaParams
   const style = styles[deviceType]
@@ -158,26 +165,36 @@ const ChatInputComponent: ChatInputType = props => {
   }
 
   return (
-    <View style={[style.ChatInput]} testID='ChatInput'>
-      <View style={[style.tooltipsWrapper]} testID='tooltipsWrapper'>
-        <TooltipYrl {...propsOut.tooltipPromptExamples} />
-      </View>
-      <View style={[style.inputButton]} testID='inputButton'>
-        <InputTextYrl {...propsOut.inputTextYrlProps} />
-        <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
-          <ButtonYrl {...propsOut.sendButtonYrlProps}>
-            <IconYrl {...propsOut.sendIconYrlProps} />
-          </ButtonYrl>
+    <>
+      {!isMainColumnBlank && isShowModalFrame === false ? (
+        <View style={[style.ChatInput]} testID='ChatInput'>
+          <View style={[style.tooltipsWrapper]} testID='tooltipsWrapper'>
+            <TooltipYrl {...propsOut.tooltipPromptExamples} />
+          </View>
+          <View style={[style.inputButton]} testID='inputButton'>
+            <InputTextYrl {...propsOut.inputTextYrlProps} />
+            <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
+              <ButtonYrl {...propsOut.sendButtonYrlProps}>
+                <IconYrl {...propsOut.sendIconYrlProps} />
+              </ButtonYrl>
+            </View>
+          </View>
         </View>
-      </View>
-    </View>
+      ) : null}
+    </>
   )
 }
 
 export const ChatInput = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(
     withStoreStateSliceYrl(
-      ['profiles', 'idProfileActive', 'inputChat'],
+      [
+        'profiles',
+        'idProfileActive',
+        'inputChat',
+        'isMainColumnBlank',
+        'modalFrame',
+      ],
       withParamsMediaYrl(ChatInputComponent)
     )
   )
