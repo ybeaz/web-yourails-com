@@ -75,7 +75,7 @@ const ChatInputComponent: ChatInputType = props => {
         },
       },
       size: 16,
-      color: themes.themeB.color10,
+      color: themes['themeB'].color10,
       testID: 'tooltip_IconYrl',
     },
     promptExamplesProps: {
@@ -91,7 +91,7 @@ const ChatInputComponent: ChatInputType = props => {
     <View {...propsOutM1.tooltipTitleWrapperProps}>
       <IconYrl {...propsOutM1.tooltipPopoverIconProps} />
       <TextRrneui
-        style={[style.titleText, { color: themes.themeB.color10 }]}
+        style={[style.titleText, { color: themes['themeB'].color10 }]}
         testID='tooltipTitle'
       >
         Prompt Examples
@@ -177,7 +177,7 @@ const ChatInputComponent: ChatInputType = props => {
         name: 'arrow-down-circle-outline',
         styleProps: { IconYrl: {} },
         size: 20,
-        color: themes.themeB.color10,
+        color: themes['themeB'].color10,
         testID: 'copyThisIconYrl',
       },
     },
