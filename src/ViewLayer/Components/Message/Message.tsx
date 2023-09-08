@@ -106,13 +106,20 @@ const MessageComponent: MessageComponentType = props => {
   }
 
   let messageContentOutput: any = ''
+  let messageContextTextOutput: string = ''
   let widthContentStyle = {}
-  if (contentType === 'textArray')
+  if (contentType === 'textArray') {
     messageContentOutput = getTextComponentsFromTextArray(
       contentObj[contentType],
       position
     )
-  else if (contentType === 'imageArray') {
+    messageContextTextOutput = contentObj[contentType].reduce(
+      (accum: string, text: string) => {
+        return `${accum} ${text}`
+      },
+      ''
+    )
+  } else if (contentType === 'imageArray') {
     messageContentOutput = getImageComponentsFromImageArray(
       contentObj[contentType]
     )
@@ -150,6 +157,7 @@ const MessageComponent: MessageComponentType = props => {
       styleProps: {
         CopyThis: style[position].copyThis,
       },
+      messageContent: messageContextTextOutput,
     },
   }
 

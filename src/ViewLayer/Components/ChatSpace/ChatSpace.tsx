@@ -287,7 +287,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
               <View style={[style.viewPadding]} testID='viewPadding'>
                 <View style={style.date} testID='date'>
                   <Text
-                    style={[style.dateText, { color: 'grey' }]}
+                    style={[style.dateText, { color: '#707579' }]}
                     testID='dateText'
                   >
                     {dateString}

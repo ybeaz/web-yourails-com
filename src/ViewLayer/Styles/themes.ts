@@ -8,7 +8,7 @@ const themeA = StyleSheet.create({
     borderColor: '#dfe1e5',
   },
   colors02: {
-    // color blue, backgroundColor white
+    // color blue, backgroundColor grey
     color: '#3390ec',
     backgroundColor: '#fcfdfc',
   },

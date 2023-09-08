@@ -21,8 +21,11 @@ import { styles } from './CopyThisStyles'
              from '../Components/CopyThis/CopyThis'
  */
 const CopyThisComponent: CopyThisComponentType = props => {
-  const { styleProps = { CopyThis: {} }, mediaParams = mediaParamsDefault } =
-    props
+  const {
+    messageContent,
+    styleProps = { CopyThis: {} },
+    mediaParams = mediaParamsDefault,
+  } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
 
@@ -33,15 +36,15 @@ const CopyThisComponent: CopyThisComponentType = props => {
       testID: 'copyThisButtonYrl',
       disabled: false,
       onPress: () => {
-        navigator.clipboard.writeText('Some text')
+        navigator.clipboard.writeText(messageContent)
         // console.info('CopyThis []', 'click test')
       },
       iconProps: {
         library: 'Ionicons',
         name: 'copy-outline',
         styleProps: { IconYrl: {} },
-        size: 24,
-        color: themes['themeA'].colors02.color,
+        size: 18,
+        color: '#adb1b5',
         testID: 'copyThisIconYrl',
       },
     },

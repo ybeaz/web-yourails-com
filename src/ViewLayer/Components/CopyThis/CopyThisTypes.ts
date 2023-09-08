@@ -6,6 +6,7 @@ import {
 export interface CopyThisPropsType {
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
+  messageContent: string
 }
 
 export type CopyThisPropsOutType = {
