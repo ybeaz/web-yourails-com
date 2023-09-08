@@ -136,5 +136,6 @@ See `src/Shared/getSetStoreScenario` and `src/Shared/__tests__/getSetStoreScenar
 ## Release 0.59.0
 
 - Added icons for bots and corporations
+- Added feature to copy and paste from clipboard into input field
 - Introduced a standard few shot standard for simple AI personas
-- Modernized code: type management
+- Modernized code: type management and state passing
