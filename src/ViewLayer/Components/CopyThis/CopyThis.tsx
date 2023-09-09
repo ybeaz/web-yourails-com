@@ -37,7 +37,6 @@ const CopyThisComponent: CopyThisComponentType = props => {
       disabled: false,
       onPress: () => {
         navigator.clipboard.writeText(messageContent)
-        // console.info('CopyThis []', 'click test')
       },
       iconProps: {
         library: 'Ionicons',

@@ -141,6 +141,65 @@ const ChatInputComponent: ChatInputType = props => {
       color: themes['themeA'].colors02.color,
       testID: 'chatInput_IconYrl_search',
     },
+    buttonCopyToClipboardProps: {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: undefined,
+      testID: 'pasteThisButtonYrl',
+      disabled: false,
+      onPress: async () => {
+        const text = (idProfileActive && inputChat[idProfileActive]) || ''
+        navigator.clipboard.writeText(text)
+      },
+      iconProps: {
+        library: 'Ionicons',
+        name: 'copy-outline',
+        styleProps: { IconYrl: {} },
+        size: 18,
+        color: themes['themeB'].color10,
+        testID: 'copyThisIconYrl',
+      },
+    },
+    buttonPasteFromClipboardProps: {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: undefined,
+      testID: 'pasteThisButtonYrl',
+      disabled: false,
+      onPress: async () => {
+        const clipboardText = await navigator.clipboard.readText()
+        handleEvents.CLICK_ON_PASTE_FROM_CLOPBOARD(
+          {},
+          { idProfileActive, text: clipboardText }
+        )
+      },
+      iconProps: {
+        library: 'Ionicons',
+        name: 'arrow-down-circle-outline',
+        styleProps: { IconYrl: {} },
+        size: 20,
+        color: themes['themeB'].color10,
+        testID: 'copyThisIconYrl',
+      },
+    },
+    buttonClearInputProps: {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: undefined,
+      testID: 'pasteThisButtonYrl',
+      disabled: false,
+      onPress: async () => {
+        handleEvents.CLICK_ON_PASTE_FROM_CLOPBOARD(
+          {},
+          { idProfileActive, text: '' }
+        )
+      },
+      iconProps: {
+        library: 'Ionicons',
+        name: 'close-outline',
+        styleProps: { IconYrl: {} },
+        size: 22,
+        color: themes['themeB'].color10,
+        testID: 'copyThisIconYrl',
+      },
+    },
     tooltipPromptExamples: {
       backgroundColor: themes['themeA'].colors09.backgroundColor,
       children: <PromptExamples {...propsOutM1.promptExamplesProps} />,
@@ -160,27 +219,6 @@ const ChatInputComponent: ChatInputType = props => {
       testID: `tooltipPromptExample`,
       titleText: tooltipTitlePromptExamples,
     },
-    buttonPasteFromClipboardProps: {
-      styleProps: { ButtonYrl: {}, title: {} },
-      titleText: undefined,
-      testID: 'pasteThisButtonYrl',
-      disabled: false,
-      onPress: async () => {
-        const clipboardText = await navigator.clipboard.readText()
-        handleEvents.CLICK_ON_PROMPT_EXAMPLE(
-          {},
-          { idProfileActive, text: clipboardText }
-        )
-      },
-      iconProps: {
-        library: 'Ionicons',
-        name: 'arrow-down-circle-outline',
-        styleProps: { IconYrl: {} },
-        size: 20,
-        color: themes['themeB'].color10,
-        testID: 'copyThisIconYrl',
-      },
-    },
   }
 
   return (
@@ -188,7 +226,9 @@ const ChatInputComponent: ChatInputType = props => {
       {!isMainColumnBlank && isShowModalFrame === false ? (
         <View style={[style.ChatInput]} testID='ChatInput'>
           <View style={[style.tooltipsWrapper]} testID='tooltipsWrapper'>
+            <ButtonYrl {...propsOut.buttonCopyToClipboardProps} />
             <ButtonYrl {...propsOut.buttonPasteFromClipboardProps} />
+            <ButtonYrl {...propsOut.buttonClearInputProps} />
             <TooltipYrl {...propsOut.tooltipPromptExamples} />
           </View>
           <View style={[style.inputButton]} testID='inputButton'>
