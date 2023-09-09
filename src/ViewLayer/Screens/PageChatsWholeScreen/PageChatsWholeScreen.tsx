@@ -138,7 +138,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           top: sectionsMappingForProfile.length ? '6rem' : '4rem',
           bottom: isShowModalFrame ? 0 : '4rem',
         },
-        layoutNavigationBottom: { height: '4rem' },
+        layoutNavigationBottom: { height: '6rem' },
       },
       isActive: profiles.length ? true : false,
     },
