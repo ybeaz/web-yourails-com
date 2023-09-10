@@ -8,7 +8,7 @@ const themeA = StyleSheet.create({
     borderColor: '#dfe1e5',
   },
   colors02: {
-    // color blue, backgroundColor white
+    // color blue, backgroundColor grey
     color: '#3390ec',
     backgroundColor: '#fcfdfc',
   },
@@ -44,8 +44,17 @@ const themeA = StyleSheet.create({
 })
 
 /**
+ * @description This is experiment to create a flat, one level color scheme
+ */
+const themeB: Record<string, string> = {
+  color09: '#707579' /* X light grey */,
+  color10: '#adb1b5' /* XXX grey */,
+}
+
+/**
  * @import import { themes } from '../Styles/themes'
  */
 export const themes = {
   themeA,
+  themeB,
 }

@@ -109,10 +109,8 @@ const PortfolioComponent: PortfolioType = props => {
   )
 }
 
-export const Portfolio = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(
-      withParamsMediaYrl(withElementDimensionsYrl(PortfolioComponent))
-    )
+export const Portfolio = withPropsYrl({ handleEvents: handleEventsProp })(
+  withStoreStateYrl(
+    withParamsMediaYrl(withElementDimensionsYrl(React.memo(PortfolioComponent)))
   )
 )

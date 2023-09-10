@@ -133,8 +133,9 @@ See `src/Shared/getSetStoreScenario` and `src/Shared/__tests__/getSetStoreScenar
 
 - `16 x 9` resolution/dimensions for pictures for projects are
 
-## Release 0.59.0
+## Release 0.59.9
 
 - Added icons for bots and corporations
+- Added feature to copy and paste from clipboard into the input field, clean the input field
 - Introduced a standard few shot standard for simple AI personas
-- Modernized code: type management
+- Modernized code: type management and state passing

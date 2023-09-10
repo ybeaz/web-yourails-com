@@ -41,4 +41,4 @@ const AwaitViewComponent: AwaitViewType = props => {
   )
 }
 
-export const AwaitView = React.memo(withParamsMediaYrl(AwaitViewComponent))
+export const AwaitView = withParamsMediaYrl(React.memo(AwaitViewComponent))

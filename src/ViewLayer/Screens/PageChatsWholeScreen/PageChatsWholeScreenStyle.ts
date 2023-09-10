@@ -60,7 +60,7 @@ export const stylesDefault = StyleSheet.create({
     flex: 1,
   },
   chatInput: {
-    height: '4rem',
+    height: '6rem',
     bottom: 0,
     width: '100%',
   },

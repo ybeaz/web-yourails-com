@@ -7,10 +7,22 @@ import { actionSync } from '../../DataLayer/index.action'
 const { dispatch, getState } = store
 
 export const ON_MESSAGE_SOCKET: ActionEventType = (event, data) => {
-  const { messages } = getState()
+  const {
+    messages,
+    globalVars: { idProfileHost, idProfileActive },
+  } = getState()
   const {
     message: { idConversation, eventType },
   } = data
+
+  const idsFromConversation = JSON.parse(idConversation)
+
+  if (
+    !idsFromConversation.includes(idProfileHost) ||
+    !idsFromConversation.includes(idProfileActive)
+  )
+    return
+
   const messsagesJoinConversation = messages.filter(
     (message: MessageType) =>
       message.idConversation === idConversation &&
@@ -35,3 +47,22 @@ export const ON_MESSAGE_SOCKET: ActionEventType = (event, data) => {
     dispatch(actionSync.ON_MESSAGE_SOCKET(data))
   }
 }
+
+/*
+
+    const idsFromConversation = JSON.parse(message.idConversation)
+
+    if (
+      idsFromConversation.includes(idProfileHost) &&
+      idsFromConversation.includes(idProfileActive)
+    ) {
+      handleEvents.ON_MESSAGE_SOCKET({}, { message })
+      console.log('getSocketOnMessage [15]', {
+        idProfileHost,
+        idProfileActive,
+        idsFromConversation,
+        message,
+      })
+    }
+
+*/

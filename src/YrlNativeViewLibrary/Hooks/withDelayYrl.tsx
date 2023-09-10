@@ -18,7 +18,7 @@ export interface WithDelayYrlType {
  * @description Function decorator for React Functional Component
  *    to render the component with delay
  * @import import { withDelayYrl } from './YrlNativeViewLibrary'
- * @use export const Portfolio = React.memo(withDeviceType(PortfolioComponent))
+ * @use export const Portfolio = withDeviceType(React.memo(PortfolioComponent))
  */
 
 export const withDelayYrl: WithDelayYrlType = ({ delay }) =>

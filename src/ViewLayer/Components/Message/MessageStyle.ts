@@ -41,6 +41,10 @@ export const stylesDefault: any = {
     messageWrapper: Message.messageWrapperCommon,
     text: Message.textCommon,
     dateString: Message.dateStringCommon,
+    copyThis: {
+      marginRight: '-0.75rem',
+      paddingTop: '0.5rem',
+    },
   },
   right: {
     Message: {
@@ -53,6 +57,10 @@ export const stylesDefault: any = {
     messageWrapper: Message.messageWrapperCommon,
     text: Message.textCommon,
     dateString: Message.dateStringCommon,
+    copyThis: {
+      marginRight: '-0.75rem',
+      paddingTop: '0.5rem',
+    },
   },
   roundAllCorners: {
     style: {
@@ -89,6 +97,9 @@ const lgDevice = StyleSheet.create({
     messageWrapper: Message.messageWrapperCommon,
     text: Message.textCommon,
     dateString: Message.dateStringCommon,
+    copyThis: {
+      paddingLeft: '0.25rem',
+    },
   },
   right: {
     Message: {
@@ -101,6 +112,9 @@ const lgDevice = StyleSheet.create({
     messageWrapper: Message.messageWrapperCommon,
     text: Message.textCommon,
     dateString: Message.dateStringCommon,
+    copyThis: {
+      marginRight: '-0.75rem',
+    },
   },
 })
 

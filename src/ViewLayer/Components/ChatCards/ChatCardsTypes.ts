@@ -12,8 +12,16 @@ export interface ChatCardsPropsType {
   mediaParams?: MediaParamsDefaultType
   urlParams?: UrlParamsDefaultType
   urlParamsSearch: any
-  store: RootStoreType
   handleEvents: HandleEventsType
+  storeStateSlice: {
+    isUserMenu: RootStoreType['componentsState']['isUserMenu']
+    isProfileSelectMenu: RootStoreType['componentsState']['isProfileSelectMenu']
+    idUserHost: RootStoreType['globalVars']['idUserHost']
+    idProfileHost: RootStoreType['globalVars']['idProfileHost']
+    idProfileActive: RootStoreType['globalVars']['idProfileActive']
+    inputSearch: RootStoreType['forms']['inputSearch']
+    profiles: RootStoreType['profiles']
+  }
 }
 
 /**

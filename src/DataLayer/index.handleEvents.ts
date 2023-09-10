@@ -1,4 +1,5 @@
 import { TEMPLATE } from './handlers/TEMPLATE'
+import { CLICK_ON_PASTE_FROM_CLOPBOARD } from './handlers/CLICK_ON_PASTE_FROM_CLOPBOARD'
 import { CLICK_ON_PROMPT_EXAMPLE } from './handlers/CLICK_ON_PROMPT_EXAMPLE'
 import { CLICK_ON_SIGN_OUT } from './handlers/CLICK_ON_SIGN_OUT'
 import { ON_AWAIT_FROM_ID_PROFILE } from './handlers/ON_AWAIT_FROM_ID_PROFILE'
@@ -29,6 +30,7 @@ export type HandleEventsType = Record<string, (arg1: any, arg2: any) => any>
 
 export const handleEvents: HandleEventsType = {
   TEMPLATE,
+  CLICK_ON_PASTE_FROM_CLOPBOARD,
   CLICK_ON_PROMPT_EXAMPLE,
   CLICK_ON_SIGN_OUT,
   ON_AWAIT_FROM_ID_PROFILE,

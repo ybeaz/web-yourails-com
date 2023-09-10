@@ -13,7 +13,13 @@ export interface ChatInputPropsType {
   handleEvents: HandleEventsType
   idProfileActive: string
   inputChat: Record<string, string>
-  store: RootStoreType
+  storeStateSlice: {
+    profiles: RootStoreType['profiles']
+    idProfileActive: RootStoreType['globalVars']['idProfileActive']
+    inputChat: RootStoreType['forms']['inputChat']
+    isMainColumnBlank: RootStoreType['componentsState']['isMainColumnBlank']
+    modalFrame: RootStoreType['componentsState']['modalFrame']
+  }
   mediaParams?: MediaParamsDefaultType
 }
 
@@ -31,6 +37,9 @@ export type ChatInputPropsOutType = {
   sendButtonYrlProps: ButtonYrlPropsType
   sendIconYrlProps: IconYrlPropsType
   tooltipPromptExamples: TooltipYrlPropsType
+  buttonCopyToClipboardProps: ButtonYrlPropsType
+  buttonPasteFromClipboardProps: ButtonYrlPropsType
+  buttonClearInputProps: ButtonYrlPropsType
 }
 
 /**

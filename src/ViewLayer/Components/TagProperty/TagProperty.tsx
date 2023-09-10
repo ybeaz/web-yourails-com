@@ -120,4 +120,5 @@ const TagPropertyComponent: TagPropertyType = props => {
 }
 
 export const TagProperty = React.memo(TagPropertyComponent)
+
 export type { TagPropertyPropsType }

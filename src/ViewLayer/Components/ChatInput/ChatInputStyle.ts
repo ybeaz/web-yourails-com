@@ -44,13 +44,14 @@ export const stylesDefault = StyleSheet.create({
     top: '0.5rem',
   },
   tooltipsWrapper: {
+    flexDirection: 'row',
     justifyContent: 'flex-end',
-    alignSelf: 'flex-end',
-    color: 'red',
+    alignSelf: 'flex-start',
+    paddingLeft: '1rem',
+    paddingBottom: '0.3rem',
   },
   tooltipTitleWrapper: {
     flexDirection: 'row',
-    paddingBottom: '0.3rem',
   },
   tooltip_TooltipYrl: {},
   tooltip_container: {
@@ -60,6 +61,7 @@ export const stylesDefault = StyleSheet.create({
   },
   tooltip_iconTextWrapper: {
     maxHeight: 350,
+    marginTop: '0.20rem',
   },
   tooltip_titleText: {
     marginHorizontal: 5,

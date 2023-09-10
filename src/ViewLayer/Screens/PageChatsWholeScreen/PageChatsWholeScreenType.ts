@@ -14,8 +14,16 @@ export interface PageChatsWholeScreenPropsType {
   routeProps?: any
   themeDafault?: string
   handleEvents: HandleEventsType
-  store: RootStoreType
   history?: History
+  storeStateSlice: {
+    idProfileActive: RootStoreType['globalVars']['idProfileActive']
+    isLeftColumn: RootStoreType['componentsState']['isLeftColumn']
+    isMainColumn: RootStoreType['componentsState']['isMainColumn']
+    isMainColumnBlank: RootStoreType['componentsState']['isMainColumnBlank']
+    modalFrame: RootStoreType['componentsState']['modalFrame']
+    profiles: RootStoreType['profiles']
+    sectionsMapping: RootStoreType['sectionsMapping']
+  }
 }
 
 export interface PageChatsWholeScreenType

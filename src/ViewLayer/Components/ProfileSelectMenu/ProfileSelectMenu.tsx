@@ -103,8 +103,6 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
   )
 }
 
-export const ProfileSelectMenu = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withParamsMediaYrl(ProfileSelectMenuComponent)
-  )
-)
+export const ProfileSelectMenu = withPropsYrl({
+  handleEvents: handleEventsProp,
+})(withParamsMediaYrl(React.memo(ProfileSelectMenuComponent)))

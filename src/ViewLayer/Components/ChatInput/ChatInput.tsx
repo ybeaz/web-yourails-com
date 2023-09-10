@@ -5,7 +5,7 @@ import { Text as TextRrneui } from '@rneui/themed'
 import {
   ButtonYrl,
   IconYrl,
-  withStoreStateYrl,
+  withStoreStateSliceYrl,
   InputTextYrl,
   withPropsYrl,
   mediaParamsDefault,
@@ -24,13 +24,20 @@ import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handl
 import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 const ChatInputComponent: ChatInputType = props => {
-  const { handleEvents, store, mediaParams = mediaParamsDefault } = props
+  const {
+    handleEvents,
+    storeStateSlice,
+    mediaParams = mediaParamsDefault,
+  } = props
 
   const {
     profiles,
-    globalVars: { idProfileActive },
-    forms: { inputChat },
-  } = store
+    idProfileActive,
+    inputChat,
+    isMainColumnBlank,
+    modalFrame,
+  } = storeStateSlice
+  const { isShow: isShowModalFrame } = modalFrame
 
   const { deviceType, height } = mediaParams
   const style = styles[deviceType]
@@ -68,12 +75,12 @@ const ChatInputComponent: ChatInputType = props => {
         },
       },
       size: 16,
-      color: themes['themeA'].colors02.color,
+      color: themes['themeB'].color10,
       testID: 'tooltip_IconYrl',
     },
     promptExamplesProps: {
       styleProps: {},
-      promptExamples: profileActive?.promptExamples,
+      promptExamples: profileActive?.promptExamples || [],
       onHeightChange: onPromptExampleHeightChange,
       onPromptExampleClick,
       idProfileActive,
@@ -84,7 +91,7 @@ const ChatInputComponent: ChatInputType = props => {
     <View {...propsOutM1.tooltipTitleWrapperProps}>
       <IconYrl {...propsOutM1.tooltipPopoverIconProps} />
       <TextRrneui
-        style={[style.titleText, { color: themes['themeA'].colors08.color }]}
+        style={[style.titleText, { color: themes['themeB'].color10 }]}
         testID='tooltipTitle'
       >
         Prompt Examples
@@ -134,19 +141,76 @@ const ChatInputComponent: ChatInputType = props => {
       color: themes['themeA'].colors02.color,
       testID: 'chatInput_IconYrl_search',
     },
+    buttonCopyToClipboardProps: {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: undefined,
+      testID: 'pasteThisButtonYrl',
+      disabled: false,
+      onPress: async () => {
+        const text = (idProfileActive && inputChat[idProfileActive]) || ''
+        navigator.clipboard.writeText(text)
+      },
+      iconProps: {
+        library: 'Ionicons',
+        name: 'copy-outline',
+        styleProps: { IconYrl: {} },
+        size: 18,
+        color: themes['themeB'].color10,
+        testID: 'copyThisIconYrl',
+      },
+    },
+    buttonPasteFromClipboardProps: {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: undefined,
+      testID: 'pasteThisButtonYrl',
+      disabled: false,
+      onPress: async () => {
+        const clipboardText = await navigator.clipboard.readText()
+        handleEvents.CLICK_ON_PASTE_FROM_CLOPBOARD(
+          {},
+          { idProfileActive, text: clipboardText }
+        )
+      },
+      iconProps: {
+        library: 'Ionicons',
+        name: 'arrow-down-circle-outline',
+        styleProps: { IconYrl: {} },
+        size: 20,
+        color: themes['themeB'].color10,
+        testID: 'copyThisIconYrl',
+      },
+    },
+    buttonClearInputProps: {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: undefined,
+      testID: 'pasteThisButtonYrl',
+      disabled: false,
+      onPress: async () => {
+        handleEvents.CLICK_ON_PASTE_FROM_CLOPBOARD(
+          {},
+          { idProfileActive, text: '' }
+        )
+      },
+      iconProps: {
+        library: 'Ionicons',
+        name: 'close-outline',
+        styleProps: { IconYrl: {} },
+        size: 22,
+        color: themes['themeB'].color10,
+        testID: 'copyThisIconYrl',
+      },
+    },
     tooltipPromptExamples: {
       backgroundColor: themes['themeA'].colors09.backgroundColor,
       children: <PromptExamples {...propsOutM1.promptExamplesProps} />,
       styleProps: {
         TooltipYrl: style.tooltip_TooltipYrl,
         iconTextWrapper: style.tooltip_iconTextWrapper,
-        titleText: [
-          style.tooltip_titleText,
-          { color: themes['themeA'].colors08.color },
-        ],
+        titleText: [style.tooltip_titleText],
         containerStyle: {
           ...style.tooltip_container,
           top: tooltipContainerStyleTop,
+          alignSelf: 'center',
         },
         TooltipPopoverYrl: style.tooltip_tooltipPopover,
       },
@@ -158,24 +222,38 @@ const ChatInputComponent: ChatInputType = props => {
   }
 
   return (
-    <View style={[style.ChatInput]} testID='ChatInput'>
-      <View style={[style.tooltipsWrapper]} testID='tooltipsWrapper'>
-        <TooltipYrl {...propsOut.tooltipPromptExamples} />
-      </View>
-      <View style={[style.inputButton]} testID='inputButton'>
-        <InputTextYrl {...propsOut.inputTextYrlProps} />
-        <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
-          <ButtonYrl {...propsOut.sendButtonYrlProps}>
-            <IconYrl {...propsOut.sendIconYrlProps} />
-          </ButtonYrl>
+    <>
+      {!isMainColumnBlank && isShowModalFrame === false ? (
+        <View style={[style.ChatInput]} testID='ChatInput'>
+          <View style={[style.tooltipsWrapper]} testID='tooltipsWrapper'>
+            <ButtonYrl {...propsOut.buttonCopyToClipboardProps} />
+            <ButtonYrl {...propsOut.buttonPasteFromClipboardProps} />
+            <ButtonYrl {...propsOut.buttonClearInputProps} />
+            <TooltipYrl {...propsOut.tooltipPromptExamples} />
+          </View>
+          <View style={[style.inputButton]} testID='inputButton'>
+            <InputTextYrl {...propsOut.inputTextYrlProps} />
+            <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
+              <ButtonYrl {...propsOut.sendButtonYrlProps}>
+                <IconYrl {...propsOut.sendIconYrlProps} />
+              </ButtonYrl>
+            </View>
+          </View>
         </View>
-      </View>
-    </View>
+      ) : null}
+    </>
   )
 }
 
-export const ChatInput = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(withParamsMediaYrl(ChatInputComponent))
+export const ChatInput = withPropsYrl({ handleEvents: handleEventsProp })(
+  withStoreStateSliceYrl(
+    [
+      'profiles',
+      'idProfileActive',
+      'inputChat',
+      'isMainColumnBlank',
+      'modalFrame',
+    ],
+    withParamsMediaYrl(React.memo(ChatInputComponent))
   )
 )

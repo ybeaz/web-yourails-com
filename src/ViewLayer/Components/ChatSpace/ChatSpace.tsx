@@ -1,23 +1,14 @@
-import React, {
-  ReactElement,
-  useEffect,
-  FunctionComponent,
-  useCallback,
-  useRef,
-  useMemo,
-} from 'react'
+import React, { useEffect, FunctionComponent, useRef, useMemo } from 'react'
 import { ScrollView, View } from 'react-native'
 
-import { ContentType } from '../../../@types/ContentType'
-import { MessageType } from '../../../@types/MessageType'
-import { MessageEventType } from '../../../@types/MessageEventType'
+import { RootStoreType } from '../../../@types/RootStoreType'
 
 import {
   AnimatedYrl,
   withPropsYrl,
   ModalFrameYrl,
   urlParamsDefault,
-  withStoreStateYrl,
+  withStoreStateSliceYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
@@ -26,18 +17,16 @@ import {
   getMessagesWithProfileActive,
   GetMessagesWithProfileActivePropsType,
 } from '../../../Shared/getMessagesWithProfileActive'
-import { getProfileChat } from '../../../Shared/getProfileChat'
 import { getDateLocale } from '../../../Shared/getDateLocale'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import { Text } from '../../Components/Text/Text'
+import { Messages } from '../Messages/Messages'
 import { ChatSpaceType } from './ChatSpaceType'
 import { styles } from './ChatSpaceStyle'
-import { Message } from '../../Components/Message/Message'
 import { themes } from '../../Styles/themes'
 import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
@@ -46,23 +35,15 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const {
     styleProps = { ChatSpace: {} },
     mediaParams = mediaParamsDefault,
-    urlParams = urlParamsDefault,
-    store,
+    storeStateSlice,
     handleEvents,
   } = props
 
   const { deviceType, height: heightScreen } = mediaParams
-  const { urlParam1, urlParam2 } = urlParams
   const style = styles[deviceType]
 
-  const {
-    globalVars: { idProfileHost, idProfileActive },
-    componentsState,
-    profiles,
-    messages,
-  } = store
-
-  const { modalFrame } = componentsState
+  const { idProfileHost, idProfileActive, modalFrame, profiles, messages } =
+    storeStateSlice
 
   const {
     childName,
@@ -83,23 +64,14 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const messagesMemed = useMemo(() => messages, [JSON.stringify(messages)])
 
-  const profileActive: any = useCallback(() => {
-    getProfileChat({
-      profiles,
-      urlParam1,
-      urlParam2,
-    })
-  }, [profiles, urlParam1, urlParam2])
-
   const getMessagesWithProfileActiveProps: GetMessagesWithProfileActivePropsType =
     {
       messages: messagesMemed,
       idProfileHost,
       idProfileActive,
     }
-  const messagesWithProfileActive: MessageType[] = getMessagesWithProfileActive(
-    getMessagesWithProfileActiveProps
-  )
+  const messagesWithProfileActive: RootStoreType['messages'] =
+    getMessagesWithProfileActive(getMessagesWithProfileActiveProps)
 
   const Child: FunctionComponent | null = childName
     ? MODAL_CONTENTS[childName]
@@ -113,6 +85,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   /**
    * @description Styles adjustments for different devices
    */
+  const scrollViewRef = React.useRef<ScrollView>(null)
+  const dateString = getDateLocale(+new Date())
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
   let modalContentMargin: string | number = '3rem'
   let buttonTop = '0.5rem'
@@ -132,10 +106,25 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   }
 
   const propsOut: Record<string, any> = {
-    messageProps: {
-      ...messagesWithProfileActive[0],
-      profile: profileActive,
-      isTail: true,
+    scrollViewProps: {
+      style: [themes['themeA'].colors03],
+      contentContainerStyle: {},
+      ref: scrollViewRef,
+      nestedScrollEnabled: true,
+      onContentSizeChange: (contentHeight: number) => {
+        if (isShowModalFrame) {
+          scrollViewRef.current?.scrollTo({
+            y: 0,
+            animated: true,
+          })
+          return
+        }
+        scrollViewRef.current?.scrollTo({
+          y: contentHeight,
+          animated: true,
+        })
+      },
+      testID: 'ScrollViewChatSpace',
     },
     modalFrameYrlProps: {
       styleProps: {
@@ -276,104 +265,41 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       triggerShouldEqual: isShowModalFrame ? true : false,
       testID: 'ChatSpace_leftColumnIn_animatedYrl_Inner',
     },
+    messagesProps: {
+      messages: messagesPrep,
+      profiles,
+    },
   }
-
-  const getMessagesJsx = ({
-    messages,
-  }: {
-    messages: MessageType[]
-  }): ReactElement[] => {
-    return messages.map((message: MessageType, index) => {
-      const { idMessage, text, eventType, idProfile } = message
-      const { imagePendingSrc } = getProfileByIdProfile(profiles, idProfile)
-      let textNext = text
-
-      // TODO to underderstand the logic and fix the name issue, who left
-      if (
-        eventType === MessageEventType['joinConversation'] ||
-        eventType === MessageEventType['disconnectConversation']
-      ) {
-        // console.info('ChatSpace [275]', { text })
-        const textParsed = typeof text === 'string' ? JSON.parse(text) : text
-        const idProfileRespondent = textParsed?.idProfile || '0'
-        const textJoinConversation = textParsed?.text || ''
-
-        const { profileName } = getProfileByIdProfile(
-          profiles,
-          idProfileRespondent
-        )
-        const textObject = {
-          contentType: ContentType['textArray'],
-          textArray: [`${profileName} ${textJoinConversation}`],
-        }
-        textNext = JSON.stringify(textObject)
-      }
-
-      const propsOut = {
-        messageProps: { ...message, text: textNext, imagePendingSrc },
-      }
-      return (
-        <Message
-          key={idMessage || `message-${index}`}
-          {...propsOut.messageProps}
-        />
-      )
-    })
-  }
-
-  const ChatSpaceJsx = ({ messages }: { messages: MessageType[] }) => {
-    let dateString = getDateLocale(+new Date())
-
-    return (
-      <View
-        style={[
-          style.ChatSpaceJsx,
-          themes['themeA'].colors03,
-          styleAddSidebarRight,
-        ]}
-        testID='ChatSpaceJsx'
-      >
-        <View style={[style.viewPadding]} testID='viewPadding'>
-          <View style={style.date} testID='date'>
-            <Text style={[style.dateText, { color: 'grey' }]} testID='dateText'>
-              {dateString}
-            </Text>
-          </View>
-          <View style={style.messages} testID='messages'>
-            {getMessagesJsx({ messages })}
-          </View>
-        </View>
-      </View>
-    )
-  }
-
-  const scrollViewRef = React.useRef<ScrollView>(null)
 
   return (
-    <ScrollView
-      style={[themes['themeA'].colors03]}
-      contentContainerStyle={{}}
-      ref={scrollViewRef}
-      nestedScrollEnabled={true}
-      onContentSizeChange={contentHeight => {
-        if (isShowModalFrame) {
-          scrollViewRef.current?.scrollTo({
-            y: 0,
-            animated: true,
-          })
-          return
-        }
-        scrollViewRef.current?.scrollTo({
-          y: contentHeight,
-          animated: true,
-        })
-      }}
-      testID='ScrollViewChatSpace'
-    >
+    <ScrollView {...propsOut.scrollViewProps}>
       <View style={[style.ChatSpace, styleProps.ChatSpace]} testID='ChatSpace'>
         {messagesWithProfileActive.length && !isShowModalFrame ? (
           <AnimatedYrl {...propsOut.chatSpaceJsxAnimatedYrlProps}>
-            <ChatSpaceJsx messages={messagesPrep} />
+            <View
+              style={[
+                style.ChatSpaceJsx,
+                themes['themeA'].colors03,
+                styleAddSidebarRight,
+              ]}
+              testID='ChatSpaceJsx'
+            >
+              <View style={[style.viewPadding]} testID='viewPadding'>
+                <View style={style.date} testID='date'>
+                  <Text
+                    style={[
+                      style.dateText,
+                      { color: themes['themeB'].color09 },
+                    ]}
+                    testID='dateText'
+                  >
+                    {dateString}
+                  </Text>
+                </View>
+
+                <Messages {...propsOut.messagesProps} />
+              </View>
+            </View>
           </AnimatedYrl>
         ) : null}
 
@@ -397,8 +323,9 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   )
 }
 
-export const ChatSpace = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(withParamsMediaYrl(ChatSpaceComponent))
+export const ChatSpace = withPropsYrl({ handleEvents: handleEventsProp })(
+  withStoreStateSliceYrl(
+    ['idProfileHost', 'idProfileActive', 'modalFrame', 'profiles', 'messages'],
+    withParamsMediaYrl(React.memo(ChatSpaceComponent))
   )
 )

@@ -61,6 +61,12 @@ import {
   WithStoreStateYrlPropsType,
 } from './Hooks/withStoreStateYrl'
 import {
+  withStoreStateSliceYrl,
+  WithStoreStateSliceYrlType,
+  WithStoreStateSliceYrlPropsType,
+} from './Hooks/withStoreStateSliceYrl'
+
+import {
   withUseContextYrl,
   WithUseContextYrlType,
 } from './Hooks/withUseContextYrl'
@@ -85,6 +91,8 @@ export type {
   UseMediaQueryResYrlType,
   WithStoreStateYrlPropsType,
   WithStoreStateYrlType,
+  WithStoreStateSliceYrlType,
+  WithStoreStateSliceYrlPropsType,
   WithUseContextYrlType,
   WithDelayYrlType,
   withElementDimensionsYrlPropsType,
@@ -103,6 +111,7 @@ export {
   withParamsMediaYrl,
   withPropsYrl,
   withStoreStateYrl,
+  withStoreStateSliceYrl,
   withUseContextYrl,
   withElementDimensionsYrl,
 }

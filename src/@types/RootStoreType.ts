@@ -48,7 +48,7 @@ export interface RootStoreType {
   competencyTags: CompetencyTagType[]
   projects: ProjectType[]
   messages: Omit<MessageType, 'position' | 'isTail'>[]
-  forms: FormsType | any
+  forms: FormsType
   isLoaded: {
     isLoadedGlobalVars: boolean
   }

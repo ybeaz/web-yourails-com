@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useMemo } from 'react'
 import { View } from 'react-native'
 
 import {
@@ -6,7 +6,7 @@ import {
   urlParamsDefault,
   withParamsMediaYrl,
   withPropsYrl,
-  withStoreStateYrl,
+  withStoreStateSliceYrl,
 } from '../../../YrlNativeViewLibrary'
 
 import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
@@ -38,7 +38,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     urlParams = urlParamsDefault,
     urlParamsSearch,
     handleEvents,
-    store,
+    storeStateSlice,
   } = props
   const { deviceType } = mediaParams
   const { urlParam1, urlParam2, urlParam3 } = urlParams
@@ -48,16 +48,14 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const renderCounter = useRef(0)
 
   const {
-    componentsState,
+    idProfileActive,
+    isLeftColumn,
+    isMainColumn,
+    isMainColumnBlank,
+    modalFrame,
     profiles,
     sectionsMapping,
-    globalVars: { idProfileActive },
-    userIdDataAwsCognito,
-    messages,
-  } = store
-
-  const { modalFrame, isLeftColumn, isMainColumn, isMainColumnBlank } =
-    componentsState
+  } = storeStateSlice
 
   const { isShow: isShowModalFrame } = modalFrame
 
@@ -140,7 +138,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
           top: sectionsMappingForProfile.length ? '6rem' : '4rem',
           bottom: isShowModalFrame ? 0 : '4rem',
         },
-        layoutNavigationBottom: { height: '4rem' },
+        layoutNavigationBottom: { height: '6rem' },
       },
       isActive: profiles.length ? true : false,
     },
@@ -233,10 +231,13 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
   }
 
-  const TopBarChatCardsElement = (
-    <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
-      <TopBarChatCards />
-    </View>
+  const TopBarChatCardsElement = useMemo(
+    () => (
+      <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
+        <TopBarChatCards />
+      </View>
+    ),
+    []
   )
 
   const MainColumnTopBars = (
@@ -274,24 +275,30 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </View>
   )
 
-  const ChatCardsElement = (
-    <View
-      style={[style.leftColumnChatCardSpace]}
-      testID='leftColumnChatCardSpace'
-    >
-      <ChatCards />
-    </View>
+  const ChatCardsElement = useMemo(
+    () => (
+      <View
+        style={[style.leftColumnChatCardSpace]}
+        testID='leftColumnChatCardSpace'
+      >
+        <ChatCards />
+      </View>
+    ),
+    []
   )
 
-  const ChatSpaceElement = <ChatSpace />
+  const ChatSpaceElement = useMemo(() => <ChatSpace />, [])
 
-  const ChatInputElement = (
-    <View
-      style={[style.chatInput, themes['themeA'].colors03]}
-      testID='chatInput'
-    >
-      {!isMainColumnBlank && isShowModalFrame === false && <ChatInput />}
-    </View>
+  const ChatInputElement = useMemo(
+    () => (
+      <View
+        style={[style.chatInput, themes['themeA'].colors03]}
+        testID='chatInput'
+      >
+        <ChatInput />
+      </View>
+    ),
+    []
   )
 
   return (
@@ -317,8 +324,19 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   )
 }
 
-export const PageChatsWholeScreen = React.memo(
-  withPropsYrl({ handleEvents: handleEventsProp })(
-    withStoreStateYrl(withParamsMediaYrl(PageChatsWholeScreenComponent))
+export const PageChatsWholeScreen = withPropsYrl({
+  handleEvents: handleEventsProp,
+})(
+  withStoreStateSliceYrl(
+    [
+      'idProfileActive',
+      'isLeftColumn',
+      'isMainColumn',
+      'isMainColumnBlank',
+      'modalFrame',
+      'profiles',
+      'sectionsMapping',
+    ],
+    withParamsMediaYrl(React.memo(PageChatsWholeScreenComponent))
   )
 )

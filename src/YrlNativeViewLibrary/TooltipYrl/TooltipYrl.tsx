@@ -48,13 +48,20 @@ export const TooltipYrl: TooltipYrlType = props => {
   }
 
   const propsOut: TooltipsPropsOutYrlType = {
-    tooltipProps: {
+    TooltipProps: {
       ModalComponent: Modal,
       backgroundColor,
-      style: styleProps.TooltipYrl,
+      style: [style.TooltipYrl, styleProps.TooltipYrl],
       containerStyle: styleProps.containerStyle,
       withOverlay: true,
       withPointer: true,
+      visible: isVisibleUsed,
+      onOpen: () => {
+        setIsVisibleUsed(true)
+      },
+      onClose: () => {
+        setIsVisibleUsed(false)
+      },
       testID,
     },
     tooltipPopoverProps: {
@@ -66,20 +73,12 @@ export const TooltipYrl: TooltipYrlType = props => {
 
   return (
     <Tooltip
-      {...propsOut.tooltipProps}
-      visible={isVisibleUsed}
-      onOpen={() => {
-        setIsVisibleUsed(true)
-      }}
-      onClose={() => {
-        setIsVisibleUsed(false)
-      }}
+      {...propsOut.TooltipProps}
       popover={<TooltipPopoverYrl {...propsOut.tooltipPopoverProps} />}
-      testID='Tooltip'
     >
       <View
         style={[style.iconTextWrapper, styleProps.iconTextWrapper]}
-        testID='tooltiptViewWrapper'
+        testID='iconTextWrapper'
       >
         <TextRrneui
           style={[style.titleText, styleProps.titleText]}

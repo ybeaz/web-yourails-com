@@ -85,6 +85,6 @@ const AbInCircleComponent: AbInCircleType = props => {
   )
 }
 
-export const AbInCircle = React.memo(
-  withPropsYrl({ colors2: COLORS_2 })(withParamsMediaYrl(AbInCircleComponent))
+export const AbInCircle = withPropsYrl({ colors2: COLORS_2 })(
+  withParamsMediaYrl(React.memo(AbInCircleComponent))
 )

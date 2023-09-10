@@ -8,35 +8,41 @@ import {
   withParamsMediaYrl,
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
+import { CopyThis } from '../CopyThis/CopyThis'
 import { Text } from '../../Components/Text/Text'
-import { MessageType } from './MessageType'
+import {
+  MessagePropsOutType,
+  MessageComponentType,
+  MessageType,
+} from './MessageType'
 import { styles } from './MessageStyle'
 import { markdownStyles } from './MarkdownStyle'
 import { themes } from '../../Styles/themes'
 import { TriangleCorner } from '../TriangleCorner/TriangleCorner'
 import { LOCALE, TIME_FORMAT } from '../../../Constants/locale.const'
+import { isValidJsonString } from '../../../Shared/isValidJsonString'
 
 /**
  * @import import { Message } from '../Message/Message'
  */
-const MessageComponent: MessageType = props => {
+const MessageComponent: MessageComponentType = props => {
   const {
     idMessage,
-    idProfile,
-    eventType,
     text,
     createdAt,
     position = 'right',
     isTail = false,
-    image,
-    video,
-    audio,
-    isSystem,
-    isSent,
-    isReceived,
     isPending,
     imagePendingSrc,
     mediaParams = mediaParamsDefault,
+    // idProfile,
+    // eventType,
+    // image,
+    // video,
+    // audio,
+    // isSystem,
+    // isSent,
+    // isReceived,
   } = props
 
   const { deviceType } = mediaParams
@@ -44,7 +50,9 @@ const MessageComponent: MessageType = props => {
 
   const dateString = dayjs(createdAt).locale(LOCALE).format(TIME_FORMAT)
 
-  const contentObj = JSON.parse(text)
+  const contentObj = isValidJsonString(text)
+    ? JSON.parse(text)
+    : { contentType: 'textArray', textArray: [text] }
   const { contentType } = contentObj
 
   const roundAllCornersStyle = !isTail ? style.roundAllCorners.style : {}
@@ -56,7 +64,7 @@ const MessageComponent: MessageType = props => {
     return textArrayIn.map((textItem: string, index: number) => {
       return (
         <Text
-          key={`textItem-${index}`}
+          key={`${idMessage}-${index}`}
           style={[style[position].text]}
           testID='textItem'
         >
@@ -98,13 +106,20 @@ const MessageComponent: MessageType = props => {
   }
 
   let messageContentOutput: any = ''
+  let messageContextTextOutput: string = ''
   let widthContentStyle = {}
-  if (contentType === 'textArray')
+  if (contentType === 'textArray') {
     messageContentOutput = getTextComponentsFromTextArray(
       contentObj[contentType],
       position
     )
-  else if (contentType === 'imageArray') {
+    messageContextTextOutput = contentObj[contentType].reduce(
+      (accum: string, text: string) => {
+        return `${accum} ${text}`
+      },
+      ''
+    )
+  } else if (contentType === 'imageArray') {
     messageContentOutput = getImageComponentsFromImageArray(
       contentObj[contentType]
     )
@@ -114,8 +129,12 @@ const MessageComponent: MessageType = props => {
   }
 
   const resizeMode: ImageResizeMode = 'cover'
+  // console.info('Message [125]', {
+  //   copyThis: style[position].copyThis,
+  //   position,
+  // })
 
-  const propsOut: Record<string, any> = {
+  const propsOut: MessagePropsOutType = {
     pendingImageYrlProps: {
       styleProps: {
         ImageYrl: { paddingRight: '0.5rem' },
@@ -128,17 +147,24 @@ const MessageComponent: MessageType = props => {
       uri: imagePendingSrc, // 'https://yourails.com/images/loading/loading09.gif'
       resizeMode, // 'cover' | 'contain' | 'stretch' | 'repeat' | 'center'
     },
-    triangleCorner: {
+    triangleCornerProps: {
       isShow: !!isTail,
       styleProps: {
         borderColor: themes['themeA'].colors06,
       },
     },
+    copyThisProps: {
+      styleProps: {
+        CopyThis: style[position].copyThis,
+      },
+      messageContent: messageContextTextOutput,
+    },
   }
 
   return (
     <View style={[style[position].Message]} testID='Message'>
-      <TriangleCorner {...propsOut.triangleCorner} />
+      {position === 'right' ? <CopyThis {...propsOut.copyThisProps} /> : null}
+      <TriangleCorner {...propsOut.triangleCornerProps} />
       <View
         style={[
           style[position].content,
@@ -161,8 +187,11 @@ const MessageComponent: MessageType = props => {
           {dateString}
         </Text>
       </View>
+      {position === 'left' ? <CopyThis {...propsOut.copyThisProps} /> : null}
     </View>
   )
 }
 
-export const Message = React.memo(withParamsMediaYrl(MessageComponent))
+export const Message: MessageType = withParamsMediaYrl(
+  React.memo(MessageComponent)
+)

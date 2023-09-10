@@ -49,6 +49,8 @@ export const IconYrl: IconYrlType = props => {
       'invert(100%) sepia(2%) saturate(692%) hue-rotate(353deg) brightness(110%) contrast(98%)',
     '#3f51b5':
       'invert(27%) sepia(64%) saturate(1212%) hue-rotate(207deg) brightness(98%) contrast(95%)',
+    '#adb1b5':
+      'invert(81%) sepia(6%) saturate(179%) hue-rotate(169deg) brightness(87%) contrast(89%)',
   }
 
   const filter = COLOR_DICT[color] ? COLOR_DICT[color] : ''
@@ -74,7 +76,7 @@ export const IconYrl: IconYrlType = props => {
       },
       uri: `${URI_BASE[library]}/${name}.svg`,
       resizeMode,
-      testID: `ImageYrl-IconYrl-${name}`,
+      testID: testID ? testID : `ImageYrl-IconYrl-${name}`,
     },
   }
 
