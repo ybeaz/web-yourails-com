@@ -219,6 +219,22 @@ const ChatInputComponent: ChatInputType = props => {
       testID: `tooltipPromptExample`,
       titleText: tooltipTitlePromptExamples,
     },
+    buttonSmallSendProps: {
+      styleProps: { ButtonYrl: {}, title: {} },
+      titleText: undefined,
+      testID: 'buttonSmallSend',
+      disabled: false,
+      onPress: async () =>
+        handleEvents.CLICK_ON_SEND_MESSAGE({}, { profileActive }),
+      iconProps: {
+        library: 'Ionicons',
+        name: 'send-outline',
+        styleProps: { IconYrl: {} },
+        size: 16,
+        color: themes['themeB'].color10,
+        testID: 'iconSmallSendProps',
+      },
+    },
   }
 
   return (
@@ -230,6 +246,7 @@ const ChatInputComponent: ChatInputType = props => {
             <ButtonYrl {...propsOut.buttonPasteFromClipboardProps} />
             <ButtonYrl {...propsOut.buttonClearInputProps} />
             <TooltipYrl {...propsOut.tooltipPromptExamples} />
+            <ButtonYrl {...propsOut.buttonSmallSendProps} />
           </View>
           <View style={[style.inputButton]} testID='inputButton'>
             <InputTextYrl {...propsOut.inputTextYrlProps} />
