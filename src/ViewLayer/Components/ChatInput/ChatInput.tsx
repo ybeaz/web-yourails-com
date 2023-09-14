@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { View } from 'react-native'
-import { Text as TextRrneui } from '@rneui/themed'
 
 import {
   ButtonYrl,
@@ -17,6 +16,7 @@ import {
   ChatInputPropsOutM1Type,
   ChatInputPropsOutType,
 } from './ChatInputType'
+import { Text } from '../Text/Text'
 import { PromptExamples } from '../PromptExamples/PromptExamples'
 import { styles } from './ChatInputStyle'
 import { themes } from '../../Styles/themes'
@@ -43,12 +43,18 @@ const ChatInputComponent: ChatInputType = props => {
   const style = styles[deviceType]
 
   const [promptExamplesHeightState, setPromptExamplesHeightState] = useState(32)
+  const [helpHeightState, setHelpHeightState] = useState(32)
   const [inputTextYrlHeightState, setInputTextYrlHeightState] = useState(32)
   const [isVisiblePromptExamplesState, setIsVisiblePromptExamplesState] =
     useState(false)
+  const [isVisibleHelpState, setIsVisibleHelpsState] = useState(false)
 
   const onPromptExampleHeightChange = (height: number): void => {
     setPromptExamplesHeightState(height)
+  }
+
+  const onHelpHeightChange = (height: number): void => {
+    setHelpHeightState(height)
   }
 
   const onInputTextYrlHeightChange = (height: number): void => {
@@ -60,13 +66,15 @@ const ChatInputComponent: ChatInputType = props => {
   }
 
   const profileActive = getProfileByIdProfile(profiles, idProfileActive)
+  const promptExamples = profileActive?.promptExamples || []
+  const helpText = profileActive?.help
 
   const propsOutM1: ChatInputPropsOutM1Type = {
     tooltipTitleWrapperProps: {
       style: [style.tooltipTitleWrapper],
       testID: 'tooltipTitleWrapper',
     },
-    tooltipPopoverIconProps: {
+    tooltipPopoverPromptExamplesIconProps: {
       library: 'Ionicons',
       name: 'pencil-outline',
       styleProps: {
@@ -79,29 +87,51 @@ const ChatInputComponent: ChatInputType = props => {
       color: themes['themeB'].color10,
       testID: 'tooltip_IconYrl',
     },
+    tooltipPopoverHelpIconProps: {
+      library: 'Ionicons',
+      name: 'help',
+      styleProps: {
+        IconYrl: {
+          cursor: 'pointer',
+          paddingRight: '0.25rem',
+        },
+      },
+      size: 16,
+      color: themes['themeB'].color10,
+      testID: 'tooltip_IconYrl',
+    },
     promptExamplesProps: {
       styleProps: {},
-      promptExamples: profileActive?.promptExamples || [],
+      promptExamples,
       onHeightChange: onPromptExampleHeightChange,
       onPromptExampleClick,
       idProfileActive,
     },
+    helpTooltipsTextProps: {
+      styleProps: {
+        Text: { ...style.helpTooltipsText, color: themes['themeB'].color01 },
+      },
+      onHeightChange: onHelpHeightChange,
+      testID: 'helpTooltipsText',
+    },
   }
 
-  const tooltipTitlePromptExamples = profileActive?.promptExamples?.length ? (
+  const tooltipTitlePromptExamples = promptExamples.length ? (
     <View {...propsOutM1.tooltipTitleWrapperProps}>
-      <IconYrl {...propsOutM1.tooltipPopoverIconProps} />
-      <TextRrneui
-        style={[style.titleText, { color: themes['themeB'].color10 }]}
-        testID='tooltipTitle'
-      >
-        Prompt Examples
-      </TextRrneui>
+      <IconYrl {...propsOutM1.tooltipPopoverPromptExamplesIconProps} />
     </View>
   ) : null
 
-  const tooltipContainerStyleTop: number =
+  const tooltipTitleHelp = helpText ? (
+    <View {...propsOutM1.tooltipTitleWrapperProps}>
+      <IconYrl {...propsOutM1.tooltipPopoverHelpIconProps} />
+    </View>
+  ) : null
+
+  const promptExamplesTooltipContainerStyleTop: number =
     height - 70 - inputTextYrlHeightState - promptExamplesHeightState
+  const helpTooltipContainerStyleTop: number =
+    height - 70 - inputTextYrlHeightState - helpHeightState
 
   const propsOut: ChatInputPropsOutType = {
     inputTextYrlProps: {
@@ -201,7 +231,7 @@ const ChatInputComponent: ChatInputType = props => {
         testID: 'copyThisIconYrl',
       },
     },
-    tooltipPromptExamples: {
+    tooltipPromptExamplesProps: {
       backgroundColor: themes['themeA'].colors09.backgroundColor,
       children: <PromptExamples {...propsOutM1.promptExamplesProps} />,
       styleProps: {
@@ -210,7 +240,7 @@ const ChatInputComponent: ChatInputType = props => {
         titleText: [style.tooltip_titleText],
         containerStyle: {
           ...style.tooltip_container,
-          top: tooltipContainerStyleTop,
+          top: promptExamplesTooltipContainerStyleTop,
           alignSelf: 'center',
         },
         TooltipPopoverYrl: style.tooltip_tooltipPopover,
@@ -220,24 +250,25 @@ const ChatInputComponent: ChatInputType = props => {
       testID: `tooltipPromptExample`,
       titleText: tooltipTitlePromptExamples,
     },
-    tooltipHelp: {
+    tooltipHelpProps: {
       backgroundColor: themes['themeA'].colors09.backgroundColor,
-      children: <PromptExamples {...propsOutM1.promptExamplesProps} />,
+      children: <Text {...propsOutM1.helpTooltipsTextProps}>{helpText}</Text>,
       styleProps: {
         TooltipYrl: style.tooltip_TooltipYrl,
         iconTextWrapper: style.tooltip_iconTextWrapper,
         titleText: [style.tooltip_titleText],
         containerStyle: {
           ...style.tooltip_container,
-          top: tooltipContainerStyleTop,
+          top: helpTooltipContainerStyleTop,
           alignSelf: 'center',
         },
         TooltipPopoverYrl: style.tooltip_tooltipPopover,
       },
-      setIsVisibleProp: setIsVisiblePromptExamplesState,
-      isVisibleProp: isVisiblePromptExamplesState,
+      setIsVisibleProp: setIsVisibleHelpsState,
+      isVisibleProp:
+        helpText && isVisibleHelpState ? isVisibleHelpState : false,
       testID: `tooltipHelp`,
-      titleText: tooltipTitlePromptExamples,
+      titleText: tooltipTitleHelp,
     },
     buttonSmallSendProps: {
       styleProps: { ButtonYrl: {}, title: {} },
@@ -265,7 +296,8 @@ const ChatInputComponent: ChatInputType = props => {
             <ButtonYrl {...propsOut.buttonCopyToClipboardProps} />
             <ButtonYrl {...propsOut.buttonPasteFromClipboardProps} />
             <ButtonYrl {...propsOut.buttonClearInputProps} />
-            <TooltipYrl {...propsOut.tooltipPromptExamples} />
+            <TooltipYrl {...propsOut.tooltipPromptExamplesProps} />
+            <TooltipYrl {...propsOut.tooltipHelpProps} />
             <ButtonYrl {...propsOut.buttonSmallSendProps} />
           </View>
           <View style={[style.inputButton]} testID='inputButton'>

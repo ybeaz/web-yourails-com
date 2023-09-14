@@ -14,6 +14,15 @@ export const stylesDefault = StyleSheet.create({
   contentContainerStyle: {
     alignItems: 'flex-start',
   },
+  header: {
+    ...styleGlobal.typography,
+    paddingTop: '0.5rem',
+    paddingBottom: '0.5rem',
+  },
+  headerText: {
+    ...styleGlobal.h4,
+    fontWeight: '400',
+  },
   promptExampleText: {},
 })
 

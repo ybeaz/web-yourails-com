@@ -47,6 +47,7 @@ const themeA = StyleSheet.create({
  * @description This is experiment to create a flat, one level color scheme
  */
 const themeB: Record<string, string> = {
+  color01: '#192332e6',
   color09: '#707579' /* X light grey */,
   color10: '#adb1b5' /* XXX grey */,
 }

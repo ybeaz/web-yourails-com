@@ -8,6 +8,7 @@ import {
   TooltipYrlPropsType,
 } from '../../../YrlNativeViewLibrary'
 import { PromptExamplesPropsType } from '../PromptExamples/PromptExamples'
+import { TextPropsType } from '../Text/Text'
 
 export interface ChatInputPropsType {
   handleEvents: HandleEventsType
@@ -28,16 +29,18 @@ export type ChatInputPropsOutM1Type = {
     style: any
     testID: string
   }
-  tooltipPopoverIconProps: IconYrlPropsType
+  tooltipPopoverPromptExamplesIconProps: IconYrlPropsType
+  tooltipPopoverHelpIconProps: IconYrlPropsType
   promptExamplesProps: Omit<PromptExamplesPropsType, 'handleEvents'>
+  helpTooltipsTextProps: TextPropsType
 }
 
 export type ChatInputPropsOutType = {
   inputTextYrlProps: InputTextYrlPropsType
   sendButtonYrlProps: ButtonYrlPropsType
   sendIconYrlProps: IconYrlPropsType
-  tooltipPromptExamples: TooltipYrlPropsType
-  tooltipHelp: TooltipYrlPropsType
+  tooltipPromptExamplesProps: TooltipYrlPropsType
+  tooltipHelpProps: TooltipYrlPropsType
   buttonCopyToClipboardProps: ButtonYrlPropsType
   buttonPasteFromClipboardProps: ButtonYrlPropsType
   buttonClearInputProps: ButtonYrlPropsType

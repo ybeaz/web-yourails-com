@@ -63,9 +63,7 @@ export const stylesDefault = StyleSheet.create({
     maxHeight: 350,
     marginTop: '0.20rem',
   },
-  tooltip_titleText: {
-    marginHorizontal: 5,
-  },
+  tooltip_titleText: {},
   tooltip_tooltipPopover: {
     width: '100%;',
   },
