@@ -25,6 +25,7 @@ export const stylesDefault = StyleSheet.create({
     borderRadius: 10,
     maxWidth: '80vw',
     maxHeight: '75vh',
+    // @ts-expect-error
     resize: 'both',
   },
   ButtonYrl: {
@@ -66,6 +67,11 @@ export const stylesDefault = StyleSheet.create({
   tooltip_titleText: {},
   tooltip_tooltipPopover: {
     width: '100%;',
+  },
+  helpTooltipsText: {
+    // @ts-expect-error
+    userSelect: 'text',
+    cursor: 'text',
   },
 })
 
