@@ -104,18 +104,18 @@ Note: to config `codegen` edit ??? `codegen.yml`
 @link https://github.com/jsdelivr/jsdelivr // Link to CDN that works with GitHub.com
 @link https://docs.expo.dev/distribution/publishing-websites/
 
+- In VS Code, `~/Dev/yourails-sep-web-native/deployment`,
+  - open `/deployment/index-r1.userto.html` and `/deployment/index-web.yourails.html`
+  - !!! change version in links for `bundle.min.js` and `main.bundle.min.js`
 - Building
   `yarn export:web`: To build. It runs script from package.json file. Legacy command `npx expo export:web`
 - Copy `~/Dev/yourails-sep-web-native/web-build/static` into
   `~/Dev/yourails-assets/dist/static-web-yourails`
 - In Browser authorise at https://www.npmjs.com/ and check previous `yourails-assets-temp` package version
-- In Terminal, go to `~/Dev/yourails-assets/`
-- In Terminal, `~/Dev/yourails-assets/`
-  - `eval $(ssh-agent -s); ssh-add ~/.ssh/2020-10-19-rsa && npm init`, go through steps and change version to the next one
+- In Terminal, go to `cd ~/Dev/yourails-assets/`
+- In Terminal
+  - `cd ~/Dev/yourails-assets/ && eval $(ssh-agent -s); ssh-add ~/.ssh/2020-10-19-rsa && npm init`, go through steps and change version to the next one
   - `npm publish`
-- In VS Code, `~/Dev/yourails-sep-web-native/deployment`,
-  - open `/deployment/index-r1.userto.html` and `/deployment/index-web.yourails.html`
-  - !!! change version in links for `bundle.min.js` and `main.bundle.min.js`
 - In ForkLift copy
   - copy `/deployment/index-r1.userto.html` to `r1.userto.com/www/`
   - copy `/deployment/index-web.yourails.html` to `../web.yourails.com/www`
@@ -134,3 +134,6 @@ See `src/Shared/getSetStoreScenario` and `src/Shared/__tests__/getSetStoreScenar
 - `16 x 9` resolution/dimensions for pictures for projects are
 
 ## Release 0.60.0
+
+- added help, send features for chat input
+- added TQA persona, politicians personas, Ilya Frank style translation persona
