@@ -58,13 +58,6 @@ export type AddDocumentInputType = {
     moduleIDs: Array<Scalars['String']['input']>;
     userName: UserNameInputType;
 };
-export type AvatarSizeGraphgl = {
-    __typename?: 'AvatarSizeGraphgl';
-    /** height */
-    height?: Maybe<Scalars['Float']['output']>;
-    /** width */
-    width?: Maybe<Scalars['Float']['output']>;
-};
 export type AvatarSizeType = {
     __typename?: 'AvatarSizeType';
     /** height */
@@ -173,13 +166,6 @@ export type MessageChoiceType = {
     __typename?: 'MessageChoiceType';
     content?: Maybe<Scalars['String']['output']>;
     role: Scalars['String']['output'];
-};
-export type MessengerGraphgl = {
-    __typename?: 'MessengerGraphgl';
-    /** name */
-    name?: Maybe<Scalars['String']['output']>;
-    /** profileName */
-    profileName?: Maybe<Scalars['String']['output']>;
 };
 export type MessengerType = {
     __typename?: 'MessengerType';
@@ -293,6 +279,8 @@ export type ProfileType = {
     disclaimer?: Maybe<Scalars['String']['output']>;
     /** emails */
     emails?: Maybe<Array<Scalars['String']['output']>>;
+    /** help */
+    help?: Maybe<Scalars['String']['output']>;
     /** profile ID */
     idProfile: Scalars['ID']['output'];
     /** socket ID */

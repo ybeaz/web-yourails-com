@@ -14,14 +14,6 @@ input AddDocumentInputType {
   userName: UserNameInputType!
 }
 
-type AvatarSizeGraphgl {
-  """height"""
-  height: Float
-
-  """width"""
-  width: Float
-}
-
 type AvatarSizeType {
   """height"""
   height: Float
@@ -154,14 +146,6 @@ type MessageChoiceType {
   role: String!
 }
 
-type MessengerGraphgl {
-  """name"""
-  name: String
-
-  """profileName"""
-  profileName: String
-}
-
 type MessengerType {
   """name"""
   name: String
@@ -232,6 +216,9 @@ type ProfileType {
 
   """emails"""
   emails: [String!]
+
+  """help"""
+  help: String
 
   """profile ID"""
   idProfile: ID!
