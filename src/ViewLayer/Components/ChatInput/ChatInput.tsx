@@ -44,7 +44,8 @@ const ChatInputComponent: ChatInputType = props => {
 
   const [promptExamplesHeightState, setPromptExamplesHeightState] = useState(32)
   const [inputTextYrlHeightState, setInputTextYrlHeightState] = useState(32)
-  const [isVisiblePropState, setisVisiblePropState] = useState(false)
+  const [isVisiblePromptExamplesState, setIsVisiblePromptExamplesState] =
+    useState(false)
 
   const onPromptExampleHeightChange = (height: number): void => {
     setPromptExamplesHeightState(height)
@@ -55,7 +56,7 @@ const ChatInputComponent: ChatInputType = props => {
   }
 
   const onPromptExampleClick = (): void => {
-    setisVisiblePropState(false)
+    setIsVisiblePromptExamplesState(false)
   }
 
   const profileActive = getProfileByIdProfile(profiles, idProfileActive)
@@ -214,9 +215,28 @@ const ChatInputComponent: ChatInputType = props => {
         },
         TooltipPopoverYrl: style.tooltip_tooltipPopover,
       },
-      setIsVisibleProp: setisVisiblePropState,
-      isVisibleProp: isVisiblePropState,
+      setIsVisibleProp: setIsVisiblePromptExamplesState,
+      isVisibleProp: isVisiblePromptExamplesState,
       testID: `tooltipPromptExample`,
+      titleText: tooltipTitlePromptExamples,
+    },
+    tooltipHelp: {
+      backgroundColor: themes['themeA'].colors09.backgroundColor,
+      children: <PromptExamples {...propsOutM1.promptExamplesProps} />,
+      styleProps: {
+        TooltipYrl: style.tooltip_TooltipYrl,
+        iconTextWrapper: style.tooltip_iconTextWrapper,
+        titleText: [style.tooltip_titleText],
+        containerStyle: {
+          ...style.tooltip_container,
+          top: tooltipContainerStyleTop,
+          alignSelf: 'center',
+        },
+        TooltipPopoverYrl: style.tooltip_tooltipPopover,
+      },
+      setIsVisibleProp: setIsVisiblePromptExamplesState,
+      isVisibleProp: isVisiblePromptExamplesState,
+      testID: `tooltipHelp`,
       titleText: tooltipTitlePromptExamples,
     },
     buttonSmallSendProps: {

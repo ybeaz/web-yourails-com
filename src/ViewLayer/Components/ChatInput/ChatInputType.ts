@@ -37,6 +37,7 @@ export type ChatInputPropsOutType = {
   sendButtonYrlProps: ButtonYrlPropsType
   sendIconYrlProps: IconYrlPropsType
   tooltipPromptExamples: TooltipYrlPropsType
+  tooltipHelp: TooltipYrlPropsType
   buttonCopyToClipboardProps: ButtonYrlPropsType
   buttonPasteFromClipboardProps: ButtonYrlPropsType
   buttonClearInputProps: ButtonYrlPropsType

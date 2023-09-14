@@ -28,6 +28,7 @@ export const getProfilesDocument: DocumentNode = gql`
       summary
       imagePendingSrc
       pendingText
+      help
       promptExamples
       disclaimer
     }
