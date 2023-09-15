@@ -1,6 +1,6 @@
 {
   "name": "javascript-react-chat-app",
-  "version": "0.58.0",
+  "version": "0.60.0",
   "private": true,
   "main": "./src/App",
   "dependencies": {
@@ -184,23 +184,23 @@
     "typescript": "^4.9.4"
   },
   "scripts": {
+    "archieve:build": "node scripts/build.js",
+    "archieve:dev": "BROWSER=none PORT=3550 node scripts/start.js",
+    "archieve:start": "PORT=3550 node scripts/start.js",
+    "codegen": "graphql-codegen --config codegen.yml",
+    "expo:android": "expo start --android",
+    "expo:eject": "expo eject",
+    "expo:ios": "expo start --ios",
+    "expo:start": "open -a Simulator && expo start",
+    "export:web": "ts-node tools/getGitBuildData.ts &&  yarn expo export:web && yarn minify",
     "gems": "ts-node --script-mode tools/getGems.ts",
+    "jest": "jest --colors",
+    "minify": "ts-node tools/getPreparedFilesPublicWeb.ts",
+    "postinstall": "",
+    "server:mock": "ts-node graphql/server.ts",
     "start:dev": "ts-node tools/getGitBuildData.ts && expo start --web",
     "test": "jest",
-    "test2": "node scripts/test.js",
-    "jest": "jest --colors",
-    "postinstall": "",
-    "codegen": "graphql-codegen --config codegen.yml",
-    "expo:start": "open -a Simulator && expo start",
-    "expo:android": "expo start --android",
-    "expo:ios": "expo start --ios",
-    "expo:eject": "expo eject",
-    "server:mock": "ts-node graphql/server.ts",
-    "minify": "ts-node tools/getPreparedFilesPublicWeb.ts",
-    "export:web": "ts-node tools/getGitBuildData.ts &&  yarn expo export:web && yarn minify",
-    "archieve:start": "PORT=3550 node scripts/start.js",
-    "archieve:dev": "BROWSER=none PORT=3550 node scripts/start.js",
-    "archieve:build": "node scripts/build.js"
+    "test2": "node scripts/test.js"
   },
   "eslintConfig": {
     "extends": "react-app"

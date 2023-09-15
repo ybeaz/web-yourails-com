@@ -113,6 +113,9 @@ Note: to config `codegen` edit ??? `codegen.yml`
   `~/Dev/yourails-assets/dist/static-web-yourails`
 - In Browser authorise at https://www.npmjs.com/ and check previous `yourails-assets-temp` package version
 - In Terminal, go to `cd ~/Dev/yourails-assets/`
+- In VS code change versions (for example `"version": "0.60.0",`) in
+  `/Users/admin/Dev/yourails-sep-web-native/package.json` and
+  `/Users/admin/Dev/yourails-assets/package.json`
 - In Terminal
   - `cd ~/Dev/yourails-assets/ && eval $(ssh-agent -s); ssh-add ~/.ssh/2020-10-19-rsa && npm init`, go through steps and change version to the next one
   - `npm publish`
