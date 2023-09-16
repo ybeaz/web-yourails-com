@@ -11,23 +11,26 @@ function* template(params: any): Iterable<any> {
   const { data: variables } = params
 
   try {
+    return
+    /* Uncomment and edit
+
     yield put(actionSync.TOGGLE_LOADER_OVERLAY(true))
 
-    /**
-     * @description Code snippet to use axios as a connector client
-     * @example: */
     const { client, params } = templateConnector(variables)
+
     const res: any = yield client.post('', params)
     const data = res?.data?.data
 
-    // const { data } = yield apolloClient.query({
-    //   query: GetRecipeDocument,
-    //   variables,
-    // })
+    const { data } = yield apolloClient.query({
+      query: GetRecipeDocument,
+      variables,
+    })
 
     yield put(actionAsync.TEMPLATE_ASYNC.SUCCESS(data))
 
     yield put(actionSync.TOGGLE_LOADER_OVERLAY(false))
+
+    */
   } catch (error: any) {
     console.log('ERROR templateSaga', { error: error.message })
   }

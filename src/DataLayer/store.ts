@@ -15,8 +15,9 @@ const createStore: CreateStoreType = indexReducer2 => {
   const sagaMiddleware = createSagaMiddleware()
   const store2 = configureStore({
     reducer: indexReducer2,
-    middleware: [thunk, refreshAuthMiddleware],
+    middleware: [thunk, sagaMiddleware, refreshAuthMiddleware],
   })
+  sagaMiddleware.run(indexSaga)
   return store2
 }
 
