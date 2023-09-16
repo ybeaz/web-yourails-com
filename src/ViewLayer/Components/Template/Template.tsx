@@ -30,7 +30,9 @@ const TemplateComponent: TemplateComponentType = props => {
 
   return (
     <View style={[style.Template, styleProps.Template]} testID='Template'>
-      null
+      <Text style={[style.text, styleProps.text]} testID='text'>
+        Template
+      </Text>
     </View>
   )
 }

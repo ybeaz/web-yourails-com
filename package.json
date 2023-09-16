@@ -83,6 +83,7 @@
     "expo-location": "~16.1.0",
     "expo-permissions": "~14.2.1",
     "expo-screen-orientation": "6.0.5",
+    "expo-splash-screen": "^0.22.0",
     "expo-status-bar": "~1.6.0",
     "extract-zip": "^2.0.1",
     "fs": "^0.0.1-security",
@@ -121,6 +122,7 @@
     "react-icons": "^4.3.1",
     "react-native": "0.72.4",
     "react-native-base64": "^0.2.1",
+    "react-native-device-info": "^10.9.0",
     "react-native-document-picker": "^8.1.4",
     "react-native-draggable": "^3.3.0",
     "react-native-elements": "^3.4.3",
@@ -181,6 +183,7 @@
     "@types/react-dom": "~18.0.10",
     "@types/react-native-read-more-text": "^1.0.1",
     "jsdoc": "^4.0.2",
+    "react-native-asset": "^2.1.1",
     "request": "^2.88.2",
     "typescript": "^5.1.3"
   },
