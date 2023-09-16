@@ -83,7 +83,7 @@
     "expo-location": "~16.1.0",
     "expo-permissions": "~14.2.1",
     "expo-screen-orientation": "6.0.5",
-    "expo-splash-screen": "^0.22.0",
+    "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
     "extract-zip": "^2.0.1",
     "fs": "^0.0.1-security",

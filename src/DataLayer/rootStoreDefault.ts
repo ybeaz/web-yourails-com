@@ -75,7 +75,7 @@ export const formsDefault: FormsType = {
   inputSearch: '',
 }
 
-export const rootStoreDefault: RootStoreType = {
+export const rootStoreDefault2: RootStoreType = {
   componentsState:
     window?.location?.hostname === 'r1.userto.com'
       ? componentsStateR1
@@ -107,3 +107,5 @@ export const rootStoreDefault: RootStoreType = {
     isShowApp: true,
   },
 }
+
+export const rootStoreDefault: any = {}

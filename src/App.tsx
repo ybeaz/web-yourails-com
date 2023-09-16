@@ -49,13 +49,13 @@ function App() {
     '!fontError': !fontError,
   })
 
-  // return (
-  //   <StrictMode>
-  //     <Provider store={store}>
-  //       <StubDebug {...propsOut.stubDebugProps} />
-  //     </Provider>
-  //   </StrictMode>
-  // )
+  return (
+    <StrictMode>
+      <Provider store={store}>
+        <StubDebug {...propsOut.stubDebugProps} />
+      </Provider>
+    </StrictMode>
+  )
 
   // return (
   //   <StrictMode>
@@ -63,23 +63,23 @@ function App() {
   //   </StrictMode>
   // )
 
-  return (
-    <StrictMode>
-      <Provider store={store}>
-        <RouterScreensConfig />
-      </Provider>
-    </StrictMode>
-  )
+  // return (
+  //   <StrictMode>
+  //     <Provider store={store}>
+  //       <RouterScreensConfig />
+  //     </Provider>
+  //   </StrictMode>
+  // )
 }
 
-AppRegistry.registerComponent('X', () => App)
+AppRegistry.registerComponent('main', () => App)
 
 if (Platform.OS === 'web') {
   const rootTag =
     document.getElementById('root') || document.getElementById('X')
-  AppRegistry.runApplication('X', { rootTag })
+  AppRegistry.runApplication('main', { rootTag })
 
-  registerRootComponent(App)
+  // registerRootComponent(App)
 }
 
 /*
