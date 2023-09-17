@@ -11,7 +11,6 @@ interface GetServerSocketIoHostType {
  */
 export const getServerSocketIoHost: GetServerSocketIoHostType = () => {
   const envType: string = getDetectedEnv()
-  console.info('getServerSocketIoHost [14]', { envType })
   const baseURL = SERVERS[envType as keyof ServersType] as string
   return baseURL
 }

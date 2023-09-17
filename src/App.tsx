@@ -1,11 +1,13 @@
 import { registerRootComponent } from 'expo'
 import { AppRegistry, Platform } from 'react-native'
 import React, { StrictMode, useCallback } from 'react'
+import { useFonts } from 'expo-font'
+import * as SplashScreen from 'expo-splash-screen'
+import { NavigationContainer } from '@react-navigation/native'
+
 import { Provider } from 'react-redux'
 import { store } from './DataLayer/store'
 import { RouterScreensConfig } from './RouterScreensConfig'
-import { useFonts } from 'expo-font'
-import * as SplashScreen from 'expo-splash-screen'
 
 import {
   StubDebug,
@@ -42,73 +44,36 @@ function App() {
     },
   }
 
-  console.info('App [45]', {
-    fontsLoaded,
-    fontError,
-    '!!fontError': !!fontError,
-    '!fontError': !fontError,
-  })
+  console.info('App [139]', { 'Platform.OS': Platform.OS })
 
-  return (
-    <StrictMode>
-      <Provider store={store}>
-        <StubDebug {...propsOut.stubDebugProps} />
-      </Provider>
-    </StrictMode>
-  )
-
-  // return (
-  //   <StrictMode>
-  //     <StubDebug {...propsOut.stubDebugProps} />
-  //   </StrictMode>
-  // )
-
-  // return (
-  //   <StrictMode>
-  //     <Provider store={store}>
-  //       <RouterScreensConfig />
-  //     </Provider>
-  //   </StrictMode>
-  // )
+  if (Platform.OS === 'web') {
+    return (
+      <StrictMode>
+        <Provider store={store}>
+          <RouterScreensConfig />
+        </Provider>
+      </StrictMode>
+    )
+  } else {
+    return (
+      <StrictMode>
+        <Provider store={store}>
+          <NavigationContainer>
+            <StubDebug {...propsOut.stubDebugProps} />
+          </NavigationContainer>
+        </Provider>
+      </StrictMode>
+    )
+  }
 }
 
 AppRegistry.registerComponent('main', () => App)
 
 if (Platform.OS === 'web') {
-  const rootTag =
-    document.getElementById('root') || document.getElementById('X')
-  AppRegistry.runApplication('main', { rootTag })
+  console.error('App [78]', 'clean')
+  // const rootTag =
+  //   document.getElementById('root') || document.getElementById('X')
+  // AppRegistry.runApplication('main', { rootTag })
 
-  // registerRootComponent(App)
+  registerRootComponent(App)
 }
-
-/*
-
-SplashScreen.preventAutoHideAsync();
-
-export default function App() {
-  const [fontsLoaded, fontError] = useFonts({
-    'Inter-Black': require('./assets/fonts/Inter-Black.otf'),
-  });
-
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded || fontError) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, fontError]);
-
-  if (!fontsLoaded && !fontError) {
-    return null;
-  }
-
-  return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <Text style={{ fontFamily: 'Inter-Black', fontSize: 30 }}>Inter Black</Text>
-      <Text style={{ fontSize: 30 }}>Platform Default</Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({ ... }); 
-
-*/

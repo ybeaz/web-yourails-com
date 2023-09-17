@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { IconYrlType, IconYrlPropsOutType } from './IconYrlType'
 import { ImageResizeMode } from 'react-native'
-import { ImageYrl, ImageYrlPropsType } from '../index'
+import { ImageYrl } from '../ImageYrl/ImageYrl'
 
 /**
  * @import import { IconYrl, IconYrlPropsType } from './YrlNativeViewLibrary'

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { View, Modal } from 'react-native'
 import { Tooltip, Text as TextRrneui } from '@rneui/themed'
-import { TooltipPopoverYrl } from '../'
+import { TooltipPopoverYrl } from '../TooltipPopoverYrl/TooltipPopoverYrl'
 import {
   TooltipYrlPropsType,
   TooltipsPropsOutYrlType,
