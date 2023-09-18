@@ -7,6 +7,7 @@ import {
 import { RootStoreType } from '../../../@types/RootStoreType'
 
 export interface PageChatsWholeScreenPropsType {
+  styles: any
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
   urlParams?: UrlParamsDefaultType
