@@ -9,19 +9,18 @@ import {
   withStoreStateSliceYrl,
 } from '../../../YrlNativeViewLibrary'
 
-import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
+import { WidgetsScreensPropsType } from './WidgetsScreensType'
+import { styles } from './WidgetsScreensStyle'
+
 import { SectionMappingType } from '../../../@types/SectionMappingType'
 import { ProfileType } from '../../../@types/GraphqlTypes'
 
-import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
-import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { styles } from './PageChatsWholeScreenStyle'
 import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
@@ -31,7 +30,12 @@ import { getSocketOnMessage } from '../../../CommunicationLayer/socketio/getSock
 import { getSocketOnPending } from '../../../CommunicationLayer/socketio/getSocketOnPending'
 import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
 
-const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
+/**
+ * @description Component to render
+ * @import import { WidgetsScreens, WidgetsScreensPropsType, WidgetsScreensPropsOutType, WidgetsScreensType } 
+             from '../Components/WidgetsScreens/WidgetsScreens'
+ */
+const WidgetsScreensComponents: any = (props: WidgetsScreensPropsType) => {
   const {
     styleProps = { PageChatsWholeScreen: {} },
     mediaParams = mediaParamsDefault,
@@ -42,6 +46,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   } = props
   const { deviceType } = mediaParams
   const { urlParam1, urlParam2, urlParam3 } = urlParams
+
+  console.info('WidgetsScreens [50]', { props })
 
   const style = styles[deviceType]
 
@@ -230,8 +236,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       },
     },
     isShowModalFrame,
-    isMainColumnBlank,
-    sectionsMappingForProfile,
   }
 
   const ChatCardsHeader = useMemo(
@@ -248,7 +252,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
       style={[style.ChatSpaceHeader, themes['themeA'].colors03]}
       testID='ChatSpaceHeader'
     >
-      {!propsOut.isMainColumnBlank ? (
+      {!isMainColumnBlank ? (
         <View
           style={[
             style.mainColumnTopBar,
@@ -267,8 +271,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         </View>
       ) : null}
 
-      {!propsOut.isMainColumnBlank &&
-      propsOut.sectionsMappingForProfile.length ? (
+      {!isMainColumnBlank && sectionsMappingForProfile.length ? (
         <View
           style={[style.mainColumnContentMenu, themes['themeA'].colors01]}
           testID='mainColumnContentMenu'
@@ -305,30 +308,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     []
   )
 
-  return (
-    <LayoutScreen {...propsOut.layoutScreenProps}>
-      {/** @description <NavigationTop /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
-        {ChatCardsHeader}
-        {ChatSpaceHeader}
-      </LayoutOfRow>
-      {/** @description <MainContent /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
-        {ChatCardsBody}
-        {ChatSpaceBody}
-      </LayoutOfRow>
-      {/** @description <NavigationBottom /> */}
-      {!propsOut.isShowModalFrame && (
-        <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
-          {null}
-          {ChatSpaceFooter}
-        </LayoutOfRow>
-      )}
-    </LayoutScreen>
-  )
+  return propsOut
 }
 
-export const PageChatsWholeScreen = withPropsYrl({
+export const WidgetsScreens = withPropsYrl({
   handleEvents: handleEventsProp,
 })(
   withStoreStateSliceYrl(
@@ -341,6 +324,13 @@ export const PageChatsWholeScreen = withPropsYrl({
       'profiles',
       'sectionsMapping',
     ],
-    withParamsMediaYrl(React.memo(PageChatsWholeScreenComponent))
+    withParamsMediaYrl(WidgetsScreensComponents)
   )
 )
+
+export type {
+  WidgetsScreensPropsType,
+  // WidgetsScreensPropsOutType,
+  // WidgetsScreensComponentType,
+  // WidgetsScreensType,
+}
