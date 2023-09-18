@@ -1,4 +1,4 @@
-import { history } from '../history'
+import { historyWeb } from '../Navigation/historyWeb'
 
 interface GetRedirectedType {
   (pathnameNext: string | undefined, options: { replace: boolean }): void
@@ -15,7 +15,7 @@ export const getRedirected: GetRedirectedType = async (
 ) => {
   if (!pathnameNext) return
   try {
-    history.push(pathnameNext)
+    historyWeb.push(pathnameNext)
   } catch (error: any) {
     const message = error.message
     console.info('getRedirected [21]', {

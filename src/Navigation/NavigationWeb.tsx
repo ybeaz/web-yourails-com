@@ -8,9 +8,9 @@ import {
   unstable_HistoryRouter as HistoryRouter,
 } from 'react-router-dom'
 
-import { history } from './history'
-import { withDelayYrl } from './YrlNativeViewLibrary'
-import { PageChatsWholeScreen } from './ViewLayer/Screens/PageChatsWholeScreen/PageChatsWholeScreen'
+import { historyWeb } from './historyWeb'
+import { withDelayYrl } from '../YrlNativeViewLibrary'
+import { PageChatsWholeScreen } from '../ViewLayer/Screens/PageChatsWholeScreen/PageChatsWholeScreen'
 
 const pathAfterStatic = window?.location?.pathname.split('/static/')[1]
 const pathTo = `/static/${pathAfterStatic}`
@@ -75,14 +75,13 @@ const RouterCreated = () => {
  * @links https://reactrouter.com/en/main/hooks/use-routes
  * @link
  */
-export const RouterScreensConfig: React.FunctionComponent<any> = withDelayYrl({
+export const NavigationWeb: React.FunctionComponent<any> = withDelayYrl({
   delay: 100,
 })(() => {
   if (Platform.OS !== 'web') return null
 
   return (
-    // @ts-expect-error
-    <HistoryRouter history={history}>
+    <HistoryRouter history={historyWeb}>
       <RouterCreated />
     </HistoryRouter>
   )

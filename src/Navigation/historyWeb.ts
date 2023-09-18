@@ -1,9 +1,9 @@
 import { Platform } from 'react-native'
 import { createBrowserHistory } from 'history'
 
-let historyM1 = {}
+let history: any = {}
 if (Platform.OS === 'web') {
-  historyM1 = createBrowserHistory()
+  history = createBrowserHistory()
 }
 
-export const history = historyM1
+export const historyWeb = history
