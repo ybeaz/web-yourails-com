@@ -4,11 +4,27 @@ import React, { StrictMode, useCallback } from 'react'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 import { NavigationContainer } from '@react-navigation/native'
+import {
+  Button,
+  View,
+  Text,
+  SafeAreaView,
+  SafeAreaViewBase,
+} from 'react-native'
 
 import { Provider } from 'react-redux'
 import { store } from './DataLayer/store'
 import { RouterScreensConfig } from './RouterScreensConfig'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
+const Stack = createNativeStackNavigator()
+
+import {
+  HomeDebug,
+  HomeDebugPropsType,
+  HomeDebugPropsOutType,
+  HomeDebugType,
+} from './ViewLayer/Components/HomeDebug/HomeDebug'
 import {
   StubDebug,
   StubDebugPropsType,
@@ -55,11 +71,37 @@ function App() {
       </StrictMode>
     )
   } else {
+    function ProfileScreen({ navigation }: any) {
+      return (
+        <SafeAreaView
+          style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
+        >
+          <Button
+            title='Go back'
+            onPress={() => {
+              console.info('App [104]', 'to goBack')
+              navigation.goBack()
+            }}
+          />
+        </SafeAreaView>
+      )
+    }
+
+    const homeDebugProps = {
+      onLayout: onLayoutRootView,
+      titleText: 'New Title 2',
+    }
+
     return (
       <StrictMode>
         <Provider store={store}>
           <NavigationContainer>
-            <StubDebug {...propsOut.stubDebugProps} />
+            <Stack.Navigator>
+              <Stack.Screen name='Home'>
+                {props => <HomeDebug {...{ ...props, ...homeDebugProps }} />}
+              </Stack.Screen>
+              <Stack.Screen name='Profile' component={ProfileScreen} />
+            </Stack.Navigator>
           </NavigationContainer>
         </Provider>
       </StrictMode>
@@ -67,13 +109,8 @@ function App() {
   }
 }
 
-AppRegistry.registerComponent('main', () => App)
-
 if (Platform.OS === 'web') {
-  console.error('App [78]', 'clean')
-  // const rootTag =
-  //   document.getElementById('root') || document.getElementById('X')
-  // AppRegistry.runApplication('main', { rootTag })
-
   registerRootComponent(App)
+} else {
+  AppRegistry.registerComponent('main', () => App)
 }
