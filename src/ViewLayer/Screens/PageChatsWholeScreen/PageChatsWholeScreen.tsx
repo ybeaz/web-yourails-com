@@ -231,7 +231,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     },
   }
 
-  const TopBarChatCardsElement = useMemo(
+  const ChatCardsHeader = useMemo(
     () => (
       <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
         <TopBarChatCards />
@@ -240,10 +240,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     []
   )
 
-  const MainColumnTopBars = (
+  const ChatSpaceHeader = (
     <View
-      style={[style.mainColumnTopBars, themes['themeA'].colors03]}
-      testID='mainColumnTopBars'
+      style={[style.ChatSpaceHeader, themes['themeA'].colors03]}
+      testID='ChatSpaceHeader'
     >
       {!isMainColumnBlank ? (
         <View
@@ -275,7 +275,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </View>
   )
 
-  const ChatCardsElement = useMemo(
+  const ChatCardsBody = useMemo(
     () => (
       <View
         style={[style.leftColumnChatCardSpace]}
@@ -287,9 +287,9 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     []
   )
 
-  const ChatSpaceElement = useMemo(() => <ChatSpace />, [])
+  const ChatSpaceBody = useMemo(() => <ChatSpace />, [])
 
-  const ChatInputElement = useMemo(
+  const ChatSpaceFooter = useMemo(
     () => (
       <View
         style={[style.chatInput, themes['themeA'].colors03]}
@@ -305,19 +305,19 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     <LayoutScreen {...propsOut.layoutScreenProps}>
       {/** @description <NavigationTop /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
-        {TopBarChatCardsElement}
-        {MainColumnTopBars}
+        {ChatCardsHeader}
+        {ChatSpaceHeader}
       </LayoutOfRow>
       {/** @description <MainContent /> */}
       <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
-        {ChatCardsElement}
-        {ChatSpaceElement}
+        {ChatCardsBody}
+        {ChatSpaceBody}
       </LayoutOfRow>
       {/** @description <NavigationBottom /> */}
       {!isShowModalFrame && (
         <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
           {null}
-          {ChatInputElement}
+          {ChatSpaceFooter}
         </LayoutOfRow>
       )}
     </LayoutScreen>
