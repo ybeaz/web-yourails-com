@@ -4,13 +4,7 @@ import React, { StrictMode, useCallback } from 'react'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
 import { NavigationContainer } from '@react-navigation/native'
-import {
-  Button,
-  View,
-  Text,
-  SafeAreaView,
-  SafeAreaViewBase,
-} from 'react-native'
+import { Button, SafeAreaView } from 'react-native'
 
 import { Provider } from 'react-redux'
 import { store } from './DataLayer/store'
@@ -47,17 +41,6 @@ function App() {
 
   if (!fontsLoaded) {
     return null
-  }
-
-  const propsOut: Record<string, any> = {
-    stubDebugProps: {
-      onLayout: onLayoutRootView,
-      styleProps: {
-        StubDebug: {
-          fontSize: 30,
-        },
-      },
-    },
   }
 
   console.info('App [139]', { 'Platform.OS': Platform.OS })
