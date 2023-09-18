@@ -2,32 +2,11 @@ import React from 'react'
 import * as SplashScreen from 'expo-splash-screen'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Button, SafeAreaView } from 'react-native'
 
-import {
-  HomeDebug,
-  HomeDebugPropsType,
-  HomeDebugPropsOutType,
-  HomeDebugType,
-} from '../ViewLayer/Components/HomeDebug/HomeDebug'
+import { DebugHome } from '../ViewLayer/Components/DebugHome/DebugHome'
+import { DebugProfile } from '../ViewLayer/Components/DebugProfile/DebugProfile'
 
 const Stack = createNativeStackNavigator()
-
-function ProfileScreen({ navigation }: any) {
-  return (
-    <SafeAreaView
-      style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
-    >
-      <Button
-        title='Go back'
-        onPress={() => {
-          console.info('App [104]', 'to goBack')
-          navigation.goBack()
-        }}
-      />
-    </SafeAreaView>
-  )
-}
 
 type NavigationMobilePropsType = {
   onLayout: () => void
@@ -35,6 +14,10 @@ type NavigationMobilePropsType = {
 
 export const NavigationMobile = (props: NavigationMobilePropsType) => {
   const { onLayout } = props
+
+  // @ts-expect-error
+  const isHermes = () => !!global.HermesInternal
+  console.info('Is Hermes enabled ' + isHermes())
 
   const homeDebugProps = {
     onLayout,
@@ -45,9 +28,11 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Home'>
-          {props => <HomeDebug {...{ ...props, ...homeDebugProps }} />}
+          {props => <DebugHome {...{ ...props, ...homeDebugProps }} />}
         </Stack.Screen>
-        <Stack.Screen name='Profile' component={ProfileScreen} />
+        <Stack.Screen name='Profile'>
+          {props => <DebugProfile {...{ ...props, ...homeDebugProps }} />}
+        </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
   )

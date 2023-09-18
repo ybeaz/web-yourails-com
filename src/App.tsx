@@ -26,7 +26,7 @@ function App() {
     return null
   }
 
-  console.info('App [139]', { 'Platform.OS': Platform.OS })
+  console.info('App [29]', { 'Platform.OS': Platform.OS })
 
   if (Platform.OS === 'web') {
     return (

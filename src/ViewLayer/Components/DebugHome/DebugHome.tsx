@@ -4,27 +4,27 @@ import { Button, SafeAreaView } from 'react-native'
 import { Text } from '../../Components/Text/Text'
 import { themes } from '../../Styles/themes'
 import {
-  HomeDebugPropsType,
-  HomeDebugPropsOutType,
-  HomeDebugComponentType,
-  HomeDebugType,
-} from './HomeDebugTypes'
-import { styles } from './HomeDebugStyles'
+  DebugHomePropsType,
+  DebugHomePropsOutType,
+  DebugHomeComponentType,
+  DebugHomeType,
+} from './DebugHomeTypes'
+import { styles } from './DebugHomeStyles'
 
 /**
  * @description Component to render
- * @import import { HomeDebug, HomeDebugPropsType, HomeDebugPropsOutType, HomeDebugType } 
-             from '../Components/HomeDebug/HomeDebug'
+ * @import import { DebugHome, DebugHomePropsType, DebugHomePropsOutType, DebugHomeType } 
+             from '../Components/DebugHome/DebugHome'
  */
-const HomeDebugComponent: HomeDebugComponentType = props => {
+const DebugHomeComponent: DebugHomeComponentType = props => {
   const {
-    styleProps = { HomeDebug: {} },
+    styleProps = { DebugHome: {} },
     onLayout,
     navigation,
     titleText,
   } = props
 
-  const propsOut: HomeDebugPropsOutType = {}
+  const propsOut: DebugHomePropsOutType = {}
 
   return (
     <SafeAreaView
@@ -49,11 +49,11 @@ const HomeDebugComponent: HomeDebugComponentType = props => {
   )
 }
 
-export const HomeDebug: HomeDebugType = React.memo(HomeDebugComponent)
+export const DebugHome: DebugHomeType = React.memo(DebugHomeComponent)
 
 export type {
-  HomeDebugPropsType,
-  HomeDebugPropsOutType,
-  HomeDebugComponentType,
-  HomeDebugType,
+  DebugHomePropsType,
+  DebugHomePropsOutType,
+  DebugHomeComponentType,
+  DebugHomeType,
 }

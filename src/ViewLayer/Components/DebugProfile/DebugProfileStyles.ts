@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 import { styleGlobal } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
-  StubDebug: {
+  DebugProfile: {
     ...styleGlobal.typography,
     flexDirection: 'column',
   },
@@ -29,7 +29,7 @@ const xlDevice = StyleSheet.create({
 })
 
 /**
- * @import import { styles } from './StubDebugStyles'
+ * @import import { styles } from './DebugProfileStyles'
  */
 export const styles: Record<string, any> = {
   xsDevice: xsDevice,
