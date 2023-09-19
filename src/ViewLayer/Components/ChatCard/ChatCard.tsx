@@ -26,8 +26,11 @@ const ChatCardComponent: ChatCardType = props => {
     urlParam1,
     urlParam2,
     query,
+    platformOS,
   } = props
   const { idProfile, profileName } = profile
+
+  console.info('ChatCard [32]', { props })
 
   const colorStyle = isActive ? themes['themeA'].colors07 : {}
 

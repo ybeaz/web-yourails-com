@@ -28,7 +28,11 @@ function App() {
 
   console.info('App [29]', { 'Platform.OS': Platform.OS })
 
-  if (Platform.OS === 'web') {
+  if (
+    Platform.OS === 'web' ||
+    Platform.OS === 'windows' ||
+    Platform.OS === 'macos'
+  ) {
     return (
       <StrictMode>
         <Provider store={store}>
@@ -47,7 +51,11 @@ function App() {
   }
 }
 
-if (Platform.OS === 'web') {
+if (
+  Platform.OS === 'web' ||
+  Platform.OS === 'windows' ||
+  Platform.OS === 'macos'
+) {
   registerRootComponent(App)
 } else {
   AppRegistry.registerComponent('main', () => App)

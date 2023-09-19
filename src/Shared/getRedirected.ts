@@ -15,7 +15,11 @@ export const getRedirected: GetRedirectedType = async (
   { replace = true }
 ) => {
   // TODO Implement redirect for ios and android
-  if (Platform.OS === 'web' || Platform.OS === 'windows') {
+  if (
+    Platform.OS === 'web' ||
+    Platform.OS === 'windows' ||
+    Platform.OS === 'macos'
+  ) {
     if (!pathnameNext) return
     try {
       historyWeb.push(pathnameNext)

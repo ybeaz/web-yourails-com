@@ -47,12 +47,18 @@ export const urlParamsDefault: UrlParamsDefaultType = {
   urlParam3: undefined,
 }
 
+export type PlatformOSYrlType = 'ios' | 'android' | 'windows' | 'macos' | 'web'
+
 export const withParamsMediaYrl: WithParamsMediaYrlType = function (Component) {
   return function WrappedComponent(props: any) {
     let urlParams = undefined
     let urlParamsSearch = undefined
-    const platformOS = Platform.OS
-    if (platformOS === 'web') {
+    const platformOS: PlatformOSYrlType = Platform.OS
+    if (
+      platformOS === 'web' ||
+      platformOS === 'windows' ||
+      platformOS === 'macos'
+    ) {
       urlParams = useParams()
       const [urlParamsSearchM1] = useSearchParams()
       urlParamsSearch = urlParamsSearchM1
