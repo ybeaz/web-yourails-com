@@ -5,6 +5,7 @@ export interface LayoutScreenPropsType {
   styleProps?: any
   isActive: boolean
   children: ReactElement[]
+  onLayout: () => void
 }
 
 export type LayoutScreenPropsOutType = Record<string, any>

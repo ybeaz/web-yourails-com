@@ -3,6 +3,7 @@ import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 export interface ChatCardsScreenPropsType {
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
+  onLayout: () => void
 }
 
 export type ChatCardsScreenPropsOutType = Record<string, any>

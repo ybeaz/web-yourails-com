@@ -35,6 +35,18 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     []
   )
 
+  const ChatCardsBody = useMemo(
+    () => (
+      <View
+        style={[propsOut.style.leftColumnChatCardSpace]}
+        testID='leftColumnChatCardSpace'
+      >
+        <ChatCards />
+      </View>
+    ),
+    []
+  )
+
   const ChatSpaceHeader = (
     <View
       style={[
@@ -75,18 +87,6 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
         </View>
       ) : null}
     </View>
-  )
-
-  const ChatCardsBody = useMemo(
-    () => (
-      <View
-        style={[propsOut.style.leftColumnChatCardSpace]}
-        testID='leftColumnChatCardSpace'
-      >
-        <ChatCards />
-      </View>
-    ),
-    []
   )
 
   const ChatSpaceBody = useMemo(() => <ChatSpace />, [])

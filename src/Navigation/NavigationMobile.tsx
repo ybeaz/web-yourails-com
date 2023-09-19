@@ -5,6 +5,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { DebugHome } from '../ViewLayer/Components/DebugHome/DebugHome'
 import { DebugProfile } from '../ViewLayer/Components/DebugProfile/DebugProfile'
+import {
+  ChatCardsScreen,
+  ChatCardsScreenPropsType,
+  ChatCardsScreenPropsOutType,
+  ChatCardsScreenType,
+} from '../ViewLayer/Screens/ChatCardsScreen/ChatCardsScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -19,7 +25,16 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
   const isHermes = () => !!global.HermesInternal
   console.info('Is Hermes enabled ' + isHermes())
 
-  const homeDebugProps = {
+  const chatCardsScreenProps = {
+    onLayout,
+  }
+
+  const debugHomeProps = {
+    onLayout,
+    titleText: 'New Title 2',
+  }
+
+  const debugProfileProps = {
     onLayout,
     titleText: 'New Title 2',
   }
@@ -28,10 +43,11 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Home'>
-          {props => <DebugHome {...{ ...props, ...homeDebugProps }} />}
+          {/* {props => <ChatCardsScreen {...{ ...props, ...chatCardsScreenProps }} />} */}
+          {props => <DebugHome {...{ ...props, ...debugHomeProps }} />}
         </Stack.Screen>
         <Stack.Screen name='Profile'>
-          {props => <DebugProfile {...{ ...props, ...homeDebugProps }} />}
+          {props => <DebugProfile {...{ ...props, ...debugProfileProps }} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
