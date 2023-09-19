@@ -14,6 +14,11 @@
 
 ## How to section, architecture / development notes
 
+### How to debug ios (and possibly android)
+
+1. @link [Chrome DevTools](chrome://inspect/#devices)
+2. Info @link [React Native Debugging By Using Hermes](https://reactnative.dev/docs/hermes?package-manager=yarn)
+
 ### How to debug web page on IOS mobile device
 
 1. @link [Enabling Web Inspector on MacBook - Safari](https://developer.apple.com/library/archive/documentation/AppleApplications/Conceptual/Safari_Developer_Guide/GettingStarted/GettingStarted.html)
