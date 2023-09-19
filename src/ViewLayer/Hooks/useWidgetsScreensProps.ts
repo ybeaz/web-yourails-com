@@ -65,7 +65,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
   const { isShow: isShowModalFrame } = modalFrame
 
   const query =
-    platformOS === 'web' || platformOS === 'windows' || platformOS === 'macos'
+    platformOS === 'web'
       ? {
           s: urlParamsSearch.get('s'),
           code: urlParamsSearch.get('code'),
@@ -102,11 +102,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
       handleEvents.INIT_LOADING({}, { query })
 
       /** @description Add the 'beforeunload' event listener to gracefully disconnect when reloading the page */
-      if (
-        platformOS === 'web' ||
-        platformOS === 'windows' ||
-        platformOS === 'macos'
-      )
+      if (platformOS === 'web')
         window.addEventListener('beforeunload', getSocketDisconnected)
     }
 
@@ -114,21 +110,13 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
 
     /** @description Clean up the event listener when the component unmounts */
     return () => {
-      if (
-        platformOS === 'web' ||
-        platformOS === 'windows' ||
-        platformOS === 'macos'
-      )
+      if (platformOS === 'web')
         window.removeEventListener('beforeunload', getSocketDisconnected)
     }
   }, [])
 
   useEffect(() => {
-    if (
-      platformOS === 'web' ||
-      platformOS === 'windows' ||
-      platformOS === 'macos'
-    )
+    if (platformOS === 'web')
       handleEvents.SET_STORE_SCENARIO_WEB(
         {},
         {

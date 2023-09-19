@@ -27,7 +27,7 @@ const debouncedFunc = getDebouncedFunc(getRefreshedAuthAwsCongito, 6000)
  */
 export const refreshAuthMiddleware: Middleware = store => next => action => {
   // TODO Implement localStorage for ios and android
-  if (Platform.OS === 'web' || Platform.OS === 'windows') {
+  if (Platform.OS === 'web') {
     const refresh_token = localStorage.getItem('refresh_token')
     if (refresh_token) debouncedFunc(store, refresh_token)
   }

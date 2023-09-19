@@ -73,9 +73,7 @@ export const InputTextYrl: InputTextYrlType = props => {
   }
 
   const textInputProps =
-    Platform.OS === 'web' ||
-    Platform.OS === 'windows' ||
-    Platform.OS === 'macos'
+    Platform.OS === 'web'
       ? propsOut.textInputPropsResize
       : propsOut.textInputProps
 

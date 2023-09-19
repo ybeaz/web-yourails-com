@@ -4,7 +4,11 @@ import { PlatformOSYrlType } from '../YrlNativeViewLibrary'
 interface GetRedirectedType {
   (
     pathnameNext: string | undefined,
-    options: { platformOS?: PlatformOSYrlType; replace: boolean }
+    options: {
+      platformOS?: PlatformOSYrlType
+      navigation?: any
+      replace: boolean
+    }
   ): void
 }
 
@@ -18,11 +22,7 @@ export const getRedirected: GetRedirectedType = async (
   { platformOS = 'web', replace = true }
 ) => {
   // TODO Implement redirect for ios and android
-  if (
-    platformOS === 'web' ||
-    platformOS === 'windows' ||
-    platformOS === 'macos'
-  ) {
+  if (platformOS === 'web') {
     if (!pathnameNext) return
     try {
       historyWeb.push(pathnameNext)

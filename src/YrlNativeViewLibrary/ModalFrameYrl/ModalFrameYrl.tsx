@@ -8,9 +8,7 @@ import { ModalFrameYrlStyle as style } from './ModalFrameYrlStyle'
 import { ButtonYrl } from '../ButtonYrl/ButtonYrl'
 
 const LinearGradientUniPlatform =
-  Platform.OS === 'web' || Platform.OS === 'windows' || Platform.OS === 'macos'
-    ? WebLinearGradient
-    : View // LinearGradient
+  Platform.OS === 'web' ? WebLinearGradient : View // LinearGradient
 
 /**
  * @import import { ModalFrameYrl, ModalFrameYrlPropsType } from './YrlNativeViewLibrary'

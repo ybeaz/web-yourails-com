@@ -37,11 +37,7 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
 
     // TODO Implement localStorage for ios and android
     let refresh_token = undefined
-    if (
-      Platform.OS === 'web' ||
-      Platform.OS === 'windows' ||
-      Platform.OS === 'macos'
-    ) {
+    if (Platform.OS === 'web') {
       refresh_token = localStorage.getItem('refresh_token')
     }
 

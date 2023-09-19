@@ -55,11 +55,7 @@ const ChatCardsComponent: ChatCardsType = props => {
   )
 
   let query = { s: undefined }
-  if (
-    Platform.OS === 'web' ||
-    Platform.OS === 'windows' ||
-    Platform.OS === 'macos'
-  ) {
+  if (Platform.OS === 'web') {
     query = {
       s: urlParamsSearch.get('s'),
     }

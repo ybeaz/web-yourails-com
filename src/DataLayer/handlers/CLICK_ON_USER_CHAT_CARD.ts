@@ -38,5 +38,5 @@ export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
 
   const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
 
-  getRedirected(pathnameNext, { platformOS, replace: true })
+  getRedirected(pathnameNext, { platformOS, navigation, replace: true })
 }

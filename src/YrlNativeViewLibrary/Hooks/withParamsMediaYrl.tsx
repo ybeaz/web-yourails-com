@@ -54,11 +54,7 @@ export const withParamsMediaYrl: WithParamsMediaYrlType = function (Component) {
     let urlParams = undefined
     let urlParamsSearch = undefined
     const platformOS: PlatformOSYrlType = Platform.OS
-    if (
-      platformOS === 'web' ||
-      platformOS === 'windows' ||
-      platformOS === 'macos'
-    ) {
+    if (platformOS === 'web') {
       urlParams = useParams()
       const [urlParamsSearchM1] = useSearchParams()
       urlParamsSearch = urlParamsSearchM1
