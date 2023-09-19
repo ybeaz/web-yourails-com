@@ -115,17 +115,19 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
   }, [])
 
   useEffect(() => {
-    handleEvents.SET_STORE_SCENARIO_WEB(
-      {},
-      {
-        urlParam1,
-        urlParam2,
-        urlParam3,
-        query,
-        deviceType,
-        sectionsMappingForProfile,
-      }
-    )
+    if (platformOS === 'web' || platformOS === 'windows')
+      handleEvents.SET_STORE_SCENARIO_WEB(
+        {},
+        {
+          urlParam1,
+          urlParam2,
+          urlParam3,
+          query,
+          deviceType,
+          sectionsMappingForProfile,
+        }
+      )
+    else handleEvents.SET_STORE_SCENARIO_MOBILE()
   }, [urlParamsMediaIdentifier])
 
   const layoutOfRowProps = {

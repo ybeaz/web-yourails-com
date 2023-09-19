@@ -26,8 +26,6 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
   const { profiles: profilesPrev, sectionsMapping: sectionsMappingPrev } =
     rootStore || rootStoreDefault
 
-  console.info('initLoadingSaga [29]', { rootStore, sectionsMapping })
-
   if (profilesPrev.length && sectionsMappingPrev.length) return
 
   try {
