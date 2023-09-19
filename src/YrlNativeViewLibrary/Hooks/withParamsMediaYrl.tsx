@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react'
+import { Platform } from 'react-native'
 import { useSearchParams, useParams } from 'react-router-dom'
 import {
   useMediaQueryResYrl,
@@ -48,10 +49,23 @@ export const urlParamsDefault: UrlParamsDefaultType = {
 
 export const withParamsMediaYrl: WithParamsMediaYrlType = function (Component) {
   return function WrappedComponent(props: any) {
-    const urlParams = useParams()
-    const [urlParamsSearch] = useSearchParams()
+    let urlParams = undefined
+    let urlParamsSearch = undefined
+    const platformOS = Platform.OS
+    if (platformOS === 'web') {
+      urlParams = useParams()
+      const [urlParamsSearchM1] = useSearchParams()
+      urlParamsSearch = urlParamsSearchM1
+    }
+
     const mediaParams: MediaParamsDefaultType = useMediaQueryResYrl()
-    const propsNext = { ...props, mediaParams, urlParams, urlParamsSearch }
+    const propsNext = {
+      ...props,
+      mediaParams,
+      urlParams,
+      urlParamsSearch,
+      platformOS,
+    }
     return <Component {...propsNext} />
   }
 }

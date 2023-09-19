@@ -4,7 +4,11 @@ import { View } from 'react-native'
 import {
   withParamsMediaYrl,
   mediaParamsDefault,
+  withStoreStateSliceYrl,
+  withPropsYrl,
 } from '../../../YrlNativeViewLibrary'
+
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { Text } from '../../Components/Text/Text'
 
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
@@ -12,6 +16,7 @@ import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
 import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'
 import { useWidgetsScreensProps } from '../../Hooks/useWidgetsScreensProps'
+import { DebugHome } from '../../Components/DebugHome/DebugHome'
 
 import {
   ChatCardsScreenPropsType,
@@ -19,7 +24,7 @@ import {
   ChatCardsScreenComponentType,
   ChatCardsScreenType,
 } from './ChatCardsScreenTypes'
-import { styles } from './ChatCardsScreenStyles'
+import { styles as stylesIn } from './ChatCardsScreenStyles'
 
 /**
  * @description Component to render
@@ -27,6 +32,7 @@ import { styles } from './ChatCardsScreenStyles'
              from '../Components/ChatCardsScreen/ChatCardsScreen'
  */
 const ChatCardsScreenComponent: ChatCardsScreenComponentType = props => {
+  const { onLayout } = props
   const propsOut = useWidgetsScreensProps(props)
 
   const ChatCardsHeader = useMemo(
@@ -53,7 +59,14 @@ const ChatCardsScreenComponent: ChatCardsScreenComponentType = props => {
     []
   )
 
+  const debugHomeProps = {
+    onLayout, // : () => {},
+    titleText: 'New Title 2',
+  }
+  // {props => <DebugHome {...{ ...props, ...debugHomeProps }} />}
+
   return (
+    // <DebugHome {...debugHomeProps} />
     <LayoutScreen {...propsOut.layoutScreenProps}>
       {/** @description <NavigationTop /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
@@ -73,8 +86,22 @@ const ChatCardsScreenComponent: ChatCardsScreenComponentType = props => {
   )
 }
 
-export const ChatCardsScreen: ChatCardsScreenType = withParamsMediaYrl(
-  React.memo(ChatCardsScreenComponent)
+export const ChatCardsScreen: ChatCardsScreenType = withPropsYrl({
+  handleEvents: handleEventsProp,
+  styles: stylesIn,
+})(
+  withStoreStateSliceYrl(
+    [
+      'idProfileActive',
+      'isLeftColumn',
+      'isMainColumn',
+      'isMainColumnBlank',
+      'modalFrame',
+      'profiles',
+      'sectionsMapping',
+    ],
+    withParamsMediaYrl(React.memo(ChatCardsScreenComponent))
+  )
 )
 
 export type {

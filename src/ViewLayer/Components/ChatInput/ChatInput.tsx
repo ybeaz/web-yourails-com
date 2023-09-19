@@ -145,8 +145,8 @@ const ChatInputComponent: ChatInputType = props => {
         inputText: {
           ...style.inputText,
           ...themes.themeA.colors01,
-          border: 0,
-          outlineWidth: 0,
+          // border: 0,
+          // outlineWidth: 0,
         },
         inputTextResize: style.inputTextResize,
       },

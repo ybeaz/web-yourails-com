@@ -1,5 +1,5 @@
 import { call, takeEvery, put, select } from 'redux-saga/effects'
-
+import { Platform } from 'react-native'
 import { RootStoreType } from '../../@types/RootStoreType'
 import { rootStoreDefault } from '../rootStoreDefault'
 import { ProfileType } from '../../@types/GraphqlTypes'
@@ -26,6 +26,8 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
   const { profiles: profilesPrev, sectionsMapping: sectionsMappingPrev } =
     rootStore || rootStoreDefault
 
+  console.info('initLoadingSaga [29]', { rootStore, sectionsMapping })
+
   if (profilesPrev.length && sectionsMappingPrev.length) return
 
   try {
@@ -35,7 +37,11 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
 
     const code = params?.data?.query?.code
 
-    const refresh_token = localStorage.getItem('refresh_token')
+    // TODO Implement localStorage for ios and android
+    let refresh_token = undefined
+    if (Platform.OS === 'web' || Platform.OS === 'windows') {
+      refresh_token = localStorage.getItem('refresh_token')
+    }
 
     if (code) {
       yield call(getUserIdDataAwsCognito, { data: { code } })

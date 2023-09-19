@@ -1,4 +1,5 @@
 import { Middleware } from '@reduxjs/toolkit'
+import { Platform } from 'react-native'
 
 import { getDebouncedFunc } from '../..//Shared/getDebouncedFunc'
 import { actionAsync } from '../../DataLayer/index.action'
@@ -25,8 +26,11 @@ const debouncedFunc = getDebouncedFunc(getRefreshedAuthAwsCongito, 6000)
  * @import import { refreshAuthMiddleware } from './middlewares/refreshAuthMiddleware'
  */
 export const refreshAuthMiddleware: Middleware = store => next => action => {
-  const refresh_token = localStorage.getItem('refresh_token')
-  if (refresh_token) debouncedFunc(store, refresh_token)
+  // TODO Implement localStorage for ios and android
+  if (Platform.OS === 'web' || Platform.OS === 'windows') {
+    const refresh_token = localStorage.getItem('refresh_token')
+    if (refresh_token) debouncedFunc(store, refresh_token)
+  }
 
   const result = next(action)
   return result

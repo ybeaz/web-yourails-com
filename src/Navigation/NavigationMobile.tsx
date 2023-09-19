@@ -33,6 +33,7 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
     onLayout,
     titleText: 'New Title 2',
   }
+  // {props => <DebugHome {...{ ...props, ...debugHomeProps }} />}
 
   const debugProfileProps = {
     onLayout,
@@ -43,8 +44,10 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Home'>
-          {/* {props => <ChatCardsScreen {...{ ...props, ...chatCardsScreenProps }} />} */}
-          {props => <DebugHome {...{ ...props, ...debugHomeProps }} />}
+          {props => (
+            <ChatCardsScreen {...{ ...props, ...chatCardsScreenProps }} />
+          )}
+          {/* {props => <DebugHome {...{ ...props, ...debugHomeProps }} />} */}
         </Stack.Screen>
         <Stack.Screen name='Profile'>
           {props => <DebugProfile {...{ ...props, ...debugProfileProps }} />}

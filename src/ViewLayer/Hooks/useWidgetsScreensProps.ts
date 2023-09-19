@@ -30,13 +30,17 @@ export interface useWidgetsScreensPropsType {
 export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
   props: any
 ) => {
+  console.info('useWidgetsScreensProps [33]', props)
+
   const {
     styles,
     mediaParams = mediaParamsDefault,
     urlParams = urlParamsDefault,
+    platformOS,
     urlParamsSearch,
     handleEvents,
     storeStateSlice,
+    onLayout,
   } = props
   const { deviceType } = mediaParams
   const { urlParam1, urlParam2, urlParam3 } = urlParams
@@ -44,6 +48,8 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
   const style = styles[deviceType]
 
   const renderCounter = useRef(0)
+
+  console.info('useWidgetsScreensProps [48]', { storeStateSlice, urlParams })
 
   const {
     idProfileActive,
@@ -57,10 +63,13 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
 
   const { isShow: isShowModalFrame } = modalFrame
 
-  const query = {
-    s: urlParamsSearch.get('s'),
-    code: urlParamsSearch.get('code'),
-  }
+  const query =
+    platformOS === 'web'
+      ? {
+          s: urlParamsSearch.get('s'),
+          code: urlParamsSearch.get('code'),
+        }
+      : {}
 
   const profileActive: ProfileType = getProfileByIdProfile(
     profiles,
@@ -92,14 +101,16 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
       handleEvents.INIT_LOADING({}, { query })
 
       /** @description Add the 'beforeunload' event listener to gracefully disconnect when reloading the page */
-      window.addEventListener('beforeunload', getSocketDisconnected)
+      if (platformOS === 'web')
+        window.addEventListener('beforeunload', getSocketDisconnected)
     }
 
     renderCounter.current = renderCounter.current + 1
 
     /** @description Clean up the event listener when the component unmounts */
     return () => {
-      window.removeEventListener('beforeunload', getSocketDisconnected)
+      if (platformOS === 'web')
+        window.removeEventListener('beforeunload', getSocketDisconnected)
     }
   }, [])
 
@@ -141,6 +152,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
         layoutNavigationBottom: { height: '6rem' },
       },
       isActive: profiles.length ? true : false,
+      onLayout,
     },
     layoutOfRowNavigationTopProps: {
       ...layoutOfRowProps,
@@ -234,5 +246,6 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     sectionsMappingForProfile,
   }
 
+  console.info('useWidgetsScreensProps [245]', propsOut)
   return propsOut
 }

@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { View } from 'react-native'
+import { Platform, View } from 'react-native'
 
 import {
   urlParamsDefault,
@@ -54,6 +54,13 @@ const ChatCardsComponent: ChatCardsType = props => {
     (a, b) => b.position - a.position
   )
 
+  let query = { s: undefined }
+  if (Platform.OS === 'web' || Platform.OS === 'windows') {
+    query = {
+      s: urlParamsSearch.get('s'),
+    }
+  }
+
   const getChatCards = (profilesIn: ProfileType[]): ReactElement[] => {
     const profiles = profilesIn.filter((profile: ProfileType) => {
       const { idProfile } = profile
@@ -68,9 +75,7 @@ const ChatCardsComponent: ChatCardsType = props => {
           isActive: profile.idProfile === idProfileActive,
           urlParam1,
           urlParam2,
-          query: {
-            s: urlParamsSearch.get('s'),
-          },
+          query,
         },
       }
       return <ChatCard {...propsOut.chatCardProps} />
@@ -151,9 +156,7 @@ const ChatCardsComponent: ChatCardsType = props => {
       idUserHost,
       urlParam1,
       urlParam2,
-      query: {
-        s: urlParamsSearch.get('s'),
-      },
+      query,
     },
   }
 

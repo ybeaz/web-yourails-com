@@ -103,8 +103,8 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         },
         inputText: {
           // cursor: 'not-allowed',
-          border: 0,
-          outline: 0,
+          // border: 0,
+          // outline: 0,
           paddingLeft: '1rem',
         },
       },
