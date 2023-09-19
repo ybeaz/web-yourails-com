@@ -18,7 +18,8 @@ const { dispatch, getState } = store
 /**
  * @description This handle is called when the app loads initially
  */
-export const SET_STORE_SCENARIO_MOBILE: ActionEventType = event => {
+export const SET_STORE_SCENARIO_MOBILE: ActionEventType = (event, data) => {
+  const { navigation } = data
   const {
     globalVars: { idUserHost, idProfile },
   } = getState()
@@ -52,6 +53,7 @@ export const SET_STORE_SCENARIO_MOBILE: ActionEventType = event => {
     modalFrame: false,
   }
 
+  dispatch(actionSync.ADD_NAVIGATION_MOBILE({ navigation }))
   dispatch(actionSync.SET_ID_USER_HOST({ idUserHost: idUserHostNext }))
   dispatch(actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: idProfileNext }))
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))

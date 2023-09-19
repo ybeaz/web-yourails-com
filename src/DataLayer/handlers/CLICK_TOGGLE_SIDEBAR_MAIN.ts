@@ -58,8 +58,8 @@ export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
     )
 
   const [urlParam0, urlParam1, urlParam2, urlParam3] =
-    window.location.pathname.split('/')
-  const search = window.location.search
+    window?.location?.pathname.split('/')
+  const search = window?.location?.search
 
   let urlParam2Next = urlParam2
   if (isLeftColumnNext === true && isMainColumnNext === false)

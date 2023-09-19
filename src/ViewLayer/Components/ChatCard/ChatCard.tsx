@@ -30,8 +30,6 @@ const ChatCardComponent: ChatCardType = props => {
   } = props
   const { idProfile, profileName } = profile
 
-  console.info('ChatCard [32]', { props })
-
   const colorStyle = isActive ? themes['themeA'].colors07 : {}
 
   const propsOut: Record<string, any> = {
@@ -39,10 +37,12 @@ const ChatCardComponent: ChatCardType = props => {
       styleProps: {},
       profile,
       onPress: () => {
-        handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
+        if (platformOS === 'web')
+          handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
+
         handleEvents.CLICK_ON_USER_CHAT_CARD(
           {},
-          { idProfile, profileName, urlParam1, urlParam2, query }
+          { idProfile, profileName, urlParam1, urlParam2, query, platformOS }
         )
       },
     },

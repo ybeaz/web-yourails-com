@@ -41,6 +41,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     handleEvents,
     storeStateSlice,
     onLayout,
+    navigation,
   } = props
   const { deviceType } = mediaParams
   const { urlParam1, urlParam2, urlParam3 } = urlParams
@@ -139,7 +140,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
           sectionsMappingForProfile,
         }
       )
-    else handleEvents.SET_STORE_SCENARIO_MOBILE()
+    else handleEvents.SET_STORE_SCENARIO_MOBILE({}, { navigation })
   }, [urlParamsMediaIdentifier])
 
   const layoutOfRowProps = {

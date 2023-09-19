@@ -1,8 +1,11 @@
-import { Platform } from 'react-native'
 import { historyWeb } from '../Navigation/historyWeb'
+import { PlatformOSYrlType } from '../YrlNativeViewLibrary'
 
 interface GetRedirectedType {
-  (pathnameNext: string | undefined, options: { replace: boolean }): void
+  (
+    pathnameNext: string | undefined,
+    options: { platformOS?: PlatformOSYrlType; replace: boolean }
+  ): void
 }
 
 /**
@@ -12,13 +15,13 @@ interface GetRedirectedType {
 
 export const getRedirected: GetRedirectedType = async (
   pathnameNext,
-  { replace = true }
+  { platformOS = 'web', replace = true }
 ) => {
   // TODO Implement redirect for ios and android
   if (
-    Platform.OS === 'web' ||
-    Platform.OS === 'windows' ||
-    Platform.OS === 'macos'
+    platformOS === 'web' ||
+    platformOS === 'windows' ||
+    platformOS === 'macos'
   ) {
     if (!pathnameNext) return
     try {

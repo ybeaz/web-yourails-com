@@ -105,6 +105,7 @@ export const rootStoreDefault: RootStoreType = {
     theme: 'light',
     language: 'en',
     isShowApp: true,
+    navigation: undefined,
   },
 }
 

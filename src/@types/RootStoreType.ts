@@ -60,5 +60,6 @@ export interface RootStoreType {
     theme: string
     language: string
     isShowApp: boolean
+    navigation: any
   }
 }
