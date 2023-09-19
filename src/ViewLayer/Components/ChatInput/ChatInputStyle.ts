@@ -15,17 +15,18 @@ export const stylesDefault = StyleSheet.create({
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  InputTextYrl: {},
-  inputText: {
-    width: '80vw',
+  InputTextYrl: {
     borderRadius: 10,
+    borderWidth: 1,
+  },
+  inputText: {
+    borderRadius: 10,
+    width: '80vw',
     paddingRight: '2rem',
   },
   inputTextResize: {
-    borderRadius: 10,
     maxWidth: '80vw',
     maxHeight: '75vh',
-    // @ts-expect-error
     resize: 'both',
   },
   ButtonYrl: {

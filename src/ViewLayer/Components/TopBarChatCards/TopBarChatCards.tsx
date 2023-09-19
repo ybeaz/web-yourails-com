@@ -97,16 +97,14 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     inputTextYrlProps: {
       styleProps: {
         InputTextYrl: {
-          border: 'solid  1px',
-          borderColor: themes['themeA'].colors01.borderColor,
-          borderRadius: '5rem',
+          ...style.InputTextYrl,
+          borderColor: themes.themeB.color08,
         },
         inputText: {
-          // cursor: 'not-allowed',
-          // border: 0,
-          // outline: 0,
-          paddingLeft: '1rem',
+          ...style.inputText,
+          ...themes.themeA.colors01,
         },
+        inputTextResize: {},
       },
       multiline: false,
       numberOfLines: 1,
@@ -116,7 +114,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         /* TODO when a search functionality will be ready */
       },
       placeholder: 'Search',
-      placeholderTextColor: themes['themeA'].colors01.borderColor,
+      placeholderTextColor: themes['themeB'].color10,
       testID: 'TopBarChatCards_InputTextYrl',
       value: inputSearch,
     },
@@ -125,7 +123,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       name: 'search-outline',
       styleProps: { IconYrl: { cursor: 'not-allowed' } },
       size: 24,
-      color: themes['themeA'].colors01.borderColor,
+      color: themes['themeB'].color10,
       testID: 'TopBarChatCardsComponent_IconYrl_search',
     },
   }

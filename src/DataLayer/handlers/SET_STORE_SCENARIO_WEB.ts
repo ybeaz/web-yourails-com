@@ -22,7 +22,7 @@ const { dispatch, getState } = store
 /**
  * @description This handle is called when the app loads initially
  */
-export const SET_STORE_SCENARIO: ActionEventType = (
+export const SET_STORE_SCENARIO_WEB: ActionEventType = (
   event,
   dataHandle: {
     urlParam1: string

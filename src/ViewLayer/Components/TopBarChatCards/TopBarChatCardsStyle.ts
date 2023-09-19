@@ -17,6 +17,13 @@ export const style = StyleSheet.create({
     marginLeft: '1rem',
     marginRight: '1rem',
   },
+  InputTextYrl: {
+    borderRadius: 80,
+    borderWidth: 1,
+  },
+  inputText: {
+    borderRadius: 80,
+  },
   iconYrlWrapper: {
     position: 'absolute',
     paddingRight: '1rem',

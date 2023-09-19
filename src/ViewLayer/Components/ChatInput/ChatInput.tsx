@@ -141,20 +141,18 @@ const ChatInputComponent: ChatInputType = props => {
         handleEvents.CLICK_ON_SEND_MESSAGE({}, { profileActive }),
       onHeightChange: onInputTextYrlHeightChange,
       styleProps: {
-        InputTextYrl: style.InputTextYrl,
-        inputText: {
-          ...style.inputText,
-          ...themes.themeA.colors01,
-          // border: 0,
-          // outlineWidth: 0,
+        InputTextYrl: {
+          ...style.InputTextYrl,
+          borderColor: themes.themeB.color08,
         },
-        inputTextResize: style.inputTextResize,
+        inputText: { ...style.inputText, ...themes.themeA.colors01 },
+        inputTextResize: { ...style.inputTextResize },
       },
       testID: 'ChatInput_InputTextYrl',
       multiline: true,
       numberOfLines: 3,
       placeholder: 'Message',
-      placeholderTextColor: '#a2acb4',
+      placeholderTextColor: themes['themeB'].color10, // '#a2acb4',
       value: (idProfileActive && inputChat[idProfileActive]) || '',
     },
     sendButtonYrlProps: {

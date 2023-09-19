@@ -115,7 +115,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
   }, [])
 
   useEffect(() => {
-    handleEvents.SET_STORE_SCENARIO(
+    handleEvents.SET_STORE_SCENARIO_WEB(
       {},
       {
         urlParam1,
