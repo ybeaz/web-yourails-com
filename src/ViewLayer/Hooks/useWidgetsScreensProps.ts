@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
+import { PageChatsWholeScreenPropsOutType } from '../Screens/PageChatsWholeScreen/PageChatsWholeScreen'
 import { SectionMappingType } from '../../@types/SectionMappingType'
 import { ProfileType } from '../../@types/GraphqlTypes'
 
@@ -19,7 +20,7 @@ import { getSectionsMappingForProfile } from '../../Shared/getSectionsMappingFor
 export type useWidgetsScreensPropsPropsType = Record<string, any>
 
 export interface useWidgetsScreensPropsType {
-  (props: useWidgetsScreensPropsPropsType): Record<string, any>
+  (props: useWidgetsScreensPropsPropsType): PageChatsWholeScreenPropsOutType
 }
 
 /**
@@ -30,8 +31,6 @@ export interface useWidgetsScreensPropsType {
 export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
   props: any
 ) => {
-  console.info('useWidgetsScreensProps [33]', props)
-
   const {
     styles,
     mediaParams = mediaParamsDefault,
@@ -49,8 +48,6 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
   const style = styles[deviceType]
 
   const renderCounter = useRef(0)
-
-  console.info('useWidgetsScreensProps [48]', { storeStateSlice, urlParams })
 
   const {
     idProfileActive,
@@ -139,7 +136,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     },
   }
 
-  const propsOut: Record<string, any> = {
+  const propsOut: PageChatsWholeScreenPropsOutType = {
     style,
     themes,
     layoutScreenProps: {
@@ -232,6 +229,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     },
     mainColumnContentMenuProps: {
       styleProps: {
+        ContentMenuMainColumn: {},
         buttonWrapper: {
           borderTopWidth: 0,
           borderRightWidth: 0,
@@ -249,6 +247,5 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     sectionsMappingForProfile,
   }
 
-  console.info('useWidgetsScreensProps [245]', propsOut)
   return propsOut
 }

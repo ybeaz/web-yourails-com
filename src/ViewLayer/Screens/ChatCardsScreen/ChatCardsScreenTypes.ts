@@ -6,7 +6,25 @@ export interface ChatCardsScreenPropsType {
   onLayout: () => void
 }
 
-export type ChatCardsScreenPropsOutType = Record<string, any>
+export type ChatCardsScreenPropsOutType = any
+
+/* TODO
+  {
+  style: any
+  themes: { themeA: any; themeB: any }
+  layoutScreenProps: Omit<LayoutScreenPropsType, 'children'>
+  layoutOfRowNavigationTopProps: LayoutOfRowPropsType
+  layoutOfRowMainContentProps: LayoutOfRowPropsType
+  layoutOfRowNavigationBottomProps: LayoutOfRowPropsType
+  mainColumnContentMenuProps: Omit<
+    ContentMenuMainColumnPropsType,
+    'sectionsMapping' | 'store' | 'handleEvents'
+  >
+  isShowModalFrame: boolean
+  isMainColumnBlank: boolean
+  sectionsMappingForProfile: SectionMappingType[]
+}
+*/
 
 /**
  * @import import { ChatCardsScreenType } from './ChatCardsScreenType'

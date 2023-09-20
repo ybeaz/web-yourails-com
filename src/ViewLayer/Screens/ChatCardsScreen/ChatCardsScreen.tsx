@@ -9,7 +9,6 @@ import {
 } from '../../../YrlNativeViewLibrary'
 
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { Text } from '../../Components/Text/Text'
 
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
@@ -33,7 +32,7 @@ import { styles as stylesIn } from './ChatCardsScreenStyles'
  */
 const ChatCardsScreenComponent: ChatCardsScreenComponentType = props => {
   const { onLayout } = props
-  const propsOut = useWidgetsScreensProps(props)
+  const propsOut: ChatCardsScreenPropsOutType = useWidgetsScreensProps(props)
 
   const ChatCardsHeader = useMemo(
     () => (

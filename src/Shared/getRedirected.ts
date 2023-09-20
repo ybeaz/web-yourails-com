@@ -6,7 +6,6 @@ interface GetRedirectedType {
     pathnameNext: string | undefined,
     options: {
       platformOS?: PlatformOSYrlType
-      navigation?: any
       replace: boolean
     }
   ): void

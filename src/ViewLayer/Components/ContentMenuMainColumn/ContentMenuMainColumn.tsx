@@ -2,7 +2,11 @@ import React from 'react'
 import { View } from 'react-native'
 
 import { ProfileType } from '../../../@types/GraphqlTypes'
-import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'
+import {
+  ContentMenuMainColumnPropsType,
+  ContentMenuMainColumnPropsOutType,
+  ContentMenuMainColumnType,
+} from './ContentMenuMainColumnType'
 
 import { style } from './ContentMenuMainColumnStyle'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
@@ -127,3 +131,9 @@ export const ContentMenuMainColumn = React.memo(
     withStoreStateYrl(withParamsMediaYrl(ContentMenuMainColumnComponent))
   )
 )
+
+export type {
+  ContentMenuMainColumnPropsType,
+  ContentMenuMainColumnPropsOutType,
+  ContentMenuMainColumnType,
+}

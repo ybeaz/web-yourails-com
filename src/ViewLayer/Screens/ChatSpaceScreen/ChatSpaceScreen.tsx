@@ -3,53 +3,40 @@ import { View } from 'react-native'
 
 import {
   withParamsMediaYrl,
-  withPropsYrl,
-  withStoreStateSliceYrl,
+  mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 
-import {
-  PageChatsWholeScreenPropsOutType,
-  PageChatsWholeScreenType,
-} from './PageChatsWholeScreenType'
 import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
 import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'
-import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
-import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
-import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { styles as stylesIn } from './PageChatsWholeScreenStyle'
-import { useWidgetsScreensProps } from '../../Hooks/useWidgetsScreensProps'
 
-const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
-  const propsOut: PageChatsWholeScreenPropsOutType =
-    useWidgetsScreensProps(props)
+import { Text } from '../../Components/Text/Text'
+import { themes } from '../../Styles/themes'
+import {
+  ChatSpaceScreenPropsType,
+  ChatSpaceScreenPropsOutType,
+  ChatSpaceScreenComponentType,
+  ChatSpaceScreenType,
+} from './ChatSpaceScreenTypes'
+import { styles } from './ChatSpaceScreenStyles'
 
-  const ChatCardsHeader = useMemo(
-    () => (
-      <View
-        style={[propsOut.style.leftColumnTopBars]}
-        testID='leftColumnTopBars'
-      >
-        <TopBarChatCards />
-      </View>
-    ),
-    []
-  )
+/**
+ * @description Component to render
+ * @import import { ChatSpaceScreen, ChatSpaceScreenPropsType, ChatSpaceScreenPropsOutType, ChatSpaceScreenType } 
+             from '../Components/ChatSpaceScreen/ChatSpaceScreen'
+ */
+const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
+  const {
+    styleProps = { ChatSpaceScreen: {} },
+    mediaParams = mediaParamsDefault,
+  } = props
+  const { deviceType, screenCase, width, height } = mediaParams
+  const style = styles[deviceType]
 
-  const ChatCardsBody = useMemo(
-    () => (
-      <View
-        style={[propsOut.style.leftColumnChatCardSpace]}
-        testID='leftColumnChatCardSpace'
-      >
-        <ChatCards />
-      </View>
-    ),
-    []
-  )
+  const propsOut: ChatSpaceScreenPropsOutType = {}
 
   const ChatSpaceHeader = (
     <View
@@ -111,41 +98,30 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     <LayoutScreen {...propsOut.layoutScreenProps}>
       {/** @description <NavigationTop /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
-        {ChatCardsHeader}
         {ChatSpaceHeader}
       </LayoutOfRow>
       {/** @description <MainContent /> */}
       <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
-        {ChatCardsBody}
         {ChatSpaceBody}
       </LayoutOfRow>
       {/** @description <NavigationBottom /> */}
-      {!propsOut.isShowModalFrame ? (
+      {!propsOut.isShowModalFrame && (
         <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
           {null}
           {ChatSpaceFooter}
         </LayoutOfRow>
-      ) : null}
+      )}
     </LayoutScreen>
   )
 }
 
-export const PageChatsWholeScreen = withPropsYrl({
-  handleEvents: handleEventsProp,
-  styles: stylesIn,
-})(
-  withStoreStateSliceYrl(
-    [
-      'idProfileActive',
-      'isLeftColumn',
-      'isMainColumn',
-      'isMainColumnBlank',
-      'modalFrame',
-      'profiles',
-      'sectionsMapping',
-    ],
-    withParamsMediaYrl(React.memo(PageChatsWholeScreenComponent))
-  )
+export const ChatSpaceScreen: ChatSpaceScreenType = withParamsMediaYrl(
+  React.memo(ChatSpaceScreenComponent)
 )
 
-export type { PageChatsWholeScreenPropsOutType, PageChatsWholeScreenType }
+export type {
+  ChatSpaceScreenPropsType,
+  ChatSpaceScreenPropsOutType,
+  ChatSpaceScreenComponentType,
+  ChatSpaceScreenType,
+}

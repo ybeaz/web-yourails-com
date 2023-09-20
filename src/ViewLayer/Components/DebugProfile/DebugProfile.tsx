@@ -24,6 +24,8 @@ const DebugProfileComponent: DebugProfileComponentType = props => {
     titleText,
   } = props
 
+  console.info('DebugProfile [27]', props)
+
   const propsOut: DebugProfilePropsOutType = {}
 
   return (

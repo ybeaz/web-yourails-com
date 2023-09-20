@@ -38,5 +38,9 @@ export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
 
   const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
 
-  getRedirected(pathnameNext, { platformOS, navigation, replace: true })
+  if (platformOS === 'web') {
+    getRedirected(pathnameNext, { platformOS, replace: true })
+  } else {
+    navigation.navigate('Profile', { profile: '1' })
+  }
 }

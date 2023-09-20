@@ -1,7 +1,11 @@
 import React from 'react'
 import { SafeAreaView, View } from 'react-native'
 
-import { LayoutScreenType, LayoutScreenPropsOutType } from './LayoutScreenTypes'
+import {
+  LayoutScreenPropsType,
+  LayoutScreenPropsOutType,
+  LayoutScreenType,
+} from './LayoutScreenTypes'
 import { style } from './LayoutScreenStyles'
 
 /**
@@ -57,3 +61,9 @@ const LayoutScreenComponent: LayoutScreenType = props => {
 }
 
 export const LayoutScreen = React.memo(LayoutScreenComponent)
+
+export type {
+  LayoutScreenPropsType,
+  LayoutScreenPropsOutType,
+  LayoutScreenType,
+}
