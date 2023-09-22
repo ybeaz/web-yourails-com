@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   TopBarMainColumn: {
@@ -15,7 +15,7 @@ export const stylesDefault = StyleSheet.create({
     paddingLeft: '1.5rem',
   },
   avatar: {
-    paddingLeft: '1rem',
+    paddingLeft: getPx('1rem'),
   },
   ImageYrl: {},
   image: {
@@ -24,7 +24,7 @@ export const stylesDefault = StyleSheet.create({
     borderRadius: 50,
   },
   nameStatus: {
-    paddingLeft: '1rem',
+    paddingLeft: getPx('1rem'),
   },
   name: {
     fontWeight: '600',

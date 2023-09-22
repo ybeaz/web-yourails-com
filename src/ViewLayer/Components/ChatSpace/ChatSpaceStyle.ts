@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   ChatSpace: {
@@ -14,7 +14,7 @@ export const stylesDefault = StyleSheet.create({
   viewPadding: {},
   date: {
     alignItems: 'center',
-    padding: '1rem',
+    padding: getPx('1rem'),
   },
   dateText: {
     width: 'fit-content',

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 const stylesDefault: any = {
   Portfolio: {
@@ -56,7 +56,7 @@ const xsDevice = StyleSheet.create({
     flexDirection: 'column',
     paddingBottom: '2rem',
   },
-  ProjectInfoView: { flex: 1, paddingBottom: '1rem' },
+  ProjectInfoView: { flex: 1, paddingBottom: getPx('1rem') },
 })
 
 const smDevice = StyleSheet.create({

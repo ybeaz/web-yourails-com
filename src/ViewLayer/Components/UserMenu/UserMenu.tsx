@@ -167,7 +167,10 @@ const UserMenuComponent: UserMenuType = props => {
           userMenuButtonYrlProps: {
             key: `userMenuItem-${index}`,
             styleProps: {
-              ButtonYrl: { paddingLeft: '1rem', paddingBottom: '1rem' },
+              ButtonYrl: {
+                paddingLeft: getPx('1rem'),
+                paddingBottom: getPx('1rem'),
+              },
               title: {},
             },
             disabled: false,

@@ -1,5 +1,5 @@
 import { Platform, StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const markdownStyles: any = StyleSheet.create({
   // The main container
@@ -8,27 +8,27 @@ export const markdownStyles: any = StyleSheet.create({
   // Headings
   heading1: {
     flexDirection: 'row',
-    fontSize: 32,
+    ...styleGlobal.h1,
   },
   heading2: {
     flexDirection: 'row',
-    fontSize: 24,
+    ...styleGlobal.h2,
   },
   heading3: {
     flexDirection: 'row',
-    fontSize: 18,
+    ...styleGlobal.h3,
   },
   heading4: {
     flexDirection: 'row',
-    fontSize: 16,
+    ...styleGlobal.h4,
   },
   heading5: {
     flexDirection: 'row',
-    fontSize: 13,
+    ...styleGlobal.h5,
   },
   heading6: {
     flexDirection: 'row',
-    fontSize: 11,
+    ...styleGlobal.h6,
   },
 
   // Horizontal Rule

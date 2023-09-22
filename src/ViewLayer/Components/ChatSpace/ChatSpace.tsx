@@ -27,6 +27,7 @@ import { themes } from '../../Styles/themes'
 import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
@@ -90,8 +91,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
   let modalContentMargin: string | number = '3rem'
   let buttonTop = '0.5rem'
-  let buttonLeft = '1rem'
-  let buttonRight = '1rem'
+  let buttonLeft = getPx('1rem')
+  let buttonRight = getPx('1rem')
   if (deviceType === 'xsDevice') {
     modalContentMargin = 0
   } else if (deviceType === 'smDevice') {
@@ -102,7 +103,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   } else if (deviceType === 'mdDevice') {
     buttonTop = '0.7rem'
   } else if (deviceType === 'lgDevice' || deviceType === 'xlDevice') {
-    buttonTop = '1rem'
+    buttonTop = getPx('1rem')
   }
 
   const propsOut: Record<string, any> = {

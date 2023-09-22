@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   ProfileItem: {
     ...styleGlobal.typography,
-    paddingLeft: '1rem',
+    paddingLeft: getPx('1rem'),
   },
   rowView: {
     flexDirection: 'row',
@@ -13,7 +13,7 @@ export const style = StyleSheet.create({
   },
   column1: {
     minWidth: '2.5rem',
-    paddingRight: '1rem',
+    paddingRight: getPx('1rem'),
   },
   column2: {
     flex: 1,

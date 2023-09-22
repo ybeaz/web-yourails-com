@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 const Message: any = {
   MessageCommon: {
@@ -13,7 +13,7 @@ const Message: any = {
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
     borderBottomRightRadius: 15,
-    padding: '1rem',
+    padding: getPx('1rem'),
     maxWidth: '75%',
   },
   messageWrapperCommon: {

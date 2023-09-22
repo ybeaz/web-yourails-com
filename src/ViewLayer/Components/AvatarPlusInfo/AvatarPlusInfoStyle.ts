@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   AvatarPlusInfo: {
@@ -10,14 +10,14 @@ export const style = StyleSheet.create({
     alignItems: 'center',
   },
   avatar: {
-    paddingLeft: '1rem',
+    paddingLeft: getPx('1rem'),
   },
   ImageYrl: {},
   image: {
     borderRadius: 50,
   },
   nameStatus: {
-    paddingLeft: '1rem',
+    paddingLeft: getPx('1rem'),
   },
   name: {
     fontWeight: '600',

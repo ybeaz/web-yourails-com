@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   CompetencyTags: {
@@ -16,7 +16,7 @@ export const style = StyleSheet.create({
     lineHight: '125%',
   },
   tagListWrapper: {
-    paddingTop: '1rem',
+    paddingTop: getPx('1rem'),
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',

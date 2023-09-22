@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   TopBarChatCards: {
@@ -14,8 +14,8 @@ export const style = StyleSheet.create({
     flex: 1,
     marginTop: 0,
     marginBottom: 0,
-    marginLeft: '1rem',
-    marginRight: '1rem',
+    marginLeft: getPx('1rem'),
+    marginRight: getPx('1rem'),
   },
   InputTextYrl: {
     borderRadius: 80,
@@ -26,7 +26,7 @@ export const style = StyleSheet.create({
   },
   iconYrlWrapper: {
     position: 'absolute',
-    paddingRight: '1rem',
+    paddingRight: getPx('1rem'),
     right: 0,
     top: '20%',
     bottom: '20%',

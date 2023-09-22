@@ -18,6 +18,7 @@ import { ChatCard } from '../ChatCard/ChatCard'
 import { UserMenu } from '../UserMenu/UserMenu'
 import { ProfileSelectMenu } from '../ProfileSelectMenu/ProfileSelectMenu'
 import { getProfilesSearched } from '../../../Shared/getProfilesSearched'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { ChatCards } from '../Components/ChatCards/ChatCards'
@@ -91,7 +92,7 @@ const ChatCardsComponent: ChatCardsType = props => {
         },
         content: {},
         buttonBackWrapper: {},
-        buttonCloseWrapper: { top: '1rem', right: '1rem' },
+        buttonCloseWrapper: { top: getPx('1rem'), right: getPx('1rem') },
       },
       linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.25)'],
       isShow: isUserMenu || isProfileSelectMenu,

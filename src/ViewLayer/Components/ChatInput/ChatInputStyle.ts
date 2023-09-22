@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   ChatInput: {
@@ -9,7 +10,7 @@ export const stylesDefault = StyleSheet.create({
     alignItems: 'flex-end',
     paddingLeft: '10%',
     paddingRight: '10%',
-    paddingBottom: '1rem',
+    paddingBottom: getPx('1rem'),
   },
   inputButton: {
     justifyContent: 'flex-end',
@@ -41,7 +42,7 @@ export const stylesDefault = StyleSheet.create({
   },
   iconYrlWrapper: {
     position: 'absolute',
-    paddingRight: '1rem',
+    paddingRight: getPx('1rem'),
     right: 0,
     top: '0.5rem',
   },
@@ -49,7 +50,7 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignSelf: 'flex-start',
-    paddingLeft: '1rem',
+    paddingLeft: getPx('1rem'),
     paddingBottom: '0.3rem',
   },
   tooltipTitleWrapper: {

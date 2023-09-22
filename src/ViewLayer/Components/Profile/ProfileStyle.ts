@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   Profile: {
@@ -20,7 +20,7 @@ export const stylesDefault = StyleSheet.create({
     padding: '0.5rem',
   },
   column1: {
-    paddingRight: '1rem',
+    paddingRight: getPx('1rem'),
   },
   column2: {
     flex: 1,

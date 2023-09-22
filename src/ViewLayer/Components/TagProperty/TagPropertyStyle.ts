@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   TagProperty: {
@@ -36,7 +36,7 @@ export const style = StyleSheet.create({
   },
   tooltip_buttonYrlLinking: {},
   tooltipsText: {
-    paddingBottom: '1rem',
+    paddingBottom: getPx('1rem'),
     userSelect: 'text',
     cursor: 'text',
   },

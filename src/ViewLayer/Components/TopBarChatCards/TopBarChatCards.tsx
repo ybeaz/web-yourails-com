@@ -20,6 +20,7 @@ import { style } from './TopBarChatCardsStyle'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { TopBarChatCards } from '../Components/TopBarChatCards/TopBarChatCards'
@@ -71,7 +72,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       styleProps: {
         ButtonYrl: {
           cursor: 'pointer',
-          paddingLeft: '1rem',
+          paddingLeft: getPx('1rem'),
         },
         title: {},
       },

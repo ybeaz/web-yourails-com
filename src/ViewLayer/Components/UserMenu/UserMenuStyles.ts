@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   UserMenu: {
@@ -8,8 +8,8 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-start',
     padding: '0.5rem',
-    paddingTop: '1rem',
-    paddingBottom: '1rem',
+    paddingTop: getPx('1rem'),
+    paddingBottom: getPx('1rem'),
   },
 })
 
