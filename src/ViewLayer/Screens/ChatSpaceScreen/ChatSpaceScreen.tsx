@@ -4,7 +4,12 @@ import { View } from 'react-native'
 import {
   withParamsMediaYrl,
   mediaParamsDefault,
+  withStoreStateSliceYrl,
+  withPropsYrl,
 } from '../../../YrlNativeViewLibrary'
+
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { styles as stylesIn } from './ChatSpaceScreenStyles'
 
 import { useWidgetsScreensProps } from '../../Hooks/useWidgetsScreensProps'
 import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
@@ -13,16 +18,14 @@ import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainCo
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
-
-import { Text } from '../../Components/Text/Text'
-import { themes } from '../../Styles/themes'
 import {
   ChatSpaceScreenPropsType,
   ChatSpaceScreenPropsOutType,
   ChatSpaceScreenComponentType,
   ChatSpaceScreenType,
 } from './ChatSpaceScreenTypes'
-import { styles } from './ChatSpaceScreenStyles'
+
+import { DebugHome } from '../../Components/DebugHome/DebugHome'
 
 /**
  * @description Component to render
@@ -30,6 +33,7 @@ import { styles } from './ChatSpaceScreenStyles'
              from '../Components/ChatSpaceScreen/ChatSpaceScreen'
  */
 const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
+  const { onLayout } = props
   // const {
   //   styleProps = { ChatSpaceScreen: {} },
   //   mediaParams = mediaParamsDefault,
@@ -97,6 +101,12 @@ const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
     []
   )
 
+  const debugHomeProps = {
+    onLayout, // : () => {},
+    titleText: 'New Title 2',
+  }
+  // {props => <DebugHome {...{ ...props, ...debugHomeProps }} />}
+
   return (
     <LayoutScreen {...propsOut.layoutScreenProps}>
       {/** @description <NavigationTop /> */}
@@ -117,8 +127,26 @@ const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
   )
 }
 
-export const ChatSpaceScreen: ChatSpaceScreenType = withParamsMediaYrl(
-  React.memo(ChatSpaceScreenComponent)
+// export const ChatSpaceScreen: ChatSpaceScreenType = withParamsMediaYrl(
+//   React.memo(ChatSpaceScreenComponent)
+// )
+
+export const ChatSpaceScreen: ChatSpaceScreenType = withPropsYrl({
+  handleEvents: handleEventsProp,
+  styles: stylesIn,
+})(
+  withStoreStateSliceYrl(
+    [
+      'idProfileActive',
+      'isLeftColumn',
+      'isMainColumn',
+      'isMainColumnBlank',
+      'modalFrame',
+      'profiles',
+      'sectionsMapping',
+    ],
+    withParamsMediaYrl(React.memo(ChatSpaceScreenComponent))
+  )
 )
 
 export type {

@@ -9,6 +9,7 @@ import {
 } from '../../../YrlNativeViewLibrary'
 
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { styles as stylesIn } from './ChatCardsScreenStyles'
 
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
 import { ChatCards } from '../../Components/ChatCards/ChatCards'
@@ -23,7 +24,6 @@ import {
   ChatCardsScreenComponentType,
   ChatCardsScreenType,
 } from './ChatCardsScreenTypes'
-import { styles as stylesIn } from './ChatCardsScreenStyles'
 
 /**
  * @description Component to render
