@@ -10,14 +10,14 @@ export const style = StyleSheet.create({
     alignItems: 'center',
   },
   avatar: {
-    paddingLeft: '1rem',
+    paddingLeft: 16,
   },
   ImageYrl: {},
   image: {
     borderRadius: 50,
   },
   nameStatus: {
-    paddingLeft: '1rem',
+    paddingLeft: 16,
   },
   name: {
     fontWeight: '600',

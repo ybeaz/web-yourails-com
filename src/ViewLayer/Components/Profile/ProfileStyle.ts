@@ -10,7 +10,7 @@ export const stylesDefault = StyleSheet.create({
   },
   imageWrapper: {
     alignItems: 'center',
-    paddingBottom: '2rem',
+    paddingBottom: 32,
   },
   profileItemsWrapper: {},
   qrCodeImageWrapper: {},
@@ -20,7 +20,7 @@ export const stylesDefault = StyleSheet.create({
     padding: '0.5rem',
   },
   column1: {
-    paddingRight: '1rem',
+    paddingRight: 16,
   },
   column2: {
     flex: 1,

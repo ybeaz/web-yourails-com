@@ -91,7 +91,7 @@ const ChatCardsComponent: ChatCardsType = props => {
         },
         content: {},
         buttonBackWrapper: {},
-        buttonCloseWrapper: { top: '1rem', right: '1rem' },
+        buttonCloseWrapper: { top: 16, right: 16 },
       },
       linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.25)'],
       isShow: isUserMenu || isProfileSelectMenu,

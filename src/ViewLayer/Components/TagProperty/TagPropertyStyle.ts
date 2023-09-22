@@ -36,7 +36,7 @@ export const style = StyleSheet.create({
   },
   tooltip_buttonYrlLinking: {},
   tooltipsText: {
-    paddingBottom: '1rem',
+    paddingBottom: 16,
     userSelect: 'text',
     cursor: 'text',
   },

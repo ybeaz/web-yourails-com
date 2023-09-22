@@ -8,7 +8,7 @@ export const style = StyleSheet.create({
     justifyContent: 'flex-start',
     alignContent: 'space-around',
     alignItems: 'center',
-    paddingTop: '0.45rem',
-    paddingBottom: '0.45rem',
+    paddingTop: 8,
+    paddingBottom: 8,
   },
 })

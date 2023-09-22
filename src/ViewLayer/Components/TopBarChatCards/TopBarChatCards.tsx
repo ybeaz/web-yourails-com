@@ -71,7 +71,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       styleProps: {
         ButtonYrl: {
           cursor: 'pointer',
-          paddingLeft: '1rem',
+          paddingLeft: 16,
         },
         title: {},
       },

@@ -4,7 +4,7 @@ import { styleGlobal } from '../../Styles/styleGlobal'
 export const style = StyleSheet.create({
   NameStatus: {
     ...styleGlobal.typography,
-    paddingLeft: '1rem',
+    paddingLeft: 16,
   },
   firstRowWrapper: {
     flexDirection: 'row',

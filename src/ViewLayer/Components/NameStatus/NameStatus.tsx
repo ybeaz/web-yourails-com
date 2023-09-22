@@ -49,7 +49,7 @@ const NameStatusComponent: NameStatusComponentType = props => {
           paddingLeft: '0.25rem',
         },
       },
-      size: '1rem',
+      size: 16,
       color: styleProps.viewStyle.color,
       testID: 'iconProfileNature',
     },

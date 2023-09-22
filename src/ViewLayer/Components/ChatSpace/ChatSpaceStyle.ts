@@ -14,7 +14,7 @@ export const stylesDefault = StyleSheet.create({
   viewPadding: {},
   date: {
     alignItems: 'center',
-    padding: '1rem',
+    padding: 16,
   },
   dateText: {
     width: 'fit-content',

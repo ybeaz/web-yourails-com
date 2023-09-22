@@ -13,7 +13,7 @@ const Message: any = {
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
     borderBottomRightRadius: 15,
-    padding: '1rem',
+    padding: 16,
     maxWidth: '75%',
   },
   messageWrapperCommon: {

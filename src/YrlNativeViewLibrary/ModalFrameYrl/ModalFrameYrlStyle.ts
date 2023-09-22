@@ -16,12 +16,12 @@ export const ModalFrameYrlStyle = StyleSheet.create({
   buttonBackWrapper: {
     position: 'absolute',
     top: '0.5rem',
-    left: '1rem',
+    left: 16,
   },
   buttonCloseWrapper: {
     position: 'absolute',
     top: '0.5rem',
-    right: '1rem',
+    right: 16,
   },
   content: {
     margin: '3rem',

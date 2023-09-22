@@ -53,7 +53,7 @@ const xsDevice = StyleSheet.create({
     flexDirection: 'column',
     paddingBottom: '2.2rem',
   },
-  projectProfileView: { flex: 1, paddingBottom: '1rem' },
+  projectProfileView: { flex: 1, paddingBottom: 16 },
 })
 
 const smDevice = StyleSheet.create({
@@ -68,9 +68,9 @@ const lgDevice = StyleSheet.create({
   ...stylesDefault,
   ProjectView: {
     flexDirection: 'row',
-    paddingBottom: '2rem',
+    paddingBottom: 32,
   },
-  projectProfileView: { flex: 1, paddingLeft: '1rem' },
+  projectProfileView: { flex: 1, paddingLeft: 16 },
   rowStyle: {
     ...stylesDefault.rowStyle,
     flexDirection: 'row',

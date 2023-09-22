@@ -4,7 +4,7 @@ import { styleGlobal } from '../../Styles/styleGlobal'
 export const style = StyleSheet.create({
   ProfileItem: {
     ...styleGlobal.typography,
-    paddingLeft: '1rem',
+    paddingLeft: 16,
   },
   rowView: {
     flexDirection: 'row',
@@ -13,7 +13,7 @@ export const style = StyleSheet.create({
   },
   column1: {
     minWidth: '2.5rem',
-    paddingRight: '1rem',
+    paddingRight: 16,
   },
   column2: {
     flex: 1,

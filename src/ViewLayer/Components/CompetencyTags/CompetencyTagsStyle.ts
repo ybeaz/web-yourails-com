@@ -16,7 +16,7 @@ export const style = StyleSheet.create({
     lineHight: '125%',
   },
   tagListWrapper: {
-    paddingTop: '1rem',
+    paddingTop: 16,
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',

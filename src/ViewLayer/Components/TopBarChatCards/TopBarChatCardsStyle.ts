@@ -14,8 +14,8 @@ export const style = StyleSheet.create({
     flex: 1,
     marginTop: 0,
     marginBottom: 0,
-    marginLeft: '1rem',
-    marginRight: '1rem',
+    marginLeft: 16,
+    marginRight: 16,
   },
   InputTextYrl: {
     borderRadius: 80,
@@ -26,7 +26,7 @@ export const style = StyleSheet.create({
   },
   iconYrlWrapper: {
     position: 'absolute',
-    paddingRight: '1rem',
+    paddingRight: 16,
     right: 0,
     top: '20%',
     bottom: '20%',

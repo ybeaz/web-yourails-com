@@ -9,7 +9,7 @@ export const stylesDefault = StyleSheet.create({
     alignItems: 'flex-end',
     paddingLeft: '10%',
     paddingRight: '10%',
-    paddingBottom: '1rem',
+    paddingBottom: 16,
   },
   inputButton: {
     justifyContent: 'flex-end',
@@ -22,7 +22,7 @@ export const stylesDefault = StyleSheet.create({
   inputText: {
     borderRadius: 10,
     width: '80vw',
-    paddingRight: '2rem',
+    paddingRight: 32,
   },
   inputTextResize: {
     maxWidth: '80vw',
@@ -41,7 +41,7 @@ export const stylesDefault = StyleSheet.create({
   },
   iconYrlWrapper: {
     position: 'absolute',
-    paddingRight: '1rem',
+    paddingRight: 16,
     right: 0,
     top: '0.5rem',
   },
@@ -49,7 +49,7 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignSelf: 'flex-start',
-    paddingLeft: '1rem',
+    paddingLeft: 16,
     paddingBottom: '0.3rem',
   },
   tooltipTitleWrapper: {

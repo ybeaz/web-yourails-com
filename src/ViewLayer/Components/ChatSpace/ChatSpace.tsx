@@ -90,19 +90,19 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
   let modalContentMargin: string | number = '3rem'
   let buttonTop = '0.5rem'
-  let buttonLeft = '1rem'
-  let buttonRight = '1rem'
+  let buttonLeft = 16
+  let buttonRight = 16
   if (deviceType === 'xsDevice') {
     modalContentMargin = 0
   } else if (deviceType === 'smDevice') {
-    modalContentMargin = '2rem'
+    modalContentMargin = 32
     buttonTop = '0.25rem'
     buttonLeft = '0.5rem'
     buttonRight = '0.5rem'
   } else if (deviceType === 'mdDevice') {
     buttonTop = '0.7rem'
   } else if (deviceType === 'lgDevice' || deviceType === 'xlDevice') {
-    buttonTop = '1rem'
+    buttonTop = 16
   }
 
   const propsOut: Record<string, any> = {

@@ -15,7 +15,7 @@ export const stylesDefault = StyleSheet.create({
     paddingLeft: '1.5rem',
   },
   avatar: {
-    paddingLeft: '1rem',
+    paddingLeft: 16,
   },
   ImageYrl: {},
   image: {
@@ -24,7 +24,7 @@ export const stylesDefault = StyleSheet.create({
     borderRadius: 50,
   },
   nameStatus: {
-    paddingLeft: '1rem',
+    paddingLeft: 16,
   },
   name: {
     fontWeight: '600',
@@ -35,7 +35,7 @@ export const stylesDefault = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   serviceSpec: {
-    paddingLeft: '2rem',
+    paddingLeft: 32,
   },
   serviceSpecText: {},
 })

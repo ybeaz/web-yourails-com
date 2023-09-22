@@ -94,7 +94,7 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
     tagPropertyProps: {},
     headerProps: {
       styleProps: {
-        Header: { paddingBottom: '1rem' },
+        Header: { paddingBottom: 16 },
         headerText: {},
       },
       mediaParams: { deviceType: '' },
