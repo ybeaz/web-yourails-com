@@ -31,7 +31,6 @@ import { styles as stylesIn } from './ChatCardsScreenStyles'
              from '../Components/ChatCardsScreen/ChatCardsScreen'
  */
 const ChatCardsScreenComponent: ChatCardsScreenComponentType = props => {
-  const { onLayout } = props
   const propsOut: ChatCardsScreenPropsOutType = useWidgetsScreensProps(props)
 
   const ChatCardsHeader = useMemo(
@@ -57,12 +56,6 @@ const ChatCardsScreenComponent: ChatCardsScreenComponentType = props => {
     ),
     []
   )
-
-  const debugHomeProps = {
-    onLayout, // : () => {},
-    titleText: 'New Title 2',
-  }
-  // {props => <DebugHome {...{ ...props, ...debugHomeProps }} />}
 
   return (
     // <DebugHome {...debugHomeProps} />

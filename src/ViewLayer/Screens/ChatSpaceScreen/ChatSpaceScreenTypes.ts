@@ -3,6 +3,7 @@ import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 export interface ChatSpaceScreenPropsType {
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
+  onLayout?: () => void
 }
 
 export type ChatSpaceScreenPropsOutType = Record<string, any>

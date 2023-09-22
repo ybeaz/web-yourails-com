@@ -5,12 +5,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { DebugHome } from '../ViewLayer/Components/DebugHome/DebugHome'
 import { DebugProfile } from '../ViewLayer/Components/DebugProfile/DebugProfile'
-import {
-  ChatCardsScreen,
-  ChatCardsScreenPropsType,
-  ChatCardsScreenPropsOutType,
-  ChatCardsScreenType,
-} from '../ViewLayer/Screens/ChatCardsScreen/ChatCardsScreen'
+import { NavigationMobileOutPropsType } from './NavigationTypes'
+import { ChatCardsScreen } from '../ViewLayer/Screens/ChatCardsScreen/ChatCardsScreen'
+import { ChatSpaceScreen } from '../ViewLayer/Screens/ChatSpaceScreen/ChatSpaceScreen'
 
 const Stack = createNativeStackNavigator()
 
@@ -25,10 +22,7 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
   const isHermes = () => !!global.HermesInternal
   console.info('Is Hermes enabled ' + isHermes())
 
-  const chatCardsScreenProps = {
-    onLayout,
-  }
-
+  // TODO Remove debug props
   const debugHomeProps = {
     onLayout,
     titleText: 'New Title 2',
@@ -40,15 +34,34 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
     titleText: 'New Title 2',
   }
 
+  const propsOut: NavigationMobileOutPropsType = {
+    chatCardsScreenProps: {
+      onLayout,
+    },
+    chatSpaceScreenProps: {
+      onLayout: () => {},
+    },
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name='Home'>
+        <Stack.Screen name='ChatCardsScreen'>
           {props => (
-            <ChatCardsScreen {...{ ...props, ...chatCardsScreenProps }} />
+            <ChatCardsScreen
+              {...{ ...props, ...propsOut.chatCardsScreenProps }}
+            />
           )}
-          {/* {props => <DebugHome {...{ ...props, ...debugHomeProps }} />} */}
         </Stack.Screen>
+
+        <Stack.Screen name='ChatSpaceScreen'>
+          {props => (
+            <ChatSpaceScreen
+              {...{ ...props, ...propsOut.chatSpaceScreenProps }}
+            />
+          )}
+        </Stack.Screen>
+
         <Stack.Screen name='Profile'>
           {props => <DebugProfile {...{ ...props, ...debugProfileProps }} />}
         </Stack.Screen>

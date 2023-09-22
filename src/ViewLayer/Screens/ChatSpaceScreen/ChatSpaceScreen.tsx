@@ -6,6 +6,7 @@ import {
   mediaParamsDefault,
 } from '../../../YrlNativeViewLibrary'
 
+import { useWidgetsScreensProps } from '../../Hooks/useWidgetsScreensProps'
 import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
 import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
@@ -29,14 +30,16 @@ import { styles } from './ChatSpaceScreenStyles'
              from '../Components/ChatSpaceScreen/ChatSpaceScreen'
  */
 const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
-  const {
-    styleProps = { ChatSpaceScreen: {} },
-    mediaParams = mediaParamsDefault,
-  } = props
-  const { deviceType, screenCase, width, height } = mediaParams
-  const style = styles[deviceType]
+  // const {
+  //   styleProps = { ChatSpaceScreen: {} },
+  //   mediaParams = mediaParamsDefault,
+  //   onLayout
+  // } = props
+  // const { deviceType, screenCase, width, height } = mediaParams
+  // const style = styles[deviceType]
+  const propsOut: ChatSpaceScreenPropsOutType = useWidgetsScreensProps(props)
 
-  const propsOut: ChatSpaceScreenPropsOutType = {}
+  // const propsOut: ChatSpaceScreenPropsOutType = {}
 
   const ChatSpaceHeader = (
     <View
@@ -107,7 +110,6 @@ const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
       {/** @description <NavigationBottom /> */}
       {!propsOut.isShowModalFrame && (
         <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
-          {null}
           {ChatSpaceFooter}
         </LayoutOfRow>
       )}
