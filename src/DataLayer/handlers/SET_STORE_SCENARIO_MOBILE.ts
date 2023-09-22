@@ -21,7 +21,7 @@ const { dispatch, getState } = store
 export const SET_STORE_SCENARIO_MOBILE: ActionEventType = (event, data) => {
   const { navigation } = data
   const {
-    globalVars: { idUserHost, idProfile },
+    globalVars: { idUserHost, idProfileActive },
   } = getState()
 
   let hostname = HOST_NAME
@@ -34,7 +34,7 @@ export const SET_STORE_SCENARIO_MOBILE: ActionEventType = (event, data) => {
     isShowApp: isShowAppNext,
     idUserHost: idUserHostNext,
     idUser: idUserNext,
-    idProfile: idProfileNext,
+    idProfileActive: idProfileActiveNext,
     isLeftColumn: isLeftColumnNext,
     isMainColumn: isMainColumnNext,
     isMainColumnBlank: isMainColumnBlankNext,
@@ -46,27 +46,29 @@ export const SET_STORE_SCENARIO_MOBILE: ActionEventType = (event, data) => {
     isShowApp: true,
     idUserHost,
     idUser: undefined,
-    idProfile: undefined,
+    idProfileActive,
     isLeftColumn: true,
-    isMainColumn: false,
-    isMainColumnBlank: true,
+    isMainColumn: true,
+    isMainColumnBlank: false,
     modalFrame: false,
   }
 
   dispatch(actionSync.ADD_NAVIGATION_MOBILE({ navigation }))
   dispatch(actionSync.SET_ID_USER_HOST({ idUserHost: idUserHostNext }))
-  dispatch(actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: idProfileNext }))
+  dispatch(
+    actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: idProfileActiveNext })
+  )
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
-  if (idProfile === idProfileNext) return
+  if (idProfileActive === idProfileActiveNext) return
 
   dispatch(
     actionSync.SET_ID_PROFILE_ACTIVE({
-      idProfileActive: idProfileNext,
+      idProfileActive: idProfileActiveNext,
     })
   )
 }

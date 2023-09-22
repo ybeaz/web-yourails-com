@@ -39,7 +39,7 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
       onLayout,
     },
     chatSpaceScreenProps: {
-      onLayout: () => {},
+      onLayout,
     },
   }
 

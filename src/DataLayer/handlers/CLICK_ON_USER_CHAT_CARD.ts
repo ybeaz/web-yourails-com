@@ -27,20 +27,18 @@ export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
 
   getSocketEmitJoinConversation(idProfileHost, idProfile)
 
-  const getPathNameForReplaceProps = {
-    urlParam1,
-    urlParam2,
-    profileName,
-    query,
-  }
-
   console.info('CLICK_ON_USER_CHAT_CARD [39]', { navigation })
 
-  const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
-
   if (platformOS === 'web') {
+    const getPathNameForReplaceProps = {
+      urlParam1,
+      urlParam2,
+      profileName,
+      query,
+    }
+    const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
     getRedirected(pathnameNext, { platformOS, replace: true })
   } else {
-    navigation.navigate('Profile', { profile: '1' })
+    navigation.navigate('ChatSpaceScreen')
   }
 }

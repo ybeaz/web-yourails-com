@@ -34,16 +34,7 @@ import { DebugHome } from '../../Components/DebugHome/DebugHome'
  */
 const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
   const { onLayout } = props
-  // const {
-  //   styleProps = { ChatSpaceScreen: {} },
-  //   mediaParams = mediaParamsDefault,
-  //   onLayout
-  // } = props
-  // const { deviceType, screenCase, width, height } = mediaParams
-  // const style = styles[deviceType]
   const propsOut: ChatSpaceScreenPropsOutType = useWidgetsScreensProps(props)
-
-  // const propsOut: ChatSpaceScreenPropsOutType = {}
 
   const ChatSpaceHeader = (
     <View
@@ -105,10 +96,11 @@ const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
     onLayout, // : () => {},
     titleText: 'New Title 2',
   }
-  // {props => <DebugHome {...{ ...props, ...debugHomeProps }} />}
+  // <DebugHome {...{ ...props, ...debugHomeProps }} />
 
   return (
     <LayoutScreen {...propsOut.layoutScreenProps}>
+      {/* <DebugHome {...{ ...props, ...debugHomeProps }} /> */}
       {/** @description <NavigationTop /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
         {ChatSpaceHeader}
@@ -126,10 +118,6 @@ const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
     </LayoutScreen>
   )
 }
-
-// export const ChatSpaceScreen: ChatSpaceScreenType = withParamsMediaYrl(
-//   React.memo(ChatSpaceScreenComponent)
-// )
 
 export const ChatSpaceScreen: ChatSpaceScreenType = withPropsYrl({
   handleEvents: handleEventsProp,

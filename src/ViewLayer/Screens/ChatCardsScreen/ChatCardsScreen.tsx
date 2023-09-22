@@ -3,7 +3,6 @@ import { View } from 'react-native'
 
 import {
   withParamsMediaYrl,
-  mediaParamsDefault,
   withStoreStateSliceYrl,
   withPropsYrl,
 } from '../../../YrlNativeViewLibrary'
@@ -16,7 +15,6 @@ import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
 import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'
 import { useWidgetsScreensProps } from '../../Hooks/useWidgetsScreensProps'
-import { DebugHome } from '../../Components/DebugHome/DebugHome'
 
 import {
   ChatCardsScreenPropsType,

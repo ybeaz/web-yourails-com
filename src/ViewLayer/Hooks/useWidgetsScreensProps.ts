@@ -44,6 +44,8 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
   } = props
   const { deviceType } = mediaParams
   const { urlParam1, urlParam2, urlParam3 } = urlParams
+    ? urlParams
+    : urlParamsDefault
 
   const style = styles[deviceType]
 
@@ -58,6 +60,8 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     profiles,
     sectionsMapping,
   } = storeStateSlice
+
+  console.info('useWidgetsScreensProps [62]', props)
 
   const { isShow: isShowModalFrame } = modalFrame
 
