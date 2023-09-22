@@ -21,6 +21,7 @@ import { themes } from '../../Styles/themes'
 import { TriangleCorner } from '../TriangleCorner/TriangleCorner'
 import { LOCALE, TIME_FORMAT } from '../../../Constants/locale.const'
 import { isValidJsonString } from '../../../Shared/isValidJsonString'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { Message } from '../Message/Message'
@@ -139,8 +140,8 @@ const MessageComponent: MessageComponentType = props => {
       styleProps: {
         ImageYrl: { paddingRight: '0.5rem' },
         image: {
-          height: '4rem',
-          width: '4rem',
+          height: getPx('4rem'),
+          width: getPx('4rem'),
         },
       },
       testID: 'pendingImageYrl',

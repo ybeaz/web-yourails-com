@@ -16,6 +16,7 @@ import { getSocketOnMessage } from '../../CommunicationLayer/socketio/getSocketO
 import { getSocketOnPending } from '../../CommunicationLayer/socketio/getSocketOnPending'
 import { getProfileByIdProfile } from '../../Shared/getProfileByIdProfile'
 import { getSectionsMappingForProfile } from '../../Shared/getSectionsMappingForProfile'
+import { getPx } from '../Styles/styleGlobal'
 
 export type useWidgetsScreensPropsPropsType = Record<string, any>
 
@@ -147,13 +148,15 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
       styleProps: {
         LayoutScreen: {},
         layoutNavigationTop: {
-          height: sectionsMappingForProfile.length ? '6rem' : '4rem',
+          height: sectionsMappingForProfile.length
+            ? getPx('6rem')
+            : getPx('4rem'),
         },
         layoutMainContent: {
-          top: sectionsMappingForProfile.length ? '6rem' : '4rem',
-          bottom: isShowModalFrame ? 0 : '4rem',
+          top: sectionsMappingForProfile.length ? getPx('6rem') : getPx('4rem'),
+          bottom: isShowModalFrame ? 0 : getPx('4rem'),
         },
-        layoutNavigationBottom: { height: '6rem' },
+        layoutNavigationBottom: { height: getPx('6rem') },
       },
       isActive: profiles.length ? true : false,
       onLayout,

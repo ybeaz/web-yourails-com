@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   navigationTop: {
@@ -60,7 +61,7 @@ export const stylesDefault = StyleSheet.create({
     flex: 1,
   },
   chatInput: {
-    height: '6rem',
+    height: getPx('6rem'),
     bottom: 0,
     width: '100%',
   },
