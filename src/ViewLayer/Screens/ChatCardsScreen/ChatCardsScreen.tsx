@@ -30,6 +30,7 @@ import {
  */
 const ChatCardsScreenComponent: ChatCardsScreenComponentType = props => {
   const propsOut: ChatCardsScreenPropsOutType = useWidgetsScreensProps(props)
+  console.info('ChatCardsScreen [33]', propsOut)
 
   const ChatCardsHeader = useMemo(
     () => (
