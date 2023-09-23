@@ -1,284 +1,48 @@
-import React, { useRef, useEffect, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import { View } from 'react-native'
 
 import {
-  mediaParamsDefault,
-  urlParamsDefault,
   withParamsMediaYrl,
   withPropsYrl,
   withStoreStateSliceYrl,
 } from '../../../YrlNativeViewLibrary'
 
-import { PageChatsWholeScreenType } from './PageChatsWholeScreenType'
-import { SectionMappingType } from '../../../@types/SectionMappingType'
-import { ProfileType } from '../../../@types/GraphqlTypes'
-
+import {
+  PageChatsWholeScreenPropsOutType,
+  PageChatsWholeScreenType,
+} from './PageChatsWholeScreenType'
 import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
 import { LayoutOfRow } from '../../Frames/LayoutOfRow/LayoutOfRow'
-import { ChatCards } from '../../Components/ChatCards/ChatCards'
-import { ChatInput } from '../../Components/ChatInput/ChatInput'
-import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
-import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
-import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMappingForProfile'
-import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { styles } from './PageChatsWholeScreenStyle'
-import { themes } from '../../Styles/themes'
 import { TopBarChatCards } from '../../Components/TopBarChatCards/TopBarChatCards'
+import { ChatCards } from '../../Components/ChatCards/ChatCards'
 import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainColumn'
-import { getSocketOnConversation } from '../../../CommunicationLayer/socketio/getSocketOnConversation'
-import { getSocketDisconnected } from '../../../CommunicationLayer/socketio/getSocketDisconnected'
-import { getSocketOnMessage } from '../../../CommunicationLayer/socketio/getSocketOnMessage'
-import { getSocketOnPending } from '../../../CommunicationLayer/socketio/getSocketOnPending'
-import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
+import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
+import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
+import { ChatInput } from '../../Components/ChatInput/ChatInput'
+import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { styles as stylesIn } from './PageChatsWholeScreenStyle'
+import { useWidgetsScreensProps } from '../../Hooks/useWidgetsScreensProps'
 
 const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
-  const {
-    styleProps = { PageChatsWholeScreen: {} },
-    mediaParams = mediaParamsDefault,
-    urlParams = urlParamsDefault,
-    urlParamsSearch,
-    handleEvents,
-    storeStateSlice,
-  } = props
-  const { deviceType } = mediaParams
-  const { urlParam1, urlParam2, urlParam3 } = urlParams
+  const propsOut: PageChatsWholeScreenPropsOutType =
+    useWidgetsScreensProps(props)
 
-  const style = styles[deviceType]
-
-  const renderCounter = useRef(0)
-
-  const {
-    idProfileActive,
-    isLeftColumn,
-    isMainColumn,
-    isMainColumnBlank,
-    modalFrame,
-    profiles,
-    sectionsMapping,
-  } = storeStateSlice
-
-  const { isShow: isShowModalFrame } = modalFrame
-
-  const query = {
-    s: urlParamsSearch.get('s'),
-    code: urlParamsSearch.get('code'),
-  }
-
-  const profileActive: ProfileType = getProfileByIdProfile(
-    profiles,
-    idProfileActive
-  )
-
-  const profileNameChat = profileActive ? profileActive.profileName : undefined
-
-  const sectionsMappingForProfile: SectionMappingType[] =
-    getSectionsMappingForProfile(sectionsMapping, profileNameChat)
-
-  const urlParamsMediaIdentifier = JSON.stringify({
-    urlParam1,
-    urlParam2,
-    urlParam3,
-    deviceType,
-    sectionsMappingForProfile,
-    profilesLen: profiles.length,
-  })
-
-  useEffect(() => {
-    if (renderCounter.current === 0) {
-      /** @description Add socket.io listeners **/
-      getSocketOnConversation()
-      getSocketOnMessage()
-      getSocketOnPending()
-
-      /** @description Obtaining a user data, loading profiles, messages, etc. as a first step. **/
-      handleEvents.INIT_LOADING({}, { query })
-
-      /** @description Add the 'beforeunload' event listener to gracefully disconnect when reloading the page */
-      window.addEventListener('beforeunload', getSocketDisconnected)
-    }
-
-    renderCounter.current = renderCounter.current + 1
-
-    /** @description Clean up the event listener when the component unmounts */
-    return () => {
-      window.removeEventListener('beforeunload', getSocketDisconnected)
-    }
-  }, [])
-
-  useEffect(() => {
-    handleEvents.SET_STORE_SCENARIO(
-      {},
-      {
-        urlParam1,
-        urlParam2,
-        urlParam3,
-        query,
-        deviceType,
-        sectionsMappingForProfile,
-      }
-    )
-  }, [urlParamsMediaIdentifier])
-
-  const layoutOfRowProps = {
-    isLeftColumn,
-    isMainColumn,
-    styleProps: {
-      LayoutOfRow: style.layoutOfRow,
-    },
-  }
-
-  const propsOut: Record<string, any> = {
-    layoutScreenProps: {
-      styleProps: {
-        LayoutScreen: {},
-        layoutNavigationTop: {
-          height: sectionsMappingForProfile.length ? '6rem' : '4rem',
-        },
-        layoutMainContent: {
-          top: sectionsMappingForProfile.length ? '6rem' : '4rem',
-          bottom: isShowModalFrame ? 0 : '4rem',
-        },
-        layoutNavigationBottom: { height: '6rem' },
-      },
-      isActive: profiles.length ? true : false,
-    },
-    layoutOfRowNavigationTopProps: {
-      ...layoutOfRowProps,
-      styleProps: {
-        LayoutOfRow: {
-          ...layoutOfRowProps.styleProps.LayoutOfRow,
-        },
-        leftColumn: {
-          borderStyle: 'solid',
-          // borderTopWidth: 1,
-          borderRightWidth: isMainColumnBlank ? 1 : 0,
-          // borderBottomWidth: 1,
-          borderLeftWidth: 1,
-          borderColor: themes['themeA'].colors01.borderColor,
-        },
-        mainColumn: {
-          borderStyle: 'solid',
-          // borderTopWidth: 1,
-          borderRightWidth: 1,
-          // borderBottomWidth: 1,
-          // borderLeftWidth: 1,
-          borderColor: themes['themeA'].colors01.borderColor,
-        },
-      },
-    },
-    layoutOfRowMainContentProps: {
-      ...layoutOfRowProps,
-      styleProps: {
-        LayoutOfRow: {
-          ...layoutOfRowProps.styleProps.LayoutOfRow,
-        },
-        leftColumn: {
-          borderStyle: 'solid',
-          // borderTopWidth: 1,
-          // borderRightWidth: 1,
-          // borderBottomWidth: 1,
-          borderLeftWidth: 1,
-          borderColor: themes['themeA'].colors01.borderColor,
-        },
-        mainColumn: {
-          borderStyle: 'solid',
-          borderTopWidth:
-            !isMainColumnBlank && sectionsMappingForProfile.length ? 1 : 0,
-          borderRightWidth: 1,
-          // borderBottomWidth: 1,
-          borderLeftWidth: 1,
-          borderColor: themes['themeA'].colors01.borderColor,
-        },
-      },
-    },
-    layoutOfRowNavigationBottomProps: {
-      ...layoutOfRowProps,
-      styleProps: {
-        LayoutOfRow: {
-          ...layoutOfRowProps.styleProps.LayoutOfRow,
-        },
-        leftColumn: {
-          borderStyle: 'solid',
-          // borderTopWidth: 1,
-          // borderRightWidth: 1,
-          // borderBottomWidth: 1,
-          borderLeftWidth: 1,
-          borderColor: themes['themeA'].colors01.borderColor,
-        },
-        mainColumn: {
-          borderStyle: 'solid',
-          // borderTopWidth: 1,
-          borderRightWidth: 1,
-          // borderBottomWidth: 1,
-          borderLeftWidth: 1,
-          borderColor: themes['themeA'].colors01.borderColor,
-        },
-      },
-    },
-    mainColumnContentMenuProps: {
-      styleProps: {
-        buttonWrapper: {
-          borderTopWidth: 0,
-          borderRightWidth: 0,
-          borderBottomWidth: 0,
-          borderLeftWidth: 1,
-          borderTopColor: themes['themeA'].colors01.borderColor,
-          borderRightColor: themes['themeA'].colors01.borderColor,
-          borderBottomColor: themes['themeA'].colors01.borderColor,
-          borderLeftColor: themes['themeA'].colors01.borderColor,
-        },
-      },
-    },
-  }
-
-  const TopBarChatCardsElement = useMemo(
+  const ChatCardsHeader = useMemo(
     () => (
-      <View style={[style.leftColumnTopBars]} testID='leftColumnTopBars'>
+      <View
+        style={[propsOut.style.leftColumnTopBars]}
+        testID='leftColumnTopBars'
+      >
         <TopBarChatCards />
       </View>
     ),
     []
   )
 
-  const MainColumnTopBars = (
-    <View
-      style={[style.mainColumnTopBars, themes['themeA'].colors03]}
-      testID='mainColumnTopBars'
-    >
-      {!isMainColumnBlank ? (
-        <View
-          style={[
-            style.mainColumnTopBar,
-            {
-              borderStyle: 'solid',
-              // borderTopWidth: 1,
-              // borderRightWidth: 1,
-              borderBottomWidth: 1,
-              borderLeftWidth: 1,
-            },
-            themes['themeA'].colors01,
-          ]}
-          testID='mainColumnTopBar'
-        >
-          <TopBarMainColumn />
-        </View>
-      ) : null}
-
-      {!isMainColumnBlank && sectionsMappingForProfile.length ? (
-        <View
-          style={[style.mainColumnContentMenu, themes['themeA'].colors01]}
-          testID='mainColumnContentMenu'
-        >
-          <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
-        </View>
-      ) : null}
-    </View>
-  )
-
-  const ChatCardsElement = useMemo(
+  const ChatCardsBody = useMemo(
     () => (
       <View
-        style={[style.leftColumnChatCardSpace]}
+        style={[propsOut.style.leftColumnChatCardSpace]}
         testID='leftColumnChatCardSpace'
       >
         <ChatCards />
@@ -287,12 +51,54 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     []
   )
 
-  const ChatSpaceElement = useMemo(() => <ChatSpace />, [])
+  const ChatSpaceHeader = (
+    <View
+      style={[
+        propsOut.style.ChatSpaceHeader,
+        propsOut.themes['themeA'].colors03,
+      ]}
+      testID='ChatSpaceHeader'
+    >
+      {!propsOut.isMainColumnBlank ? (
+        <View
+          style={[
+            propsOut.style.mainColumnTopBar,
+            {
+              borderStyle: 'solid',
+              // borderTopWidth: 1,
+              // borderRightWidth: 1,
+              borderBottomWidth: 1,
+              borderLeftWidth: 1,
+            },
+            propsOut.themes['themeA'].colors01,
+          ]}
+          testID='mainColumnTopBar'
+        >
+          <TopBarMainColumn />
+        </View>
+      ) : null}
 
-  const ChatInputElement = useMemo(
+      {!propsOut.isMainColumnBlank &&
+      propsOut.sectionsMappingForProfile.length ? (
+        <View
+          style={[
+            propsOut.style.mainColumnContentMenu,
+            propsOut.themes['themeA'].colors01,
+          ]}
+          testID='mainColumnContentMenu'
+        >
+          <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
+        </View>
+      ) : null}
+    </View>
+  )
+
+  const ChatSpaceBody = useMemo(() => <ChatSpace />, [])
+
+  const ChatSpaceFooter = useMemo(
     () => (
       <View
-        style={[style.chatInput, themes['themeA'].colors03]}
+        style={[propsOut.style.chatInput, propsOut.themes['themeA'].colors03]}
         testID='chatInput'
       >
         <ChatInput />
@@ -305,27 +111,28 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     <LayoutScreen {...propsOut.layoutScreenProps}>
       {/** @description <NavigationTop /> */}
       <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
-        {TopBarChatCardsElement}
-        {MainColumnTopBars}
+        {ChatCardsHeader}
+        {ChatSpaceHeader}
       </LayoutOfRow>
       {/** @description <MainContent /> */}
       <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
-        {ChatCardsElement}
-        {ChatSpaceElement}
+        {ChatCardsBody}
+        {ChatSpaceBody}
       </LayoutOfRow>
       {/** @description <NavigationBottom /> */}
-      {!isShowModalFrame && (
+      {!propsOut.isShowModalFrame ? (
         <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
           {null}
-          {ChatInputElement}
+          {ChatSpaceFooter}
         </LayoutOfRow>
-      )}
+      ) : null}
     </LayoutScreen>
   )
 }
 
 export const PageChatsWholeScreen = withPropsYrl({
   handleEvents: handleEventsProp,
+  styles: stylesIn,
 })(
   withStoreStateSliceYrl(
     [
@@ -340,3 +147,5 @@ export const PageChatsWholeScreen = withPropsYrl({
     withParamsMediaYrl(React.memo(PageChatsWholeScreenComponent))
   )
 )
+
+export type { PageChatsWholeScreenPropsOutType, PageChatsWholeScreenType }

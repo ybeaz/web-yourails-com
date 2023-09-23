@@ -1,7 +1,7 @@
 import { RootStoreType } from '../../../@types/RootStoreType'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
 
-export interface ContentMenuMainColumnPropsType {
+export type ContentMenuMainColumnPropsType = {
   styleProps?: {
     ContentMenuMainColumn: any
     buttonWrapper: any
@@ -10,6 +10,8 @@ export interface ContentMenuMainColumnPropsType {
   store: RootStoreType
   handleEvents: any
 }
+
+export type ContentMenuMainColumnPropsOutType = Record<string, any>
 
 /**
  * @import import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'

@@ -1,13 +1,13 @@
 import { ReactElement } from 'react'
 
-export interface LayoutOfRowPropsType {
+export type LayoutOfRowPropsType = {
   styleProps?: { LayoutOfRow: any; leftColumn: any; mainColumn: any }
   isLeftColumn?: boolean
   isMainColumn?: boolean
-  children?: ReactElement[]
+  children?: (ReactElement | null)[]
 }
 
-export type LayoutOfRowPropsOutType = Record<string, any>
+export type LayoutOfRowPropsOutType = any
 
 /**
  * @import import { LayoutOfRowType } from './LayoutOfRowType'

@@ -1,26 +1,26 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 const Message: any = {
   MessageCommon: {
     ...styleGlobal.typography,
     flexDirection: 'row',
     alignItems: 'flex-end',
-    marginBottom: '0.5rem',
+    marginBottom: getPx('0.5rem'),
   },
   contentCommon: {
     width: 'fit-content',
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
     borderBottomRightRadius: 15,
-    padding: '1rem',
+    padding: getPx('1rem'),
     maxWidth: '75%',
   },
   messageWrapperCommon: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingBottom: '0.25rem',
+    paddingBottom: getPx('0.25rem'),
   },
   textCommon: {},
   dateStringCommon: {
@@ -43,7 +43,7 @@ export const stylesDefault: any = {
     dateString: Message.dateStringCommon,
     copyThis: {
       marginRight: '-0.75rem',
-      paddingTop: '0.5rem',
+      paddingTop: getPx('0.5rem'),
     },
   },
   right: {
@@ -59,7 +59,7 @@ export const stylesDefault: any = {
     dateString: Message.dateStringCommon,
     copyThis: {
       marginRight: '-0.75rem',
-      paddingTop: '0.5rem',
+      paddingTop: getPx('0.5rem'),
     },
   },
   roundAllCorners: {
@@ -98,7 +98,7 @@ const lgDevice = StyleSheet.create({
     text: Message.textCommon,
     dateString: Message.dateStringCommon,
     copyThis: {
-      paddingLeft: '0.25rem',
+      paddingLeft: getPx('0.25rem'),
     },
   },
   right: {

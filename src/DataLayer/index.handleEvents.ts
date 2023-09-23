@@ -1,4 +1,5 @@
 import { TEMPLATE } from './handlers/TEMPLATE'
+import { SET_STORE_SCENARIO_MOBILE } from './handlers/SET_STORE_SCENARIO_MOBILE'
 import { CLICK_ON_PASTE_FROM_CLOPBOARD } from './handlers/CLICK_ON_PASTE_FROM_CLOPBOARD'
 import { CLICK_ON_PROMPT_EXAMPLE } from './handlers/CLICK_ON_PROMPT_EXAMPLE'
 import { CLICK_ON_SIGN_OUT } from './handlers/CLICK_ON_SIGN_OUT'
@@ -15,7 +16,7 @@ import { ADD_PROJECTS } from './handlers/ADD_PROJECTS'
 import { ADD_COMPETENCY_TAGS } from './handlers/ADD_COMPETENCY_TAGS'
 import { ON_CHANGE_INPUT_SEARCH } from './handlers/ON_CHANGE_INPUT_SEARCH'
 import { ON_CHANGE_INPUT_CHAT } from './handlers/ON_CHANGE_INPUT_CHAT'
-import { SET_STORE_SCENARIO } from './handlers/SET_STORE_SCENARIO'
+import { SET_STORE_SCENARIO_WEB } from './handlers/SET_STORE_SCENARIO_WEB'
 import { CLICK_ON_USER_CHAT_CARD } from './handlers/CLICK_ON_USER_CHAT_CARD'
 import { CLICK_TOGGLE_SIDEBAR_MAIN } from './handlers/CLICK_TOGGLE_SIDEBAR_MAIN'
 import { DEV_STAGE } from './handlers/DEV_STAGE'
@@ -46,7 +47,8 @@ export const handleEvents: HandleEventsType = {
   ADD_COMPETENCY_TAGS,
   ON_CHANGE_INPUT_SEARCH,
   ON_CHANGE_INPUT_CHAT,
-  SET_STORE_SCENARIO,
+  SET_STORE_SCENARIO_MOBILE,
+  SET_STORE_SCENARIO_WEB,
   CLICK_ON_USER_CHAT_CARD,
   CLICK_TOGGLE_SIDEBAR_MAIN,
   DEV_STAGE,

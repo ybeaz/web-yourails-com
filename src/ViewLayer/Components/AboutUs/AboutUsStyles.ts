@@ -1,16 +1,16 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   AboutUs: {
     ...styleGlobal.typography,
     flexDirection: 'column',
-    paddingTop: '1rem',
-    paddingBottom: '1rem',
+    paddingTop: getPx('1rem'),
+    paddingBottom: getPx('1rem'),
   },
-  header3Header: { padding: '1rem', paddingTop: '1rem' },
+  header3Header: { padding: getPx('1rem'), paddingTop: getPx('1rem') },
   header3HeaderText: styleGlobal.h3,
-  viewWrapper: { padding: '1rem', flexDirection: 'row' },
+  viewWrapper: { padding: getPx('1rem'), flexDirection: 'row' },
   header4Header: { flex: 2 },
   header4HeaderText: { ...styleGlobal.h4 },
   text: {

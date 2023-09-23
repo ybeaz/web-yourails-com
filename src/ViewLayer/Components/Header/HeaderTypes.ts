@@ -6,7 +6,7 @@ export interface HeaderPropsType {
   mediaParams?: MediaParamsDefaultType
   headerText?: string
   children?: string | ReactElement
-  testID?: string
+  testID: string
 }
 
 /**

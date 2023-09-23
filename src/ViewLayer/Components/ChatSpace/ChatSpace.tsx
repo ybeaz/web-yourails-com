@@ -27,6 +27,7 @@ import { themes } from '../../Styles/themes'
 import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
@@ -88,21 +89,21 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const scrollViewRef = React.useRef<ScrollView>(null)
   const dateString = getDateLocale(+new Date())
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
-  let modalContentMargin: string | number = '3rem'
-  let buttonTop = '0.5rem'
-  let buttonLeft = '1rem'
-  let buttonRight = '1rem'
+  let modalContentMargin: string | number = getPx('3rem')
+  let buttonTop = getPx('0.5rem')
+  let buttonLeft = getPx('1rem')
+  let buttonRight = getPx('1rem')
   if (deviceType === 'xsDevice') {
     modalContentMargin = 0
   } else if (deviceType === 'smDevice') {
-    modalContentMargin = '2rem'
-    buttonTop = '0.25rem'
-    buttonLeft = '0.5rem'
-    buttonRight = '0.5rem'
+    modalContentMargin = getPx('2rem')
+    buttonTop = getPx('0.25rem')
+    buttonLeft = getPx('0.5rem')
+    buttonRight = getPx('0.5rem')
   } else if (deviceType === 'mdDevice') {
-    buttonTop = '0.7rem'
+    buttonTop = getPx('0.75rem')
   } else if (deviceType === 'lgDevice' || deviceType === 'xlDevice') {
-    buttonTop = '1rem'
+    buttonTop = getPx('1rem')
   }
 
   const propsOut: Record<string, any> = {

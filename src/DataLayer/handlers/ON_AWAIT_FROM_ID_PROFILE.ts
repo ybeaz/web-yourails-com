@@ -4,8 +4,8 @@ import { ContentType } from '../../@types/ContentType'
 import { MessageType } from '../../@types/MessageType'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { MessageEventType } from '../../@types/MessageEventType'
-import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { handleEvents } from '../index.handleEvents'
+import { actionSync } from '../../DataLayer/index.action'
+import { ON_MESSAGE_SOCKET } from './ON_MESSAGE_SOCKET'
 import { getSortedHashedStringifyArray } from '../../Shared/getSortedHashedStringifyArray'
 import { getProfileByIdProfile } from '../../Shared/getProfileByIdProfile'
 
@@ -13,12 +13,14 @@ const { dispatch, getState } = store
 
 export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
   const { idProfile, isPending } = data
+  if (!idProfile) return
 
   const {
     profiles,
     globalVars: { idProfileHost },
   } = getState()
 
+  console.info('ON_AWAIT_FROM_ID_PROFILE [23]', { idProfile, isPending })
   if (isPending === true) {
     const idMessage = nanoid()
 
@@ -44,7 +46,7 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
       text: textNext,
     }
 
-    handleEvents.ON_MESSAGE_SOCKET({}, { message })
+    ON_MESSAGE_SOCKET({}, { message })
   } else {
     dispatch(
       actionSync.REMOVE_LAST_MESSAGE_ID_PROFILE({

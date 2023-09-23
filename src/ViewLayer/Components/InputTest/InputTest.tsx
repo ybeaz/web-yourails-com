@@ -7,9 +7,7 @@ import {
   withStoreStateSliceYrl,
 } from '../../../YrlNativeViewLibrary'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { Text } from '../../Components/Text/Text'
 import { InputTestType, InputTestPropsOutType } from './InputTestTypes'
-import { styles } from './InputTestStyles'
 
 /**
  * @import import { InputTest } from '../Components/InputTest/InputTest'
@@ -17,7 +15,7 @@ import { styles } from './InputTestStyles'
 const InputTestComponent: InputTestType = props => {
   const {
     styleProps = {
-      InputTest: { height: 'min-content' },
+      InputTest: { height: 'auto' },
       InputTextYrl: { border: '1px solid green' },
     },
     handleEvents,

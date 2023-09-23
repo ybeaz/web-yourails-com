@@ -152,7 +152,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
         deviceType === DeviceType['lgDevice'] ||
         deviceType === DeviceType['xlDevice']) && (
         <View style={[style.serviceSpec]} testID='serviceSpec'>
-          {getStringSpecs(serviceSpecs)}
+          {getStringSpecs(serviceSpecs || undefined)}
         </View>
       )}
     </View>

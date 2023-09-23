@@ -2,7 +2,11 @@ import React from 'react'
 import { View } from 'react-native'
 
 import { ProfileType } from '../../../@types/GraphqlTypes'
-import { ContentMenuMainColumnType } from './ContentMenuMainColumnType'
+import {
+  ContentMenuMainColumnPropsType,
+  ContentMenuMainColumnPropsOutType,
+  ContentMenuMainColumnType,
+} from './ContentMenuMainColumnType'
 
 import { style } from './ContentMenuMainColumnStyle'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
@@ -18,6 +22,7 @@ import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMapping
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { ContentMenuMainColumn } from '../Components/ContentMenuMainColumn/ContentMenuMainColumn'
@@ -67,7 +72,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
                 cursor: 'pointer',
               },
               title: {
-                paddingLeft: '0.5rem',
+                paddingLeft: getPx('0.5rem'),
               },
             },
             titleText: iconTitleText,
@@ -127,3 +132,9 @@ export const ContentMenuMainColumn = React.memo(
     withStoreStateYrl(withParamsMediaYrl(ContentMenuMainColumnComponent))
   )
 )
+
+export type {
+  ContentMenuMainColumnPropsType,
+  ContentMenuMainColumnPropsOutType,
+  ContentMenuMainColumnType,
+}

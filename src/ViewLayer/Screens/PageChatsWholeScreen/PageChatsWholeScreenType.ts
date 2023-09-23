@@ -4,9 +4,14 @@ import {
   UrlParamsDefaultType,
   MediaParamsDefaultType,
 } from '../../../YrlNativeViewLibrary'
+import { LayoutScreenPropsType } from '../../Frames/LayoutScreen/LayoutScreen'
+import { LayoutOfRowPropsType } from '../../Frames/LayoutOfRow/LayoutOfRow'
+import { ContentMenuMainColumnPropsType } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { RootStoreType } from '../../../@types/RootStoreType'
+import { SectionMappingType } from '../../../@types/SectionMappingType'
 
-export interface PageChatsWholeScreenPropsType {
+export type PageChatsWholeScreenPropsType = {
+  styles: any
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
   urlParams?: UrlParamsDefaultType
@@ -24,6 +29,22 @@ export interface PageChatsWholeScreenPropsType {
     profiles: RootStoreType['profiles']
     sectionsMapping: RootStoreType['sectionsMapping']
   }
+}
+
+export type PageChatsWholeScreenPropsOutType = {
+  style: any
+  themes: { themeA: any; themeB: any }
+  layoutScreenProps: Omit<LayoutScreenPropsType, 'children'>
+  layoutOfRowNavigationTopProps: LayoutOfRowPropsType
+  layoutOfRowMainContentProps: LayoutOfRowPropsType
+  layoutOfRowNavigationBottomProps: LayoutOfRowPropsType
+  mainColumnContentMenuProps: Omit<
+    ContentMenuMainColumnPropsType,
+    'sectionsMapping' | 'store' | 'handleEvents'
+  >
+  isShowModalFrame: boolean
+  isMainColumnBlank: boolean
+  sectionsMappingForProfile: SectionMappingType[]
 }
 
 export interface PageChatsWholeScreenType

@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import { View } from 'react-native'
+import { Platform, View } from 'react-native'
 
 import {
   urlParamsDefault,
@@ -18,6 +18,7 @@ import { ChatCard } from '../ChatCard/ChatCard'
 import { UserMenu } from '../UserMenu/UserMenu'
 import { ProfileSelectMenu } from '../ProfileSelectMenu/ProfileSelectMenu'
 import { getProfilesSearched } from '../../../Shared/getProfilesSearched'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { ChatCards } from '../Components/ChatCards/ChatCards'
@@ -54,6 +55,13 @@ const ChatCardsComponent: ChatCardsType = props => {
     (a, b) => b.position - a.position
   )
 
+  let query = { s: undefined }
+  if (Platform.OS === 'web') {
+    query = {
+      s: urlParamsSearch.get('s'),
+    }
+  }
+
   const getChatCards = (profilesIn: ProfileType[]): ReactElement[] => {
     const profiles = profilesIn.filter((profile: ProfileType) => {
       const { idProfile } = profile
@@ -68,9 +76,7 @@ const ChatCardsComponent: ChatCardsType = props => {
           isActive: profile.idProfile === idProfileActive,
           urlParam1,
           urlParam2,
-          query: {
-            s: urlParamsSearch.get('s'),
-          },
+          query,
         },
       }
       return <ChatCard {...propsOut.chatCardProps} />
@@ -86,7 +92,7 @@ const ChatCardsComponent: ChatCardsType = props => {
         },
         content: {},
         buttonBackWrapper: {},
-        buttonCloseWrapper: { top: '1rem', right: '1rem' },
+        buttonCloseWrapper: { top: getPx('1rem'), right: getPx('1rem') },
       },
       linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.25)'],
       isShow: isUserMenu || isProfileSelectMenu,
@@ -151,9 +157,7 @@ const ChatCardsComponent: ChatCardsType = props => {
       idUserHost,
       urlParam1,
       urlParam2,
-      query: {
-        s: urlParamsSearch.get('s'),
-      },
+      query,
     },
   }
 

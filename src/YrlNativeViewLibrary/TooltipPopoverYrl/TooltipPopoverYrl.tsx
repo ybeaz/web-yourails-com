@@ -1,6 +1,6 @@
 import React from 'react'
 import { ScrollView, View } from 'react-native'
-import { mediaParamsDefault } from '../'
+import { mediaParamsDefault } from '../Hooks/withParamsMediaYrl'
 
 import {
   TooltipPopoverYrlPropsType,

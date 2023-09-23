@@ -1,6 +1,7 @@
 import React, { ReactElement } from 'react'
 import { View, ScrollView } from 'react-native'
 import { nanoid } from 'nanoid'
+import { getPx } from '../../Styles/styleGlobal'
 
 import {
   withPropsYrl,
@@ -8,6 +9,7 @@ import {
   mediaParamsDefault,
   ButtonYrl,
 } from '../../../YrlNativeViewLibrary'
+import { Header } from '../Header/Header'
 import { Text } from '../../Components/Text/Text'
 import { themes } from '../../Styles/themes'
 import {
@@ -15,6 +17,7 @@ import {
   PromptExamplesComponentType,
   PromptExamplesPropsType,
   PromptExamplesPropsOutType,
+  PromptExamplesListPropsOutType,
 } from './PromptExamplesTypes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { styles } from './PromptExamplesStyles'
@@ -47,6 +50,17 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
     onHeightChange(height)
   }
 
+  const propsOut: PromptExamplesPropsOutType = {
+    headerProps: {
+      styleProps: {
+        Header: style.header,
+        headerText: { ...style.headerText, color: themes['themeB'].color01 },
+      },
+      headerText: 'Prompt Examples:',
+      testID: 'header',
+    },
+  }
+
   return (
     <View
       style={[style.PromptExamples, styleProps.PromptExamples]}
@@ -61,6 +75,7 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
         ]}
         testID='scrollView'
       >
+        <Header {...propsOut.headerProps} />
         {promptExamples?.map((promptExample: string, index: number) => {
           const key = nanoid()
 
@@ -72,18 +87,18 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
               numberOfLines={2}
               testID='text'
             >
-              {`Example ${index + 1}. ${promptExample}`}
+              {`${index + 1}. ${promptExample}`}
             </Text>
           )
 
-          const propsOut: PromptExamplesPropsOutType = {
+          const listPropsOut: PromptExamplesListPropsOutType = {
             tooltipsLinkingButtonYrlProps: {
               key,
               styleProps: {
                 ButtonYrl: {},
                 title: {
                   color: themes['themeA'].colors08.color,
-                  paddingBottom: '0.25rem',
+                  paddingBottom: getPx('0.25rem'),
                 },
               },
               titleText,
@@ -100,7 +115,7 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
             },
           }
 
-          return <ButtonYrl {...propsOut.tooltipsLinkingButtonYrlProps} />
+          return <ButtonYrl {...listPropsOut.tooltipsLinkingButtonYrlProps} />
         })}
       </ScrollView>
     </View>

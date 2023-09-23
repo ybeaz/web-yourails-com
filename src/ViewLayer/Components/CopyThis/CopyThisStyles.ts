@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   CopyThis: {
     ...styleGlobal.typography,
     flexDirection: 'column',
     alignSelf: 'flex-start',
-    paddingTop: '0.5rem',
+    paddingTop: getPx('0.5rem'),
   },
 })
 

@@ -16,6 +16,7 @@ import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { styles } from './ProfileSelectMenuStyles'
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { ProfileSelectMenu } from '../Components/ProfileSelectMenu/ProfileSelectMenu'
@@ -57,7 +58,7 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
         avatarPlusInfoProps: {
           key: `userHostAvatarPlusInfo-${index}`,
           styleProps: {
-            AvatarPlusInfo: { paddingBottom: '0.5rem' },
+            AvatarPlusInfo: { paddingBottom: getPx('0.5rem') },
           },
           profile,
           onPress: () =>

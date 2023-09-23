@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   NameStatus: {
     ...styleGlobal.typography,
-    paddingLeft: '1rem',
+    paddingLeft: getPx('1rem'),
   },
   firstRowWrapper: {
     flexDirection: 'row',

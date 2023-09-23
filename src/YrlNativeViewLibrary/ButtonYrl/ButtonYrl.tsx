@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { View, Pressable, Text } from 'react-native'
+import { Pressable, Text } from 'react-native'
 import { ButtonYrlType } from './ButtonYrlType'
 import { ButtonYrlStyle as style } from './ButtonYrlStyle'
 import { IconYrl } from '../IconYrl/IconYrl'

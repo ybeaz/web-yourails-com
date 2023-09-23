@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   ProfileSelectMenu: {
     ...styleGlobal.typography,
     flexDirection: 'column',
     alignItems: 'flex-start',
-    paddingTop: '1rem',
-    paddingBottom: '0.5rem',
+    paddingTop: getPx('1rem'),
+    paddingBottom: getPx('0.5rem'),
   },
 })
 

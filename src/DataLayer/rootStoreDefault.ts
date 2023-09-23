@@ -77,7 +77,7 @@ export const formsDefault: FormsType = {
 
 export const rootStoreDefault: RootStoreType = {
   componentsState:
-    window.location.hostname === 'r1.userto.com'
+    window?.location?.hostname === 'r1.userto.com'
       ? componentsStateR1
       : componentsStateDefault,
   profiles: [],
@@ -105,5 +105,8 @@ export const rootStoreDefault: RootStoreType = {
     theme: 'light',
     language: 'en',
     isShowApp: true,
+    navigation: undefined,
   },
 }
+
+export const rootStoreDefault2: any = {}

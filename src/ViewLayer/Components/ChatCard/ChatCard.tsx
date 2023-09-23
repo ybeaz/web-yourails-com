@@ -26,6 +26,7 @@ const ChatCardComponent: ChatCardType = props => {
     urlParam1,
     urlParam2,
     query,
+    platformOS,
   } = props
   const { idProfile, profileName } = profile
 
@@ -36,10 +37,12 @@ const ChatCardComponent: ChatCardType = props => {
       styleProps: {},
       profile,
       onPress: () => {
-        handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
+        if (platformOS === 'web')
+          handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
+
         handleEvents.CLICK_ON_USER_CHAT_CARD(
           {},
-          { idProfile, profileName, urlParam1, urlParam2, query }
+          { idProfile, profileName, urlParam1, urlParam2, query, platformOS }
         )
       },
     },

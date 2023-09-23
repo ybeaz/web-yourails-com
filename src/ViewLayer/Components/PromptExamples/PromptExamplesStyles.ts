@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   PromptExamples: {
@@ -13,6 +13,15 @@ export const stylesDefault = StyleSheet.create({
   },
   contentContainerStyle: {
     alignItems: 'flex-start',
+  },
+  header: {
+    ...styleGlobal.typography,
+    paddingTop: getPx('0.5rem'),
+    paddingBottom: getPx('0.5rem'),
+  },
+  headerText: {
+    ...styleGlobal.h4,
+    fontWeight: '400',
   },
   promptExampleText: {},
 })

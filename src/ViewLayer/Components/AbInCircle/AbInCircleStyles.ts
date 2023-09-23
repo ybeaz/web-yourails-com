@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   AbInCircle: {
@@ -8,7 +8,7 @@ export const stylesDefault = StyleSheet.create({
     borderRadius: 50,
     borderColor: 'white',
     backgroundColor: 'white',
-    padding: '0.7rem',
+    padding: getPx('0.75rem'),
   },
   text: {
     fontSize: 17,

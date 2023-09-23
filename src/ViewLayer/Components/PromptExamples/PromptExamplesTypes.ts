@@ -1,6 +1,10 @@
-import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import {
+  ButtonYrlPropsType,
+  MediaParamsDefaultType,
+} from '../../../YrlNativeViewLibrary'
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 import { IdUserType } from '../../../@types/UserType'
+import { HeaderPropsType } from '../Header/Header'
 
 export interface PromptExamplesPropsType {
   styleProps?: {
@@ -17,7 +21,15 @@ export interface PromptExamplesPropsType {
   idProfileActive: IdUserType
 }
 
-export type PromptExamplesPropsOutType = Record<string, any>
+export type PromptExamplesPropsOutType = {
+  headerProps: HeaderPropsType
+}
+
+export type PromptExamplesListPropsOutType = {
+  tooltipsLinkingButtonYrlProps: ButtonYrlPropsType & {
+    key: string
+  }
+}
 
 /**
  * @import import { PromptExamplesType } from './PromptExamplesType'

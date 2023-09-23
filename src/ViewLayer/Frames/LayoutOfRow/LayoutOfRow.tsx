@@ -2,7 +2,11 @@ import React from 'react'
 import { View } from 'react-native'
 
 import { AnimatedYrl } from '../../../YrlNativeViewLibrary'
-import { LayoutOfRowType } from './LayoutOfRowTypes'
+import {
+  LayoutOfRowPropsType,
+  LayoutOfRowPropsOutType,
+  LayoutOfRowType,
+} from './LayoutOfRowTypes'
 import { style } from './LayoutOfRowStyles'
 
 /**
@@ -42,3 +46,5 @@ const LayoutOfRowComponent: LayoutOfRowType = props => {
 }
 
 export const LayoutOfRow = React.memo(LayoutOfRowComponent)
+
+export type { LayoutOfRowPropsType, LayoutOfRowPropsOutType, LayoutOfRowType }

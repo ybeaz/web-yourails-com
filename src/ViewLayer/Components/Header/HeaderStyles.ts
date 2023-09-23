@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   Header: {
@@ -7,8 +7,8 @@ export const stylesDefault = StyleSheet.create({
   },
   headerText: {
     ...styleGlobal.h2,
-    paddingLeft: '0.5rem',
-    paddingRight: '0.5rem',
+    paddingLeft: getPx('0.5rem'),
+    paddingRight: getPx('0.5rem'),
     lineHight: '125%',
   },
 })

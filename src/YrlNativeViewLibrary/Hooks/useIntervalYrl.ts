@@ -31,7 +31,7 @@ export const useIntervalYrl: UseIntervalYrlType = (
     }
 
     if (isSlideShow) {
-      let id = window.setInterval(tick, delay)
+      let id = window?.setInterval(tick, delay)
       setIntervalId(id)
       return () => clearInterval(id)
     } else {

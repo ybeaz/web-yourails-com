@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   TopBarMainColumn: {
     ...styleGlobal.typography,
     flexDirection: 'row',
-    paddingTop: '0.45rem',
-    paddingBottom: '0.45rem',
+    paddingTop: getPx('0.5rem'),
+    paddingBottom: getPx('0.5rem'),
     justifyContent: 'flex-start',
     alignContent: 'space-around',
     alignItems: 'center',
@@ -15,7 +15,7 @@ export const stylesDefault = StyleSheet.create({
     paddingLeft: '1.5rem',
   },
   avatar: {
-    paddingLeft: '1rem',
+    paddingLeft: getPx('1rem'),
   },
   ImageYrl: {},
   image: {
@@ -24,7 +24,7 @@ export const stylesDefault = StyleSheet.create({
     borderRadius: 50,
   },
   nameStatus: {
-    paddingLeft: '1rem',
+    paddingLeft: getPx('1rem'),
   },
   name: {
     fontWeight: '600',
@@ -35,7 +35,7 @@ export const stylesDefault = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   serviceSpec: {
-    paddingLeft: '2rem',
+    paddingLeft: getPx('2rem'),
   },
   serviceSpecText: {},
 })

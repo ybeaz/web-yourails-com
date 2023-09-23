@@ -4,6 +4,7 @@ import { RootStoreType } from '../@types/RootStoreType'
 import { ReducerType } from '../@types/ReducerType'
 
 import { TEMPLATE } from './reducers/TEMPLATE'
+import { ADD_NAVIGATION_MOBILE } from './reducers/ADD_NAVIGATION_MOBILE'
 import { SET_USERID_DATA_AWS_COGNITO } from './reducers/SET_USERID_DATA_AWS_COGNITO'
 import { REMOVE_LAST_MESSAGE_ID_PROFILE } from './reducers/REMOVE_LAST_MESSAGE_ID_PROFILE'
 import { SET_ID_PROFILE_HOST } from './reducers/SET_ID_PROFILE_HOST'
@@ -44,6 +45,7 @@ export const indexReducer: IndexReducerType = (
 
   const output: Record<string, ReducerType> = {
     TEMPLATE,
+    ADD_NAVIGATION_MOBILE,
     SET_USERID_DATA_AWS_COGNITO,
     REMOVE_LAST_MESSAGE_ID_PROFILE,
     SET_ID_PROFILE_HOST,

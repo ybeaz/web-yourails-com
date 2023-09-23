@@ -1,31 +1,30 @@
 import React from 'react'
+import { Platform } from 'react-native'
 import {
   useRouteError,
-  RouterProvider,
-  BrowserRouter,
-  createBrowserRouter,
   Navigate,
   RouteObject as RouteObjectType,
   useRoutes,
   unstable_HistoryRouter as HistoryRouter,
 } from 'react-router-dom'
 
-import { history } from './history'
-import { withDelayYrl } from './YrlNativeViewLibrary'
-import { PageChatsWholeScreen } from './ViewLayer/Screens/PageChatsWholeScreen/PageChatsWholeScreen'
+import { historyWeb } from './historyWeb'
+import { withDelayYrl } from '../YrlNativeViewLibrary'
+import { PageChatsWholeScreen } from '../ViewLayer/Screens/PageChatsWholeScreen/PageChatsWholeScreen'
 
-const pathAfterStatic = window.location.pathname.split('/static/')[1]
+const pathAfterStatic = window?.location?.pathname.split('/static/')[1]
 const pathTo = `/static/${pathAfterStatic}`
 
 function ErrorBoundary(props: any) {
-  const { path } = props
+  const path = props?.path
   let error = useRouteError()
   console.error(error)
-  // Uncaught ReferenceError: path is not defined
+
   return (
     <div>
       ErrorBoundary! <br />
-      pathname: {`${window.location.pathname}`} <br /> path: {`${path}`}
+      pathname: {`${window && window?.location?.pathname}`} <br /> path:{' '}
+      {`${path}`}
       <br />
       error: {`${error}`}
     </div>
@@ -76,12 +75,13 @@ const RouterCreated = () => {
  * @links https://reactrouter.com/en/main/hooks/use-routes
  * @link
  */
-export const RouterScreensConfig: React.FunctionComponent<any> = withDelayYrl({
+export const NavigationWeb: React.FunctionComponent<any> = withDelayYrl({
   delay: 100,
 })(() => {
+  if (Platform.OS !== 'web') return null
+
   return (
-    // @ts-ignore
-    <HistoryRouter history={history}>
+    <HistoryRouter history={historyWeb}>
       <RouterCreated />
     </HistoryRouter>
   )

@@ -1,4 +1,7 @@
-import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import {
+  MediaParamsDefaultType,
+  PlatformOSYrlType,
+} from '../../../YrlNativeViewLibrary'
 import { ProfileType } from '../../../@types/GraphqlTypes'
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 
@@ -11,6 +14,7 @@ export interface ChatCardPropsType {
   urlParam1: string | undefined
   urlParam2: string | undefined
   query: any
+  platformOS: PlatformOSYrlType
 }
 
 /**

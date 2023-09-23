@@ -40,12 +40,12 @@ export const InputTextYrl: InputTextYrlType = props => {
   }
 
   const propsOut: InputTextPropsOutType = {
-    viewProps: {
+    inputTextYrlProps: {
       style: [style.InputTextYrl, styleProps.InputTextYrl],
+      onLayout: (event: any) => handleLayout(event),
       testID,
     },
     textInputProps: {
-      style: [style.inputText, styleProps.inputText],
       testID: `${testID}_TextInput`,
       multiline,
       numberOfLines,
@@ -62,12 +62,14 @@ export const InputTextYrl: InputTextYrlType = props => {
 
   propsOut.textInputPropsResize = {
     ...propsOut.textInputProps,
-    style: [
-      style.inputText,
-      style.inputTextResize,
-      styleProps.inputText,
-      styleProps.inputTextResize,
-    ],
+    style: {
+      ...style.inputText,
+      ...style.inputTextResize,
+      ...styleProps.inputText,
+      ...styleProps.inputTextResize,
+      // @ts-expect-error
+      outlineStyle: 'none',
+    },
   }
 
   const textInputProps =
@@ -77,10 +79,7 @@ export const InputTextYrl: InputTextYrlType = props => {
 
   return (
     // <Draggable x={20} renderSize={100}>
-    <View
-      {...propsOut.viewProps}
-      onLayout={(event: any) => handleLayout(event)}
-    >
+    <View {...propsOut.inputTextYrlProps}>
       <TextInput {...textInputProps} />
     </View>
     // </Draggable>

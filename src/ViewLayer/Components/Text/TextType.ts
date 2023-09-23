@@ -4,6 +4,7 @@ import { TextProps } from 'react-native'
 export interface TextPropsType extends TextProps {
   styleProps?: any
   children?: string | ReactElement
+  onHeightChange?: (height: number) => void
   testID: string
 }
 

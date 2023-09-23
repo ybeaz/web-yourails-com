@@ -1,29 +1,29 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   CompetencyTags: {
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
-    padding: '3rem',
-    paddingBottom: '15rem',
+    padding: getPx('3rem'),
+    paddingBottom: getPx('15rem'),
   },
   headerView: {},
   headerText: {
-    paddingLeft: '0.5rem',
+    paddingLeft: getPx('0.5rem'),
     fontSize: 20,
     lineHight: '125%',
   },
   tagListWrapper: {
-    paddingTop: '1rem',
+    paddingTop: getPx('1rem'),
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
   tagSubheading: {
-    paddingLeft: '0.5rem',
+    paddingLeft: getPx('0.5rem'),
     fontWeight: 'bold',
   },
   flatListContentContainerStyle: {

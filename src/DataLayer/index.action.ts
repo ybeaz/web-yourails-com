@@ -3,6 +3,7 @@ import { createAsyncAction, CreateAsyncAction } from './createActionsAsync'
 
 /** @description  Synchroneours redux actions */
 const ACTIONS_SYNC: string[] = [
+  'ADD_NAVIGATION_MOBILE',
   'REVOKE_USERID_DATA_AWS_COGNITO',
   'SET_USERID_DATA_AWS_COGNITO',
   'REMOVE_LAST_MESSAGE_ID_PROFILE',

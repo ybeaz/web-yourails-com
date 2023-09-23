@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   ChatCard: {
@@ -8,7 +8,7 @@ export const style = StyleSheet.create({
     justifyContent: 'flex-start',
     alignContent: 'space-around',
     alignItems: 'center',
-    paddingTop: '0.45rem',
-    paddingBottom: '0.45rem',
+    paddingTop: getPx('0.5rem'),
+    paddingBottom: getPx('0.5rem'),
   },
 })

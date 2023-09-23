@@ -50,6 +50,7 @@ import {
 import {
   WithParamsMediaYrlPropsType,
   WithParamsMediaYrlType,
+  PlatformOSYrlType,
   UrlParamsDefaultType,
   mediaParamsDefault,
   urlParamsDefault,
@@ -82,6 +83,7 @@ import {
 export type {
   WithParamsMediaYrlPropsType,
   WithParamsMediaYrlType,
+  PlatformOSYrlType,
   UseAnimatedYrlPropsType,
   UseAnimatedYrlType,
   UseIntervalYrlType,

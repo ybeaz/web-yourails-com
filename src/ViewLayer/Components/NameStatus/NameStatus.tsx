@@ -9,7 +9,7 @@ import {
   NameStatusComponentType,
 } from './NameStatusType'
 import { style } from './NameStatusStyle'
-import { themes } from '../../Styles/themes'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { NameStatus } from '../Components/NameStatus/NameStatus'
@@ -45,11 +45,11 @@ const NameStatusComponent: NameStatusComponentType = props => {
       styleProps: {
         IconYrl: {
           cursor: 'pointer',
-          paddingBottom: '0.2rem',
-          paddingLeft: '0.25rem',
+          paddingBottom: getPx('0.25rem'),
+          paddingLeft: getPx('0.25rem'),
         },
       },
-      size: '1rem',
+      size: getPx('1rem'),
       color: styleProps.viewStyle.color,
       testID: 'iconProfileNature',
     },

@@ -4,10 +4,11 @@ import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 export interface LayoutScreenPropsType {
   styleProps?: any
   isActive: boolean
-  children: ReactElement[]
+  children: (ReactElement | null)[]
+  onLayout: () => void
 }
 
-export type LayoutScreenPropsOutType = Record<string, any>
+export type LayoutScreenPropsOutType = any
 
 /**
  * @import import { LayoutScreenType } from './LayoutScreenType'

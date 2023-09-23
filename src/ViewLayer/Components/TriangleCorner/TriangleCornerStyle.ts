@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native'
+import { getPx } from '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   TriangleCorner: {

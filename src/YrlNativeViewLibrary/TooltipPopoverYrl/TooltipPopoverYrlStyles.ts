@@ -4,7 +4,7 @@ export const stylesDefault = StyleSheet.create({
   TooltipPopoverYrl: {},
   scrollView: {
     marginHorizontal: 10,
-    height: 'fit-content',
+    height: '100%',
     maxHeight: 350,
   },
 })

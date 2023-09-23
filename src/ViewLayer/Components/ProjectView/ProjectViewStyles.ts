@@ -1,15 +1,15 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 const stylesDefault: any = {
   ProjectView: {
     ...styleGlobal.typography,
   },
-  buttonImageView: { paddingTop: '0.5rem' },
+  buttonImageView: { paddingTop: getPx('0.5rem') },
   imageView: {},
   rowStyle: {
     flexDirection: 'column',
-    padding: '0.5rem',
+    padding: getPx('0.5rem'),
   },
   column1Style: {
     flex: 1,
@@ -23,25 +23,25 @@ const stylesDefault: any = {
   },
   subtitleView: {},
   subtitleTextName: {
-    paddingRight: '0.5rem',
+    paddingRight: getPx('0.5rem'),
     fontWeight: 'bold',
   },
   subtitleText: {},
   descriptionView: {},
   descriptionTextName: {
-    paddingRight: '0.5rem',
+    paddingRight: getPx('0.5rem'),
     fontWeight: 'bold',
   },
   descriptionText: {},
   customerView: {},
   customerTextName: {
-    paddingRight: '0.5rem',
+    paddingRight: getPx('0.5rem'),
     fontWeight: 'bold',
   },
   customerText: {},
   builtwithView: {},
   builtwithTextName: {
-    paddingRight: '0.5rem',
+    paddingRight: getPx('0.5rem'),
     fontWeight: 'bold',
   },
   builtwithText: {},
@@ -53,7 +53,7 @@ const xsDevice = StyleSheet.create({
     flexDirection: 'column',
     paddingBottom: '2.2rem',
   },
-  projectProfileView: { flex: 1, paddingBottom: '1rem' },
+  projectProfileView: { flex: 1, paddingBottom: getPx('1rem') },
 })
 
 const smDevice = StyleSheet.create({
@@ -68,9 +68,9 @@ const lgDevice = StyleSheet.create({
   ...stylesDefault,
   ProjectView: {
     flexDirection: 'row',
-    paddingBottom: '2rem',
+    paddingBottom: getPx('2rem'),
   },
-  projectProfileView: { flex: 1, paddingLeft: '1rem' },
+  projectProfileView: { flex: 1, paddingLeft: getPx('1rem') },
   rowStyle: {
     ...stylesDefault.rowStyle,
     flexDirection: 'row',

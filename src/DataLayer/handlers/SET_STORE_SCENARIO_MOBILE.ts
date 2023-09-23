@@ -1,10 +1,6 @@
 import { store } from '../store'
-import { SectionMappingType } from '../../@types/SectionMappingType'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync } from '../../DataLayer/index.action'
-import { DeviceType } from '../../YrlNativeViewLibrary'
-import { getSetStoreScenario } from '../../Shared/getSetStoreScenario'
-import { getRedirected } from '../../Shared/getRedirected'
 import { HOST_NAME } from '../../Constants/hostname.const'
 import { isHostR1UserToComFlag } from '../../FeatureFlags'
 
@@ -22,29 +18,10 @@ const { dispatch, getState } = store
 /**
  * @description This handle is called when the app loads initially
  */
-export const SET_STORE_SCENARIO: ActionEventType = (
-  event,
-  dataHandle: {
-    urlParam1: string
-    urlParam2: string
-    urlParam3: string
-    query: { s: string }
-    deviceType: DeviceType
-    sectionsMappingForProfile: SectionMappingType[]
-  }
-) => {
+export const SET_STORE_SCENARIO_MOBILE: ActionEventType = (event, data) => {
+  const { navigation } = data
   const {
-    urlParam1,
-    urlParam2,
-    urlParam3,
-    query,
-    deviceType,
-    sectionsMappingForProfile,
-  } = dataHandle
-
-  const {
-    globalVars: { idUserHost, idProfile },
-    profiles,
+    globalVars: { idUserHost, idProfileActive },
   } = getState()
 
   let hostname = HOST_NAME
@@ -57,39 +34,41 @@ export const SET_STORE_SCENARIO: ActionEventType = (
     isShowApp: isShowAppNext,
     idUserHost: idUserHostNext,
     idUser: idUserNext,
-    idProfile: idProfileNext,
+    idProfileActive: idProfileActiveNext,
     isLeftColumn: isLeftColumnNext,
     isMainColumn: isMainColumnNext,
     isMainColumnBlank: isMainColumnBlankNext,
     modalFrame: modalFrameNext,
-    redirectPathname,
-  } = getSetStoreScenario({
+  } = {
+    caseNo: '01 mobile',
+    caseDesc: 'mobile device',
+    caseConditions: 'N/A',
+    isShowApp: true,
     idUserHost,
-    profiles,
-    hostname,
-    urlParam1,
-    urlParam2,
-    urlParam3,
-    query,
-    deviceType,
-    sectionsMappingForProfile,
-  })
+    idUser: undefined,
+    idProfileActive,
+    isLeftColumn: true,
+    isMainColumn: true,
+    isMainColumnBlank: false,
+    modalFrame: false,
+  }
 
+  dispatch(actionSync.ADD_NAVIGATION_MOBILE({ navigation }))
   dispatch(actionSync.SET_ID_USER_HOST({ idUserHost: idUserHostNext }))
-  dispatch(actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: idProfileNext }))
+  dispatch(
+    actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: idProfileActiveNext })
+  )
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
-  getRedirected(redirectPathname, { replace: true })
-
-  if (idProfile === idProfileNext) return
+  if (idProfileActive === idProfileActiveNext) return
 
   dispatch(
     actionSync.SET_ID_PROFILE_ACTIVE({
-      idProfileActive: idProfileNext,
+      idProfileActive: idProfileActiveNext,
     })
   )
 }

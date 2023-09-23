@@ -48,4 +48,5 @@ const HeaderComponent: HeaderComponentType = (props: HeaderPropsType) => {
 export const Header: HeaderType = withParamsMediaYrl(
   React.memo(HeaderComponent)
 )
+
 export type { HeaderPropsType, HeaderComponentType, HeaderType }

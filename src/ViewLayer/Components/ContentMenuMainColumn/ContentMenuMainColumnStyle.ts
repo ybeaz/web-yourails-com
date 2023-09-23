@@ -1,16 +1,16 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   ContentMenuMainColumn: {
     ...styleGlobal.typography,
     flexDirection: 'row',
-    height: '2rem',
+    height: getPx('2rem'),
     alignItems: 'center',
   },
   buttonWrapper: {
     flex: 1,
-    paddingLeft: '0.5rem',
-    paddingRight: '0.5rem',
+    paddingLeft: getPx('0.5rem'),
+    paddingRight: getPx('0.5rem'),
   },
 })

@@ -20,6 +20,7 @@ import { style } from './TopBarChatCardsStyle'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { TopBarChatCards } from '../Components/TopBarChatCards/TopBarChatCards'
@@ -71,7 +72,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       styleProps: {
         ButtonYrl: {
           cursor: 'pointer',
-          paddingLeft: '1rem',
+          paddingLeft: getPx('1rem'),
         },
         title: {},
       },
@@ -97,16 +98,14 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     inputTextYrlProps: {
       styleProps: {
         InputTextYrl: {
-          border: 'solid  1px',
-          borderColor: themes['themeA'].colors01.borderColor,
-          borderRadius: '5rem',
+          ...style.InputTextYrl,
+          borderColor: themes.themeB.color08,
         },
         inputText: {
-          // cursor: 'not-allowed',
-          border: 0,
-          outline: 0,
-          paddingLeft: '1rem',
+          ...style.inputText,
+          ...themes.themeA.colors01,
         },
+        inputTextResize: {},
       },
       multiline: false,
       numberOfLines: 1,
@@ -116,7 +115,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         /* TODO when a search functionality will be ready */
       },
       placeholder: 'Search',
-      placeholderTextColor: themes['themeA'].colors01.borderColor,
+      placeholderTextColor: themes['themeB'].color10,
       testID: 'TopBarChatCards_InputTextYrl',
       value: inputSearch,
     },
@@ -125,7 +124,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
       name: 'search-outline',
       styleProps: { IconYrl: { cursor: 'not-allowed' } },
       size: 24,
-      color: themes['themeA'].colors01.borderColor,
+      color: themes['themeB'].color10,
       testID: 'TopBarChatCardsComponent_IconYrl_search',
     },
   }

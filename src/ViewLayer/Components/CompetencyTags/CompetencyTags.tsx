@@ -12,6 +12,7 @@ import { Text } from '../../Components/Text/Text'
 import { TagProperty, TagPropertyPropsType } from '../TagProperty/TagProperty'
 import { CompetencyTagsType } from './CompetencyTagsType'
 import { style } from './CompetencyTagsStyle'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { CompetencyTags } from '../Components/CompetencyTags/CompetencyTags'
@@ -94,7 +95,7 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
     tagPropertyProps: {},
     headerProps: {
       styleProps: {
-        Header: { paddingBottom: '1rem' },
+        Header: { paddingBottom: getPx('1rem') },
         headerText: {},
       },
       mediaParams: { deviceType: '' },
