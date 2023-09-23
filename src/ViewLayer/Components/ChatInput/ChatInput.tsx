@@ -40,7 +40,7 @@ const ChatInputComponent: ChatInputType = props => {
   } = storeStateSlice
   const { isShow: isShowModalFrame } = modalFrame
 
-  const { deviceType, height } = mediaParams
+  const { deviceType, height, width } = mediaParams
   const style = styles[deviceType]
 
   const [promptExamplesHeightState, setPromptExamplesHeightState] = useState(32)
@@ -130,9 +130,16 @@ const ChatInputComponent: ChatInputType = props => {
   ) : null
 
   const promptExamplesTooltipContainerStyleTop: number =
-    height - 70 - inputTextYrlHeightState - promptExamplesHeightState
-  const helpTooltipContainerStyleTop: number =
-    height - 70 - inputTextYrlHeightState - helpHeightState
+    height -
+    70 -
+    inputTextYrlHeightState -
+    (promptExamplesHeightState < 350 ? promptExamplesHeightState : 350)
+
+  let helpTooltipContainerStyleTop: number =
+    height -
+    70 -
+    inputTextYrlHeightState -
+    (helpHeightState < 350 ? helpHeightState : 350)
 
   const propsOut: ChatInputPropsOutType = {
     inputTextYrlProps: {
@@ -145,8 +152,13 @@ const ChatInputComponent: ChatInputType = props => {
         InputTextYrl: {
           ...style.InputTextYrl,
           borderColor: themes.themeB.color08,
+          width: width * 0.5,
         },
-        inputText: { ...style.inputText, ...themes.themeA.colors01 },
+        inputText: {
+          ...style.inputText,
+          ...themes.themeA.colors01,
+          minWidth: width * 0.5,
+        },
         inputTextResize: { ...style.inputTextResize },
       },
       testID: 'ChatInput_InputTextYrl',

@@ -20,7 +20,7 @@ export const stylesDefault = StyleSheet.create({
   leftColumnTopBars: {
     display: 'flex',
     // flex: 1,
-    paddingTop: '0.75rem',
+    paddingTop: getPx('0.75rem'),
     alignItems: 'flex-start',
     flexDirection: 'row',
   },

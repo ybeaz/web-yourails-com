@@ -4,7 +4,6 @@ import { getPx } from '../../Styles/styleGlobal'
 export const stylesDefault = StyleSheet.create({
   ChatInput: {
     flex: 1,
-    width: '100%',
     flexDirection: 'column',
     justifyContent: 'flex-end',
     alignItems: 'flex-end',
@@ -17,24 +16,22 @@ export const stylesDefault = StyleSheet.create({
     alignItems: 'center',
   },
   InputTextYrl: {
-    borderRadius: 10,
+    borderRadius: getPx('0.5rem'),
     borderWidth: 1,
   },
   inputText: {
-    borderRadius: 10,
-    width: '80vw',
+    borderRadius: getPx('0.5rem'),
     paddingRight: getPx('2rem'),
   },
   inputTextResize: {
-    maxWidth: '80vw',
-    maxHeight: '75vh',
+    // @ts-expect-error
     resize: 'both',
   },
   ButtonYrl: {
     position: 'absolute',
     margin: 0,
-    padding: '10px',
-    right: 20,
+    padding: getPx('0.5rem'),
+    right: getPx('1.25rem'),
   },
   ButtonTitle: {
     fontSize: 17,
@@ -51,7 +48,7 @@ export const stylesDefault = StyleSheet.create({
     justifyContent: 'flex-end',
     alignSelf: 'flex-start',
     paddingLeft: getPx('1rem'),
-    paddingBottom: '0.3rem',
+    paddingBottom: getPx('0.25rem'),
   },
   tooltipTitleWrapper: {
     flexDirection: 'row',
@@ -60,15 +57,15 @@ export const stylesDefault = StyleSheet.create({
   tooltip_container: {
     width: 'auto',
     height: 'auto',
-    right: 20,
+    right: getPx('1.25rem'),
   },
   tooltip_iconTextWrapper: {
     maxHeight: 350,
-    marginTop: '0.20rem',
+    marginTop: getPx('0.25rem'),
   },
   tooltip_titleText: {},
   tooltip_tooltipPopover: {
-    width: '100%;',
+    width: '100%',
   },
   helpTooltipsText: {
     // @ts-expect-error
@@ -93,12 +90,12 @@ const lgDevice = StyleSheet.create({
   ...stylesDefault,
   inputText: {
     borderRadius: 10,
-    width: '50vw',
+    width: '50%',
   },
   inputTextResize: {
     borderRadius: 10,
-    maxWidth: '50vw',
-    maxHeight: '75vh',
+    maxWidth: '50%',
+    maxHeight: '75%',
     resize: 'both',
   },
 })
