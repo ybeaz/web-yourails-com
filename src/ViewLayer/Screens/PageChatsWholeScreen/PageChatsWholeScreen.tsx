@@ -29,10 +29,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const ChatCardsHeader = useMemo(
     () => (
-      <View
-        style={[propsOut.style.leftColumnTopBars]}
-        testID='leftColumnTopBars'
-      >
+      <View style={[propsOut.style.chatCardsHeader]} testID='chatCardsHeader'>
         <TopBarChatCards />
       </View>
     ),
@@ -41,10 +38,7 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   const ChatCardsBody = useMemo(
     () => (
-      <View
-        style={[propsOut.style.leftColumnChatCardSpace]}
-        testID='leftColumnChatCardSpace'
-      >
+      <View style={[propsOut.style.chatCardsBody]} testID='chatCardsBody'>
         <ChatCards />
       </View>
     ),
@@ -54,10 +48,10 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
   const ChatSpaceHeader = (
     <View
       style={[
-        propsOut.style.ChatSpaceHeader,
+        propsOut.style.chatSpaceHeader,
         propsOut.themes['themeA'].colors03,
       ]}
-      testID='ChatSpaceHeader'
+      testID='chatSpaceHeader'
     >
       {!propsOut.isMainColumnBlank ? (
         <View
@@ -93,13 +87,23 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
     </View>
   )
 
-  const ChatSpaceBody = useMemo(() => <ChatSpace />, [])
+  const ChatSpaceBody = useMemo(
+    () => (
+      <View style={[propsOut.style.chatSpaceBody]} testID='chatSpaceBody'>
+        <ChatSpace />
+      </View>
+    ),
+    []
+  )
 
   const ChatSpaceFooter = useMemo(
     () => (
       <View
-        style={[propsOut.style.chatInput, propsOut.themes['themeA'].colors03]}
-        testID='chatInput'
+        style={[
+          propsOut.style.chatSpaceFooter,
+          propsOut.themes['themeA'].colors03,
+        ]}
+        testID='chatSpaceFooter'
       >
         <ChatInput />
       </View>

@@ -2,6 +2,29 @@ import { StyleSheet } from 'react-native'
 import { getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
+  chatCardsHeader: {
+    display: 'flex',
+    // flex: 1,
+    paddingTop: getPx('0.75rem'),
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+  },
+  chatCardsBody: {
+    flexDirection: 'column',
+    flex: 1,
+    overflow: 'scroll',
+  },
+  chatSpaceHeader: {},
+  chatSpaceBody: {
+    justifyContent: 'flex-end',
+    height: '100%',
+  },
+  chatSpaceFooter: {
+    height: getPx('6rem'),
+    bottom: 0,
+    width: '100%',
+  },
+
   navigationTop: {
     display: 'flex',
     flex: 1,
@@ -17,22 +40,10 @@ export const stylesDefault = StyleSheet.create({
     // borderBottomWidth: 1,
     // borderLeftWidth: 1,
   },
-  leftColumnTopBars: {
-    display: 'flex',
-    // flex: 1,
-    paddingTop: getPx('0.75rem'),
-    alignItems: 'flex-start',
-    flexDirection: 'row',
-  },
   mainColumnTopBars: {
     display: 'flex',
     height: '100%',
     flexDirection: 'column',
-  },
-  leftColumnChatCardSpace: {
-    flexDirection: 'column',
-    flex: 1,
-    overflow: 'scroll',
   },
 
   layoutOfRow: {
@@ -59,11 +70,6 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'column',
     width: '100%',
     flex: 1,
-  },
-  chatInput: {
-    height: getPx('6rem'),
-    bottom: 0,
-    width: '100%',
   },
 
   navigationBottom: {
