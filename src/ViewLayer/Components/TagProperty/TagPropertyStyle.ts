@@ -4,13 +4,13 @@ import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 export const style = StyleSheet.create({
   TagProperty: {
     ...styleGlobal.typography,
-    flex: 1,
+    // flex: 1,
     paddingLeft: getPx('0.5rem'),
     paddingRight: getPx('0.5rem'),
     paddingTop: getPx('0.25rem'),
     paddingBottom: getPx('0.25rem'),
-    minWidth: 'auto',
-    maxWidth: 'min-content',
+    // minWidth: '100%',
+    // maxWidth: '100%',
     // flexWrap: 'wrap',
     // whiteSpace: 'nowrap',
   },
@@ -21,7 +21,7 @@ export const style = StyleSheet.create({
     display: 'flex',
     flex: 1,
     fontSize: 20,
-    width: 'min-content',
+    // width: '100%',
     whiteSpace: 'nowrap',
   },
   tooltip_container: {

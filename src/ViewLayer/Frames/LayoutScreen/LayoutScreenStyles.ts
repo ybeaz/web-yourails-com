@@ -1,5 +1,5 @@
 import { StatusBar, StyleSheet } from 'react-native'
-import { styleGlobal, getPx } from '../../Styles/styleGlobal'
+import { styleGlobal } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   LayoutScreen: {
@@ -7,8 +7,8 @@ export const stylesDefault = StyleSheet.create({
     marginTop: StatusBar.currentHeight || 0,
     marginBottom: 0,
     flexDirection: 'column',
-    maxHeight: '100vh',
-    width: '100vw',
+    maxHeight: '100%',
+    width: '100%',
   },
   layoutNavigationTop: {
     position: 'absolute',
@@ -19,7 +19,7 @@ export const stylesDefault = StyleSheet.create({
 
     display: 'flex',
     flexDirection: 'row',
-    width: '100vw',
+    width: '100%',
   },
   layoutMainContent: {
     display: 'flex',
@@ -29,8 +29,8 @@ export const stylesDefault = StyleSheet.create({
 
     flex: 1,
     flexDirection: 'row',
-    width: '100vw',
-    maxHeight: '100vh',
+    width: '100%',
+    maxHeight: '100%',
   },
   layoutNavigationBottom: {
     position: 'absolute',
@@ -41,7 +41,7 @@ export const stylesDefault = StyleSheet.create({
 
     display: 'flex',
     flexDirection: 'row',
-    width: '100vw',
+    width: '100%',
     marginTop: 'auto',
   },
 })

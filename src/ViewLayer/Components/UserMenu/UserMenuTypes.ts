@@ -1,6 +1,7 @@
 import {
   MediaParamsDefaultType,
   UrlParamsDefaultType,
+  PlatformOSYrlType,
 } from '../../../YrlNativeViewLibrary'
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 import { RootStoreType } from '../../../@types/RootStoreType'
@@ -11,6 +12,7 @@ export type UserMenuPropsType = {
   handleEvents: HandleEventsType
   urlParams: UrlParamsDefaultType
   urlParamsSearch: any
+  platformOS: PlatformOSYrlType
   store: RootStoreType
 }
 

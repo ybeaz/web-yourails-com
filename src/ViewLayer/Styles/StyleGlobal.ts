@@ -16,6 +16,7 @@ const listOfAcceptedRemValues: string[] = [
   '4rem',
   '6rem',
   '10rem',
+  '15rem',
 ]
 
 /**

@@ -27,7 +27,7 @@ export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
 
   getSocketEmitJoinConversation(idProfileHost, idProfile)
 
-  console.info('CLICK_ON_USER_CHAT_CARD [39]', { navigation })
+  console.info('CLICK_ON_USER_CHAT_CARD [39]', { platformOS, navigation })
 
   if (platformOS === 'web') {
     const getPathNameForReplaceProps = {

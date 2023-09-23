@@ -6,7 +6,7 @@ const stylesDefault: any = {
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
-    padding: '3rem',
+    padding: getPx('3rem'),
   },
   buttonImageView: { paddingTop: getPx('0.5rem') },
   imageView: {},

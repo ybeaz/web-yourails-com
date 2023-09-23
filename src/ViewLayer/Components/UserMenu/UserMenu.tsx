@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import { View } from 'react-native'
+import { getPx } from '../../Styles/styleGlobal'
 
 import {
   ButtonYrl,
@@ -19,11 +20,7 @@ import { CLIENTS } from '../../../Constants/clients.const'
 
 import { Text } from '../../Components/Text/Text'
 
-import {
-  UserMenuType,
-  UserMenuPropsType,
-  UserMenuPropsOutType,
-} from './UserMenuTypes'
+import { UserMenuType, UserMenuPropsType } from './UserMenuTypes'
 import { themes } from '../../Styles/themes'
 import { styles } from './UserMenuStyles'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
@@ -59,6 +56,7 @@ const UserMenuComponent: UserMenuType = props => {
     mediaParams: { deviceType } = mediaParamsDefault,
     urlParams: { urlParam1, urlParam2 } = urlParamsDefault,
     urlParamsSearch: query,
+    platformOS,
     store,
   } = props
 
@@ -108,6 +106,7 @@ const UserMenuComponent: UserMenuType = props => {
             urlParam1,
             urlParam2,
             query,
+            platformOS,
           }
         )
         handleEvents.CLICK_ON_USER_OPTION_SELECT(
@@ -203,8 +202,6 @@ const UserMenuComponent: UserMenuType = props => {
         )
       })
   }
-
-  const propsOut: UserMenuPropsOutType = {}
 
   return (
     <View style={[style.UserMenu, styleProps.UserMenu]} testID='UserMenu'>

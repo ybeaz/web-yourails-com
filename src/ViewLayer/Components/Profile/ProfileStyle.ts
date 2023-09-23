@@ -6,7 +6,7 @@ export const stylesDefault = StyleSheet.create({
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
-    padding: '3rem',
+    padding: getPx('3rem'),
   },
   imageWrapper: {
     alignItems: 'center',
