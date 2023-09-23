@@ -68,7 +68,7 @@ const lgDevice = StyleSheet.create({
   ...stylesDefault,
   ProjectView: {
     flexDirection: 'row',
-    paddingBottom: '2rem',
+    paddingBottom: getPx('2rem'),
   },
   projectProfileView: { flex: 1, paddingLeft: getPx('1rem') },
   rowStyle: {

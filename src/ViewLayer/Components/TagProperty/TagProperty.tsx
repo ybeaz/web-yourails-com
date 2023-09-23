@@ -53,8 +53,8 @@ const TagPropertyComponent: TagPropertyType = props => {
         styleProps: {
           IconYrl: {
             cursor: 'pointer',
-            paddingRight: '0.25rem',
-            paddingBottom: '0.25rem',
+            paddingRight: getPx('0.25rem'),
+            paddingBottom: getPx('0.25rem'),
           },
         },
         size: 16,
@@ -69,7 +69,9 @@ const TagPropertyComponent: TagPropertyType = props => {
     iconProps: {
       library: iconLibrary || '',
       name: iconName || '',
-      styleProps: { IconYrl: { cursor: 'pointer', paddingRight: '0.25rem' } },
+      styleProps: {
+        IconYrl: { cursor: 'pointer', paddingRight: getPx('0.25rem') },
+      },
       size: 24,
       color: themes['themeA'].colors02.color,
       testID: 'tagProperty_IconYrl',

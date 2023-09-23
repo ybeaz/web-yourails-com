@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { View } from 'react-native'
+import { getPx } from '../../Styles/styleGlobal'
 
 import {
   ButtonYrl,
@@ -80,7 +81,7 @@ const ChatInputComponent: ChatInputType = props => {
       styleProps: {
         IconYrl: {
           cursor: 'pointer',
-          paddingRight: '0.25rem',
+          paddingRight: getPx('0.25rem'),
         },
       },
       size: 16,
@@ -93,7 +94,7 @@ const ChatInputComponent: ChatInputType = props => {
       styleProps: {
         IconYrl: {
           cursor: 'pointer',
-          paddingRight: '0.25rem',
+          paddingRight: getPx('0.25rem'),
         },
       },
       size: 16,

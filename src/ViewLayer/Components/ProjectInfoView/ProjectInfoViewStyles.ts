@@ -54,7 +54,7 @@ const xsDevice = StyleSheet.create({
   ...stylesDefault,
   projectView: {
     flexDirection: 'column',
-    paddingBottom: '2rem',
+    paddingBottom: getPx('2rem'),
   },
   ProjectInfoView: { flex: 1, paddingBottom: getPx('1rem') },
 })
@@ -71,9 +71,9 @@ const lgDevice = StyleSheet.create({
   ...stylesDefault,
   projectView: {
     flexDirection: 'row',
-    paddingBottom: '2rem',
+    paddingBottom: getPx('2rem'),
   },
-  ProjectInfoView: { flex: 1, paddingLeft: '2rem' },
+  ProjectInfoView: { flex: 1, paddingLeft: getPx('2rem') },
   rowStyle: {
     ...stylesDefault.rowStyle,
     flexDirection: 'row',

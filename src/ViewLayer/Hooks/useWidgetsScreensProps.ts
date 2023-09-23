@@ -62,7 +62,8 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     sectionsMapping,
   } = storeStateSlice
 
-  console.info('useWidgetsScreensProps [62]', props)
+  // TODO Remove
+  // console.info('useWidgetsScreensProps [62]', props)
 
   const { isShow: isShowModalFrame } = modalFrame
 

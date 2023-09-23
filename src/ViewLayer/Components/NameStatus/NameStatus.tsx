@@ -46,7 +46,7 @@ const NameStatusComponent: NameStatusComponentType = props => {
         IconYrl: {
           cursor: 'pointer',
           paddingBottom: '0.2rem',
-          paddingLeft: '0.25rem',
+          paddingLeft: getPx('0.25rem'),
         },
       },
       size: getPx('1rem'),

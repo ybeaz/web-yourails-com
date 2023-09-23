@@ -96,12 +96,12 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   if (deviceType === 'xsDevice') {
     modalContentMargin = 0
   } else if (deviceType === 'smDevice') {
-    modalContentMargin = '2rem'
-    buttonTop = '0.25rem'
+    modalContentMargin = getPx('2rem')
+    buttonTop = getPx('0.25rem')
     buttonLeft = getPx('0.5rem')
     buttonRight = getPx('0.5rem')
   } else if (deviceType === 'mdDevice') {
-    buttonTop = '0.7rem'
+    buttonTop = getPx('0.75rem')
   } else if (deviceType === 'lgDevice' || deviceType === 'xlDevice') {
     buttonTop = getPx('1rem')
   }

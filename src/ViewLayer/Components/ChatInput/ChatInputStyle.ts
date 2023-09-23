@@ -23,7 +23,7 @@ export const stylesDefault = StyleSheet.create({
   inputText: {
     borderRadius: 10,
     width: '80vw',
-    paddingRight: '2rem',
+    paddingRight: getPx('2rem'),
   },
   inputTextResize: {
     maxWidth: '80vw',

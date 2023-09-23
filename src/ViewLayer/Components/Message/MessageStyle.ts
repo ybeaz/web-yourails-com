@@ -20,7 +20,7 @@ const Message: any = {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingBottom: '0.25rem',
+    paddingBottom: getPx('0.25rem'),
   },
   textCommon: {},
   dateStringCommon: {
@@ -98,7 +98,7 @@ const lgDevice = StyleSheet.create({
     text: Message.textCommon,
     dateString: Message.dateStringCommon,
     copyThis: {
-      paddingLeft: '0.25rem',
+      paddingLeft: getPx('0.25rem'),
     },
   },
   right: {

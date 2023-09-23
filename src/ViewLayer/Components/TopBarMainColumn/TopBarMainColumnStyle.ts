@@ -5,8 +5,8 @@ export const stylesDefault = StyleSheet.create({
   TopBarMainColumn: {
     ...styleGlobal.typography,
     flexDirection: 'row',
-    paddingTop: '0.45rem',
-    paddingBottom: '0.45rem',
+    paddingTop: getPx('0.5rem'),
+    paddingBottom: getPx('0.5rem'),
     justifyContent: 'flex-start',
     alignContent: 'space-around',
     alignItems: 'center',
@@ -35,7 +35,7 @@ export const stylesDefault = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   serviceSpec: {
-    paddingLeft: '2rem',
+    paddingLeft: getPx('2rem'),
   },
   serviceSpecText: {},
 })

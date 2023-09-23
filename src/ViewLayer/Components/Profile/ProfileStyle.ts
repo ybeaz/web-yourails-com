@@ -10,7 +10,7 @@ export const stylesDefault = StyleSheet.create({
   },
   imageWrapper: {
     alignItems: 'center',
-    paddingBottom: '2rem',
+    paddingBottom: getPx('2rem'),
   },
   profileItemsWrapper: {},
   qrCodeImageWrapper: {},
@@ -28,7 +28,7 @@ export const stylesDefault = StyleSheet.create({
   content: {},
   label: {
     fontSize: 13,
-    paddingTop: '0.25rem',
+    paddingTop: getPx('0.25rem'),
   },
   image: {
     width: 150,

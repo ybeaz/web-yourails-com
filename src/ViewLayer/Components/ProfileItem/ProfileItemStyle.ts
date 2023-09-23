@@ -21,7 +21,7 @@ export const style = StyleSheet.create({
   content: {},
   label: {
     fontSize: 13,
-    paddingTop: '0.25rem',
+    paddingTop: getPx('0.25rem'),
   },
 
   messengerView: { flexDirection: 'row' },
