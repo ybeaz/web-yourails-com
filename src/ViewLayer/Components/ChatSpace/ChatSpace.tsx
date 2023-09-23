@@ -90,7 +90,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const dateString = getDateLocale(+new Date())
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
   let modalContentMargin: string | number = '3rem'
-  let buttonTop = '0.5rem'
+  let buttonTop = getPx('0.5rem')
   let buttonLeft = getPx('1rem')
   let buttonRight = getPx('1rem')
   if (deviceType === 'xsDevice') {
@@ -98,8 +98,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   } else if (deviceType === 'smDevice') {
     modalContentMargin = '2rem'
     buttonTop = '0.25rem'
-    buttonLeft = '0.5rem'
-    buttonRight = '0.5rem'
+    buttonLeft = getPx('0.5rem')
+    buttonRight = getPx('0.5rem')
   } else if (deviceType === 'mdDevice') {
     buttonTop = '0.7rem'
   } else if (deviceType === 'lgDevice' || deviceType === 'xlDevice') {

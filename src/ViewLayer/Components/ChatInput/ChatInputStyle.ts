@@ -44,7 +44,7 @@ export const stylesDefault = StyleSheet.create({
     position: 'absolute',
     paddingRight: getPx('1rem'),
     right: 0,
-    top: '0.5rem',
+    top: getPx('0.5rem'),
   },
   tooltipsWrapper: {
     flexDirection: 'row',

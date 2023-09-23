@@ -180,7 +180,7 @@ const UserMenuComponent: UserMenuType = props => {
           userMenuIconYrlProps: {
             library: iconLibrary,
             name: iconName,
-            styleProps: { IconYrl: { paddingRight: '0.5rem' } },
+            styleProps: { IconYrl: { paddingRight: getPx('0.5rem') } },
             size: 24,
             color,
             testID: 'userMenuIconYrl',

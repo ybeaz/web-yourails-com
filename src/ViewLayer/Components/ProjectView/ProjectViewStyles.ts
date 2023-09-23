@@ -5,11 +5,11 @@ const stylesDefault: any = {
   ProjectView: {
     ...styleGlobal.typography,
   },
-  buttonImageView: { paddingTop: '0.5rem' },
+  buttonImageView: { paddingTop: getPx('0.5rem') },
   imageView: {},
   rowStyle: {
     flexDirection: 'column',
-    padding: '0.5rem',
+    padding: getPx('0.5rem'),
   },
   column1Style: {
     flex: 1,
@@ -23,25 +23,25 @@ const stylesDefault: any = {
   },
   subtitleView: {},
   subtitleTextName: {
-    paddingRight: '0.5rem',
+    paddingRight: getPx('0.5rem'),
     fontWeight: 'bold',
   },
   subtitleText: {},
   descriptionView: {},
   descriptionTextName: {
-    paddingRight: '0.5rem',
+    paddingRight: getPx('0.5rem'),
     fontWeight: 'bold',
   },
   descriptionText: {},
   customerView: {},
   customerTextName: {
-    paddingRight: '0.5rem',
+    paddingRight: getPx('0.5rem'),
     fontWeight: 'bold',
   },
   customerText: {},
   builtwithView: {},
   builtwithTextName: {
-    paddingRight: '0.5rem',
+    paddingRight: getPx('0.5rem'),
     fontWeight: 'bold',
   },
   builtwithText: {},

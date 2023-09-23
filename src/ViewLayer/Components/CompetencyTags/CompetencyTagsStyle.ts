@@ -11,7 +11,7 @@ export const style = StyleSheet.create({
   },
   headerView: {},
   headerText: {
-    paddingLeft: '0.5rem',
+    paddingLeft: getPx('0.5rem'),
     fontSize: 20,
     lineHight: '125%',
   },
@@ -23,7 +23,7 @@ export const style = StyleSheet.create({
     alignItems: 'center',
   },
   tagSubheading: {
-    paddingLeft: '0.5rem',
+    paddingLeft: getPx('0.5rem'),
     fontWeight: 'bold',
   },
   flatListContentContainerStyle: {

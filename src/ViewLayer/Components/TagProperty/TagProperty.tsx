@@ -16,6 +16,7 @@ import {
 } from './TagPropertyType'
 import { style } from './TagPropertyStyle'
 import { themes } from '../../Styles/themes'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { TagProperty } from '../Components/TagProperty/TagProperty'
@@ -39,7 +40,7 @@ const TagPropertyComponent: TagPropertyType = props => {
         title: {
           color: themes['themeA'].colors08.color,
           textDecoration: 'underline',
-          paddingBottom: '0.5rem',
+          paddingBottom: getPx('0.5rem'),
         },
       },
       titleText: title || '',

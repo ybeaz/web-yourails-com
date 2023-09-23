@@ -9,7 +9,7 @@ export const style = StyleSheet.create({
   rowView: {
     flexDirection: 'row',
     flex: 1,
-    padding: '0.5rem',
+    padding: getPx('0.5rem'),
   },
   column1: {
     minWidth: '2.5rem',

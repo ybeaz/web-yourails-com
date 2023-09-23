@@ -17,7 +17,7 @@ export const stylesDefault = StyleSheet.create({
   rowView: {
     flexDirection: 'row',
     flex: 1,
-    padding: '0.5rem',
+    padding: getPx('0.5rem'),
   },
   column1: {
     paddingRight: getPx('1rem'),

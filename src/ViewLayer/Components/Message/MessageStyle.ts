@@ -6,7 +6,7 @@ const Message: any = {
     ...styleGlobal.typography,
     flexDirection: 'row',
     alignItems: 'flex-end',
-    marginBottom: '0.5rem',
+    marginBottom: getPx('0.5rem'),
   },
   contentCommon: {
     width: 'fit-content',
@@ -43,7 +43,7 @@ export const stylesDefault: any = {
     dateString: Message.dateStringCommon,
     copyThis: {
       marginRight: '-0.75rem',
-      paddingTop: '0.5rem',
+      paddingTop: getPx('0.5rem'),
     },
   },
   right: {
@@ -59,7 +59,7 @@ export const stylesDefault: any = {
     dateString: Message.dateStringCommon,
     copyThis: {
       marginRight: '-0.75rem',
-      paddingTop: '0.5rem',
+      paddingTop: getPx('0.5rem'),
     },
   },
   roundAllCorners: {

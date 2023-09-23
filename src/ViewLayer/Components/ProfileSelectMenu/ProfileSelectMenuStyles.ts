@@ -7,7 +7,7 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'flex-start',
     paddingTop: getPx('1rem'),
-    paddingBottom: '0.5rem',
+    paddingBottom: getPx('0.5rem'),
   },
 })
 

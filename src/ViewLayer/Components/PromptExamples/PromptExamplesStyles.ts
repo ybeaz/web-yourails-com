@@ -16,8 +16,8 @@ export const stylesDefault = StyleSheet.create({
   },
   header: {
     ...styleGlobal.typography,
-    paddingTop: '0.5rem',
-    paddingBottom: '0.5rem',
+    paddingTop: getPx('0.5rem'),
+    paddingBottom: getPx('0.5rem'),
   },
   headerText: {
     ...styleGlobal.h4,
