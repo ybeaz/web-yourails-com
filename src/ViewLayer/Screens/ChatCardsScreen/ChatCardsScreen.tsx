@@ -34,10 +34,7 @@ const ChatCardsScreenComponent: ChatCardsScreenComponentType = props => {
 
   const ChatCardsHeader = useMemo(
     () => (
-      <View
-        style={[propsOut.style.leftColumnTopBars]}
-        testID='leftColumnTopBars'
-      >
+      <View style={[propsOut.style.chatCardsHeader]} testID='chatCardsHeader'>
         <TopBarChatCards />
       </View>
     ),
@@ -46,10 +43,7 @@ const ChatCardsScreenComponent: ChatCardsScreenComponentType = props => {
 
   const ChatCardsBody = useMemo(
     () => (
-      <View
-        style={[propsOut.style.leftColumnChatCardSpace]}
-        testID='leftColumnChatCardSpace'
-      >
+      <View style={[propsOut.style.chatCardsBody]} testID='chatCardsBody'>
         <ChatCards />
       </View>
     ),

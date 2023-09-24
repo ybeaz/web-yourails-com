@@ -39,15 +39,14 @@ const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
   const ChatSpaceHeader = (
     <View
       style={[
-        propsOut.style.ChatSpaceHeader,
+        propsOut.style.chatSpaceHeader,
         propsOut.themes['themeA'].colors03,
       ]}
-      testID='ChatSpaceHeader'
+      testID='chatSpaceHeader'
     >
       {!propsOut.isMainColumnBlank ? (
         <View
           style={[
-            propsOut.style.mainColumnTopBar,
             {
               borderStyle: 'solid',
               // borderTopWidth: 1,
@@ -66,10 +65,7 @@ const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
       {!propsOut.isMainColumnBlank &&
       propsOut.sectionsMappingForProfile.length ? (
         <View
-          style={[
-            propsOut.style.mainColumnContentMenu,
-            propsOut.themes['themeA'].colors01,
-          ]}
+          style={[propsOut.themes['themeA'].colors01]}
           testID='mainColumnContentMenu'
         >
           <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
@@ -78,13 +74,23 @@ const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
     </View>
   )
 
-  const ChatSpaceBody = useMemo(() => <ChatSpace />, [])
+  const ChatSpaceBody = useMemo(
+    () => (
+      <View style={[propsOut.style.chatSpaceBody]} testID='chatSpaceBody'>
+        <ChatSpace />
+      </View>
+    ),
+    []
+  )
 
   const ChatSpaceFooter = useMemo(
     () => (
       <View
-        style={[propsOut.style.chatInput, propsOut.themes['themeA'].colors03]}
-        testID='chatInput'
+        style={[
+          propsOut.style.chatSpaceFooter,
+          propsOut.themes['themeA'].colors03,
+        ]}
+        testID='chatSpaceFooter'
       >
         <ChatInput />
       </View>

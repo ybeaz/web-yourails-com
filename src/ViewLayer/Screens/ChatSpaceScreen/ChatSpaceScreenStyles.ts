@@ -2,9 +2,15 @@ import { StyleSheet } from 'react-native'
 import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
-  ChatSpaceScreen: {
-    ...styleGlobal.typography,
-    flexDirection: 'column',
+  chatSpaceHeader: {},
+  chatSpaceBody: {
+    justifyContent: 'flex-end',
+    height: '100%',
+  },
+  chatSpaceFooter: {
+    height: getPx('6rem'),
+    bottom: 0,
+    width: '100%',
   },
 })
 

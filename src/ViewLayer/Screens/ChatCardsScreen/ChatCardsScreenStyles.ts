@@ -2,9 +2,16 @@ import { StyleSheet } from 'react-native'
 import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
-  ChatCardsScreen: {
-    ...styleGlobal.typography,
+  chatCardsHeader: {
+    display: 'flex',
+    paddingTop: getPx('0.75rem'),
+    alignItems: 'flex-start',
+    flexDirection: 'row',
+  },
+  chatCardsBody: {
     flexDirection: 'column',
+    flex: 1,
+    overflow: 'scroll',
   },
 })
 
