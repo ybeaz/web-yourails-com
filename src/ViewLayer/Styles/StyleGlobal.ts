@@ -75,7 +75,15 @@ export const styleGlobal = StyleSheet.create({
   },
 })
 
-export const debugLayout = (borderColor: string) => ({
+interface DebugLayoutType {
+  (borderColor: string): {
+    borderColor: string
+    borderStyle: 'solid' | 'dotted' | 'dashed' | undefined
+    borderWidth: number
+  }
+}
+
+export const debugLayout: DebugLayoutType = (borderColor: string) => ({
   borderColor,
   borderStyle: 'solid',
   borderWidth: 1,

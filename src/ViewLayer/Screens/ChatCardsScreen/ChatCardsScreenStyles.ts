@@ -14,7 +14,7 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'column',
     flex: 1,
     overflow: 'scroll',
-    minHeight: 300,
+    ...debugLayout('red'),
   },
 })
 

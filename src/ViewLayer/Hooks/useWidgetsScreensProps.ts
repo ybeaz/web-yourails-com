@@ -67,7 +67,10 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
   } = storeStateSlice
 
   // TODO Remove
-  console.info('useWidgetsScreensProps [62]', props)
+  console.info('useWidgetsScreensProps [62]', {
+    top: insets.top,
+    height: mediaParams.height,
+  })
 
   const { isShow: isShowModalFrame } = modalFrame
 
@@ -203,6 +206,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
           // borderBottomWidth: 1,
           borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
+          height: mediaParams.height - insets.top - 95,
         },
         mainColumn: {
           borderStyle: 'solid',
