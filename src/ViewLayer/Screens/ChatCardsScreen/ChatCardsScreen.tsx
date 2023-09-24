@@ -59,19 +59,17 @@ const ChatCardsScreenComponent: ChatCardsScreenComponentType = props => {
   return (
     // <DebugHome {...debugHomeProps} />
     <LayoutScreen {...propsOut.layoutScreenProps}>
-      {/** @description <NavigationTop /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
+      {/** @description <Header /> */}
+      <LayoutOfRow {...propsOut.layoutOfRowHeaderProps}>
         {ChatCardsHeader}
       </LayoutOfRow>
-      {/** @description <MainContent /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
+      {/** @description <Body /> */}
+      <LayoutOfRow {...propsOut.layoutOfRowBodyProps}>
         {ChatCardsBody}
       </LayoutOfRow>
-      {/** @description <NavigationBottom /> */}
+      {/** @description <Footer /> */}
       {!propsOut.isShowModalFrame && (
-        <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
-          {null}
-        </LayoutOfRow>
+        <LayoutOfRow {...propsOut.layoutOfRowFooterProps}>{null}</LayoutOfRow>
       )}
     </LayoutScreen>
   )

@@ -162,7 +162,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
       isActive: profiles.length ? true : false,
       onLayout,
     },
-    layoutOfRowNavigationTopProps: {
+    layoutOfRowHeaderProps: {
       ...layoutOfRowProps,
       styleProps: {
         LayoutOfRow: {
@@ -186,7 +186,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
         },
       },
     },
-    layoutOfRowMainContentProps: {
+    layoutOfRowBodyProps: {
       ...layoutOfRowProps,
       styleProps: {
         LayoutOfRow: {
@@ -211,7 +211,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
         },
       },
     },
-    layoutOfRowNavigationBottomProps: {
+    layoutOfRowFooterProps: {
       ...layoutOfRowProps,
       styleProps: {
         LayoutOfRow: {

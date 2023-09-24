@@ -113,19 +113,19 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
 
   return (
     <LayoutScreen {...propsOut.layoutScreenProps}>
-      {/** @description <NavigationTop /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
+      {/** @description <Header /> */}
+      <LayoutOfRow {...propsOut.layoutOfRowHeaderProps}>
         {ChatCardsHeader}
         {ChatSpaceHeader}
       </LayoutOfRow>
-      {/** @description <MainContent /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
+      {/** @description <Body /> */}
+      <LayoutOfRow {...propsOut.layoutOfRowBodyProps}>
         {ChatCardsBody}
         {ChatSpaceBody}
       </LayoutOfRow>
-      {/** @description <NavigationBottom /> */}
+      {/** @description <Footer /> */}
       {!propsOut.isShowModalFrame ? (
-        <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
+        <LayoutOfRow {...propsOut.layoutOfRowFooterProps}>
           {null}
           {ChatSpaceFooter}
         </LayoutOfRow>

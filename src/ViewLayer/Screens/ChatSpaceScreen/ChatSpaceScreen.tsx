@@ -101,17 +101,17 @@ const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
   return (
     <LayoutScreen {...propsOut.layoutScreenProps}>
       {/* <DebugHome {...{ ...props, ...debugHomeProps }} /> */}
-      {/** @description <NavigationTop /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowNavigationTopProps}>
+      {/** @description <Header /> */}
+      <LayoutOfRow {...propsOut.layoutOfRowHeaderProps}>
         {ChatSpaceHeader}
       </LayoutOfRow>
-      {/** @description <MainContent /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowMainContentProps}>
+      {/** @description <Body /> */}
+      <LayoutOfRow {...propsOut.layoutOfRowBodyProps}>
         {ChatSpaceBody}
       </LayoutOfRow>
-      {/** @description <NavigationBottom /> */}
+      {/** @description <Footer /> */}
       {!propsOut.isShowModalFrame && (
-        <LayoutOfRow {...propsOut.layoutOfRowNavigationBottomProps}>
+        <LayoutOfRow {...propsOut.layoutOfRowFooterProps}>
           {ChatSpaceFooter}
         </LayoutOfRow>
       )}

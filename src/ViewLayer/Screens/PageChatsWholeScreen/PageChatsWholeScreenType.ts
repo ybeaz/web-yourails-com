@@ -35,9 +35,9 @@ export type PageChatsWholeScreenPropsOutType = {
   style: any
   themes: { themeA: any; themeB: any }
   layoutScreenProps: Omit<LayoutScreenPropsType, 'children'>
-  layoutOfRowNavigationTopProps: LayoutOfRowPropsType
-  layoutOfRowMainContentProps: LayoutOfRowPropsType
-  layoutOfRowNavigationBottomProps: LayoutOfRowPropsType
+  layoutOfRowHeaderProps: LayoutOfRowPropsType
+  layoutOfRowBodyProps: LayoutOfRowPropsType
+  layoutOfRowFooterProps: LayoutOfRowPropsType
   mainColumnContentMenuProps: Omit<
     ContentMenuMainColumnPropsType,
     'sectionsMapping' | 'store' | 'handleEvents'
