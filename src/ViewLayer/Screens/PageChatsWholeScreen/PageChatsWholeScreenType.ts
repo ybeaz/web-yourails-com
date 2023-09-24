@@ -3,6 +3,8 @@ import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 import {
   UrlParamsDefaultType,
   MediaParamsDefaultType,
+  PlatformOSYrlType,
+  InsetsYrlType,
 } from '../../../YrlNativeViewLibrary'
 import { LayoutScreenPropsType } from '../../Frames/LayoutScreen/LayoutScreen'
 import { LayoutOfRowPropsType } from '../../Frames/LayoutOfRow/LayoutOfRow'
@@ -16,6 +18,8 @@ export type PageChatsWholeScreenPropsType = {
   mediaParams?: MediaParamsDefaultType
   urlParams?: UrlParamsDefaultType
   urlParamsSearch: any
+  platformOS: PlatformOSYrlType
+  insets: InsetsYrlType
   routeProps?: any
   themeDafault?: string
   handleEvents: HandleEventsType
@@ -29,12 +33,17 @@ export type PageChatsWholeScreenPropsType = {
     profiles: RootStoreType['profiles']
     sectionsMapping: RootStoreType['sectionsMapping']
   }
+  onLayout: () => void
+  navigation: any
 }
 
 export type PageChatsWholeScreenPropsOutType = {
   style: any
   themes: { themeA: any; themeB: any }
-  layoutScreenProps: Omit<LayoutScreenPropsType, 'children'>
+  layoutScreenProps: Omit<
+    LayoutScreenPropsType,
+    'children' | 'platformOS' | 'insets'
+  >
   layoutOfRowHeaderProps: LayoutOfRowPropsType
   layoutOfRowBodyProps: LayoutOfRowPropsType
   layoutOfRowFooterProps: LayoutOfRowPropsType

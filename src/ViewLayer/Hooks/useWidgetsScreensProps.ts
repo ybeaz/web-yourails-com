@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-import { PageChatsWholeScreenPropsOutType } from '../Screens/PageChatsWholeScreen/PageChatsWholeScreen'
+import {
+  PageChatsWholeScreenPropsType,
+  PageChatsWholeScreenPropsOutType,
+} from '../Screens/PageChatsWholeScreen/PageChatsWholeScreen'
 import { SectionMappingType } from '../../@types/SectionMappingType'
 import { ProfileType } from '../../@types/GraphqlTypes'
 
@@ -18,7 +21,7 @@ import { getProfileByIdProfile } from '../../Shared/getProfileByIdProfile'
 import { getSectionsMappingForProfile } from '../../Shared/getSectionsMappingForProfile'
 import { getPx } from '../Styles/styleGlobal'
 
-export type useWidgetsScreensPropsPropsType = Record<string, any>
+export type useWidgetsScreensPropsPropsType = PageChatsWholeScreenPropsType
 
 export interface useWidgetsScreensPropsType {
   (props: useWidgetsScreensPropsPropsType): PageChatsWholeScreenPropsOutType
@@ -30,13 +33,14 @@ export interface useWidgetsScreensPropsType {
  */
 
 export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
-  props: any
+  props: useWidgetsScreensPropsPropsType
 ) => {
   const {
     styles,
     mediaParams = mediaParamsDefault,
     urlParams = urlParamsDefault,
     platformOS,
+    insets,
     urlParamsSearch,
     handleEvents,
     storeStateSlice,
@@ -63,7 +67,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
   } = storeStateSlice
 
   // TODO Remove
-  // console.info('useWidgetsScreensProps [62]', props)
+  console.info('useWidgetsScreensProps [62]', props)
 
   const { isShow: isShowModalFrame } = modalFrame
 

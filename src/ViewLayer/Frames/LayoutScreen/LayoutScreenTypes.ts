@@ -1,11 +1,13 @@
-import { ReactElement } from 'react'
-import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import { ReactElement, FunctionComponent } from 'react'
+import { PlatformOSYrlType, InsetsYrlType } from '../../../YrlNativeViewLibrary'
 
 export interface LayoutScreenPropsType {
   styleProps?: any
   isActive: boolean
   children: (ReactElement | null)[]
   onLayout: () => void
+  platformOS: PlatformOSYrlType
+  insets: InsetsYrlType
 }
 
 export type LayoutScreenPropsOutType = any
@@ -13,7 +15,13 @@ export type LayoutScreenPropsOutType = any
 /**
  * @import import { LayoutScreenType } from './LayoutScreenType'
  */
-export interface LayoutScreenType
+export interface LayoutScreenComponentType
   extends React.FunctionComponent<LayoutScreenPropsType> {
-  (props: LayoutScreenPropsType): React.ReactElement
+  (props: LayoutScreenPropsType): ReactElement
+}
+
+export interface LayoutScreenType {
+  (props: LayoutScreenComponentType):
+    | FunctionComponent
+    | React.NamedExoticComponent
 }

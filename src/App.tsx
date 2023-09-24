@@ -3,7 +3,7 @@ import { AppRegistry, Platform } from 'react-native'
 import React, { StrictMode, useCallback } from 'react'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen'
-
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { Provider } from 'react-redux'
 import { store } from './DataLayer/store'
 import { NavigationWeb } from './Navigation/NavigationWeb'
@@ -39,9 +39,11 @@ function App() {
   } else {
     return (
       <StrictMode>
-        <Provider store={store}>
-          <NavigationMobile onLayout={onLayoutRootView} />
-        </Provider>
+        <SafeAreaProvider>
+          <Provider store={store}>
+            <NavigationMobile onLayout={onLayoutRootView} />
+          </Provider>
+        </SafeAreaProvider>
       </StrictMode>
     )
   }

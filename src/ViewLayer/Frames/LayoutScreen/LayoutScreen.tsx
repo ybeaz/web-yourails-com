@@ -1,9 +1,13 @@
-import React from 'react'
-import { SafeAreaView, View } from 'react-native'
+import React, { ReactElement } from 'react'
+import { SafeAreaView as SafeAreaViewWeb, View } from 'react-native'
+import { SafeAreaView as SafeAreaViewMobile } from 'react-native-safe-area-context'
+
+import { withParamsMediaYrl } from '../../../YrlNativeViewLibrary'
 
 import {
   LayoutScreenPropsType,
   LayoutScreenPropsOutType,
+  LayoutScreenComponentType,
   LayoutScreenType,
 } from './LayoutScreenTypes'
 import { style } from './LayoutScreenStyles'
@@ -11,7 +15,7 @@ import { style } from './LayoutScreenStyles'
 /**
  * @import import { LayoutScreen } from '../Components/LayoutScreen/LayoutScreen'
  */
-const LayoutScreenComponent: LayoutScreenType = props => {
+const LayoutScreenComponent: LayoutScreenComponentType = props => {
   const {
     styleProps = {
       LayoutScreen: {},
@@ -22,13 +26,22 @@ const LayoutScreenComponent: LayoutScreenType = props => {
     isActive,
     children,
     onLayout,
+    platformOS,
+    insets,
   } = props
+
+  const SafeAreaView =
+    platformOS === 'web' ? SafeAreaViewWeb : SafeAreaViewMobile
 
   const propsOut: LayoutScreenPropsOutType = {}
 
   return isActive ? (
     <SafeAreaView
-      style={[style.LayoutScreen, styleProps.LayoutScreen]}
+      style={[
+        style.LayoutScreen,
+        { marginTop: insets.top },
+        styleProps.LayoutScreen,
+      ]}
       onLayout={onLayout}
       testID='LayoutScreenPageChats'
     >
@@ -60,7 +73,9 @@ const LayoutScreenComponent: LayoutScreenType = props => {
   )
 }
 
-export const LayoutScreen = React.memo(LayoutScreenComponent)
+export const LayoutScreen: any = withParamsMediaYrl(
+  React.memo(LayoutScreenComponent)
+)
 
 export type {
   LayoutScreenPropsType,

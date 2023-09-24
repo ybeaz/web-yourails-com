@@ -1,17 +1,20 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal, getPx } from '../../Styles/styleGlobal'
+import { debugLayout, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   chatCardsHeader: {
     display: 'flex',
     paddingTop: getPx('0.75rem'),
-    alignItems: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: 'row',
+    ...debugLayout('green'),
   },
   chatCardsBody: {
     flexDirection: 'column',
     flex: 1,
     overflow: 'scroll',
+    minHeight: 300,
   },
 })
 

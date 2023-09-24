@@ -1,5 +1,4 @@
 import React from 'react'
-import * as SplashScreen from 'expo-splash-screen'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
@@ -45,8 +44,11 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name='ChatCardsScreen'>
+      <Stack.Navigator
+        initialRouteName='ChatCardsScreen'
+        // screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name='ChatCardsScreen' options={{ headerShown: false }}>
           {props => (
             <ChatCardsScreen
               {...{ ...props, ...propsOut.chatCardsScreenProps }}

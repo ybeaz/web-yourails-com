@@ -8,6 +8,7 @@ import {
 } from '../../../YrlNativeViewLibrary'
 
 import {
+  PageChatsWholeScreenPropsType,
   PageChatsWholeScreenPropsOutType,
   PageChatsWholeScreenType,
 } from './PageChatsWholeScreenType'
@@ -152,4 +153,8 @@ export const PageChatsWholeScreen = withPropsYrl({
   )
 )
 
-export type { PageChatsWholeScreenPropsOutType, PageChatsWholeScreenType }
+export type {
+  PageChatsWholeScreenPropsType,
+  PageChatsWholeScreenPropsOutType,
+  PageChatsWholeScreenType,
+}

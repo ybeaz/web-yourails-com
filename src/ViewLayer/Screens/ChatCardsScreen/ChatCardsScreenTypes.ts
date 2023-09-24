@@ -1,30 +1,8 @@
-import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import { PageChatsWholeScreenPropsType } from '../PageChatsWholeScreen/PageChatsWholeScreen'
 
-export interface ChatCardsScreenPropsType {
-  styleProps?: any
-  mediaParams?: MediaParamsDefaultType
-  onLayout?: () => void
-}
+export type ChatCardsScreenPropsType = PageChatsWholeScreenPropsType
 
 export type ChatCardsScreenPropsOutType = Record<string, any>
-
-/* TODO
-  {
-  style: any
-  themes: { themeA: any; themeB: any }
-  layoutScreenProps: Omit<LayoutScreenPropsType, 'children'>
-  layoutOfRowNavigationTopProps: LayoutOfRowPropsType
-  layoutOfRowMainContentProps: LayoutOfRowPropsType
-  layoutOfRowNavigationBottomProps: LayoutOfRowPropsType
-  mainColumnContentMenuProps: Omit<
-    ContentMenuMainColumnPropsType,
-    'sectionsMapping' | 'store' | 'handleEvents'
-  >
-  isShowModalFrame: boolean
-  isMainColumnBlank: boolean
-  sectionsMappingForProfile: SectionMappingType[]
-}
-*/
 
 /**
  * @import import { ChatCardsScreenType } from './ChatCardsScreenType'

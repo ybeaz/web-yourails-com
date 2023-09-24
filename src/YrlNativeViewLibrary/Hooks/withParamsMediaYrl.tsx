@@ -1,16 +1,21 @@
 import React, { FunctionComponent } from 'react'
 import { Platform } from 'react-native'
 import { useSearchParams, useParams } from 'react-router-dom'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import {
   useMediaQueryResYrl,
   MediaParamsDefaultType,
   DeviceType,
 } from './useMediaQueryResYrl'
 
-export type WithParamsMediaYrlPropsType = FunctionComponent<any>
+export type WithParamsMediaYrlPropsType =
+  | FunctionComponent<any>
+  | React.NamedExoticComponent<any>
 
 export interface WithParamsMediaYrlType {
-  (Component: WithParamsMediaYrlPropsType): FunctionComponent
+  (Component: WithParamsMediaYrlPropsType):
+    | FunctionComponent
+    | React.NamedExoticComponent
 }
 
 export type UrlParamsDefaultType = {
@@ -48,16 +53,25 @@ export const urlParamsDefault: UrlParamsDefaultType = {
 }
 
 export type PlatformOSYrlType = 'ios' | 'android' | 'windows' | 'macos' | 'web'
+export type InsetsYrlType = {
+  top: number
+  bottom: number
+  right: number
+  left: number
+}
 
 export const withParamsMediaYrl: WithParamsMediaYrlType = function (Component) {
   return function WrappedComponent(props: any) {
     let urlParams = undefined
     let urlParamsSearch = undefined
     const platformOS: PlatformOSYrlType = Platform.OS
+    let insets = { top: 0, right: 0, bottom: 0, left: 0 }
     if (platformOS === 'web') {
       urlParams = useParams()
       const [urlParamsSearchM1] = useSearchParams()
       urlParamsSearch = urlParamsSearchM1
+    } else if (platformOS === 'ios' || platformOS === 'android') {
+      insets = useSafeAreaInsets()
     }
 
     const mediaParams: MediaParamsDefaultType = useMediaQueryResYrl()
@@ -67,6 +81,7 @@ export const withParamsMediaYrl: WithParamsMediaYrlType = function (Component) {
       urlParams,
       urlParamsSearch,
       platformOS,
+      insets,
     }
     return <Component {...propsNext} />
   }
