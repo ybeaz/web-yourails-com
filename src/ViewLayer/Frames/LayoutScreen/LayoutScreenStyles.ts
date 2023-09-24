@@ -10,7 +10,7 @@ export const stylesDefault = StyleSheet.create({
     maxHeight: '100%',
     width: '100%',
   },
-  layoutNavigationTop: {
+  layoutScreenHeader: {
     position: 'absolute',
     top: 0,
     left: 0,
@@ -21,7 +21,7 @@ export const stylesDefault = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
   },
-  layoutMainContent: {
+  layoutScreenBody: {
     display: 'flex',
     position: 'absolute',
     left: 0,
@@ -32,7 +32,7 @@ export const stylesDefault = StyleSheet.create({
     width: '100%',
     maxHeight: '100%',
   },
-  layoutNavigationBottom: {
+  layoutScreenFooter: {
     position: 'absolute',
     bottom: 0,
     left: 0,

@@ -2,7 +2,12 @@ import { ReactElement, FunctionComponent } from 'react'
 import { PlatformOSYrlType, InsetsYrlType } from '../../../YrlNativeViewLibrary'
 
 export interface LayoutScreenPropsType {
-  styleProps?: any
+  styleProps?: {
+    LayoutScreen: any
+    layoutScreenHeader: any
+    layoutScreenBody: any
+    layoutScreenFooter: any
+  }
   isActive: boolean
   children: (ReactElement | null)[]
   onLayout: () => void

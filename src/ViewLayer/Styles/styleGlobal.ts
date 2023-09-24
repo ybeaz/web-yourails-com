@@ -4,6 +4,7 @@ import { getPxOfRem } from '../../Shared/getPxOfRem'
 
 const rootElementFontSize: number = 16
 const listOfAcceptedRemValues: string[] = [
+  '-0.75rem',
   '0.25rem',
   '0.5rem',
   '0.75rem',

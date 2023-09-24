@@ -1,8 +1,5 @@
 import React, { ReactElement } from 'react'
 import { Platform, View, FlatList } from 'react-native'
-import 'react-native-get-random-values'
-import { nanoid } from 'nanoid'
-import { customAlphabet } from 'nanoid/non-secure'
 import { v5 as uuidv5 } from 'uuid'
 
 import {
@@ -23,8 +20,6 @@ import { UserMenu } from '../UserMenu/UserMenu'
 import { ProfileSelectMenu } from '../ProfileSelectMenu/ProfileSelectMenu'
 import { getProfilesSearched } from '../../../Shared/getProfilesSearched'
 import { getPx } from '../../Styles/styleGlobal'
-
-import { DebugStub } from '../DebugStub/DebugStub'
 
 /**
  * @import import { ChatCards } from '../Components/ChatCards/ChatCards'
@@ -72,22 +67,6 @@ const ChatCardsComponent: ChatCardsType = props => {
     const { idProfile } = profile
     return idProfile !== '0' && idProfile !== idProfileHost
   })
-
-  // const getChatCards = (profilesIn: ProfileType[]): ReactElement[] => {
-  //   return profiles.map((profile: ProfileType, index: number) => {
-  //     const propsOut: Record<string, any> = {
-  //       chatCardProps: {
-  //         key: `chatCard-${index}`,
-  //         profile,
-  //         isActive: profile.idProfile === idProfileActive,
-  //         urlParam1,
-  //         urlParam2,
-  //         query,
-  //       },
-  //     }
-  //     return <ChatCard {...propsOut.chatCardProps} />
-  //   })
-  // }
 
   const renderItem = ({
     item: profile,
@@ -197,7 +176,6 @@ const ChatCardsComponent: ChatCardsType = props => {
       {!isUserMenu && !isProfileSelectMenu ? (
         <FlatList {...propsOut.flatListProps} />
       ) : (
-        // getChatCards(profilesSorted)
         <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
           {isUserMenu ? (
             <UserMenu {...propsOut.userMenuProps} />
@@ -209,26 +187,6 @@ const ChatCardsComponent: ChatCardsType = props => {
     </View>
   )
 }
-
-/*
-  const data = [
-    { captureText: 'one' },
-    { captureText: 'two' },
-    { captureText: 'three' },
-    { captureText: 'four' },
-    { captureText: 'five' },
-  ]
-        <FlatList
-          data={data}
-          renderItem={({ item }) => (
-            <DebugStub captureText={item.captureText} />
-          )}
-          keyExtractor={item => {
-            // const id = customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', 10)
-            return JSON.stringify(item)
-          }}
-        />
-*/
 
 export const ChatCards = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(

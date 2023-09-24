@@ -66,12 +66,6 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     sectionsMapping,
   } = storeStateSlice
 
-  // TODO Remove
-  console.info('useWidgetsScreensProps [62]', {
-    top: insets.top,
-    height: mediaParams.height,
-  })
-
   const { isShow: isShowModalFrame } = modalFrame
 
   const query =
@@ -155,16 +149,20 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     layoutScreenProps: {
       styleProps: {
         LayoutScreen: {},
-        layoutNavigationTop: {
+        layoutScreenHeader: {
           height: sectionsMappingForProfile.length
             ? getPx('6rem')
             : getPx('4rem'),
         },
-        layoutMainContent: {
+        layoutScreenBody: {
           top: sectionsMappingForProfile.length ? getPx('6rem') : getPx('4rem'),
-          bottom: isShowModalFrame ? 0 : getPx('4rem'),
+          bottom: isShowModalFrame ? 0 : getPx('6rem'),
+          zIndex: platformOS === 'web' ? 10 : 1,
         },
-        layoutNavigationBottom: { height: getPx('6rem') },
+        layoutScreenFooter: {
+          height: getPx('6rem'),
+          zIndex: platformOS === 'web' ? 1 : 1,
+        },
       },
       isActive: profiles.length ? true : false,
       onLayout,
@@ -198,7 +196,6 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
       styleProps: {
         LayoutOfRow: {
           ...layoutOfRowProps.styleProps.LayoutOfRow,
-          zIndex: platformOS === 'web' ? 10 : 1,
         },
         leftColumn: {
           borderStyle: 'solid',
@@ -225,7 +222,6 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
       styleProps: {
         LayoutOfRow: {
           ...layoutOfRowProps.styleProps.LayoutOfRow,
-          zIndex: platformOS === 'web' ? 5 : 1,
         },
         leftColumn: {
           borderStyle: 'solid',

@@ -17,23 +17,13 @@ type NavigationMobilePropsType = {
 export const NavigationMobile = (props: NavigationMobilePropsType) => {
   const { onLayout } = props
 
+  /* Hermes is a plugin to Flipper */
   // @ts-expect-error
   const isHermes = () => !!global.HermesInternal
   console.info('Is Hermes enabled ' + isHermes())
 
-  // TODO Remove debug props
-  const debugHomeProps = {
-    onLayout,
-    titleText: 'New Title 2',
-  }
-  // {props => <DebugHome {...{ ...props, ...debugHomeProps }} />}
-
-  const debugProfileProps = {
-    onLayout,
-    titleText: 'New Title 2',
-  }
-
   const propsOut: NavigationMobileOutPropsType = {
+    // @ts-expect-error
     chatCardsScreenProps: {
       onLayout,
     },
@@ -44,10 +34,7 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName='ChatCardsScreen'
-        // screenOptions={{ headerShown: false }}
-      >
+      <Stack.Navigator initialRouteName='ChatCardsScreen'>
         <Stack.Screen name='ChatCardsScreen' options={{ headerShown: false }}>
           {props => (
             <ChatCardsScreen
@@ -62,10 +49,6 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
               {...{ ...props, ...propsOut.chatSpaceScreenProps }}
             />
           )}
-        </Stack.Screen>
-
-        <Stack.Screen name='Profile'>
-          {props => <DebugProfile {...{ ...props, ...debugProfileProps }} />}
         </Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>

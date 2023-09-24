@@ -19,9 +19,9 @@ const LayoutScreenComponent: LayoutScreenComponentType = props => {
   const {
     styleProps = {
       LayoutScreen: {},
-      layoutNavigationTop: {},
-      layoutMainContent: {},
-      layoutNavigationBottom: {},
+      layoutScreenHeader: {},
+      layoutScreenBody: {},
+      layoutScreenFooter: {},
     },
     isActive,
     children,
@@ -46,24 +46,21 @@ const LayoutScreenComponent: LayoutScreenComponentType = props => {
       testID='LayoutScreen'
     >
       <View
-        style={[style.layoutNavigationTop, styleProps.layoutNavigationTop]}
-        testID='layoutNavigationTop'
+        style={[style.layoutScreenHeader, styleProps.layoutScreenHeader]}
+        testID='layoutScreenHeader'
       >
         {children.length === undefined ? children : children[0]}
       </View>
 
       <View
-        style={[style.layoutMainContent, styleProps.layoutMainContent]}
-        testID='layoutMainContent'
+        style={[style.layoutScreenBody, styleProps.layoutScreenBody]}
+        testID='layoutScreenBody'
       >
         {children[1]}
       </View>
       <View
-        style={[
-          style.layoutNavigationBottom,
-          styleProps.layoutNavigationBottom,
-        ]}
-        testID='layoutNavigationBottom'
+        style={[style.layoutScreenFooter, styleProps.layoutScreenFooter]}
+        testID='layoutScreenFooter'
       >
         {children[2]}
       </View>
