@@ -74,3 +74,9 @@ export const styleGlobal = StyleSheet.create({
     flex: 0,
   },
 })
+
+export const debugLayout = (borderColor: string) => ({
+  borderColor,
+  borderStyle: 'solid',
+  borderWidth: 1,
+})
