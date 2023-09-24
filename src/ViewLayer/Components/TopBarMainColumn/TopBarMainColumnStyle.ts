@@ -12,7 +12,7 @@ export const stylesDefault = StyleSheet.create({
     alignItems: 'center',
   },
   buttonBackToCardsWrapper: {
-    paddingLeft: '1.5rem',
+    paddingLeft: getPx('1.5rem'),
   },
   avatar: {
     paddingLeft: getPx('1rem'),

@@ -3,6 +3,7 @@ import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
 export interface DebugStubPropsType {
   styleProps?: any
   onLayout?: any
+  captureText: string
 }
 
 export type DebugStubPropsOutType = Record<string, any>

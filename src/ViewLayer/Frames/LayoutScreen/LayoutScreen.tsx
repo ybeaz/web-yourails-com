@@ -43,7 +43,7 @@ const LayoutScreenComponent: LayoutScreenComponentType = props => {
         styleProps.LayoutScreen,
       ]}
       onLayout={onLayout}
-      testID='LayoutScreenPageChats'
+      testID='LayoutScreen'
     >
       <View
         style={[style.layoutNavigationTop, styleProps.layoutNavigationTop]}

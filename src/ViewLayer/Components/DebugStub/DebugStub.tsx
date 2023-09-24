@@ -17,13 +17,15 @@ import { styles } from './DebugStubStyles'
              from '../Components/DebugStub/DebugStub'
  */
 const DebugStubComponent: DebugStubComponentType = props => {
-  const { styleProps = { DebugStub: {} }, onLayout } = props
+  const { captureText, styleProps = { DebugStub: {} }, onLayout } = props
+
+  console.info('DebugStub [22]', { captureText })
 
   const propsOut: DebugStubPropsOutType = {}
 
   return (
     <View style={[styleProps.DebugStub]} onLayout={onLayout} testID='DebugStub'>
-      <Text testID='text'>DebugStub</Text>
+      <Text testID='captureText'>{captureText}</Text>
     </View>
   )
 }

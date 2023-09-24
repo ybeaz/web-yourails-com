@@ -1,5 +1,9 @@
 import React, { ReactElement } from 'react'
-import { Platform, View } from 'react-native'
+import { Platform, View, FlatList } from 'react-native'
+import 'react-native-get-random-values'
+import { nanoid } from 'nanoid'
+import { customAlphabet } from 'nanoid/non-secure'
+import { v5 as uuidv5 } from 'uuid'
 
 import {
   urlParamsDefault,
@@ -19,6 +23,8 @@ import { UserMenu } from '../UserMenu/UserMenu'
 import { ProfileSelectMenu } from '../ProfileSelectMenu/ProfileSelectMenu'
 import { getProfilesSearched } from '../../../Shared/getProfilesSearched'
 import { getPx } from '../../Styles/styleGlobal'
+
+import { DebugStub } from '../DebugStub/DebugStub'
 
 /**
  * @import import { ChatCards } from '../Components/ChatCards/ChatCards'
@@ -62,28 +68,53 @@ const ChatCardsComponent: ChatCardsType = props => {
     }
   }
 
-  const getChatCards = (profilesIn: ProfileType[]): ReactElement[] => {
-    const profiles = profilesIn.filter((profile: ProfileType) => {
-      const { idProfile } = profile
-      return idProfile !== '0' && idProfile !== idProfileHost
-    })
+  const profilesFiltered = profiles.filter((profile: ProfileType) => {
+    const { idProfile } = profile
+    return idProfile !== '0' && idProfile !== idProfileHost
+  })
 
-    return profiles.map((profile: ProfileType, index: number) => {
-      const propsOut: Record<string, any> = {
-        chatCardProps: {
-          key: `chatCard-${index}`,
-          profile,
-          isActive: profile.idProfile === idProfileActive,
-          urlParam1,
-          urlParam2,
-          query,
-        },
-      }
-      return <ChatCard {...propsOut.chatCardProps} />
-    })
+  // const getChatCards = (profilesIn: ProfileType[]): ReactElement[] => {
+  //   return profiles.map((profile: ProfileType, index: number) => {
+  //     const propsOut: Record<string, any> = {
+  //       chatCardProps: {
+  //         key: `chatCard-${index}`,
+  //         profile,
+  //         isActive: profile.idProfile === idProfileActive,
+  //         urlParam1,
+  //         urlParam2,
+  //         query,
+  //       },
+  //     }
+  //     return <ChatCard {...propsOut.chatCardProps} />
+  //   })
+  // }
+
+  const renderItem = ({
+    item: profile,
+  }: {
+    item: ProfileType
+  }): ReactElement => {
+    const propsOut: Record<string, any> = {
+      chatCardProps: {
+        profile,
+        isActive: profile.idProfile === idProfileActive,
+        urlParam1,
+        urlParam2,
+        query,
+      },
+    }
+    return <ChatCard {...propsOut.chatCardProps} />
   }
 
   const propsOut: Record<string, any> = {
+    flatListProps: {
+      data: profilesFiltered,
+      renderItem,
+      keyExtractor: (item: any) =>
+        uuidv5(JSON.stringify(item), '1b671a64-40d5-491e-99b0-da01ff1f3349'),
+      initialNumToRender: 15,
+      contentContainerStyle: {},
+    },
     modalFrameYrlProps: {
       styleProps: {
         ModalFrameYrl: {},
@@ -162,10 +193,11 @@ const ChatCardsComponent: ChatCardsType = props => {
   }
 
   return (
-    <View style={[style.ChatCards, styleProps.ChatCards]} testID='ChatCards'>
+    <View style={[{ flex: 1 }]} testID='ChatCards'>
       {!isUserMenu && !isProfileSelectMenu ? (
-        getChatCards(profilesSorted)
+        <FlatList {...propsOut.flatListProps} />
       ) : (
+        // getChatCards(profilesSorted)
         <ModalFrameYrl {...propsOut.modalFrameYrlProps}>
           {isUserMenu ? (
             <UserMenu {...propsOut.userMenuProps} />
@@ -177,6 +209,26 @@ const ChatCardsComponent: ChatCardsType = props => {
     </View>
   )
 }
+
+/*
+  const data = [
+    { captureText: 'one' },
+    { captureText: 'two' },
+    { captureText: 'three' },
+    { captureText: 'four' },
+    { captureText: 'five' },
+  ]
+        <FlatList
+          data={data}
+          renderItem={({ item }) => (
+            <DebugStub captureText={item.captureText} />
+          )}
+          keyExtractor={item => {
+            // const id = customAlphabet('abcdefghijklmnopqrstuvwxyz0123456789', 10)
+            return JSON.stringify(item)
+          }}
+        />
+*/
 
 export const ChatCards = React.memo(
   withPropsYrl({ handleEvents: handleEventsProp })(

@@ -198,6 +198,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
       styleProps: {
         LayoutOfRow: {
           ...layoutOfRowProps.styleProps.LayoutOfRow,
+          zIndex: platformOS === 'web' ? 10 : 1,
         },
         leftColumn: {
           borderStyle: 'solid',
@@ -206,7 +207,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
           // borderBottomWidth: 1,
           borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
-          height: mediaParams.height - insets.top - 95,
+          minHeight: mediaParams.height - insets.top - 95,
         },
         mainColumn: {
           borderStyle: 'solid',
@@ -224,6 +225,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
       styleProps: {
         LayoutOfRow: {
           ...layoutOfRowProps.styleProps.LayoutOfRow,
+          zIndex: platformOS === 'web' ? 5 : 1,
         },
         leftColumn: {
           borderStyle: 'solid',

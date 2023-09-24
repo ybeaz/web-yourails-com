@@ -16,6 +16,7 @@ import { Header } from '../Header/Header'
 import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
 import { styles } from './PortfolioStyles'
 import { PortfolioType } from './PortfolioTypes'
+import { getPx } from '../../Styles/styleGlobal'
 
 /**
  * @import import { Portfolio } from '../Components/Portfolio/Portfolio'
@@ -93,7 +94,7 @@ const PortfolioComponent: PortfolioType = props => {
   const propsOut: Record<string, any> = {
     headerProps: {
       styleProps: {
-        Header: { paddingBottom: '1.5rem' },
+        Header: { paddingBottom: getPx('1.5rem') },
         headerText: {},
       },
       mediaParams: { deviceType: '' },
