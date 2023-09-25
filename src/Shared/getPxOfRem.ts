@@ -2,7 +2,7 @@ export type GetPxOfRemParamsType = string
 
 export type GetPxOfRemResType = number | undefined
 
-interface GetPxOfRemType {
+export interface GetPxOfRemType {
   (
     remString: GetPxOfRemParamsType,
     options?: {

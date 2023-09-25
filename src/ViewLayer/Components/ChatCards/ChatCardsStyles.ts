@@ -4,6 +4,7 @@ import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 export const stylesDefault = StyleSheet.create({
   ChatCards: {
     ...styleGlobal.typography,
+    flex: 1,
   },
 })
 

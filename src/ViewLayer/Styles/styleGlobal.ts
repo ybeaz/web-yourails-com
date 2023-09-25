@@ -32,6 +32,19 @@ export const getPx = (rem: string) =>
   })
 
 /**
+ * @description Prototype style for js String
+ * @import import './Shared/ptototypes'
+ */
+String.prototype.getPx = function () {
+  const remString = this as string
+  return getPxOfRem(remString, {
+    multiplier: 16,
+    listOfAcceptedRemValues: [],
+    printRes: false,
+  })
+}
+
+/**
  * @import import { styleGlobal } from '../Styles/styleGlobal'
  */
 export const styleGlobal = StyleSheet.create({

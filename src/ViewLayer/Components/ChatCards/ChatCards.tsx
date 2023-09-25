@@ -172,7 +172,7 @@ const ChatCardsComponent: ChatCardsType = props => {
   }
 
   return (
-    <View style={[{ flex: 1 }]} testID='ChatCards'>
+    <View style={[style.ChatCards]} testID='ChatCards'>
       {!isUserMenu && !isProfileSelectMenu ? (
         <FlatList {...propsOut.flatListProps} />
       ) : (
