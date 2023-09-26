@@ -2,6 +2,6 @@ export {}
 
 declare global {
   interface String {
-    getPx: () => number | undefined
+    getPx: () => number
   }
 }

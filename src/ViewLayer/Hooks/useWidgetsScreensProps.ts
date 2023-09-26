@@ -143,6 +143,10 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     },
   }
 
+  const heightChatCardsBody = sectionsMappingForProfile.length
+    ? mediaParams.height - insets.top - '6rem'.getPx()
+    : mediaParams.height - insets.top - '4rem'.getPx()
+
   const propsOut: PageChatsWholeScreenPropsOutType = {
     style,
     themes,
@@ -151,12 +155,16 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
         LayoutScreen: {},
         layoutScreenHeader: {
           height: sectionsMappingForProfile.length
-            ? getPx('6rem')
-            : getPx('4rem'),
+            ? '6rem'.getPx()
+            : '4rem'.getPx(),
         },
         layoutScreenBody: {
-          top: sectionsMappingForProfile.length ? getPx('6rem') : getPx('4rem'),
-          bottom: isShowModalFrame ? 0 : getPx('6rem'),
+          top: sectionsMappingForProfile.length
+            ? '6rem'.getPx()
+            : '4rem'.getPx(),
+          bottom: isShowModalFrame
+            ? 0
+            : '6rem'.getPx() /* This is responsible for height of the "Chat body"*/,
           zIndex: platformOS === 'web' ? 10 : 1,
         },
         layoutScreenFooter: {
@@ -204,7 +212,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
           // borderBottomWidth: 1,
           borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
-          minHeight: mediaParams.height - insets.top - 95,
+          minHeight: heightChatCardsBody,
         },
         mainColumn: {
           borderStyle: 'solid',

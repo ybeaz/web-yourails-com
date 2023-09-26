@@ -1,6 +1,6 @@
 export type GetPxOfRemParamsType = string
 
-export type GetPxOfRemResType = number | undefined
+export type GetPxOfRemResType = number
 
 export interface GetPxOfRemType {
   (
@@ -33,12 +33,12 @@ export const getPxOfRem: GetPxOfRemType = (
       `Please, add the used rem value ${remString} to the accepted list in the file src/ViewLayer/Styles/styleGlobal.ts`
     )
 
-  const rem = remString.split('rem')
-  const res = rem.length ? parseFloat(rem[0]) * multiplier : undefined
+  const remArr = remString.split('rem')
+  const res = remArr.length ? parseFloat(remArr[0]) * multiplier : 0
 
   if (printRes) {
     console.log('getPxOfRem', 'res', res)
   }
 
-  return res
+  return res | 0
 }
