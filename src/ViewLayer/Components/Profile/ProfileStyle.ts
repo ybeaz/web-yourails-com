@@ -6,21 +6,21 @@ export const stylesDefault = StyleSheet.create({
     ...styleGlobal.typography,
     flex: 1,
     flexDirection: 'column',
-    padding: getPx('3rem'),
+    padding: '3rem'.getPx(),
   },
   imageWrapper: {
     alignItems: 'center',
-    paddingBottom: getPx('2rem'),
+    paddingBottom: '2rem'.getPx(),
   },
   profileItemsWrapper: {},
   qrCodeImageWrapper: {},
   rowView: {
     flexDirection: 'row',
     flex: 1,
-    padding: getPx('0.5rem'),
+    padding: '0.5rem'.getPx(),
   },
   column1: {
-    paddingRight: getPx('1rem'),
+    paddingRight: '1rem'.getPx(),
   },
   column2: {
     flex: 1,
@@ -28,7 +28,7 @@ export const stylesDefault = StyleSheet.create({
   content: {},
   label: {
     fontSize: 13,
-    paddingTop: getPx('0.25rem'),
+    paddingTop: '0.25rem'.getPx(),
   },
   image: {
     width: 150,

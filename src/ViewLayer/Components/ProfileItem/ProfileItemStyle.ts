@@ -4,16 +4,16 @@ import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 export const style = StyleSheet.create({
   ProfileItem: {
     ...styleGlobal.typography,
-    paddingLeft: getPx('1rem'),
+    paddingLeft: '1rem'.getPx(),
   },
   rowView: {
     flexDirection: 'row',
     flex: 1,
-    padding: getPx('0.5rem'),
+    padding: '0.5rem'.getPx(),
   },
   column1: {
     minWidth: '2.5rem',
-    paddingRight: getPx('1rem'),
+    paddingRight: '1rem'.getPx(),
   },
   column2: {
     flex: 1,
@@ -21,7 +21,7 @@ export const style = StyleSheet.create({
   content: {},
   label: {
     fontSize: 13,
-    paddingTop: getPx('0.25rem'),
+    paddingTop: '0.25rem'.getPx(),
   },
 
   messengerView: { flexDirection: 'row' },

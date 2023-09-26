@@ -12,7 +12,7 @@ import { ImageYrl } from '../ImageYrl/ImageYrl'
     library: 'Ionicons',
     name: 'send',
     styleProps: { IconYrl: { cursor: 'pointer' } },
-    size: getPx('1.5rem'),
+    size: '1.5rem'.getPx(),
     color: themes['themeA'].colors02.color,
     testID: '<entity>_IconYrl_ios_send',
   }

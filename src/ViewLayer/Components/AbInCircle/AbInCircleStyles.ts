@@ -8,7 +8,7 @@ export const stylesDefault = StyleSheet.create({
     borderRadius: 50,
     borderColor: 'white',
     backgroundColor: 'white',
-    padding: getPx('0.75rem'),
+    padding: '0.75rem'.getPx(),
   },
   text: {
     fontSize: 17,

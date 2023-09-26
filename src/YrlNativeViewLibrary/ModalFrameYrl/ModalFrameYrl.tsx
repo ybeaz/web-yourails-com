@@ -30,7 +30,7 @@ const LinearGradientUniPlatform =
       iconProps: {
         library: 'Ionicons',
         name: 'arrow-back-outline',
-        size: getPx('1.5rem'),
+        size: '1.5rem'.getPx(),
         color: 'black',
         testID: 'ModalFrameYrl-buttonBack-iconBack',
       },

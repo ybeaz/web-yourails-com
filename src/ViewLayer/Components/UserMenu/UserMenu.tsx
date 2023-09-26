@@ -167,8 +167,8 @@ const UserMenuComponent: UserMenuType = props => {
             key: `userMenuItem-${index}`,
             styleProps: {
               ButtonYrl: {
-                paddingLeft: getPx('1rem'),
-                paddingBottom: getPx('1rem'),
+                paddingLeft: '1rem'.getPx(),
+                paddingBottom: '1rem'.getPx(),
               },
               title: {},
             },
@@ -179,7 +179,7 @@ const UserMenuComponent: UserMenuType = props => {
           userMenuIconYrlProps: {
             library: iconLibrary,
             name: iconName,
-            styleProps: { IconYrl: { paddingRight: getPx('0.5rem') } },
+            styleProps: { IconYrl: { paddingRight: '0.5rem'.getPx() } },
             size: 24,
             color,
             testID: 'userMenuIconYrl',

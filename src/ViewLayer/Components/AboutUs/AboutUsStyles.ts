@@ -5,12 +5,12 @@ export const stylesDefault = StyleSheet.create({
   AboutUs: {
     ...styleGlobal.typography,
     flexDirection: 'column',
-    paddingTop: getPx('1rem'),
-    paddingBottom: getPx('1rem'),
+    paddingTop: '1rem'.getPx(),
+    paddingBottom: '1rem'.getPx(),
   },
-  header3Header: { padding: getPx('1rem'), paddingTop: getPx('1rem') },
+  header3Header: { padding: '1rem'.getPx(), paddingTop: '1rem'.getPx() },
   header3HeaderText: styleGlobal.h3,
-  viewWrapper: { padding: getPx('1rem'), flexDirection: 'row' },
+  viewWrapper: { padding: '1rem'.getPx(), flexDirection: 'row' },
   header4Header: { flex: 2 },
   header4HeaderText: { ...styleGlobal.h4 },
   text: {

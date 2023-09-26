@@ -5,17 +5,17 @@ export const stylesDefault = StyleSheet.create({
   TopBarMainColumn: {
     ...styleGlobal.typography,
     flexDirection: 'row',
-    paddingTop: getPx('0.5rem'),
-    paddingBottom: getPx('0.5rem'),
+    paddingTop: '0.5rem'.getPx(),
+    paddingBottom: '0.5rem'.getPx(),
     justifyContent: 'flex-start',
     alignContent: 'space-around',
     alignItems: 'center',
   },
   buttonBackToCardsWrapper: {
-    paddingLeft: getPx('1.5rem'),
+    paddingLeft: '1.5rem'.getPx(),
   },
   avatar: {
-    paddingLeft: getPx('1rem'),
+    paddingLeft: '1rem'.getPx(),
   },
   ImageYrl: {},
   image: {
@@ -24,7 +24,7 @@ export const stylesDefault = StyleSheet.create({
     borderRadius: 50,
   },
   nameStatus: {
-    paddingLeft: getPx('1rem'),
+    paddingLeft: '1rem'.getPx(),
   },
   name: {
     fontWeight: '600',
@@ -35,7 +35,7 @@ export const stylesDefault = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   serviceSpec: {
-    paddingLeft: getPx('2rem'),
+    paddingLeft: '2rem'.getPx(),
   },
   serviceSpecText: {},
 })

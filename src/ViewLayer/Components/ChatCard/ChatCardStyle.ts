@@ -8,7 +8,7 @@ export const style = StyleSheet.create({
     justifyContent: 'flex-start',
     alignContent: 'space-around',
     alignItems: 'center',
-    paddingTop: getPx('0.5rem'),
-    paddingBottom: getPx('0.5rem'),
+    paddingTop: '0.5rem'.getPx(),
+    paddingBottom: '0.5rem'.getPx(),
   },
 })

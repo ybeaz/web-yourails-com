@@ -50,35 +50,35 @@ String.prototype.getPx = function () {
 export const styleGlobal = StyleSheet.create({
   typography: {
     fontFamily: 'Roboto-Regular', // San Francisco Font, Roboto, Arial, Poppins, Verdana, tahoma, verdana, arial, sans-serif' lucida grande
-    fontSize: getPx('1rem'),
+    fontSize: '1rem'.getPx(),
     fontWeight: '400',
   },
   h1: {
-    fontSize: getPx('2rem'),
+    fontSize: '2rem'.getPx(),
     fontWeight: 'bold',
   },
   h2: {
-    fontSize: getPx('1.5rem'),
+    fontSize: '1.5rem'.getPx(),
     fontWeight: 'bold',
   },
   h3: {
-    fontSize: getPx('1.25rem'),
+    fontSize: '1.25rem'.getPx(),
     fontWeight: 'bold',
   },
   h4: {
-    fontSize: getPx('1rem'),
+    fontSize: '1rem'.getPx(),
     fontWeight: 'bold',
   },
   h5: {
-    fontSize: getPx('0.875rem'),
+    fontSize: '0.875rem'.getPx(),
     fontWeight: 'bold',
   },
   h6: {
-    fontSize: getPx('0.75rem'),
+    fontSize: '0.75rem'.getPx(),
     fontWeight: 'bold',
   },
   norm: {
-    fontSize: getPx('1rem'),
+    fontSize: '1rem'.getPx(),
     fontWeight: '400',
   },
   hidden: {

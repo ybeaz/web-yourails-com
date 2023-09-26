@@ -72,7 +72,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
                 cursor: 'pointer',
               },
               title: {
-                paddingLeft: getPx('0.5rem'),
+                paddingLeft: '0.5rem'.getPx(),
               },
             },
             titleText: iconTitleText,

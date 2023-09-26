@@ -8,7 +8,7 @@ export const stylesDefault = StyleSheet.create({
     height: '100%',
   },
   chatSpaceFooter: {
-    height: getPx('6rem'),
+    height: '6rem'.getPx(),
     bottom: 0,
     width: '100%',
   },

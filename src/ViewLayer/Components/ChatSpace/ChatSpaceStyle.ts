@@ -12,7 +12,7 @@ export const stylesDefault = StyleSheet.create({
   viewPadding: {},
   date: {
     alignItems: 'center',
-    padding: getPx('1rem'),
+    padding: '1rem'.getPx(),
   },
   dateText: {
     width: 'fit-content',

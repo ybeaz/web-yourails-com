@@ -4,7 +4,7 @@ import { debugLayout, getPx } from '../../Styles/styleGlobal'
 export const stylesDefault = StyleSheet.create({
   chatCardsHeader: {
     display: 'flex',
-    paddingTop: getPx('0.75rem'),
+    paddingTop: '0.75rem'.getPx(),
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',

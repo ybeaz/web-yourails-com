@@ -24,8 +24,8 @@ const AwaitViewComponent: AwaitViewType = props => {
       styleProps: {
         ImageYrl: {},
         image: {
-          height: getPx('10rem'),
-          width: getPx('10rem'),
+          height: '10rem'.getPx(),
+          width: '10rem'.getPx(),
         },
       },
       testID: 'ImageYrl',

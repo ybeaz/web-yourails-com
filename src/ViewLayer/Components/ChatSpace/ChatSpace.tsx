@@ -89,21 +89,21 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const scrollViewRef = React.useRef<ScrollView>(null)
   const dateString = getDateLocale(+new Date())
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
-  let modalContentMargin: number | undefined = getPx('3rem')
-  let buttonTop = getPx('0.5rem')
-  let buttonLeft = getPx('1rem')
-  let buttonRight = getPx('1rem')
+  let modalContentMargin: number | undefined = '3rem'.getPx()
+  let buttonTop = '0.5rem'.getPx()
+  let buttonLeft = '1rem'.getPx()
+  let buttonRight = '1rem'.getPx()
   if (deviceType === 'xsDevice') {
     modalContentMargin = 0
   } else if (deviceType === 'smDevice') {
-    modalContentMargin = getPx('2rem')
-    buttonTop = getPx('0.25rem')
-    buttonLeft = getPx('0.5rem')
-    buttonRight = getPx('0.5rem')
+    modalContentMargin = '2rem'.getPx()
+    buttonTop = '0.25rem'.getPx()
+    buttonLeft = '0.5rem'.getPx()
+    buttonRight = '0.5rem'.getPx()
   } else if (deviceType === 'mdDevice') {
-    buttonTop = getPx('0.75rem')
+    buttonTop = '0.75rem'.getPx()
   } else if (deviceType === 'lgDevice' || deviceType === 'xlDevice') {
-    buttonTop = getPx('1rem')
+    buttonTop = '1rem'.getPx()
   }
 
   const propsOut: Record<string, any> = {

@@ -14,8 +14,8 @@ export const style = StyleSheet.create({
     flex: 1,
     marginTop: 0,
     marginBottom: 0,
-    marginLeft: getPx('1rem'),
-    marginRight: getPx('1rem'),
+    marginLeft: '1rem'.getPx(),
+    marginRight: '1rem'.getPx(),
   },
   InputTextYrl: {
     borderRadius: 80,
@@ -26,7 +26,7 @@ export const style = StyleSheet.create({
   },
   iconYrlWrapper: {
     position: 'absolute',
-    paddingRight: getPx('1rem'),
+    paddingRight: '1rem'.getPx(),
     right: 0,
     top: '20%',
     bottom: '20%',

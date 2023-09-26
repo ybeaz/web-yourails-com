@@ -98,7 +98,7 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
                 ButtonYrl: {},
                 title: {
                   color: themes['themeA'].colors08.color,
-                  paddingBottom: getPx('0.25rem'),
+                  paddingBottom: '0.25rem'.getPx(),
                 },
               },
               titleText,

@@ -40,7 +40,7 @@ const TagPropertyComponent: TagPropertyType = props => {
         title: {
           color: themes['themeA'].colors08.color,
           textDecoration: 'underline',
-          paddingBottom: getPx('0.5rem'),
+          paddingBottom: '0.5rem'.getPx(),
         },
       },
       titleText: title || '',
@@ -53,8 +53,8 @@ const TagPropertyComponent: TagPropertyType = props => {
         styleProps: {
           IconYrl: {
             cursor: 'pointer',
-            paddingRight: getPx('0.25rem'),
-            paddingBottom: getPx('0.25rem'),
+            paddingRight: '0.25rem'.getPx(),
+            paddingBottom: '0.25rem'.getPx(),
           },
         },
         size: 16,
@@ -70,7 +70,7 @@ const TagPropertyComponent: TagPropertyType = props => {
       library: iconLibrary || '',
       name: iconName || '',
       styleProps: {
-        IconYrl: { cursor: 'pointer', paddingRight: getPx('0.25rem') },
+        IconYrl: { cursor: 'pointer', paddingRight: '0.25rem'.getPx() },
       },
       size: 24,
       color: themes['themeA'].colors02.color,

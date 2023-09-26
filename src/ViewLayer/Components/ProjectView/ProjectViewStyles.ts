@@ -5,11 +5,11 @@ const stylesDefault: any = {
   ProjectView: {
     ...styleGlobal.typography,
   },
-  buttonImageView: { paddingTop: getPx('0.5rem') },
+  buttonImageView: { paddingTop: '0.5rem'.getPx() },
   imageView: {},
   rowStyle: {
     flexDirection: 'column',
-    padding: getPx('0.5rem'),
+    padding: '0.5rem'.getPx(),
   },
   column1Style: {
     flex: 1,
@@ -23,25 +23,25 @@ const stylesDefault: any = {
   },
   subtitleView: {},
   subtitleTextName: {
-    paddingRight: getPx('0.5rem'),
+    paddingRight: '0.5rem'.getPx(),
     fontWeight: 'bold',
   },
   subtitleText: {},
   descriptionView: {},
   descriptionTextName: {
-    paddingRight: getPx('0.5rem'),
+    paddingRight: '0.5rem'.getPx(),
     fontWeight: 'bold',
   },
   descriptionText: {},
   customerView: {},
   customerTextName: {
-    paddingRight: getPx('0.5rem'),
+    paddingRight: '0.5rem'.getPx(),
     fontWeight: 'bold',
   },
   customerText: {},
   builtwithView: {},
   builtwithTextName: {
-    paddingRight: getPx('0.5rem'),
+    paddingRight: '0.5rem'.getPx(),
     fontWeight: 'bold',
   },
   builtwithText: {},
@@ -53,7 +53,7 @@ const xsDevice = StyleSheet.create({
     flexDirection: 'column',
     paddingBottom: '2.2rem',
   },
-  projectProfileView: { flex: 1, paddingBottom: getPx('1rem') },
+  projectProfileView: { flex: 1, paddingBottom: '1rem'.getPx() },
 })
 
 const smDevice = StyleSheet.create({
@@ -68,9 +68,9 @@ const lgDevice = StyleSheet.create({
   ...stylesDefault,
   ProjectView: {
     flexDirection: 'row',
-    paddingBottom: getPx('2rem'),
+    paddingBottom: '2rem'.getPx(),
   },
-  projectProfileView: { flex: 1, paddingLeft: getPx('1rem') },
+  projectProfileView: { flex: 1, paddingLeft: '1rem'.getPx() },
   rowStyle: {
     ...stylesDefault.rowStyle,
     flexDirection: 'row',

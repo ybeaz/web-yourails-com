@@ -94,7 +94,7 @@ const PortfolioComponent: PortfolioType = props => {
   const propsOut: Record<string, any> = {
     headerProps: {
       styleProps: {
-        Header: { paddingBottom: getPx('1.5rem') },
+        Header: { paddingBottom: '1.5rem'.getPx() },
         headerText: {},
       },
       mediaParams: { deviceType: '' },

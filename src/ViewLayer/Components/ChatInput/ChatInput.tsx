@@ -81,7 +81,7 @@ const ChatInputComponent: ChatInputType = props => {
       styleProps: {
         IconYrl: {
           cursor: 'pointer',
-          paddingRight: getPx('0.25rem'),
+          paddingRight: '0.25rem'.getPx(),
         },
       },
       size: 16,
@@ -94,7 +94,7 @@ const ChatInputComponent: ChatInputType = props => {
       styleProps: {
         IconYrl: {
           cursor: 'pointer',
-          paddingRight: getPx('0.25rem'),
+          paddingRight: '0.25rem'.getPx(),
         },
       },
       size: 16,

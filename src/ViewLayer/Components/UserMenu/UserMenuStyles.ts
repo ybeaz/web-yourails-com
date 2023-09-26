@@ -7,9 +7,9 @@ export const stylesDefault = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    padding: getPx('0.5rem'),
-    paddingTop: getPx('1rem'),
-    paddingBottom: getPx('1rem'),
+    padding: '0.5rem'.getPx(),
+    paddingTop: '1rem'.getPx(),
+    paddingBottom: '1rem'.getPx(),
   },
 })
 

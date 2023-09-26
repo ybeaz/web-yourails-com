@@ -5,10 +5,10 @@ export const style = StyleSheet.create({
   TagProperty: {
     ...styleGlobal.typography,
     // flex: 1,
-    paddingLeft: getPx('0.5rem'),
-    paddingRight: getPx('0.5rem'),
-    paddingTop: getPx('0.25rem'),
-    paddingBottom: getPx('0.25rem'),
+    paddingLeft: '0.5rem'.getPx(),
+    paddingRight: '0.5rem'.getPx(),
+    paddingTop: '0.25rem'.getPx(),
+    paddingBottom: '0.25rem'.getPx(),
     // minWidth: '100%',
     // maxWidth: '100%',
     // flexWrap: 'wrap',
@@ -36,7 +36,7 @@ export const style = StyleSheet.create({
   },
   tooltip_buttonYrlLinking: {},
   tooltipsText: {
-    paddingBottom: getPx('1rem'),
+    paddingBottom: '1rem'.getPx(),
     userSelect: 'text',
     cursor: 'text',
   },

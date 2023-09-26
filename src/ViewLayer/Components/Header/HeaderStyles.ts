@@ -7,8 +7,8 @@ export const stylesDefault = StyleSheet.create({
   },
   headerText: {
     ...styleGlobal.h2,
-    paddingLeft: getPx('0.5rem'),
-    paddingRight: getPx('0.5rem'),
+    paddingLeft: '0.5rem'.getPx(),
+    paddingRight: '0.5rem'.getPx(),
     lineHight: '125%',
   },
 })

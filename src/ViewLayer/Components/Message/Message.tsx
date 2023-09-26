@@ -90,7 +90,7 @@ const MessageComponent: MessageComponentType = props => {
         messageImageYrlProps: {
           key: `messageImageYrl-${index}`,
           styleProps: {
-            ImageYrl: { paddingRight: getPx('0.5rem') },
+            ImageYrl: { paddingRight: '0.5rem'.getPx() },
             image: {
               height: '15vw',
               width: '15vw',
@@ -138,10 +138,10 @@ const MessageComponent: MessageComponentType = props => {
   const propsOut: MessagePropsOutType = {
     pendingImageYrlProps: {
       styleProps: {
-        ImageYrl: { paddingRight: getPx('0.5rem') },
+        ImageYrl: { paddingRight: '0.5rem'.getPx() },
         image: {
-          height: getPx('4rem'),
-          width: getPx('4rem'),
+          height: '4rem'.getPx(),
+          width: '4rem'.getPx(),
         },
       },
       testID: 'pendingImageYrl',

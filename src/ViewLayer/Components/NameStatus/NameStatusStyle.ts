@@ -4,7 +4,7 @@ import { styleGlobal, getPx } from '../../Styles/styleGlobal'
 export const style = StyleSheet.create({
   NameStatus: {
     ...styleGlobal.typography,
-    paddingLeft: getPx('1rem'),
+    paddingLeft: '1rem'.getPx(),
   },
   firstRowWrapper: {
     flexDirection: 'row',
