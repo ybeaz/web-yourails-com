@@ -16,7 +16,7 @@ import {
 } from './TagPropertyType'
 import { style } from './TagPropertyStyle'
 import { themes } from '../../Styles/themes'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 /**
  * @import import { TagProperty } from '../Components/TagProperty/TagProperty'

@@ -20,7 +20,7 @@ import { style } from './TopBarChatCardsStyle'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 /**
  * @import import { TopBarChatCards } from '../Components/TopBarChatCards/TopBarChatCards'

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   Error404Body: {

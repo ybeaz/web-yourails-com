@@ -16,7 +16,7 @@ import { AvatarPlusInfo } from '../AvatarPlusInfo/AvatarPlusInfo'
 import { styles } from './ProfileSelectMenuStyles'
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 /**
  * @import import { ProfileSelectMenu } from '../Components/ProfileSelectMenu/ProfileSelectMenu'

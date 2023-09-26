@@ -12,7 +12,7 @@ import { Text } from '../../Components/Text/Text'
 import { TagProperty, TagPropertyPropsType } from '../TagProperty/TagProperty'
 import { CompetencyTagsType } from './CompetencyTagsType'
 import { style } from './CompetencyTagsStyle'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 /**
  * @import import { CompetencyTags } from '../Components/CompetencyTags/CompetencyTags'

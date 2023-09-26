@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal, getPx } from '../../Styles/styleGlobal'
+import { styleGlobal } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   LinkButton: {

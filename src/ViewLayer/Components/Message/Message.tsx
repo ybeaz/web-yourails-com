@@ -21,7 +21,7 @@ import { themes } from '../../Styles/themes'
 import { TriangleCorner } from '../TriangleCorner/TriangleCorner'
 import { LOCALE, TIME_FORMAT } from '../../../Constants/locale.const'
 import { isValidJsonString } from '../../../Shared/isValidJsonString'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 /**
  * @import import { Message } from '../Message/Message'

@@ -22,7 +22,7 @@ const listOfAcceptedRemValues: string[] = [
 
 /**
  * @description Function to translate css rem units into px number
- * @import import { getPx } from '../../Styles/styleGlobal'
+ * @import import '../../Styles/styleGlobal'
  */
 export const getPx = (rem: string) =>
   getPxOfRem(rem, {

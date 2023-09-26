@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal, getPx } from '../../Styles/styleGlobal'
+import { styleGlobal } from '../../Styles/styleGlobal'
 
 const stylesDefault: any = {
   ProjectView: {

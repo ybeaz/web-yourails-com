@@ -22,7 +22,7 @@ import { getSectionsMappingForProfile } from '../../../Shared/getSectionsMapping
 import { themes } from '../../Styles/themes'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
 import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 /**
  * @import import { ContentMenuMainColumn } from '../Components/ContentMenuMainColumn/ContentMenuMainColumn'

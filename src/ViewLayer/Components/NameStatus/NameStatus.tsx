@@ -9,7 +9,7 @@ import {
   NameStatusComponentType,
 } from './NameStatusType'
 import { style } from './NameStatusStyle'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 /**
  * @import import { NameStatus } from '../Components/NameStatus/NameStatus'

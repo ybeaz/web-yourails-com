@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { View, ScrollView } from 'react-native'
 import { nanoid } from 'nanoid'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 import {
   withPropsYrl,

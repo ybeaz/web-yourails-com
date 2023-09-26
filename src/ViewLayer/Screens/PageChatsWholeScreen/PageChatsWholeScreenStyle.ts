@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   chatCardsHeader: {

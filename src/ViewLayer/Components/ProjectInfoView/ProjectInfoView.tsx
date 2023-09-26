@@ -8,7 +8,7 @@ import {
 import { Text } from '../../Components/Text/Text'
 import { ProjectInfoViewType } from './ProjectInfoViewTypes'
 import { styles } from './ProjectInfoViewStyles'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 /**
  * @import import { ProjectInfoView } from '../Components/ProjectInfoView/ProjectInfoView'

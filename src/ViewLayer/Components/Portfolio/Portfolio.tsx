@@ -16,7 +16,7 @@ import { Header } from '../Header/Header'
 import { getImageSizesFor1of2Columns } from '../../../Shared/getImageSizesFor1of2Columns'
 import { styles } from './PortfolioStyles'
 import { PortfolioType } from './PortfolioTypes'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 /**
  * @import import { Portfolio } from '../Components/Portfolio/Portfolio'

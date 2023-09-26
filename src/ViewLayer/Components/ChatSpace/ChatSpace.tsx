@@ -27,7 +27,7 @@ import { themes } from '../../Styles/themes'
 import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 /**
  * @import import { ChatSpace } from '../Components/ChatSpace/ChatSpace'
