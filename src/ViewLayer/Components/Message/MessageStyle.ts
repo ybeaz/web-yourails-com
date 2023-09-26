@@ -42,7 +42,7 @@ export const stylesDefault: any = {
     text: Message.textCommon,
     dateString: Message.dateStringCommon,
     copyThis: {
-      marginRight: '-0.75rem'.getPx(),
+      marginRight: -'0.75rem'.getPx(),
       paddingTop: '0.5rem'.getPx(),
     },
   },
@@ -58,7 +58,7 @@ export const stylesDefault: any = {
     text: Message.textCommon,
     dateString: Message.dateStringCommon,
     copyThis: {
-      marginRight: '-0.75rem'.getPx(),
+      marginRight: -'0.75rem'.getPx(),
       paddingTop: '0.5rem'.getPx(),
     },
   },
@@ -113,7 +113,7 @@ const lgDevice = StyleSheet.create({
     text: Message.textCommon,
     dateString: Message.dateStringCommon,
     copyThis: {
-      marginRight: '-0.75rem'.getPx(),
+      marginRight: -'0.75rem'.getPx(),
     },
   },
 })
