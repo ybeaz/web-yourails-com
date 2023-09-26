@@ -36,10 +36,10 @@ export const getPx = (rem: string) =>
  * @import import './Shared/ptototypes'
  */
 String.prototype.getPx = function () {
-  const remString = this as string
+  const remString = this.valueOf() as string
   return getPxOfRem(remString, {
     multiplier: 16,
-    listOfAcceptedRemValues: [],
+    listOfAcceptedRemValues,
     printRes: false,
   })
 }

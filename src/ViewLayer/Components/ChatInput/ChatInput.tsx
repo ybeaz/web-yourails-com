@@ -158,6 +158,7 @@ const ChatInputComponent: ChatInputType = props => {
           ...style.inputText,
           ...themes.themeA.colors01,
           minWidth: width * 0.5,
+          maxHeight: '100%',
         },
         inputTextResize: { ...style.inputTextResize },
       },
@@ -165,8 +166,9 @@ const ChatInputComponent: ChatInputType = props => {
       multiline: true,
       numberOfLines: 3,
       placeholder: 'Message',
-      placeholderTextColor: themes['themeB'].color10, // '#a2acb4',
+      placeholderTextColor: themes['themeB'].color10,
       value: (idProfileActive && inputChat[idProfileActive]) || '',
+      maxHeight: '6rem'.getPx() - '0.5rem'.getPx(),
     },
     sendButtonYrlProps: {
       styleProps: { ButtonYrl: {}, title: {} },
@@ -181,7 +183,7 @@ const ChatInputComponent: ChatInputType = props => {
       styleProps: { IconYrl: { cursor: 'pointer' } },
       size: 24,
       color: themes['themeA'].colors02.color,
-      testID: 'chatInput_IconYrl_search',
+      testID: 'chatInput_IconYrl',
     },
     buttonCopyToClipboardProps: {
       styleProps: { ButtonYrl: {}, title: {} },
@@ -297,6 +299,13 @@ const ChatInputComponent: ChatInputType = props => {
         testID: 'iconSmallSendProps',
       },
     },
+    buttonIconYrlWrapperProps: {
+      style: {
+        ...style.buttonIconYrlWrapper,
+        top: inputTextYrlHeightState / 2 - '0.75rem'.getPx(),
+      },
+      testID: 'buttonIconYrlWrapper',
+    },
   }
 
   return (
@@ -313,7 +322,7 @@ const ChatInputComponent: ChatInputType = props => {
           </View>
           <View style={[style.inputButton]} testID='inputButton'>
             <InputTextYrl {...propsOut.inputTextYrlProps} />
-            <View style={[style.iconYrlWrapper]} testID='iconYrlWrapper'>
+            <View {...propsOut.buttonIconYrlWrapperProps}>
               <ButtonYrl {...propsOut.sendButtonYrlProps}>
                 <IconYrl {...propsOut.sendIconYrlProps} />
               </ButtonYrl>

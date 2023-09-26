@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   ChatInput: {
@@ -9,19 +9,20 @@ export const stylesDefault = StyleSheet.create({
     alignItems: 'flex-end',
     paddingLeft: '10%',
     paddingRight: '10%',
-    paddingBottom: getPx('1rem'),
+    paddingBottom: '1rem'.getPx(),
   },
   inputButton: {
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
   InputTextYrl: {
-    borderRadius: getPx('0.5rem'),
+    borderRadius: '0.5rem'.getPx(),
     borderWidth: 1,
+    alignItems: 'flex-end',
   },
   inputText: {
-    borderRadius: getPx('0.5rem'),
-    paddingRight: getPx('2rem'),
+    borderRadius: '0.5rem'.getPx(),
+    paddingRight: '2rem'.getPx(),
   },
   inputTextResize: {
     // @ts-expect-error
@@ -30,25 +31,25 @@ export const stylesDefault = StyleSheet.create({
   ButtonYrl: {
     position: 'absolute',
     margin: 0,
-    padding: getPx('0.5rem'),
-    right: getPx('1.25rem'),
+    padding: '0.5rem'.getPx(),
+    right: '1.25rem'.getPx(),
   },
   ButtonTitle: {
-    fontSize: 17,
+    fontSize: '1rem'.getPx(),
     fontWeight: '600',
   },
-  iconYrlWrapper: {
+  buttonIconYrlWrapper: {
     position: 'absolute',
-    paddingRight: getPx('1rem'),
+    paddingRight: '1rem'.getPx(),
     right: 0,
-    top: getPx('0.5rem'),
+    top: '0.5rem'.getPx(),
   },
   tooltipsWrapper: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignSelf: 'flex-start',
-    paddingLeft: getPx('1rem'),
-    paddingBottom: getPx('0.25rem'),
+    paddingLeft: '1rem'.getPx(),
+    paddingBottom: '0.25rem'.getPx(),
   },
   tooltipTitleWrapper: {
     flexDirection: 'row',
@@ -57,11 +58,11 @@ export const stylesDefault = StyleSheet.create({
   tooltip_container: {
     width: 'auto',
     height: 'auto',
-    right: getPx('1.25rem'),
+    right: '1.25rem'.getPx(),
   },
   tooltip_iconTextWrapper: {
     maxHeight: 350,
-    marginTop: getPx('0.25rem'),
+    marginTop: '0.25rem'.getPx(),
   },
   tooltip_titleText: {},
   tooltip_tooltipPopover: {

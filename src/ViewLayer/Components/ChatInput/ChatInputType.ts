@@ -45,6 +45,7 @@ export type ChatInputPropsOutType = {
   buttonPasteFromClipboardProps: ButtonYrlPropsType
   buttonClearInputProps: ButtonYrlPropsType
   buttonSmallSendProps: ButtonYrlPropsType
+  buttonIconYrlWrapperProps: { style: any; testID: string }
 }
 
 /**

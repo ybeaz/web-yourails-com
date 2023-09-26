@@ -18,6 +18,7 @@ export interface InputTextYrlPropsType {
   maxlength?: number
   multiline?: boolean
   numberOfLines?: number
+  onLayout?: (event: any) => void
   onChangeText: (text: string) => void
   onSubmitEditing: () => void
   onHeightChange?: (height: number) => void
@@ -32,6 +33,7 @@ export interface InputTextYrlPropsType {
   testID: string
   value?: string
   markdown?: boolean
+  maxHeight?: number
 }
 
 export type InputTextPropsOutType = {

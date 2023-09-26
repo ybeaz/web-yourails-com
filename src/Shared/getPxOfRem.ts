@@ -23,14 +23,14 @@ export const getPxOfRem: GetPxOfRemType = (
   options = { multiplier: 16, listOfAcceptedRemValues: [], printRes: false }
 ) => {
   const { multiplier, listOfAcceptedRemValues, printRes } = options
-
-  if (
-    listOfAcceptedRemValues.length &&
-    !listOfAcceptedRemValues.find(item => item === remString)
+  const found = listOfAcceptedRemValues.find(
+    item => item === remString.toString()
   )
+
+  if (listOfAcceptedRemValues.length && !found)
     console.error(
       'getPxOfRem [23]',
-      `Please, add the used rem value ${remString} to the accepted list in the file src/ViewLayer/Styles/styleGlobal.ts`
+      `Please, add the used rem value '${remString}' to the accepted list in the file src/ViewLayer/Styles/styleGlobal.ts`
     )
 
   const remArr = remString.split('rem')

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 import { View, TextInput, Platform } from 'react-native'
 import { InputTextYrlType, InputTextPropsOutType } from './InputTextYrlType'
 import { InputTextYrlStyle as style } from './InputTextYrlStyle'
@@ -29,14 +29,19 @@ export const InputTextYrl: InputTextYrlType = props => {
     onHeightChange,
     placeholder,
     placeholderTextColor,
+    maxHeight = 48,
     testID = 'InputTextYrl',
     value,
   } = props
+
+  const [heightLimit, setHeightLimit] = useState({ maxHeight: 48 })
 
   const handleLayout = (event: any) => {
     if (!onHeightChange) return
     const { height } = event.nativeEvent.layout
     onHeightChange(height)
+    if (height <= maxHeight) setHeightLimit({ maxHeight: height })
+    else setHeightLimit({ maxHeight })
   }
 
   const propsOut: InputTextPropsOutType = {
@@ -69,6 +74,7 @@ export const InputTextYrl: InputTextYrlType = props => {
       ...styleProps.inputTextResize,
       // @ts-expect-error
       outlineStyle: 'none',
+      ...heightLimit,
     },
   }
 
