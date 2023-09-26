@@ -19,7 +19,7 @@ import { ChatCard } from '../ChatCard/ChatCard'
 import { UserMenu } from '../UserMenu/UserMenu'
 import { ProfileSelectMenu } from '../ProfileSelectMenu/ProfileSelectMenu'
 import { getProfilesSearched } from '../../../Shared/getProfilesSearched'
-import { getPx } from '../../Styles/styleGlobal'
+import '../../Styles/styleGlobal'
 
 /**
  * @import import { ChatCards } from '../Components/ChatCards/ChatCards'
@@ -63,7 +63,7 @@ const ChatCardsComponent: ChatCardsType = props => {
     }
   }
 
-  const profilesFiltered = profiles.filter((profile: ProfileType) => {
+  const profilesFiltered = profilesSorted.filter((profile: ProfileType) => {
     const { idProfile } = profile
     return idProfile !== '0' && idProfile !== idProfileHost
   })
@@ -102,7 +102,7 @@ const ChatCardsComponent: ChatCardsType = props => {
         },
         content: {},
         buttonBackWrapper: {},
-        buttonCloseWrapper: { top: getPx('1rem'), right: getPx('1rem') },
+        buttonCloseWrapper: { top: '1rem'.getPx(), right: '1rem'.getPx() },
       },
       linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.25)'],
       isShow: isUserMenu || isProfileSelectMenu,

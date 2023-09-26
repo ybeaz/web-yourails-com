@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 import {
   PageChatsWholeScreenPropsType,
@@ -19,7 +19,7 @@ import { getSocketOnMessage } from '../../CommunicationLayer/socketio/getSocketO
 import { getSocketOnPending } from '../../CommunicationLayer/socketio/getSocketOnPending'
 import { getProfileByIdProfile } from '../../Shared/getProfileByIdProfile'
 import { getSectionsMappingForProfile } from '../../Shared/getSectionsMappingForProfile'
-import { getPx } from '../Styles/styleGlobal'
+import '../Styles/styleGlobal'
 
 export type useWidgetsScreensPropsPropsType = PageChatsWholeScreenPropsType
 
@@ -168,7 +168,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
           zIndex: platformOS === 'web' ? 10 : 1,
         },
         layoutScreenFooter: {
-          height: getPx('6rem'),
+          height: '6rem'.getPx(),
           zIndex: platformOS === 'web' ? 1 : 1,
         },
       },
