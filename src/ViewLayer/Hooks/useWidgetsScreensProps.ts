@@ -164,11 +164,12 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
             : '4rem'.getPx(),
           bottom: isShowModalFrame
             ? 0
-            : '6rem'.getPx() /* This is responsible for height of the "Chat body"*/,
+            : '6rem'.getPx() +
+              +'1rem'.getPx() /* This is responsible for height of the "Chat body"*/,
           zIndex: platformOS === 'web' ? 10 : 1,
         },
         layoutScreenFooter: {
-          height: '6rem'.getPx(),
+          height: '6rem'.getPx() + '1rem'.getPx(),
           zIndex: platformOS === 'web' ? 1 : 1,
         },
       },
@@ -246,6 +247,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
           // borderBottomWidth: 1,
           borderLeftWidth: 1,
           borderColor: themes['themeA'].colors01.borderColor,
+          backgroundColor: themes['themeB'].color07,
         },
       },
     },

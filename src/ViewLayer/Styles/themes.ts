@@ -51,6 +51,7 @@ const themeB: Record<string, string> = {
   color02: '#fcfdfc' /* "white" */,
   color03: '#3390ec' /* blue */,
   color04: '#3f51b5' /* dark blue */,
+  color07: '#f5f5f5' /* light-light grey*/,
   color08: '#dfe1e5' /* grey */,
   color09: '#707579' /* X light grey */,
   color10: '#adb1b5' /* XXX grey */,

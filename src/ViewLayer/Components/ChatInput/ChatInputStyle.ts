@@ -9,7 +9,7 @@ export const stylesDefault = StyleSheet.create({
     alignItems: 'flex-end',
     paddingLeft: '10%',
     paddingRight: '10%',
-    paddingBottom: '1rem'.getPx(),
+    // paddingBottom: '1rem'.getPx(),
   },
   inputButton: {
     justifyContent: 'flex-end',

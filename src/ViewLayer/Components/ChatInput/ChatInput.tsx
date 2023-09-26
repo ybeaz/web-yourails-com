@@ -158,6 +158,9 @@ const ChatInputComponent: ChatInputType = props => {
           ...style.inputText,
           ...themes.themeA.colors01,
           minWidth: width * 0.5,
+          minHeight:
+            '4rem'.getPx() -
+            '0.5rem'.getPx() /* Height of the the imput field */,
           maxHeight: '100%',
         },
         inputTextResize: { ...style.inputTextResize },
