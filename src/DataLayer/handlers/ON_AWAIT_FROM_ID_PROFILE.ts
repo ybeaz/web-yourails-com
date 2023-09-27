@@ -20,7 +20,6 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
     globalVars: { idProfileHost },
   } = getState()
 
-  console.info('ON_AWAIT_FROM_ID_PROFILE [23]', { idProfile, isPending })
   if (isPending === true) {
     const idMessage = nanoid()
 

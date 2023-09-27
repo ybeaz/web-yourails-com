@@ -10,7 +10,7 @@ import { REMOVE_LAST_MESSAGE_ID_PROFILE } from './reducers/REMOVE_LAST_MESSAGE_I
 import { SET_ID_PROFILE_HOST } from './reducers/SET_ID_PROFILE_HOST'
 import { TOGGLE_PROFILE_SELECT_MENU } from './reducers/TOGGLE_PROFILE_SELECT_MENU'
 import { TOGGLE_IS_USER_MENU } from './reducers/TOGGLE_IS_USER_MENU'
-import { ON_MESSAGE_SOCKET } from './reducers/ON_MESSAGE_SOCKET'
+import { ADD_MESSAGE } from './reducers/ADD_MESSAGE'
 import { ADD_MESSAGES } from './reducers/ADD_MESSAGES'
 import { ADD_PROJECTS } from './reducers/ADD_PROJECTS'
 import { ADD_COMPETENCY_TAGS } from './reducers/ADD_COMPETENCY_TAGS'
@@ -51,7 +51,7 @@ export const indexReducer: IndexReducerType = (
     SET_ID_PROFILE_HOST,
     TOGGLE_PROFILE_SELECT_MENU,
     TOGGLE_IS_USER_MENU,
-    ON_MESSAGE_SOCKET,
+    ADD_MESSAGE,
     ADD_MESSAGES,
     ADD_PROJECTS,
     ADD_COMPETENCY_TAGS,

@@ -12,10 +12,10 @@ interface GetSocketOnPendingType {
 export const getSocketOnPending: GetSocketOnPendingType = () => {
   socket.on('pending', data => {
     const { idProfile, isPending } = data
-    console.log('getSocketOnPending [16]', {
-      idProfile,
-      isPending,
-    })
+    // console.log('getSocketOnPending [16]', {
+    //   idProfile,
+    //   isPending,
+    // })
     if (idProfile)
       handleEvents.ON_AWAIT_FROM_ID_PROFILE({}, { idProfile, isPending })
   })

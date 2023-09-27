@@ -42,27 +42,8 @@ export const ON_MESSAGE_SOCKET: ActionEventType = (event, data) => {
         messsagesDisconnectConversation.length ===
         0
     )
-      dispatch(actionSync.ON_MESSAGE_SOCKET(data))
+      dispatch(actionSync.ADD_MESSAGE(data))
   } else {
-    dispatch(actionSync.ON_MESSAGE_SOCKET(data))
+    dispatch(actionSync.ADD_MESSAGE(data))
   }
 }
-
-/*
-
-    const idsFromConversation = JSON.parse(message.idConversation)
-
-    if (
-      idsFromConversation.includes(idProfileHost) &&
-      idsFromConversation.includes(idProfileActive)
-    ) {
-      handleEvents.ON_MESSAGE_SOCKET({}, { message })
-      console.log('getSocketOnMessage [15]', {
-        idProfileHost,
-        idProfileActive,
-        idsFromConversation,
-        message,
-      })
-    }
-
-*/
