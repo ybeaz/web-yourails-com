@@ -26,6 +26,7 @@ const Message: any = {
   dateStringCommon: {
     display: 'flex',
     justifyContent: 'flex-end',
+    fontSize: '0.875rem'.getPx(),
   },
 }
 
