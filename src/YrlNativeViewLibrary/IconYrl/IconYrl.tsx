@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { IconYrlType, IconYrlPropsOutType } from './IconYrlType'
-import { ImageResizeMode } from 'react-native'
+import { ImageResizeMode, Platform } from 'react-native'
 import { ImageYrl } from '../ImageYrl/ImageYrl'
+import { ImageSvgYrl } from '../ImageSvgYrl/ImageSvgYrl'
 
 /**
  * @import import { IconYrl, IconYrlPropsType } from './YrlNativeViewLibrary'
@@ -80,7 +81,13 @@ export const IconYrl: IconYrlType = props => {
     },
   }
 
-  return isActive ? <ImageYrl {...propsOut.imageYrlProps} /> : null
+  return isActive ? (
+    Platform.OS === 'web' ? (
+      <ImageYrl {...propsOut.imageYrlProps} />
+    ) : (
+      <ImageSvgYrl {...propsOut.imageYrlProps} />
+    )
+  ) : null
 
   /**
    * @description Snippet allowing to use local svg files for icons 

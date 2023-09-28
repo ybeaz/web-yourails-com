@@ -11,7 +11,8 @@ import { ImageYrlStyle as style } from './ImageYrlStyle'
     styleProps: { ImageYrl: {}, image: {} },
     testID: 'ImageYrl',
     uri: '',
-    resizeMode: 'cover' // 'cover' | 'contain' | 'stretch' | 'repeat' | 'center'
+    resizeMode: 'cover' // 'cover' | 'contain' | 'stretch' | 'repeat' | 'center',
+     onLayout: () => {}
   }
  */
 export const ImageYrl: ImageYrlType = props => {

@@ -6,7 +6,7 @@ import { ImageResizeMode } from 'react-native'
  */
 export interface ImageYrlPropsType {
   isActive?: boolean
-  styleProps?: { ImageYrl: any; image: any }
+  styleProps?: { ImageYrl?: any; image?: any }
   key?: string
   testID: string
   uri?: string
