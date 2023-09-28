@@ -1,9 +1,8 @@
 import React, { useMemo } from 'react'
-import { View } from 'react-native'
+import { View, Text } from 'react-native'
 
 import {
   withParamsMediaYrl,
-  mediaParamsDefault,
   withStoreStateSliceYrl,
   withPropsYrl,
 } from '../../../YrlNativeViewLibrary'
@@ -18,6 +17,7 @@ import { TopBarMainColumn } from '../../Components/TopBarMainColumn/TopBarMainCo
 import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
+import { HeaderMobile } from '../../Components/HeaderMobile/HeaderMobile'
 import {
   ChatSpaceScreenPropsType,
   ChatSpaceScreenPropsOutType,
@@ -44,6 +44,9 @@ const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
       ]}
       testID='chatSpaceHeader'
     >
+      <View>
+        <HeaderMobile />
+      </View>
       {!propsOut.isMainColumnBlank ? (
         <View
           style={[

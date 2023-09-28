@@ -1,4 +1,5 @@
 import { TEMPLATE } from './handlers/TEMPLATE'
+import { CLICK_TO_NAVIGATE } from './handlers/CLICK_TO_NAVIGATE'
 import { SET_STORE_SCENARIO_MOBILE } from './handlers/SET_STORE_SCENARIO_MOBILE'
 import { CLICK_ON_PASTE_FROM_CLOPBOARD } from './handlers/CLICK_ON_PASTE_FROM_CLOPBOARD'
 import { CLICK_ON_PROMPT_EXAMPLE } from './handlers/CLICK_ON_PROMPT_EXAMPLE'
@@ -31,6 +32,7 @@ export type HandleEventsType = Record<string, (arg1: any, arg2: any) => any>
 
 export const handleEvents: HandleEventsType = {
   TEMPLATE,
+  CLICK_TO_NAVIGATE,
   CLICK_ON_PASTE_FROM_CLOPBOARD,
   CLICK_ON_PROMPT_EXAMPLE,
   CLICK_ON_SIGN_OUT,

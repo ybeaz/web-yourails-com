@@ -12,7 +12,7 @@ export const style = StyleSheet.create({
     padding: '0.5rem'.getPx(),
   },
   column1: {
-    minWidth: '2.5rem',
+    minWidth: '2.5rem'.getPx(),
     paddingRight: '1rem'.getPx(),
   },
   column2: {

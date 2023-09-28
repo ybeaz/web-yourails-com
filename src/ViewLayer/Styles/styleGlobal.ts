@@ -104,6 +104,6 @@ export const debugLayout: DebugLayoutType = (
 ) => ({
   borderColor,
   borderStyle: 'solid',
-  borderWidth: 3,
+  borderWidth: 1,
   backgroundColor,
 })

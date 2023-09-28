@@ -1,4 +1,5 @@
 import React from 'react'
+import { View, Text } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
@@ -23,9 +24,11 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
   console.info('Is Hermes enabled ' + isHermes())
 
   const propsOut: NavigationMobileOutPropsType = {
+    // @ts-expect-error
     chatCardsScreenProps: {
       onLayout,
     },
+    // @ts-expect-error
     chatSpaceScreenProps: {
       onLayout,
     },
@@ -42,7 +45,13 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
           )}
         </Stack.Screen>
 
-        <Stack.Screen name='ChatSpaceScreen' options={{ headerShown: true }}>
+        <Stack.Screen
+          name='ChatSpaceScreen'
+          options={{
+            headerShown: false,
+            title: '',
+          }}
+        >
           {props => (
             <ChatSpaceScreen
               {...{ ...props, ...propsOut.chatSpaceScreenProps }}

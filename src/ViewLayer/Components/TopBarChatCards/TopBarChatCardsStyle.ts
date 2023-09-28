@@ -25,7 +25,6 @@ export const style = StyleSheet.create({
     borderRadius: 80,
     height: '2.5rem'.getPx(),
     minHeight: '2.5rem'.getPx(),
-    ...debugLayout('green'),
   },
   iconYrlWrapper: {
     position: 'absolute',
