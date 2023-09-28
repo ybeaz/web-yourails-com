@@ -8,7 +8,7 @@ export const stylesDefault = StyleSheet.create({
   },
   scrollView: {
     marginHorizontal: 10,
-    height: 'fit-content',
+    height: 'auto',
     maxHeight: 350,
   },
   contentContainerStyle: {

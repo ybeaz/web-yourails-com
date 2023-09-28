@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { debugLayout, styleGlobal } from '../../Styles/styleGlobal'
 
 export const style = StyleSheet.create({
   TopBarChatCards: {
@@ -23,6 +23,9 @@ export const style = StyleSheet.create({
   },
   inputText: {
     borderRadius: 80,
+    height: '2.5rem'.getPx(),
+    minHeight: '2.5rem'.getPx(),
+    ...debugLayout('green'),
   },
   iconYrlWrapper: {
     position: 'absolute',

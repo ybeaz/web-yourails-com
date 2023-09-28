@@ -15,7 +15,7 @@ export const stylesDefault = StyleSheet.create({
     padding: '1rem'.getPx(),
   },
   dateText: {
-    width: 'fit-content',
+    width: 'auto',
   },
   messages: {},
 })

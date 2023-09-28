@@ -1,4 +1,4 @@
-import { nanoid } from 'nanoid'
+import { v4 as uuid } from 'uuid'
 
 import { IdUserType } from '../@types/UserType'
 import { MessageType } from '../@types/MessageType'
@@ -50,7 +50,7 @@ export const getCreatedMessage: GetCreatedMessageType = (params, options) => {
     eventType: MessageEventType['chatMessage'],
   }
 
-  if (options?.isIdMessage) message.idMessage = nanoid()
+  if (options?.isIdMessage) message.idMessage = uuid()
   if (options?.isCreatedAt) message.createdAt = +new Date()
 
   if (options?.printRes) {

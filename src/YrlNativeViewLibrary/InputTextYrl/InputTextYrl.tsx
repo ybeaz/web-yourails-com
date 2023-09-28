@@ -62,9 +62,13 @@ export const InputTextYrl: InputTextYrlType = props => {
       returnKeyType: 'send',
       autoFocus: true,
       blurOnSubmit: true,
+      style: {
+        ...style.inputText,
+        ...styleProps.inputText,
+        ...heightLimit,
+      },
     },
   }
-
   propsOut.textInputPropsResize = {
     ...propsOut.textInputProps,
     style: {
@@ -82,6 +86,8 @@ export const InputTextYrl: InputTextYrlType = props => {
     Platform.OS === 'web'
       ? propsOut.textInputPropsResize
       : propsOut.textInputProps
+
+  console.info('InputTextYrl [81]', { textInputProps: textInputProps?.style })
 
   return (
     // <Draggable x={20} renderSize={100}>

@@ -1,4 +1,4 @@
-import { nanoid } from 'nanoid'
+import { v4 as uuid } from 'uuid'
 import { store } from '../store'
 import { ContentType } from '../../@types/ContentType'
 import { MessageType } from '../../@types/MessageType'
@@ -21,7 +21,7 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
   } = getState()
 
   if (isPending === true) {
-    const idMessage = nanoid()
+    const idMessage = uuid()
 
     const idConversation = getSortedHashedStringifyArray([
       idProfileHost,

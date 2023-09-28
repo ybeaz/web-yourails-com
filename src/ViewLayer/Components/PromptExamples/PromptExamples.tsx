@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import { View, ScrollView } from 'react-native'
-import { nanoid } from 'nanoid'
+import { v4 as uuid } from 'uuid'
 import '../../Styles/styleGlobal'
 
 import {
@@ -77,7 +77,7 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
       >
         <Header {...propsOut.headerProps} />
         {promptExamples?.map((promptExample: string, index: number) => {
-          const key = nanoid()
+          const key = uuid()
 
           const titleText: ReactElement = (
             <Text

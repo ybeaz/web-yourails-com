@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import { nanoid } from 'nanoid'
+import { v4 as uuid } from 'uuid'
 
 import { ProfileType } from '../../../@types/GraphqlTypes'
 
@@ -67,7 +67,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
 
   const getStringSpecs = (serviceSpecsIn: string[] = []) => {
     return serviceSpecsIn.map((serviceSpec: string, index: number) => {
-      const key = nanoid()
+      const key = uuid()
       return (
         <Text
           key={key}

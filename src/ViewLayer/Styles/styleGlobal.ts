@@ -12,6 +12,7 @@ const listOfAcceptedRemValues: string[] = [
   '1.5rem',
   '1rem',
   '2rem',
+  '2.5rem',
   '3rem',
   '4rem',
   '6rem',

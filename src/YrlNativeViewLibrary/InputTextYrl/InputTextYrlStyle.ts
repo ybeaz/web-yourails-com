@@ -6,9 +6,9 @@ export const InputTextYrlStyle = StyleSheet.create({
     flexDirection: 'row',
   },
   inputText: {
-    height: 40,
-    minHeight: 40,
-    padding: 10,
+    height: 32,
+    minHeight: 32,
+    padding: 12,
     flex: 1,
   },
   inputTextResize: {},

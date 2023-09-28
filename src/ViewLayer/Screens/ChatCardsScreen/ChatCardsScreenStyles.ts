@@ -8,13 +8,11 @@ export const stylesDefault = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    ...debugLayout('green'),
   },
   chatCardsBody: {
     flexDirection: 'column',
     flex: 1,
     overflow: 'scroll',
-    ...debugLayout('red'),
   },
 })
 

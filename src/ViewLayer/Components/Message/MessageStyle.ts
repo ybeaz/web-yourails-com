@@ -9,7 +9,7 @@ const Message: any = {
     marginBottom: '0.5rem'.getPx(),
   },
   contentCommon: {
-    width: 'fit-content',
+    width: 'auto',
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
     borderBottomRightRadius: 15,
