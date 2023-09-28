@@ -35,13 +35,22 @@ export const getPx = (rem: string) =>
  * @description Prototype style for js String
  * @import import './Shared/ptototypes'
  */
+const singletonStore: Record<string, number> = {}
+
 String.prototype.getPx = function () {
   const remString = this.valueOf() as string
-  return getPxOfRem(remString, {
-    multiplier: 16,
-    listOfAcceptedRemValues,
-    printRes: false,
-  })
+  let remNumber = singletonStore[remString]
+
+  if (!remNumber) {
+    remNumber = getPxOfRem(remString, {
+      multiplier: 16,
+      listOfAcceptedRemValues,
+      printRes: false,
+    })
+    singletonStore[remString] = remNumber
+  }
+
+  return remNumber
 }
 
 /**
