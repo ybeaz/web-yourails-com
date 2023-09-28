@@ -23,7 +23,6 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
   console.info('Is Hermes enabled ' + isHermes())
 
   const propsOut: NavigationMobileOutPropsType = {
-    // @ts-expect-error
     chatCardsScreenProps: {
       onLayout,
     },
@@ -43,7 +42,7 @@ export const NavigationMobile = (props: NavigationMobilePropsType) => {
           )}
         </Stack.Screen>
 
-        <Stack.Screen name='ChatSpaceScreen'>
+        <Stack.Screen name='ChatSpaceScreen' options={{ headerShown: true }}>
           {props => (
             <ChatSpaceScreen
               {...{ ...props, ...propsOut.chatSpaceScreenProps }}

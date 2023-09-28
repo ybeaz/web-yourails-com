@@ -1,16 +1,18 @@
 import { StyleSheet } from 'react-native'
-import { styleGlobal } from '../../Styles/styleGlobal'
+import { debugLayout, getPx } from '../../Styles/styleGlobal'
 
 export const stylesDefault = StyleSheet.create({
   chatSpaceHeader: {},
   chatSpaceBody: {
     justifyContent: 'flex-end',
     height: '100%',
+    ...debugLayout('green'),
   },
   chatSpaceFooter: {
     height: '6rem'.getPx(),
     bottom: 0,
     width: '100%',
+    ...debugLayout('blue', 'grey'),
   },
 })
 

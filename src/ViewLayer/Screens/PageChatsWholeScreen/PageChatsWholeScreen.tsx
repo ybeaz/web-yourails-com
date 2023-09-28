@@ -10,6 +10,7 @@ import {
 import {
   PageChatsWholeScreenPropsType,
   PageChatsWholeScreenPropsOutType,
+  PageChatsWholeScreenComponentType,
   PageChatsWholeScreenType,
 } from './PageChatsWholeScreenType'
 import { LayoutScreen } from '../../Frames/LayoutScreen/LayoutScreen'
@@ -24,118 +25,119 @@ import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handl
 import { styles as stylesIn } from './PageChatsWholeScreenStyle'
 import { useWidgetsScreensProps } from '../../Hooks/useWidgetsScreensProps'
 
-const PageChatsWholeScreenComponent: PageChatsWholeScreenType = props => {
-  const propsOut: PageChatsWholeScreenPropsOutType =
-    useWidgetsScreensProps(props)
+const PageChatsWholeScreenComponent: PageChatsWholeScreenComponentType =
+  props => {
+    const propsOut: PageChatsWholeScreenPropsOutType =
+      useWidgetsScreensProps(props)
 
-  const ChatCardsHeader = useMemo(
-    () => (
-      <View style={[propsOut.style.chatCardsHeader]} testID='chatCardsHeader'>
-        <TopBarChatCards />
-      </View>
-    ),
-    []
-  )
-
-  const ChatCardsBody = useMemo(
-    () => (
-      <View style={[propsOut.style.chatCardsBody]} testID='chatCardsBody'>
-        <ChatCards />
-      </View>
-    ),
-    []
-  )
-
-  const ChatSpaceHeader = (
-    <View
-      style={[
-        propsOut.style.chatSpaceHeader,
-        propsOut.themes['themeA'].colors03,
-      ]}
-      testID='chatSpaceHeader'
-    >
-      {!propsOut.isMainColumnBlank ? (
-        <View
-          style={[
-            propsOut.style.mainColumnTopBar,
-            {
-              borderStyle: 'solid',
-              // borderTopWidth: 1,
-              // borderRightWidth: 1,
-              borderBottomWidth: 1,
-              borderLeftWidth: 1,
-            },
-            propsOut.themes['themeA'].colors01,
-          ]}
-          testID='mainColumnTopBar'
-        >
-          <TopBarMainColumn />
+    const ChatCardsHeader = useMemo(
+      () => (
+        <View style={[propsOut.style.chatCardsHeader]} testID='chatCardsHeader'>
+          <TopBarChatCards />
         </View>
-      ) : null}
+      ),
+      []
+    )
 
-      {!propsOut.isMainColumnBlank &&
-      propsOut.sectionsMappingForProfile.length ? (
-        <View
-          style={[
-            propsOut.style.mainColumnContentMenu,
-            propsOut.themes['themeA'].colors01,
-          ]}
-          testID='mainColumnContentMenu'
-        >
-          <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
+    const ChatCardsBody = useMemo(
+      () => (
+        <View style={[propsOut.style.chatCardsBody]} testID='chatCardsBody'>
+          <ChatCards />
         </View>
-      ) : null}
-    </View>
-  )
+      ),
+      []
+    )
 
-  const ChatSpaceBody = useMemo(
-    () => (
-      <View style={[propsOut.style.chatSpaceBody]} testID='chatSpaceBody'>
-        <ChatSpace />
-      </View>
-    ),
-    []
-  )
-
-  const ChatSpaceFooter = useMemo(
-    () => (
+    const ChatSpaceHeader = (
       <View
         style={[
-          propsOut.style.chatSpaceFooter,
+          propsOut.style.chatSpaceHeader,
           propsOut.themes['themeA'].colors03,
         ]}
-        testID='chatSpaceFooter'
+        testID='chatSpaceHeader'
       >
-        <ChatInput />
+        {!propsOut.isMainColumnBlank ? (
+          <View
+            style={[
+              propsOut.style.mainColumnTopBar,
+              {
+                borderStyle: 'solid',
+                // borderTopWidth: 1,
+                // borderRightWidth: 1,
+                borderBottomWidth: 1,
+                borderLeftWidth: 1,
+              },
+              propsOut.themes['themeA'].colors01,
+            ]}
+            testID='mainColumnTopBar'
+          >
+            <TopBarMainColumn />
+          </View>
+        ) : null}
+
+        {!propsOut.isMainColumnBlank &&
+        propsOut.sectionsMappingForProfile.length ? (
+          <View
+            style={[
+              propsOut.style.mainColumnContentMenu,
+              propsOut.themes['themeA'].colors01,
+            ]}
+            testID='mainColumnContentMenu'
+          >
+            <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
+          </View>
+        ) : null}
       </View>
-    ),
-    []
-  )
+    )
 
-  return (
-    <LayoutScreen {...propsOut.layoutScreenProps}>
-      {/** @description <Header /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowHeaderProps}>
-        {ChatCardsHeader}
-        {ChatSpaceHeader}
-      </LayoutOfRow>
-      {/** @description <Body /> */}
-      <LayoutOfRow {...propsOut.layoutOfRowBodyProps}>
-        {ChatCardsBody}
-        {ChatSpaceBody}
-      </LayoutOfRow>
-      {/** @description <Footer /> */}
-      {!propsOut.isShowModalFrame ? (
-        <LayoutOfRow {...propsOut.layoutOfRowFooterProps}>
-          {null}
-          {ChatSpaceFooter}
+    const ChatSpaceBody = useMemo(
+      () => (
+        <View style={[propsOut.style.chatSpaceBody]} testID='chatSpaceBody'>
+          <ChatSpace />
+        </View>
+      ),
+      []
+    )
+
+    const ChatSpaceFooter = useMemo(
+      () => (
+        <View
+          style={[
+            propsOut.style.chatSpaceFooter,
+            propsOut.themes['themeA'].colors03,
+          ]}
+          testID='chatSpaceFooter'
+        >
+          <ChatInput />
+        </View>
+      ),
+      []
+    )
+
+    return (
+      <LayoutScreen {...propsOut.layoutScreenProps}>
+        {/** @description <Header /> */}
+        <LayoutOfRow {...propsOut.layoutOfRowHeaderProps}>
+          {ChatCardsHeader}
+          {ChatSpaceHeader}
         </LayoutOfRow>
-      ) : null}
-    </LayoutScreen>
-  )
-}
+        {/** @description <Body /> */}
+        <LayoutOfRow {...propsOut.layoutOfRowBodyProps}>
+          {ChatCardsBody}
+          {ChatSpaceBody}
+        </LayoutOfRow>
+        {/** @description <Footer /> */}
+        {!propsOut.isShowModalFrame ? (
+          <LayoutOfRow {...propsOut.layoutOfRowFooterProps}>
+            {null}
+            {ChatSpaceFooter}
+          </LayoutOfRow>
+        ) : null}
+      </LayoutScreen>
+    )
+  }
 
-export const PageChatsWholeScreen = withPropsYrl({
+export const PageChatsWholeScreen: PageChatsWholeScreenType = withPropsYrl({
   handleEvents: handleEventsProp,
   styles: stylesIn,
 })(
@@ -156,5 +158,6 @@ export const PageChatsWholeScreen = withPropsYrl({
 export type {
   PageChatsWholeScreenPropsType,
   PageChatsWholeScreenPropsOutType,
+  PageChatsWholeScreenComponentType,
   PageChatsWholeScreenType,
 }

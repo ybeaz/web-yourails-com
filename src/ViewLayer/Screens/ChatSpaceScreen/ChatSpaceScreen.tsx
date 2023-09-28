@@ -110,15 +110,18 @@ const ChatSpaceScreenComponent: ChatSpaceScreenComponentType = props => {
       {/** @description <Header /> */}
       <LayoutOfRow {...propsOut.layoutOfRowHeaderProps}>
         {ChatSpaceHeader}
+        {null}
       </LayoutOfRow>
       {/** @description <Body /> */}
       <LayoutOfRow {...propsOut.layoutOfRowBodyProps}>
         {ChatSpaceBody}
+        {null}
       </LayoutOfRow>
       {/** @description <Footer /> */}
       {!propsOut.isShowModalFrame && (
         <LayoutOfRow {...propsOut.layoutOfRowFooterProps}>
           {ChatSpaceFooter}
+          {null}
         </LayoutOfRow>
       )}
     </LayoutScreen>

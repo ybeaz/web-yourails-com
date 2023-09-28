@@ -1,8 +1,11 @@
-import { PageChatsWholeScreenPropsType } from '../PageChatsWholeScreen/PageChatsWholeScreen'
+import {
+  PageChatsWholeScreenPropsType,
+  PageChatsWholeScreenPropsOutType,
+} from '../PageChatsWholeScreen/PageChatsWholeScreen'
 
 export type ChatCardsScreenPropsType = PageChatsWholeScreenPropsType
 
-export type ChatCardsScreenPropsOutType = Record<string, any>
+export type ChatCardsScreenPropsOutType = PageChatsWholeScreenPropsOutType
 
 /**
  * @import import { ChatCardsScreenType } from './ChatCardsScreenType'
@@ -12,5 +15,7 @@ export interface ChatCardsScreenComponentType
   (props: ChatCardsScreenPropsType): React.ReactElement
 }
 
-export type ChatCardsScreenType =
-  React.FunctionComponent<ChatCardsScreenPropsType>
+export interface ChatCardsScreenType
+  extends React.FunctionComponent<ChatCardsScreenPropsType> {
+  (props: ChatCardsScreenPropsType): React.ReactElement
+}

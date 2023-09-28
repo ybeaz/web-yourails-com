@@ -1,12 +1,11 @@
-import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import {
+  PageChatsWholeScreenPropsType,
+  PageChatsWholeScreenPropsOutType,
+} from '../PageChatsWholeScreen/PageChatsWholeScreen'
 
-export interface ChatSpaceScreenPropsType {
-  styleProps?: any
-  mediaParams?: MediaParamsDefaultType
-  onLayout?: () => void
-}
+export type ChatSpaceScreenPropsType = PageChatsWholeScreenPropsType
 
-export type ChatSpaceScreenPropsOutType = Record<string, any>
+export type ChatSpaceScreenPropsOutType = PageChatsWholeScreenPropsOutType
 
 /**
  * @import import { ChatSpaceScreenType } from './ChatSpaceScreenType'
@@ -16,5 +15,7 @@ export interface ChatSpaceScreenComponentType
   (props: ChatSpaceScreenPropsType): React.ReactElement
 }
 
-export type ChatSpaceScreenType =
-  React.FunctionComponent<ChatSpaceScreenPropsType>
+export interface ChatSpaceScreenType
+  extends React.FunctionComponent<ChatSpaceScreenPropsType> {
+  (props: ChatSpaceScreenPropsType): React.ReactElement
+}

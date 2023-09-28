@@ -56,6 +56,11 @@ export type PageChatsWholeScreenPropsOutType = {
   sectionsMappingForProfile: SectionMappingType[]
 }
 
+export interface PageChatsWholeScreenComponentType
+  extends React.FunctionComponent<PageChatsWholeScreenPropsType> {
+  (props: PageChatsWholeScreenPropsType): React.ReactElement
+}
+
 export interface PageChatsWholeScreenType
   extends React.FunctionComponent<PageChatsWholeScreenPropsType> {
   (props: PageChatsWholeScreenPropsType): React.ReactElement

@@ -87,8 +87,6 @@ export const InputTextYrl: InputTextYrlType = props => {
       ? propsOut.textInputPropsResize
       : propsOut.textInputProps
 
-  console.info('InputTextYrl [81]', { textInputProps: textInputProps?.style })
-
   return (
     // <Draggable x={20} renderSize={100}>
     <View {...propsOut.inputTextYrlProps}>

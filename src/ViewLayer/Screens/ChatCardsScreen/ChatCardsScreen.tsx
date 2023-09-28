@@ -30,7 +30,6 @@ import {
  */
 const ChatCardsScreenComponent: ChatCardsScreenComponentType = props => {
   const propsOut: ChatCardsScreenPropsOutType = useWidgetsScreensProps(props)
-  console.info('ChatCardsScreen [33]', propsOut)
 
   const ChatCardsHeader = useMemo(
     () => (
@@ -56,14 +55,19 @@ const ChatCardsScreenComponent: ChatCardsScreenComponentType = props => {
       {/** @description <Header /> */}
       <LayoutOfRow {...propsOut.layoutOfRowHeaderProps}>
         {ChatCardsHeader}
+        {null}
       </LayoutOfRow>
       {/** @description <Body /> */}
       <LayoutOfRow {...propsOut.layoutOfRowBodyProps}>
         {ChatCardsBody}
+        {null}
       </LayoutOfRow>
       {/** @description <Footer /> */}
       {!propsOut.isShowModalFrame && (
-        <LayoutOfRow {...propsOut.layoutOfRowFooterProps}>{null}</LayoutOfRow>
+        <LayoutOfRow {...propsOut.layoutOfRowFooterProps}>
+          {null}
+          {null}
+        </LayoutOfRow>
       )}
     </LayoutScreen>
   )
