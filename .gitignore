@@ -65,6 +65,7 @@ yarn-error.log
 # testing
 /coverage
 
+# Technical directories
 .bundle/
 .expo/
 web-build/
