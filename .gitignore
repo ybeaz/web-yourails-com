@@ -65,7 +65,7 @@ yarn-error.log
 # testing
 /coverage
 
-# Technical directories
+# Technical directories, that are not imporant for clonning the project
 .bundle/
 .expo/
 web-build/
