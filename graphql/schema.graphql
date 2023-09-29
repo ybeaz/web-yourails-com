@@ -1,0 +1,77 @@
+scalar Date
+
+type MessageData {
+  type: String
+  value: String
+}
+
+type Message {
+  messageId: String
+  messageIdOwner: String
+  messageIdChat: String
+  messageData: [MessageData]
+  deliveryId: String
+  deliveryDateSent: Date
+  deliveryDateRecieved: Date
+}
+
+type Chat {
+  chatId: String
+  chatIdProfiles: [String]
+  messages: [Message]
+}
+
+type User {
+  avatar: String
+  dateCreatedAt: Float!
+  dateDeletedAt: Float
+  dateLastActiveAt: Float!
+  dateUpdatedAt: Float
+  id: String!
+  name: String!
+  role: String!
+  status: String!
+}
+
+enum RecipeType {
+  COMMON
+  VEGAN
+}
+
+type Recipe {
+  id: String!
+  title: String!
+  description: String
+  ingredients: [String!]
+}
+
+input RecipeInput {
+  id: String!
+  title: String!
+  type: RecipeType!
+  description: String
+  ingredients: [[String!]!]
+}
+
+enum MutationStatus {
+  OK
+  ERROR
+}
+
+type MutationResponse {
+  mutationStatus: MutationStatus!
+  details: String
+}
+
+type Query {
+  readChatsForProfileId(profileId: String, limit: Int): [Chat]
+  users(limit: Int): [User]
+  recipes(limit: Int): [Recipe]
+  recipe(id: String!): Recipe
+}
+
+type Mutation {
+  createRecipe(recipeInput: RecipeInput!): MutationResponse
+  updateRecipe(recipeInput: RecipeInput!): MutationResponse
+  deleteRecipe(id: String!): MutationResponse
+}

@@ -1,0 +1,39 @@
+{
+  "surveyId": "1",
+  "questions": [
+    {
+      "questionId": "1",
+      "description": "encompass_survey_text1",
+      "multiselect": false,
+      "answers": [
+        "encompass_survey_text2",
+        "encompass_survey_text3",
+        "encompass_survey_text4",
+        "encompass_survey_text5",
+        "encompass_survey_text6"
+      ]
+    },
+    {
+      "questionId": "2",
+      "description": "encompass_survey_text7",
+      "multiselect": true,
+      "answers": [
+        "encompass_survey_text8",
+        "encompass_survey_text9",
+        "encompass_survey_text10",
+        "encompass_survey_text11"
+      ]
+    },
+    {
+      "questionId": "3",
+      "description": "encompass_survey_text12",
+      "multiselect": true,
+      "answers": [
+        "encompass_survey_text13",
+        "encompass_survey_text14",
+        "encompass_survey_text15",
+        "encompass_survey_text16"
+      ]
+    }
+  ]
+}
