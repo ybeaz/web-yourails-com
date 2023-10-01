@@ -33,7 +33,7 @@ const getPreparedFilesPublicWeb = async () => {
   /** @description Copy files to deployment directory */
   const filesList = ['index.html', '.htaccess']
   filesList.forEach(async (file: string, index: number) => {
-    const source = join(__dirname, '..', `/deployment/${file}`) // `${__dirname}/deployment/${file}`
+    const source = join(__dirname, '..', `/deployment/${file}`)
     const destination = `${buildDir}/${file}`
     const overwrite = true
     const copiedFileName = await getCopiedFileDir(
