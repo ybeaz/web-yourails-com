@@ -33,6 +33,7 @@ export const getPx = (rem: string) =>
 
 /**
  * @description Prototype style for js String
+ * @patterns [Singleton, Flyweight]
  * @import import './Shared/ptototypes'
  */
 const singletonStore: Record<string, number> = {}
