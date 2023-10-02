@@ -16,7 +16,7 @@ interface GetRedirectedType {
  * @import import { getRedirected } from '../../../Shared/getRedirected'
  */
 
-export const getRedirected: GetRedirectedType = async (
+export const getRedirected: GetRedirectedType = (
   pathnameNext,
   { platformOS = 'web', replace = true }
 ) => {
