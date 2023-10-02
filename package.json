@@ -1,6 +1,6 @@
 {
   "name": "yourails_sep_react_native",
-  "version": "0.61.0",
+  "version": "0.61.9",
   "private": true,
   "main": "./src/App",
   "scripts": {
