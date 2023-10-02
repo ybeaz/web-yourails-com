@@ -52,8 +52,6 @@ export const SET_STORE_SCENARIO_WEB: ActionEventType = (
   let hostname = HOST_NAME
   if (isHostR1UserToComFlag()) hostname = 'r1.userto.com'
 
-  console.info('SET_STORE_SCENARIO_WEB [55]', { platformOS })
-
   const {
     caseNo,
     caseDesc,
@@ -79,8 +77,6 @@ export const SET_STORE_SCENARIO_WEB: ActionEventType = (
     sectionsMappingForProfile,
   })
 
-  console.info('SET_STORE_SCENARIO_WEB [82]', { platformOS, redirectPathname })
-
   dispatch(actionSync.SET_ID_USER_HOST({ idUserHost: idUserHostNext }))
   dispatch(actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: idProfileNext }))
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
@@ -89,11 +85,7 @@ export const SET_STORE_SCENARIO_WEB: ActionEventType = (
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
-  console.info('SET_STORE_SCENARIO_WEB [92]', { platformOS, redirectPathname })
-
   getRedirected(redirectPathname, { platformOS, replace: true })
-
-  console.info('SET_STORE_SCENARIO_WEB [96]', { platformOS, redirectPathname })
 
   if (idProfile === idProfileNext) return
 

@@ -30,8 +30,6 @@ const ChatCardComponent: ChatCardType = props => {
   } = props
   const { idProfile, profileName } = profile
 
-  console.info('ChatCard [33]', { platformOS })
-
   const colorStyle = isActive ? themes['themeA'].colors07 : {}
 
   const propsOut: Record<string, any> = {

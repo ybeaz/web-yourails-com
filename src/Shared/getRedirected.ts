@@ -22,15 +22,13 @@ export const getRedirected: GetRedirectedType = (
 ) => {
   // TODO Implement redirect for ios and android
 
-  console.info('getRedirected [225]', { platformOS })
-
   if (platformOS === 'web') {
     if (!pathnameNext) return
     try {
       historyWeb.push(pathnameNext)
     } catch (error: any) {
       const message = error.message
-      console.info('getRedirected [21]', {
+      console.log('getRedirected [21]', {
         message,
         pathnameNext,
         replace,

@@ -53,8 +53,6 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     ? urlParams
     : urlParamsDefault
 
-  console.info('useWidgetsScreensProps [56]', { platformOS })
-
   const style = styles[deviceType]
 
   const renderCounter = useRef(0)

@@ -15,8 +15,6 @@ export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
   const { idProfile, profileName, urlParam1, urlParam2, query, platformOS } =
     data
 
-  console.info('CLICK_ON_USER_CHAT_CARD [18]', { platformOS })
-
   const {
     globalVars: { idProfileHost },
   } = getState()

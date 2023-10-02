@@ -82,12 +82,8 @@ const pageChatsWholeScreenPropsDefault: PageChatsWholeScreenPropsType = {
 const PageChatsWholeScreenComponent: PageChatsWholeScreenComponentType = (
   props = pageChatsWholeScreenPropsDefault
 ) => {
-  console.info('PageChatsWholeScreen [82]', { platformOS: props.platformOS })
-
   const propsOut: PageChatsWholeScreenPropsOutType =
     useWidgetsScreensProps(props)
-
-  console.info('PageChatsWholeScreen [91]', { propsOut })
 
   const ChatCardsHeader = useMemo(
     () => (
