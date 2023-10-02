@@ -25,15 +25,8 @@ interface GetMessagesWithProfileActiveType {
 
 export const getMessagesWithProfileActive: GetMessagesWithProfileActiveType = (
   messages,
-  params
+  { idProfileHost, idProfileActive }
 ) => {
-  console.info('getMessagesWithProfileActive [30]', {
-    messages,
-    params,
-  })
-
-  const { idProfileHost, idProfileActive } = params
-
   if (!idProfileHost || !idProfileActive) return []
 
   const idConversation = getSortedHashedStringifyArray([

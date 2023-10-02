@@ -76,12 +76,11 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const getSortedMessages = (
     messages: RootStoreType['messages']
-  ): RootStoreType['messages'] => {
-    return messages.sort(
+  ): RootStoreType['messages'] =>
+    messages.sort(
       (a, b) =>
         (a.createdAt ? a.createdAt : 0) - (b.createdAt ? b.createdAt : 0)
     )
-  }
 
   const messagesNext = getChainedResponsibility(messages)
     .exec(getMessagesWithProfileActive, [getMessagesWithProfileActiveOptions])
