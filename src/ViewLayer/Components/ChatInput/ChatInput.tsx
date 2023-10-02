@@ -151,8 +151,9 @@ const ChatInputComponent: ChatInputType = props => {
     inputTextYrlProps: {
       onChangeText: (text: string) =>
         handleEvents.ON_CHANGE_INPUT_CHAT({}, { idProfileActive, text }),
-      onSubmitEditing: () =>
-        handleEvents.CLICK_ON_SEND_MESSAGE({}, { profileActive }),
+      onSubmitEditing: () => {
+        handleEvents?.CLICK_ON_SEND_MESSAGE({}, {})
+      },
       onHeightChange: onInputTextYrlHeightChange,
       styleProps: {
         InputTextYrl: {

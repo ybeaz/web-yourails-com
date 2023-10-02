@@ -15,7 +15,7 @@ import {
 
 import {
   getMessagesWithProfileActive,
-  GetMessagesWithProfileActivePropsType,
+  GetMessagesWithProfileActiveParamsType,
 } from '../../../Shared/getMessagesWithProfileActive'
 import { getDateLocale } from '../../../Shared/getDateLocale'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
@@ -66,23 +66,31 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const messagesMemed = useMemo(() => messages, [JSON.stringify(messages)])
 
-  const getMessagesWithProfileActiveProps: GetMessagesWithProfileActivePropsType =
+  const getMessagesWithProfileActiveOptions: GetMessagesWithProfileActiveParamsType =
     {
-      messages: messagesMemed,
       idProfileHost,
       idProfileActive,
     }
   const messagesWithProfileActive: RootStoreType['messages'] =
-    getMessagesWithProfileActive(getMessagesWithProfileActiveProps)
-
-  const Child: FunctionComponent | null = childName
-    ? MODAL_CONTENTS[childName]
-    : null
+    getMessagesWithProfileActive(
+      messagesMemed,
+      getMessagesWithProfileActiveOptions
+    )
 
   const messagesPrep = getPreproccedMessages(
     messagesWithProfileActive,
     idProfileHost
   )
+
+  console.info('ChatSpace [85]', { messagesPrep })
+
+  const messagesSorted: RootStoreType['messages'] = messagesPrep.sort(
+    (a, b) => (a.createdAt ? a.createdAt : 0) - (b.createdAt ? b.createdAt : 0)
+  )
+
+  const Child: FunctionComponent | null = childName
+    ? MODAL_CONTENTS[childName]
+    : null
 
   /**
    * @description Styles adjustments for different devices
@@ -90,22 +98,52 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const scrollViewRef = React.useRef<ScrollView>(null)
   const dateString = getDateLocale(+new Date())
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
-  let modalContentMargin: number | undefined = '3rem'.getPx()
-  let buttonTop = '0.5rem'.getPx()
-  let buttonLeft = '1rem'.getPx()
-  let buttonRight = '1rem'.getPx()
-  if (deviceType === 'xsDevice') {
-    modalContentMargin = 0
-  } else if (deviceType === 'smDevice') {
-    modalContentMargin = '2rem'.getPx()
-    buttonTop = '0.25rem'.getPx()
-    buttonLeft = '0.5rem'.getPx()
-    buttonRight = '0.5rem'.getPx()
-  } else if (deviceType === 'mdDevice') {
-    buttonTop = '0.75rem'.getPx()
-  } else if (deviceType === 'lgDevice' || deviceType === 'xlDevice') {
-    buttonTop = '1rem'.getPx()
+
+  type GetLayoutModifierType = {
+    modalContentMargin: number | undefined
+    buttonTop: number | undefined
+    buttonLeft: number | undefined
+    buttonRight: number | undefined
   }
+
+  const GetLayoutModifier: any = function (
+    this: GetLayoutModifierType,
+    deviceTypeIn: string
+  ) {
+    this.modalContentMargin = '3rem'.getPx()
+    this.buttonTop = '0.5rem'.getPx()
+    this.buttonLeft = '1rem'.getPx()
+    this.buttonRight = '1rem'.getPx()
+
+    const objExec: Record<string, any> = {
+      xsDevice() {
+        this.modalContentMargin = 0
+      },
+      smDevice() {
+        this.modalContentMargin = '2rem'.getPx()
+        this.buttonTop = '0.25rem'.getPx()
+        this.buttonLeft = '0.5rem'.getPx()
+        this.buttonRight = '0.5rem'.getPx()
+      },
+      mdDevice() {
+        this.buttonTop = '0.75rem'.getPx()
+      },
+      lgDevice() {
+        this.buttonTop = '1rem'.getPx()
+      },
+      xlDevice() {
+        this.buttonTop = '1rem'.getPx()
+      },
+    }
+    objExec[deviceTypeIn]
+  }
+
+  const {
+    modalContentMargin,
+    buttonTop,
+    buttonLeft,
+    buttonRight,
+  }: GetLayoutModifierType = new GetLayoutModifier(deviceType)
 
   const propsOut: Record<string, any> = {
     scrollViewProps: {
@@ -270,7 +308,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       testID: 'ChatSpace_leftColumnIn_animatedYrl_Inner',
     },
     messagesProps: {
-      messages: messagesPrep,
+      messages: messagesSorted,
       profiles,
     },
   }

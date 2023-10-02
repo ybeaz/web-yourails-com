@@ -18,6 +18,7 @@ interface GetCreatedMessageType {
   (
     params: GetCreatedMessageParamsType,
     options?: {
+      addMs?: number
       isIdMessage?: boolean
       isCreatedAt?: boolean
       printRes: boolean
@@ -32,6 +33,7 @@ interface GetCreatedMessageType {
 
 export const getCreatedMessage: GetCreatedMessageType = (params, options) => {
   const { idProfileSender, idProfileReceiver, text } = params
+  const addMs = options?.addMs ? options?.addMs : 0
 
   const idConversation = JSON.stringify(
     getSortedArray([idProfileSender, idProfileReceiver])
@@ -51,7 +53,7 @@ export const getCreatedMessage: GetCreatedMessageType = (params, options) => {
   }
 
   if (options?.isIdMessage) message.idMessage = uuid()
-  if (options?.isCreatedAt) message.createdAt = +new Date()
+  if (options?.isCreatedAt) message.createdAt = +new Date() + addMs
 
   if (options?.printRes) {
     console.log('getCreatedMessage', 'message', message)

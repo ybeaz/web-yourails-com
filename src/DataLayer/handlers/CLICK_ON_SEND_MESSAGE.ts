@@ -6,28 +6,21 @@ import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync } from '../../DataLayer/index.action'
 import { getSocketEmitMessage } from '../../CommunicationLayer/socketio/getSocketEmitMessage'
 import { isStubMessagesToPeopleFlag } from '../../FeatureFlags'
-import { getItDelayedBy } from '../../Shared/getItDelayedBy'
 import { getCreatedMessage } from '../../Shared/getCreatedMessage'
+import { getProfileByIdProfile } from '../../Shared/getProfileByIdProfile'
 
 const { dispatch, getState } = store
 
-export const CLICK_ON_SEND_MESSAGE: ActionEventType = async ({}, data) => {
-  const {
-    profileActive: { idProfile: idProfileActive },
-  } = data
-
+export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, {}) => {
   const {
     profiles,
     forms: { inputChat },
-    globalVars: { idProfileHost },
+    globalVars: { idProfileHost, idProfileActive },
   } = getState()
 
   dispatch(actionSync.SET_INPUT_CHAT({ idProfileActive, text: '' }))
 
-  const profile =
-    profiles.find(
-      (profile: ProfileType) => profile.idProfile === idProfileActive
-    ) || {}
+  const profile: ProfileType = getProfileByIdProfile(profiles, idProfileActive)
 
   const params = {
     idProfileSender: idProfileHost,
@@ -39,6 +32,7 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = async ({}, data) => {
     isCreatedAt: false /* it is assigned on server side */,
     printRes: false,
   }
+
   const message = getCreatedMessage(params, options)
 
   getSocketEmitMessage(message)
@@ -46,16 +40,15 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = async ({}, data) => {
   /* Here it is specified a special case under a temp flag, anounced "work in progress" state */
   if (
     isStubMessagesToPeopleFlag() &&
-    (profile.profileNature === 'human' || profile.profileNature === 'company')
+    (profile?.profileNature === 'human' || profile?.profileNature === 'company')
   ) {
-    await getItDelayedBy(1500)
-
     const params = {
       idProfileSender: idProfileActive,
       idProfileReceiver: idProfileHost,
       text: 'The feature of sending and receiving messages to humans is available upon request.',
     }
     const options = {
+      addMs: 1500,
       isIdMessage: true,
       isCreatedAt: true,
       printRes: false,
