@@ -27,10 +27,6 @@ import { themes } from '../../Styles/themes'
 import { styleGlobal } from '../../Styles/styleGlobal'
 import { MODAL_CONTENTS } from '../../../Constants/modalContents.const'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
-import {
-  GetLayoutModifier,
-  GetLayoutModifierThisType,
-} from '../../../Shared/GetLayoutModifier'
 import '../../Styles/styleGlobal'
 
 /**
@@ -99,13 +95,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const dateString = getDateLocale(+new Date())
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
 
-  const {
-    modalContentMargin,
-    buttonTop,
-    buttonLeft,
-    buttonRight,
-  }: GetLayoutModifierThisType = new GetLayoutModifier(deviceType)
-
   const propsOut: Record<string, any> = {
     scrollViewProps: {
       style: [themes['themeA'].colors03],
@@ -134,11 +123,17 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           backgroundColor: themes['themeA'].colors07.backgroundColor,
         },
         content: {
-          margin: modalContentMargin,
+          margin: style.content.margin,
           ...themes['themeA'].colors03,
         },
-        buttonBackWrapper: { top: buttonTop, left: buttonLeft },
-        buttonCloseWrapper: { top: buttonTop, right: buttonRight },
+        buttonBackWrapper: {
+          top: style.buttonWrapper.top,
+          left: style.buttonWrapper.left,
+        },
+        buttonCloseWrapper: {
+          top: style.buttonWrapper.top,
+          right: style.buttonWrapper.right,
+        },
       },
       linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.25)'],
       isShow: isShowModalFrame,

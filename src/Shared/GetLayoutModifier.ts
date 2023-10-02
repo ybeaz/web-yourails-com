@@ -5,16 +5,8 @@ export type GetLayoutModifierThisType = {
   buttonRight: number | undefined
 }
 
-interface GetLayoutModifierType {
-  (
-    this: GetLayoutModifierThisType,
-    deviceTypeIn: string,
-    options?: { printRes: boolean }
-  ): any
-}
-
 /**
- * @description Function to GetLayoutModifier
+ * @description DEPRECIATED, UNUSED. Function to GetLayoutModifier
  * @import import { GetLayoutModifier } from './GetLayoutModifier'
  */
 
@@ -29,26 +21,26 @@ export const GetLayoutModifier: any = function (
   this.buttonRight = '1rem'.getPx()
 
   const objExec: Record<string, any> = {
-    xsDevice() {
+    xsDevice: () => {
       this.modalContentMargin = 0
     },
-    smDevice() {
+    smDevice: () => {
       this.modalContentMargin = '2rem'.getPx()
       this.buttonTop = '0.25rem'.getPx()
       this.buttonLeft = '0.5rem'.getPx()
       this.buttonRight = '0.5rem'.getPx()
     },
-    mdDevice() {
+    mdDevice: () => {
       this.buttonTop = '0.75rem'.getPx()
     },
-    lgDevice() {
+    lgDevice: () => {
       this.buttonTop = '1rem'.getPx()
     },
-    xlDevice() {
+    xlDevice: () => {
       this.buttonTop = '1rem'.getPx()
     },
   }
-  objExec[deviceTypeIn]
+  objExec[deviceTypeIn]()
 
   if (options?.printRes) {
     console.log('GetLayoutModifier', 'this', this)
