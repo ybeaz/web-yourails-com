@@ -30,6 +30,11 @@ function App() {
   console.info('App [30]', { 'Platform.OS': Platform.OS })
 
   if (Platform.OS === 'web') {
+    // @ts-expect-error
+    if (typeof browser === 'undefined') {
+      var browser = `chrome`
+    }
+
     return (
       <StrictMode>
         <Provider store={store}>

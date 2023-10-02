@@ -30,6 +30,8 @@ const LayoutScreenComponent: LayoutScreenComponentType = props => {
     insets,
   } = props
 
+  console.info('LayoutScreen [33]', { platformOS })
+
   const SafeAreaView =
     platformOS === 'web' ? SafeAreaViewWeb : SafeAreaViewMobile
 

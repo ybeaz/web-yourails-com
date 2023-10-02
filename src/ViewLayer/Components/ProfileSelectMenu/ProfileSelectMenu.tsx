@@ -41,8 +41,9 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
     urlParam1,
     urlParam2,
     query,
+    platformOS,
   } = props
-  const { deviceType, screenCase, width, height } = mediaParams
+  const { deviceType } = mediaParams
   const style = styles[deviceType]
 
   const profilesUserHost = profiles.filter(
@@ -70,6 +71,7 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
                 urlParam1,
                 urlParam2,
                 query,
+                platformOS,
               }
             ),
           testID: 'userHostAvatarPlusInfo',

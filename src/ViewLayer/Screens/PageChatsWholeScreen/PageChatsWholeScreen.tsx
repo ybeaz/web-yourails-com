@@ -13,6 +13,7 @@ import {
 } from '../../../YrlNativeViewLibrary'
 
 import {
+  PageChatsWholeScreenPropsStoreStateSliceType,
   PageChatsWholeScreenPropsType,
   PageChatsWholeScreenPropsOutType,
   PageChatsWholeScreenComponentType,
@@ -41,6 +42,17 @@ const storeSlice: string[] = [
   'sectionsMapping',
 ]
 
+export const storeStateSliceDefault: PageChatsWholeScreenPropsStoreStateSliceType =
+  {
+    idProfileActive: rootStoreDefault['globalVars']['idProfileActive'],
+    isLeftColumn: rootStoreDefault['componentsState']['isLeftColumn'],
+    isMainColumn: rootStoreDefault['componentsState']['isMainColumn'],
+    isMainColumnBlank: rootStoreDefault['componentsState']['isMainColumnBlank'],
+    modalFrame: rootStoreDefault['componentsState']['modalFrame'],
+    profiles: rootStoreDefault['profiles'],
+    sectionsMapping: rootStoreDefault['sectionsMapping'],
+  }
+
 const pageChatsWholeScreenPropsDefault: PageChatsWholeScreenPropsType = {
   styles: {},
   styleProps: {},
@@ -62,15 +74,7 @@ const pageChatsWholeScreenPropsDefault: PageChatsWholeScreenPropsType = {
     pushState: () => {},
     replaceState: () => {},
   },
-  storeStateSlice: {
-    idProfileActive: rootStoreDefault['globalVars']['idProfileActive'],
-    isLeftColumn: rootStoreDefault['componentsState']['isLeftColumn'],
-    isMainColumn: rootStoreDefault['componentsState']['isMainColumn'],
-    isMainColumnBlank: rootStoreDefault['componentsState']['isMainColumnBlank'],
-    modalFrame: rootStoreDefault['componentsState']['modalFrame'],
-    profiles: rootStoreDefault['profiles'],
-    sectionsMapping: rootStoreDefault['sectionsMapping'],
-  },
+  storeStateSlice: storeStateSliceDefault,
   onLayout: () => {},
   navigation: {},
 }
@@ -78,6 +82,8 @@ const pageChatsWholeScreenPropsDefault: PageChatsWholeScreenPropsType = {
 const PageChatsWholeScreenComponent: PageChatsWholeScreenComponentType = (
   props = pageChatsWholeScreenPropsDefault
 ) => {
+  console.info('PageChatsWholeScreen [82]', { platformOS: props.platformOS })
+
   const propsOut: PageChatsWholeScreenPropsOutType =
     useWidgetsScreensProps(props)
 
@@ -199,6 +205,7 @@ export const PageChatsWholeScreen: PageChatsWholeScreenType = withPropsYrl({
 )
 
 export type {
+  PageChatsWholeScreenPropsStoreStateSliceType,
   PageChatsWholeScreenPropsType,
   PageChatsWholeScreenPropsOutType,
   PageChatsWholeScreenComponentType,

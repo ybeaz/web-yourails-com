@@ -32,6 +32,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
     styleProps = { ContentMenuMainColumn: {}, buttonWrapper: {} },
     store,
     handleEvents,
+    platformOS,
   } = props
 
   const {
@@ -84,6 +85,7 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
                 isShow: true,
                 pathname,
                 childProps: { title },
+                platformOS,
               }),
             iconProps: {
               library: iconLibrary,

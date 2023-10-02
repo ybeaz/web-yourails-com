@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 
 import {
   PageChatsWholeScreenPropsType,
   PageChatsWholeScreenPropsOutType,
+  storeStateSliceDefault,
 } from '../Screens/PageChatsWholeScreen/PageChatsWholeScreen'
 import { SectionMappingType } from '../../@types/SectionMappingType'
 import { ProfileType } from '../../@types/GraphqlTypes'
@@ -52,6 +53,8 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     ? urlParams
     : urlParamsDefault
 
+  console.info('useWidgetsScreensProps [56]', { platformOS })
+
   const style = styles[deviceType]
 
   const renderCounter = useRef(0)
@@ -64,7 +67,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     modalFrame,
     profiles,
     sectionsMapping,
-  } = storeStateSlice
+  } = storeStateSlice ? storeStateSlice : storeStateSliceDefault
 
   const { isShow: isShowModalFrame } = modalFrame
 
@@ -103,7 +106,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
       getSocketOnPending()
 
       /** @description Obtaining a user data, loading profiles, messages, etc. as a first step. **/
-      handleEvents.INIT_LOADING({}, { query })
+      handleEvents?.INIT_LOADING({}, { query })
 
       /** @description Add the 'beforeunload' event listener to gracefully disconnect when reloading the page */
       if (platformOS === 'web')
@@ -121,7 +124,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
 
   useEffect(() => {
     if (platformOS === 'web')
-      handleEvents.SET_STORE_SCENARIO_WEB(
+      handleEvents?.SET_STORE_SCENARIO_WEB(
         {},
         {
           urlParam1,
@@ -130,9 +133,10 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
           query,
           deviceType,
           sectionsMappingForProfile,
+          platformOS,
         }
       )
-    else handleEvents.SET_STORE_SCENARIO_MOBILE({}, { navigation })
+    else handleEvents?.SET_STORE_SCENARIO_MOBILE({}, { navigation })
   }, [urlParamsMediaIdentifier])
 
   const layoutOfRowProps = {
@@ -143,9 +147,10 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
     },
   }
 
-  const heightChatCardsBody = sectionsMappingForProfile.length
-    ? mediaParams.height - insets.top - '6rem'.getPx()
-    : mediaParams.height - insets.top - '4rem'.getPx()
+  const heightChatCardsBody =
+    mediaParams.height -
+    (insets && insets?.top ? insets?.top : 0) -
+    (sectionsMappingForProfile.length ? '6rem'.getPx() : '4rem'.getPx())
 
   const propsOut: PageChatsWholeScreenPropsOutType = {
     style,
@@ -174,7 +179,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
         },
       },
       isActive: profiles.length ? true : false,
-      onLayout,
+      onLayout: onLayout ? onLayout : () => {},
     },
     layoutOfRowHeaderProps: {
       ...layoutOfRowProps,

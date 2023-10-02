@@ -1,4 +1,7 @@
-import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import {
+  MediaParamsDefaultType,
+  PlatformOSYrlType,
+} from '../../../YrlNativeViewLibrary'
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 import { ProfileType } from '../../../@types/GraphqlTypes'
 
@@ -11,6 +14,7 @@ export interface ProfileSelectMenuPropsType {
   urlParam1: string
   urlParam2: string
   query: any
+  platformOS: PlatformOSYrlType
 }
 
 export type ProfileSelectMenuPropsOutType = Record<string, any>

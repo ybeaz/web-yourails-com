@@ -38,6 +38,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     mediaParams = mediaParamsDefault,
     storeStateSlice,
     handleEvents,
+    platformOS,
   } = props
 
   const { deviceType, height: heightScreen } = mediaParams
@@ -156,6 +157,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
               childName,
               isShow: false,
               childProps: {},
+              platformOS,
             }
           ),
         iconProps: {
@@ -179,6 +181,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
               childName,
               isShow: false,
               childProps: {},
+              platformOS,
             }
           ),
         iconProps: {

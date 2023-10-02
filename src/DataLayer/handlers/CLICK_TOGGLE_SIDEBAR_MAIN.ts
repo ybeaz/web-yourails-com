@@ -1,4 +1,5 @@
 import { store } from '../store'
+import { PlatformOSYrlType } from '../../YrlNativeViewLibrary'
 import { ActionEventType } from '../../@types/ActionEventType'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { DeviceType } from '../../YrlNativeViewLibrary'
@@ -13,9 +14,9 @@ const { dispatch, getState } = store
  */
 export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
   event,
-  dataHandle: { deviceType: DeviceType }
+  dataHandle: { platformOS: PlatformOSYrlType; deviceType: DeviceType }
 ) => {
-  const { deviceType } = dataHandle
+  const { deviceType, platformOS } = dataHandle
 
   if (
     deviceType === DeviceType['mdDevice'] ||
@@ -74,5 +75,5 @@ export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
   }
   const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
 
-  getRedirected(pathnameNext, { replace: true })
+  getRedirected(pathnameNext, { platformOS, replace: true })
 }

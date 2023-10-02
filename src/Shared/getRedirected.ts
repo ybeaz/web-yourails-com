@@ -21,6 +21,9 @@ export const getRedirected: GetRedirectedType = async (
   { platformOS = 'web', replace = true }
 ) => {
   // TODO Implement redirect for ios and android
+
+  console.info('getRedirected [225]', { platformOS })
+
   if (platformOS === 'web') {
     if (!pathnameNext) return
     try {

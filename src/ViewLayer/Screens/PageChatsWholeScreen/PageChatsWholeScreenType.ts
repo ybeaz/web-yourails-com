@@ -6,15 +6,22 @@ import {
   MediaParamsDefaultType,
   PlatformOSYrlType,
   InsetsYrlType,
-  WithPropsYrlPropsType,
-  WithPropsM1YrlType,
-  WithPropsYrlType,
 } from '../../../YrlNativeViewLibrary'
 import { LayoutScreenPropsType } from '../../Frames/LayoutScreen/LayoutScreen'
 import { LayoutOfRowPropsType } from '../../Frames/LayoutOfRow/LayoutOfRow'
 import { ContentMenuMainColumnPropsType } from '../../Components/ContentMenuMainColumn/ContentMenuMainColumn'
 import { RootStoreType } from '../../../@types/RootStoreType'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
+
+export type PageChatsWholeScreenPropsStoreStateSliceType = {
+  idProfileActive: RootStoreType['globalVars']['idProfileActive']
+  isLeftColumn: RootStoreType['componentsState']['isLeftColumn']
+  isMainColumn: RootStoreType['componentsState']['isMainColumn']
+  isMainColumnBlank: RootStoreType['componentsState']['isMainColumnBlank']
+  modalFrame: RootStoreType['componentsState']['modalFrame']
+  profiles: RootStoreType['profiles']
+  sectionsMapping: RootStoreType['sectionsMapping']
+}
 
 export type PageChatsWholeScreenPropsType = {
   styles?: any
@@ -28,15 +35,7 @@ export type PageChatsWholeScreenPropsType = {
   themeDafault?: string
   handleEvents?: HandleEventsType
   history?: History
-  storeStateSlice?: {
-    idProfileActive: RootStoreType['globalVars']['idProfileActive']
-    isLeftColumn: RootStoreType['componentsState']['isLeftColumn']
-    isMainColumn: RootStoreType['componentsState']['isMainColumn']
-    isMainColumnBlank: RootStoreType['componentsState']['isMainColumnBlank']
-    modalFrame: RootStoreType['componentsState']['modalFrame']
-    profiles: RootStoreType['profiles']
-    sectionsMapping: RootStoreType['sectionsMapping']
-  }
+  storeStateSlice?: PageChatsWholeScreenPropsStoreStateSliceType
   onLayout?: () => void
   navigation?: any
 }
@@ -53,7 +52,7 @@ export type PageChatsWholeScreenPropsOutType = {
   layoutOfRowFooterProps: LayoutOfRowPropsType
   mainColumnContentMenuProps: Omit<
     ContentMenuMainColumnPropsType,
-    'sectionsMapping' | 'store' | 'handleEvents'
+    'sectionsMapping' | 'store' | 'handleEvents' | 'platformOS'
   >
   isShowModalFrame: boolean
   isMainColumnBlank: boolean

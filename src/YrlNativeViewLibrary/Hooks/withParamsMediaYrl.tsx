@@ -60,7 +60,7 @@ export const urlParamsDefault: UrlParamsDefaultType = {
 
 export const urlParamsSearchDefault: URLSearchParams = new URLSearchParams('')
 
-export const platformOSDefault: PlatformOSYrlType = Platform.OS || 'web'
+export const platformOSDefault: PlatformOSYrlType = 'web'
 
 export const insetsDefault: InsetsType = {
   top: 0,
@@ -73,7 +73,7 @@ export const withParamsMediaYrl: WithParamsMediaYrlType = function (Component) {
   return function WrappedComponent(props: any) {
     let urlParams: UrlParamsDefaultType = urlParamsDefault
     let urlParamsSearch = urlParamsSearchDefault
-    const platformOS: PlatformOSYrlType = platformOSDefault
+    const platformOS: PlatformOSYrlType = Platform?.OS || platformOSDefault
     let insets: InsetsType = insetsDefault
     if (platformOS === 'web') {
       urlParams = useParams()
