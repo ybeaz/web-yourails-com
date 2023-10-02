@@ -27,8 +27,6 @@ function App() {
     return null
   }
 
-  console.info('App [30]', { 'Platform.OS': Platform.OS })
-
   if (Platform.OS === 'web') {
     // @ts-expect-error
     if (typeof browser === 'undefined') {
