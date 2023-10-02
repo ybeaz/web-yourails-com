@@ -46,6 +46,8 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
   const { deviceType } = mediaParams
   const style = styles[deviceType]
 
+  console.info('ProfileSelectMenu [49]', { platformOS })
+
   const profilesUserHost = profiles.filter(
     (profile: ProfileType) => profile.idUser === idUserHost
   )

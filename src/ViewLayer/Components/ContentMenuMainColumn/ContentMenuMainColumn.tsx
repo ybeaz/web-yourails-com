@@ -35,6 +35,8 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
     platformOS,
   } = props
 
+  console.info('ContentMenuMainColumn [38]', { platformOS })
+
   const {
     profiles,
     sectionsMapping,

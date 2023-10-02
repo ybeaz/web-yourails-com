@@ -52,6 +52,8 @@ export const SET_STORE_SCENARIO_WEB: ActionEventType = (
   let hostname = HOST_NAME
   if (isHostR1UserToComFlag()) hostname = 'r1.userto.com'
 
+  console.info('SET_STORE_SCENARIO_WEB [55]', { platformOS })
+
   const {
     caseNo,
     caseDesc,
@@ -76,6 +78,8 @@ export const SET_STORE_SCENARIO_WEB: ActionEventType = (
     deviceType,
     sectionsMappingForProfile,
   })
+
+  console.info('SET_STORE_SCENARIO_WEB [82]', { platformOS, redirectPathname })
 
   dispatch(actionSync.SET_ID_USER_HOST({ idUserHost: idUserHostNext }))
   dispatch(actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: idProfileNext }))

@@ -60,6 +60,8 @@ const UserMenuComponent: UserMenuType = props => {
     store,
   } = props
 
+  console.info('UserMenu [63]', { platformOS })
+
   const {
     globalVars: { idProfileHost },
     profiles,

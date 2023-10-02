@@ -41,6 +41,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     platformOS,
   } = props
 
+  console.info('ChatSpace [44]', { platformOS })
+
   const { deviceType, height: heightScreen } = mediaParams
   const style = styles[deviceType]
 

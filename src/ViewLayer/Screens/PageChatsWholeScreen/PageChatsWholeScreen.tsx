@@ -87,6 +87,8 @@ const PageChatsWholeScreenComponent: PageChatsWholeScreenComponentType = (
   const propsOut: PageChatsWholeScreenPropsOutType =
     useWidgetsScreensProps(props)
 
+  console.info('PageChatsWholeScreen [91]', { propsOut })
+
   const ChatCardsHeader = useMemo(
     () => (
       <View style={[propsOut.style.chatCardsHeader]} testID='chatCardsHeader'>

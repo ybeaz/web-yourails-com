@@ -28,6 +28,8 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
   const { mediaParams = mediaParamsDefault, store, platformOS } = props
   const { deviceType } = mediaParams
 
+  console.info('TopBarMainColumn [31]', { platformOS })
+
   const {
     profiles,
     componentsState,
