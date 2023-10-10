@@ -1,4 +1,5 @@
 type GetChainedResponsibilityOutType<T> = {
+  res: any
   exec: (
     func: (...params: any) => T,
     params?: any[]
@@ -22,21 +23,21 @@ export const getChainedResponsibility: GetChainedResponsibilityType<any[]> = (
   entity,
   options
 ) => {
-  let res = entity || []
-
   const outputObj: GetChainedResponsibilityOutType<any[]> = {
+    res: entity || [],
     exec(func: (...params: any) => any, params?: any[]) {
       const paramsNext: any[] =
-        params && params.length ? [res, ...params] : [res]
-      res = res && res.length ? func.apply(null, paramsNext) : []
+        params && params.length ? [this.res, ...params] : [this.res]
+      this.res = this.res && this.res.length ? func.apply(null, paramsNext) : []
       return outputObj
     },
     done() {
-      return res
+      return this.res
     },
   }
+
   if (options?.printRes) {
-    console.log('getChainedResponsibility', 'res', res)
+    console.log('getChainedResponsibility', 'res', outputObj.res)
   }
 
   return outputObj
