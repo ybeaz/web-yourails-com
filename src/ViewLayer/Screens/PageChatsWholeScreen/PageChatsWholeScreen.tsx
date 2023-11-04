@@ -5,9 +5,15 @@ import {
   withParamsMediaYrl,
   withPropsYrl,
   withStoreStateSliceYrl,
+  mediaParamsDefault,
+  urlParamsDefault,
+  urlParamsSearchDefault,
+  platformOSDefault,
+  insetsDefault,
 } from '../../../YrlNativeViewLibrary'
 
 import {
+  PageChatsWholeScreenPropsStoreStateSliceType,
   PageChatsWholeScreenPropsType,
   PageChatsWholeScreenPropsOutType,
   PageChatsWholeScreenComponentType,
@@ -22,140 +28,182 @@ import { ContentMenuMainColumn } from '../../Components/ContentMenuMainColumn/Co
 import { ChatSpace } from '../../Components/ChatSpace/ChatSpace'
 import { ChatInput } from '../../Components/ChatInput/ChatInput'
 import { handleEvents as handleEventsProp } from '../../../DataLayer/index.handleEvents'
+import { rootStoreDefault } from '../../../DataLayer/rootStoreDefault'
 import { styles as stylesIn } from './PageChatsWholeScreenStyle'
 import { useWidgetsScreensProps } from '../../Hooks/useWidgetsScreensProps'
 
-const PageChatsWholeScreenComponent: PageChatsWholeScreenComponentType =
-  props => {
-    const propsOut: PageChatsWholeScreenPropsOutType =
-      useWidgetsScreensProps(props)
+const storeSlice: string[] = [
+  'idProfileActive',
+  'isLeftColumn',
+  'isMainColumn',
+  'isMainColumnBlank',
+  'modalFrame',
+  'profiles',
+  'sectionsMapping',
+]
 
-    const ChatCardsHeader = useMemo(
-      () => (
-        <View style={[propsOut.style.chatCardsHeader]} testID='chatCardsHeader'>
-          <TopBarChatCards />
-        </View>
-      ),
-      []
-    )
+export const storeStateSliceDefault: PageChatsWholeScreenPropsStoreStateSliceType =
+  {
+    idProfileActive: rootStoreDefault['globalVars']['idProfileActive'],
+    isLeftColumn: rootStoreDefault['componentsState']['isLeftColumn'],
+    isMainColumn: rootStoreDefault['componentsState']['isMainColumn'],
+    isMainColumnBlank: rootStoreDefault['componentsState']['isMainColumnBlank'],
+    modalFrame: rootStoreDefault['componentsState']['modalFrame'],
+    profiles: rootStoreDefault['profiles'],
+    sectionsMapping: rootStoreDefault['sectionsMapping'],
+  }
 
-    const ChatCardsBody = useMemo(
-      () => (
-        <View style={[propsOut.style.chatCardsBody]} testID='chatCardsBody'>
-          <ChatCards />
-        </View>
-      ),
-      []
-    )
+const pageChatsWholeScreenPropsDefault: PageChatsWholeScreenPropsType = {
+  styles: {},
+  styleProps: {},
+  mediaParams: mediaParamsDefault,
+  urlParams: urlParamsDefault,
+  urlParamsSearch: urlParamsSearchDefault,
+  platformOS: platformOSDefault,
+  insets: insetsDefault,
+  routeProps: {},
+  themeDafault: 'themeB',
+  handleEvents: handleEventsProp,
+  history: {
+    length: 0,
+    scrollRestoration: 'auto',
+    state: {},
+    back: () => {},
+    forward: () => {},
+    go: () => {},
+    pushState: () => {},
+    replaceState: () => {},
+  },
+  storeStateSlice: storeStateSliceDefault,
+  onLayout: () => {},
+  navigation: {},
+}
 
-    const ChatSpaceHeader = (
-      <View
-        style={[
-          propsOut.style.chatSpaceHeader,
-          propsOut.themes['themeA'].colors03,
-        ]}
-        testID='chatSpaceHeader'
-      >
-        {!propsOut.isMainColumnBlank ? (
-          <View
-            style={[
-              propsOut.style.mainColumnTopBar,
-              {
-                borderStyle: 'solid',
-                // borderTopWidth: 1,
-                // borderRightWidth: 1,
-                borderBottomWidth: 1,
-                borderLeftWidth: 1,
-              },
-              propsOut.themes['themeA'].colors01,
-            ]}
-            testID='mainColumnTopBar'
-          >
-            <TopBarMainColumn />
-          </View>
-        ) : null}
+const PageChatsWholeScreenComponent: PageChatsWholeScreenComponentType = (
+  props = pageChatsWholeScreenPropsDefault
+) => {
+  const propsOut: PageChatsWholeScreenPropsOutType =
+    useWidgetsScreensProps(props)
 
-        {!propsOut.isMainColumnBlank &&
-        propsOut.sectionsMappingForProfile.length ? (
-          <View
-            style={[
-              propsOut.style.mainColumnContentMenu,
-              propsOut.themes['themeA'].colors01,
-            ]}
-            testID='mainColumnContentMenu'
-          >
-            <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
-          </View>
-        ) : null}
+  const ChatCardsHeader = useMemo(
+    () => (
+      <View style={[propsOut.style.chatCardsHeader]} testID='chatCardsHeader'>
+        <TopBarChatCards />
       </View>
-    )
+    ),
+    []
+  )
 
-    const ChatSpaceBody = useMemo(
-      () => (
-        <View style={[propsOut.style.chatSpaceBody]} testID='chatSpaceBody'>
-          <ChatSpace />
-        </View>
-      ),
-      []
-    )
+  const ChatCardsBody = useMemo(
+    () => (
+      <View style={[propsOut.style.chatCardsBody]} testID='chatCardsBody'>
+        <ChatCards />
+      </View>
+    ),
+    []
+  )
 
-    const ChatSpaceFooter = useMemo(
-      () => (
+  const ChatSpaceHeader = (
+    <View
+      style={[
+        propsOut.style.chatSpaceHeader,
+        propsOut.themes['themeA'].colors03,
+      ]}
+      testID='chatSpaceHeader'
+    >
+      {!propsOut.isMainColumnBlank ? (
         <View
           style={[
-            propsOut.style.chatSpaceFooter,
-            propsOut.themes['themeA'].colors03,
+            propsOut.style.mainColumnTopBar,
+            {
+              borderStyle: 'solid',
+              // borderTopWidth: 1,
+              // borderRightWidth: 1,
+              borderBottomWidth: 1,
+              borderLeftWidth: 1,
+            },
+            propsOut.themes['themeA'].colors01,
           ]}
-          testID='chatSpaceFooter'
+          testID='mainColumnTopBar'
         >
-          <ChatInput />
+          <TopBarMainColumn />
         </View>
-      ),
-      []
-    )
+      ) : null}
 
-    return (
-      <LayoutScreen {...propsOut.layoutScreenProps}>
-        {/** @description <Header /> */}
-        <LayoutOfRow {...propsOut.layoutOfRowHeaderProps}>
-          {ChatCardsHeader}
-          {ChatSpaceHeader}
+      {!propsOut.isMainColumnBlank &&
+      propsOut.sectionsMappingForProfile.length ? (
+        <View
+          style={[
+            propsOut.style.mainColumnContentMenu,
+            propsOut.themes['themeA'].colors01,
+          ]}
+          testID='mainColumnContentMenu'
+        >
+          <ContentMenuMainColumn {...propsOut.mainColumnContentMenuProps} />
+        </View>
+      ) : null}
+    </View>
+  )
+
+  const ChatSpaceBody = useMemo(
+    () => (
+      <View style={[propsOut.style.chatSpaceBody]} testID='chatSpaceBody'>
+        <ChatSpace />
+      </View>
+    ),
+    []
+  )
+
+  const ChatSpaceFooter = useMemo(
+    () => (
+      <View
+        style={[
+          propsOut.style.chatSpaceFooter,
+          propsOut.themes['themeA'].colors03,
+        ]}
+        testID='chatSpaceFooter'
+      >
+        <ChatInput />
+      </View>
+    ),
+    []
+  )
+
+  return (
+    <LayoutScreen {...propsOut.layoutScreenProps}>
+      {/** @description <Header /> */}
+      <LayoutOfRow {...propsOut.layoutOfRowHeaderProps}>
+        {ChatCardsHeader}
+        {ChatSpaceHeader}
+      </LayoutOfRow>
+      {/** @description <Body /> */}
+      <LayoutOfRow {...propsOut.layoutOfRowBodyProps}>
+        {ChatCardsBody}
+        {ChatSpaceBody}
+      </LayoutOfRow>
+      {/** @description <Footer /> */}
+      {!propsOut.isShowModalFrame ? (
+        <LayoutOfRow {...propsOut.layoutOfRowFooterProps}>
+          {null}
+          {ChatSpaceFooter}
         </LayoutOfRow>
-        {/** @description <Body /> */}
-        <LayoutOfRow {...propsOut.layoutOfRowBodyProps}>
-          {ChatCardsBody}
-          {ChatSpaceBody}
-        </LayoutOfRow>
-        {/** @description <Footer /> */}
-        {!propsOut.isShowModalFrame ? (
-          <LayoutOfRow {...propsOut.layoutOfRowFooterProps}>
-            {null}
-            {ChatSpaceFooter}
-          </LayoutOfRow>
-        ) : null}
-      </LayoutScreen>
-    )
-  }
+      ) : null}
+    </LayoutScreen>
+  )
+}
 
 export const PageChatsWholeScreen: PageChatsWholeScreenType = withPropsYrl({
   handleEvents: handleEventsProp,
   styles: stylesIn,
 })(
   withStoreStateSliceYrl(
-    [
-      'idProfileActive',
-      'isLeftColumn',
-      'isMainColumn',
-      'isMainColumnBlank',
-      'modalFrame',
-      'profiles',
-      'sectionsMapping',
-    ],
+    storeSlice,
     withParamsMediaYrl(React.memo(PageChatsWholeScreenComponent))
   )
 )
 
 export type {
+  PageChatsWholeScreenPropsStoreStateSliceType,
   PageChatsWholeScreenPropsType,
   PageChatsWholeScreenPropsOutType,
   PageChatsWholeScreenComponentType,

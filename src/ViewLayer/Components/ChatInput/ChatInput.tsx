@@ -141,23 +141,30 @@ const ChatInputComponent: ChatInputType = props => {
     inputTextYrlHeightState -
     (helpHeightState < 350 ? helpHeightState : 350)
 
+  let inputTextWidth = width * 0.5
+  if (deviceType === 'lgDevice') inputTextWidth = width * 0.5
+  else if (deviceType === 'mdDevice') inputTextWidth = width * 0.6
+  else if (deviceType === 'smDevice' || deviceType === 'xsDevice')
+    inputTextWidth = width * 0.8
+
   const propsOut: ChatInputPropsOutType = {
     inputTextYrlProps: {
       onChangeText: (text: string) =>
         handleEvents.ON_CHANGE_INPUT_CHAT({}, { idProfileActive, text }),
-      onSubmitEditing: () =>
-        handleEvents.CLICK_ON_SEND_MESSAGE({}, { profileActive }),
+      onSubmitEditing: () => {
+        handleEvents?.CLICK_ON_SEND_MESSAGE({}, {})
+      },
       onHeightChange: onInputTextYrlHeightChange,
       styleProps: {
         InputTextYrl: {
           ...style.InputTextYrl,
           borderColor: themes.themeB.color08,
-          width: width * 0.5,
+          width: inputTextWidth,
         },
         inputText: {
           ...style.inputText,
           ...themes.themeA.colors01,
-          minWidth: width * 0.5,
+          minWidth: inputTextWidth,
           minHeight:
             '4rem'.getPx() -
             '0.5rem'.getPx() /* Height of the the imput field */,

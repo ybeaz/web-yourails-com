@@ -44,7 +44,6 @@ export const ON_MESSAGE_SOCKET: ActionEventType = (event, data) => {
     )
       dispatch(actionSync.ADD_MESSAGE(data))
   } else {
-    console.info('ON_MESSAGE_SOCKET [47]', { data })
     dispatch(actionSync.ADD_MESSAGE(data))
   }
 }

@@ -6,14 +6,16 @@ import {
   HashFunctionType,
 } from './getSortedHashedStringifyArray'
 
-export type GetMessagesWithProfileActivePropsType = {
-  messages: MessageType[]
+export type GetMessagesWithProfileActiveParamsType = {
   idProfileHost: IdUserType
   idProfileActive: IdUserType
 }
 
 interface GetMessagesWithProfileActiveType {
-  (props: GetMessagesWithProfileActivePropsType): MessageType[]
+  (
+    messages: MessageType[],
+    params: GetMessagesWithProfileActiveParamsType
+  ): MessageType[]
 }
 
 /**
@@ -21,11 +23,10 @@ interface GetMessagesWithProfileActiveType {
  * @import import { getMessagesWithProfileActive, GetMessagesWithProfileActivePropsType } from '../../../Shared/getMessagesWithProfileActive'
  */
 
-export const getMessagesWithProfileActive: GetMessagesWithProfileActiveType = ({
+export const getMessagesWithProfileActive: GetMessagesWithProfileActiveType = (
   messages,
-  idProfileHost,
-  idProfileActive,
-}) => {
+  { idProfileHost, idProfileActive }
+) => {
   if (!idProfileHost || !idProfileActive) return []
 
   const idConversation = getSortedHashedStringifyArray([

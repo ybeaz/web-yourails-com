@@ -38,7 +38,7 @@ const ChatCardComponent: ChatCardType = props => {
       profile,
       onPress: () => {
         if (platformOS === 'web')
-          handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
+          handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { platformOS, deviceType })
 
         handleEvents.CLICK_ON_USER_CHAT_CARD(
           {},

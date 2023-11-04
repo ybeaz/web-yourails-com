@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import { Platform } from 'react-native'
-import { useSearchParams, useParams } from 'react-router-dom'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { useSearchParams, useParams, Params } from 'react-router-dom'
+import { useSafeAreaInsets, EdgeInsets } from 'react-native-safe-area-context'
 import {
   useMediaQueryResYrl,
   MediaParamsDefaultType,
@@ -18,11 +18,17 @@ export interface WithParamsMediaYrlType {
     | React.NamedExoticComponent
 }
 
-export type UrlParamsDefaultType = {
-  urlParam1: string | undefined
-  urlParam2: string | undefined
-  urlParam3: string | undefined
+export type UrlParamsDefaultType = Params<string>
+
+export type PlatformOSYrlType = 'ios' | 'android' | 'windows' | 'macos' | 'web'
+export type InsetsYrlType = {
+  top: number
+  bottom: number
+  right: number
+  left: number
 }
+
+export type InsetsType = EdgeInsets
 
 /**
  * @description Function decorator for React Functional Component
@@ -52,20 +58,23 @@ export const urlParamsDefault: UrlParamsDefaultType = {
   urlParam3: undefined,
 }
 
-export type PlatformOSYrlType = 'ios' | 'android' | 'windows' | 'macos' | 'web'
-export type InsetsYrlType = {
-  top: number
-  bottom: number
-  right: number
-  left: number
+export const urlParamsSearchDefault: URLSearchParams = new URLSearchParams('')
+
+export const platformOSDefault: PlatformOSYrlType = 'web'
+
+export const insetsDefault: InsetsType = {
+  top: 0,
+  right: 0,
+  bottom: 0,
+  left: 0,
 }
 
 export const withParamsMediaYrl: WithParamsMediaYrlType = function (Component) {
   return function WrappedComponent(props: any) {
-    let urlParams = undefined
-    let urlParamsSearch = undefined
-    const platformOS: PlatformOSYrlType = Platform.OS
-    let insets = { top: 0, right: 0, bottom: 0, left: 0 }
+    let urlParams: UrlParamsDefaultType = urlParamsDefault
+    let urlParamsSearch = urlParamsSearchDefault
+    const platformOS: PlatformOSYrlType = Platform?.OS || platformOSDefault
+    let insets: InsetsType = insetsDefault
     if (platformOS === 'web') {
       urlParams = useParams()
       const [urlParamsSearchM1] = useSearchParams()

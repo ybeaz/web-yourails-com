@@ -1,14 +1,13 @@
-import React, { FunctionComponent } from 'react'
-import {
-  useMediaQueryResYrl,
-  MediaParamsDefaultType,
-  DeviceType,
-} from './useMediaQueryResYrl'
+import React, { FunctionComponent, ReactNode } from 'react'
 
-export type withParamsMediaYrlPropsType = FunctionComponent<any>
+export type WithPropsYrlPropsType = Record<string, any>
 
-export interface withParamsMediaYrlType {
-  (Component: withParamsMediaYrlPropsType): FunctionComponent
+export interface WithPropsM1YrlType {
+  (Component: FunctionComponent<any>): FunctionComponent<any>
+}
+
+export interface WithPropsYrlType {
+  (extraProps: WithPropsYrlPropsType): WithPropsM1YrlType
 }
 
 /**
@@ -17,7 +16,9 @@ export interface withParamsMediaYrlType {
  * @import import { withPropsYrl } from './YrlNativeViewLibrary'
  */
 
-export const withPropsYrl: any = (extraProps: Record<string, any>) =>
+export const withPropsYrl: WithPropsYrlType = (
+  extraProps: WithPropsYrlPropsType
+) =>
   function (Component: FunctionComponent<any>) {
     return function WrappedComponent(props: any) {
       const propsNext = { ...props, ...extraProps }

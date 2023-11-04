@@ -25,7 +25,7 @@ import { getProfileByIdProfile } from '../../../Shared/getProfileByIdProfile'
  * @import import { TopBarMainColumn } from '../TopBarMainColumn/TopBarMainColumn'
  */
 const TopBarMainColumnComponent: TopBarMainColumnType = props => {
-  const { mediaParams = mediaParamsDefault, store } = props
+  const { mediaParams = mediaParamsDefault, store, platformOS } = props
   const { deviceType } = mediaParams
 
   const {
@@ -91,7 +91,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
       onPress: () => {
         handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN(
           {},
-          { deviceType, from: 'TopBarMainColumn.tsx' }
+          { platformOS, deviceType, from: 'TopBarMainColumn.tsx' }
         )
       },
       iconProps: {
@@ -114,6 +114,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
           childName: 'Profile',
           isShow: true,
           childProps: {},
+          platformOS,
         }),
       isImageAvatar: true,
     },

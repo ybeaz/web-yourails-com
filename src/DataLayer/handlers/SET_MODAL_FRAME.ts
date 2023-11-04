@@ -17,7 +17,7 @@ const { dispatch } = store
   }
  */
 export const SET_MODAL_FRAME: ActionEventType = (_, data) => {
-  const { pathname: tabName } = data
+  const { platformOS, pathname: tabName } = data
 
   dispatch(actionSync.SET_MODAL_FRAME(data))
 
@@ -34,5 +34,5 @@ export const SET_MODAL_FRAME: ActionEventType = (_, data) => {
   }
   const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
 
-  getRedirected(pathnameNext, { replace: true })
+  getRedirected(pathnameNext, { platformOS, replace: true })
 }

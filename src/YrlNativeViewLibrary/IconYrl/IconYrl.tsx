@@ -61,6 +61,8 @@ export const IconYrl: IconYrlType = props => {
   const URI_BASE: Record<string, string> = {
     Ionicons:
       'https://raw.githubusercontent.com/ionic-team/ionicons/main/src/svg',
+    MaterialIcons:
+      'https://raw.githubusercontent.com/marella/material-design-icons/main/svg/outlined',
     MaterialCommunityIcons:
       'https://raw.githubusercontent.com/Templarian/MaterialDesign/master/svg',
   }

@@ -1,4 +1,4 @@
-// import { promises as fs } from 'fs'
+import { join } from 'path'
 
 import { consoler } from './consoler'
 import { consolerError } from './consolerError'
@@ -69,7 +69,6 @@ export const getGitBuildData: GetGitBuildDataType = async (
   }
 }
 ;(async () => {
-  const pathFull =
-    '/Users/admin/Dev/yourails-sep-web-native/src/Constants/buildData.const.ts'
+  const pathFull = join(__dirname, '..', `/src/Constants/buildData.const.ts`)
   await getGitBuildData(pathFull, { printRes: true })
 })()

@@ -145,6 +145,7 @@ Note: to config `codegen` edit ??? `codegen.yml`
   - `shift`+`command`+`delete` and remove cache
   - check r1.userto.com
   - check `web.yourails.com`
+- Check version in https://www.npmjs.com/
 
 ### How to navigae? Rules for Urls
 

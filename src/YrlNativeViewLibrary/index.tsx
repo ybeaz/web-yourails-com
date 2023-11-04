@@ -50,12 +50,16 @@ import {
 import {
   WithParamsMediaYrlPropsType,
   WithParamsMediaYrlType,
-  PlatformOSYrlType,
   InsetsYrlType,
   UrlParamsDefaultType,
   mediaParamsDefault,
   urlParamsDefault,
   withParamsMediaYrl,
+  urlParamsSearchDefault,
+  PlatformOSYrlType,
+  platformOSDefault,
+  insetsDefault,
+  InsetsType,
 } from './Hooks/withParamsMediaYrl'
 import {
   withStoreStateYrl,
@@ -72,7 +76,12 @@ import {
   withUseContextYrl,
   WithUseContextYrlType,
 } from './Hooks/withUseContextYrl'
-import { withPropsYrl } from './Hooks/withPropsYrl'
+import {
+  WithPropsYrlPropsType,
+  WithPropsM1YrlType,
+  WithPropsYrlType,
+  withPropsYrl,
+} from './Hooks/withPropsYrl'
 import { withDelayYrl, WithDelayYrlType } from './Hooks/withDelayYrl'
 
 import {
@@ -84,6 +93,9 @@ import {
 export type {
   WithParamsMediaYrlPropsType,
   WithParamsMediaYrlType,
+  WithPropsYrlPropsType,
+  WithPropsM1YrlType,
+  WithPropsYrlType,
   PlatformOSYrlType,
   InsetsYrlType,
   UseAnimatedYrlPropsType,
@@ -101,12 +113,16 @@ export type {
   WithDelayYrlType,
   withElementDimensionsYrlPropsType,
   withElementDimensionsYrlType,
+  InsetsType,
 }
 
 export {
   DeviceType,
   mediaParamsDefault,
   urlParamsDefault,
+  urlParamsSearchDefault,
+  platformOSDefault,
+  insetsDefault,
   useAnimatedYrl,
   useIntervalYrl,
   useLinkClickResYrl,
