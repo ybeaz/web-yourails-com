@@ -1,19 +1,17 @@
 import { v4 as uuid } from 'uuid'
 import { store } from '../store'
-import { ContentType } from '../../@types/ContentType'
 import { MessageType } from '../../@types/MessageType'
 import { ActionEventType } from '../../@types/ActionEventType'
-import { MessageEventType } from '../../@types/MessageEventType'
 import { actionSync } from '../../DataLayer/index.action'
 import { ON_MESSAGE_SOCKET } from './ON_MESSAGE_SOCKET'
-import { getSortedHashedStringifyArray } from '../../Shared/getSortedHashedStringifyArray'
 import { getProfileByIdProfile } from '../../Shared/getProfileByIdProfile'
+import { getCreatedMessage } from '../../Shared/getCreatedMessage'
 
 const { dispatch, getState } = store
 
-export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
-  const { idProfile, isPending } = data
-  if (!idProfile) return
+export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (_, data) => {
+  const { createdAt, idProfile: idProfileActive, isPending } = data
+  if (!idProfileActive) return
 
   const {
     profiles,
@@ -23,33 +21,30 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (event, data) => {
   if (isPending === true) {
     const idMessage = uuid()
 
-    const idConversation = getSortedHashedStringifyArray([
-      idProfileHost,
-      idProfile,
-    ])
-
-    const profile = getProfileByIdProfile(profiles, idProfile)
+    const profile = getProfileByIdProfile(profiles, idProfileActive)
     const pendingText = profile.pendingText ? profile.pendingText : ''
-    const textObj = {
-      contentType: ContentType['textArray'],
-      textArray: [pendingText],
-    }
-    const textNext = JSON.stringify(textObj)
 
-    const message: MessageType = {
+    const params = {
+      idProfileSender: idProfileActive,
+      idProfileReceiver: idProfileHost,
       idMessage,
-      idConversation,
-      idProfile,
+      text: pendingText,
+      createdAt,
       isPending,
-      eventType: MessageEventType['chatMessage'],
-      text: textNext,
     }
+    const options = {
+      addMs: 0,
+      isIdMessage: false,
+      isCreatedAt: false,
+      printRes: false,
+    }
+    const message: MessageType = getCreatedMessage(params, options)
 
     ON_MESSAGE_SOCKET({}, { message })
   } else {
     dispatch(
       actionSync.REMOVE_LAST_MESSAGE_ID_PROFILE({
-        idProfile,
+        idProfile: idProfileActive,
       })
     )
   }

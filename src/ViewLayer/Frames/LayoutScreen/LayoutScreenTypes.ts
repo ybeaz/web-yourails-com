@@ -1,4 +1,9 @@
-import { ReactElement, FunctionComponent } from 'react'
+import {
+  ReactElement,
+  FunctionComponent,
+  NamedExoticComponent,
+  ReactNode,
+} from 'react'
 import { PlatformOSYrlType, InsetsYrlType } from '../../../YrlNativeViewLibrary'
 
 export interface LayoutScreenPropsType {
@@ -26,7 +31,5 @@ export interface LayoutScreenComponentType
 }
 
 export interface LayoutScreenType {
-  (props: LayoutScreenComponentType):
-    | FunctionComponent
-    | React.NamedExoticComponent
+  (props: LayoutScreenComponentType): FunctionComponent | NamedExoticComponent
 }

@@ -9,7 +9,14 @@ import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio
 const { dispatch, getState } = store
 
 export const CLICK_ON_HOST_PROFILE_SELECT: ActionEventType = (event, data) => {
-  const { idProfileHost, profileNameHost, urlParam1, urlParam2, query } = data
+  const {
+    idProfileHost,
+    profileNameHost,
+    urlParam1,
+    urlParam2,
+    query,
+    platformOS,
+  } = data
   const {
     profiles,
     globalVars: { idUserHost, idProfileActive },
@@ -38,7 +45,7 @@ export const CLICK_ON_HOST_PROFILE_SELECT: ActionEventType = (event, data) => {
 
     const pathnameNext = getPathNameForReplace(getPathNameForReplaceProps)
 
-    getRedirected(pathnameNext, { replace: true })
+    getRedirected(pathnameNext, { platformOS, replace: true })
   }
 
   dispatch(

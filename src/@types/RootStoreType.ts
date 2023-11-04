@@ -13,7 +13,7 @@ export type ModalFrameType = {
   childProps: any
 }
 
-export interface ComponentsStateType {
+export type ComponentsStateType = {
   isLoaderOverlayVisible: boolean
   isLeftColumn: boolean
   isMainColumn: boolean
@@ -23,7 +23,7 @@ export interface ComponentsStateType {
   modalFrame: ModalFrameType
 }
 
-export interface FormsType {
+export type FormsType = {
   inputChat: Record<string, string>
   inputSearch: string
 }
@@ -41,7 +41,7 @@ export type UserIdDataAwsCognito = {
 /**
  * @import import { RootStoreType, ComponentsStateType, FormsType, ModalFrameType } from '../@types/RootStoreType'
  */
-export interface RootStoreType {
+export type RootStoreType = {
   componentsState: ComponentsStateType
   profiles: ProfileType[]
   sectionsMapping: SectionMappingType[]

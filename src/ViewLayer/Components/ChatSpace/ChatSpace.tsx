@@ -7,7 +7,6 @@ import {
   AnimatedYrl,
   withPropsYrl,
   ModalFrameYrl,
-  urlParamsDefault,
   withStoreStateSliceYrl,
   withParamsMediaYrl,
   mediaParamsDefault,
@@ -15,8 +14,9 @@ import {
 
 import {
   getMessagesWithProfileActive,
-  GetMessagesWithProfileActivePropsType,
+  GetMessagesWithProfileActiveParamsType,
 } from '../../../Shared/getMessagesWithProfileActive'
+import { getChainedResponsibility } from '../../../Shared/getChainedResponsibility'
 import { getDateLocale } from '../../../Shared/getDateLocale'
 import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import { Text } from '../../Components/Text/Text'
@@ -38,6 +38,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     mediaParams = mediaParamsDefault,
     storeStateSlice,
     handleEvents,
+    platformOS,
   } = props
 
   const { deviceType, height: heightScreen } = mediaParams
@@ -63,25 +64,29 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     renderCounter.current = renderCounter.current + 1
   }, [])
 
-  const messagesMemed = useMemo(() => messages, [JSON.stringify(messages)])
-
-  const getMessagesWithProfileActiveProps: GetMessagesWithProfileActivePropsType =
+  const getMessagesWithProfileActiveOptions: GetMessagesWithProfileActiveParamsType =
     {
-      messages: messagesMemed,
       idProfileHost,
       idProfileActive,
     }
-  const messagesWithProfileActive: RootStoreType['messages'] =
-    getMessagesWithProfileActive(getMessagesWithProfileActiveProps)
+
+  const getSortedMessages = (
+    messages: RootStoreType['messages']
+  ): RootStoreType['messages'] =>
+    messages.sort(
+      (a, b) =>
+        (a.createdAt ? a.createdAt : 0) - (b.createdAt ? b.createdAt : 0)
+    )
+
+  const messagesNext = getChainedResponsibility(messages)
+    .exec(getMessagesWithProfileActive, [getMessagesWithProfileActiveOptions])
+    .exec(getPreproccedMessages, [idProfileHost])
+    .exec(getSortedMessages)
+    .done()
 
   const Child: FunctionComponent | null = childName
     ? MODAL_CONTENTS[childName]
     : null
-
-  const messagesPrep = getPreproccedMessages(
-    messagesWithProfileActive,
-    idProfileHost
-  )
 
   /**
    * @description Styles adjustments for different devices
@@ -89,22 +94,6 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const scrollViewRef = React.useRef<ScrollView>(null)
   const dateString = getDateLocale(+new Date())
   const styleAddSidebarRight = isShowModalFrame ? styleGlobal.hidden : {}
-  let modalContentMargin: number | undefined = '3rem'.getPx()
-  let buttonTop = '0.5rem'.getPx()
-  let buttonLeft = '1rem'.getPx()
-  let buttonRight = '1rem'.getPx()
-  if (deviceType === 'xsDevice') {
-    modalContentMargin = 0
-  } else if (deviceType === 'smDevice') {
-    modalContentMargin = '2rem'.getPx()
-    buttonTop = '0.25rem'.getPx()
-    buttonLeft = '0.5rem'.getPx()
-    buttonRight = '0.5rem'.getPx()
-  } else if (deviceType === 'mdDevice') {
-    buttonTop = '0.75rem'.getPx()
-  } else if (deviceType === 'lgDevice' || deviceType === 'xlDevice') {
-    buttonTop = '1rem'.getPx()
-  }
 
   const propsOut: Record<string, any> = {
     scrollViewProps: {
@@ -134,11 +123,17 @@ const ChatSpaceComponent: ChatSpaceType = props => {
           backgroundColor: themes['themeA'].colors07.backgroundColor,
         },
         content: {
-          margin: modalContentMargin,
+          margin: style.content.margin,
           ...themes['themeA'].colors03,
         },
-        buttonBackWrapper: { top: buttonTop, left: buttonLeft },
-        buttonCloseWrapper: { top: buttonTop, right: buttonRight },
+        buttonBackWrapper: {
+          top: style.buttonWrapper.top,
+          left: style.buttonWrapper.left,
+        },
+        buttonCloseWrapper: {
+          top: style.buttonWrapper.top,
+          right: style.buttonWrapper.right,
+        },
       },
       linearGradientColors: ['rgba(0,0,0,0)', 'rgba(0,0,0,0.25)'],
       isShow: isShowModalFrame,
@@ -156,6 +151,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
               childName,
               isShow: false,
               childProps: {},
+              platformOS,
             }
           ),
         iconProps: {
@@ -179,6 +175,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
               childName,
               isShow: false,
               childProps: {},
+              platformOS,
             }
           ),
         iconProps: {
@@ -267,7 +264,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
       testID: 'ChatSpace_leftColumnIn_animatedYrl_Inner',
     },
     messagesProps: {
-      messages: messagesPrep,
+      messages: messagesNext,
       profiles,
     },
   }
@@ -275,7 +272,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   return (
     <ScrollView {...propsOut.scrollViewProps}>
       <View style={[style.ChatSpace, styleProps.ChatSpace]} testID='ChatSpace'>
-        {messagesWithProfileActive.length && !isShowModalFrame ? (
+        {messagesNext.length && !isShowModalFrame ? (
           <AnimatedYrl {...propsOut.chatSpaceJsxAnimatedYrlProps}>
             <View
               style={[

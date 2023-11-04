@@ -10,6 +10,8 @@ export type GetCreatedMessageParamsType = {
   idProfileSender: IdUserType
   idProfileReceiver: IdUserType
   text: string
+  createdAt?: number
+  isPending?: boolean
 }
 
 export type GetCreatedMessageResType = MessageType
@@ -18,6 +20,7 @@ interface GetCreatedMessageType {
   (
     params: GetCreatedMessageParamsType,
     options?: {
+      addMs?: number
       isIdMessage?: boolean
       isCreatedAt?: boolean
       printRes: boolean
@@ -31,7 +34,9 @@ interface GetCreatedMessageType {
  */
 
 export const getCreatedMessage: GetCreatedMessageType = (params, options) => {
-  const { idProfileSender, idProfileReceiver, text } = params
+  const { idProfileSender, idProfileReceiver, text, createdAt, isPending } =
+    params
+  const addMs = options?.addMs ? options?.addMs : 0
 
   const idConversation = JSON.stringify(
     getSortedArray([idProfileSender, idProfileReceiver])
@@ -50,8 +55,10 @@ export const getCreatedMessage: GetCreatedMessageType = (params, options) => {
     eventType: MessageEventType['chatMessage'],
   }
 
+  if (isPending) message.isPending = isPending
+  if (createdAt) message.createdAt = createdAt
   if (options?.isIdMessage) message.idMessage = uuid()
-  if (options?.isCreatedAt) message.createdAt = +new Date()
+  if (options?.isCreatedAt) message.createdAt = +new Date() + addMs
 
   if (options?.printRes) {
     console.log('getCreatedMessage', 'message', message)

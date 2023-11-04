@@ -38,7 +38,7 @@ export const InputTextYrl: InputTextYrlType = props => {
 
   const handleLayout = (event: any) => {
     if (!onHeightChange) return
-    const { height } = event.nativeEvent.layout
+    const { height } = event?.nativeEvent?.layout
     onHeightChange(height)
     if (height <= maxHeight) setHeightLimit({ maxHeight: height })
     else setHeightLimit({ maxHeight })
@@ -69,6 +69,7 @@ export const InputTextYrl: InputTextYrlType = props => {
       },
     },
   }
+
   propsOut.textInputPropsResize = {
     ...propsOut.textInputProps,
     style: {

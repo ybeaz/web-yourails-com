@@ -1,5 +1,6 @@
 import { RootStoreType } from '../../../@types/RootStoreType'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
+import { PlatformOSYrlType } from '../../../YrlNativeViewLibrary'
 
 export type ContentMenuMainColumnPropsType = {
   styleProps?: {
@@ -9,6 +10,7 @@ export type ContentMenuMainColumnPropsType = {
   sectionsMapping: SectionMappingType[]
   store: RootStoreType
   handleEvents: any
+  platformOS: PlatformOSYrlType
 }
 
 export type ContentMenuMainColumnPropsOutType = Record<string, any>

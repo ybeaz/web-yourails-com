@@ -2,10 +2,9 @@ import { IdUserType } from '../../../@types/UserType'
 import { ProfileType } from '../../../@types/GraphqlTypes'
 import { MessageType } from '../../../@types/MessageType'
 import { RootStoreType } from '../../../@types/RootStoreType'
-
 import {
-  UrlParamsDefaultType,
   MediaParamsDefaultType,
+  PlatformOSYrlType,
 } from '../../../YrlNativeViewLibrary'
 
 export interface ChatSpacePropsType {
@@ -23,6 +22,7 @@ export interface ChatSpacePropsType {
     messages: RootStoreType['messages']
   }
   handleEvents: any
+  platformOS: PlatformOSYrlType
 }
 
 /**

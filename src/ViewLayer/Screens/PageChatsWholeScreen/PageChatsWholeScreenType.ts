@@ -1,3 +1,4 @@
+import React, { ReactNode } from 'react'
 import { HandleEventsType } from '../../../DataLayer/index.handleEvents'
 
 import {
@@ -12,29 +13,31 @@ import { ContentMenuMainColumnPropsType } from '../../Components/ContentMenuMain
 import { RootStoreType } from '../../../@types/RootStoreType'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
 
+export type PageChatsWholeScreenPropsStoreStateSliceType = {
+  idProfileActive: RootStoreType['globalVars']['idProfileActive']
+  isLeftColumn: RootStoreType['componentsState']['isLeftColumn']
+  isMainColumn: RootStoreType['componentsState']['isMainColumn']
+  isMainColumnBlank: RootStoreType['componentsState']['isMainColumnBlank']
+  modalFrame: RootStoreType['componentsState']['modalFrame']
+  profiles: RootStoreType['profiles']
+  sectionsMapping: RootStoreType['sectionsMapping']
+}
+
 export type PageChatsWholeScreenPropsType = {
-  styles: any
+  styles?: any
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
   urlParams?: UrlParamsDefaultType
-  urlParamsSearch: any
-  platformOS: PlatformOSYrlType
-  insets: InsetsYrlType
+  urlParamsSearch?: any
+  platformOS?: PlatformOSYrlType
+  insets?: InsetsYrlType
   routeProps?: any
   themeDafault?: string
-  handleEvents: HandleEventsType
+  handleEvents?: HandleEventsType
   history?: History
-  storeStateSlice: {
-    idProfileActive: RootStoreType['globalVars']['idProfileActive']
-    isLeftColumn: RootStoreType['componentsState']['isLeftColumn']
-    isMainColumn: RootStoreType['componentsState']['isMainColumn']
-    isMainColumnBlank: RootStoreType['componentsState']['isMainColumnBlank']
-    modalFrame: RootStoreType['componentsState']['modalFrame']
-    profiles: RootStoreType['profiles']
-    sectionsMapping: RootStoreType['sectionsMapping']
-  }
-  onLayout: () => void
-  navigation: any
+  storeStateSlice?: PageChatsWholeScreenPropsStoreStateSliceType
+  onLayout?: () => void
+  navigation?: any
 }
 
 export type PageChatsWholeScreenPropsOutType = {
@@ -49,7 +52,7 @@ export type PageChatsWholeScreenPropsOutType = {
   layoutOfRowFooterProps: LayoutOfRowPropsType
   mainColumnContentMenuProps: Omit<
     ContentMenuMainColumnPropsType,
-    'sectionsMapping' | 'store' | 'handleEvents'
+    'sectionsMapping' | 'store' | 'handleEvents' | 'platformOS'
   >
   isShowModalFrame: boolean
   isMainColumnBlank: boolean
@@ -63,5 +66,7 @@ export interface PageChatsWholeScreenComponentType
 
 export interface PageChatsWholeScreenType
   extends React.FunctionComponent<PageChatsWholeScreenPropsType> {
-  (props: PageChatsWholeScreenPropsType): React.ReactElement
+  (props: PageChatsWholeScreenPropsType):
+    | React.FunctionComponent<any>
+    | React.ReactNode
 }

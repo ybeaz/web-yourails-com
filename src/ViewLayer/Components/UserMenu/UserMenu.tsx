@@ -97,7 +97,7 @@ const UserMenuComponent: UserMenuType = props => {
       iconName: 'person-outline',
       color: themes['themeA'].colors01.color,
       onPress: () => {
-        handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { deviceType })
+        handleEvents.CLICK_TOGGLE_SIDEBAR_MAIN({}, { platformOS, deviceType })
         handleEvents.CLICK_ON_USER_CHAT_CARD(
           {},
           {
@@ -122,7 +122,7 @@ const UserMenuComponent: UserMenuType = props => {
       iconName: 'book-outline',
       color: themes['themeA'].colors01.color,
       onPress: () => {
-        getRedirected(linkAboutUs, { replace: true })
+        getRedirected(linkAboutUs, { platformOS, replace: true })
         handleEvents.CLICK_ON_MENU_CONTROL(
           {},
           {

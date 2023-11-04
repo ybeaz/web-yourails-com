@@ -1,9 +1,13 @@
-import { MediaParamsDefaultType } from '../../../YrlNativeViewLibrary'
+import {
+  MediaParamsDefaultType,
+  PlatformOSYrlType,
+} from '../../../YrlNativeViewLibrary'
 import { RootStoreType } from '../../../@types/RootStoreType'
 
 export interface TopBarMainColumnPropsType {
   mediaParams?: MediaParamsDefaultType
   store: RootStoreType
+  platformOS: PlatformOSYrlType
 }
 
 /**

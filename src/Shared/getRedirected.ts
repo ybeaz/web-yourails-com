@@ -16,18 +16,19 @@ interface GetRedirectedType {
  * @import import { getRedirected } from '../../../Shared/getRedirected'
  */
 
-export const getRedirected: GetRedirectedType = async (
+export const getRedirected: GetRedirectedType = (
   pathnameNext,
   { platformOS = 'web', replace = true }
 ) => {
   // TODO Implement redirect for ios and android
+
   if (platformOS === 'web') {
     if (!pathnameNext) return
     try {
       historyWeb.push(pathnameNext)
     } catch (error: any) {
       const message = error.message
-      console.info('getRedirected [21]', {
+      console.log('getRedirected [21]', {
         message,
         pathnameNext,
         replace,

@@ -18,14 +18,38 @@ export const stylesDefault = StyleSheet.create({
     width: 'auto',
   },
   messages: {},
+  content: {
+    margin: '3rem'.getPx(),
+  },
+  buttonWrapper: {
+    top: '1rem'.getPx(),
+    left: '1rem'.getPx(),
+    right: '1rem'.getPx(),
+  },
 })
 
 const xsDevice = StyleSheet.create({
   ...stylesDefault,
+  content: {
+    margin: 0,
+  },
+  buttonWrapper: {
+    top: 0,
+    left: 0,
+    right: 0,
+  },
 })
 
 const smDevice = StyleSheet.create({
   ...stylesDefault,
+  content: {
+    margin: '2rem'.getPx(),
+  },
+  buttonWrapper: {
+    top: '0.25rem'.getPx(),
+    left: '0.5rem'.getPx(),
+    right: '0.5rem'.getPx(),
+  },
 })
 
 const mdDevice = StyleSheet.create({

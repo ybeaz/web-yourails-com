@@ -28,6 +28,11 @@ function App() {
   }
 
   if (Platform.OS === 'web') {
+    // @ts-expect-error
+    if (typeof browser === 'undefined') {
+      var browser = `chrome`
+    }
+
     return (
       <StrictMode>
         <Provider store={store}>

@@ -1,6 +1,5 @@
 import {
   RootStoreType,
-  UserIdDataAwsCognito,
   ComponentsStateType,
   FormsType,
 } from '../@types/RootStoreType'

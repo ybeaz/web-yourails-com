@@ -34,6 +34,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
   } = props
 
   const {
+    componentsState: { isUserMenu },
     globalVars: { idProfileHost, idProfileActive },
     forms: { inputSearch },
     profiles,
@@ -53,7 +54,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
           {},
           {
             isProfileSelectMenu: false,
-            isUserMenu: true,
+            isUserMenu: !isUserMenu,
           }
         )
       },
@@ -84,7 +85,7 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
           {},
           {
             isProfileSelectMenu: false,
-            isUserMenu: true,
+            isUserMenu: !isUserMenu,
           }
         ),
     },
