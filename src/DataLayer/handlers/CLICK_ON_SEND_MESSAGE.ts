@@ -15,6 +15,7 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, {}) => {
   const {
     profiles,
     forms: { inputChat },
+    userIdDataAwsCognito: { sub },
     globalVars: { idProfileHost, idProfileActive },
   } = getState()
 
@@ -22,23 +23,24 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, {}) => {
 
   const profile: ProfileType = getProfileByIdProfile(profiles, idProfileActive)
 
-  const params = {
-    idProfileSender: idProfileHost,
-    idProfileReceiver: idProfileActive,
-    text: inputChat[idProfileActive],
-  }
-  const options = {
-    isIdMessage: false /* it is assigned on server side */,
-    isCreatedAt: false /* it is assigned on server side */,
-    printRes: false,
-  }
-
-  const message = getCreatedMessage(params, options)
-
-  getSocketEmitMessage(message)
-
   /* Here it is specified a special case under a temp flag, anounced "work in progress" state */
-  if (
+  if (!sub) {
+    const params = {
+      idProfileSender: idProfileActive,
+      idProfileReceiver: idProfileHost,
+      text: 'The feature of sending and receiving messages is available after registration.',
+    }
+    const options = {
+      addMs: 1500,
+      isIdMessage: true,
+      isCreatedAt: true,
+      printRes: false,
+    }
+    const message = getCreatedMessage(params, options)
+
+    dispatch(actionSync.ADD_MESSAGE({ message }))
+    return
+  } else if (
     isStubMessagesToPeopleFlag() &&
     (profile?.profileNature === 'human' || profile?.profileNature === 'company')
   ) {
@@ -56,5 +58,21 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, {}) => {
     const message = getCreatedMessage(params, options)
 
     dispatch(actionSync.ADD_MESSAGE({ message }))
+    return
   }
+
+  const params = {
+    idProfileSender: idProfileHost,
+    idProfileReceiver: idProfileActive,
+    text: inputChat[idProfileActive],
+  }
+  const options = {
+    isIdMessage: false /* it is assigned on server side */,
+    isCreatedAt: false /* it is assigned on server side */,
+    printRes: false,
+  }
+
+  const message = getCreatedMessage(params, options)
+
+  getSocketEmitMessage(message)
 }
