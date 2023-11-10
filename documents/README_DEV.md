@@ -1,4 +1,4 @@
-# README React Typescript UI Native Template
+# README SEP Chat AI React Typescript UI Native Project
 
 ## Decisions made
 
@@ -122,20 +122,20 @@ Note: to config `codegen` edit ??? `codegen.yml`
 @link https://github.com/jsdelivr/jsdelivr // Link to CDN that works with GitHub.com
 @link https://docs.expo.dev/distribution/publishing-websites/
 
-- In VS Code, `~/Dev/yourails-sep-web-native/deployment`,
+- In VS Code, `~/Dev/yourails_sep_chat_ai/deployment`,
   - open `/deployment/index-r1.userto.html` and `/deployment/index-web.yourails.html`
   - !!! change version in links for `bundle.min.js` and `main.bundle.min.js`
 - Building
   `yarn export:web`: To build. It runs script from package.json file. Legacy command `npx expo export:web`
-- Copy `~/Dev/yourails-sep-web-native/web-build/static` into
-  `~/Dev/yourails-assets/dist/static-web-yourails`
-- In Browser authorise at https://www.npmjs.com/ and check previous `yourails-assets-temp` package version
-- In Terminal, go to `cd ~/Dev/yourails-assets/`
+- Copy `~/Dev/yourails_sep_chat_ai/web-build/static` into
+  `~/Dev/yourails-assets-sep-chat-ai/dist/static`
+- In Browser authorise at https://www.npmjs.com/ and check previous `yourails-assets-sep-chat-ai` package version
+- In Terminal, go to `cd ~/Dev/yourails-assets-sep-chat-ai/`
 - In VS code change versions (for example `"version": "0.60.0",`) in
-  `/Users/admin/Dev/yourails-sep-web-native/package.json` and
-  `/Users/admin/Dev/yourails-assets/package.json`
+  `/Users/admin/Dev/yourails_sep_chat_ai/package.json` and
+  `/Users/admin/Dev/yourails-assets-sep-chat-ai/package.json`
 - In Terminal
-  - `cd ~/Dev/yourails-assets/ && eval $(ssh-agent -s); ssh-add ~/.ssh/2020-10-19-rsa && npm init && npm publish`,
+  - `cd ~/Dev/yourails-assets-sep-chat-ai/ && eval $(ssh-agent -s); ssh-add ~/.ssh/2020-10-19-rsa && npm init && npm publish`,
     go through steps and change version to the next one
 - In ForkLift copy
   - copy `/deployment/index-r1.userto.html` to `r1.userto.com/www/`

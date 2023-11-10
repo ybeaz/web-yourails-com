@@ -13,11 +13,11 @@ const headers: Record<string, string> = {
 }
 
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
-import { SERVERS, ServersType } from '../../Constants/servers.const'
+import { SERVERS_MAIN, ServersType } from '../../Constants/servers.const'
 
 const envType: string = getDetectedEnv()
 
-const baseURL = SERVERS[envType as keyof ServersType] as string
+const baseURL = SERVERS_MAIN[envType as keyof ServersType] as string
 
 const createHttpLink = (): HttpLink => {
   return new HttpLink({

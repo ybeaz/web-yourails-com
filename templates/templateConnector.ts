@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { axiosClient } from './clients/axiosClient'
 import { ConnectorOutputType } from '../Interfaces/ConnectorOutputType'
 import { templateQuery } from './graphql/templateQuery'

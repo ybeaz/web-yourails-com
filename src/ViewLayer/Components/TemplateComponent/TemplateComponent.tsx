@@ -12,8 +12,8 @@ import {
   TemplatePropsOutType,
   TemplateComponentType,
   TemplateType,
-} from './TemplateTypes'
-import { styles } from './TemplateStyles'
+} from './TemplateComponentTypes'
+import { styles } from './TemplateComponentStyles'
 
 /**
  * @description Component to render

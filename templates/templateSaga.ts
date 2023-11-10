@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { takeLatest, takeEvery, put, select } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
