@@ -3,31 +3,37 @@ import { promises as fs } from 'fs'
 import { consoler } from './consoler'
 import { consolerError } from './consolerError'
 
-export type GetTemplateAsyncParamsType = any
+export type GetTemplateFuncAsyncParamsType = any
 
-export type GetTemplateAsyncResType = Promise<any>
+export type GetTemplateFuncAsyncResType = Promise<any>
 
-interface GetTemplateAsyncType {
-  (params: GetTemplateAsyncParamsType, options?: { printRes: boolean }): GetTemplateAsyncResType
+interface GetTemplateFuncAsyncType {
+  (
+    params: GetTemplateFuncAsyncParamsType,
+    options?: { printRes: boolean }
+  ): GetTemplateFuncAsyncResType
 }
 
 /**
- * @description Function to getTemplateAsync
- * @run ts-node src/shared/utils/getTemplateAsync.ts
- * @import import { getTemplateAsync } from './getTemplateAsync'
+ * @description Function to getTemplateFuncAsync
+ * @run ts-node src/shared/utils/getTemplateFuncAsync.ts
+ * @import import { getTemplateFuncAsync } from './getTemplateFuncAsync'
  */
 
-export const getTemplateAsync: GetTemplateAsyncType = async (params, options) => {
+export const getTemplateFuncAsync: GetTemplateFuncAsyncType = async (
+  params,
+  options
+) => {
   try {
     const res = await ''
 
     if (options?.printRes) {
-      consoler('getTemplateAsync', 'res', res)
+      consoler('getTemplateFuncAsync', 'res', res)
     }
 
     return res
   } catch (error: any) {
-    consolerError('getTemplateAsync', error)
+    consolerError('getTemplateFuncAsync', error)
     return
   }
 }

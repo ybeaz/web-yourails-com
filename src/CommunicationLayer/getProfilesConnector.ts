@@ -13,6 +13,7 @@ interface ConnectorType {
 export const getProfilesConnector: ConnectorType = variables => {
   const obj: ConnectorOutputType = {
     client: axiosClient,
+    clientType: 'axiosClient',
     params: {
       operationName: 'ReadProfiles',
       variables,

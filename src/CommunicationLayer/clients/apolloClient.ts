@@ -48,4 +48,4 @@ export const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
   })
 }
 
-export const apolloClient = createApolloClient()
+export const apolloClient: any = createApolloClient()

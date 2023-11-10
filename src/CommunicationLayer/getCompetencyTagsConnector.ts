@@ -1,22 +1,42 @@
 import { axiosClient } from './clients/axiosClient'
+import { apolloClient } from './clients/apolloClient'
 import { ConnectorOutputType } from '../Interfaces/ConnectorOutputType'
-import { getCompetencyTagsQuery } from './graphql/getCompetencyTagsQuery'
+import {
+  getCompetencyTagsDocument,
+  getCompetencyTagsQuery,
+} from './graphql/getCompetencyTagsQuery'
+import { ClientHttpType } from '../@types/ClientHttpType'
+
+export type GetCompetencyTagsConnectorParamsType = {
+  clientType: ClientHttpType
+  variables: any
+}
 
 interface ConnectorType {
-  (variables: any): ConnectorOutputType
+  (params: GetCompetencyTagsConnectorParamsType): ConnectorOutputType
 }
 
 /**
  * @description Function to return getCompetencyTagsConnector
  * @import import { getCompetencyTagsConnector } from '../../CommunicationLayer/getCompetencyTagsConnector'
  */
-export const getCompetencyTagsConnector: ConnectorType = variables => {
+export const getCompetencyTagsConnector: ConnectorType = ({
+  clientType,
+  variables,
+}) => {
   const obj: ConnectorOutputType = {
-    client: axiosClient,
+    client:
+      clientType === ClientHttpType['apolloClient']
+        ? apolloClient
+        : axiosClient,
+    clientType,
     params: {
       operationName: 'ReadCompetencyTags',
       variables,
-      query: getCompetencyTagsQuery,
+      query:
+        clientType === ClientHttpType['apolloClient']
+          ? getCompetencyTagsDocument
+          : getCompetencyTagsQuery,
     },
   }
 

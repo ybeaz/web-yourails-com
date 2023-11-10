@@ -14,6 +14,7 @@ export const getRefreshedUserAuthAwsCognitoConnector: ConnectorType =
   variables => {
     const obj: ConnectorOutputType = {
       client: axiosClient,
+      clientType: 'axiosClient',
       params: {
         operationName: 'GetRefreshedUserAuthAwsCognito',
         variables,

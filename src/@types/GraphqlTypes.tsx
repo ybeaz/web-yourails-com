@@ -291,6 +291,14 @@ export type NewRecipeInputType = {
   title: Scalars['String']['input'];
 };
 
+export type PageInfoType = {
+  __typename?: 'PageInfoType';
+  /** endCursor */
+  endCursor?: Maybe<Scalars['String']['output']>;
+  /** hasNextPage */
+  hasNextPage?: Maybe<Scalars['Boolean']['output']>;
+};
+
 export enum ProfileNatureType {
   Bot = 'bot',
   Company = 'company',
@@ -349,6 +357,31 @@ export type ProfileType = {
   summary?: Maybe<Scalars['String']['output']>;
 };
 
+export type ProfilesConnectionInputType = {
+  /** after */
+  after?: InputMaybe<Scalars['String']['input']>;
+  /** first */
+  first?: InputMaybe<Scalars['Int']['input']>;
+  /** offset */
+  offset?: InputMaybe<Scalars['Int']['input']>;
+};
+
+export type ProfilesConnectionType = {
+  __typename?: 'ProfilesConnectionType';
+  /** [ProfileEdgeType] */
+  edges?: Maybe<Array<ProfilesEdgeType>>;
+  /** PageInfoType */
+  pageInfo?: Maybe<PageInfoType>;
+};
+
+export type ProfilesEdgeType = {
+  __typename?: 'ProfilesEdgeType';
+  /** cursor */
+  cursor?: Maybe<Scalars['String']['output']>;
+  /** ProfileEdgeType */
+  node?: Maybe<ProfileType>;
+};
+
 export type ProfilesInputType = {
   /** profiles ID */
   idProfiles?: InputMaybe<Scalars['ID']['input']>;
@@ -371,6 +404,7 @@ export type Query = {
   getUserIdDataAwsCognito: UserIdDataAwsCognitoType;
   readCompetencyTags: Array<CompetencyTagType>;
   readProfiles: Array<ProfileType>;
+  readProfilesConnection: ProfilesConnectionType;
   readTemplates: Array<TemplatesType>;
   readUserAuth: UserModelExtendedType;
   readUserProfile: UserModelExtendedType;
@@ -419,6 +453,11 @@ export type QueryGetUserIdDataAwsCognitoArgs = {
 
 export type QueryReadCompetencyTagsArgs = {
   params: CompetencyTagsParamsReadType;
+};
+
+
+export type QueryReadProfilesConnectionArgs = {
+  readProfilesConnectionInput: ProfilesConnectionInputType;
 };
 
 

@@ -14,6 +14,7 @@ export const getRevokedUserAuthAwsCognitoConnector: ConnectorType =
   variables => {
     const obj: ConnectorOutputType = {
       client: axiosClient,
+      clientType: 'axiosClient',
       params: {
         operationName: 'GetRevokedUserAuthAwsCognito',
         variables,

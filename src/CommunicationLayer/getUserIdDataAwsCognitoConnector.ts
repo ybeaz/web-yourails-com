@@ -13,6 +13,7 @@ interface ConnectorType {
 export const getUserIdDataAwsCognitoConnector: ConnectorType = variables => {
   const obj: ConnectorOutputType = {
     client: axiosClient,
+    clientType: 'axiosClient',
     params: {
       operationName: 'GetUserIdDataAwsCognito',
       variables,

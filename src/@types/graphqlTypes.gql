@@ -195,6 +195,14 @@ input NewRecipeInputType {
   title: String!
 }
 
+type PageInfoType {
+  """endCursor"""
+  endCursor: String
+
+  """hasNextPage"""
+  hasNextPage: Boolean
+}
+
 enum ProfileNatureType {
   bot
   company
@@ -275,6 +283,33 @@ type ProfileType {
   summary: String
 }
 
+input ProfilesConnectionInputType {
+  """after"""
+  after: String
+
+  """first"""
+  first: Int
+
+  """offset"""
+  offset: Int
+}
+
+type ProfilesConnectionType {
+  """[ProfileEdgeType]"""
+  edges: [ProfilesEdgeType!]
+
+  """PageInfoType"""
+  pageInfo: PageInfoType
+}
+
+type ProfilesEdgeType {
+  """cursor"""
+  cursor: String
+
+  """ProfileEdgeType"""
+  node: ProfileType
+}
+
 input ProfilesInputType {
   """profiles ID"""
   idProfiles: ID
@@ -299,6 +334,7 @@ type Query {
   getUserIdDataAwsCognito(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
   readCompetencyTags(params: CompetencyTagsParamsReadType!): [CompetencyTagType!]!
   readProfiles: [ProfileType!]!
+  readProfilesConnection(readProfilesConnectionInput: ProfilesConnectionInputType!): ProfilesConnectionType!
   readTemplates(options: TemplatesOptionsReadType!): [TemplatesType!]!
   readUserAuth(userIdAuth: String!): UserModelExtendedType!
   readUserProfile(userIdProfile: String!): UserModelExtendedType!
