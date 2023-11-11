@@ -1,10 +1,6 @@
 import { gql, DocumentNode } from '@apollo/client'
 
-import { GraphqlDictType } from '../../@types/GraphqlDictType'
-
-const operationName: string = 'ReadCompetencyTags'
-
-const documentNode: DocumentNode = gql`
+export const readCompetencyTagsGql: DocumentNode = gql`
   query ReadCompetencyTags($params: CompetencyTagsParamsReadType!) {
     readCompetencyTags(params: $params) {
       idCompetency
@@ -19,8 +15,3 @@ const documentNode: DocumentNode = gql`
     }
   }
 `
-
-export const readCompetencyTagsGraphqlDict: GraphqlDictType = {
-  operationName,
-  documentNode,
-}

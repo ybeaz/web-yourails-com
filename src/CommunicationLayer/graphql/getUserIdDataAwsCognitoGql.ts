@@ -1,10 +1,6 @@
 import { gql, DocumentNode } from '@apollo/client'
 
-import { GraphqlDictType } from '../../@types/GraphqlDictType'
-
-const operationName: string = 'GetUserIdDataAwsCognito'
-
-const documentNode: DocumentNode = gql`
+export const getUserIdDataAwsCognitoGql: DocumentNode = gql`
   query GetUserIdDataAwsCognito(
     $userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!
   ) {
@@ -21,8 +17,3 @@ const documentNode: DocumentNode = gql`
     }
   }
 `
-
-export const getUserIdDataAwsCognitoGraphqlDict: GraphqlDictType = {
-  operationName,
-  documentNode,
-}

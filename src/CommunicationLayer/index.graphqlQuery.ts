@@ -1,21 +1,21 @@
-import { GraphqlDictType } from '../@types/GraphqlDictType'
+import { DocumentNode } from '@apollo/client'
 
-import { getUserIdDataAwsCognitoGraphqlDict } from './graphql/getUserIdDataAwsCognitoGraphqlDict'
-import { getRevokedUserAuthAwsCognitoGraphqlDict } from './graphql/getRevokedUserAuthAwsCognitoGraphqlDict'
-import { getRefreshedUserAuthAwsCognitoGraphqlDict } from './graphql/getRefreshedUserAuthAwsCognitoGraphqlDict'
-import { readCompetencyTagsGraphqlDict } from './graphql/readCompetencyTagsGraphqlDict'
-import { readProfilesGraphqlDict } from './graphql/readProfilesGraphqlDict'
+import { getRefreshedUserAuthAwsCognitoGql } from './graphql/getRefreshedUserAuthAwsCognitoGql'
+import { getRevokedUserAuthAwsCognitoGql } from './graphql/getRevokedUserAuthAwsCognitoGql'
+import { getUserIdDataAwsCognitoGql } from './graphql/getUserIdDataAwsCognitoGql'
+import { readCompetencyTagsGql } from './graphql/readCompetencyTagsGql'
+import { readProfilesGql } from './graphql/readProfilesGql'
 
-export type GraphqlQueriesType = Record<string, GraphqlDictType>
+export type GraphqlQueriesType = Record<string, DocumentNode>
 
 /**
- * @import import { handleEvents, HandleEventsType } from '../DataLayer/index.handleEvents'
+ * @import import { graphqlQueries } from './index.graphqlQuery'
  */
 
 export const graphqlQueries: GraphqlQueriesType = {
-  readCompetencyTags: readCompetencyTagsGraphqlDict,
-  readProfiles: readProfilesGraphqlDict,
-  getRefreshedUserAuthAwsCognito: getRefreshedUserAuthAwsCognitoGraphqlDict,
-  getRevokedUserAuthAwsCognito: getRevokedUserAuthAwsCognitoGraphqlDict,
-  getUserIdDataAwsCognito: getUserIdDataAwsCognitoGraphqlDict,
+  getRefreshedUserAuthAwsCognitoGql,
+  getRevokedUserAuthAwsCognitoGql,
+  getUserIdDataAwsCognitoGql,
+  readCompetencyTagsGql,
+  readProfilesGql,
 }

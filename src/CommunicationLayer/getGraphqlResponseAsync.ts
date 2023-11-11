@@ -39,10 +39,10 @@ export const getGraphqlResponseAsync: GetGraphqlResponseAsyncType = async (
         ? apolloClient
         : axiosClient
 
-    const { operationName, documentNode } = graphqlQueries[resolveGraphqlName]
+    const documentNode = graphqlQueries[`${resolveGraphqlName}Gql`]
 
     const params = {
-      operationName,
+      operationName: resolveGraphqlName,
       variables,
       query:
         clientHttpType === ClientHttpType['apolloClient']
