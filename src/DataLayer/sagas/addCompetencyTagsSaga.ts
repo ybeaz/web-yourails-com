@@ -1,14 +1,13 @@
 import { takeEvery, put, select } from 'redux-saga/effects'
-import { request, gql } from 'graphql-request'
 
 import { RootStoreType } from '../../@types/RootStoreType'
 import { rootStoreDefault } from '../rootStoreDefault'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { competencyTags as competencyTagsMock } from '../../ContentMock/competencyTagsMock'
-import { getCompetencyTagsConnector } from '../../CommunicationLayer/getCompetencyTagsConnector'
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 import { ClientHttpType } from '../../@types/ClientHttpType'
-import { CompetencyTagType } from '../../@types/GraphqlTypes'
+import { MethodHttpType } from '../../@types/MethodHttpType'
+import { getGraphqlResponseAsync } from '../../CommunicationLayer/getGraphqlResponseAsync'
 
 const idProfileDict: Record<string, boolean> = {}
 
@@ -23,7 +22,7 @@ function* addCompetencyTags(): Iterable<any> {
 
   idProfileDict[idProfile] = true
 
-  let competencyTags: CompetencyTagType[] = []
+  let competencyTags: any = []
   try {
     if (!isLocalDataMockOnlyFlag()) {
       const variables = {
@@ -31,18 +30,13 @@ function* addCompetencyTags(): Iterable<any> {
           idProfile,
         },
       }
-      const { client, clientType, params } = getCompetencyTagsConnector({
-        clientType: ClientHttpType['axiosClient'],
-        variables,
-      })
 
-      if (clientType === ClientHttpType['apolloClient']) {
-        const res: any = yield client.query(params)
-        competencyTags = res?.data?.readCompetencyTags
-      } else if (clientType === ClientHttpType['axiosClient']) {
-        const res: any = yield client.post('', params)
-        competencyTags = res?.data?.data?.readCompetencyTags
-      }
+      competencyTags = yield getGraphqlResponseAsync({
+        clientHttpType: ClientHttpType['apolloClient'],
+        methodHttpType: MethodHttpType['query'],
+        variables,
+        resolveGraphqlName: 'readCompetencyTags',
+      })
 
       if (!competencyTags?.length) competencyTags = competencyTagsMock
     } else {

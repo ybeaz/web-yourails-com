@@ -28,12 +28,14 @@ export const getTemplateFuncAsync: GetTemplateFuncAsyncType = async (
     const res = await ''
 
     if (options?.printRes) {
+      console.log('getTemplateFuncAsync', { res })
       consoler('getTemplateFuncAsync', 'res', res)
     }
 
     return res
   } catch (error: any) {
-    consolerError('getTemplateFuncAsync', error)
+    console.log('getTemplateFuncAsync Error', error.message)
+    consolerError('getTemplateFuncAsync Error', error.message)
     return
   }
 }
@@ -41,7 +43,4 @@ export const getTemplateFuncAsync: GetTemplateFuncAsyncType = async (
 if (require.main === module) {
   // This code will only run if the file is executed directly
   console.log('This file is being run directly.')
-} else {
-  // This code will run if the file is imported as a module
-  console.log('This file is being imported as a module.')
 }
