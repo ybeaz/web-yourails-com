@@ -1,3 +1,5 @@
+import { print } from 'graphql'
+
 import { axiosClient } from './clients/axiosClient'
 import { apolloClient } from './clients/apolloClient'
 
@@ -37,8 +39,7 @@ export const getGraphqlResponseAsync: GetGraphqlResponseAsyncType = async (
         ? apolloClient
         : axiosClient
 
-    const { operationName, documentNode, documentNodePrinted } =
-      graphqlQueries[resolveGraphqlName]
+    const { operationName, documentNode } = graphqlQueries[resolveGraphqlName]
 
     const params = {
       operationName,
@@ -46,7 +47,7 @@ export const getGraphqlResponseAsync: GetGraphqlResponseAsyncType = async (
       query:
         clientHttpType === ClientHttpType['apolloClient']
           ? documentNode
-          : documentNodePrinted,
+          : print(documentNode),
     }
 
     let output: any

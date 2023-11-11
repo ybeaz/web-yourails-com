@@ -1,7 +1,10 @@
 import { gql, DocumentNode } from '@apollo/client'
-import { print } from 'graphql'
 
-export const getProfilesDocument: DocumentNode = gql`
+import { GraphqlDictType } from '../../@types/GraphqlDictType'
+
+const operationName: string = 'ReadProfiles'
+
+const documentNode: DocumentNode = gql`
   query ReadProfiles {
     readProfiles {
       idProfile
@@ -35,7 +38,7 @@ export const getProfilesDocument: DocumentNode = gql`
   }
 `
 
-/**
- * @import import { getProfilesQuery } from './graphql/getProfilesQuery'
- */
-export const getProfilesQuery = print(getProfilesDocument)
+export const readProfilesGraphqlDict: GraphqlDictType = {
+  operationName,
+  documentNode,
+}

@@ -1,7 +1,10 @@
 import { gql, DocumentNode } from '@apollo/client'
-import { print } from 'graphql'
 
-const getRevokedUserAuthAwsCognitoDocument: DocumentNode = gql`
+import { GraphqlDictType } from '../../@types/GraphqlDictType'
+
+const operationName: string = 'GetRevokedUserAuthAwsCognito'
+
+const documentNode: DocumentNode = gql`
   query GetRevokedUserAuthAwsCognito(
     $userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!
   ) {
@@ -18,9 +21,7 @@ const getRevokedUserAuthAwsCognitoDocument: DocumentNode = gql`
   }
 `
 
-/**
- * @import import { getRevokedUserAuthAwsCognitoQuery } from './graphql/getRevokedUserAuthAwsCognitoQuery'
- */
-export const getRevokedUserAuthAwsCognitoQuery = print(
-  getRevokedUserAuthAwsCognitoDocument
-)
+export const getRevokedUserAuthAwsCognitoGraphqlDict: GraphqlDictType = {
+  operationName,
+  documentNode,
+}

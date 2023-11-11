@@ -1,19 +1,23 @@
 import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { getProfilesConnector } from '../../CommunicationLayer/getProfilesConnector'
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 import { profiles as profilesMock } from '../../ContentMock/profilesMock'
+import { ClientHttpType } from '../../@types/ClientHttpType'
+import { MethodHttpType } from '../../@types/MethodHttpType'
+import { getGraphqlResponseAsync } from '../../CommunicationLayer/getGraphqlResponseAsync'
 
 export function* getProfiles(): Iterable<any> {
-  let profiles = []
+  let profiles: any = []
   try {
-    const { client, params } = getProfilesConnector({})
-
     if (!isLocalDataMockOnlyFlag()) {
-      const res: any = yield client.post('', params)
+      profiles = yield getGraphqlResponseAsync({
+        clientHttpType: ClientHttpType['apolloClient'],
+        methodHttpType: MethodHttpType['query'],
+        variables: {},
+        resolveGraphqlName: 'readProfiles',
+      })
 
-      profiles = res?.data?.data?.readProfiles
       if (!profiles.length) profiles = profilesMock
     } else {
       profiles = profilesMock

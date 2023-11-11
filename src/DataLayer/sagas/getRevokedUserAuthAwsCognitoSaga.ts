@@ -1,11 +1,12 @@
 import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { getRevokedUserAuthAwsCognitoConnector } from '../../CommunicationLayer/getRevokedUserAuthAwsCognitoConnector'
 import { CLIENTS } from '../../Constants/clients.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
-import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
 import { getDeletedObjFromLocalStorage } from '../../Shared/getDeletedObjFromLocalStorage'
+import { ClientHttpType } from '../../@types/ClientHttpType'
+import { MethodHttpType } from '../../@types/MethodHttpType'
+import { getGraphqlResponseAsync } from '../../CommunicationLayer/getGraphqlResponseAsync'
 
 function* getRevokedUserAuthAwsCognito(params: any): Iterable<any> {
   const {
@@ -23,11 +24,12 @@ function* getRevokedUserAuthAwsCognito(params: any): Iterable<any> {
       },
     }
 
-    const { client, params } = getRevokedUserAuthAwsCognitoConnector(variables)
-
-    const res: any = yield client.post('', params)
-
-    const userIdDataAwsCognito = res?.data?.data?.getRevokedUserAuthAwsCognito
+    const userIdDataAwsCognito: any = yield getGraphqlResponseAsync({
+      clientHttpType: ClientHttpType['apolloClient'],
+      methodHttpType: MethodHttpType['query'],
+      variables,
+      resolveGraphqlName: 'getRevokedUserAuthAwsCognito',
+    })
 
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
 

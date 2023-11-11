@@ -1,10 +1,12 @@
 import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { getRefreshedUserAuthAwsCognitoConnector } from '../../CommunicationLayer/getRefreshedUserAuthAwsCognitoConnector'
 import { CLIENTS } from '../../Constants/clients.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
+import { ClientHttpType } from '../../@types/ClientHttpType'
+import { MethodHttpType } from '../../@types/MethodHttpType'
+import { getGraphqlResponseAsync } from '../../CommunicationLayer/getGraphqlResponseAsync'
 
 export function* getRefreshedUserAuthAwsCognito(params: any): Iterable<any> {
   const {
@@ -22,12 +24,12 @@ export function* getRefreshedUserAuthAwsCognito(params: any): Iterable<any> {
       },
     }
 
-    const { client, params } =
-      getRefreshedUserAuthAwsCognitoConnector(variables)
-
-    const res: any = yield client.post('', params)
-
-    const userIdDataAwsCognito = res?.data?.data?.getRefreshedUserAuthAwsCognito
+    const userIdDataAwsCognito: any = yield getGraphqlResponseAsync({
+      clientHttpType: ClientHttpType['apolloClient'],
+      methodHttpType: MethodHttpType['query'],
+      variables,
+      resolveGraphqlName: 'getRefreshedUserAuthAwsCognito',
+    })
 
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
 

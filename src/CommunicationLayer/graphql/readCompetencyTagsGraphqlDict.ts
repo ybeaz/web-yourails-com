@@ -1,11 +1,6 @@
 import { gql, DocumentNode } from '@apollo/client'
-import { print } from 'graphql'
 
-export type ReadCompetencyTagsGraphqlDictType = {
-  operationName: string
-  documentNode: DocumentNode
-  documentNodePrinted: string
-}
+import { GraphqlDictType } from '../../@types/GraphqlDictType'
 
 const operationName: string = 'ReadCompetencyTags'
 
@@ -25,11 +20,7 @@ const documentNode: DocumentNode = gql`
   }
 `
 
-const documentNodePrinted: string = print(documentNode)
-
-export const readCompetencyTagsGraphqlDict: ReadCompetencyTagsGraphqlDictType =
-  {
-    operationName,
-    documentNode,
-    documentNodePrinted,
-  }
+export const readCompetencyTagsGraphqlDict: GraphqlDictType = {
+  operationName,
+  documentNode,
+}
