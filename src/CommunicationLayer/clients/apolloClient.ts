@@ -19,15 +19,17 @@ const envType: string = getDetectedEnv()
 
 const baseURL = SERVERS_MAIN[envType as keyof ServersType] as string
 
-const createHttpLink = (): HttpLink => {
+const createHttpLink = (pathname: string): HttpLink => {
   return new HttpLink({
-    uri: `${baseURL}/graphql`,
+    uri: `${baseURL}${pathname}`,
     headers,
   })
 }
 
-export const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
-  const httpLink = createHttpLink()
+export const createApolloClient = (
+  pathname: string
+): ApolloClient<NormalizedCacheObject> => {
+  const httpLink = createHttpLink(pathname)
 
   const defaultOptions: DefaultOptions = {
     watchQuery: {
@@ -48,4 +50,5 @@ export const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
   })
 }
 
-export const apolloClient: any = createApolloClient()
+export const apolloClient: any = (pathname: string) =>
+  createApolloClient(pathname)

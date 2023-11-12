@@ -5,8 +5,7 @@ import { rootStoreDefault } from '../rootStoreDefault'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { competencyTags as competencyTagsMock } from '../../ContentMock/competencyTagsMock'
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
-import { ClientHttpType } from '../../@types/ClientHttpType'
-import { MethodHttpType } from '../../@types/MethodHttpType'
+import { QueryApolloType } from '../../@types/QueryApolloType'
 import { getGraphqlResponseAsync } from '../../CommunicationLayer/getGraphqlResponseAsync'
 
 const idProfileDict: Record<string, boolean> = {}
@@ -32,8 +31,7 @@ function* addCompetencyTags(): Iterable<any> {
       }
 
       competencyTags = yield getGraphqlResponseAsync({
-        clientHttpType: ClientHttpType['apolloClient'],
-        methodHttpType: MethodHttpType['query'],
+        queryApolloType: QueryApolloType['query'],
         variables,
         resolveGraphqlName: 'readCompetencyTags',
       })

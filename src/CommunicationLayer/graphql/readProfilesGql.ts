@@ -1,7 +1,7 @@
 import { gql, DocumentNode } from '@apollo/client'
 
 export const readProfilesGql: DocumentNode = gql`
-  query ReadProfiles {
+  query readProfiles {
     readProfiles {
       idProfile
       idUser

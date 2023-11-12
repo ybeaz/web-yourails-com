@@ -1,7 +1,7 @@
 import { gql, DocumentNode } from '@apollo/client'
 
 export const getRefreshedUserAuthAwsCognitoGql: DocumentNode = gql`
-  query GetRefreshedUserAuthAwsCognito(
+  query getRefreshedUserAuthAwsCognito(
     $userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!
   ) {
     getRefreshedUserAuthAwsCognito(

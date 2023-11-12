@@ -4,8 +4,7 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { CLIENTS } from '../../Constants/clients.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
-import { ClientHttpType } from '../../@types/ClientHttpType'
-import { MethodHttpType } from '../../@types/MethodHttpType'
+import { QueryApolloType } from '../../@types/QueryApolloType'
 import { getGraphqlResponseAsync } from '../../CommunicationLayer/getGraphqlResponseAsync'
 
 export function* getRefreshedUserAuthAwsCognito(params: any): Iterable<any> {
@@ -25,8 +24,7 @@ export function* getRefreshedUserAuthAwsCognito(params: any): Iterable<any> {
     }
 
     const userIdDataAwsCognito: any = yield getGraphqlResponseAsync({
-      clientHttpType: ClientHttpType['apolloClient'],
-      methodHttpType: MethodHttpType['query'],
+      queryApolloType: QueryApolloType['query'],
       variables,
       resolveGraphqlName: 'getRefreshedUserAuthAwsCognito',
     })

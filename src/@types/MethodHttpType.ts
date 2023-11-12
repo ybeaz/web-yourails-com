@@ -39,6 +39,4 @@ export enum MethodHttpType {
   options = 'options',
   trace = 'trace',
   patch = 'patch',
-  query = 'query',
-  mutation = 'mutation',
 }

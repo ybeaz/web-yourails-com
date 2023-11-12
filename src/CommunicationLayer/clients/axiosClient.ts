@@ -15,7 +15,7 @@ const baseURL = SERVERS_MAIN[envType as keyof ServersType] as string
 const { timeout } = SERVERS_MAIN
 
 export const axiosClient = axios.create({
-  baseURL: `${baseURL}/graphql`,
+  baseURL: `${baseURL}`,
   timeout,
   headers,
 })
