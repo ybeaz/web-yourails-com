@@ -1,32 +1,32 @@
+import { ClientHttpType } from '../@types/ClientHttpType'
 import { getDetectedEnv } from '../Shared/getDetectedEnv'
 
 const envType: string = getDetectedEnv()
-import { ClientHttpType } from '../@types/ClientHttpType'
 
-export interface IsFeatureFlag {
+export interface FeatureFlagType {
   (envTypeIn?: string): boolean | any
 }
 
 /** @description Flag to select Http client for graphql connection */
-export const selectGraphqlHttpClientFlag: IsFeatureFlag = (
+export const selectGraphqlHttpClientFlag: FeatureFlagType = (
   envTypeIn = envType
 ) => ClientHttpType['apolloClient']
 
 /** @description Flag to turn on isHostR1UserToComFlage */
-export const isStubMessagesToPeopleFlag: IsFeatureFlag = (
+export const isStubMessagesToPeopleFlag: FeatureFlagType = (
   envTypeIn = envType
 ) => true
 
 /** @description Flag to turn on isHostR1UserToComFlage */
-export const isHostR1UserToComFlag: IsFeatureFlag = (envTypeIn = envType) =>
+export const isHostR1UserToComFlag: FeatureFlagType = (envTypeIn = envType) =>
   false
 
 /**
  * @description Flag to turn on isLocalDataMockOnlyFlag
  * @import import { isLocalDataMockOnlyFlag } from './FeatureFlags'
  */
-export const isLocalDataMockOnlyFlag: IsFeatureFlag = (envTypeIn = envType) =>
+export const isLocalDataMockOnlyFlag: FeatureFlagType = (envTypeIn = envType) =>
   false
 
 /** @description Flag to turn on isTemplateFlag */
-export const isTemplateFlag: IsFeatureFlag = (envTypeIn = envType) => false
+export const isTemplateFlag: FeatureFlagType = (envTypeIn = envType) => false
