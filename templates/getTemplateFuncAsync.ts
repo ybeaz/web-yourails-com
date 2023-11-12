@@ -24,19 +24,20 @@ export const getTemplateFuncAsync: GetTemplateFuncAsyncType = async (
   params,
   options
 ) => {
+  let res: any[] = []
+
   try {
-    const res = await ''
+    res = await []
 
     if (options?.printRes) {
-      console.log('getTemplateFuncAsync', { res })
-      consoler('getTemplateFuncAsync', 'res', res)
+      console.log('getMappedConnectionToRes', { res })
+      consoler('getMappedConnectionToRes', 'res', res)
     }
-
-    return res
   } catch (error: any) {
-    console.log('getTemplateFuncAsync Error', error.message)
-    consolerError('getTemplateFuncAsync Error', error.message)
-    return
+    console.log('getMappedConnectionToRes', 'Error', error.message)
+    consolerError('getMappedConnectionToRes', error)
+  } finally {
+    return res
   }
 }
 

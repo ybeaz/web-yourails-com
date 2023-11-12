@@ -13,12 +13,16 @@ import {
 } from '../../../YrlNativeViewLibrary'
 
 import {
+  getChainedResponsibility,
+  ExecDictType,
+} from '../../../Shared/getChainedResponsibility'
+import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
+import {
   getMessagesWithProfileActive,
   GetMessagesWithProfileActiveParamsType,
 } from '../../../Shared/getMessagesWithProfileActive'
-import { getChainedResponsibility } from '../../../Shared/getChainedResponsibility'
+
 import { getDateLocale } from '../../../Shared/getDateLocale'
-import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import { Text } from '../../Components/Text/Text'
 import { Messages } from '../Messages/Messages'
 import { ChatSpaceType } from './ChatSpaceType'
@@ -78,11 +82,19 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         (a.createdAt ? a.createdAt : 0) - (b.createdAt ? b.createdAt : 0)
     )
 
-  const messagesNext = getChainedResponsibility(messages)
-    .exec(getMessagesWithProfileActive, [getMessagesWithProfileActiveOptions])
-    .exec(getPreproccedMessages, [idProfileHost])
-    .exec(getSortedMessages)
-    .done()
+  const messagesNext = getChainedResponsibility(messages).forEach([
+    {
+      func: getMessagesWithProfileActive,
+      options: getMessagesWithProfileActiveOptions,
+    },
+    {
+      func: getPreproccedMessages,
+      options: { idProfileHost },
+    },
+    {
+      func: getSortedMessages,
+    },
+  ])
 
   const Child: FunctionComponent | null = childName
     ? MODAL_CONTENTS[childName]

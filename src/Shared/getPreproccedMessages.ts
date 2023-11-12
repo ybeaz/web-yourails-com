@@ -4,7 +4,7 @@ import { MessageType } from '../@types/MessageType'
 interface getPreproccedMessagesType {
   (
     messages: Omit<MessageType, 'position' | 'isTail'>[],
-    idProfile: IdUserType
+    options: { idProfileHost: IdUserType; printRes: boolean }
   ): MessageType[]
 }
 
@@ -15,7 +15,7 @@ interface getPreproccedMessagesType {
 
 export const getPreproccedMessages: getPreproccedMessagesType = (
   messages,
-  idProfileHost
+  { idProfileHost, printRes }
 ) => {
   const messagesNext: MessageType[] = messages.map(
     (message: Omit<MessageType, 'position' | 'isTail'>, index: number) => {
@@ -38,6 +38,10 @@ export const getPreproccedMessages: getPreproccedMessagesType = (
       return messageNext
     }
   )
+
+  if (printRes) {
+    console.log('getPreproccedMessages [43]', { messagesNext })
+  }
 
   return messagesNext
 }

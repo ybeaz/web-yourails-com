@@ -1,4 +1,5 @@
-import { getTemplateAsync } from '../getTemplateAsync'
+import { consoler } from './consoler'
+import { getTemplateFuncAsync } from './getTemplateFuncAsync'
 
 const consoleDirOptions = {
   showHidden: true,
@@ -7,9 +8,9 @@ const consoleDirOptions = {
 }
 
 /**
- * @test yarn jest getTemplateAsync.test
+ * @test yarn jest getTemplateFuncAsync.test
  */
-describe('Test function getTemplateAsync', () => {
+describe('Test function getTemplateFuncAsync', () => {
   it('test', () => {
     const tests = [
       {
@@ -22,9 +23,9 @@ describe('Test function getTemplateAsync', () => {
     tests.forEach(async (test: any) => {
       const { isActive, params, expected } = test
       if (isActive) {
-        const outputed = await getTemplateAsync(params)
+        const outputed = await getTemplateFuncAsync(params)
 
-        console.info('getTemplateAsync [27]', { outputed })
+        consoler('getTemplateFuncAsync [27]', 'output', outputed)
 
         // expect(outputed).toEqual(expected)
       }

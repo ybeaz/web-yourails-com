@@ -1,4 +1,5 @@
 import { MessageType } from '../../@types/MessageType'
+import { MessageEventType } from '../../@types/MessageEventType'
 
 export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
   {
@@ -6,6 +7,7 @@ export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
     idMessage: '0',
     idConversation: '2',
     idProfile: '3',
+    eventType: MessageEventType['chatMessage'],
     text: 'Hi! Need an electrician for some lighting fixtures.',
   },
   {
@@ -13,6 +15,7 @@ export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
     idMessage: '1',
     idConversation: '2',
     idProfile: '2',
+    eventType: MessageEventType['chatMessage'],
     text: 'Hey there! What are you thinking?',
   },
   {
@@ -20,6 +23,7 @@ export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
     idMessage: '3',
     idConversation: '2',
     idProfile: '3',
+    eventType: MessageEventType['chatMessage'],
     text: 'Recessed lights in living & kitchen, new chandelier in dining. Got any recommendations?',
   },
   {
@@ -27,6 +31,7 @@ export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
     idMessage: '4',
     idConversation: '2',
     idProfile: '2',
+    eventType: MessageEventType['chatMessage'],
     text: "Sure thing! What's your budget?",
   },
   {
@@ -34,6 +39,7 @@ export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
     idMessage: '5',
     idConversation: '2',
     idProfile: '3',
+    eventType: MessageEventType['chatMessage'],
     text: 'Around $1500, including everything.',
   },
   {
@@ -41,6 +47,7 @@ export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
     idMessage: '6',
     idConversation: '2',
     idProfile: '2',
+    eventType: MessageEventType['chatMessage'],
     text: 'Got it. When can I take a look at the space??',
   },
   {
@@ -48,6 +55,7 @@ export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
     idMessage: '7',
     idConversation: '2',
     idProfile: '3',
+    eventType: MessageEventType['chatMessage'],
     text: 'How is about this Saturday around the noon?',
   },
   {
@@ -55,6 +63,7 @@ export const messages02D: Omit<MessageType, 'position' | 'isTail'>[] = [
     idMessage: '8',
     idConversation: '2',
     idProfile: '2',
+    eventType: MessageEventType['chatMessage'],
     text: 'That works for me, see you then!',
   },
 ]
