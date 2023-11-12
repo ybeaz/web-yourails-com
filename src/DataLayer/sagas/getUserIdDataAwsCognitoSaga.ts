@@ -5,7 +5,7 @@ import { CLIENTS } from '../../Constants/clients.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
 import { QueryApolloType } from '../../@types/QueryApolloType'
-import { getGraphqlResponseAsync } from '../../CommunicationLayer/getGraphqlResponseAsync'
+import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
 
 export function* getUserIdDataAwsCognito(params: any): Iterable<any> {
   const {
@@ -23,7 +23,7 @@ export function* getUserIdDataAwsCognito(params: any): Iterable<any> {
       },
     }
 
-    const userIdDataAwsCognito: any = yield getGraphqlResponseAsync({
+    const userIdDataAwsCognito: any = yield getResponseGraphqlAsync({
       queryApolloType: QueryApolloType['query'],
       variables,
       resolveGraphqlName: 'getUserIdDataAwsCognito',

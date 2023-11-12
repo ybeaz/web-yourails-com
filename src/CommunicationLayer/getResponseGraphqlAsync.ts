@@ -9,28 +9,28 @@ import { QueryApolloType } from '../@types/QueryApolloType'
 import { graphqlQueries } from './index.graphqlQuery'
 import { selectGraphqlHttpClientFlag } from '../FeatureFlags'
 
-export type GetGraphqlResponseAsyncParamsType = {
+export type GetResponseGraphqlAsyncParamsType = {
   queryApolloType: QueryApolloType
   variables: any
   resolveGraphqlName: string
 }
 
-export type GetGraphqlResponseAsyncResType = Promise<any>
+export type GetResponseGraphqlAsyncResType = Promise<any>
 
-interface GetGraphqlResponseAsyncType {
+interface GetResponseGraphqlAsyncType {
   (
-    params: GetGraphqlResponseAsyncParamsType,
+    params: GetResponseGraphqlAsyncParamsType,
     options?: { printRes: boolean }
-  ): GetGraphqlResponseAsyncResType
+  ): GetResponseGraphqlAsyncResType
 }
 
 /**
- * @description Function to getGraphqlResponseAsync
- * @run ts-node src/CommunicationLayer/getGraphqlResponseAsync.ts
- * @import import { getGraphqlResponseAsync } from './CommunicationLayer/getGraphqlResponseAsync'
+ * @description Function to getResponseGraphqlAsync
+ * @run ts-node src/CommunicationLayer/getResponseGraphqlAsync.ts
+ * @import import { getResponseGraphqlAsync } from './CommunicationLayer/getResponseGraphqlAsync'
  */
 
-export const getGraphqlResponseAsync: GetGraphqlResponseAsyncType = async (
+export const getResponseGraphqlAsync: GetResponseGraphqlAsyncType = async (
   { queryApolloType, variables, resolveGraphqlName },
   options
 ) => {
@@ -68,12 +68,12 @@ export const getGraphqlResponseAsync: GetGraphqlResponseAsyncType = async (
     }
 
     if (options?.printRes) {
-      console.log('getGraphqlResponseAsync', 'output', output)
+      console.log('getResponseGraphqlAsync', 'output', output)
     }
 
     return output
   } catch (error: any) {
-    console.log('getGraphqlResponseAsync', error)
+    console.log('getResponseGraphqlAsync', error)
     return
   }
 }

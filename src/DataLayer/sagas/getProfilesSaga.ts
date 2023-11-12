@@ -4,13 +4,13 @@ import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 import { profiles as profilesMock } from '../../ContentMock/profilesMock'
 import { QueryApolloType } from '../../@types/QueryApolloType'
-import { getGraphqlResponseAsync } from '../../CommunicationLayer/getGraphqlResponseAsync'
+import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
 
 export function* getProfiles(): Iterable<any> {
   let profiles: any = []
   try {
     if (!isLocalDataMockOnlyFlag()) {
-      profiles = yield getGraphqlResponseAsync({
+      profiles = yield getResponseGraphqlAsync({
         queryApolloType: QueryApolloType['query'],
         variables: {},
         resolveGraphqlName: 'readProfiles',

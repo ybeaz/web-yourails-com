@@ -5,7 +5,7 @@ import { CLIENTS } from '../../Constants/clients.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 import { getDeletedObjFromLocalStorage } from '../../Shared/getDeletedObjFromLocalStorage'
 import { QueryApolloType } from '../../@types/QueryApolloType'
-import { getGraphqlResponseAsync } from '../../CommunicationLayer/getGraphqlResponseAsync'
+import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
 
 function* getRevokedUserAuthAwsCognito(params: any): Iterable<any> {
   const {
@@ -23,7 +23,7 @@ function* getRevokedUserAuthAwsCognito(params: any): Iterable<any> {
       },
     }
 
-    const userIdDataAwsCognito: any = yield getGraphqlResponseAsync({
+    const userIdDataAwsCognito: any = yield getResponseGraphqlAsync({
       queryApolloType: QueryApolloType['query'],
       variables,
       resolveGraphqlName: 'getRevokedUserAuthAwsCognito',
