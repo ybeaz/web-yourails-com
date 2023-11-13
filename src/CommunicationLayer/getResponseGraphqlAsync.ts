@@ -5,12 +5,10 @@ import { apolloClient } from './clients/apolloClient'
 
 import { ClientHttpType } from '../@types/ClientHttpType'
 import { MethodHttpType } from '../@types/MethodHttpType'
-import { QueryApolloType } from '../@types/QueryApolloType'
 import { graphqlQueries } from './index.graphqlQuery'
 import { selectGraphqlHttpClientFlag } from '../FeatureFlags'
 
 export type GetResponseGraphqlAsyncParamsType = {
-  queryApolloType: QueryApolloType
   variables: any
   resolveGraphqlName: string
 }
@@ -31,7 +29,7 @@ interface GetResponseGraphqlAsyncType {
  */
 
 export const getResponseGraphqlAsync: GetResponseGraphqlAsyncType = async (
-  { queryApolloType, variables, resolveGraphqlName },
+  { variables, resolveGraphqlName },
   options
 ) => {
   try {
@@ -43,6 +41,9 @@ export const getResponseGraphqlAsync: GetResponseGraphqlAsyncType = async (
         : axiosClient
 
     const documentNode = graphqlQueries[`${resolveGraphqlName}Gql`]
+
+    // @ts-expect-error
+    const operationGraphql = documentNode?.definitions[0]?.operation
 
     const params = {
       operationName: resolveGraphqlName,
@@ -56,7 +57,7 @@ export const getResponseGraphqlAsync: GetResponseGraphqlAsyncType = async (
     let output: any
 
     if (clientHttpType === ClientHttpType['apolloClient']) {
-      const res: any = await client('/graphql')[queryApolloType](params)
+      const res: any = await client('/graphql')[operationGraphql](params)
       output = res?.data[resolveGraphqlName]
     } else if (clientHttpType === ClientHttpType['axiosClient']) {
       const res: any = await client({

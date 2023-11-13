@@ -3,7 +3,6 @@ import { takeEvery, put } from 'redux-saga/effects'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 import { profiles as profilesMock } from '../../ContentMock/profilesMock'
-import { QueryApolloType } from '../../@types/QueryApolloType'
 import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
 
 export function* getProfiles(): Iterable<any> {
@@ -11,7 +10,6 @@ export function* getProfiles(): Iterable<any> {
   try {
     if (!isLocalDataMockOnlyFlag()) {
       profiles = yield getResponseGraphqlAsync({
-        queryApolloType: QueryApolloType['query'],
         variables: {},
         resolveGraphqlName: 'readProfiles',
       })
