@@ -10,7 +10,7 @@ export type ExecDictType = {
 }
 
 type GetChainedResponsibilityOutType<T> = {
-  res: any
+  result: any
   exec: (
     func: (...params: any) => T,
     params?: any
@@ -20,28 +20,29 @@ type GetChainedResponsibilityOutType<T> = {
 }
 
 interface GetChainedResponsibilityType<T> {
-  (entity: T, options?: any): GetChainedResponsibilityOutType<T>
+  (entity: T): GetChainedResponsibilityOutType<T>
 }
 
 /**
  * @description Function to getChainedResponsibility
- * @import import { getChainedResponsibility } from './getChainedResponsibility'
+ * @import import { getChainedResponsibility } from './Shared/getChainedResponsibility'
  */
 
-export const getChainedResponsibility: GetChainedResponsibilityType<any[]> = (
-  entity,
-  options
-) => {
-  const outputObj: GetChainedResponsibilityOutType<any[]> = {
-    res: entity || [],
+export const getChainedResponsibility: GetChainedResponsibilityType<
+  any
+> = entity => {
+  const outputObj: GetChainedResponsibilityOutType<any> = {
+    result: entity || [],
     exec(func: FuncType, params?: any) {
       const paramsNext: [any, any?] =
-        params && isObject(params) ? [this.res, params] : [this.res]
-      this.res = this.res && this.res.length ? func.apply(null, paramsNext) : []
+        params && isObject(params) ? [this.result, params] : [this.result]
+
+      this.result =
+        this.result && paramsNext.length ? func.apply(null, paramsNext) : []
       return outputObj
     },
     done() {
-      return this.res
+      return this.result
     },
     forEach(execTuple: ExecDictType[]) {
       for (let execDict of execTuple) {
@@ -51,10 +52,10 @@ export const getChainedResponsibility: GetChainedResponsibilityType<any[]> = (
           this.exec(func, options)
         }
         if (printRes) {
-          console.info('getChainedResponsibility [63]', { res: this.res })
+          console.info('getChainedResponsibility [63]', { res: this.result })
         }
       }
-      return this.res
+      return this.result
     },
   }
 
