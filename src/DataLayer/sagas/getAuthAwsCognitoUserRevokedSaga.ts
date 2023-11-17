@@ -3,13 +3,13 @@ import { takeEvery, put } from 'redux-saga/effects'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { CLIENTS_URI } from '../../Constants/clientsUri.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
-import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
+import { getDeletedObjFromLocalStorage } from '../../Shared/getDeletedObjFromLocalStorage'
 import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
 import { ClientAppType } from '../../@types/ClientAppType'
 
-export function* getUserIdDataAwsCognito(params: any): Iterable<any> {
+function* getAuthAwsCognitoUserRevoked(params: any): Iterable<any> {
   const {
-    data: { code },
+    data: { refresh_token },
   } = params
 
   try {
@@ -18,7 +18,7 @@ export function* getUserIdDataAwsCognito(params: any): Iterable<any> {
 
     const variables = {
       userIdDataAwsCognitoInput: {
-        code,
+        refresh_token,
         redirect_uri,
         client_app: ClientAppType['CHAT_AI'],
       },
@@ -26,24 +26,29 @@ export function* getUserIdDataAwsCognito(params: any): Iterable<any> {
 
     const userIdDataAwsCognito: any = yield getResponseGraphqlAsync({
       variables,
-      resolveGraphqlName: 'getUserIdDataAwsCognito',
+      resolveGraphqlName: 'getAuthAwsCognitoUserRevoked',
     })
 
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
 
-    getSetObjToLocalStorage(userIdDataAwsCognito)
+    getDeletedObjFromLocalStorage({
+      ...userIdDataAwsCognito,
+      refresh_token: null,
+    })
   } catch (error: any) {
-    console.log('ERROR getUserIdDataAwsCognitoSaga', { error: error.message })
+    console.log('ERROR getAuthAwsCognitoUserRevokedSaga', {
+      error: error.message,
+    })
   }
 }
 
 /**
- * @description Function to getUserIdDataAwsCognitoSaga
- * @import import getUserIdDataAwsCognitoSaga from './sagas/getUserIdDataAwsCognitoSaga'
+ * @description Function to getAuthAwsCognitoUserRevokedSaga
+ * @import import getAuthAwsCognitoUserRevokedSaga from './sagas/getAuthAwsCognitoUserRevokedSaga'
  */
-export default function* getUserIdDataAwsCognitoSaga() {
+export default function* getAuthAwsCognitoUserRevokedSaga() {
   yield takeEvery(
-    [actionAsync.GET_USERID_DATA_AWS_COGNITO_ASYNC.REQUEST().type],
-    getUserIdDataAwsCognito
+    [actionAsync.GET_REVOKED_USER_AUTH_AWS_COGNITO_ASYNC.REQUEST().type],
+    getAuthAwsCognitoUserRevoked
   )
 }

@@ -12,8 +12,8 @@ import { sectionsMapping } from '../../ContentMock/sectionsMappingMock'
 import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio/getSocketEmitJoinConversation'
 import { getJoinedConversation } from '../../CommunicationLayer/socketio/getJoinedConversation'
 import { getProfiles } from './getProfilesSaga'
-import { getUserIdDataAwsCognito } from './getUserIdDataAwsCognitoSaga'
-import { getRefreshedUserAuthAwsCognito } from './getRefreshedUserAuthAwsCognitoSaga'
+import { getAuthAwsCognitoUserData } from './getAuthAwsCognitoUserDataSaga'
+import { getAuthAwsCognitoUserRefreshed } from './getAuthAwsCognitoUserRefreshedSaga'
 
 type InitLoadingType = {
   type: 'INIT_LOADING_ASYNC_REQUEST'
@@ -42,9 +42,9 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
     }
 
     if (code) {
-      yield call(getUserIdDataAwsCognito, { data: { code } })
+      yield call(getAuthAwsCognitoUserData, { data: { code } })
     } else if (refresh_token) {
-      yield call(getRefreshedUserAuthAwsCognito, { data: { refresh_token } })
+      yield call(getAuthAwsCognitoUserRefreshed, { data: { refresh_token } })
     }
 
     const res: any = yield select(store => store)

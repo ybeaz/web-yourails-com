@@ -3,11 +3,11 @@ import { takeEvery, put } from 'redux-saga/effects'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { CLIENTS_URI } from '../../Constants/clientsUri.const'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
-import { getDeletedObjFromLocalStorage } from '../../Shared/getDeletedObjFromLocalStorage'
+import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
 import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
 import { ClientAppType } from '../../@types/ClientAppType'
 
-function* getRevokedUserAuthAwsCognito(params: any): Iterable<any> {
+export function* getAuthAwsCognitoUserRefreshed(params: any): Iterable<any> {
   const {
     data: { refresh_token },
   } = params
@@ -26,29 +26,26 @@ function* getRevokedUserAuthAwsCognito(params: any): Iterable<any> {
 
     const userIdDataAwsCognito: any = yield getResponseGraphqlAsync({
       variables,
-      resolveGraphqlName: 'getRevokedUserAuthAwsCognito',
+      resolveGraphqlName: 'getAuthAwsCognitoUserRefreshed',
     })
 
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
 
-    getDeletedObjFromLocalStorage({
-      ...userIdDataAwsCognito,
-      refresh_token: null,
-    })
+    getSetObjToLocalStorage(userIdDataAwsCognito)
   } catch (error: any) {
-    console.log('ERROR getRevokedUserAuthAwsCognitoSaga', {
+    console.log('ERROR getAuthAwsCognitoUserRefreshedSaga', {
       error: error.message,
     })
   }
 }
 
 /**
- * @description Function to getRevokedUserAuthAwsCognitoSaga
- * @import import getRevokedUserAuthAwsCognitoSaga from './sagas/getRevokedUserAuthAwsCognitoSaga'
+ * @description Function to getAuthAwsCognitoUserRefreshedSaga
+ * @import import getAuthAwsCognitoUserRefreshedSaga from './sagas/getAuthAwsCognitoUserRefreshedSaga'
  */
-export default function* getRevokedUserAuthAwsCognitoSaga() {
+export default function* getAuthAwsCognitoUserRefreshedSaga() {
   yield takeEvery(
-    [actionAsync.GET_REVOKED_USER_AUTH_AWS_COGNITO_ASYNC.REQUEST().type],
-    getRevokedUserAuthAwsCognito
+    [actionAsync.GET_REFRESHED_USER_AUTH_AWS_COGNITO_ASYNC.REQUEST().type],
+    getAuthAwsCognitoUserRefreshed
   )
 }
