@@ -35,8 +35,6 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
 
     const code = params?.data?.query?.code
 
-    console.info('initLoadingSaga [38]', { code })
-
     // TODO Implement localStorage for ios and android
     let refresh_token = undefined
     if (Platform.OS === 'web') {
