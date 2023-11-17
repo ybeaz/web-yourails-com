@@ -370,6 +370,8 @@ export type OptionType = {
     __typename?: 'OptionType';
     /** course module question option label */
     label: Scalars['String']['output'];
+    /** courses module question option ID */
+    optionID?: Maybe<Scalars['ID']['output']>;
     /** course module question option status: true or false */
     status: Scalars['Boolean']['output'];
 };
@@ -473,6 +475,7 @@ export type Query = {
     readCourse: CourseType;
     readCourses: Array<CourseType>;
     readCoursesConnection: CoursesConnectionType;
+    readModule: ModuleType;
     readProfiles: Array<ProfileType>;
     readProfilesConnection: ProfilesConnectionType;
     readTemplate: TemplatesType;
@@ -511,10 +514,13 @@ export type QueryReadCompetencyTagsArgs = {
     params: CompetencyTagsParamsReadType;
 };
 export type QueryReadCourseArgs = {
-    courseID: Scalars['String']['input'];
+    readCourseInput: ReadCourseInputType;
 };
 export type QueryReadCoursesConnectionArgs = {
     readCoursesConnectionInput: ReadCoursesConnectionInputType;
+};
+export type QueryReadModuleArgs = {
+    moduleID: Scalars['String']['input'];
 };
 export type QueryReadProfilesConnectionArgs = {
     readProfilesConnectionInput: ReadProfilesConnectionInputType;
@@ -549,16 +555,24 @@ export type QuerySendEmailDocumentArgs = {
 };
 export type QuestionType = {
     __typename?: 'QuestionType';
-    /** course question capture */
+    /** course module question capture */
     capture: Scalars['String']['output'];
-    /** course question designType */
+    /** course module question designType */
     designType?: Maybe<Scalars['String']['output']>;
-    /** isActive */
+    /** course module question isActive */
     isActive: Scalars['Boolean']['output'];
     /** designType > multi */
-    multi: Scalars['Boolean']['output'];
-    /** course question options */
+    multi?: Maybe<Scalars['Boolean']['output']>;
+    /** course module question options */
     options: Array<OptionType>;
+    /** courses module question ID */
+    questionID?: Maybe<Scalars['ID']['output']>;
+};
+export type ReadCourseInputType = {
+    /** course ID */
+    courseID?: InputMaybe<Scalars['ID']['input']>;
+    /** module ID */
+    moduleID?: InputMaybe<Scalars['ID']['input']>;
 };
 export type ReadCoursesConnectionInputType = {
     /** after */
