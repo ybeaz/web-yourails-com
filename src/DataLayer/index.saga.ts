@@ -10,12 +10,14 @@ import addMessagesSaga from './sagas/addMessagesSaga'
 import initLoadingSaga from './sagas/initLoadingSaga'
 
 export default function* indexSaga() {
-  yield all([fork(getProfilesSaga)])
-  yield all([fork(getAuthAwsCognitoUserRevokedSaga)])
-  yield all([fork(getAuthAwsCognitoUserRefreshedSaga)])
-  yield all([fork(getAuthAwsCognitoUserDataSaga)])
-  yield all([fork(addCompetencyTagsSaga)])
-  yield all([fork(addProjectsSaga)])
-  yield all([fork(addMessagesSaga)])
-  yield all([fork(initLoadingSaga)])
+  yield all([
+    fork(getProfilesSaga),
+    fork(getAuthAwsCognitoUserRevokedSaga),
+    fork(getAuthAwsCognitoUserRefreshedSaga),
+    fork(getAuthAwsCognitoUserDataSaga),
+    fork(addCompetencyTagsSaga),
+    fork(addProjectsSaga),
+    fork(addMessagesSaga),
+    fork(initLoadingSaga),
+  ])
 }
