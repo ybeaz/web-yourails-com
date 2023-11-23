@@ -4,10 +4,7 @@
       "path": "."
     },
     {
-      "path": "node_modules/@expo/vector-icons"
-    },
-    {
-      "path": "node_modules/react-native-asset"
+      "path": "../manuals/."
     },
     {
       "path": "node_modules/expo"
