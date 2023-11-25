@@ -12,12 +12,17 @@ export const selectGraphqlHttpClientFlag: FeatureFlagType = (
   envTypeIn = envType
 ) => ClientHttpType['apolloClient']
 
-/** @description Flag to turn on isHostR1UserToComFlage */
-export const isStubMessagesToPeopleFlag: FeatureFlagType = (
+/** @description Flag to turn on isRequiredRegistrationForMessagingFlag */
+export const isRequiredRegistrationForMessagingFlag: FeatureFlagType = (
   envTypeIn = envType
 ) => true
 
-/** @description Flag to turn on isHostR1UserToComFlage */
+/** @description Flag to turn on isHostR1UserToComFlag */
+export const isRequiredPermissionToMessageToPeopleFlag: FeatureFlagType = (
+  envTypeIn = envType
+) => true
+
+/** @description Flag to turn on isHostR1UserToComFlag */
 export const isHostR1UserToComFlag: FeatureFlagType = (envTypeIn = envType) =>
   false
 
@@ -30,3 +35,12 @@ export const isLocalDataMockOnlyFlag: FeatureFlagType = (envTypeIn = envType) =>
 
 /** @description Flag to turn on isTemplateFlag */
 export const isTemplateFlag: FeatureFlagType = (envTypeIn = envType) => false
+
+/**
+ * @description Feature flag for development and debugging
+ */
+
+/** @description Flag to turn on isTemplateFlag */
+export const isServerSocketIoHostRemoteFlag: FeatureFlagType = (
+  envTypeIn = envType
+) => false

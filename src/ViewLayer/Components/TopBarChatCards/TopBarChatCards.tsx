@@ -35,10 +35,16 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
 
   const {
     componentsState: { isUserMenu },
-    globalVars: { idProfileHost, idProfileActive },
+    globalVars: { idUserHost, idProfileHost, idProfileActive },
     forms: { inputSearch },
     profiles,
   } = store
+
+  console.info('TopBarChatCards [43]', {
+    idUserHost,
+    idProfileHost,
+    idProfileActive,
+  })
 
   const profileHost = getProfileByIdProfile(profiles, idProfileHost)
   const { avatarSrc } = profileHost
