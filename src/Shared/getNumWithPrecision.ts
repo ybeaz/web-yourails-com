@@ -45,6 +45,7 @@ export const getNumWithPrecision: GetNumWithPrecisionType = (
  */
 if (require.main === module) {
   const value = 5432432.894532
+  // @ts-expect-error
   const outout = getNumWithPrecision(value, { printRes: true })
   // console.log('getConvertedType [48]', { min, max, outout })
 }

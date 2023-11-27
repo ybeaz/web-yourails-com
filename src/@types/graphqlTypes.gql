@@ -16,6 +16,17 @@ type ChoiceType {
   message: MessageChoiceType!
 }
 
+type CollectionUpdateStatusType {
+  """templates ID"""
+  collectionName: ID
+
+  """collection updated date"""
+  dateUpdated: Float
+
+  """status > whether the collection is updated successfully"""
+  statusUpdated: Boolean!
+}
+
 input ComparisonFields {
   """user ID"""
   userIdAuth: ID
@@ -31,6 +42,9 @@ enum CompetencyContentType {
 }
 
 type CompetencyTagType {
+  """competency ID"""
+  competencyID: ID!
+
   """contentType"""
   contentType: CompetencyContentType!
 
@@ -40,14 +54,11 @@ type CompetencyTagType {
   """iconName"""
   iconName: String
 
-  """competency ID"""
-  idCompetency: ID!
-
-  """profile ID"""
-  idProfile: ID!
-
   """linkHref"""
   linkHref: String
+
+  """profile ID"""
+  profileID: ID!
 
   """section"""
   section: String
@@ -75,7 +86,7 @@ input CompetencyTagsInputType {
 
 input CompetencyTagsParamsReadType {
   """first item"""
-  idProfile: String
+  profileID: String
 }
 
 type CourseEdgeType {
@@ -120,6 +131,9 @@ type CourseType {
   """courses passRate"""
   passRate: Float
 
+  """profile ID"""
+  profileID: ID!
+
   """courses questionNumber"""
   questionNumber: Int!
 }
@@ -132,7 +146,15 @@ type CoursesConnectionType {
   pageInfo: CoursesPageInfoType
 }
 
-input CoursesInputType {
+type CoursesPageInfoType {
+  """endCursor"""
+  endCursor: String
+
+  """hasNextPage"""
+  hasNextPage: Boolean
+}
+
+input CreateCoursesInputType {
   """courses created date"""
   coursesDateCreated: Date
 
@@ -146,22 +168,32 @@ input CoursesInputType {
   idCourses: ID
 }
 
-type CoursesPageInfoType {
-  """endCursor"""
-  endCursor: String
-
-  """hasNextPage"""
-  hasNextPage: Boolean
-}
-
 input CreateDocumentInputType {
-  capture: String!
-  contentIDs: [String!]!
+  """capture"""
+  capture: String! = "false"
+
+  """contentIDs"""
+  contentIDs: [String!]! = "false"
+
+  """courseID"""
   courseID: ID!
-  description: String
-  lang: String!
+
+  """description"""
+  description: String = "false"
+
+  """language"""
+  language: String! = "false"
+
+  """meta"""
   meta: MetaInputType!
-  moduleIDs: [String!]!
+
+  """moduleIDs"""
+  moduleIDs: [String!]! = "false"
+
+  """userID"""
+  userID: String! = "false"
+
+  """userName"""
   userName: UserNameInputType!
 }
 
@@ -169,17 +201,37 @@ input CreateDocumentInputType {
 scalar Date
 
 type DocumentType {
+  """capture"""
   capture: String!
+
+  """contentIDs"""
   contentIDs: [String!]!
+
+  """courseID"""
   courseID: ID!
-  creationDate: Date!
+
+  """document created date"""
+  dateCreated: Float!
+
+  """description"""
   description: String
   documentID: ID!
   ip: String!
-  lang: String!
+
+  """language"""
+  language: String!
+
+  """meta"""
   meta: MetaObjectType!
+
+  """moduleIDs"""
   moduleIDs: [String!]!
   pathName: String!
+
+  """userID"""
+  userID: String!
+
+  """userName"""
   userName: UserNameObjectType!
 }
 
@@ -293,7 +345,7 @@ type ModuleType {
 type Mutation {
   addRecipe(newRecipeData: NewRecipeInputType!): RecipeType!
   createCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagType!]!
-  createCourses(coursesInput: CoursesInputType!): [CourseType!]!
+  createCourse(createCoursesInput: CreateCoursesInputType!): CourseType!
   createDocument(createDocumentInput: CreateDocumentInputType!): DocumentType!
   createProfiles(profilesInput: ProfilesInputType!): [ProfileType!]!
   createTemplates(templatesInput: TemplatesInputType!): [TemplatesType!]!
@@ -301,12 +353,13 @@ type Mutation {
   deleteCompetencyTags(idCompetencyTags: String!): [CompetencyTagType!]!
   deleteCourses(courseID: String!): [CourseType!]!
   deleteProfiles(idProfiles: String!): [ProfileType!]!
-  deleteTemplates(idTemplates: String!): [TemplatesType!]!
+  deleteTemplates(templatesID: String!): [TemplatesType!]!
   deleteUser(userIdAuth: String!, userIdProfile: String!): UserModelExtendedType!
   removeDocument(id: String!): Boolean!
   removeRecipe(id: String!): Boolean!
+  updateCollections(collections: [String!]!): [CollectionUpdateStatusType!]!
   updateCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagType!]!
-  updateCourses(coursesInput: CoursesInputType!): [CourseType!]!
+  updateCourse(updateCourseInput: UpdateCoursesInputType!): [CourseType!]!
   updateProfiles(profilesInput: ProfilesInputType!): [ProfileType!]!
   updateTemplates(templatesInput: TemplatesInputType!): [TemplatesType!]!
   updateUser(userInputType2: UserInputType!): UserModelExtendedType!
@@ -362,14 +415,8 @@ type ProfileType {
   """help"""
   help: String
 
-  """profile ID"""
-  idProfile: ID!
-
   """socket ID"""
   idSocket: ID
-
-  """user ID"""
-  idUser: ID!
 
   """imagePendingSrc"""
   imagePendingSrc: String
@@ -399,6 +446,9 @@ type ProfileType {
   position: Float
 
   """profile ID"""
+  profileID: ID!
+
+  """profile ID"""
   profileName: String!
 
   """profileNature"""
@@ -415,6 +465,9 @@ type ProfileType {
 
   """summary"""
   summary: String
+
+  """user ID"""
+  userID: ID!
 }
 
 type ProfilesConnectionType {
@@ -462,7 +515,7 @@ type Query {
   readModule(moduleID: String!): ModuleType!
   readProfiles: [ProfileType!]!
   readProfilesConnection(readProfilesConnectionInput: ReadProfilesConnectionInputType!): ProfilesConnectionType!
-  readTemplate(idTemplates: String!): TemplatesType!
+  readTemplate(templatesID: String!): TemplatesType!
   readTemplates: [TemplatesType!]!
   readTemplatesConnection(readTemplatesConnectionInput: ReadTemplatesConnectionInputType!): TemplatesConnectionType!
   readUserAuth(userIdAuth: String!): UserModelExtendedType!
@@ -491,6 +544,9 @@ type QuestionType {
 
   """courses module question ID"""
   questionID: ID
+
+  """course module question topic"""
+  topic: String
 }
 
 input ReadCourseInputType {
@@ -597,7 +653,7 @@ input TemplatesInputType {
   dateUpdated: Date
 
   """templates ID"""
-  idTemplates: ID
+  templatesID: ID
 }
 
 type TemplatesPageInfoType {
@@ -618,11 +674,25 @@ type TemplatesType {
   """templates updated date"""
   dateUpdated: Date
 
-  """templates ID"""
-  idTemplates: ID
-
   """isActive"""
   isActive: Boolean!
+
+  """templates ID"""
+  templatesID: ID
+}
+
+input UpdateCoursesInputType {
+  """courses created date"""
+  coursesDateCreated: Date
+
+  """courses deleted date"""
+  coursesDateDeleted: Date
+
+  """courses updated date"""
+  coursesDateUpdated: Date
+
+  """courses ID"""
+  idCourses: ID
 }
 
 input UserIdDataAwsCognitoInputType {
