@@ -49,14 +49,14 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
   console.info('ProfileSelectMenu [49]', { platformOS })
 
   const profilesUserHost = profiles.filter(
-    (profile: ProfileType) => profile.idUser === idUserHost
+    (profile: ProfileType) => profile.userID === idUserHost
   )
 
   const getUserHostProfiles = (
     profilesUserHostIn: ProfileType[]
   ): ReactElement[] => {
     return profilesUserHostIn.map((profile: ProfileType, index: number) => {
-      const { idProfile, profileName } = profile
+      const { profileID, profileName } = profile
       const propsOut = {
         avatarPlusInfoProps: {
           key: `userHostAvatarPlusInfo-${index}`,
@@ -68,7 +68,7 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
             handleEvents.CLICK_ON_HOST_PROFILE_SELECT(
               {},
               {
-                idProfileHost: idProfile,
+                idProfileHost: profileID,
                 profileNameHost: profileName,
                 urlParam1,
                 urlParam2,

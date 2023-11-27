@@ -54,7 +54,7 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
     if (idProfileHost) {
       const profileHost: ProfileType = getFilteredObjsArrayBy(
         profiles,
-        'idProfile',
+        'profileID',
         idProfileHost,
         OperatorType['===']
       )[0] as ProfileType

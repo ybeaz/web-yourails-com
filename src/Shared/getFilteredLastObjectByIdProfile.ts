@@ -3,7 +3,7 @@ interface GetFilteredLastObjectByIdProfileType<T> {
 }
 
 /**
- * @description Function to filter the last object with the provided idProfile
+ * @description Function to filter the last object with the provided profileID
  * @import import { getFilteredLastObjectByIdProfile } from '../../../Shared/getFilteredLastObjectByIdProfile'
  */
 
@@ -11,7 +11,7 @@ export const getFilteredLastObjectByIdProfile: GetFilteredLastObjectByIdProfileT
   any
 > = (messages, idProfileArg) => {
   const messagesIdProfile = messages.filter(
-    (message: any) => message.idProfile === idProfileArg
+    (message: any) => message.profileID === idProfileArg
   )
 
   if (messagesIdProfile.length === 0) return messages

@@ -8,7 +8,7 @@ export type MessageType = {
   createdAt?: number
   idConversation: string
   idMessage?: string
-  idProfile: IdUserType
+  profileID: IdUserType
   isPending?: boolean
   imagePendingSrc?: string
   isTail?: boolean

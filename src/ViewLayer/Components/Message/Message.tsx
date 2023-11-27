@@ -36,7 +36,7 @@ const MessageComponent: MessageComponentType = props => {
     isPending,
     imagePendingSrc,
     mediaParams = mediaParamsDefault,
-    // idProfile,
+    // profileID,
     // eventType,
     // image,
     // video,

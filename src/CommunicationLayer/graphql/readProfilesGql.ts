@@ -3,8 +3,8 @@ import { gql, DocumentNode } from '@apollo/client'
 export const readProfilesGql: DocumentNode = gql`
   query readProfiles {
     readProfiles {
-      idProfile
-      idUser
+      profileID
+      userID
       profileName
       isActive
       profileNature

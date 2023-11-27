@@ -101,7 +101,7 @@ const UserMenuComponent: UserMenuType = props => {
         handleEvents.CLICK_ON_USER_CHAT_CARD(
           {},
           {
-            idProfile: idProfileHost,
+            profileID: idProfileHost,
             profileName: profileNameHost,
             urlParam1,
             urlParam2,

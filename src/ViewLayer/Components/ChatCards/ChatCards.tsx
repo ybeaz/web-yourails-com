@@ -64,8 +64,8 @@ const ChatCardsComponent: ChatCardsType = props => {
   }
 
   const profilesFiltered = profilesSorted.filter((profile: ProfileType) => {
-    const { idProfile } = profile
-    return idProfile !== '0' && idProfile !== idProfileHost
+    const { profileID } = profile
+    return profileID !== '0' && profileID !== idProfileHost
   })
 
   const renderItem = ({
@@ -76,7 +76,7 @@ const ChatCardsComponent: ChatCardsType = props => {
     const propsOut: Record<string, any> = {
       chatCardProps: {
         profile,
-        isActive: profile.idProfile === idProfileActive,
+        isActive: profile.profileID === idProfileActive,
         urlParam1,
         urlParam2,
         query,

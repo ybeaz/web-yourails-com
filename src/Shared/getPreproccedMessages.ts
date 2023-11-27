@@ -20,17 +20,17 @@ export const getPreproccedMessages: getPreproccedMessagesType = (
   const messagesNext: MessageType[] = messages.map(
     (message: Omit<MessageType, 'position' | 'isTail'>, index: number) => {
       const messagesLen = messages.length
-      const { idProfile } = message
+      const { profileID } = message
       const idUserPrev =
-        index - 1 >= 0 ? messages[index - 1].idProfile : undefined
-      const idUserNext =
-        index + 1 < messagesLen ? messages[index + 1].idProfile : undefined
+        index - 1 >= 0 ? messages[index - 1].profileID : undefined
+      const userIDNext =
+        index + 1 < messagesLen ? messages[index + 1].profileID : undefined
 
-      const position = idProfile === idProfileHost ? 'right' : 'left'
+      const position = profileID === idProfileHost ? 'right' : 'left'
 
       let isTail = false
-      if (idProfile !== idUserNext) isTail = true
-      else if (idUserPrev && idUserNext && idProfile === idUserNext)
+      if (profileID !== userIDNext) isTail = true
+      else if (idUserPrev && userIDNext && profileID === userIDNext)
         isTail = false
 
       const messageNext = { ...message, position, isTail }

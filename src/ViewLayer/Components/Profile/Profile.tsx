@@ -134,14 +134,14 @@ const ProfileComponent: ProfileComponentType = props => {
 
   const profilesTagsUserHost = getFilteredObjsArrayBy(
     profiles,
-    'idProfile',
+    'profileID',
     idProfileActive
   ) as ProfileType[]
   const profileTagsUserHost = profilesTagsUserHost[0]
 
   const linksUserHost = getFilteredObjsArrayBy(
     links,
-    'idProfile',
+    'profileID',
     idProfileActive
   ) as LinkType[]
 

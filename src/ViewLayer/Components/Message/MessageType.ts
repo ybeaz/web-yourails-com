@@ -10,7 +10,7 @@ import { CopyThisPropsType } from '../CopyThis/CopyThis'
 
 export type MessagePropsType = {
   idMessage?: string
-  idProfile: IdUserType
+  profileID: IdUserType
   eventType: MessageEventType
   text: string
   createdAt?: number

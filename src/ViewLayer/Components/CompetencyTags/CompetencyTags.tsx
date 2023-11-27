@@ -31,13 +31,13 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   } = store
 
   useEffect(() => {
-    handleEvents.ADD_COMPETENCY_TAGS({}, { idProfile: idProfileActive })
+    handleEvents.ADD_COMPETENCY_TAGS({}, { profileID: idProfileActive })
   }, [idProfileActive])
 
   const sectionMapping =
     sectionsMapping.find(
       (item: SectionMappingType) =>
-        item.idProfile === idProfileActive && item.childName === childName
+        item.profileID === idProfileActive && item.childName === childName
     ) || sectionsMapping[0]
 
   const { title } = sectionMapping
@@ -47,7 +47,7 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
 
   const competencyTagsUserActive = getFilteredObjsArrayBy(
     competencyTags,
-    'idProfile',
+    'profileID',
     idProfileActive2
   ) as CompetencyTagType[]
 

@@ -17,7 +17,7 @@ let expected = [
   {
     idMessage: 'random_string_1',
     idConversation: '["1","4"]',
-    idProfile: '4',
+    profileID: '4',
     createdAt: 1646145000000,
     eventType: 'chatMessage',
     text: 'Need a web app for appointment management.',
@@ -27,7 +27,7 @@ let expected = [
   {
     idMessage: 'random_string_2',
     idConversation: '["1","4"]',
-    idProfile: '1',
+    profileID: '1',
     createdAt: 1646145300000,
     eventType: 'chatMessage',
     text: 'Details on how you want the app to work?',
@@ -37,7 +37,7 @@ let expected = [
   {
     idMessage: 'random_string_3',
     idConversation: '["1","4"]',
-    idProfile: '4',
+    profileID: '4',
     createdAt: 1646145640000,
     eventType: 'chatMessage',
     text: 'Schedule, cancel, notifications. Show past appts in calendar view.',
@@ -47,7 +47,7 @@ let expected = [
   {
     idMessage: 'random_string_4',
     idConversation: '["1","4"]',
-    idProfile: '1',
+    profileID: '1',
     createdAt: 1646145960000,
     eventType: 'chatMessage',
     text: 'Specific design or layout requirements?',
@@ -57,7 +57,7 @@ let expected = [
   {
     idMessage: 'random_string_5',
     idConversation: '["1","4"]',
-    idProfile: '4',
+    profileID: '4',
     createdAt: 1646146300000,
     eventType: 'chatMessage',
     text: 'Clean, modern, easy to use.',
@@ -67,7 +67,7 @@ let expected = [
   {
     idMessage: 'random_string_6',
     idConversation: '["1","4"]',
-    idProfile: '1',
+    profileID: '1',
     createdAt: 1646146620000,
     eventType: 'chatMessage',
     text: 'How many users?',
@@ -77,7 +77,7 @@ let expected = [
   {
     idMessage: 'random_string_7',
     idConversation: '["1","4"]',
-    idProfile: '4',
+    profileID: '4',
     createdAt: 1646146980000,
     eventType: 'chatMessage',
     text: 'Around 50.',
@@ -87,7 +87,7 @@ let expected = [
   {
     idMessage: 'random_string_8',
     idConversation: '["1","4"]',
-    idProfile: '1',
+    profileID: '1',
     createdAt: 1646147340000,
     eventType: 'chatMessage',
     text: 'Deadline for project?',
@@ -97,7 +97,7 @@ let expected = [
   {
     idMessage: 'random_string_9',
     idConversation: '["1","4"]',
-    idProfile: '4',
+    profileID: '4',
     createdAt: 1646147700000,
     eventType: 'chatMessage',
     text: '3 months.',
@@ -107,7 +107,7 @@ let expected = [
   {
     idMessage: 'random_string_10',
     idConversation: '["1","4"]',
-    idProfile: '1',
+    profileID: '1',
     createdAt: 1646148060000,
     eventType: 'chatMessage',
     text: 'Starting project, will keep you updated.',

@@ -33,8 +33,8 @@ export const getJoinedConversation: GetJoinedConversationType = async ({
         profileHostIn.profileName !== profile.profileName
       ) {
         getSocketEmitJoinConversationIn(
-          profileHostIn.idProfile,
-          profile.idProfile
+          profileHostIn.profileID,
+          profile.profileID
         )
       }
       await getItDelayedBy(10)

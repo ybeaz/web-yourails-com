@@ -43,7 +43,7 @@ const PortfolioComponent: PortfolioType = props => {
 
   const projectsUserHost = getFilteredObjsArrayBy(
     projects,
-    'idProfile',
+    'profileID',
     idProfileActive
   ) as ProjectType[]
 

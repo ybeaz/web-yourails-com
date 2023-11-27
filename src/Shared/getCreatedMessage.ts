@@ -50,7 +50,7 @@ export const getCreatedMessage: GetCreatedMessageType = (params, options) => {
 
   const message: MessageType = {
     idConversation,
-    idProfile: idProfileSender,
+    profileID: idProfileSender,
     text: textNext,
     eventType: MessageEventType['chatMessage'],
   }

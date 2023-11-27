@@ -45,7 +45,7 @@ export const SET_STORE_SCENARIO_WEB: ActionEventType = (
   } = dataHandle
 
   const {
-    globalVars: { idUserHost, idProfile },
+    globalVars: { idUserHost, profileID },
     profiles,
   } = getState()
 
@@ -58,8 +58,8 @@ export const SET_STORE_SCENARIO_WEB: ActionEventType = (
     caseConditions,
     isShowApp: isShowAppNext,
     idUserHost: idUserHostNext,
-    idUser: idUserNext,
-    idProfile: idProfileNext,
+    userID: userIDNext,
+    profileID: profileIDNext,
     isLeftColumn: isLeftColumnNext,
     isMainColumn: isMainColumnNext,
     isMainColumnBlank: isMainColumnBlankNext,
@@ -78,7 +78,7 @@ export const SET_STORE_SCENARIO_WEB: ActionEventType = (
   })
 
   dispatch(actionSync.SET_ID_USER_HOST({ idUserHost: idUserHostNext }))
-  dispatch(actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: idProfileNext }))
+  dispatch(actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: profileIDNext }))
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN(isMainColumnNext))
@@ -87,11 +87,11 @@ export const SET_STORE_SCENARIO_WEB: ActionEventType = (
 
   getRedirected(redirectPathname, { platformOS, replace: true })
 
-  if (idProfile === idProfileNext) return
+  if (profileID === profileIDNext) return
 
   dispatch(
     actionSync.SET_ID_PROFILE_ACTIVE({
-      idProfileActive: idProfileNext,
+      idProfileActive: profileIDNext,
     })
   )
 }

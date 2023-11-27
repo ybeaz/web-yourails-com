@@ -13,19 +13,19 @@ function* addCompetencyTags(): Iterable<any> {
   const rootStoreYield: any = yield select(store => store)
   const rootStore: RootStoreType = rootStoreYield || rootStoreDefault
   const {
-    globalVars: { idProfileActive: idProfile },
+    globalVars: { idProfileActive: profileID },
   } = rootStore || rootStoreDefault
 
-  if (typeof idProfile !== 'string' || idProfileDict[idProfile]) return
+  if (typeof profileID !== 'string' || idProfileDict[profileID]) return
 
-  idProfileDict[idProfile] = true
+  idProfileDict[profileID] = true
 
   let competencyTags: any = []
   try {
     if (!isLocalDataMockOnlyFlag()) {
       const variables = {
         params: {
-          idProfile,
+          profileID,
         },
       }
 

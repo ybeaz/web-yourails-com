@@ -24,7 +24,7 @@ export const CLICK_ON_HOST_PROFILE_SELECT: ActionEventType = (event, data) => {
 
   const isProfileActiveOfUserHost = !!profiles.find(
     (profile: ProfileType) =>
-      profile.idUser === idUserHost && profile.idProfile === idProfileActive
+      profile.userID === idUserHost && profile.profileID === idProfileActive
   )
 
   dispatch(actionSync.SET_ID_PROFILE_HOST(data))

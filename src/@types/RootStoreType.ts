@@ -56,7 +56,7 @@ export type RootStoreType = {
   globalVars: {
     idProfileHost: IdUserType
     idUserHost: IdUserType
-    idProfileActive: IdUserType /** @description idUser that on the Main column are treated as active */
+    idProfileActive: IdUserType /** @description userID that on the Main column are treated as active */
     theme: string
     language: string
     isShowApp: boolean

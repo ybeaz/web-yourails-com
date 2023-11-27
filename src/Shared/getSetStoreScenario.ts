@@ -31,8 +31,8 @@ type GetSetStoreScenarioReturnType = {
   caseDesc: string
   isShowApp: boolean
   idUserHost: IdUserType
-  idUser: IdUserType
-  idProfile: IdUserType
+  userID: IdUserType
+  profileID: IdUserType
   isLeftColumn: boolean
   isMainColumn: boolean
   isMainColumnBlank: boolean
@@ -101,8 +101,8 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     (profile: ProfileType) => profile.profileName === profileNameUrl
   )
 
-  const idUserUrl = profileUrl?.idUser
-  const idProfileUrl = profileUrl?.idProfile
+  const idUserUrl = profileUrl?.userID
+  const idProfileUrl = profileUrl?.profileID
 
   const modalFrameOutput: ModalFrameType = {
     ...modalFrameFalse,
@@ -120,8 +120,8 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     caseDesc,
     isShowApp: true,
     idUserHost,
-    idUser: idUserUrl,
-    idProfile: idProfileUrl,
+    userID: idUserUrl,
+    profileID: idProfileUrl,
     isLeftColumn: isLeftColumnUrl,
     isMainColumn: true,
     isMainColumnBlank: isMainColumnBlankUrl,
@@ -151,8 +151,8 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       caseDesc,
       isShowApp: true,
       idUserHost: '1',
-      idUser: '1',
-      idProfile: '1',
+      userID: '1',
+      profileID: '1',
       isLeftColumn: false,
       isMainColumn: true,
       isMainColumnBlank: false,

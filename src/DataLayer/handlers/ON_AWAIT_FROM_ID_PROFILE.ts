@@ -10,7 +10,7 @@ import { getCreatedMessage } from '../../Shared/getCreatedMessage'
 const { dispatch, getState } = store
 
 export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (_, data) => {
-  const { createdAt, idProfile: idProfileActive, isPending } = data
+  const { createdAt, profileID: idProfileActive, isPending } = data
   if (!idProfileActive) return
 
   const {
@@ -44,7 +44,7 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (_, data) => {
   } else {
     dispatch(
       actionSync.REMOVE_LAST_MESSAGE_ID_PROFILE({
-        idProfile: idProfileActive,
+        profileID: idProfileActive,
       })
     )
   }
