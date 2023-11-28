@@ -16,16 +16,16 @@ export const CLICK_ON_USER_CHAT_CARD: ActionEventType = (event, data) => {
     data
 
   const {
-    globalVars: { idProfileHost },
+    globalVars: { profileHostID },
   } = getState()
 
   dispatch(
     actionSync.SET_ID_PROFILE_ACTIVE({
-      idProfileActive: profileID,
+      profileActiveID: profileID,
     })
   )
 
-  getSocketEmitJoinConversation(idProfileHost, profileID)
+  getSocketEmitJoinConversation(profileHostID, profileID)
 
   if (platformOS === 'web') {
     const getPathNameForReplaceProps = {

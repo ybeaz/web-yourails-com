@@ -16,9 +16,9 @@ export interface ChatCardsPropsType {
   storeStateSlice: {
     isUserMenu: RootStoreType['componentsState']['isUserMenu']
     isProfileSelectMenu: RootStoreType['componentsState']['isProfileSelectMenu']
-    idUserHost: RootStoreType['globalVars']['idUserHost']
-    idProfileHost: RootStoreType['globalVars']['idProfileHost']
-    idProfileActive: RootStoreType['globalVars']['idProfileActive']
+    userHostID: RootStoreType['globalVars']['userHostID']
+    profileHostID: RootStoreType['globalVars']['profileHostID']
+    profileActiveID: RootStoreType['globalVars']['profileActiveID']
     inputSearch: RootStoreType['forms']['inputSearch']
     profiles: RootStoreType['profiles']
   }

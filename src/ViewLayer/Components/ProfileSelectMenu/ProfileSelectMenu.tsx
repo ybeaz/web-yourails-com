@@ -28,7 +28,7 @@ import '../../Styles/styleGlobal'
         },
       },
       profiles,
-      idUserHost,
+      userHostID,
    },
  */
 const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
@@ -37,7 +37,7 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
     mediaParams = mediaParamsDefault,
     handleEvents,
     profiles,
-    idUserHost,
+    userHostID,
     urlParam1,
     urlParam2,
     query,
@@ -49,7 +49,7 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
   console.info('ProfileSelectMenu [49]', { platformOS })
 
   const profilesUserHost = profiles.filter(
-    (profile: ProfileType) => profile.userID === idUserHost
+    (profile: ProfileType) => profile.userID === userHostID
   )
 
   const getUserHostProfiles = (
@@ -68,7 +68,7 @@ const ProfileSelectMenuComponent: ProfileSelectMenuType = props => {
             handleEvents.CLICK_ON_HOST_PROFILE_SELECT(
               {},
               {
-                idProfileHost: profileID,
+                profileHostID: profileID,
                 profileNameHost: profileName,
                 urlParam1,
                 urlParam2,

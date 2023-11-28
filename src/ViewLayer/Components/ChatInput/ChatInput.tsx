@@ -33,7 +33,7 @@ const ChatInputComponent: ChatInputType = props => {
 
   const {
     profiles,
-    idProfileActive,
+    profileActiveID,
     inputChat,
     isMainColumnBlank,
     modalFrame,
@@ -66,7 +66,7 @@ const ChatInputComponent: ChatInputType = props => {
     setIsVisiblePromptExamplesState(false)
   }
 
-  const profileActive = getProfileByIdProfile(profiles, idProfileActive)
+  const profileActive = getProfileByIdProfile(profiles, profileActiveID)
   const promptExamples = profileActive?.promptExamples || []
   const helpText = profileActive?.help
 
@@ -106,7 +106,7 @@ const ChatInputComponent: ChatInputType = props => {
       promptExamples,
       onHeightChange: onPromptExampleHeightChange,
       onPromptExampleClick,
-      idProfileActive,
+      profileActiveID,
     },
     helpTooltipsTextProps: {
       styleProps: {
@@ -150,7 +150,7 @@ const ChatInputComponent: ChatInputType = props => {
   const propsOut: ChatInputPropsOutType = {
     inputTextYrlProps: {
       onChangeText: (text: string) =>
-        handleEvents.ON_CHANGE_INPUT_CHAT({}, { idProfileActive, text }),
+        handleEvents.ON_CHANGE_INPUT_CHAT({}, { profileActiveID, text }),
       onSubmitEditing: () => {
         handleEvents?.CLICK_ON_SEND_MESSAGE({}, {})
       },
@@ -177,7 +177,7 @@ const ChatInputComponent: ChatInputType = props => {
       numberOfLines: 3,
       placeholder: 'Message',
       placeholderTextColor: themes['themeB'].color10,
-      value: (idProfileActive && inputChat[idProfileActive]) || '',
+      value: (profileActiveID && inputChat[profileActiveID]) || '',
       maxHeight: '6rem'.getPx() - '0.5rem'.getPx(),
     },
     sendButtonYrlProps: {
@@ -201,7 +201,7 @@ const ChatInputComponent: ChatInputType = props => {
       testID: 'pasteThisButtonYrl',
       disabled: false,
       onPress: async () => {
-        const text = (idProfileActive && inputChat[idProfileActive]) || ''
+        const text = (profileActiveID && inputChat[profileActiveID]) || ''
         navigator.clipboard.writeText(text)
       },
       iconProps: {
@@ -222,7 +222,7 @@ const ChatInputComponent: ChatInputType = props => {
         const clipboardText = await navigator.clipboard.readText()
         handleEvents.CLICK_ON_PASTE_FROM_CLOPBOARD(
           {},
-          { idProfileActive, text: clipboardText }
+          { profileActiveID, text: clipboardText }
         )
       },
       iconProps: {
@@ -242,7 +242,7 @@ const ChatInputComponent: ChatInputType = props => {
       onPress: async () => {
         handleEvents.CLICK_ON_PASTE_FROM_CLOPBOARD(
           {},
-          { idProfileActive, text: '' }
+          { profileActiveID, text: '' }
         )
       },
       iconProps: {
@@ -348,7 +348,7 @@ export const ChatInput = withPropsYrl({ handleEvents: handleEventsProp })(
   withStoreStateSliceYrl(
     [
       'profiles',
-      'idProfileActive',
+      'profileActiveID',
       'inputChat',
       'isMainColumnBlank',
       'modalFrame',

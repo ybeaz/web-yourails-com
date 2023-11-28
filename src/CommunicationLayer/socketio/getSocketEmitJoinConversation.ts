@@ -9,10 +9,10 @@ interface GetSocketEmitJoinConversationType {
  * @import import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio/getSocketEmitJoinConversation'
  */
 export const getSocketEmitJoinConversation: GetSocketEmitJoinConversationType =
-  (idProfileHost, profileID) => {
+  (profileHostID, profileID) => {
     try {
       socket.emit('joinConversation', {
-        idProfileHost,
+        profileHostID,
         profileID,
       })
     } catch (error: any) {

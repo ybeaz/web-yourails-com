@@ -10,24 +10,24 @@ import { getCreatedMessage } from '../../Shared/getCreatedMessage'
 const { dispatch, getState } = store
 
 export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (_, data) => {
-  const { createdAt, profileID: idProfileActive, isPending } = data
-  if (!idProfileActive) return
+  const { createdAt, profileID: profileActiveID, isPending } = data
+  if (!profileActiveID) return
 
   const {
     profiles,
-    globalVars: { idProfileHost },
+    globalVars: { profileHostID },
   } = getState()
 
   if (isPending === true) {
-    const idMessage = uuid()
+    const messageID = uuid()
 
-    const profile = getProfileByIdProfile(profiles, idProfileActive)
+    const profile = getProfileByIdProfile(profiles, profileActiveID)
     const pendingText = profile.pendingText ? profile.pendingText : ''
 
     const params = {
-      idProfileSender: idProfileActive,
-      idProfileReceiver: idProfileHost,
-      idMessage,
+      profileSenderID: profileActiveID,
+      profileReceiverID: profileHostID,
+      messageID,
       text: pendingText,
       createdAt,
       isPending,
@@ -44,7 +44,7 @@ export const ON_AWAIT_FROM_ID_PROFILE: ActionEventType = (_, data) => {
   } else {
     dispatch(
       actionSync.REMOVE_LAST_MESSAGE_ID_PROFILE({
-        profileID: idProfileActive,
+        profileID: profileActiveID,
       })
     )
   }

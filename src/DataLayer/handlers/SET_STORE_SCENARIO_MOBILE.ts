@@ -21,7 +21,7 @@ const { dispatch, getState } = store
 export const SET_STORE_SCENARIO_MOBILE: ActionEventType = (event, data) => {
   const { navigation } = data
   const {
-    globalVars: { idUserHost, idProfileActive },
+    globalVars: { userHostID, profileActiveID },
   } = getState()
 
   let hostname = HOST_NAME
@@ -32,9 +32,9 @@ export const SET_STORE_SCENARIO_MOBILE: ActionEventType = (event, data) => {
     caseDesc,
     caseConditions,
     isShowApp: isShowAppNext,
-    idUserHost: idUserHostNext,
+    userHostID: idUserHostNext,
     userID: userIDNext,
-    idProfileActive: idProfileActiveNext,
+    profileActiveID: idProfileActiveNext,
     isLeftColumn: isLeftColumnNext,
     isMainColumn: isMainColumnNext,
     isMainColumnBlank: isMainColumnBlankNext,
@@ -44,9 +44,9 @@ export const SET_STORE_SCENARIO_MOBILE: ActionEventType = (event, data) => {
     caseDesc: 'mobile device',
     caseConditions: 'N/A',
     isShowApp: true,
-    idUserHost,
+    userHostID,
     userID: undefined,
-    idProfileActive,
+    profileActiveID,
     isLeftColumn: true,
     isMainColumn: true,
     isMainColumnBlank: false,
@@ -54,9 +54,9 @@ export const SET_STORE_SCENARIO_MOBILE: ActionEventType = (event, data) => {
   }
 
   dispatch(actionSync.ADD_NAVIGATION_MOBILE({ navigation }))
-  dispatch(actionSync.SET_ID_USER_HOST({ idUserHost: idUserHostNext }))
+  dispatch(actionSync.SET_ID_USER_HOST({ userHostID: idUserHostNext }))
   dispatch(
-    actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: idProfileActiveNext })
+    actionSync.SET_ID_PROFILE_ACTIVE({ profileActiveID: idProfileActiveNext })
   )
   dispatch(actionSync.TOGGLE_IS_SHOW_GLOBAL(isShowAppNext))
   dispatch(actionSync.TOGGLE_IS_LEFT_COLUMN(isLeftColumnNext))
@@ -64,11 +64,11 @@ export const SET_STORE_SCENARIO_MOBILE: ActionEventType = (event, data) => {
   dispatch(actionSync.TOGGLE_IS_MAIN_COLUMN_BLANK(isMainColumnBlankNext))
   dispatch(actionSync.SET_MODAL_FRAME(modalFrameNext))
 
-  if (idProfileActive === idProfileActiveNext) return
+  if (profileActiveID === idProfileActiveNext) return
 
   dispatch(
     actionSync.SET_ID_PROFILE_ACTIVE({
-      idProfileActive: idProfileActiveNext,
+      profileActiveID: idProfileActiveNext,
     })
   )
 }

@@ -318,7 +318,7 @@ export type Mutation = {
   __typename?: 'Mutation';
   addRecipe: RecipeType;
   createCompetencyTags: Array<CompetencyTagType>;
-  createCourse: CourseType;
+  createCourses: Array<CourseType>;
   createDocument: DocumentType;
   createProfiles: Array<ProfileType>;
   createTemplates: Array<TemplatesType>;
@@ -332,7 +332,7 @@ export type Mutation = {
   removeRecipe: Scalars['Boolean']['output'];
   updateCollections: Array<CollectionUpdateStatusType>;
   updateCompetencyTags: Array<CompetencyTagType>;
-  updateCourse: Array<CourseType>;
+  updateCourses: Array<CourseType>;
   updateProfiles: Array<ProfileType>;
   updateTemplates: Array<TemplatesType>;
   updateUser: UserModelExtendedType;
@@ -349,7 +349,7 @@ export type MutationCreateCompetencyTagsArgs = {
 };
 
 
-export type MutationCreateCourseArgs = {
+export type MutationCreateCoursesArgs = {
   createCoursesInput: CreateCoursesInputType;
 };
 
@@ -420,8 +420,8 @@ export type MutationUpdateCompetencyTagsArgs = {
 };
 
 
-export type MutationUpdateCourseArgs = {
-  updateCourseInput: UpdateCoursesInputType;
+export type MutationUpdateCoursesArgs = {
+  updateCoursesInput: UpdateCoursesInputType;
 };
 
 

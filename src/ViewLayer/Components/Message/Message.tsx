@@ -28,7 +28,7 @@ import '../../Styles/styleGlobal'
  */
 const MessageComponent: MessageComponentType = props => {
   const {
-    idMessage,
+    messageID,
     text,
     createdAt,
     position = 'right',
@@ -65,7 +65,7 @@ const MessageComponent: MessageComponentType = props => {
     return textArrayIn.map((textItem: string, index: number) => {
       return (
         <Text
-          key={`${idMessage}-${index}`}
+          key={`${messageID}-${index}`}
           style={[style[position].text]}
           testID='textItem'
         >

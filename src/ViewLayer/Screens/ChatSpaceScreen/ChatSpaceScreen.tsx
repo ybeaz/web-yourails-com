@@ -137,7 +137,7 @@ export const ChatSpaceScreen: ChatSpaceScreenType = withPropsYrl({
 })(
   withStoreStateSliceYrl(
     [
-      'idProfileActive',
+      'profileActiveID',
       'isLeftColumn',
       'isMainColumn',
       'isMainColumnBlank',

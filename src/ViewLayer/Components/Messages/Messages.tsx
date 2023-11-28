@@ -37,7 +37,7 @@ const MessagesComponent: MessagesComponentType = props => {
   return (
     <View style={[style.Messages, styleProps.Messages]} testID='Messages'>
       {messages.map((message, index) => {
-        const { idMessage, text, eventType, profileID } = message
+        const { messageID, text, eventType, profileID } = message
         const { imagePendingSrc } = getProfileByIdProfile(profiles, profileID)
         let textNext = text
 
@@ -70,7 +70,7 @@ const MessagesComponent: MessagesComponentType = props => {
         }
         return (
           <Message
-            key={idMessage || `message-${index}`}
+            key={messageID || `message-${index}`}
             {...propsOut.messageProps}
           />
         )

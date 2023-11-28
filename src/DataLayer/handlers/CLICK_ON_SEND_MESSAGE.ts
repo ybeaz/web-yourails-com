@@ -19,19 +19,19 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, {}) => {
     profiles,
     forms: { inputChat },
     userIdDataAwsCognito: { sub },
-    globalVars: { idProfileHost, idProfileActive },
+    globalVars: { profileHostID, profileActiveID },
   } = getState()
 
-  dispatch(actionSync.SET_INPUT_CHAT({ idProfileActive, text: '' }))
+  dispatch(actionSync.SET_INPUT_CHAT({ profileActiveID, text: '' }))
 
-  const profile: ProfileType = getProfileByIdProfile(profiles, idProfileActive)
+  const profile: ProfileType = getProfileByIdProfile(profiles, profileActiveID)
 
   /* Here it is specified a special cases */
   if (isRequiredRegistrationForMessagingFlag()) {
     if (!sub) {
       const params = {
-        idProfileSender: idProfileActive,
-        idProfileReceiver: idProfileHost,
+        profileSenderID: profileActiveID,
+        profileReceiverID: profileHostID,
         text: 'The feature of sending and receiving messages is available after registration.',
       }
       const options = {
@@ -53,8 +53,8 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, {}) => {
     (profile?.profileNature === 'human' || profile?.profileNature === 'company')
   ) {
     const params = {
-      idProfileSender: idProfileActive,
-      idProfileReceiver: idProfileHost,
+      profileSenderID: profileActiveID,
+      profileReceiverID: profileHostID,
       text: 'The feature of sending and receiving messages to humans is available upon request.',
     }
     const options = {
@@ -70,9 +70,9 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, {}) => {
   }
 
   const params = {
-    idProfileSender: idProfileHost,
-    idProfileReceiver: idProfileActive,
-    text: inputChat[idProfileActive],
+    profileSenderID: profileHostID,
+    profileReceiverID: profileActiveID,
+    text: inputChat[profileActiveID],
   }
   const options = {
     isIdMessage: false /* it is assigned on server side */,

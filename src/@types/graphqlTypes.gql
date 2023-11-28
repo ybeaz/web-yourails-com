@@ -345,7 +345,7 @@ type ModuleType {
 type Mutation {
   addRecipe(newRecipeData: NewRecipeInputType!): RecipeType!
   createCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagType!]!
-  createCourse(createCoursesInput: CreateCoursesInputType!): CourseType!
+  createCourses(createCoursesInput: CreateCoursesInputType!): [CourseType!]!
   createDocument(createDocumentInput: CreateDocumentInputType!): DocumentType!
   createProfiles(profilesInput: ProfilesInputType!): [ProfileType!]!
   createTemplates(templatesInput: TemplatesInputType!): [TemplatesType!]!
@@ -359,7 +359,7 @@ type Mutation {
   removeRecipe(id: String!): Boolean!
   updateCollections(collections: [String!]!): [CollectionUpdateStatusType!]!
   updateCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagType!]!
-  updateCourse(updateCourseInput: UpdateCoursesInputType!): [CourseType!]!
+  updateCourses(updateCoursesInput: UpdateCoursesInputType!): [CourseType!]!
   updateProfiles(profilesInput: ProfilesInputType!): [ProfileType!]!
   updateTemplates(templatesInput: TemplatesInputType!): [TemplatesType!]!
   updateUser(userInputType2: UserInputType!): UserModelExtendedType!

@@ -13,7 +13,7 @@ function* addCompetencyTags(): Iterable<any> {
   const rootStoreYield: any = yield select(store => store)
   const rootStore: RootStoreType = rootStoreYield || rootStoreDefault
   const {
-    globalVars: { idProfileActive: profileID },
+    globalVars: { profileActiveID: profileID },
   } = rootStore || rootStoreDefault
 
   if (typeof profileID !== 'string' || idProfileDict[profileID]) return

@@ -48,7 +48,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const { deviceType, height: heightScreen } = mediaParams
   const style = styles[deviceType]
 
-  const { idProfileHost, idProfileActive, modalFrame, profiles, messages } =
+  const { profileHostID, profileActiveID, modalFrame, profiles, messages } =
     storeStateSlice
 
   const {
@@ -70,8 +70,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const getMessagesWithProfileActiveOptions: GetMessagesWithProfileActiveParamsType =
     {
-      idProfileHost,
-      idProfileActive,
+      profileHostID,
+      profileActiveID,
     }
 
   const getSortedMessages = (
@@ -89,7 +89,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
     },
     {
       func: getPreproccedMessages,
-      options: { idProfileHost },
+      options: { profileHostID },
     },
     {
       func: getSortedMessages,
@@ -335,7 +335,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
 export const ChatSpace = withPropsYrl({ handleEvents: handleEventsProp })(
   withStoreStateSliceYrl(
-    ['idProfileHost', 'idProfileActive', 'modalFrame', 'profiles', 'messages'],
+    ['profileHostID', 'profileActiveID', 'modalFrame', 'profiles', 'messages'],
     withParamsMediaYrl(React.memo(ChatSpaceComponent))
   )
 )

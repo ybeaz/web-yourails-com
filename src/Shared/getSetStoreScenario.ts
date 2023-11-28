@@ -14,7 +14,7 @@ export enum DeviceType {
 }
 
 type GetSetStoreScenarioPropsType = {
-  idUserHost: IdUserType
+  userHostID: IdUserType
   profiles: ProfileType[]
   hostname: string
   urlParam1?: string
@@ -30,7 +30,7 @@ type GetSetStoreScenarioReturnType = {
   caseConditions: string
   caseDesc: string
   isShowApp: boolean
-  idUserHost: IdUserType
+  userHostID: IdUserType
   userID: IdUserType
   profileID: IdUserType
   isLeftColumn: boolean
@@ -66,7 +66,7 @@ export const modalFrameTrue: ModalFrameType = {
  */
 
 export const getSetStoreScenario: GetSetStoreScenarioType = ({
-  idUserHost,
+  userHostID,
   profiles,
   hostname,
   urlParam1,
@@ -119,7 +119,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
     caseConditions: caseConditionsUrl,
     caseDesc,
     isShowApp: true,
-    idUserHost,
+    userHostID,
     userID: idUserUrl,
     profileID: idProfileUrl,
     isLeftColumn: isLeftColumnUrl,
@@ -150,7 +150,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       caseConditions: "+ hostname === 'r1.userto.com'",
       caseDesc,
       isShowApp: true,
-      idUserHost: '1',
+      userHostID: '1',
       userID: '1',
       profileID: '1',
       isLeftColumn: false,

@@ -17,7 +17,7 @@ export const getFilteredLastObjectByIdProfile: GetFilteredLastObjectByIdProfileT
   if (messagesIdProfile.length === 0) return messages
 
   const indexLast = messagesIdProfile.length - 1
-  const idMessageLast = messagesIdProfile[indexLast].idMessage
+  const messageIDLast = messagesIdProfile[indexLast].messageID
 
-  return messages.filter((message: any) => message.idMessage !== idMessageLast)
+  return messages.filter((message: any) => message.messageID !== messageIDLast)
 }

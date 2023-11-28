@@ -18,7 +18,7 @@ export interface PromptExamplesPropsType {
   onHeightChange: (height: number) => void
   onPromptExampleClick: () => void
   handleEvents: HandleEventsType
-  idProfileActive: IdUserType
+  profileActiveID: IdUserType
 }
 
 export type PromptExamplesPropsOutType = {

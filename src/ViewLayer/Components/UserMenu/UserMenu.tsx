@@ -61,13 +61,13 @@ const UserMenuComponent: UserMenuType = props => {
   } = props
 
   const {
-    globalVars: { idProfileHost },
+    globalVars: { profileHostID },
     profiles,
   } = store
 
   const { profileName: profileNameHost } = getProfileByIdProfile(
     profiles,
-    idProfileHost
+    profileHostID
   )
 
   const environment = getDetectedEnv()
@@ -80,7 +80,7 @@ const UserMenuComponent: UserMenuType = props => {
   const userMenuItems: UserMenuItemType[] = [
     {
       title: 'Select profile',
-      isActive: !!idProfileHost && idProfileHost !== '0',
+      isActive: !!profileHostID && profileHostID !== '0',
       iconLibrary: 'Ionicons',
       iconName: 'people-outline',
       color: themes['themeA'].colors01.color,
@@ -92,7 +92,7 @@ const UserMenuComponent: UserMenuType = props => {
     },
     {
       title: 'This profile',
-      isActive: !!idProfileHost && idProfileHost !== '0',
+      isActive: !!profileHostID && profileHostID !== '0',
       iconLibrary: 'Ionicons',
       iconName: 'person-outline',
       color: themes['themeA'].colors01.color,
@@ -101,7 +101,7 @@ const UserMenuComponent: UserMenuType = props => {
         handleEvents.CLICK_ON_USER_CHAT_CARD(
           {},
           {
-            profileID: idProfileHost,
+            profileID: profileHostID,
             profileName: profileNameHost,
             urlParam1,
             urlParam2,
@@ -134,7 +134,7 @@ const UserMenuComponent: UserMenuType = props => {
     },
     {
       title: 'Sign in',
-      isActive: !idProfileHost || idProfileHost === '0',
+      isActive: !profileHostID || profileHostID === '0',
       iconLibrary: 'Ionicons',
       iconName: 'log-in-outline',
       color: themes['themeA'].colors01.color,
@@ -142,7 +142,7 @@ const UserMenuComponent: UserMenuType = props => {
     },
     {
       title: 'Sign out',
-      isActive: !!idProfileHost && idProfileHost !== '0',
+      isActive: !!profileHostID && profileHostID !== '0',
       iconLibrary: 'Ionicons',
       iconName: 'log-out-outline',
       color: themes['themeA'].colors01.color,

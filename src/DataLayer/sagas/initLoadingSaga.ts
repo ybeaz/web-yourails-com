@@ -50,12 +50,12 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
     const res: any = yield select(store => store)
     const { profiles, globalVars } = res
 
-    const idProfileHost = globalVars?.idProfileHost
-    if (idProfileHost) {
+    const profileHostID = globalVars?.profileHostID
+    if (profileHostID) {
       const profileHost: ProfileType = getFilteredObjsArrayBy(
         profiles,
         'profileID',
-        idProfileHost,
+        profileHostID,
         OperatorType['===']
       )[0] as ProfileType
 
