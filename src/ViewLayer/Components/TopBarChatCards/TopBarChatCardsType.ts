@@ -19,7 +19,6 @@ export interface TopBarChatCardsPropsType {
 
 export type TopBarChatCardsPropsOutType = {
   avatarPlusInfoProps: AvatarPlusInfoPropsType
-  imageProfileHostAvatarProps: ImageYrlPropsType
   buttonHamburgerProps: ButtonYrlPropsType
   iconHamburgerProps: IconYrlPropsType
   inputTextYrlProps: InputTextYrlPropsType

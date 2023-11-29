@@ -54,7 +54,7 @@ export const CLICK_TOGGLE_SIDEBAR_MAIN: ActionEventType = (
   if (!isShow)
     dispatch(
       actionSync.SET_ID_PROFILE_ACTIVE({
-        idProfileActive: undefined,
+        profileActiveID: undefined,
       })
     )
 

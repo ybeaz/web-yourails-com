@@ -22,7 +22,7 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
 
   // const store = useSelector((store2: RootStoreType) => store2)
   const {
-    globalVars: { idProfileActive },
+    globalVars: { profileActiveID },
     componentsState: {
       modalFrame: { childName },
     },
@@ -31,23 +31,23 @@ const CompetencyTagsComponent: CompetencyTagsType = props => {
   } = store
 
   useEffect(() => {
-    handleEvents.ADD_COMPETENCY_TAGS({}, { idProfile: idProfileActive })
-  }, [idProfileActive])
+    handleEvents.ADD_COMPETENCY_TAGS({}, { profileID: profileActiveID })
+  }, [profileActiveID])
 
   const sectionMapping =
     sectionsMapping.find(
       (item: SectionMappingType) =>
-        item.idProfile === idProfileActive && item.childName === childName
+        item.profileID === profileActiveID && item.childName === childName
     ) || sectionsMapping[0]
 
   const { title } = sectionMapping
 
   // TODO Remove in the future
-  const idProfileActive2 = idProfileActive === '16' ? '1' : idProfileActive
+  const idProfileActive2 = profileActiveID === '16' ? '1' : profileActiveID
 
   const competencyTagsUserActive = getFilteredObjsArrayBy(
     competencyTags,
-    'idProfile',
+    'profileID',
     idProfileActive2
   ) as CompetencyTagType[]
 

@@ -10,7 +10,7 @@ export interface ProfileSelectMenuPropsType {
   mediaParams?: MediaParamsDefaultType
   handleEvents: HandleEventsType
   profiles: ProfileType[]
-  idUserHost: string
+  userHostID: string
   urlParam1: string
   urlParam2: string
   query: any

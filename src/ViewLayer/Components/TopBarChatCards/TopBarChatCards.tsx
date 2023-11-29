@@ -35,13 +35,12 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
 
   const {
     componentsState: { isUserMenu },
-    globalVars: { idProfileHost, idProfileActive },
+    globalVars: { userHostID, profileHostID, profileActiveID },
     forms: { inputSearch },
     profiles,
   } = store
 
-  const profileHost = getProfileByIdProfile(profiles, idProfileHost)
-  const { avatarSrc } = profileHost
+  const profileHost = getProfileByIdProfile(profiles, profileHostID)
 
   const propsOut: TopBarChatCardsPropsOutType = {
     avatarPlusInfoProps: {
@@ -59,15 +58,6 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         )
       },
       testID: 'topBarChatCardsAvatarPlusInfo',
-    },
-    imageProfileHostAvatarProps: {
-      styleProps: {
-        ImageYrl: {},
-        image: { width: 45, height: 45, borderRadius: 50 },
-      },
-      testID: 'imageProfileHostAvatarProps',
-      uri: avatarSrc || '',
-      resizeMode: 'cover',
     },
     buttonHamburgerProps: {
       styleProps: {
@@ -139,9 +129,9 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         style={[style.buttonHamburgerWrapper]}
         testID='buttonHamburgerWrapper'
       >
-        {idProfileHost &&
+        {profileHostID &&
         ((urlParam1 === 'k' && !urlParam2) ||
-          idProfileActive !== idProfileHost) ? (
+          profileActiveID !== profileHostID) ? (
           <AvatarPlusInfo {...propsOut.avatarPlusInfoProps} />
         ) : (
           <ButtonYrl {...propsOut.buttonHamburgerProps}>

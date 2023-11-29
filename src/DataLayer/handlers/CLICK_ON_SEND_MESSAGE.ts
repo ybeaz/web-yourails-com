@@ -5,7 +5,10 @@ import { ActionEventType } from '../../@types/ActionEventType'
 
 import { actionSync } from '../../DataLayer/index.action'
 import { getSocketEmitMessage } from '../../CommunicationLayer/socketio/getSocketEmitMessage'
-import { isStubMessagesToPeopleFlag } from '../../FeatureFlags'
+import {
+  isRequiredRegistrationForMessagingFlag,
+  isRequiredPermissionToMessageToPeopleFlag,
+} from '../../FeatureFlags'
 import { getCreatedMessage } from '../../Shared/getCreatedMessage'
 import { getProfileByIdProfile } from '../../Shared/getProfileByIdProfile'
 
@@ -16,37 +19,42 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, {}) => {
     profiles,
     forms: { inputChat },
     userIdDataAwsCognito: { sub },
-    globalVars: { idProfileHost, idProfileActive },
+    globalVars: { profileHostID, profileActiveID },
   } = getState()
 
-  dispatch(actionSync.SET_INPUT_CHAT({ idProfileActive, text: '' }))
+  dispatch(actionSync.SET_INPUT_CHAT({ profileActiveID, text: '' }))
 
-  const profile: ProfileType = getProfileByIdProfile(profiles, idProfileActive)
+  const profile: ProfileType = getProfileByIdProfile(profiles, profileActiveID)
 
-  /* Here it is specified a special case under a temp flag, anounced "work in progress" state */
-  if (!sub) {
-    const params = {
-      idProfileSender: idProfileActive,
-      idProfileReceiver: idProfileHost,
-      text: 'The feature of sending and receiving messages is available after registration.',
+  /* Here it is specified a special cases */
+  if (isRequiredRegistrationForMessagingFlag()) {
+    if (!sub) {
+      const params = {
+        profileSenderID: profileActiveID,
+        profileReceiverID: profileHostID,
+        text: 'The feature of sending and receiving messages is available after registration.',
+      }
+      const options = {
+        addMs: 1500,
+        isIdMessage: true,
+        isCreatedAt: true,
+        printRes: false,
+      }
+      const message = getCreatedMessage(params, options)
+
+      console.info('CLICK_ON_SEND_MESSAGE [45]', { message })
+      dispatch(actionSync.ADD_MESSAGE({ message }))
+      return
     }
-    const options = {
-      addMs: 1500,
-      isIdMessage: true,
-      isCreatedAt: true,
-      printRes: false,
-    }
-    const message = getCreatedMessage(params, options)
+  }
 
-    dispatch(actionSync.ADD_MESSAGE({ message }))
-    return
-  } else if (
-    isStubMessagesToPeopleFlag() &&
+  if (
+    isRequiredPermissionToMessageToPeopleFlag() &&
     (profile?.profileNature === 'human' || profile?.profileNature === 'company')
   ) {
     const params = {
-      idProfileSender: idProfileActive,
-      idProfileReceiver: idProfileHost,
+      profileSenderID: profileActiveID,
+      profileReceiverID: profileHostID,
       text: 'The feature of sending and receiving messages to humans is available upon request.',
     }
     const options = {
@@ -62,9 +70,9 @@ export const CLICK_ON_SEND_MESSAGE: ActionEventType = ({}, {}) => {
   }
 
   const params = {
-    idProfileSender: idProfileHost,
-    idProfileReceiver: idProfileActive,
-    text: inputChat[idProfileActive],
+    profileSenderID: profileHostID,
+    profileReceiverID: profileActiveID,
+    text: inputChat[profileActiveID],
   }
   const options = {
     isIdMessage: false /* it is assigned on server side */,

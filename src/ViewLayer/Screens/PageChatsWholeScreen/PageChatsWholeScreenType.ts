@@ -14,7 +14,7 @@ import { RootStoreType } from '../../../@types/RootStoreType'
 import { SectionMappingType } from '../../../@types/SectionMappingType'
 
 export type PageChatsWholeScreenPropsStoreStateSliceType = {
-  idProfileActive: RootStoreType['globalVars']['idProfileActive']
+  profileActiveID: RootStoreType['globalVars']['profileActiveID']
   isLeftColumn: RootStoreType['componentsState']['isLeftColumn']
   isMainColumn: RootStoreType['componentsState']['isMainColumn']
   isMainColumnBlank: RootStoreType['componentsState']['isMainColumnBlank']

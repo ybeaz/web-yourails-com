@@ -10,13 +10,13 @@ import {
 export interface ChatSpacePropsType {
   styleProps?: any
   mediaParams?: MediaParamsDefaultType
-  idProfileHost: IdUserType
+  profileHostID: IdUserType
   profileActive: ProfileType
   messages: Omit<MessageType, 'position' | 'isTail'>[]
   modalFrame: any
   storeStateSlice: {
-    idProfileHost: RootStoreType['globalVars']['idProfileHost']
-    idProfileActive: RootStoreType['globalVars']['idProfileActive']
+    profileHostID: RootStoreType['globalVars']['profileHostID']
+    profileActiveID: RootStoreType['globalVars']['profileActiveID']
     modalFrame: RootStoreType['componentsState']['modalFrame']
     profiles: RootStoreType['profiles']
     messages: RootStoreType['messages']

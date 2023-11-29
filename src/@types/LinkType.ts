@@ -4,7 +4,7 @@ export enum SectionType {
 }
 
 export type LinkType = {
-  idProfile: number | string
+  profileID: number | string
   iconLibrary: string | undefined
   iconName: string | undefined
   contentType: SectionType

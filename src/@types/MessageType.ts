@@ -6,9 +6,9 @@ import { MessageEventType } from '../@types/MessageEventType'
  */
 export type MessageType = {
   createdAt?: number
-  idConversation: string
-  idMessage?: string
-  idProfile: IdUserType
+  conversationID: string
+  messageID?: string
+  profileID: IdUserType
   isPending?: boolean
   imagePendingSrc?: string
   isTail?: boolean

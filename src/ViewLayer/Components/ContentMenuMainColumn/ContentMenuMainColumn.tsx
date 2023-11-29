@@ -41,12 +41,12 @@ const ContentMenuMainColumnComponent: ContentMenuMainColumnType = props => {
     componentsState: {
       modalFrame: { childName: childNameModalStore, isShow: isShowModalStore },
     },
-    globalVars: { idProfileActive },
+    globalVars: { profileActiveID },
   } = store
 
   const profileActive: ProfileType = getProfileByIdProfile(
     profiles,
-    idProfileActive
+    profileActiveID
   )
 
   const profileNameChat = profileActive ? profileActive.profileName : undefined

@@ -1,7 +1,7 @@
 import { SectionType } from './SectionType'
 
 export type ProjectType = {
-  idProfile: string | number
+  profileID: string | number
   title: string
   contentType: SectionType.ProjectType
   isActive: boolean

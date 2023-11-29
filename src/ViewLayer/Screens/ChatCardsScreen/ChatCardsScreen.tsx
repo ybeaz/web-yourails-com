@@ -79,7 +79,7 @@ export const ChatCardsScreen: ChatCardsScreenType = withPropsYrl({
 })(
   withStoreStateSliceYrl(
     [
-      'idProfileActive',
+      'profileActiveID',
       'isLeftColumn',
       'isMainColumn',
       'isMainColumnBlank',

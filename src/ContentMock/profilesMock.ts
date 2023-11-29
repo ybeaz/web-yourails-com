@@ -2,8 +2,8 @@ import { ProfileType, ProfileNatureType } from '../@types/GraphqlTypes'
 
 export const profiles: ProfileType[] = [
   {
-    idProfile: '16',
-    idUser: '1',
+    profileID: '16',
+    userID: '1',
     profileName: '@yourails',
     isActive: true,
     profileNature: ProfileNatureType['Company'],
@@ -51,8 +51,8 @@ For Enterprise users:
   },
 
   {
-    idProfile: '1',
-    idUser: '1',
+    profileID: '1',
+    userID: '1',
     profileName: '@rome',
     isActive: true,
     profileNature: ProfileNatureType['Human'],
@@ -75,8 +75,8 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
   },
 
   {
-    idProfile: '5',
-    idUser: '5',
+    profileID: '5',
+    userID: '5',
     profileName: '@darrell',
     profileNature: ProfileNatureType['Human'],
     isActive: true,
@@ -93,8 +93,8 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
   },
 
   {
-    idProfile: '4',
-    idUser: '4',
+    profileID: '4',
+    userID: '4',
     profileName: '@wilson',
     isActive: true,
     profileNature: ProfileNatureType['Human'],
@@ -113,8 +113,8 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
   },
 
   {
-    idProfile: '3',
-    idUser: '3',
+    profileID: '3',
+    userID: '3',
     profileName: '@trivedi',
     isActive: true,
     profileNature: ProfileNatureType['Human'],
@@ -133,8 +133,8 @@ ML and AI include Tensorflow, Keras, NumPy, Pandas, SciPy, Matplotlib, PyTorch, 
   },
 
   {
-    idProfile: '0',
-    idUser: '0',
+    profileID: '0',
+    userID: '0',
     profileName: '@guest',
     isActive: true,
     profileNature: ProfileNatureType['Human'],

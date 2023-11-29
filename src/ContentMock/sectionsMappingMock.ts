@@ -4,7 +4,7 @@ import { CompetencyContentType } from '../@types/GraphqlTypes'
 
 export const sectionsMapping: SectionMappingType[] = [
   {
-    idProfile: '1',
+    profileID: '1',
     profileName: '@rome',
     contentType: CompetencyContentType['ProjectType'],
     title: 'Projects And Work Examples',
@@ -15,7 +15,7 @@ export const sectionsMapping: SectionMappingType[] = [
     childName: 'Portfolio',
   },
   {
-    idProfile: '1',
+    profileID: '1',
     profileName: '@rome',
     contentType: CompetencyContentType['CompetencyTagType'],
     title: 'Technologies',
@@ -26,7 +26,7 @@ export const sectionsMapping: SectionMappingType[] = [
     childName: 'CompetencyTags',
   },
   {
-    idProfile: '2',
+    profileID: '2',
     profileName: '@smid',
     contentType: CompetencyContentType['ProjectType'],
     title: 'Work Examples',
@@ -37,7 +37,7 @@ export const sectionsMapping: SectionMappingType[] = [
     childName: 'Portfolio',
   },
   {
-    idProfile: '2',
+    profileID: '2',
     profileName: '@smid',
     contentType: CompetencyContentType['CompetencyTagType'],
     title: 'Competency Tags',
@@ -48,7 +48,7 @@ export const sectionsMapping: SectionMappingType[] = [
     childName: 'CompetencyTags',
   },
   {
-    idProfile: '2',
+    profileID: '2',
     profileName: '@smid',
     contentType: CompetencyContentType['ProfileType'],
     title: '',
@@ -59,7 +59,7 @@ export const sectionsMapping: SectionMappingType[] = [
     childName: 'Profile',
   },
   {
-    idProfile: '16',
+    profileID: '16',
     profileName: '@yourails',
     contentType: CompetencyContentType['CompetencyTagType'],
     title: 'Technologies',
@@ -70,7 +70,7 @@ export const sectionsMapping: SectionMappingType[] = [
     childName: 'CompetencyTags',
   },
   {
-    idProfile: '16',
+    profileID: '16',
     profileName: '@yourails',
     contentType: CompetencyContentType['CompetencyTagType'],
     title: '',
@@ -81,7 +81,7 @@ export const sectionsMapping: SectionMappingType[] = [
     childName: 'Profile',
   },
   {
-    idProfile: '16',
+    profileID: '16',
     profileName: '@yourails',
     contentType: CompetencyContentType['CompetencyTagType'],
     title: '',
@@ -92,7 +92,7 @@ export const sectionsMapping: SectionMappingType[] = [
     childName: 'AboutUs',
   },
   {
-    idProfile: '1',
+    profileID: '1',
     profileName: '@rome',
     contentType: CompetencyContentType['ProfileType'],
     title: '',

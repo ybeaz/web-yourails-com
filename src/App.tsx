@@ -8,6 +8,13 @@ import { Provider } from 'react-redux'
 import { store } from './DataLayer/store'
 import { NavigationWeb } from './Navigation/NavigationWeb'
 import { NavigationMobile } from './Navigation/NavigationMobile'
+import { loadErrorMessages, loadDevMessages } from '@apollo/client/dev'
+
+if (__DEV__) {
+  // Adds @apollo/client messages only in a dev environment
+  loadDevMessages()
+  loadErrorMessages()
+}
 
 SplashScreen.preventAutoHideAsync()
 

@@ -7,8 +7,8 @@ import { ContentType } from '../@types/ContentType'
 import { getSortedArray } from './getSortedArray'
 
 export type GetCreatedMessageParamsType = {
-  idProfileSender: IdUserType
-  idProfileReceiver: IdUserType
+  profileSenderID: IdUserType
+  profileReceiverID: IdUserType
   text: string
   createdAt?: number
   isPending?: boolean
@@ -34,12 +34,12 @@ interface GetCreatedMessageType {
  */
 
 export const getCreatedMessage: GetCreatedMessageType = (params, options) => {
-  const { idProfileSender, idProfileReceiver, text, createdAt, isPending } =
+  const { profileSenderID, profileReceiverID, text, createdAt, isPending } =
     params
   const addMs = options?.addMs ? options?.addMs : 0
 
-  const idConversation = JSON.stringify(
-    getSortedArray([idProfileSender, idProfileReceiver])
+  const conversationID = JSON.stringify(
+    getSortedArray([profileSenderID, profileReceiverID])
   )
 
   const textObj = {
@@ -49,15 +49,15 @@ export const getCreatedMessage: GetCreatedMessageType = (params, options) => {
   const textNext = JSON.stringify(textObj)
 
   const message: MessageType = {
-    idConversation,
-    idProfile: idProfileSender,
+    conversationID,
+    profileID: profileSenderID,
     text: textNext,
     eventType: MessageEventType['chatMessage'],
   }
 
   if (isPending) message.isPending = isPending
   if (createdAt) message.createdAt = createdAt
-  if (options?.isIdMessage) message.idMessage = uuid()
+  if (options?.isIdMessage) message.messageID = uuid()
   if (options?.isCreatedAt) message.createdAt = +new Date() + addMs
 
   if (options?.printRes) {

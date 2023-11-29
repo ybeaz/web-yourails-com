@@ -5,7 +5,7 @@ import { IdUserType } from './UserType'
  */
 
 export type SectionMappingType = {
-  idProfile: IdUserType
+  profileID: IdUserType
   profileName: string
   contentType: ContentType
   title: string

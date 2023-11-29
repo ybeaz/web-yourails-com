@@ -12,11 +12,11 @@ import { TextPropsType } from '../Text/Text'
 
 export interface ChatInputPropsType {
   handleEvents: HandleEventsType
-  idProfileActive: string
+  profileActiveID: string
   inputChat: Record<string, string>
   storeStateSlice: {
     profiles: RootStoreType['profiles']
-    idProfileActive: RootStoreType['globalVars']['idProfileActive']
+    profileActiveID: RootStoreType['globalVars']['profileActiveID']
     inputChat: RootStoreType['forms']['inputChat']
     isMainColumnBlank: RootStoreType['componentsState']['isMainColumnBlank']
     modalFrame: RootStoreType['componentsState']['modalFrame']

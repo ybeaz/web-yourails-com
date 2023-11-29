@@ -33,7 +33,7 @@ import { styles as stylesIn } from './PageChatsWholeScreenStyle'
 import { useWidgetsScreensProps } from '../../Hooks/useWidgetsScreensProps'
 
 const storeSlice: string[] = [
-  'idProfileActive',
+  'profileActiveID',
   'isLeftColumn',
   'isMainColumn',
   'isMainColumnBlank',
@@ -44,7 +44,7 @@ const storeSlice: string[] = [
 
 export const storeStateSliceDefault: PageChatsWholeScreenPropsStoreStateSliceType =
   {
-    idProfileActive: rootStoreDefault['globalVars']['idProfileActive'],
+    profileActiveID: rootStoreDefault['globalVars']['profileActiveID'],
     isLeftColumn: rootStoreDefault['componentsState']['isLeftColumn'],
     isMainColumn: rootStoreDefault['componentsState']['isMainColumn'],
     isMainColumnBlank: rootStoreDefault['componentsState']['isMainColumnBlank'],

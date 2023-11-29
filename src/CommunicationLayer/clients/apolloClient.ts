@@ -6,28 +6,26 @@ import {
   DefaultOptions,
 } from '@apollo/client'
 
-const headers: Record<string, string> = {
-  'Access-Control-Allow-Origin': '*',
-  'Content-Type': 'application/json',
-  timestamp: `${+new Date()}`,
-}
+import { getHeaders } from './getHeaders'
 
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
-import { SERVERS, ServersType } from '../../Constants/servers.const'
+import { SERVERS_MAIN, ServersType } from '../../Constants/servers.const'
 
 const envType: string = getDetectedEnv()
 
-const baseURL = SERVERS[envType as keyof ServersType] as string
+const baseURL = SERVERS_MAIN[envType as keyof ServersType] as string
 
-const createHttpLink = (): HttpLink => {
+const createHttpLink = (pathname: string): HttpLink => {
   return new HttpLink({
-    uri: `${baseURL}/graphql`,
-    headers,
+    uri: `${baseURL}${pathname}`,
+    headers: getHeaders(),
   })
 }
 
-export const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
-  const httpLink = createHttpLink()
+export const createApolloClient = (
+  pathname: string
+): ApolloClient<NormalizedCacheObject> => {
+  const httpLink = createHttpLink(pathname)
 
   const defaultOptions: DefaultOptions = {
     watchQuery: {
@@ -48,4 +46,5 @@ export const createApolloClient = (): ApolloClient<NormalizedCacheObject> => {
   })
 }
 
-export const apolloClient = createApolloClient()
+export const apolloClient: any = (pathname: string) =>
+  createApolloClient(pathname)

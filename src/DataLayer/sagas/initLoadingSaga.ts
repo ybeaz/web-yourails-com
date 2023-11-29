@@ -12,8 +12,8 @@ import { sectionsMapping } from '../../ContentMock/sectionsMappingMock'
 import { getSocketEmitJoinConversation } from '../../CommunicationLayer/socketio/getSocketEmitJoinConversation'
 import { getJoinedConversation } from '../../CommunicationLayer/socketio/getJoinedConversation'
 import { getProfiles } from './getProfilesSaga'
-import { getUserIdDataAwsCognito } from './getUserIdDataAwsCognitoSaga'
-import { getRefreshedUserAuthAwsCognito } from './getRefreshedUserAuthAwsCognitoSaga'
+import { getAuthAwsCognitoUserData } from './getAuthAwsCognitoUserDataSaga'
+import { getAuthAwsCognitoUserRefreshed } from './getAuthAwsCognitoUserRefreshedSaga'
 
 type InitLoadingType = {
   type: 'INIT_LOADING_ASYNC_REQUEST'
@@ -21,41 +21,40 @@ type InitLoadingType = {
 }
 
 function* initLoading(params: InitLoadingType): Iterable<any> {
-  const rootStoreYield: any = yield select(store => store)
-  const rootStore: RootStoreType = rootStoreYield || rootStoreDefault
-  const { profiles: profilesPrev, sectionsMapping: sectionsMappingPrev } =
-    rootStore || rootStoreDefault
-
-  if (profilesPrev.length && sectionsMappingPrev.length) return
-
   try {
-    yield call(getProfiles)
-
-    yield put(actionSync.ADD_SECTIONS_MAPPING({ sectionsMapping }))
-
-    const code = params?.data?.query?.code
-
     // TODO Implement localStorage for ios and android
-    let refresh_token = undefined
+    let refresh_token = null
     if (Platform.OS === 'web') {
       refresh_token = localStorage.getItem('refresh_token')
     }
 
+    yield call(getProfiles)
+
+    const code = params?.data?.query?.code
+
     if (code) {
-      yield call(getUserIdDataAwsCognito, { data: { code } })
+      yield call(getAuthAwsCognitoUserData, { data: { code } })
     } else if (refresh_token) {
-      yield call(getRefreshedUserAuthAwsCognito, { data: { refresh_token } })
+      yield call(getAuthAwsCognitoUserRefreshed, { data: { refresh_token } })
     }
 
-    const res: any = yield select(store => store)
-    const { profiles, globalVars } = res
+    yield put(actionSync.ADD_SECTIONS_MAPPING({ sectionsMapping }))
 
-    const idProfileHost = globalVars?.idProfileHost
-    if (idProfileHost) {
+    let storeState: any = yield select((store: RootStoreType) => store)
+
+    if (storeState.profiles.length < 10) {
+      yield call(getProfiles)
+      storeState = yield select(store => store)
+    }
+
+    const { profiles } = storeState
+    const profileHostID = storeState?.globalVars?.profileHostID
+
+    if (profileHostID) {
       const profileHost: ProfileType = getFilteredObjsArrayBy(
         profiles,
-        'idProfile',
-        idProfileHost,
+        'profileID',
+        profileHostID,
         OperatorType['===']
       )[0] as ProfileType
 

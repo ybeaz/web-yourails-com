@@ -2,7 +2,7 @@ import { SectionType, LinkType } from '../@types/LinkType'
 
 export const links02D: LinkType[] = [
   {
-    idProfile: '2',
+    profileID: '2',
     iconLibrary: 'Ionicons',
     iconName: 'logo-linkedin',
     contentType: SectionType['linkHref'],
@@ -12,7 +12,7 @@ export const links02D: LinkType[] = [
     isActive: true,
   },
   {
-    idProfile: '2',
+    profileID: '2',
     iconLibrary: undefined,
     iconName: undefined,
     contentType: SectionType['imageSrc'],

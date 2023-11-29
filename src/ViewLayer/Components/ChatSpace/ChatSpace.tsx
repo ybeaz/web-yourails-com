@@ -13,12 +13,16 @@ import {
 } from '../../../YrlNativeViewLibrary'
 
 import {
+  getChainedResponsibility,
+  ExecDictType,
+} from '../../../Shared/getChainedResponsibility'
+import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
+import {
   getMessagesWithProfileActive,
   GetMessagesWithProfileActiveParamsType,
 } from '../../../Shared/getMessagesWithProfileActive'
-import { getChainedResponsibility } from '../../../Shared/getChainedResponsibility'
+
 import { getDateLocale } from '../../../Shared/getDateLocale'
-import { getPreproccedMessages } from '../../../Shared/getPreproccedMessages'
 import { Text } from '../../Components/Text/Text'
 import { Messages } from '../Messages/Messages'
 import { ChatSpaceType } from './ChatSpaceType'
@@ -44,7 +48,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
   const { deviceType, height: heightScreen } = mediaParams
   const style = styles[deviceType]
 
-  const { idProfileHost, idProfileActive, modalFrame, profiles, messages } =
+  const { profileHostID, profileActiveID, modalFrame, profiles, messages } =
     storeStateSlice
 
   const {
@@ -66,8 +70,8 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
   const getMessagesWithProfileActiveOptions: GetMessagesWithProfileActiveParamsType =
     {
-      idProfileHost,
-      idProfileActive,
+      profileHostID,
+      profileActiveID,
     }
 
   const getSortedMessages = (
@@ -78,11 +82,19 @@ const ChatSpaceComponent: ChatSpaceType = props => {
         (a.createdAt ? a.createdAt : 0) - (b.createdAt ? b.createdAt : 0)
     )
 
-  const messagesNext = getChainedResponsibility(messages)
-    .exec(getMessagesWithProfileActive, [getMessagesWithProfileActiveOptions])
-    .exec(getPreproccedMessages, [idProfileHost])
-    .exec(getSortedMessages)
-    .done()
+  const messagesNext = getChainedResponsibility(messages).forEach([
+    {
+      func: getMessagesWithProfileActive,
+      options: getMessagesWithProfileActiveOptions,
+    },
+    {
+      func: getPreproccedMessages,
+      options: { profileHostID },
+    },
+    {
+      func: getSortedMessages,
+    },
+  ])
 
   const Child: FunctionComponent | null = childName
     ? MODAL_CONTENTS[childName]
@@ -323,7 +335,7 @@ const ChatSpaceComponent: ChatSpaceType = props => {
 
 export const ChatSpace = withPropsYrl({ handleEvents: handleEventsProp })(
   withStoreStateSliceYrl(
-    ['idProfileHost', 'idProfileActive', 'modalFrame', 'profiles', 'messages'],
+    ['profileHostID', 'profileActiveID', 'modalFrame', 'profiles', 'messages'],
     withParamsMediaYrl(React.memo(ChatSpaceComponent))
   )
 )

@@ -50,7 +50,7 @@ describe('Test function getSetStoreScenario', () => {
           caseNo: 1,
           caseDesc: 'Hostname === r1.userto.com',
           isShowApp: true,
-          idUser: 1,
+          userID: 1,
           isLeftColumn: false,
           isMainColumn: true,
           isMainColumnBlank: false,
@@ -78,7 +78,7 @@ describe('Test function getSetStoreScenario', () => {
           caseDesc:
             'User direct link but without valid profileName and consequently unfound idUserUrl',
           isShowApp: true,
-          idUser: undefined,
+          userID: undefined,
           isLeftColumn: false,
           isMainColumn: true,
           isMainColumnBlank: true,
@@ -103,7 +103,7 @@ describe('Test function getSetStoreScenario', () => {
           caseDesc:
             'User direct link without chat and Business Card only and without left column',
           isShowApp: true,
-          idUser: '1',
+          userID: '1',
           isLeftColumn: false,
           isMainColumn: true,
           isMainColumnBlank: false,
@@ -127,7 +127,7 @@ describe('Test function getSetStoreScenario', () => {
           caseNo: 4,
           caseDesc: 'User direct link with chat and without left column',
           isShowApp: true,
-          idUser: '1',
+          userID: '1',
           isLeftColumn: false,
           isMainColumn: true,
           isMainColumnBlank: false,
@@ -152,7 +152,7 @@ describe('Test function getSetStoreScenario', () => {
           caseDesc:
             'The Chat service Yourails.com without valid user without selected user with the left column',
           isShowApp: true,
-          idUser: undefined,
+          userID: undefined,
           isLeftColumn: true,
           isMainColumn: true,
           isMainColumnBlank: true,
@@ -177,7 +177,7 @@ describe('Test function getSetStoreScenario', () => {
           caseDesc:
             'The Chat service Yourails.com with selected user with the left column',
           isShowApp: true,
-          idUser: '1',
+          userID: '1',
           isLeftColumn: true,
           isMainColumn: true,
           isMainColumnBlank: false,

@@ -4,7 +4,7 @@ import { MessageType } from '../@types/MessageType'
 interface getPreproccedMessagesType {
   (
     messages: Omit<MessageType, 'position' | 'isTail'>[],
-    idProfile: IdUserType
+    options: { profileHostID: IdUserType; printRes: boolean }
   ): MessageType[]
 }
 
@@ -15,22 +15,22 @@ interface getPreproccedMessagesType {
 
 export const getPreproccedMessages: getPreproccedMessagesType = (
   messages,
-  idProfileHost
+  { profileHostID, printRes }
 ) => {
   const messagesNext: MessageType[] = messages.map(
     (message: Omit<MessageType, 'position' | 'isTail'>, index: number) => {
       const messagesLen = messages.length
-      const { idProfile } = message
+      const { profileID } = message
       const idUserPrev =
-        index - 1 >= 0 ? messages[index - 1].idProfile : undefined
-      const idUserNext =
-        index + 1 < messagesLen ? messages[index + 1].idProfile : undefined
+        index - 1 >= 0 ? messages[index - 1].profileID : undefined
+      const userIDNext =
+        index + 1 < messagesLen ? messages[index + 1].profileID : undefined
 
-      const position = idProfile === idProfileHost ? 'right' : 'left'
+      const position = profileID === profileHostID ? 'right' : 'left'
 
       let isTail = false
-      if (idProfile !== idUserNext) isTail = true
-      else if (idUserPrev && idUserNext && idProfile === idUserNext)
+      if (profileID !== userIDNext) isTail = true
+      else if (idUserPrev && userIDNext && profileID === userIDNext)
         isTail = false
 
       const messageNext = { ...message, position, isTail }
@@ -38,6 +38,10 @@ export const getPreproccedMessages: getPreproccedMessagesType = (
       return messageNext
     }
   )
+
+  if (printRes) {
+    console.log('getPreproccedMessages [43]', { messagesNext })
+  }
 
   return messagesNext
 }

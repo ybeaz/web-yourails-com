@@ -28,7 +28,7 @@ const ChatCardComponent: ChatCardType = props => {
     query,
     platformOS,
   } = props
-  const { idProfile, profileName } = profile
+  const { profileID, profileName } = profile
 
   const colorStyle = isActive ? themes['themeA'].colors07 : {}
 
@@ -42,7 +42,7 @@ const ChatCardComponent: ChatCardType = props => {
 
         handleEvents.CLICK_ON_USER_CHAT_CARD(
           {},
-          { idProfile, profileName, urlParam1, urlParam2, query, platformOS }
+          { profileID, profileName, urlParam1, urlParam2, query, platformOS }
         )
       },
     },
@@ -60,7 +60,7 @@ const ChatCardComponent: ChatCardType = props => {
         // https://reactnative.dev/docs/pressable
         // console.info('ChatCard [55]', 'onHoverIn', {
         //   eventTarget: event.target,
-        //   idProfile,
+        //   profileID,
         //   profileName,
         // })
       },
@@ -69,7 +69,7 @@ const ChatCardComponent: ChatCardType = props => {
         // https://reactnative.dev/docs/pressable
         // console.info('ChatCard [56]', 'onHoverOut', {
         //   eventTarget: event.target,
-        //   idProfile,
+        //   profileID,
         //   profileName,
         // })
       },
