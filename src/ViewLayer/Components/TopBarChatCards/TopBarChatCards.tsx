@@ -41,7 +41,6 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
   } = store
 
   const profileHost = getProfileByIdProfile(profiles, profileHostID)
-  const { avatarSrc } = profileHost
 
   const propsOut: TopBarChatCardsPropsOutType = {
     avatarPlusInfoProps: {
@@ -59,15 +58,6 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
         )
       },
       testID: 'topBarChatCardsAvatarPlusInfo',
-    },
-    imageProfileHostAvatarProps: {
-      styleProps: {
-        ImageYrl: {},
-        image: { width: 45, height: 45, borderRadius: 50 },
-      },
-      testID: 'imageProfileHostAvatarProps',
-      uri: avatarSrc || '',
-      resizeMode: 'cover',
     },
     buttonHamburgerProps: {
       styleProps: {

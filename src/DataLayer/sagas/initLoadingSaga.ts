@@ -21,21 +21,16 @@ type InitLoadingType = {
 }
 
 function* initLoading(params: InitLoadingType): Iterable<any> {
-  const rootStoreYield: any = yield select(store => store)
-  const rootStore: RootStoreType = rootStoreYield || rootStoreDefault
-  const { profiles: profilesPrev, sectionsMapping: sectionsMappingPrev } =
-    rootStore || rootStoreDefault
-
-  if (profilesPrev.length && sectionsMappingPrev.length) return
-
   try {
-    const code = params?.data?.query?.code
-
     // TODO Implement localStorage for ios and android
-    let refresh_token = undefined
+    let refresh_token = null
     if (Platform.OS === 'web') {
       refresh_token = localStorage.getItem('refresh_token')
     }
+
+    yield call(getProfiles)
+
+    const code = params?.data?.query?.code
 
     if (code) {
       yield call(getAuthAwsCognitoUserData, { data: { code } })
@@ -43,14 +38,18 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
       yield call(getAuthAwsCognitoUserRefreshed, { data: { refresh_token } })
     }
 
-    yield call(getProfiles)
-
     yield put(actionSync.ADD_SECTIONS_MAPPING({ sectionsMapping }))
 
-    const res: any = yield select(store => store)
-    const { profiles, globalVars } = res
+    let storeState: any = yield select((store: RootStoreType) => store)
 
-    const profileHostID = globalVars?.profileHostID
+    if (storeState.profiles.length < 10) {
+      yield call(getProfiles)
+      storeState = yield select(store => store)
+    }
+
+    const { profiles } = storeState
+    const profileHostID = storeState?.globalVars?.profileHostID
+
     if (profileHostID) {
       const profileHost: ProfileType = getFilteredObjsArrayBy(
         profiles,
