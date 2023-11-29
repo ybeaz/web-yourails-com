@@ -24,13 +24,5 @@ export const SET_USERID_DATA_AWS_COGNITO: ReducerType = (store, data) => {
     profileHostID: profileHost.profileID,
   }
 
-  console.info('SET_USERID_DATA_AWS_COGNITO [23]', {
-    'userIdDataAwsCognito.sub': userIdDataAwsCognito.sub,
-    userHostID: profileHost.userID,
-    profileHostID: profileHost.profileID,
-    idUserHostDefault,
-    idUserHostCurrent,
-  })
-
   return { ...store, userIdDataAwsCognito, globalVars: globalVarsNext }
 }

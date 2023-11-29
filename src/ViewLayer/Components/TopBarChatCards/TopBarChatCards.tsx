@@ -40,12 +40,6 @@ export const TopBarChatCardsComponent: TopBarChatCardsType = props => {
     profiles,
   } = store
 
-  console.info('TopBarChatCards [43]', {
-    userHostID,
-    profileHostID,
-    profileActiveID,
-  })
-
   const profileHost = getProfileByIdProfile(profiles, profileHostID)
   const { avatarSrc } = profileHost
 

@@ -2,15 +2,12 @@ import axios, { AxiosRequestHeaders } from 'axios'
 
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 import { SERVERS_MAIN, ServersType } from '../../Constants/servers.const'
+import { getHeaders } from './getHeaders'
 
 const headers: Pick<
   AxiosRequestHeaders,
   'Access-Control-Allow-Origin' | 'Content-Type' | 'timestamp'
-> = {
-  'Access-Control-Allow-Origin': '*',
-  'Content-Type': 'application/json',
-  timestamp: `${+new Date()}`,
-}
+> = getHeaders()
 
 const envType: string = getDetectedEnv()
 

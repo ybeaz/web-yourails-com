@@ -97,6 +97,23 @@ type CourseEdgeType {
   node: CourseType
 }
 
+input CourseMetaInputType {
+  """course meta email"""
+  email: String!
+
+  """course meta institution"""
+  institution: String!
+
+  """course meta isSendingBcc"""
+  isSendingBcc: Boolean! = false
+
+  """course meta specName"""
+  specName: String!
+
+  """course meta specTitle"""
+  specTitle: String!
+}
+
 type CourseType {
   """course capture"""
   capture: String!
@@ -154,18 +171,36 @@ type CoursesPageInfoType {
   hasNextPage: Boolean
 }
 
-input CreateCoursesInputType {
-  """courses created date"""
-  coursesDateCreated: Date
-
-  """courses deleted date"""
-  coursesDateDeleted: Date
-
-  """courses updated date"""
-  coursesDateUpdated: Date
+input CreateCourseInputType {
+  """course capture"""
+  capture: String!
 
   """courses ID"""
-  idCourses: ID
+  courseID: ID
+
+  """course description"""
+  description: String!
+
+  """isActive"""
+  isActive: Boolean! = false
+
+  """language code"""
+  language: String!
+
+  """courses meta information"""
+  meta: CourseMetaInputType
+
+  """courses modules"""
+  modules: [ModuleInputType!]
+
+  """courses passRate"""
+  passRate: Float
+
+  """profile ID"""
+  profileID: ID!
+
+  """courses questionNumber"""
+  questionNumber: Int!
 }
 
 input CreateDocumentInputType {
@@ -185,7 +220,7 @@ input CreateDocumentInputType {
   language: String! = "false"
 
   """meta"""
-  meta: MetaInputType!
+  meta: DocumentMetaInputType!
 
   """moduleIDs"""
   moduleIDs: [String!]! = "false"
@@ -199,6 +234,14 @@ input CreateDocumentInputType {
 
 """Date custom scalar type"""
 scalar Date
+
+input DocumentMetaInputType {
+  email: String!
+  institution: String!
+  isSendingBcc: Boolean!
+  specName: String!
+  specTitle: String!
+}
 
 type DocumentType {
   """capture"""
@@ -280,14 +323,6 @@ type MessengerType {
   profileName: String
 }
 
-input MetaInputType {
-  email: String!
-  institution: String!
-  isSendingBcc: Boolean!
-  specName: String!
-  specTitle: String!
-}
-
 type MetaObjectType {
   email: String!
   institution: String!
@@ -311,6 +346,35 @@ type MetaType {
 
   """course meta specTitle"""
   specTitle: String!
+}
+
+input ModuleInputType {
+  """course module capture"""
+  capture: String!
+
+  """course module contentID"""
+  contentID: ID!
+
+  """course module content type"""
+  contentType: String!
+
+  """course module capture"""
+  description: String
+
+  """course module duration"""
+  duration: String!
+
+  """course module index"""
+  index: Int!
+
+  """isActive"""
+  isActive: Boolean! = false
+
+  """course module ID"""
+  moduleID: ID
+
+  """course module questions"""
+  questions: [QuestionInputType!]!
 }
 
 type ModuleType {
@@ -345,7 +409,7 @@ type ModuleType {
 type Mutation {
   addRecipe(newRecipeData: NewRecipeInputType!): RecipeType!
   createCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagType!]!
-  createCourses(createCoursesInput: CreateCoursesInputType!): [CourseType!]!
+  createCourses(createCoursesInput: [CreateCourseInputType!]!): [CourseType!]!
   createDocument(createDocumentInput: CreateDocumentInputType!): DocumentType!
   createProfiles(profilesInput: ProfilesInputType!): [ProfileType!]!
   createTemplates(templatesInput: TemplatesInputType!): [TemplatesType!]!
@@ -359,7 +423,7 @@ type Mutation {
   removeRecipe(id: String!): Boolean!
   updateCollections(collections: [String!]!): [CollectionUpdateStatusType!]!
   updateCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagType!]!
-  updateCourses(updateCoursesInput: UpdateCoursesInputType!): [CourseType!]!
+  updateCourses(updateCoursesInput: [UpdateCourseInputType!]!): [CourseType!]!
   updateProfiles(profilesInput: ProfilesInputType!): [ProfileType!]!
   updateTemplates(templatesInput: TemplatesInputType!): [TemplatesType!]!
   updateUser(userInputType2: UserInputType!): UserModelExtendedType!
@@ -369,6 +433,17 @@ input NewRecipeInputType {
   description: String
   ingredients: [String!]!
   title: String!
+}
+
+input OptionInputType {
+  """course module question option label"""
+  label: String!
+
+  """courses module question option ID"""
+  optionID: ID
+
+  """course module question option status: true or false"""
+  status: Boolean!
 }
 
 type OptionType {
@@ -526,6 +601,29 @@ type Query {
   sendEmailDocument(documentID: String!, sendBcc: String!, sendCc: String!, sendTo: String!): DocumentType!
 }
 
+input QuestionInputType {
+  """course module question capture"""
+  capture: String!
+
+  """course module question designType"""
+  designType: String
+
+  """course module question isActive"""
+  isActive: Boolean! = false
+
+  """designType > multi"""
+  multi: Boolean = false
+
+  """course module question options"""
+  options: [OptionInputType!]!
+
+  """courses module question ID"""
+  questionID: ID
+
+  """course module question topic"""
+  topic: String
+}
+
 type QuestionType {
   """course module question capture"""
   capture: String!
@@ -681,7 +779,10 @@ type TemplatesType {
   templatesID: ID
 }
 
-input UpdateCoursesInputType {
+input UpdateCourseInputType {
+  """courses ID"""
+  courseID: ID
+
   """courses created date"""
   coursesDateCreated: Date
 
@@ -690,9 +791,6 @@ input UpdateCoursesInputType {
 
   """courses updated date"""
   coursesDateUpdated: Date
-
-  """courses ID"""
-  idCourses: ID
 }
 
 input UserIdDataAwsCognitoInputType {

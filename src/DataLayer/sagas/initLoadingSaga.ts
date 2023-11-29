@@ -29,10 +29,6 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
   if (profilesPrev.length && sectionsMappingPrev.length) return
 
   try {
-    yield call(getProfiles)
-
-    yield put(actionSync.ADD_SECTIONS_MAPPING({ sectionsMapping }))
-
     const code = params?.data?.query?.code
 
     // TODO Implement localStorage for ios and android
@@ -46,6 +42,10 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
     } else if (refresh_token) {
       yield call(getAuthAwsCognitoUserRefreshed, { data: { refresh_token } })
     }
+
+    yield call(getProfiles)
+
+    yield put(actionSync.ADD_SECTIONS_MAPPING({ sectionsMapping }))
 
     const res: any = yield select(store => store)
     const { profiles, globalVars } = res

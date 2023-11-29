@@ -2,10 +2,10 @@ import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { CLIENTS_URI } from '../../Constants/clientsUri.const'
+import { ClientAppType } from '../../@types/ClientAppType'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
 import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
-import { ClientAppType } from '../../@types/ClientAppType'
 
 export function* getAuthAwsCognitoUserRefreshed(params: any): Iterable<any> {
   const {
@@ -14,12 +14,11 @@ export function* getAuthAwsCognitoUserRefreshed(params: any): Iterable<any> {
 
   try {
     const envType = getDetectedEnv()
-    const redirect_uri = CLIENTS_URI[envType]
 
     const variables = {
       userIdDataAwsCognitoInput: {
         refresh_token,
-        redirect_uri,
+        redirect_uri: CLIENTS_URI[envType],
         client_app: ClientAppType['CHAT_AI'],
       },
     }
