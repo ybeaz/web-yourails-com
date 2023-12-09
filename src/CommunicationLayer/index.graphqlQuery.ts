@@ -1,10 +1,10 @@
 import { DocumentNode } from '@apollo/client'
 
-import { getAuthAwsCognitoUserRefreshedGql } from './graphql/getAuthAwsCognitoUserRefreshedGql'
-import { getAuthAwsCognitoUserRevokedGql } from './graphql/getAuthAwsCognitoUserRevokedGql'
-import { getAuthAwsCognitoUserDataGql } from './graphql/getAuthAwsCognitoUserDataGql'
-import { readCompetencyTagsGql } from './graphql/readCompetencyTagsGql'
-import { readProfilesGql } from './graphql/readProfilesGql'
+import { getAuthAwsCognitoUserRefreshedGql } from './query/getAuthAwsCognitoUserRefreshedGql'
+import { getAuthAwsCognitoUserRevokedGql } from './query/getAuthAwsCognitoUserRevokedGql'
+import { getAuthAwsCognitoUserDataGql } from './query/getAuthAwsCognitoUserDataGql'
+import { readCompetencyTagsGql } from './query/readCompetencyTagsGql'
+import { readProfilesGql } from './query/readProfilesGql'
 
 export type GraphqlQueriesType = Record<string, DocumentNode>
 
