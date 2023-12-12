@@ -49,10 +49,9 @@ export const projects01R: ProjectType[] = [
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'YouRails',
-    subtitle:
-      'Discover People, Connect, and Create Your Best Life with YouRails.com',
+    subtitle: 'Chat with people and AI personas',
     description: [
-      'YouRails.com facilitates users in finding people, solutions, and establishing connections through a chat-first/messenger platform. This platform provides users with the possibility to create and manage multiple profiles that reflect their current life goals and intentions. The process is simplified with an AI-based environment and services.',
+      'YouRails.com is a chat service that combines a basic set of chat features, tools for prompt engineering, and a marketplace for AI model developers. It is a platform for chatting with AI personas, and people, plugging in new AI models, and monetizing AI products directly and through APIs to enterprise users.',
 
       'One of the key features of YouRails.com is the ability for users to create multiple profiles that manifest different "faces" of themselves. Users can activate and deactivate these profiles as needed, allowing them to present themselves differently in different contexts.',
     ],
@@ -61,6 +60,24 @@ export const projects01R: ProjectType[] = [
     builtwith: 'React-native, React, ES7, Typescript, Expo/Webpack, Jest',
     imgSrc: 'https://yourails.com/images/@rome/yrl-23-demo-sep-project.jpg',
     linkHref: 'https://web.yourails.com/k/@smid',
+  },
+
+  {
+    profileID: '1',
+    title: 'Web service. Weather Forecast App',
+    contentType: CompetencyContentType['ProjectType'],
+    isActive: true,
+    pathname: 'YouRails',
+    subtitle: 'Know weather across the US',
+    description: [
+      'Discover the simplicity of our microservice application designed for your weather needs. A humble form awaits, accepting comma-separated US city names with ease. Upon submission, our backend quietly springs into action, retrieving the temperatures for your specified cities. No frills, just a straightforward list on the frontend, offering you the essential weather details you seek. Experience the modest charm of our application—where functionality meets subtlety, and staying informed is as straightforward as a click. Weather updates made simple, just the way you like it.',
+    ],
+    customer: 'Not limited',
+    builtwith:
+      'Frontend: React,ES7, Typescript, Expo/Webpack, Jest. Backend: Nest.js, RESTfull API, Axios, Typescript',
+    imgSrc:
+      'https://yourails.com/images/@rome/yrl-23-demo-weather-forecast-app-960x540.jpg',
+    linkHref: 'https://r1.userto.com/weather/',
   },
 
   {
