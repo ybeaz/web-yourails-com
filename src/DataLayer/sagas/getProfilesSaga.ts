@@ -1,12 +1,16 @@
 import { takeEvery, put, select } from 'redux-saga/effects'
 
 import { Platform } from 'react-native'
-import { RootStoreType } from '../../@types/RootStoreType'
-import { rootStoreDefault } from '../rootStoreDefault'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 import { profiles as profilesMock } from '../../ContentMock/profilesMock'
-import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
+import {
+  getResponseGraphqlAsync,
+  GetResponseGraphqlAsyncOptionsType,
+} from '../../../../yourails_communication_layer'
+import { CLIENTS_URI } from '../../Constants/clientsUri.const'
+import { ClientAppType } from '../../@types/ClientAppType'
+import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 
 export function* getProfiles(): Iterable<any> {
   // TODO Implement localStorage for ios and android
@@ -18,10 +22,18 @@ export function* getProfiles(): Iterable<any> {
   let profiles: any = []
   try {
     if (refresh_token && !isLocalDataMockOnlyFlag()) {
-      profiles = yield getResponseGraphqlAsync({
-        variables: {},
-        resolveGraphqlName: 'readProfiles',
-      })
+      const options: GetResponseGraphqlAsyncOptionsType = {
+        refresh_token,
+        redirect_uri: CLIENTS_URI[getDetectedEnv()],
+        client_app: ClientAppType['CHAT_AI'],
+      }
+      profiles = yield getResponseGraphqlAsync(
+        {
+          variables: {},
+          resolveGraphqlName: 'readProfiles',
+        },
+        options
+      )
 
       if (!profiles?.length) profiles = profilesMock
     } else {

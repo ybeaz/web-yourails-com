@@ -1,7 +1,6 @@
 import { call, takeEvery, put, select } from 'redux-saga/effects'
 import { Platform } from 'react-native'
 import { RootStoreType } from '../../@types/RootStoreType'
-import { rootStoreDefault } from '../rootStoreDefault'
 import { ProfileType } from '../../@types/GraphqlTypes'
 import {
   getFilteredObjsArrayBy,

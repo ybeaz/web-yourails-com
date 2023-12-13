@@ -1,6 +1,0 @@
-export * from './getAuthAwsCognitoUserDataGql'
-export * from './getAuthAwsCognitoUserRefreshedGql'
-export * from './getAuthAwsCognitoUserRevokedGql'
-export * from './index'
-export * from './readCompetencyTagsGql'
-export * from './readProfilesGql'

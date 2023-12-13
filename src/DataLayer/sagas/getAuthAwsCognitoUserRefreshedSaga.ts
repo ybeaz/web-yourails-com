@@ -1,12 +1,16 @@
 import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
+import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
+import { getDeletedObjFromLocalStorage } from '../../Shared/getDeletedObjFromLocalStorage'
+
+import {
+  getResponseGraphqlAsync,
+  GetResponseGraphqlAsyncOptionsType,
+} from '../../../../yourails_communication_layer'
 import { CLIENTS_URI } from '../../Constants/clientsUri.const'
 import { ClientAppType } from '../../@types/ClientAppType'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
-import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
-import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
-import { getDeletedObjFromLocalStorage } from '../../Shared/getDeletedObjFromLocalStorage'
 
 export function* getAuthAwsCognitoUserRefreshed(): Iterable<any> {
   const refresh_token = localStorage.getItem('refresh_token')

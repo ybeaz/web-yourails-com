@@ -1,14 +1,10 @@
 import { takeEvery, put, select } from 'redux-saga/effects'
-
-// import { getResponseGraphqlAsync } from 'yourails_communication_layer'
-
 import { RootStoreType } from '../../@types/RootStoreType'
 import { rootStoreDefault } from '../rootStoreDefault'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { competencyTags as competencyTagsMock } from '../../ContentMock/competencyTagsMock'
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
 
-import { getHeadersAuthDict } from '../../Shared/getHeadersAuthDict'
 import { getResponseGraphqlAsync } from '../../../../yourails_communication_layer'
 
 const idProfileDict: Record<string, boolean> = {}
