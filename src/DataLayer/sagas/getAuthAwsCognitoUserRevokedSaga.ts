@@ -7,10 +7,8 @@ import { getDeletedObjFromLocalStorage } from '../../Shared/getDeletedObjFromLoc
 import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
 import { ClientAppType } from '../../@types/ClientAppType'
 
-function* getAuthAwsCognitoUserRevoked(params: any): Iterable<any> {
-  const {
-    data: { refresh_token },
-  } = params
+function* getAuthAwsCognitoUserRevoked(): Iterable<any> {
+  const refresh_token = localStorage.getItem('refresh_token') || ''
 
   try {
     const envType = getDetectedEnv()
@@ -33,11 +31,14 @@ function* getAuthAwsCognitoUserRevoked(params: any): Iterable<any> {
 
     getDeletedObjFromLocalStorage({
       ...userIdDataAwsCognito,
-      refresh_token: null,
     })
   } catch (error: any) {
     console.log('ERROR getAuthAwsCognitoUserRevokedSaga', {
       error: error.message,
+    })
+  } finally {
+    getDeletedObjFromLocalStorage({
+      refresh_token: null,
     })
   }
 }

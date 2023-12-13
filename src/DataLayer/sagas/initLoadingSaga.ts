@@ -35,7 +35,7 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
     if (code) {
       yield call(getAuthAwsCognitoUserData, { data: { code } })
     } else if (refresh_token) {
-      yield call(getAuthAwsCognitoUserRefreshed, { data: { refresh_token } })
+      yield call(getAuthAwsCognitoUserRefreshed)
     }
 
     yield put(actionSync.ADD_SECTIONS_MAPPING({ sectionsMapping }))
