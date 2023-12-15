@@ -1,4 +1,4 @@
-import { call, takeEvery, put, select } from 'redux-saga/effects'
+import { call, takeEvery, put, select, delay } from 'redux-saga/effects'
 import { Platform } from 'react-native'
 import { RootStoreType } from '../../@types/RootStoreType'
 import { ProfileType } from '../../@types/GraphqlTypes'
@@ -28,6 +28,7 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
     }
 
     yield call(getProfiles)
+    yield delay(250)
 
     const code = params?.data?.query?.code
 
