@@ -44,7 +44,7 @@ export const getCreatedMessage: GetCreatedMessageType = (params, options) => {
 
   const textObj = {
     contentType: ContentType['textArray'],
-    textArray: [text],
+    contentArray: [text],
   }
   const textNext = JSON.stringify(textObj)
 

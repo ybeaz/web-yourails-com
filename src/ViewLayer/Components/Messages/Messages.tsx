@@ -56,7 +56,7 @@ const MessagesComponent: MessagesComponentType = props => {
           )
           const textObject = {
             contentType: ContentType['textArray'],
-            textArray: [`${profileName} ${textJoinConversation}`],
+            contentArray: [`${profileName} ${textJoinConversation}`],
           }
           textNext = JSON.stringify(textObject)
         }

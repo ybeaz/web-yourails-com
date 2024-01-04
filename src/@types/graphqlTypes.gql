@@ -10,6 +10,47 @@ type AvatarSizeType {
   width: Float
 }
 
+type BotsConnectionType {
+  """[BotsEdgeType]"""
+  edges: [BotsEdgeType!]
+
+  """BotsPageInfoType"""
+  pageInfo: BotsPageInfoType
+}
+
+type BotsEdgeType {
+  """cursor"""
+  cursor: String
+
+  """BotsEdgeType"""
+  node: BotsType
+}
+
+type BotsPageInfoType {
+  """endCursor"""
+  endCursor: String
+
+  """hasNextPage"""
+  hasNextPage: Boolean
+}
+
+type BotsType {
+  """bots ID"""
+  botsID: ID
+
+  """bots created date"""
+  dateCreated: Date
+
+  """bots deleted date"""
+  dateDeleted: Date
+
+  """bots updated date"""
+  dateUpdated: Date
+
+  """isActive"""
+  isActive: Boolean!
+}
+
 type ChoiceType {
   finish_reason: String!
   index: Int!
@@ -131,14 +172,8 @@ type CourseType {
   """courses modules"""
   modules: [ModuleType!]
 
-  """courses passRate"""
-  passRate: Float
-
   """profile ID"""
   profileID: ID!
-
-  """courses questionNumber"""
-  questionNumber: Int!
 }
 
 type CoursesConnectionType {
@@ -155,6 +190,20 @@ type CoursesPageInfoType {
 
   """hasNextPage"""
   hasNextPage: Boolean
+}
+
+input CreateBotsInputType {
+  """bots ID"""
+  botsID: ID
+
+  """bots created date"""
+  dateCreated: Date
+
+  """bots deleted date"""
+  dateDeleted: Date
+
+  """bots updated date"""
+  dateUpdated: Date
 }
 
 input CreateCourseInputType {
@@ -179,14 +228,8 @@ input CreateCourseInputType {
   """courses modules"""
   modules: [ModuleInputType!]
 
-  """courses passRate"""
-  passRate: Float
-
   """profile ID"""
   profileID: ID!
-
-  """courses questionNumber"""
-  questionNumber: Int!
 }
 
 input CreateDocumentInputType {
@@ -382,6 +425,56 @@ input MetaCourseInputType {
   tags: [String!] = []
 }
 
+input MetaCoursePartialInputType {
+  """course meta email"""
+  email: String
+
+  """course meta institution"""
+  institution: String
+
+  """course meta isSendingBcc"""
+  isSendingBcc: Boolean
+
+  """course meta specName"""
+  specName: String
+
+  """course meta specTitle"""
+  specTitle: String
+
+  """courses meta stages: stages/ statuses/ envs"""
+  stages: [String!] = []
+
+  """
+  courses meta tags: tags that characterises the course content, its marketing features
+  """
+  tags: [String!] = []
+}
+
+type MetaCoursePartialType {
+  """course meta email"""
+  email: String
+
+  """course meta institution"""
+  institution: String
+
+  """course meta isSendingBcc"""
+  isSendingBcc: Boolean
+
+  """course meta specName"""
+  specName: String
+
+  """course meta specTitle"""
+  specTitle: String
+
+  """courses meta stages: stages/ statuses/ envs"""
+  stages: [String!]
+
+  """
+  courses meta tags: tags that characterises the course content, its marketing features
+  """
+  tags: [String!]
+}
+
 type MetaCourseType {
   """course meta email"""
   email: String!
@@ -476,8 +569,20 @@ input ModuleInputType {
   """course module ID"""
   moduleID: ID
 
+  """course module objection"""
+  objections: [ObjectionInputType!]
+
+  """module passRate"""
+  passRate: Float
+
+  """module questionNumber"""
+  questionNumber: Int!
+
   """course module questions"""
   questions: [QuestionInputType!]!
+
+  """course module summary"""
+  summary: [SummaryItemInputType!]
 }
 
 type ModuleType {
@@ -505,20 +610,36 @@ type ModuleType {
   """course module ID"""
   moduleID: ID!
 
+  """course module objection"""
+  objections: [ObjectionType!]
+
+  """module passRate"""
+  passRate: Float
+
+  """module questionNumber"""
+  questionNumber: Int!
+
   """course module questions"""
   questions: [QuestionType!]!
+
+  """course module summary"""
+  summary: [SummaryItemType!]
 }
 
 type Mutation {
   addRecipe(newRecipeData: NewRecipeInputType!): RecipeType!
+  createBots(createBotsInput: [CreateBotsInputType!]!): [BotsType!]!
   createCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagType!]!
   createCourses(createCoursesInput: [CreateCourseInputType!]!): [CourseType!]!
   createDocuments(createDocumentsInput: [CreateDocumentInputType!]!): [DocumentType!]!
   createProfiles(profilesInput: ProfilesInputType!): [ProfileType!]!
-  createTemplates(createTemplatesInput: CreateTemplatesInputType!): [TemplatesType!]!
+  createTemplates(createTemplatesInput: [CreateTemplatesInputType!]!): [TemplatesType!]!
   createUser(userInputType: UserInputType!): UserModelExtendedType!
+  deactivateBots(deactivateBotsIdsInput: [String!]!): [String!]!
   deactivateCourses(deactivateCoursesIdsInput: [String!]!): [String!]!
   deactivateDocuments(deactivateDocumentsIdsInput: [String!]!): [String!]!
+  deactivateTemplates(deactivateTemplatesIdsInput: [String!]!): [String!]!
+  deleteBots(deleteBotsIdsInput: [String!]!): [String!]!
   deleteCompetencyTags(idCompetencyTags: String!): [CompetencyTagType!]!
   deleteCourses(deleteCoursesIdsInput: [String!]!): [String!]!
   deleteDocuments(deleteDocumentsIdsInput: [String!]!): [String!]!
@@ -526,11 +647,13 @@ type Mutation {
   deleteTemplates(deleteTemplatesIdsInput: [String!]!): [String!]!
   deleteUser(userIdAuth: String!, userIdProfile: String!): UserModelExtendedType!
   removeRecipe(id: String!): Boolean!
+  updateBots(updateBotsInput: [UpdateBotsInputType!]!): [BotsType!]!
   updateCollections(collections: [String!]!): [CollectionUpdateStatusType!]!
   updateCompetencyTags(competencyTagsInput: CompetencyTagsInputType!): [CompetencyTagType!]!
   updateCourses(updateCoursesInput: [UpdateCourseInputType!]!): [CourseType!]!
+  updateCoursesMeta(updateCoursesMetaInput: [UpdateCourseMetaInputType!]!): [UpdateCourseMetaType!]!
   updateProfiles(profilesInput: ProfilesInputType!): [ProfileType!]!
-  updateTemplates(updateTemplatesInput: UpdateTemplatesInputType!): [TemplatesType!]!
+  updateTemplates(updateTemplatesInput: [UpdateTemplatesInputType!]!): [TemplatesType!]!
   updateUser(userInputType2: UserInputType!): UserModelExtendedType!
 }
 
@@ -538,6 +661,28 @@ input NewRecipeInputType {
   description: String
   ingredients: [String!]!
   title: String!
+}
+
+input ObjectionInputType {
+  """course module Objection capture"""
+  capture: String = null
+
+  """courses module Objection ID"""
+  objectionID: ID
+
+  """course module Objection text"""
+  text: String = null
+}
+
+type ObjectionType {
+  """course module Objection capture"""
+  capture: String
+
+  """course module Objection ID"""
+  objectionID: ID!
+
+  """course module Objection text"""
+  text: String
 }
 
 input OptionInputType {
@@ -693,11 +838,18 @@ type ProfilesPageInfoType {
 }
 
 type Query {
+  countBots: Int!
+  countCourses: Int!
+  countDocuments: Int!
+  countTemplates: Int!
   getAuthAwsCognitoUserData(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
   getAuthAwsCognitoUserRefreshed(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
   getAuthAwsCognitoUserRevoked(userIdDataAwsCognitoInput: UserIdDataAwsCognitoInputType!): UserIdDataAwsCognitoType!
   getImagesOpenAi(imageOpenAiInput: ImageOpenAiInputType!): ImagesOpenAiType!
   getMessageAssistant(messageAssistantInput: MessageAssistantInputType!): MessageAssistantType!
+  readBots(readBotsInput: [String!]!): [BotsType!]!
+  readBotsAll: [BotsType!]!
+  readBotsConnection(readBotsConnectionInput: ReadBotsConnectionInputType!): BotsConnectionType!
   readCompetencyTags(params: CompetencyTagsParamsReadType!): [CompetencyTagType!]!
   readCourses(readCoursesInput: [ReadCourseInputType!]!): [CourseType!]!
   readCoursesAll: [CourseType!]!
@@ -764,6 +916,17 @@ type QuestionType {
   topic: String
 }
 
+input ReadBotsConnectionInputType {
+  """after"""
+  after: String
+
+  """first"""
+  first: Int
+
+  """offset"""
+  offset: Int
+}
+
 input ReadCourseInputType {
   """course ID"""
   courseID: ID
@@ -784,12 +947,21 @@ input ReadCoursesConnectionInputType {
   first: Int
 
   """isActive"""
-  isActive: Boolean = false
+  isActive: Boolean = true
+
+  """language code"""
+  language: String = null
 
   """
   offset: Similar to "First," it specifies the maximum number of items to return. if offset === 0 then the function returns ALL docs after the first number
   """
   offset: Int
+
+  """profile ID"""
+  profileID: ID
+
+  """searchPhrase"""
+  searchPhrase: String = null
 
   """option to sort by a field: 1 ascending, -1 descending"""
   sort: SortCoursesInputType
@@ -827,12 +999,15 @@ input ReadDocumentsConnectionInputType {
   first: Int
 
   """isActive"""
-  isActive: Boolean = false
+  isActive: Boolean = true
 
   """
   offset: Similar to "First," it specifies the maximum number of items to return. if offset === 0 then the function returns ALL docs after the first number
   """
   offset: Int
+
+  """profile ID"""
+  profileID: ID
 
   """option to sort by a field: 1 ascending, -1 descending"""
   sort: SortDocumentsInputType
@@ -932,6 +1107,28 @@ type Subscription {
   recipeAdded: RecipeType!
 }
 
+input SummaryItemInputType {
+  """course module Summary item capture"""
+  capture: String = null
+
+  """courses module Summary item ID"""
+  summaryItemID: ID
+
+  """course module Summary item text"""
+  text: String = null
+}
+
+type SummaryItemType {
+  """course module Summary item capture"""
+  capture: String
+
+  """course module summary ID"""
+  summaryItemID: ID!
+
+  """course module Summary item text"""
+  text: String
+}
+
 type TemplatesConnectionType {
   """[TemplatesEdgeType]"""
   edges: [TemplatesEdgeType!]
@@ -973,6 +1170,20 @@ type TemplatesType {
   templatesID: ID
 }
 
+input UpdateBotsInputType {
+  """bots ID"""
+  botsID: ID
+
+  """bots created date"""
+  dateCreated: Date
+
+  """bots deleted date"""
+  dateDeleted: Date
+
+  """bots updated date"""
+  dateUpdated: Date
+}
+
 input UpdateCourseInputType {
   """course capture"""
   capture: String!
@@ -1004,14 +1215,56 @@ input UpdateCourseInputType {
   """courses modules"""
   modules: [ModuleInputType!]
 
-  """courses passRate"""
-  passRate: Float
+  """profile ID"""
+  profileID: ID!
+}
+
+input UpdateCourseMetaInputType {
+  """courses ID"""
+  courseID: ID
+
+  """courses meta information"""
+  meta: MetaCoursePartialInputType
+
+  """module ID"""
+  moduleID: ID
+
+  """profile ID"""
+  profileID: ID!
+}
+
+type UpdateCourseMetaType {
+  """courses ID"""
+  courseID: ID
+
+  """courses meta information"""
+  meta: MetaCoursePartialType
+
+  """module ID"""
+  moduleID: ID
 
   """profile ID"""
   profileID: ID!
 
-  """courses questionNumber"""
-  questionNumber: Int!
+  """updateInfo"""
+  updateInfo: UpdateInfoType
+}
+
+type UpdateInfoType {
+  """acknowledged"""
+  acknowledged: Boolean
+
+  """matchedCount"""
+  matchedCount: Int
+
+  """modifiedCount"""
+  modifiedCount: Int
+
+  """upsertedCount"""
+  upsertedCount: Int
+
+  """upsertedId"""
+  upsertedId: String
 }
 
 input UpdateTemplatesInputType {
