@@ -20,7 +20,7 @@ export const projects01R: ProjectType[] = [
       'React, react-router-dom, Typescript, ES7, ESLint, Babel, Webpack',
     imgSrc:
       'https://yourails.com/images/@rome/yrl-23-demo-yourails-academy.jpg',
-    linkHref: 'https://academy.yourails.com/academy',
+    linkHref: 'https://academy.yourails.com/',
   },
 
   {
