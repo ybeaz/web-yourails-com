@@ -1,4 +1,4 @@
-import { takeEvery, put, select } from 'redux-saga/effects'
+import { takeEvery, put } from 'redux-saga/effects'
 
 import { Platform } from 'react-native'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
@@ -30,7 +30,7 @@ export function* getProfiles(): Iterable<any> {
       profiles = yield getResponseGraphqlAsync(
         {
           variables: {},
-          resolveGraphqlName: 'readProfiles',
+          resolveGraphqlName: 'readProfilesAll',
         },
         options
       )
