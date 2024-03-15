@@ -9,29 +9,29 @@ const { dispatch, getState } = store
 export const ON_MESSAGE_SOCKET: ActionEventType = (event, data) => {
   const {
     messages,
-    globalVars: { idProfileHost, idProfileActive },
+    globalVars: { profileHostID, profileActiveID },
   } = getState()
   const {
-    message: { idConversation, eventType },
+    message: { conversationID, eventType },
   } = data
 
-  const idsFromConversation = JSON.parse(idConversation)
+  const idsFromConversation = JSON.parse(conversationID)
 
   if (
-    !idsFromConversation.includes(idProfileHost) ||
-    !idsFromConversation.includes(idProfileActive)
+    !idsFromConversation.includes(profileHostID) ||
+    !idsFromConversation.includes(profileActiveID)
   )
     return
 
   const messsagesJoinConversation = messages.filter(
     (message: MessageType) =>
-      message.idConversation === idConversation &&
+      message.conversationID === conversationID &&
       message.eventType === MessageEventType['joinConversation']
   )
 
   const messsagesDisconnectConversation = messages.filter(
     (message: MessageType) =>
-      message.idConversation === idConversation &&
+      message.conversationID === conversationID &&
       message.eventType === MessageEventType['disconnectConversation']
   )
 

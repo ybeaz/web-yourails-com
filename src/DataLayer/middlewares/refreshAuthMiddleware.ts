@@ -1,6 +1,7 @@
 import { Middleware } from '@reduxjs/toolkit'
 import { Platform } from 'react-native'
 
+import { AWS_COGNITO_REFRESH_AUTH_TOKEN_DELAY } from '../../Constants/aws.const'
 import { getDebouncedFunc } from '../..//Shared/getDebouncedFunc'
 import { actionAsync } from '../../DataLayer/index.action'
 
@@ -10,16 +11,14 @@ import { actionAsync } from '../../DataLayer/index.action'
  */
 const getRefreshedAuthAwsCongito = (...args: any) => {
   const store = args[0]
-  const refresh_token = args[1]
   const { dispatch } = store
-  dispatch(
-    actionAsync.GET_REFRESHED_USER_AUTH_AWS_COGNITO_ASYNC.REQUEST({
-      refresh_token,
-    })
-  )
+  dispatch(actionAsync.GET_AUTH_AWS_COGNITO_USER_REFRESHED.REQUEST())
 }
 
-const debouncedFunc = getDebouncedFunc(getRefreshedAuthAwsCongito, 6000)
+const debouncedFunc = getDebouncedFunc(
+  getRefreshedAuthAwsCongito,
+  AWS_COGNITO_REFRESH_AUTH_TOKEN_DELAY
+)
 
 /**
  * @description Middleware to refreshAuthMiddleware

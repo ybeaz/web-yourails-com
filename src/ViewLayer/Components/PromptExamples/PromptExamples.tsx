@@ -40,7 +40,7 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
     onHeightChange,
     onPromptExampleClick,
     handleEvents,
-    idProfileActive,
+    profileActiveID,
   } = props
   const { deviceType } = mediaParams
   const style = styles[deviceType]
@@ -108,7 +108,7 @@ const PromptExamplesComponent: PromptExamplesComponentType = props => {
                 onPromptExampleClick()
                 handleEvents.CLICK_ON_PROMPT_EXAMPLE(
                   {},
-                  { idProfileActive, text: promptExample }
+                  { profileActiveID, text: promptExample }
                 )
               },
               iconProps: undefined,

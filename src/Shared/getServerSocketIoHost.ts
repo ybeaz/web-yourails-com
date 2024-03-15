@@ -1,5 +1,7 @@
 import { getDetectedEnv } from './getDetectedEnv'
-import { SERVERS, ServersType } from '../Constants/servers.const'
+import { SERVERS_MAIN, ServersType } from '../Constants/servers.const'
+
+import { isServerSocketIoHostRemoteFlag } from '../FeatureFlags'
 
 interface GetServerSocketIoHostType {
   (): string
@@ -11,6 +13,8 @@ interface GetServerSocketIoHostType {
  */
 export const getServerSocketIoHost: GetServerSocketIoHostType = () => {
   const envType: string = getDetectedEnv()
-  const baseURL = SERVERS[envType as keyof ServersType] as string
+  let baseURL = SERVERS_MAIN[envType as keyof ServersType] as string
+  if (isServerSocketIoHostRemoteFlag()) baseURL = SERVERS_MAIN['remote']
+
   return baseURL
 }

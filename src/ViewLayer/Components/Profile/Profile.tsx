@@ -33,7 +33,7 @@ const getProfileItemsObjList = (
     emails = [],
     messengers = [],
     locations = [],
-    summary,
+    description,
     disclaimer,
     serviceSpecs = [],
     promptExamples = [],
@@ -44,10 +44,10 @@ const getProfileItemsObjList = (
       iconLibrary: 'Ionicons',
       iconName: 'checkmark-outline',
       contentType: 'string',
-      content: serviceSpecs.join(', '),
+      content: serviceSpecs?.join(', '),
       label: 'Service specs',
       isActive:
-        serviceSpecs.length &&
+        serviceSpecs?.length &&
         (deviceType === DeviceType['xsDevice'] ||
           deviceType === DeviceType['smDevice'])
           ? true
@@ -57,14 +57,14 @@ const getProfileItemsObjList = (
       iconLibrary: 'Ionicons',
       iconName: 'albums-outline',
       contentType: 'string',
-      content: summary,
+      content: description,
       label: 'Summary',
-      isActive: summary ? true : false,
+      isActive: description ? true : false,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'pencil-outline',
-      content: <PromptsExamplesElement promptExamples={promptExamples} />,
+      content: <PromptsExamplesElement promptExamples={promptExamples || []} />,
       label: 'Prompt Examples',
       isActive: promptExamples?.length ? true : false,
     },
@@ -86,30 +86,30 @@ const getProfileItemsObjList = (
     {
       iconLibrary: 'Ionicons',
       iconName: 'location-outline',
-      content: locations.join(', '),
+      content: locations?.join(', '),
       label: 'Locations',
-      isActive: locations.length ? true : false,
+      isActive: locations?.length ? true : false,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'chatbox-ellipses-outline',
-      content: <MessengesElement messengers={messengers} style={style} />,
+      content: <MessengesElement messengers={messengers || []} style={style} />,
       label: 'Messengers',
-      isActive: messengers.length ? true : false,
+      isActive: messengers?.length ? true : false,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'call-outline',
-      content: phones.join(', '),
+      content: phones?.join(', '),
       label: 'Phones',
-      isActive: phones.length ? true : false,
+      isActive: phones?.length ? true : false,
     },
     {
       iconLibrary: 'Ionicons',
       iconName: 'mail-outline',
-      content: emails.join(', '),
+      content: emails?.join(', '),
       label: 'Email',
-      isActive: emails.length ? true : false,
+      isActive: emails?.length ? true : false,
     },
     ...linksIn,
   ]
@@ -129,20 +129,20 @@ const ProfileComponent: ProfileComponentType = props => {
 
   const {
     profiles,
-    globalVars: { idProfileActive },
+    globalVars: { profileActiveID },
   } = store
 
   const profilesTagsUserHost = getFilteredObjsArrayBy(
     profiles,
-    'idProfile',
-    idProfileActive
+    'profileID',
+    profileActiveID
   ) as ProfileType[]
   const profileTagsUserHost = profilesTagsUserHost[0]
 
   const linksUserHost = getFilteredObjsArrayBy(
     links,
-    'idProfile',
-    idProfileActive
+    'profileID',
+    profileActiveID
   ) as LinkType[]
 
   const profileItems = getProfileItemsObjList(

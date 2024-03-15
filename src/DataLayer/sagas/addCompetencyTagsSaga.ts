@@ -1,11 +1,11 @@
 import { takeEvery, put, select } from 'redux-saga/effects'
-
 import { RootStoreType } from '../../@types/RootStoreType'
 import { rootStoreDefault } from '../rootStoreDefault'
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
 import { competencyTags as competencyTagsMock } from '../../ContentMock/competencyTagsMock'
-import { getCompetencyTagsConnector } from '../../CommunicationLayer/getCompetencyTagsConnector'
 import { isLocalDataMockOnlyFlag } from '../../FeatureFlags'
+
+import { getResponseGraphqlAsync } from '../../../../yourails_communication_layer'
 
 const idProfileDict: Record<string, boolean> = {}
 
@@ -13,24 +13,26 @@ function* addCompetencyTags(): Iterable<any> {
   const rootStoreYield: any = yield select(store => store)
   const rootStore: RootStoreType = rootStoreYield || rootStoreDefault
   const {
-    globalVars: { idProfileActive: idProfile },
+    globalVars: { profileActiveID: profileID },
   } = rootStore || rootStoreDefault
 
-  if (typeof idProfile !== 'string' || idProfileDict[idProfile]) return
+  if (typeof profileID !== 'string' || idProfileDict[profileID]) return
 
-  idProfileDict[idProfile] = true
+  idProfileDict[profileID] = true
 
-  let competencyTags = []
+  let competencyTags: any = []
   try {
     if (!isLocalDataMockOnlyFlag()) {
       const variables = {
         params: {
-          idProfile,
+          profileID,
         },
       }
-      const { client, params } = getCompetencyTagsConnector(variables)
-      const res: any = yield client.post('', params)
-      competencyTags = res?.data?.data?.readCompetencyTags
+
+      competencyTags = yield getResponseGraphqlAsync({
+        variables,
+        resolveGraphqlName: 'readCompetencyTags',
+      })
 
       if (!competencyTags?.length) competencyTags = competencyTagsMock
     } else {

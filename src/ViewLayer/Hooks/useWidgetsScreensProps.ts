@@ -58,7 +58,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
   const renderCounter = useRef(0)
 
   const {
-    idProfileActive,
+    profileActiveID,
     isLeftColumn,
     isMainColumn,
     isMainColumnBlank,
@@ -79,7 +79,7 @@ export const useWidgetsScreensProps: useWidgetsScreensPropsType = (
 
   const profileActive: ProfileType = getProfileByIdProfile(
     profiles,
-    idProfileActive
+    profileActiveID
   )
 
   const profileNameChat = profileActive ? profileActive.profileName : undefined

@@ -48,7 +48,7 @@ const MyParentComponent = () => {
     return (
       <DataContext.Provider
         value={{
-          idUserHost2: idUserHost,
+          idUserHost2: userHostID,
           profiles2: profiles,
           messages2: messages,
         }}

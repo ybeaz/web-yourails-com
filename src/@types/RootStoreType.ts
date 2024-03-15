@@ -54,9 +54,9 @@ export type RootStoreType = {
   }
   userIdDataAwsCognito: UserIdDataAwsCognito
   globalVars: {
-    idProfileHost: IdUserType
-    idUserHost: IdUserType
-    idProfileActive: IdUserType /** @description idUser that on the Main column are treated as active */
+    profileHostID: IdUserType
+    userHostID: IdUserType
+    profileActiveID: IdUserType /** @description userID that on the Main column are treated as active */
     theme: string
     language: string
     isShowApp: boolean

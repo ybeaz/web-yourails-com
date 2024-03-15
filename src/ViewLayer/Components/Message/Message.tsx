@@ -28,7 +28,7 @@ import '../../Styles/styleGlobal'
  */
 const MessageComponent: MessageComponentType = props => {
   const {
-    idMessage,
+    messageID,
     text,
     createdAt,
     position = 'right',
@@ -36,7 +36,7 @@ const MessageComponent: MessageComponentType = props => {
     isPending,
     imagePendingSrc,
     mediaParams = mediaParamsDefault,
-    // idProfile,
+    // profileID,
     // eventType,
     // image,
     // video,
@@ -53,7 +53,7 @@ const MessageComponent: MessageComponentType = props => {
 
   const contentObj = isValidJsonString(text)
     ? JSON.parse(text)
-    : { contentType: 'textArray', textArray: [text] }
+    : { contentType: 'textArray', contentArray: [text] }
   const { contentType } = contentObj
 
   const roundAllCornersStyle = !isTail ? style.roundAllCorners.style : {}
@@ -65,7 +65,7 @@ const MessageComponent: MessageComponentType = props => {
     return textArrayIn.map((textItem: string, index: number) => {
       return (
         <Text
-          key={`${idMessage}-${index}`}
+          key={`${messageID}-${index}`}
           style={[style[position].text]}
           testID='textItem'
         >
@@ -111,10 +111,10 @@ const MessageComponent: MessageComponentType = props => {
   let widthContentStyle = {}
   if (contentType === 'textArray') {
     messageContentOutput = getTextComponentsFromTextArray(
-      contentObj[contentType],
+      contentObj['contentArray'],
       position
     )
-    messageContextTextOutput = contentObj[contentType].reduce(
+    messageContextTextOutput = contentObj['contentArray'].reduce(
       (accum: string, text: string) => {
         return `${accum} ${text}`
       },
@@ -122,7 +122,7 @@ const MessageComponent: MessageComponentType = props => {
     )
   } else if (contentType === 'imageArray') {
     messageContentOutput = getImageComponentsFromImageArray(
-      contentObj[contentType]
+      contentObj['contentArray']
     )
     widthContentStyle = {
       maxWidth: '100%',

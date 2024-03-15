@@ -9,9 +9,7 @@ import { getIteratedAndMinifiedFiles } from './getIteratedAndMinifiedFiles'
  * @run_file yarn minify
  */
 
-const getPreparedFilesPublicWeb = async () => {
-  const buildDir = join(__dirname, '..', '/web-build') // `${__dirname}/web-build` // '/Users/admin/Dev/yourails-sep-web-native/web-build'
-
+const getPreparedFilesPublicWeb = async (buildDir: string): Promise<void> => {
   /** @description Get a list of js files in static/js directory */
   const inputDir = `${buildDir}/static/js`
   const extname = '.js'
@@ -30,7 +28,7 @@ const getPreparedFilesPublicWeb = async () => {
   /** @description Give permission to the build directories */
   await givePermission(buildDir)
 
-  /** @description Copy files to deployment directory */
+  /** @description Copy files from deployment directory */
   const filesList = ['index.html', '.htaccess']
   filesList.forEach(async (file: string, index: number) => {
     const source = join(__dirname, '..', `/deployment/${file}`)
@@ -51,4 +49,5 @@ const getPreparedFilesPublicWeb = async () => {
   })
 }
 
-getPreparedFilesPublicWeb()
+const buildDir = join(__dirname, '..', '/web-build') // `${__dirname}/web-build` // '/Users/admin/Dev/yourails-sep-web-native/web-build'
+getPreparedFilesPublicWeb(buildDir)

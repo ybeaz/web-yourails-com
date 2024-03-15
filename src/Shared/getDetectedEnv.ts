@@ -1,8 +1,8 @@
-import { CLIENTS } from '../Constants/clients.const'
+import { CLIENTS_URI } from '../Constants/clientsUri.const'
 import * as Device from 'expo-device'
 
 interface GetDetectedEnv {
-  (): keyof typeof CLIENTS
+  (): keyof typeof CLIENTS_URI
 }
 
 /**
@@ -13,7 +13,7 @@ export const getDetectedEnv: GetDetectedEnv = () => {
   let isSimulator = false
   if (!Device?.isDevice) isSimulator = true
 
-  const output: keyof typeof CLIENTS =
+  const output: keyof typeof CLIENTS_URI =
     isSimulator ||
     window?.location?.hostname === '127.0.0.1' ||
     window?.location?.hostname === 'localhost'

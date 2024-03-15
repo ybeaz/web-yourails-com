@@ -41,9 +41,9 @@ const ChatCardsComponent: ChatCardsType = props => {
   const {
     isUserMenu,
     isProfileSelectMenu,
-    idUserHost,
-    idProfileHost,
-    idProfileActive,
+    userHostID,
+    profileHostID,
+    profileActiveID,
     inputSearch,
     profiles,
   } = storeStateSlice
@@ -64,8 +64,8 @@ const ChatCardsComponent: ChatCardsType = props => {
   }
 
   const profilesFiltered = profilesSorted.filter((profile: ProfileType) => {
-    const { idProfile } = profile
-    return idProfile !== '0' && idProfile !== idProfileHost
+    const { profileID } = profile
+    return profileID !== '0' && profileID !== profileHostID
   })
 
   const renderItem = ({
@@ -76,7 +76,7 @@ const ChatCardsComponent: ChatCardsType = props => {
     const propsOut: Record<string, any> = {
       chatCardProps: {
         profile,
-        isActive: profile.idProfile === idProfileActive,
+        isActive: profile.profileID === profileActiveID,
         urlParam1,
         urlParam2,
         query,
@@ -164,7 +164,7 @@ const ChatCardsComponent: ChatCardsType = props => {
         },
       },
       profiles,
-      idUserHost,
+      userHostID,
       urlParam1,
       urlParam2,
       query,
@@ -194,9 +194,9 @@ export const ChatCards = React.memo(
       [
         'isUserMenu',
         'isProfileSelectMenu',
-        'idUserHost',
-        'idProfileHost',
-        'idProfileActive',
+        'userHostID',
+        'profileHostID',
+        'profileActiveID',
         'inputSearch',
         'profiles',
       ],

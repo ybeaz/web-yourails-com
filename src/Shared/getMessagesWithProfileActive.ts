@@ -1,14 +1,12 @@
 import { IdUserType } from '../@types/UserType'
 import { MessageType } from '../@types/MessageType'
 
-import {
-  getSortedHashedStringifyArray,
-  HashFunctionType,
-} from './getSortedHashedStringifyArray'
+import { getSortedHashedStringifyArray } from './getSortedHashedStringifyArray'
 
 export type GetMessagesWithProfileActiveParamsType = {
-  idProfileHost: IdUserType
-  idProfileActive: IdUserType
+  profileHostID: IdUserType
+  profileActiveID: IdUserType
+  printRes?: boolean
 }
 
 interface GetMessagesWithProfileActiveType {
@@ -25,19 +23,28 @@ interface GetMessagesWithProfileActiveType {
 
 export const getMessagesWithProfileActive: GetMessagesWithProfileActiveType = (
   messages,
-  { idProfileHost, idProfileActive }
+  params
 ) => {
-  if (!idProfileHost || !idProfileActive) return []
+  const { profileHostID, profileActiveID, printRes } = params
 
-  const idConversation = getSortedHashedStringifyArray([
-    idProfileHost,
-    idProfileActive,
+  if (!profileHostID || !profileActiveID) return []
+
+  const conversationID = getSortedHashedStringifyArray([
+    profileHostID,
+    profileActiveID,
   ])
 
   const messagesWithProfileActive: MessageType[] = messages.filter(
     (message: MessageType) => {
-      return message.idConversation === idConversation
+      return message.conversationID === conversationID
     }
   )
+
+  if (printRes) {
+    console.log('getMessagesWithProfileActive [44]', {
+      messagesWithProfileActive,
+    })
+  }
+
   return messagesWithProfileActive
 }

@@ -10,7 +10,7 @@ const { dispatch, getState } = store
 
 export const CLICK_ON_HOST_PROFILE_SELECT: ActionEventType = (event, data) => {
   const {
-    idProfileHost,
+    profileHostID,
     profileNameHost,
     urlParam1,
     urlParam2,
@@ -19,22 +19,22 @@ export const CLICK_ON_HOST_PROFILE_SELECT: ActionEventType = (event, data) => {
   } = data
   const {
     profiles,
-    globalVars: { idUserHost, idProfileActive },
+    globalVars: { userHostID, profileActiveID },
   } = getState()
 
   const isProfileActiveOfUserHost = !!profiles.find(
     (profile: ProfileType) =>
-      profile.idUser === idUserHost && profile.idProfile === idProfileActive
+      profile.userID === userHostID && profile.profileID === profileActiveID
   )
 
   dispatch(actionSync.SET_ID_PROFILE_HOST(data))
 
   if (isProfileActiveOfUserHost) {
     dispatch(
-      actionSync.SET_ID_PROFILE_ACTIVE({ idProfileActive: idProfileHost })
+      actionSync.SET_ID_PROFILE_ACTIVE({ profileActiveID: profileHostID })
     )
 
-    getSocketEmitJoinConversation(idProfileHost, idProfileHost)
+    getSocketEmitJoinConversation(profileHostID, profileHostID)
 
     const getPathNameForReplaceProps = {
       urlParam1,

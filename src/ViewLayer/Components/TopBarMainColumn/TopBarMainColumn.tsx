@@ -31,7 +31,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
   const {
     profiles,
     componentsState,
-    globalVars: { idProfileActive },
+    globalVars: { profileActiveID },
   } = store
   const { modalFrame } = componentsState
 
@@ -46,7 +46,7 @@ const TopBarMainColumnComponent: TopBarMainColumnType = props => {
 
   const profileActive: ProfileType = getProfileByIdProfile(
     profiles,
-    idProfileActive
+    profileActiveID
   )
 
   const { avatarSrc, serviceSpecs } = profileActive

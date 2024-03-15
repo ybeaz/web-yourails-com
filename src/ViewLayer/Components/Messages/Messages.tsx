@@ -37,8 +37,8 @@ const MessagesComponent: MessagesComponentType = props => {
   return (
     <View style={[style.Messages, styleProps.Messages]} testID='Messages'>
       {messages.map((message, index) => {
-        const { idMessage, text, eventType, idProfile } = message
-        const { imagePendingSrc } = getProfileByIdProfile(profiles, idProfile)
+        const { messageID, text, eventType, profileID } = message
+        const { imagePendingSrc } = getProfileByIdProfile(profiles, profileID)
         let textNext = text
 
         // TODO to underderstand the logic and fix the name issue, who left
@@ -47,7 +47,7 @@ const MessagesComponent: MessagesComponentType = props => {
           eventType === MessageEventType['disconnectConversation']
         ) {
           const textParsed = typeof text === 'string' ? JSON.parse(text) : text
-          const idProfileRespondent = textParsed?.idProfile || '0'
+          const idProfileRespondent = textParsed?.profileID || '0'
           const textJoinConversation = textParsed?.text || ''
 
           const { profileName } = getProfileByIdProfile(
@@ -56,7 +56,7 @@ const MessagesComponent: MessagesComponentType = props => {
           )
           const textObject = {
             contentType: ContentType['textArray'],
-            textArray: [`${profileName} ${textJoinConversation}`],
+            contentArray: [`${profileName} ${textJoinConversation}`],
           }
           textNext = JSON.stringify(textObject)
         }
@@ -70,7 +70,7 @@ const MessagesComponent: MessagesComponentType = props => {
         }
         return (
           <Message
-            key={idMessage || `message-${index}`}
+            key={messageID || `message-${index}`}
             {...propsOut.messageProps}
           />
         )
