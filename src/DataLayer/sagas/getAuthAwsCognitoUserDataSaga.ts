@@ -1,11 +1,14 @@
 import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { CLIENTS_URI } from '../../Constants/clientsUri.const'
-import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
-import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
+import {
+  getResponseGraphqlAsync,
+  GetResponseGraphqlAsyncOptionsType,
+} from '../../../../yourails_communication_layer'
+import { CLIENTS_URI } from '../../Constants/clientsUri.const'
 import { ClientAppType } from '../../@types/ClientAppType'
+import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 
 export function* getAuthAwsCognitoUserData(params: any): Iterable<any> {
   const {

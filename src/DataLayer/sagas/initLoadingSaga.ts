@@ -1,7 +1,6 @@
-import { call, takeEvery, put, select } from 'redux-saga/effects'
+import { call, takeEvery, put, select, delay } from 'redux-saga/effects'
 import { Platform } from 'react-native'
 import { RootStoreType } from '../../@types/RootStoreType'
-import { rootStoreDefault } from '../rootStoreDefault'
 import { ProfileType } from '../../@types/GraphqlTypes'
 import {
   getFilteredObjsArrayBy,
@@ -29,13 +28,14 @@ function* initLoading(params: InitLoadingType): Iterable<any> {
     }
 
     yield call(getProfiles)
+    yield delay(250)
 
     const code = params?.data?.query?.code
 
     if (code) {
       yield call(getAuthAwsCognitoUserData, { data: { code } })
     } else if (refresh_token) {
-      yield call(getAuthAwsCognitoUserRefreshed, { data: { refresh_token } })
+      yield call(getAuthAwsCognitoUserRefreshed)
     }
 
     yield put(actionSync.ADD_SECTIONS_MAPPING({ sectionsMapping }))

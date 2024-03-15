@@ -4,7 +4,7 @@ import { CompetencyContentType } from '../@types/GraphqlTypes'
 
 export const sectionsMapping: SectionMappingType[] = [
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     profileName: '@rome',
     contentType: CompetencyContentType['ProjectType'],
     title: 'Projects And Work Examples',
@@ -15,7 +15,7 @@ export const sectionsMapping: SectionMappingType[] = [
     childName: 'Portfolio',
   },
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     profileName: '@rome',
     contentType: CompetencyContentType['CompetencyTagType'],
     title: 'Technologies',
@@ -92,7 +92,7 @@ export const sectionsMapping: SectionMappingType[] = [
     childName: 'AboutUs',
   },
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     profileName: '@rome',
     contentType: CompetencyContentType['ProfileType'],
     title: '',

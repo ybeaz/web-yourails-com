@@ -158,7 +158,7 @@ describe('Test function getMessagesWithProfileActive', () => {
           {
             messageID: 'random_string_2',
             conversationID: '1',
-            profileID: '1',
+            profileID: 'vzySSmoyGvGT',
             createdAt: 1646145300000,
             text: 'Details on how you want the app to work?',
           },
@@ -172,7 +172,7 @@ describe('Test function getMessagesWithProfileActive', () => {
           {
             messageID: 'random_string_4',
             conversationID: '1',
-            profileID: '1',
+            profileID: 'vzySSmoyGvGT',
             createdAt: 1646145960000,
             text: 'Specific design or layout requirements?',
           },
@@ -186,7 +186,7 @@ describe('Test function getMessagesWithProfileActive', () => {
           {
             messageID: 'random_string_6',
             conversationID: '1',
-            profileID: '1',
+            profileID: 'vzySSmoyGvGT',
             createdAt: 1646146620000,
             text: 'How many users?',
           },
@@ -200,7 +200,7 @@ describe('Test function getMessagesWithProfileActive', () => {
           {
             messageID: 'random_string_8',
             conversationID: '1',
-            profileID: '1',
+            profileID: 'vzySSmoyGvGT',
             createdAt: 1646147340000,
             text: 'Deadline for project?',
           },
@@ -214,7 +214,7 @@ describe('Test function getMessagesWithProfileActive', () => {
           {
             messageID: 'random_string_10',
             conversationID: '1',
-            profileID: '1',
+            profileID: 'vzySSmoyGvGT',
             createdAt: 1646148060000,
             text: 'Starting project, will keep you updated.',
           },

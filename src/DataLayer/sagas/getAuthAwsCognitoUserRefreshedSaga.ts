@@ -1,16 +1,19 @@
 import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
+import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
+import { getDeletedObjFromLocalStorage } from '../../Shared/getDeletedObjFromLocalStorage'
+
+import {
+  getResponseGraphqlAsync,
+  GetResponseGraphqlAsyncOptionsType,
+} from '../../../../yourails_communication_layer'
 import { CLIENTS_URI } from '../../Constants/clientsUri.const'
 import { ClientAppType } from '../../@types/ClientAppType'
 import { getDetectedEnv } from '../../Shared/getDetectedEnv'
-import { getSetObjToLocalStorage } from '../../Shared/getSetObjToLocalStorage'
-import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
 
-export function* getAuthAwsCognitoUserRefreshed(params: any): Iterable<any> {
-  const {
-    data: { refresh_token },
-  } = params
+export function* getAuthAwsCognitoUserRefreshed(): Iterable<any> {
+  const refresh_token = localStorage.getItem('refresh_token')
 
   try {
     const envType = getDetectedEnv()
@@ -27,6 +30,9 @@ export function* getAuthAwsCognitoUserRefreshed(params: any): Iterable<any> {
       variables,
       resolveGraphqlName: 'getAuthAwsCognitoUserRefreshed',
     })
+
+    if (!userIdDataAwsCognito || !userIdDataAwsCognito?.sub)
+      getDeletedObjFromLocalStorage({ refresh_token })
 
     yield put(actionSync.SET_USERID_DATA_AWS_COGNITO({ userIdDataAwsCognito }))
 

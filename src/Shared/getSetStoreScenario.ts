@@ -152,7 +152,7 @@ export const getSetStoreScenario: GetSetStoreScenarioType = ({
       isShowApp: true,
       userHostID: '1',
       userID: '1',
-      profileID: '1',
+      profileID: 'vzySSmoyGvGT',
       isLeftColumn: false,
       isMainColumn: true,
       isMainColumnBlank: false,

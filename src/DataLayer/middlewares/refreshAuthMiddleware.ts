@@ -11,13 +11,8 @@ import { actionAsync } from '../../DataLayer/index.action'
  */
 const getRefreshedAuthAwsCongito = (...args: any) => {
   const store = args[0]
-  const refresh_token = args[1]
   const { dispatch } = store
-  dispatch(
-    actionAsync.GET_AUTH_AWS_COGNITO_USER_REFRESHED.REQUEST({
-      refresh_token,
-    })
-  )
+  dispatch(actionAsync.GET_AUTH_AWS_COGNITO_USER_REFRESHED.REQUEST())
 }
 
 const debouncedFunc = getDebouncedFunc(

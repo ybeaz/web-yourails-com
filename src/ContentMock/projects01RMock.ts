@@ -3,7 +3,7 @@ import { CompetencyContentType } from '../@types/GraphqlTypes'
 
 export const projects01R: ProjectType[] = [
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web service. YouRails Academy',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -20,11 +20,11 @@ export const projects01R: ProjectType[] = [
       'React, react-router-dom, Typescript, ES7, ESLint, Babel, Webpack',
     imgSrc:
       'https://yourails.com/images/@rome/yrl-23-demo-yourails-academy.jpg',
-    linkHref: 'https://academy.yourails.com/academy',
+    linkHref: 'https://academy.yourails.com/',
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web service. SPA Windows in Browser Tabs',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -44,15 +44,14 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web service. YouRails.com Skills Exchange Messenger',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
     pathname: 'YouRails',
-    subtitle:
-      'Discover People, Connect, and Create Your Best Life with YouRails.com',
+    subtitle: 'Chat with people and AI personas',
     description: [
-      'YouRails.com facilitates users in finding people, solutions, and establishing connections through a chat-first/messenger platform. This platform provides users with the possibility to create and manage multiple profiles that reflect their current life goals and intentions. The process is simplified with an AI-based environment and services.',
+      'YouRails.com is a chat service that combines a basic set of chat features, tools for prompt engineering, and a marketplace for AI model developers. It is a platform for chatting with AI personas, and people, plugging in new AI models, and monetizing AI products directly and through APIs to enterprise users.',
 
       'One of the key features of YouRails.com is the ability for users to create multiple profiles that manifest different "faces" of themselves. Users can activate and deactivate these profiles as needed, allowing them to present themselves differently in different contexts.',
     ],
@@ -64,7 +63,25 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
+    title: 'Web service. Weather Forecast App',
+    contentType: CompetencyContentType['ProjectType'],
+    isActive: true,
+    pathname: 'YouRails',
+    subtitle: 'Know weather across the US',
+    description: [
+      'Discover the simplicity of our microservice application designed for your weather needs. A humble form awaits, accepting comma-separated US city names with ease. Upon submission, our backend quietly springs into action, retrieving the temperatures for your specified cities. No frills, just a straightforward list on the frontend, offering you the essential weather details you seek. Experience the modest charm of our application—where functionality meets subtlety, and staying informed is as straightforward as a click. Weather updates made simple, just the way you like it.',
+    ],
+    customer: 'Not limited',
+    builtwith:
+      'Frontend: React,ES7, Typescript, Expo/Webpack, Jest. Backend: Nest.js, RESTfull API, Axios, Typescript',
+    imgSrc:
+      'https://yourails.com/images/@rome/yrl-23-demo-weather-forecast-app-960x540.jpg',
+    linkHref: 'https://r1.userto.com/weather/',
+  },
+
+  {
+    profileID: 'vzySSmoyGvGT',
     title: 'Web game. Tic Tac Toe game with random logic',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -82,7 +99,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web app. Prototype: Experience Exchange Messenger',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -102,7 +119,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web compoment. Authorization with Social Media',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -120,7 +137,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web app. SPA Active Learning Text',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -137,7 +154,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. SPA Online telephone directory',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -152,7 +169,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web component. A dynamic tree component',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -168,7 +185,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title:
       'Web widget. Tables with sorting and filtering features, popup row menu, inline editable',
     contentType: CompetencyContentType['ProjectType'],
@@ -185,7 +202,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. Purchase summary',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -202,7 +219,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web page. JS Algorithms and Questions',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -218,7 +235,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. Demo Telegram bot',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -234,7 +251,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. Upload images',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -250,7 +267,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title:
       'Web landing page. Not supported. AAA Advertising Aggregator for Applications, Brand Banner Project',
     contentType: CompetencyContentType['ProjectType'],
@@ -268,7 +285,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title:
       'Web widget. Not supported. JS Feedback Forms Builder with Telegram messaging feature',
     contentType: CompetencyContentType['ProjectType'],
@@ -286,7 +303,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. Not supported. Demo registration and authorization',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -302,7 +319,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title:
       'Web service. Not supported. Language detection with artificial neuro network (ANN)',
     contentType: CompetencyContentType['ProjectType'],
@@ -319,7 +336,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. Not supported. TRIZ Language Problem Description',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -335,7 +352,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web service. Not supported. JS Feedback widget for sites',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -352,7 +369,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title:
       'Web service. Not supported. Question-answers site for legal questions',
     contentType: CompetencyContentType['ProjectType'],
@@ -369,7 +386,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. Not supported. Demo online shoping cart',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -384,7 +401,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. Not supported. Catalog for goods, films, books, etc.',
     contentType: CompetencyContentType['ProjectType'],
     isActive: true,
@@ -400,7 +417,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Landing Page. Immigration Service Provider',
     contentType: CompetencyContentType['ProjectType'],
     isActive: false,
@@ -415,7 +432,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Landing page. Not supported. Wiki Goods Startup',
     contentType: CompetencyContentType['ProjectType'],
     isActive: false,
@@ -430,7 +447,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. Not supported. Online Notes Keeper',
     contentType: CompetencyContentType['ProjectType'],
     isActive: false,
@@ -446,7 +463,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. Not supported. Automatic image resizing on the fly',
     contentType: CompetencyContentType['ProjectType'],
     isActive: false,
@@ -460,7 +477,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web service. Prototype for service Ecom-Yunazon',
     contentType: CompetencyContentType['ProjectType'],
     isActive: false,
@@ -478,7 +495,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. Item card screen',
     contentType: CompetencyContentType['ProjectType'],
     isActive: false,
@@ -493,7 +510,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. Earthquake Zen Garden ver. 3.12.3',
     contentType: CompetencyContentType['ProjectType'],
     isActive: false,
@@ -508,7 +525,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Content site. Arbir.ru - SEO, content management',
     contentType: CompetencyContentType['ProjectType'],
     isActive: false,
@@ -524,7 +541,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web service. View Domain Statistics',
     contentType: CompetencyContentType['ProjectType'],
     isActive: false,
@@ -539,7 +556,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Mobile app. Smartphone app for transactions between friends',
     contentType: CompetencyContentType['ProjectType'],
     isActive: false,
@@ -554,7 +571,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title:
       'Landing page. Not supported. MMS Marketplace Management System, API avoiding API™',
     contentType: CompetencyContentType['ProjectType'],
@@ -571,7 +588,7 @@ export const projects01R: ProjectType[] = [
   },
 
   {
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     title: 'Web widget. Not supported. Feedback Widget Project',
     contentType: CompetencyContentType['ProjectType'],
     isActive: false,

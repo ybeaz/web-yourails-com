@@ -1,16 +1,14 @@
 import { takeEvery, put } from 'redux-saga/effects'
 
 import { actionSync, actionAsync } from '../../DataLayer/index.action'
-import { CLIENTS_URI } from '../../Constants/clientsUri.const'
-import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 import { getDeletedObjFromLocalStorage } from '../../Shared/getDeletedObjFromLocalStorage'
-import { getResponseGraphqlAsync } from '../../CommunicationLayer/getResponseGraphqlAsync'
+import { getResponseGraphqlAsync } from '../../../../yourails_communication_layer'
+import { CLIENTS_URI } from '../../Constants/clientsUri.const'
 import { ClientAppType } from '../../@types/ClientAppType'
+import { getDetectedEnv } from '../../Shared/getDetectedEnv'
 
-function* getAuthAwsCognitoUserRevoked(params: any): Iterable<any> {
-  const {
-    data: { refresh_token },
-  } = params
+function* getAuthAwsCognitoUserRevoked(): Iterable<any> {
+  const refresh_token = localStorage.getItem('refresh_token') || ''
 
   try {
     const envType = getDetectedEnv()
@@ -33,11 +31,14 @@ function* getAuthAwsCognitoUserRevoked(params: any): Iterable<any> {
 
     getDeletedObjFromLocalStorage({
       ...userIdDataAwsCognito,
-      refresh_token: null,
     })
   } catch (error: any) {
     console.log('ERROR getAuthAwsCognitoUserRevokedSaga', {
       error: error.message,
+    })
+  } finally {
+    getDeletedObjFromLocalStorage({
+      refresh_token: null,
     })
   }
 }
