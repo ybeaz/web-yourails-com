@@ -27,7 +27,7 @@ let expected = [
   {
     messageID: 'random_string_2',
     conversationID: '["1","4"]',
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     createdAt: 1646145300000,
     eventType: 'chatMessage',
     text: 'Details on how you want the app to work?',
@@ -47,7 +47,7 @@ let expected = [
   {
     messageID: 'random_string_4',
     conversationID: '["1","4"]',
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     createdAt: 1646145960000,
     eventType: 'chatMessage',
     text: 'Specific design or layout requirements?',
@@ -67,7 +67,7 @@ let expected = [
   {
     messageID: 'random_string_6',
     conversationID: '["1","4"]',
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     createdAt: 1646146620000,
     eventType: 'chatMessage',
     text: 'How many users?',
@@ -87,7 +87,7 @@ let expected = [
   {
     messageID: 'random_string_8',
     conversationID: '["1","4"]',
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     createdAt: 1646147340000,
     eventType: 'chatMessage',
     text: 'Deadline for project?',
@@ -107,7 +107,7 @@ let expected = [
   {
     messageID: 'random_string_10',
     conversationID: '["1","4"]',
-    profileID: '1',
+    profileID: 'vzySSmoyGvGT',
     createdAt: 1646148060000,
     eventType: 'chatMessage',
     text: 'Starting project, will keep you updated.',

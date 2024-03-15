@@ -296,26 +296,16 @@ export type CreateCourseInputType = {
 };
 
 export type CreateDocumentInputType = {
-  /** capture */
-  capture: Scalars['String']['input'];
-  /** contentIDs */
-  contentIDs: Array<Scalars['String']['input']>;
-  /** courseID */
-  courseID: Scalars['ID']['input'];
-  /** description */
-  description?: InputMaybe<Scalars['String']['input']>;
+  /** creator of the module */
+  creator: UpdateProfileInputType;
+  /** ipClient profile/ user */
+  ipClient?: InputMaybe<Scalars['String']['input']>;
   /** isActive */
   isActive?: Scalars['Boolean']['input'];
-  /** language */
-  language: Scalars['String']['input'];
-  /** meta */
-  meta: MetaDocumentInputType;
-  /** moduleIDs */
-  moduleIDs: Array<Scalars['String']['input']>;
-  /** userID */
-  profileID: Scalars['String']['input'];
-  /** userName */
-  profileProps: ProfilePropsInputType;
+  /** learner, user, student */
+  learner: UpdateProfileInputType;
+  /** module */
+  module: UpdateModuleInputType;
 };
 
 export type CreateModuleInputType = {
@@ -325,6 +315,8 @@ export type CreateModuleInputType = {
   contentID: Scalars['ID']['input'];
   /** module content type */
   contentType: Scalars['String']['input'];
+  /** creatorID */
+  creatorID: Scalars['ID']['input'];
   /** description */
   description: Scalars['String']['input'];
   /** module duration */
@@ -337,20 +329,22 @@ export type CreateModuleInputType = {
   isActive?: Scalars['Boolean']['input'];
   /** language code */
   language: Scalars['String']['input'];
-  /** meta information */
-  meta?: InputMaybe<MetaInputType>;
   /** module objection */
   objections?: InputMaybe<Array<ObjectionInputType>>;
+  /** organizationID */
+  organizationID: Scalars['ID']['input'];
   /** module passRate */
   passRate?: InputMaybe<Scalars['Float']['input']>;
-  /** profile ID */
-  profileID: Scalars['ID']['input'];
   /** module questionNumber */
   questionNumber?: Scalars['Int']['input'];
   /** module questions */
   questions?: Array<QuestionInputType>;
+  /** meta stages: stages/ statuses/ envs */
+  stages?: InputMaybe<Array<Scalars['String']['input']>>;
   /** module summary */
   summary?: InputMaybe<Array<SummaryItemInputType>>;
+  /** meta tags: tags that characterises the content */
+  tags?: InputMaybe<Array<Scalars['String']['input']>>;
   /** thumbnail image data */
   thumbnails?: InputMaybe<ThumbnailsInputType>;
   /** module transcriptList */
@@ -364,7 +358,7 @@ export type CreateOriginInputType = {
   originUrl?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
-export type CreateProfilesInputType = {
+export type CreateProfileInputType = {
   /** affiliation. An organization that this person is affiliated with. For example, a school/university, a club, or a team. */
   affiliation?: InputMaybe<Scalars['String']['input']>;
   /** avatarSrc */
@@ -373,6 +367,8 @@ export type CreateProfilesInputType = {
   avatarSrc?: InputMaybe<Scalars['String']['input']>;
   /** award. An award won by or for this item. Supersedes awards. */
   awards?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** user ID */
+  botID?: InputMaybe<Scalars['ID']['input']>;
   /** contacts */
   contacts?: InputMaybe<Array<Scalars['String']['input']>>;
   /** description */
@@ -399,6 +395,8 @@ export type CreateProfilesInputType = {
   nameFirst?: InputMaybe<Scalars['String']['input']>;
   /** nameLast */
   nameLast?: InputMaybe<Scalars['String']['input']>;
+  /** nameMiddle */
+  nameMiddle?: InputMaybe<Scalars['String']['input']>;
   /** pendingText */
   pendingText?: InputMaybe<Scalars['String']['input']>;
   /** phones */
@@ -448,38 +446,24 @@ export type DocumentEdgeType = {
 
 export type DocumentType = {
   __typename?: 'DocumentType';
-  /** course capture */
-  capture: Scalars['String']['output'];
-  /** contentIDs */
-  contentIDs: Array<Scalars['String']['output']>;
-  /** courseID */
-  courseID: Scalars['ID']['output'];
-  /** courses created date */
+  /** creator of the module */
+  creator: ProfileType;
+  /** documents created date */
   dateCreated: Scalars['Float']['output'];
-  /** courses deleted date */
+  /** documents deleted date */
   dateDeleted?: Maybe<Scalars['Float']['output']>;
-  /** courses updated date */
+  /** documents updated date */
   dateUpdated: Scalars['Float']['output'];
-  /** course description */
-  description: Scalars['String']['output'];
   /** documentID */
   documentID: Scalars['ID']['output'];
   /** ipClient profile/ user */
   ipClient?: Maybe<Scalars['String']['output']>;
   /** isActive */
   isActive: Scalars['Boolean']['output'];
-  /** language code */
-  language: Scalars['String']['output'];
-  /** meta */
-  meta: MetaDocumentType;
-  /** moduleIDs */
-  moduleIDs: Array<Scalars['String']['output']>;
-  /** pathName of the document */
-  pathName: Scalars['String']['output'];
-  /** profileID */
-  profileID: Scalars['ID']['output'];
-  /** userName */
-  profileProps: ProfilePropsType;
+  /** learner, user, student */
+  learner: ProfileType;
+  /** module */
+  module: ModuleType;
 };
 
 export type DocumentsConnectionType = {
@@ -624,58 +608,6 @@ export type MetaCourseType = {
   tags?: Maybe<Array<Scalars['String']['output']>>;
 };
 
-export type MetaDocumentInputType = {
-  /**  email */
-  email?: InputMaybe<Scalars['String']['input']>;
-  /** institution */
-  institution: Scalars['String']['input'];
-  /** isSendingBcc to the email */
-  isSendingBcc?: Scalars['Boolean']['input'];
-  /** specName */
-  specName: Scalars['String']['input'];
-  /** specTitle */
-  specTitle?: InputMaybe<Scalars['String']['input']>;
-  /** courses meta stages: stages/ statuses/ envs */
-  stages?: InputMaybe<Array<Scalars['String']['input']>>;
-  /** courses meta tags: tags that characterises the course content */
-  tags?: InputMaybe<Array<Scalars['String']['input']>>;
-};
-
-export type MetaDocumentType = {
-  __typename?: 'MetaDocumentType';
-  /**  email */
-  email?: Maybe<Scalars['String']['output']>;
-  /** institution */
-  institution: Scalars['String']['output'];
-  /** isSendingBcc to the email */
-  isSendingBcc: Scalars['Boolean']['output'];
-  /** specName */
-  specName: Scalars['String']['output'];
-  /** specTitle */
-  specTitle?: Maybe<Scalars['String']['output']>;
-  /** courses meta stages: stages/ statuses/ envs */
-  stages?: Maybe<Array<Scalars['String']['output']>>;
-  /** courses meta tags: tags that characterises the course content */
-  tags?: Maybe<Array<Scalars['String']['output']>>;
-};
-
-export type MetaInputType = {
-  /** meta email */
-  email: Scalars['String']['input'];
-  /** meta institution */
-  institution: Scalars['String']['input'];
-  /** meta isSendingBcc */
-  isSendingBcc?: Scalars['Boolean']['input'];
-  /** meta specName */
-  specName: Scalars['String']['input'];
-  /** meta specTitle */
-  specTitle: Scalars['String']['input'];
-  /** meta stages: stages/ statuses/ envs */
-  stages?: InputMaybe<Array<Scalars['String']['input']>>;
-  /** meta tags: tags that characterises the content, its marketing features */
-  tags?: InputMaybe<Array<Scalars['String']['input']>>;
-};
-
 export type MetaPartialInputType = {
   /** meta email */
   email?: InputMaybe<Scalars['String']['input']>;
@@ -708,24 +640,6 @@ export type MetaPartialType = {
   /** meta stages: stages/ statuses/ envs */
   stages?: Maybe<Array<Scalars['String']['output']>>;
   /** meta tags: tags that characterises the content, its marketing features */
-  tags?: Maybe<Array<Scalars['String']['output']>>;
-};
-
-export type MetaType = {
-  __typename?: 'MetaType';
-  /** meta email */
-  email: Scalars['String']['output'];
-  /** meta institution */
-  institution: Scalars['String']['output'];
-  /** meta isSendingBcc */
-  isSendingBcc: Scalars['Boolean']['output'];
-  /** meta specName */
-  specName: Scalars['String']['output'];
-  /** meta specTitle */
-  specTitle: Scalars['String']['output'];
-  /** meta stages: stages/ statuses/ envs */
-  stages?: Maybe<Array<Scalars['String']['output']>>;
-  /** meta tags: tags that characterises the content */
   tags?: Maybe<Array<Scalars['String']['output']>>;
 };
 
@@ -808,6 +722,8 @@ export type ModuleType = {
   contentID: Scalars['ID']['output'];
   /** module content type */
   contentType: Scalars['String']['output'];
+  /** creatorID */
+  creatorID: Scalars['ID']['output'];
   /** created date */
   dateCreated: Scalars['Float']['output'];
   /** deleted date */
@@ -826,22 +742,24 @@ export type ModuleType = {
   isActive: Scalars['Boolean']['output'];
   /** language code */
   language: Scalars['String']['output'];
-  /** meta information */
-  meta?: Maybe<MetaType>;
   /** module ID */
   moduleID: Scalars['ID']['output'];
   /** module objection */
   objections?: Maybe<Array<ObjectionType>>;
+  /** organizationID */
+  organizationID: Scalars['ID']['output'];
   /** module passRate */
   passRate?: Maybe<Scalars['Float']['output']>;
-  /** profile ID */
-  profileID: Scalars['ID']['output'];
   /** module questionNumber */
   questionNumber: Scalars['Int']['output'];
   /** module questions */
   questions: Array<QuestionType>;
+  /** meta stages: stages/ statuses/ envs */
+  stages?: Maybe<Array<Scalars['String']['output']>>;
   /** module summary */
   summary?: Maybe<Array<SummaryItemType>>;
+  /** meta tags: tags that characterises the content */
+  tags?: Maybe<Array<Scalars['String']['output']>>;
   /** thumbnail image data */
   thumbnails?: Maybe<ThumbnailsType>;
   /** transcriptList */
@@ -875,6 +793,7 @@ export type Mutation = {
   createDocuments: Array<DocumentType>;
   createModules: Array<ModuleType>;
   createProfiles: Array<ProfileType>;
+  createSiteMap: SiteMapReportType;
   createTemplates: Array<TemplatesType>;
   createUser: UserModelExtendedType;
   createYoutubeTranscript: CreateYoutubeTranscriptType;
@@ -882,13 +801,14 @@ export type Mutation = {
   deactivateCourses: Array<Scalars['String']['output']>;
   deactivateDocuments: Array<Scalars['String']['output']>;
   deactivateModules: Array<Scalars['String']['output']>;
+  deactivateProfiles: Array<Scalars['String']['output']>;
   deactivateTemplates: Array<Scalars['String']['output']>;
   deleteBots: Array<Scalars['String']['output']>;
   deleteCompetencyTags: Array<CompetencyTagType>;
   deleteCourses: Array<Scalars['String']['output']>;
   deleteDocuments: Array<Scalars['String']['output']>;
   deleteModules: Array<Scalars['String']['output']>;
-  deleteProfiles: Array<ProfileType>;
+  deleteProfiles: Array<Scalars['String']['output']>;
   deleteTemplates: Array<Scalars['String']['output']>;
   deleteUser: UserModelExtendedType;
   removeRecipe: Scalars['Boolean']['output'];
@@ -947,7 +867,7 @@ export type MutationCreateModulesArgs = {
 
 
 export type MutationCreateProfilesArgs = {
-  profilesInput: CreateProfilesInputType;
+  createProfilesInput: Array<CreateProfileInputType>;
 };
 
 
@@ -986,6 +906,11 @@ export type MutationDeactivateModulesArgs = {
 };
 
 
+export type MutationDeactivateProfilesArgs = {
+  deactivateProfilesIdsInput: Array<Scalars['String']['input']>;
+};
+
+
 export type MutationDeactivateTemplatesArgs = {
   deactivateTemplatesIdsInput: Array<Scalars['String']['input']>;
 };
@@ -1017,7 +942,7 @@ export type MutationDeleteModulesArgs = {
 
 
 export type MutationDeleteProfilesArgs = {
-  idProfiles: Scalars['String']['input'];
+  deleteProfilesIdsInput: Array<Scalars['String']['input']>;
 };
 
 
@@ -1078,7 +1003,7 @@ export type MutationUpdateModulesMetaArgs = {
 
 
 export type MutationUpdateProfilesArgs = {
-  profilesInput: UpdateProfilesInputType;
+  updateProfilesInput: Array<UpdateProfileInputType>;
 };
 
 
@@ -1155,6 +1080,8 @@ export type OptionCourseType = {
 };
 
 export type OptionInputType = {
+  /** module question option answer: true or false */
+  answer?: InputMaybe<Scalars['Boolean']['input']>;
   /** module question option label */
   label: Scalars['String']['input'];
   /** module question option ID */
@@ -1165,6 +1092,8 @@ export type OptionInputType = {
 
 export type OptionType = {
   __typename?: 'OptionType';
+  /** module question option answer: true or false */
+  answer?: Maybe<Scalars['Boolean']['output']>;
   /** module question option label */
   label: Scalars['String']['output'];
   /** module question option ID */
@@ -1187,19 +1116,6 @@ export enum ProfileNatureType {
   Human = 'human'
 }
 
-export type ProfilePropsInputType = {
-  nameFirst: Scalars['String']['input'];
-  nameLast: Scalars['String']['input'];
-  nameMiddle: Scalars['String']['input'];
-};
-
-export type ProfilePropsType = {
-  __typename?: 'ProfilePropsType';
-  nameFirst: Scalars['String']['output'];
-  nameLast: Scalars['String']['output'];
-  nameMiddle: Scalars['String']['output'];
-};
-
 export type ProfileType = {
   __typename?: 'ProfileType';
   /** affiliation. An organization that this person is affiliated with. For example, a school/university, a club, or a team. */
@@ -1210,8 +1126,16 @@ export type ProfileType = {
   avatarSrc?: Maybe<Scalars['String']['output']>;
   /** award. An award won by or for this item. Supersedes awards. */
   awards?: Maybe<Array<Scalars['String']['output']>>;
+  /** user ID */
+  botID?: Maybe<Scalars['ID']['output']>;
   /** contacts */
   contacts?: Maybe<Array<Scalars['String']['output']>>;
+  /** created date */
+  dateCreated: Scalars['Float']['output'];
+  /** deleted date */
+  dateDeleted?: Maybe<Scalars['Float']['output']>;
+  /** updated date */
+  dateUpdated: Scalars['Float']['output'];
   /** description */
   description?: Maybe<Scalars['String']['output']>;
   /** disclaimer */
@@ -1224,6 +1148,8 @@ export type ProfileType = {
   idSocket?: Maybe<Scalars['ID']['output']>;
   /** imagePendingSrc */
   imagePendingSrc?: Maybe<Scalars['String']['output']>;
+  /** ipClient profile/ user */
+  ipClient?: Maybe<Scalars['String']['output']>;
   /** isActive */
   isActive: Scalars['Boolean']['output'];
   /** jobTitle. The job title of the person (for example, Financial Manager). */
@@ -1236,6 +1162,8 @@ export type ProfileType = {
   nameFirst?: Maybe<Scalars['String']['output']>;
   /** nameLast */
   nameLast?: Maybe<Scalars['String']['output']>;
+  /** nameMiddle */
+  nameMiddle?: Maybe<Scalars['String']['output']>;
   /** pendingText */
   pendingText?: Maybe<Scalars['String']['output']>;
   /** phones */
@@ -1308,6 +1236,7 @@ export type Query = {
   countCourses: Scalars['Int']['output'];
   countDocuments: Scalars['Int']['output'];
   countModules: Scalars['Int']['output'];
+  countProfiles: Scalars['Int']['output'];
   countTemplates: Scalars['Int']['output'];
   getAuthAwsCognitoUserData: UserIdDataAwsCognitoType;
   getAuthAwsCognitoUserRefreshed: UserIdDataAwsCognitoType;
@@ -1327,6 +1256,7 @@ export type Query = {
   readModules: Array<ModuleType>;
   readModulesAll: Array<ModuleType>;
   readModulesConnection: ModulesConnectionType;
+  readProfiles: Array<ProfileType>;
   readProfilesAll: Array<ProfileType>;
   readProfilesConnection: ProfilesConnectionType;
   readRecipe: RecipeType;
@@ -1408,6 +1338,11 @@ export type QueryReadModulesArgs = {
 
 export type QueryReadModulesConnectionArgs = {
   readModulesConnectionInput: ReadModulesConnectionInputType;
+};
+
+
+export type QueryReadProfilesArgs = {
+  readProfilesInput: Array<ReadProfileInputType>;
 };
 
 
@@ -1585,29 +1520,31 @@ export type ReadDocumentsConnectionInputType = {
   contentIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
   /** courses ID */
   courseIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
+  /** creator IDs */
+  creatorIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
   /** first: Specifies the number of items to return from the beginning of the dataset. */
   first?: InputMaybe<Scalars['Int']['input']>;
   /** isActive */
   isActive?: InputMaybe<Scalars['Boolean']['input']>;
   /** language code */
   language?: InputMaybe<Scalars['String']['input']>;
+  /** learner IDs */
+  learnerIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
   /** course module IDs */
   moduleIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
   /** offset: Similar to "First," it specifies the maximum number of items to return. if offset === 0 then the function returns ALL docs after the first number */
   offset?: InputMaybe<Scalars['Int']['input']>;
-  /** profile IDs */
-  profileIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
   /** searchPhrase */
   searchPhrase?: InputMaybe<Scalars['String']['input']>;
   /** option to sort by a field: 1 ascending, -1 descending */
   sort?: InputMaybe<SortDocumentsInputType>;
-  /** courses meta stages: stages/ statuses/ envs to omit with that selection of the documents */
+  /** documents meta stages: stages/ statuses/ envs to omit with that selection of the documents */
   stagesOmit?: InputMaybe<Array<Scalars['String']['input']>>;
-  /** courses meta stages: stages/ statuses/ envs to pick from the set of documents */
+  /** documents meta stages: stages/ statuses/ envs to pick from the set of documents */
   stagesPick?: InputMaybe<Array<Scalars['String']['input']>>;
-  /** courses meta tags: tags that characterises the course content to omit with that selection of the documents */
+  /** documents meta tags: tags that characterises the course content to omit with that selection of the documents */
   tagsOmit?: InputMaybe<Array<Scalars['String']['input']>>;
-  /** courses meta tags: tags that characterises the course content to pick from the set of documents */
+  /** documents meta tags: tags that characterises the course content to pick from the set of documents */
   tagsPick?: InputMaybe<Array<Scalars['String']['input']>>;
 };
 
@@ -1621,6 +1558,8 @@ export type ReadModulesConnectionInputType = {
   after?: InputMaybe<Scalars['String']['input']>;
   /** module contentIDs */
   contentIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
+  /** creator IDs */
+  creatorIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
   /** first: Specifies the number of items to return from the beginning of the dataset. */
   first?: InputMaybe<Scalars['Int']['input']>;
   /** isActive */
@@ -1631,29 +1570,52 @@ export type ReadModulesConnectionInputType = {
   moduleIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
   /** offset: Similar to "First," it specifies the maximum number of items to return. if offset === 0 then the function returns ALL docs after the first number */
   offset?: InputMaybe<Scalars['Int']['input']>;
-  /** profile IDs */
-  profileIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
   /** searchPhrase */
   searchPhrase?: InputMaybe<Scalars['String']['input']>;
   /** option to sort by a field: 1 ascending, -1 descending */
-  sort?: InputMaybe<SortInputType>;
-  /** meta stages: stages/ statuses/ envs to omit with that selection of the documents */
+  sort?: InputMaybe<SortModulesInputType>;
+  /** stages: stages/ statuses/ envs to omit with that selection of the documents */
   stagesOmit?: InputMaybe<Array<Scalars['String']['input']>>;
-  /** meta stages: stages/ statuses/ envs to pick from the set of documents */
+  /** stages: stages/ statuses/ envs to pick from the set of documents */
   stagesPick?: InputMaybe<Array<Scalars['String']['input']>>;
-  /** meta tags: tags that characterises the content to omit with that selection of the documents */
+  /** tags: tags that characterises the content to omit with that selection of the documents */
   tagsOmit?: InputMaybe<Array<Scalars['String']['input']>>;
-  /** meta tags: tags that characterises the content to pick from the set of documents */
+  /** tags: tags that characterises the content to pick from the set of documents */
   tagsPick?: InputMaybe<Array<Scalars['String']['input']>>;
+};
+
+export type ReadProfileInputType = {
+  /** profile ID */
+  profileID?: InputMaybe<Scalars['ID']['input']>;
+  /** user ID */
+  userID?: InputMaybe<Scalars['ID']['input']>;
 };
 
 export type ReadProfilesConnectionInputType = {
   /** after */
   after?: InputMaybe<Scalars['String']['input']>;
+  /** bot IDs */
+  botIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
+  /** emails */
+  email?: InputMaybe<Scalars['String']['input']>;
   /** first */
   first?: InputMaybe<Scalars['Int']['input']>;
+  /** isActive */
+  isActive?: InputMaybe<Scalars['Boolean']['input']>;
   /** offset */
   offset?: InputMaybe<Scalars['Int']['input']>;
+  /** profile IDs */
+  profileIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
+  /** searchPhrase */
+  searchPhrase?: InputMaybe<Scalars['String']['input']>;
+  /** option to sort by a field: 1 ascending, -1 descending */
+  sort?: InputMaybe<SortProfilesInputType>;
+  /** stages: stages/ statuses/ envs to omit with that selection of the documents */
+  stagesOmit?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** stages: stages/ statuses/ envs to pick from the set of documents */
+  stagesPick?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** user IDs */
+  userIDs?: InputMaybe<Array<Scalars['ID']['input']>>;
 };
 
 export type ReadTemplatesConnectionInputType = {
@@ -1691,6 +1653,16 @@ export type ResponseMessageType = {
   status?: Maybe<Scalars['String']['output']>;
 };
 
+export type SiteMapReportType = {
+  __typename?: 'SiteMapReportType';
+  /** articlesUrls */
+  articlesUrls?: Maybe<Scalars['Int']['output']>;
+  /** rootUrl */
+  collectionsUrls?: Maybe<Scalars['Int']['output']>;
+  /** modulesUrls */
+  modulesUrls?: Maybe<Scalars['Int']['output']>;
+};
+
 export type SortCoursesInputType = {
   /** sorting direction: 1 ascending, -1 descending */
   direction?: InputMaybe<Scalars['Float']['input']>;
@@ -1705,7 +1677,14 @@ export type SortDocumentsInputType = {
   prop?: InputMaybe<Scalars['String']['input']>;
 };
 
-export type SortInputType = {
+export type SortModulesInputType = {
+  /** sorting direction: 1 ascending, -1 descending */
+  direction?: InputMaybe<Scalars['Float']['input']>;
+  /** property name to sort by */
+  prop?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type SortProfilesInputType = {
   /** sorting direction: 1 ascending, -1 descending */
   direction?: InputMaybe<Scalars['Float']['input']>;
   /** property name to sort by */
@@ -1875,6 +1854,10 @@ export type ThumbnailsImageDataBotType = {
 export type ThumbnailsImageDataInputType = {
   /** height */
   height: Scalars['Int']['input'];
+  /** rel */
+  rel?: InputMaybe<Scalars['String']['input']>;
+  /** type */
+  type?: InputMaybe<Scalars['String']['input']>;
   /** url */
   url?: InputMaybe<Scalars['String']['input']>;
   /** width */
@@ -1885,6 +1868,10 @@ export type ThumbnailsImageDataType = {
   __typename?: 'ThumbnailsImageDataType';
   /** height */
   height: Scalars['Int']['output'];
+  /** rel */
+  rel?: Maybe<Scalars['String']['output']>;
+  /** type */
+  type?: Maybe<Scalars['String']['output']>;
   /** url */
   url?: Maybe<Scalars['String']['output']>;
   /** width */
@@ -1894,8 +1881,18 @@ export type ThumbnailsImageDataType = {
 export type ThumbnailsInputType = {
   /** thumbnail image default */
   default?: InputMaybe<ThumbnailsImageDataInputType>;
+  /** favicon */
+  favicon?: InputMaybe<ThumbnailsImageDataInputType>;
   /** thumbnail image high */
   high?: InputMaybe<ThumbnailsImageDataInputType>;
+  /** image16x16 */
+  image16x16?: InputMaybe<ThumbnailsImageDataInputType>;
+  /** image32x32 */
+  image32x32?: InputMaybe<ThumbnailsImageDataInputType>;
+  /** image192x192 */
+  image192x192?: InputMaybe<ThumbnailsImageDataInputType>;
+  /** image512x512 */
+  image512x512?: InputMaybe<ThumbnailsImageDataInputType>;
   /** thumbnail image maxres */
   maxres?: InputMaybe<ThumbnailsImageDataInputType>;
   /** thumbnail image medium */
@@ -1908,8 +1905,18 @@ export type ThumbnailsType = {
   __typename?: 'ThumbnailsType';
   /** thumbnail image default */
   default?: Maybe<ThumbnailsImageDataType>;
+  /** favicon */
+  favicon?: Maybe<ThumbnailsImageDataType>;
   /** thumbnail image high */
   high?: Maybe<ThumbnailsImageDataType>;
+  /** image16x16 */
+  image16x16?: Maybe<ThumbnailsImageDataType>;
+  /** image32x32 */
+  image32x32?: Maybe<ThumbnailsImageDataType>;
+  /** image192x192 */
+  image192x192?: Maybe<ThumbnailsImageDataType>;
+  /** image512x512 */
+  image512x512?: Maybe<ThumbnailsImageDataType>;
   /** thumbnail image maxres */
   maxres?: Maybe<ThumbnailsImageDataType>;
   /** thumbnail image medium */
@@ -2013,38 +2020,24 @@ export type UpdateCourseMetaType = {
 };
 
 export type UpdateDocumentInputType = {
-  /** course capture */
-  capture: Scalars['String']['input'];
-  /** contentIDs */
-  contentIDs: Array<Scalars['String']['input']>;
-  /** courseID */
-  courseID: Scalars['ID']['input'];
-  /** courses created date */
+  /** creator of the module */
+  creator: UpdateProfileInputType;
+  /** documents created date */
   dateCreated: Scalars['Float']['input'];
-  /** courses deleted date */
+  /** documents deleted date */
   dateDeleted?: InputMaybe<Scalars['Float']['input']>;
-  /** courses updated date */
+  /** documents updated date */
   dateUpdated: Scalars['Float']['input'];
-  /** course description */
-  description: Scalars['String']['input'];
   /** documentID */
   documentID: Scalars['ID']['input'];
   /** ipClient profile/ user */
   ipClient?: InputMaybe<Scalars['String']['input']>;
   /** isActive */
   isActive?: Scalars['Boolean']['input'];
-  /** language code */
-  language: Scalars['String']['input'];
-  /** meta */
-  meta: MetaDocumentInputType;
-  /** moduleIDs */
-  moduleIDs: Array<Scalars['String']['input']>;
-  /** pathName of the document */
-  pathName: Scalars['String']['input'];
-  /** profileID */
-  profileID: Scalars['ID']['input'];
-  /** userName */
-  profileProps: ProfilePropsInputType;
+  /** learner, user, student */
+  learner: UpdateProfileInputType;
+  /** module */
+  module: UpdateModuleInputType;
 };
 
 export type UpdateInfoCourseType = {
@@ -2076,22 +2069,26 @@ export type UpdateInfoType = {
 };
 
 export type UpdateMetaInputType = {
+  /** creatorID */
+  creatorID: Scalars['ID']['input'];
   /** meta information */
   meta?: InputMaybe<MetaPartialInputType>;
   /** module ID */
   moduleID?: InputMaybe<Scalars['ID']['input']>;
-  /** profile ID */
-  profileID: Scalars['ID']['input'];
+  /** organizationID */
+  organizationID: Scalars['ID']['input'];
 };
 
 export type UpdateMetaType = {
   __typename?: 'UpdateMetaType';
+  /** creatorID */
+  creatorID: Scalars['ID']['output'];
   /** meta information */
   meta?: Maybe<MetaPartialType>;
   /** module ID */
   moduleID?: Maybe<Scalars['ID']['output']>;
-  /** profile ID */
-  profileID: Scalars['ID']['output'];
+  /** organizationID */
+  organizationID: Scalars['ID']['output'];
   /** updateInfo */
   updateInfo?: Maybe<UpdateInfoType>;
 };
@@ -2103,6 +2100,8 @@ export type UpdateModuleInputType = {
   contentID: Scalars['ID']['input'];
   /** module content type */
   contentType: Scalars['String']['input'];
+  /** creatorID */
+  creatorID: Scalars['ID']['input'];
   /** created date */
   dateCreated: Scalars['Float']['input'];
   /** deleted date */
@@ -2121,29 +2120,31 @@ export type UpdateModuleInputType = {
   isActive?: Scalars['Boolean']['input'];
   /** language code */
   language: Scalars['String']['input'];
-  /** meta information */
-  meta?: InputMaybe<MetaInputType>;
   /** module ID */
   moduleID: Scalars['ID']['input'];
   /** module objection */
   objections?: InputMaybe<Array<ObjectionInputType>>;
+  /** organizationID */
+  organizationID: Scalars['ID']['input'];
   /** module passRate */
   passRate?: InputMaybe<Scalars['Float']['input']>;
-  /** profile ID */
-  profileID: Scalars['ID']['input'];
   /** module questionNumber */
   questionNumber?: Scalars['Int']['input'];
   /** module questions */
   questions?: Array<QuestionInputType>;
+  /** meta stages: stages/ statuses/ envs */
+  stages?: InputMaybe<Array<Scalars['String']['input']>>;
   /** module summary */
   summary?: InputMaybe<Array<SummaryItemInputType>>;
+  /** meta tags: tags that characterises the content */
+  tags?: InputMaybe<Array<Scalars['String']['input']>>;
   /** thumbnail image data */
   thumbnails?: InputMaybe<ThumbnailsInputType>;
   /** module transcriptList */
   transcriptList?: InputMaybe<Array<TranscriptObjectInputType>>;
 };
 
-export type UpdateProfilesInputType = {
+export type UpdateProfileInputType = {
   /** affiliation. An organization that this person is affiliated with. For example, a school/university, a club, or a team. */
   affiliation?: InputMaybe<Scalars['String']['input']>;
   /** avatarSrc */
@@ -2152,6 +2153,8 @@ export type UpdateProfilesInputType = {
   avatarSrc?: InputMaybe<Scalars['String']['input']>;
   /** award. An award won by or for this item. Supersedes awards. */
   awards?: InputMaybe<Array<Scalars['String']['input']>>;
+  /** user ID */
+  botID?: InputMaybe<Scalars['ID']['input']>;
   /** contacts */
   contacts?: InputMaybe<Array<Scalars['String']['input']>>;
   /** created date */
@@ -2184,6 +2187,8 @@ export type UpdateProfilesInputType = {
   nameFirst?: InputMaybe<Scalars['String']['input']>;
   /** nameLast */
   nameLast?: InputMaybe<Scalars['String']['input']>;
+  /** nameMiddle */
+  nameMiddle?: InputMaybe<Scalars['String']['input']>;
   /** pendingText */
   pendingText?: InputMaybe<Scalars['String']['input']>;
   /** phones */
